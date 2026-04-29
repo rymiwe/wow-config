@@ -1,0 +1,14 @@
+ElvUI_Libraries: enabled
+ElvUI_Options: enabled
+ElvUI: enabled
+JoanasGuides: disabled
+TomTom: enabled
+WeakAuras: enabled
+WeakAurasArchive: enabled
+WeakAurasModelPaths: enabled
+WeakAurasOptions: enabled
+WeakAurasTemplates: enabled
+ZygorGuidesViewerClassicTBCAnniv: enabled
+Blizzard_ObjectiveTracker: enabled
+Blizzard_CompactRaidFrames: enabled
+WeakAurasCompanion: enabled

@@ -1,0 +1,8 @@
+JoanasGuides: enabled
+TomTom: enabled
+Tukui: enabled
+WeakAuras: enabled
+WeakAurasArchive: enabled
+WeakAurasModelPaths: enabled
+WeakAurasOptions: enabled
+WeakAurasTemplates: enabled

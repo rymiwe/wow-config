@@ -1,0 +1,15 @@
+Version: 1
+Frame: WorldMapFrame
+FrameLevel: 1
+Anchor: TOPLEFT
+X: 0
+Y: 0
+W: 610
+H: 438
+Frame: TukuiProfiles
+FrameLevel: 1
+Anchor: CENTER
+X: 0
+Y: 100
+W: 600
+H: 400

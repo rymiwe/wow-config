@@ -1,0 +1,97 @@
+VER 3 0000000000000001 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/startattack
+/cast [@mouseover,harm,nodead][] Rend
+END
+VER 3 0000000000000002 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/startattack
+/cast Heroic Strike
+END
+VER 3 0000000000000004 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/startattack
+/cast [@mouseover,harm,nodead][] Sunder Armor
+END
+VER 3 0000000000000010 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/startattack
+/cast Cleave
+END
+VER 3 0000000000000013 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [worn:thrown] Throw; [worn:bow] Shoot Bow; [worn:gun] Shoot Gun; [worn:crossbow] Shoot Crossbow
+END
+VER 3 0000000000000012 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/startattack
+/cast Mortal Strike
+END
+VER 3 000000000000001D " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/startattack
+/cast Bloodthirst
+END
+VER 3 0000000000000019 " druid-travel" "132144"
+#showtooltip Travel Form
+/cancelform [noform:2/4]
+/cast [swimming] Aquatic Form; [noswimming] Travel Form
+END
+VER 3 0000000000000021 "assist" "134400"
+/assist party1
+END
+VER 3 0000000000000016 "druid-bear" "INV_MISC_QUESTIONMARK"
+#showtooltip Bear Form
+/cancelform [noform:1]
+/cast Dire Bear Form
+/cast Bear Form
+END
+VER 3 0000000000000018 "druid-cat" "INV_MISC_QUESTIONMARK"
+#showtooltip Cat Form
+/cancelform [noform:3]
+/cast Cat Form
+END
+VER 3 000000000000001F "druid-dash" "INV_MISC_QUESTIONMARK"
+#showtooltip Dash
+/cancelform [noform:3]
+/cast [noform:3] Cat Form
+/cast Dash
+END
+VER 3 000000000000001B "druid-decurse" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelform
+/cast [@mouseover,exists,help][] Remove Curse
+END
+VER 3 000000000000001E "druid-ng" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelform
+/cast Nature's Grasp
+END
+VER 3 000000000000001A "druid-soothe" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelform
+/startattack
+/cast Soothe Animal
+END
+VER 3 0000000000000020 "RXPTargeting" "Ability_eyeoftheowl"
+/targetexact Blackmoss the Fetid
+/targetexact Lord Melenas
+/targetexact Bloodfeather Matriarch
+/targetexact Conservator Ilthalaine
+/targetlasttarget [dead]
+END
+VER 3 000000000000001C "skin swap" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/eq [noworn:two-hand] Dreadforge Retaliator
+/equipslot [worn:two-hand] 16 Finkle's Skinner
+/eq [noworn:shield] Draconian Deflector
+END
+VER 3 0000000000000022 "voice menu" "134400"
+/run ToggleChannelFrame()
+END
+VER 3 0000000000000011 "weapon swap" "INV_MISC_QUESTIONMARK"
+#showtooltip
+/eq [noworn:two-hand] Dreadforge Retaliator
+/equipslot [worn:two-hand] 16 Mirah's Song
+/eq [noworn:shield] Draconian Deflector
+END

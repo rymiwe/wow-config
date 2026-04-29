@@ -1,0 +1,47 @@
+# Default-deny: ignore everything, then whitelist what we want
+*
+
+# Allow repo metadata
+!.gitignore
+!.gitattributes
+!README.md
+
+# Allow per-flavor traversal (matches _anniversary_, _classic_era_, _retail_, _ptr_, etc.)
+!_*/
+
+# Custom addons (each flavor has its own AddOns dir)
+!_*/Interface/
+!_*/Interface/AddOns/
+!_*/Interface/AddOns/ChatAnchor/
+!_*/Interface/AddOns/ChatAnchor/**
+
+# WTF tree (configs and saved variables)
+!_*/WTF/
+!_*/WTF/Config.wtf
+!_*/WTF/Account/
+!_*/WTF/Account/*/
+!_*/WTF/Account/*/bindings-cache.wtf
+!_*/WTF/Account/*/macros-cache.txt
+!_*/WTF/Account/*/SavedVariables/
+!_*/WTF/Account/*/SavedVariables/*.lua
+
+# Per-character files
+!_*/WTF/Account/*/*/
+!_*/WTF/Account/*/*/*/
+!_*/WTF/Account/*/*/*/AddOns.txt
+!_*/WTF/Account/*/*/*/bindings-cache.wtf
+!_*/WTF/Account/*/*/*/chat-cache.txt
+!_*/WTF/Account/*/*/*/edit-mode-cache-character.txt
+!_*/WTF/Account/*/*/*/layout-local.txt
+!_*/WTF/Account/*/*/*/macros-cache.txt
+!_*/WTF/Account/*/*/*/SavedVariables/
+!_*/WTF/Account/*/*/*/SavedVariables/*.lua
+
+# Even within whitelisted paths, always ignore noise
+*.bak
+*.old
+*.md5
+**/config-cache.wtf
+**/tts-cache-*.txt
+**/Cache/
+**/Logs/
