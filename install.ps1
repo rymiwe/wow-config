@@ -157,8 +157,46 @@ try {
         }
     }
 
+    # WoWUp-CF (CurseForge fork) — addon manager for the recommended companion stack.
+    # Skip if already installed; download + silent-install otherwise.
+    $wowupExe = "${env:LOCALAPPDATA}\WowUp-CF\WowUp-CF.exe"
+    if (-not (Test-Path $wowupExe) -or $Mode -eq "fresh") {
+        Write-Host ""
+        Write-Host "Installing WoWUp-CF (addon manager for ElvUI/WeakAuras/etc.)..."
+        try {
+            $release = Invoke-RestMethod -Uri "https://api.github.com/repos/WowUp/WowUp.CF/releases/latest" -UseBasicParsing
+            $asset = $release.assets | Where-Object { $_.name -match 'WowUp-CF-Setup.*\.exe$' } | Select-Object -First 1
+            if ($asset) {
+                $installerPath = Join-Path $env:TEMP $asset.name
+                Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $installerPath -UseBasicParsing
+                Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
+                Remove-Item $installerPath -Force -ErrorAction SilentlyContinue
+                Write-Host "WoWUp-CF installed. Open it later and bulk-import templates/wowup-addons.txt"
+            } else {
+                Write-Warning "WoWUp-CF release asset not found; install manually from https://github.com/WowUp/WowUp.CF/releases"
+            }
+        } catch {
+            Write-Warning "WoWUp-CF download failed: $_. Install manually from https://github.com/WowUp/WowUp.CF/releases"
+        }
+    } else {
+        Write-Host "WoWUp-CF already installed at $wowupExe"
+    }
+
+    # Auto-checkpoint Scheduled Task — runs scripts/watch.ps1 on logon (hidden,
+    # no terminal). Idempotent: re-running install.ps1 refreshes the task.
+    $repoScriptsDir = Join-Path $wow "scripts"
+    $installTaskScript = Join-Path $repoScriptsDir "install-watch-task.ps1"
+    if (Test-Path $installTaskScript) {
+        Write-Host ""
+        Write-Host "Setting up auto-checkpoint task (commits + pushes session changes when WoW exits)..."
+        & $installTaskScript
+    }
+
     Write-Host ""
-    Write-Host "Install complete. Launch WoW and log in - SetupCore will run /setupbars on first login."
+    Write-Host "Install complete. Next steps:"
+    Write-Host "  1. Open WoWUp-CF -> Options -> Import Addons -> paste contents of templates/wowup-addons.txt"
+    Write-Host "  2. Launch WoW, log in - SetupCore runs /setupbars automatically on first login"
+    Write-Host "  3. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"
 }
 finally {
     if (Test-Path $tempDir) { Remove-Item -Recurse -Force $tempDir }

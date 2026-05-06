@@ -585,6 +585,49 @@ trainerWatch:SetScript("OnEvent", function()
     end)
 end)
 
+-- ElvUI install wizard suppression. ElvUI checks `not E.private.install_complete`
+-- on PLAYER_LOGIN and shows its install wizard if missing — clicking through it
+-- WIPES the active profile (the bug that cost us a layout earlier this session).
+-- We set install_complete to a truthy value via three hooks for reliability:
+--   1) When ElvUI's SavedVariables load (ADDON_LOADED for ElvUI), set on all
+--      existing profiles in ElvPrivateDB.
+--   2) On PLAYER_LOGIN, set on any profiles created since (e.g., new chars).
+--   3) Hook E:Install via hooksecurefunc — if the wizard fires anyway, our hook
+--      sets install_complete after, so it doesn't fire again on next reload.
+local function suppressElvUIProfiles()
+    if not (ElvPrivateDB and ElvPrivateDB.profiles) then return 0 end
+    local n = 0
+    for _, p in pairs(ElvPrivateDB.profiles) do
+        if type(p) == "table" and not p.install_complete then
+            p.install_complete = "1"
+            n = n + 1
+        end
+    end
+    return n
+end
+
+local elvWatch = CreateFrame("Frame")
+elvWatch:RegisterEvent("ADDON_LOADED")
+elvWatch:RegisterEvent("PLAYER_LOGIN")
+elvWatch:SetScript("OnEvent", function(_, event, addon)
+    if event == "ADDON_LOADED" then
+        if addon == "ElvUI" then suppressElvUIProfiles() end
+    elseif event == "PLAYER_LOGIN" then
+        local n = suppressElvUIProfiles()
+        if n > 0 then
+            print(string.format("|cff999999SetupCore|r suppressed ElvUI wizard on %d profile(s)", n))
+        end
+        -- Belt-and-suspenders: hook E:Install to set install_complete after.
+        local E = _G.ElvUI and _G.ElvUI[1]
+        if E and E.Install and not E._SetupCore_InstallHooked then
+            hooksecurefunc(E, "Install", function(self)
+                if self.private then self.private.install_complete = self.version or "1" end
+            end)
+            E._SetupCore_InstallHooked = true
+        end
+    end
+end)
+
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function()
