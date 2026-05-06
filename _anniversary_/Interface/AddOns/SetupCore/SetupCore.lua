@@ -163,6 +163,33 @@ function SetupCore:UnplacedLayoutSpells()
     return unplaced
 end
 
+-- Place any LAYOUT spells that are trained but not yet on bars. NON-DESTRUCTIVE:
+-- only fills EMPTY slots, never overwrites existing actions or clears bars. Used
+-- by the SPELLS_CHANGED handler to auto-place newly-trained spells without the
+-- user typing /setupbars. Returns the list of placed spell names.
+function SetupCore:AutoPlaceUnplaced()
+    local _, class = UnitClass("player")
+    local layout = registeredLayouts[class]
+    if not layout then return {} end
+    local placed, seen = {}, {}
+    for _, item in ipairs(layout) do
+        local name, bar, btn, template = item[1], item[2], item[3], item[4]
+        if not seen[name] and self:FindHighestRank(name) then
+            local b = _G["ElvUI_Bar"..bar.."Button"..btn]
+            if b then
+                local slot = b:GetAttribute("action")
+                if slot and not GetActionInfo(slot) then
+                    if self:PlaceSpell(name, bar, btn, template) then
+                        table.insert(placed, name)
+                        seen[name] = true
+                    end
+                end
+            end
+        end
+    end
+    return placed
+end
+
 function SetupCore:FindHighestRank(name)
     local last
     for j = 1, 200 do
@@ -561,26 +588,28 @@ SlashCmdList["APPLYBINDINGS"] = function() SetupCore:ApplyBindings() end
 SLASH_APPLYCVARS1 = "/applycvars"
 SlashCmdList["APPLYCVARS"] = function() SetupCore:ApplyCVars() end
 
--- Watch for newly-trained spells that have an unfilled LAYOUT slot. Nudge the
--- user to /setupbars. Uses SPELLS_CHANGED (the Classic/TBC-era event for
--- spellbook updates; LEARNED_SPELL_IN_TAB doesn't exist pre-Wrath).
--- Throttled to one nudge per 3 seconds to handle multi-spell training bursts.
+-- Watch for newly-trained spells that have an unfilled LAYOUT slot. AUTO-PLACE
+-- them so kids/casual players don't have to type /setupbars after every trainer
+-- visit. Non-destructive: only fills EMPTY slots, never overwrites existing
+-- actions. Uses SPELLS_CHANGED (the Classic/TBC-era event for spellbook updates;
+-- LEARNED_SPELL_IN_TAB doesn't exist pre-Wrath). Throttled to once per 3s to
+-- handle multi-spell training bursts (trainers sometimes fire SPELLS_CHANGED
+-- multiple times within a frame).
 local trainerWatch = CreateFrame("Frame")
 trainerWatch:RegisterEvent("SPELLS_CHANGED")
-local lastNudge = 0
+local lastTick = 0
 trainerWatch:SetScript("OnEvent", function()
     -- Skip during initial-setup window — the auto-/setupbars handler will
-    -- place everything and a nudge mid-setup is just noise.
+    -- place everything and an auto-place during setup is redundant.
     if SetupCoreDB.needsSetup then return end
     local now = GetTime()
-    if now - lastNudge < 3 then return end
-    lastNudge = now
+    if now - lastTick < 3 then return end
+    lastTick = now
     C_Timer.After(1.5, function()
-        local unplaced = SetupCore:UnplacedLayoutSpells()
-        if #unplaced > 0 then
-            print("|cffffd700SetupCore|r new spell"..(#unplaced > 1 and "s" or "")..
-                " not on bars: |cffffffff"..table.concat(unplaced, ", ").."|r")
-            print("|cffffd700SetupCore|r run |cffffffff/setupbars|r to place "..(#unplaced > 1 and "them" or "it"))
+        local placed = SetupCore:AutoPlaceUnplaced()
+        if #placed > 0 then
+            print("|cffffd700SetupCore|r auto-placed new spell"..(#placed > 1 and "s" or "")..
+                ": |cffffffff"..table.concat(placed, ", ").."|r")
         end
     end)
 end)
