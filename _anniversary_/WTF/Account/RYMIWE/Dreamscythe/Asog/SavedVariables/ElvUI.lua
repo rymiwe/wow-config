@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/ty",
 "/restorebars",
 "/cw Strathspey yeah",
 "/p ty",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/tsm",
 "/rl",
 "/setupbars",
+"/zygor show",
 },
 ["ChatHistoryLog"] = {
 },
