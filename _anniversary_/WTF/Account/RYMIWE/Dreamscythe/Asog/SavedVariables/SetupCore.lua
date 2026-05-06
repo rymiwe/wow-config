@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -74,9 +75,10 @@ SetupCoreCharDB = {
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
-[10] = {
-["name"] = "SC_TotemCaster",
-["type"] = "macro",
+[116] = {
+["id"] = 13262,
+["type"] = "spell",
+["name"] = "Disenchant",
 },
 [28] = {
 ["id"] = 325,
@@ -91,13 +93,11 @@ SetupCoreCharDB = {
 ["id"] = 2581,
 ["type"] = "item",
 },
-[116] = {
-["id"] = 13262,
-["type"] = "spell",
-["name"] = "Disenchant",
+[10] = {
+["name"] = "SC_TotemCaster",
+["type"] = "macro",
 },
 },
 ["timestamp"] = "2026-05-04 20:09:23",
 },
-["channelsLeft"] = true,
 }
