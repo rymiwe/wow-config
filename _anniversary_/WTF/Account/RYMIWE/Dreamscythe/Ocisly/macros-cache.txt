@@ -1,0 +1,9 @@
+VER 3 0100000000000002 "SC_HealingTouch" "136041"
+#showtooltip
+/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Healing Touch
+END
+VER 3 0100000000000001 "SC_Wrath" "136006"
+#showtooltip
+/startattack
+/cast Wrath
+END

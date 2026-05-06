@@ -1,0 +1,26 @@
+Windows Registry Editor Version 5.00
+
+; Remaps Caps Lock to F13 at the OS scancode level. Result: pressing the Caps
+; Lock key no longer toggles upper/lower case — it sends F13 instead. WoW (and
+; other apps) can bind to F13 like any other key.
+;
+; F13 exists in the USB HID keyboard spec but isn't physically on most modern
+; keyboards, so remapping to it conflicts with nothing.
+;
+; HOW TO APPLY:
+;   1. Double-click this file.
+;   2. Click "Yes" to UAC prompt and "Yes" to the Registry Editor dialog.
+;   3. Reboot Windows. The change requires a fresh boot.
+;
+; HOW TO REVERT:
+;   Open Registry Editor (regedit), navigate to:
+;     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout
+;   Delete the "Scancode Map" value. Reboot.
+;
+; SCANCODE MAP DECODED:
+;   header (8 bytes zero) + entry count (2 = mapping + terminator) +
+;   target scancode (0x64 0x00 = F13) + source scancode (0x3A 0x00 = Caps Lock) +
+;   null terminator (4 bytes zero)
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,02,00,00,00,64,00,3A,00,00,00,00,00

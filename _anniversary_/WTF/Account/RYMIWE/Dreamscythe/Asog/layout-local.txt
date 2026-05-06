@@ -3,7 +3,7 @@ Frame: ZygorGuidesViewerFrameMaster
 FrameLevel: 1
 Anchor: RIGHT
 X: -483
-Y: -234
+Y: -305
 W: 40
 H: 40
 Frame: ZygorGuidesViewerPointer_ArrowCtrl

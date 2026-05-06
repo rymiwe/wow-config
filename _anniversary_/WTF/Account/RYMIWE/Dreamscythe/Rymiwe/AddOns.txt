@@ -26,3 +26,4 @@ ElvUI_RatioMinimapAuras: disabled
 PatchWerk: disabled
 !PatchWerk: disabled
 kExtraBossFrames: disabled
+OPie_Classic: disabled

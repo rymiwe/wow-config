@@ -40,6 +40,8 @@ END
 VER 3 0000000000000021 "assist" "134400"
 /assist party1
 END
+VER 3 0000000000000022 "bind" "134400"
+END
 VER 3 0000000000000016 "druid-bear" "INV_MISC_QUESTIONMARK"
 #showtooltip Bear Form
 /cancelform [noform:1]

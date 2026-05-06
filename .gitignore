@@ -14,8 +14,33 @@
 !_*/Interface/AddOns/
 !_*/Interface/AddOns/ChatAnchor/
 !_*/Interface/AddOns/ChatAnchor/**
+!_*/Interface/AddOns/SetupCore/
+!_*/Interface/AddOns/SetupCore/**
 !_*/Interface/AddOns/ShamanSetup/
 !_*/Interface/AddOns/ShamanSetup/**
+!_*/Interface/AddOns/DruidSetup/
+!_*/Interface/AddOns/DruidSetup/**
+!_*/Interface/AddOns/HunterSetup/
+!_*/Interface/AddOns/HunterSetup/**
+!_*/Interface/AddOns/PaladinSetup/
+!_*/Interface/AddOns/PaladinSetup/**
+!_*/Interface/AddOns/WarriorSetup/
+!_*/Interface/AddOns/WarriorSetup/**
+
+# Distribution (templates and install scripts at repo root)
+!templates/
+!templates/**
+!install.ps1
+!install.sh
+!install.bat
+!README.md
+!INSTALL.txt
+!scripts/
+!scripts/**
+!docs/
+!docs/**
+!.claude/
+!.claude/**
 
 # WTF tree (configs and saved variables)
 !_*/WTF/
@@ -47,3 +72,8 @@
 **/tts-cache-*.txt
 **/Cache/
 **/Logs/
+
+# TradeSkillMaster: Desktop App rewrites these constantly; not worth tracking
+**/SavedVariables/TradeSkillMaster.lua
+**/SavedVariables/TradeSkillMaster_AppHelper.lua
+**/SavedVariables/TradeSkillMaster*.lua.bak

@@ -1,0 +1,106 @@
+================================================================
+wow-config — Easy install for Windows
+================================================================
+
+What this gives you:
+  - Pre-configured ElvUI bars matched to your keyboard
+  - Healing/buff macros that work on whoever your cursor is over
+  - Auto-leaves Trade chat / no gold-seller spam
+  - Recommended addon list (one-shot install via WoWUp-CF)
+
+
+-----------------------------------------------------------------
+PART 1 — Install our custom setup (3 minutes)
+-----------------------------------------------------------------
+
+  1. Make sure World of Warcraft is COMPLETELY CLOSED.
+
+  2. Download install.bat from this repo:
+     https://github.com/rymiwe/wow-config/raw/main/install.bat
+     (Right-click the link, "Save link as..." to your Downloads.)
+
+  3. Find install.bat in your Downloads folder.
+     Double-click it.
+
+  4. Windows may ask "Do you want to allow this app to make changes?"
+     Click YES.
+
+  5. Watch the window. It will:
+     - Find your WoW install
+     - Find your account folder (or ask you to pick if multiple)
+     - Copy addons and settings
+     - Print "Install complete"
+
+  6. Press any key to close.
+
+
+-----------------------------------------------------------------
+PART 2 — Install companion addons (5 minutes)
+-----------------------------------------------------------------
+
+  1. Download WoWUp-CF (the CurseForge edition):
+     https://github.com/WowUp/WowUp.CF/releases
+     Pick the latest .exe under "Assets" — it's a normal installer.
+
+  2. Open WoWUp-CF after installing.
+
+  3. Click "Options" (top-right gear icon).
+
+  4. Click "Import Addons".
+
+  5. Open this file in Notepad and copy the entire contents:
+     templates\wowup-addons.txt
+     (it's a long base64-looking string, all on one line)
+
+  6. Paste it into WoWUp-CF and click Import.
+
+  7. WoWUp-CF will install: ElvUI, WeakAuras, BadBoy, OPie, TSM.
+     Wait for the spinning indicators to finish.
+
+
+-----------------------------------------------------------------
+PART 3 — First login (2 minutes)
+-----------------------------------------------------------------
+
+  1. Launch World of Warcraft.
+
+  2. Log in with any character.
+
+  3. You should see a welcome message in chat:
+     "== wow-config welcome =="
+
+  4. Your spells should be on bars automatically. If your character
+     is brand new, only spells you've trained will show up.
+
+  5. After training new spells, type in chat:
+     /setupbars
+     This re-places your spells on the right bars.
+
+  6. To undo a /setupbars, type:
+     /restorebars
+
+
+-----------------------------------------------------------------
+TROUBLESHOOTING
+-----------------------------------------------------------------
+
+* "Could not find WoW install" during install:
+   Open Notepad. Type the FULL path to your WoW folder, like:
+   C:\Program Files\World of Warcraft
+   (the folder that contains _anniversary_)
+   Then re-run install.bat. When prompted for path, paste it.
+
+* WoWUp-CF won't open:
+   Make sure you downloaded the version that matches your Windows
+   (most people want the standard installer).
+
+* Spells didn't auto-place on login:
+   Type /setupbars in chat.
+
+* Bars are in the wrong spot:
+   In WoW, type: /em
+   This unlocks bars so you can drag them with your mouse.
+   When done, type /em again to lock them.
+
+* Anything else:
+   Ask the maintainer. Include a screenshot.

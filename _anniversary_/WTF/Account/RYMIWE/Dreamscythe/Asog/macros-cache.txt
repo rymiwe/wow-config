@@ -1,0 +1,37 @@
+VER 3 0100000000000002 "SC_AncestralSpir" "136077"
+#showtooltip
+/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Ancestral Spirit
+END
+VER 3 0100000000000004 "SC_CurePoison" "136067"
+#showtooltip
+/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Cure Poison
+END
+VER 3 0100000000000006 "SC_FlameShock" "135813"
+#showtooltip
+/startattack
+/cast Flame Shock
+END
+VER 3 0100000000000007 "SC_GiftoftheNaar" "135923"
+#showtooltip
+/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru
+END
+VER 3 0100000000000001 "SC_HealingWave" "136052"
+#showtooltip
+/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Healing Wave
+END
+VER 3 0100000000000003 "SC_LesserHealing" "136043"
+#showtooltip
+/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Lesser Healing Wave
+END
+VER 3 0100000000000005 "SC_Purge" "136075"
+#showtooltip
+/cast [@mouseover,harm,nodead][harm,nodead] Purge
+END
+VER 3 0100000000000009 "SC_TotemCaster" "136098"
+#showtooltip
+/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Mana Spring Totem, Wrath of Air Totem
+END
+VER 3 0100000000000008 "SC_TotemMelee" "136023"
+#showtooltip
+/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Mana Spring Totem, Windfury Totem
+END

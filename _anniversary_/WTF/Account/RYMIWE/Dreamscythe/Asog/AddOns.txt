@@ -29,3 +29,4 @@ PatchWerk: disabled
 !PatchWerk: disabled
 kExtraBossFrames: disabled
 WeakAurasCompanion: enabled
+OPie_Classic: disabled

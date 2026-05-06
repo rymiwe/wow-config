@@ -12,3 +12,4 @@ ZygorGuidesViewerClassicTBCAnniv: enabled
 Blizzard_ObjectiveTracker: enabled
 Blizzard_CompactRaidFrames: enabled
 WeakAurasCompanion: enabled
+OPie_Classic: disabled

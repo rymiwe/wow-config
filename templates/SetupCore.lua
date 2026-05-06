@@ -1,0 +1,4 @@
+
+SetupCoreDB = {
+	["needsSetup"] = true,
+}
