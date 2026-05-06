@@ -156,22 +156,45 @@ The repo also tracks the maintainer's full WoW config across flavors via `.gitig
 
 ### Auto-checkpoint workflow (chezmoi-style)
 
-`scripts/play.ps1` wraps WoW launch with auto-commit-and-push of any session changes. Pin it to your taskbar / Start menu instead of `WowClassic.exe` and the repo stays in sync without thinking about it:
+Two patterns depending on how you launch WoW. **Pick one.**
+
+#### Battle.net users → `scripts/watch.ps1` (recommended)
+
+A background watcher that polls for `WowClassic.exe`, attaches when it appears, and runs `checkpoint.ps1` every time it exits. Truly invisible — you launch via Battle.net normally and the repo stays in sync.
+
+Drop a shortcut in your Windows Startup folder so it auto-launches at login:
+
+```powershell
+$startup = [Environment]::GetFolderPath('Startup')
+$WshShell = New-Object -ComObject WScript.Shell
+$sc = $WshShell.CreateShortcut("$startup\wow-config-watch.lnk")
+$sc.TargetPath = "powershell.exe"
+$sc.Arguments = '-WindowStyle Minimized -ExecutionPolicy Bypass -File "<path to>\scripts\watch.ps1"'
+$sc.Save()
+```
+
+Or just run it manually each session (`.\scripts\watch.ps1`) and leave the window minimized.
+
+#### Direct-launch users → `scripts/play.ps1`
+
+Wraps `WowClassic.exe` with pre-launch fetch + post-exit checkpoint. Pin to taskbar instead of WoW. Use this if you bypass Battle.net.
 
 ```powershell
 .\scripts\play.ps1
 ```
 
-What it does:
-1. **Pre-launch:** `git fetch origin` and warns if your local main is behind (doesn't auto-pull — conflicts mid-launch are bad)
-2. **Launches WoW** and blocks until you exit the game
-3. **Post-exit:** runs `scripts/checkpoint.ps1` which stages `_anniversary_/WTF`, `Interface/AddOns`, and `templates`, commits with auto-generated message, and pushes to `origin/main`
+#### What checkpoint.ps1 does (called by both)
 
-If you launch WoW outside `play.ps1` (Battle.net, direct exe), run `scripts/checkpoint.ps1` manually after exit. Both scripts are idempotent (no-op on no changes) and non-fatal on push failure (commit always succeeds locally as the safety net).
+1. Stages `_anniversary_/WTF`, `Interface/AddOns`, and `templates`
+2. Commits with auto-generated message (timestamp + diff shortstat)
+3. Pushes to `origin/main`
 
-Flags:
-- `-NoSync` — skip the pre-launch fetch
-- `-NoCheckpoint` — launch WoW but don't auto-commit
-- `-NoPush` — commit locally only (offline mode)
+Idempotent (no-op on no changes), non-fatal on push failure (commit is the local safety net even if you're offline).
 
-This is the prevention story for "we lost a layout because nothing was committed" — every session ends with a commit. **Friends installing via `install.ps1` should NOT use this** (they're consuming the repo, not maintaining it). It's a maintainer tool.
+Flags (apply to all three scripts where relevant):
+- `-NoSync` — skip pre-launch fetch (`play.ps1` only)
+- `-NoCheckpoint` — launch WoW without auto-commit (`play.ps1` only)
+- `-NoPush` — commit locally only, don't push
+- `-PollSeconds <n>` — watcher polling interval, default 30 (`watch.ps1` only)
+
+This is the prevention story for "we lost a layout because nothing was committed" — every session ends with a commit. **Friends installing via `install.ps1` should NOT use these scripts** (they're consuming the repo, not maintaining it). They're maintainer tools.
