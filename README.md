@@ -153,3 +153,25 @@ The skill enforces cross-class invariants: Bars 7/9/10 off-limits in LAYOUT, hea
 ## Personal backup (this repo's other purpose)
 
 The repo also tracks the maintainer's full WoW config across flavors via `.gitignore` whitelisting (`_*/WTF/...` for SavedVariables, bindings, macros). Friends installing via the script above only get the addons + bindings template — none of the personal SavedVariables come along.
+
+### Auto-checkpoint workflow (chezmoi-style)
+
+`scripts/play.ps1` wraps WoW launch with auto-commit-and-push of any session changes. Pin it to your taskbar / Start menu instead of `WowClassic.exe` and the repo stays in sync without thinking about it:
+
+```powershell
+.\scripts\play.ps1
+```
+
+What it does:
+1. **Pre-launch:** `git fetch origin` and warns if your local main is behind (doesn't auto-pull — conflicts mid-launch are bad)
+2. **Launches WoW** and blocks until you exit the game
+3. **Post-exit:** runs `scripts/checkpoint.ps1` which stages `_anniversary_/WTF`, `Interface/AddOns`, and `templates`, commits with auto-generated message, and pushes to `origin/main`
+
+If you launch WoW outside `play.ps1` (Battle.net, direct exe), run `scripts/checkpoint.ps1` manually after exit. Both scripts are idempotent (no-op on no changes) and non-fatal on push failure (commit always succeeds locally as the safety net).
+
+Flags:
+- `-NoSync` — skip the pre-launch fetch
+- `-NoCheckpoint` — launch WoW but don't auto-commit
+- `-NoPush` — commit locally only (offline mode)
+
+This is the prevention story for "we lost a layout because nothing was committed" — every session ends with a commit. **Friends installing via `install.ps1` should NOT use this** (they're consuming the repo, not maintaining it). It's a maintainer tool.
