@@ -23,6 +23,62 @@ local registeredLayouts = {}
 -- Channels auto-left on first login of each new character.
 local CHANNELS_TO_LEAVE = {"General", "Trade", "LocalDefense", "LookingForGroup"}
 
+-- Keyboard + mouse bindings asserted on every /setupbars run.
+-- KEEP IN SYNC with templates/bindings-cache.wtf — this Lua table is the runtime
+-- source of truth; the .wtf file is the install-time seed (in case SetupCore isn't
+-- loaded yet on first login). When you change one, mirror the other.
+-- Format: {key, action} where action=nil unbinds (clears Blizzard defaults).
+local BINDINGS = {
+    -- Movement
+    {"W", "TOGGLEAUTORUN"},
+    {"A", "STRAFELEFT"},
+    {"D", "STRAFERIGHT"},
+    -- Bar 1 (main top): ` 1 2 3 4 5 / Q E R T
+    {"`", "ACTIONBUTTON1"},
+    {"1", "ACTIONBUTTON2"}, {"2", "ACTIONBUTTON3"}, {"3", "ACTIONBUTTON4"},
+    {"4", "ACTIONBUTTON5"}, {"5", "ACTIONBUTTON6"},
+    {"Q", "ACTIONBUTTON8"},  {"E", "ACTIONBUTTON10"},
+    {"R", "ACTIONBUTTON11"}, {"T", "ACTIONBUTTON12"},
+    -- Clear default Blizzard binds for unused number keys (no Bar 1 buttons 7,9,...)
+    {"6", nil}, {"7", nil}, {"8", nil}, {"9", nil}, {"0", nil}, {"-", nil}, {"=", nil},
+    -- Bar 3 (main bottom): F G / Z X C V B
+    {"F", "MULTIACTIONBAR3BUTTON4"}, {"G", "MULTIACTIONBAR3BUTTON5"},
+    {"Z", "MULTIACTIONBAR3BUTTON8"}, {"X", "MULTIACTIONBAR3BUTTON9"},
+    {"C", "MULTIACTIONBAR3BUTTON10"}, {"V", "MULTIACTIONBAR3BUTTON11"},
+    {"B", "MULTIACTIONBAR3BUTTON12"},
+    -- Bar 4 (alt top): Alt-` Alt-1..5 / Alt-Q Alt-E Alt-R Alt-T
+    {"ALT-`", "MULTIACTIONBAR4BUTTON1"},
+    {"ALT-1", "MULTIACTIONBAR4BUTTON2"}, {"ALT-2", "MULTIACTIONBAR4BUTTON3"},
+    {"ALT-3", "MULTIACTIONBAR4BUTTON4"}, {"ALT-4", "MULTIACTIONBAR4BUTTON5"},
+    {"ALT-5", "MULTIACTIONBAR4BUTTON6"},
+    {"ALT-Q", "MULTIACTIONBAR4BUTTON8"},  {"ALT-E", "MULTIACTIONBAR4BUTTON10"},
+    {"ALT-R", "MULTIACTIONBAR4BUTTON11"}, {"ALT-T", "MULTIACTIONBAR4BUTTON12"},
+    -- Bar 5 (alt bottom): Alt-F Alt-G / Alt-Z Alt-X Alt-C Alt-V Alt-B
+    {"ALT-F", "MULTIACTIONBAR2BUTTON4"}, {"ALT-G", "MULTIACTIONBAR2BUTTON5"},
+    {"ALT-Z", "MULTIACTIONBAR2BUTTON8"}, {"ALT-X", "MULTIACTIONBAR2BUTTON9"},
+    {"ALT-C", "MULTIACTIONBAR2BUTTON10"}, {"ALT-V", "MULTIACTIONBAR2BUTTON11"},
+    {"ALT-B", "MULTIACTIONBAR2BUTTON12"},
+    -- Mouse buttons reserved for OPie rings (unbind WoW defaults)
+    {"BUTTON3", nil}, {"BUTTON4", nil}, {"BUTTON5", nil},
+    -- NumLock can interfere with movement on some keyboards
+    {"NUMLOCK", nil},
+    -- Questie convenience
+    {";", "QUESTIE_TOGGLE_JOURNEY"},
+}
+
+-- CVars asserted on every /setupbars run. Per-character CVars (autoLootDefault)
+-- are reset for new characters by Blizzard, so we re-assert on every run.
+-- KEEP IN SYNC with templates/Config.wtf for first-login seeding.
+local CVARS = {
+    autoLootDefault = "1",     -- one-key looting (per-character)
+    autoSelfCast = "1",        -- self-cast friendly spells when no friendly target
+    nameplateShowEnemies = "1",
+    nameplateShowFriends = "0",
+    cameraSmoothStyle = "0",   -- no camera lag
+    showTutorials = "0",
+    takeScreenshotOnLevelUp = "1",
+}
+
 -- Macro templates: function(spellName) -> macro body string.
 -- Generated macros are named "SC_<spellNameNoSpaces>" so they're idempotent
 -- across re-runs of /setupbars.
@@ -334,11 +390,85 @@ function SetupCore:PlaceSpell(name, bar, btn, template)
     return true
 end
 
+-- Evict any "Attack" auto-toggle placement from ALL bars (including Bar 10
+-- which ClearAllBars preserves for consumables). Blizzard auto-places Attack
+-- on new characters; per auto_attack_no_slot.md it never belongs on a bar.
+function SetupCore:EvictAttack()
+    local count = 0
+    for bar = 1, 10 do
+        for btn = 1, 12 do
+            local b = _G["ElvUI_Bar"..bar.."Button"..btn]
+            if b then
+                local slot = b:GetAttribute("action")
+                if slot then
+                    local actionType, id = GetActionInfo(slot)
+                    if actionType == "spell" and id then
+                        local name = GetSpellInfo(id)
+                        if name == "Attack" then
+                            PickupAction(slot)
+                            ClearCursor()
+                            count = count + 1
+                        end
+                    end
+                end
+            end
+        end
+    end
+    if count > 0 then
+        print(string.format("|cff999999SetupCore|r evicted %d Attack placements", count))
+    end
+end
+
+-- Apply keyboard + mouse bindings from the BINDINGS table. Persists per-character
+-- (SaveBindings(2)) so it works regardless of the user's account/character toggle.
+-- Idempotent: safe to call repeatedly.
+function SetupCore:ApplyBindings()
+    local applied, cleared = 0, 0
+    for _, b in ipairs(BINDINGS) do
+        local key, action = b[1], b[2]
+        if action then
+            if SetBinding(key, action) then applied = applied + 1 end
+        else
+            -- Unbind: only act if currently bound (avoid spurious "no change" calls)
+            local cur = GetBindingByKey(key)
+            if cur and cur ~= "" then
+                SetBinding(key)
+                cleared = cleared + 1
+            end
+        end
+    end
+    SaveBindings(2)  -- 2 = per-character; safer than account-wide for friend installs
+    if applied > 0 or cleared > 0 then
+        print(string.format("|cff999999SetupCore|r asserted %d bindings (cleared %d defaults)", applied, cleared))
+    end
+end
+
+-- Apply CVars from the CVARS table. Per-character CVars (autoLootDefault) reset
+-- on character creation, so we re-assert on every /setupbars run.
+function SetupCore:ApplyCVars()
+    local count = 0
+    for cvar, value in pairs(CVARS) do
+        local cur = GetCVar(cvar)
+        if cur ~= value then
+            SetCVar(cvar, value)
+            count = count + 1
+        end
+    end
+    if count > 0 then
+        print(string.format("|cff999999SetupCore|r set %d CVars", count))
+    end
+end
+
 -- racials: optional table {RaceName = {{spell, bar, btn, [template]}, ...}, ...}
 -- Per docs/racials.md: class addons declare per-race racial entries; SetupCore
 -- merges into LAYOUT based on the player's race. RaceName is the file token
 -- from select(2, UnitRace("player")) — "Tauren", "Orc", "NightElf", etc.
 function SetupCore:ApplyLayout(layout, ignore, racials)
+    -- Assert bindings + CVars first; these are per-character and reset on new chars.
+    self:ApplyBindings()
+    self:ApplyCVars()
+    self:EvictAttack()
+
     -- Optionally append per-race racial entries.
     if racials then
         local _, race = UnitRace("player")
@@ -423,6 +553,13 @@ end
 
 SLASH_RESTOREBARS1 = "/restorebars"
 SlashCmdList["RESTOREBARS"] = function() SetupCore:RestoreBars() end
+
+-- Standalone bindings/CVars asserters (also auto-run as part of /setupbars)
+SLASH_APPLYBINDINGS1 = "/applybindings"
+SlashCmdList["APPLYBINDINGS"] = function() SetupCore:ApplyBindings() end
+
+SLASH_APPLYCVARS1 = "/applycvars"
+SlashCmdList["APPLYCVARS"] = function() SetupCore:ApplyCVars() end
 
 -- Watch for newly-trained spells that have an unfilled LAYOUT slot. Nudge the
 -- user to /setupbars. Uses SPELLS_CHANGED (the Classic/TBC-era event for

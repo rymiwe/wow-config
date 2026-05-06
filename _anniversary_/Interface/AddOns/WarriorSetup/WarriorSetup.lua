@@ -25,7 +25,7 @@
 
 local LAYOUT = {
     -- MAIN TOP (Bar 1) — Heroic Strike + damage on numrow, gap-closer/utility on QERT
-    {"Heroic Strike",          1, 1},                     -- L1    `   (always-ready next-swing damage)
+    {"Heroic Strike",          1, 1, "startattack"},      -- L1    `   (always-ready next-swing damage; startattack engages auto-attack on first press for L1 chars before Mortal Strike trained)
     {"Mortal Strike",          1, 2, "startattack"},      -- L30 Arms 1 (opener; engages auto-attack)
     {"Bloodthirst",            1, 3, "startattack"},      -- L30 Fury 2 (Fury filler)
     {"Execute",                1, 4},                     -- L24   3   (sub-20% finisher)

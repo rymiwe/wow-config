@@ -48,7 +48,7 @@ local LAYOUT = {
 
     -- ALT TOP (Bar 4) — CAST-TIME damage (caster filler nukes) + Balance AOE + heals/rez
     -- Per class_setup_pattern.md "ranged casts on top, heals on bottom".
-    {"Wrath",                  4, 2},                     -- L1    Alt-1 (caster filler — most-spammed cast; was on ` previously)
+    {"Wrath",                  4, 2, "startattack"},      -- L1    Alt-1 (caster filler + L1 opener — Moonfire trained at L4; pre-L4 Wrath is only damage)
     {"Starfire",               4, 3},                     -- L20   Alt-2 (slow Balance nuke)
     {"Insect Swarm",           4, 4},                     -- L20   Alt-3 (Balance talent DoT)
     {"Hurricane",              4, 5, "self-cast"},        -- L40   Alt-4 (channeled AOE — Balance signature; was on Alt-E)

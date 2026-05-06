@@ -36,7 +36,7 @@ local LAYOUT = {
 
     -- ALT TOP (Bar 4) ==============================================
     -- Alt-numrow: damage casts
-    {"Lightning Bolt",         4, 2},                     -- L1    Alt-1
+    {"Lightning Bolt",         4, 2, "startattack"},      -- L1    Alt-1 (startattack ensures L1 Shaman has an opener before Flame Shock at L10)
     {"Chain Lightning",        4, 3},                     -- L32   Alt-2
     {"Water Shield",           4, 4},                     -- L20   Alt-3
     -- Alt-QERT: heals + rez (mouseover-friendly)
