@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Register watch.ps1 as a hidden Scheduled Task that runs at logon — no
+  Register watch.ps1 as a hidden Scheduled Task that runs at logon - no
   taskbar window, no terminal, fully invisible.
 
 .DESCRIPTION

@@ -37,7 +37,7 @@ if (-not (Test-Path ".git")) {
     exit 1
 }
 
-# Stage tracked-content paths only — never `git add .` (could pull in random junk).
+# Stage tracked-content paths only - never `git add .` (could pull in random junk).
 # .gitignore enforces the deny-by-default whitelist; we just narrow further to the
 # directories that actually change in normal play.
 $paths = @(
@@ -80,11 +80,11 @@ if ($NoPush) {
     exit 0
 }
 
-# Push — non-fatal on failure (commit is the safety net)
+# Push - non-fatal on failure (commit is the safety net)
 $pushOutput = git push origin main 2>&1
 if ($LASTEXITCODE -eq 0) {
     if (-not $Quiet) { Write-Host "Pushed to origin/main." }
 } else {
-    Write-Warning "Push failed (commit is local-only — run 'git push' manually later):`n$pushOutput"
+    Write-Warning "Push failed (commit is local-only - run 'git push' manually later):`n$pushOutput"
     exit 0
 }

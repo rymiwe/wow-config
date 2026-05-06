@@ -4,7 +4,7 @@
 
 .DESCRIPTION
   Runs forever. Polls for WowClassic.exe every 30s. When the process appears,
-  attaches and waits for it to exit (this is efficient — no busy-loop). On exit,
+  attaches and waits for it to exit (this is efficient - no busy-loop). On exit,
   runs scripts/checkpoint.ps1 which stages + commits + pushes any session
   changes. Then resumes polling.
 
@@ -13,14 +13,14 @@
   Windows Startup folder so it runs automatically at login.
 
   Startup folder: shell:startup
-  (Win+R → shell:startup → drop a shortcut here, target:
+  (Win+R -> shell:startup -> drop a shortcut here, target:
    powershell.exe -WindowStyle Minimized -ExecutionPolicy Bypass -File "<path to watch.ps1>")
 
 .PARAMETER PollSeconds
   How often to check for WowClassic.exe when it isn't running. Default 30.
 
 .PARAMETER NoPush
-  Pass through to checkpoint.ps1 — commit locally but don't push.
+  Pass through to checkpoint.ps1 - commit locally but don't push.
 
 .EXAMPLE
   .\scripts\watch.ps1

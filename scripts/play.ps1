@@ -9,7 +9,7 @@
 
   Pin this to your taskbar / Start menu instead of WowClassic.exe and your repo
   stays in sync automatically. If you launch WoW via Battle.net or directly, the
-  auto-checkpoint won't run — use checkpoint.ps1 manually in that case.
+  auto-checkpoint won't run - use checkpoint.ps1 manually in that case.
 
 .PARAMETER WowExe
   Path to WowClassic.exe. Defaults to ../_anniversary_/WowClassic.exe.
@@ -21,7 +21,7 @@
   Don't run checkpoint.ps1 after WoW exits. (Useful for testing the launch path.)
 
 .PARAMETER NoPush
-  Pass through to checkpoint.ps1 — commit locally but don't push.
+  Pass through to checkpoint.ps1 - commit locally but don't push.
 
 .EXAMPLE
   .\scripts\play.ps1
