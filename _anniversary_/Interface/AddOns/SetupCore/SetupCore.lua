@@ -334,7 +334,23 @@ function SetupCore:PlaceSpell(name, bar, btn, template)
     return true
 end
 
-function SetupCore:ApplyLayout(layout, ignore)
+-- racials: optional table {RaceName = {{spell, bar, btn, [template]}, ...}, ...}
+-- Per docs/racials.md: class addons declare per-race racial entries; SetupCore
+-- merges into LAYOUT based on the player's race. RaceName is the file token
+-- from select(2, UnitRace("player")) — "Tauren", "Orc", "NightElf", etc.
+function SetupCore:ApplyLayout(layout, ignore, racials)
+    -- Optionally append per-race racial entries.
+    if racials then
+        local _, race = UnitRace("player")
+        local extras = race and racials[race]
+        if extras and #extras > 0 then
+            local merged = {}
+            for _, e in ipairs(layout) do table.insert(merged, e) end
+            for _, e in ipairs(extras) do table.insert(merged, e) end
+            layout = merged
+        end
+    end
+
     -- Snapshot existing bars before clearing, in case user wants to revert.
     local backedUp = self:BackupBars()
     if backedUp > 0 then

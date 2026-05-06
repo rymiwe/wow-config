@@ -28,13 +28,13 @@
 -- and let the user bind in /opie if they want it.
 
 local LAYOUT = {
-    -- MAIN TOP (Bar 1) — Auto Shot + shots on numrow, traps on QERT
-    {"Auto Shot",              1, 1},                     -- L1    `   (anchor; toggleable)
-    {"Serpent Sting",          1, 2, "startattack"},      -- L4    1   (opener: DoT + auto-attack engage)
-    {"Arcane Shot",            1, 3},                     -- L6    2   (filler instant)
-    {"Concussive Shot",        1, 4},                     -- L8    3   (slow / kite)
-    {"Multi-Shot",             1, 5},                     -- L18   4   (3-target burst)
-    {"Aimed Shot",             1, 6},                     -- L20   5   (Marks signature; untrained = empty for non-Marks)
+    -- MAIN TOP (Bar 1) — INSTANTS only on numrow (Auto Shot is the ranged-anchor
+    -- exception on `). Cast-time damage (Aimed Shot, Steady Shot) on Alt-numrow.
+    {"Auto Shot",              1, 1},                     -- L1    `   (ranged anchor exception; always-ready)
+    {"Serpent Sting",          1, 2, "startattack"},      -- L4    1   (instant DoT opener: engages auto-attack)
+    {"Arcane Shot",            1, 3},                     -- L6    2   (instant filler)
+    {"Concussive Shot",        1, 4},                     -- L8    3   (instant slow / kite)
+    {"Multi-Shot",             1, 5},                     -- L18   4   (3-target burst — 0.5s cast, treat as instant)
     -- QERT row (Q/E/R/T): TRAPS — Hunter signature
     {"Freezing Trap",          1, 8},                     -- L20   Q   (primary CC — pre-pull or panic)
     {"Frost Trap",             1, 10},                    -- L28   E   (AOE slow)
@@ -51,14 +51,15 @@ local LAYOUT = {
     {"Wing Clip",              3, 11},                    -- L12   V   (melee snare)
     {"Disengage",              3, 12},                    -- L8    B   (aggro reset)
 
-    -- ALT TOP (Bar 4) — TBC ranged + cooldowns; pet utility on Alt-QERT
-    -- Alt-numrow: TBC core shots + spec CDs (untrained spells silently skipped)
+    -- ALT TOP (Bar 4) — CAST-TIME ranged + spec CDs (per "casts on alt" principle).
+    -- Aimed Shot moved here from Bar 1 numrow (Marks signature cast).
     {"Silencing Shot",         4, 1},                     -- TBC L60+ Marks Alt-`  (interrupt)
-    {"Steady Shot",            4, 2},                     -- TBC L62+ Alt-1        (BM/MM filler)
-    {"Volley",                 4, 3},                     -- L40      Alt-2        (channeled AOE)
-    {"Kill Command",           4, 4},                     -- TBC L66+ Alt-3        (BM burst)
-    {"Bestial Wrath",          4, 5},                     -- L40 BM   Alt-4        (BM CD)
-    {"Readiness",              4, 6},                     -- L40 MM   Alt-5        (Marks CD reset)
+    {"Steady Shot",            4, 2},                     -- TBC L62+ Alt-1        (BM/MM cast filler)
+    {"Aimed Shot",             4, 3},                     -- L20   Alt-2           (Marks slow hard hit — was on key 5)
+    {"Volley",                 4, 4},                     -- L40   Alt-3           (channeled AOE)
+    {"Kill Command",           4, 5},                     -- TBC L66+ Alt-4        (BM burst)
+    {"Bestial Wrath",          4, 6},                     -- L40 BM   Alt-5        (BM CD)
+    -- Readiness (Marks 41-pt cap) → IGNORE: niche talent, drag manually if specced.
     -- Alt-QERT: pet management (combat-relevant) + raid utility
     {"Mend Pet",               4, 8},                     -- L4    Alt-Q  (auto-pet-targeted; no template needed)
     {"Misdirection",           4, 10, "mouseover-help"},  -- TBC L70+ Alt-E (raid threat redirect)
@@ -120,10 +121,14 @@ local IGNORE = {
     ["Da Voodoo Shuffle"]=true, ["Bow Specialization"]=true,
     ["Beast Slaying"]=true, ["Regeneration"]=true,
     ["Magic Resistance"]=true,
-    -- Race actives the user may want manually placed
-    ["War Stomp"]=true, ["Blood Fury"]=true, ["Berserking"]=true,
+    -- Race actives — Tauren War Stomp auto-placed via RACIALS. Others IGNORE
+    -- because Hunter Alt-numrow is fully booked by Steady Shot/Aimed Shot/Volley/
+    -- Kill Command/Bestial Wrath — no clean slot for racial CDs. Friends drag manually.
+    ["Blood Fury"]=true, ["Berserking"]=true,
     ["Stoneform"]=true, ["Shadowmeld"]=true, ["Gift of the Naaru"]=true,
     ["Mana Tap"]=true, ["Arcane Torrent"]=true,
+    -- Niche talents we don't auto-place
+    ["Readiness"]=true,                                   -- Marks 41-pt cap; drag manually if specced
     -- Professions / non-combat
     ["First Aid"]=true, ["Cooking"]=true, ["Basic Campfire"]=true,
     ["Gemcutting"]=true, ["Mining"]=true, ["Smelting"]=true,
@@ -134,8 +139,16 @@ local IGNORE = {
     ["Inscription"]=true, ["Milling"]=true,
 }
 
+-- Per-race racial placement (per docs/racials.md). Hunter Alt-numrow is full,
+-- so most racial CDs are IGNORE. Only Tauren War Stomp has a clean slot.
+local RACIALS = {
+    Tauren = {
+        {"War Stomp", 3, 10},  -- C: combat AOE stun (replaced "Attack" in earlier cleanup)
+    },
+}
+
 local function Run()
-    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE)
+    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("HunterSetup", placed, skipped, orphans)
     print("|cffffd700HunterSetup tip:|r pet abilities (Bite/Claw/Growl/etc.) live on the")
     print("|cff999999  Blizzard PetActionBar — they're not placed by /setupbars.|r")

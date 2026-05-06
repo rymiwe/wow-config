@@ -120,10 +120,13 @@ local IGNORE = {
     ["Cannibalize"]=true, ["Underwater Breathing"]=true,
     ["Escape Artist"]=true, ["Expansive Mind"]=true,
     ["Arcane Resistance"]=true, ["Engineering Specialization"]=true,
-    -- Race actives the user may want manually placed
-    ["War Stomp"]=true, ["Blood Fury"]=true, ["Berserking"]=true,
+    -- Race actives — combat racials auto-placed via RACIALS table per docs/racials.md.
+    -- Shadowmeld (NE) / Gift of the Naaru (Draenei) IGNORE: low utility for Warrior.
+    -- Stoneform (Dwarf) / WotF (Undead) / Escape Artist (Gnome) IGNORE: alt-bottom full.
     ["Shadowmeld"]=true, ["Gift of the Naaru"]=true,
-    ["Mana Tap"]=true, ["Arcane Torrent"]=true,
+    ["Mana Tap"]=true,
+    ["Stoneform"]=true, ["Will of the Forsaken"]=true, ["Escape Artist"]=true,
+    ["Cannibalize"]=true, ["Find Treasure"]=true, ["Perception"]=true,
     -- Revenge — reactive, optional bar slot; user drags manually if Defensive-tank focus
     ["Revenge"]=true,
     -- Mocking Blow — niche taunt; user drags if Prot-leaning
@@ -144,8 +147,27 @@ local IGNORE = {
     ["Inscription"]=true, ["Milling"]=true,
 }
 
+-- Per-race racial placement (per docs/racials.md). Warrior is all-race.
+-- C slot: Tauren War Stomp OR BE Arcane Torrent (mutually exclusive races).
+-- Alt-` slot: Orc Blood Fury OR Troll Berserking (mutually exclusive races).
+-- Other races: racial low-utility for Warrior or alt-bottom full → IGNORE.
+local RACIALS = {
+    Tauren = {
+        {"War Stomp", 3, 10},                       -- C: combat AOE stun
+    },
+    BloodElf = {
+        {"Arcane Torrent", 3, 10},                  -- C: combat CC + interrupt-equivalent
+    },
+    Orc = {
+        {"Blood Fury", 4, 1, "self-cast"},          -- Alt-`: damage CD (alt-numrow CD slot)
+    },
+    Troll = {
+        {"Berserking", 4, 1, "self-cast"},          -- Alt-`: damage CD
+    },
+}
+
 local function Run()
-    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE)
+    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("WarriorSetup", placed, skipped, orphans)
     print("|cffffd700WarriorSetup tip:|r Shouts on OPie M4, Stances on M5 (also F/G/Z).")
     print("|cff999999  Arms: Mortal Strike on 1 + Sweeping Strikes on Alt-3 are your CDs.|r")

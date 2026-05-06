@@ -22,11 +22,12 @@
 -- See bottom of file for ring registration.
 
 local LAYOUT = {
-    -- MAIN TOP (Bar 1) — caster damage + utility on number row, heals on QERT
-    {"Wrath",                  1, 1, "startattack"},      -- L1    `   (also opener: engage auto-attack)
-    {"Moonfire",               1, 2},                     -- L4    1
-    {"Entangling Roots",       1, 3, "mouseover-harm"},   -- L8    2   (CC root)
-    {"Faerie Fire",            1, 4, "mouseover-harm"},   -- L18   3   (debuff)
+    -- MAIN TOP (Bar 1) — INSTANTS only: DoT/debuff/CC; opener on key 1 with startattack
+    -- ` left empty: Druid has no baseline interrupt; pinky-stretch slot reserved per
+    -- class_setup_pattern.md ("interrupt slot OR empty"). Casts (Wrath) go on Alt-1.
+    {"Moonfire",               1, 2, "startattack"},      -- L4    1   (instant DoT opener: engages auto-attack)
+    {"Faerie Fire",            1, 3, "mouseover-harm"},   -- L18   2   (instant armor debuff)
+    {"Entangling Roots",       1, 4, "mouseover-harm"},   -- L8    3   (CC root — cast, but kept here as "decision tool")
     {"Hibernate",              1, 5, "mouseover-harm"},   -- L18   4   (CC sleep)
     -- QERT row (Q/E/R/T): heals (mouseover-friendly)
     {"Healing Touch",          1, 8, "mouseover-help"},   -- L1    Q
@@ -45,13 +46,16 @@ local LAYOUT = {
     {"Aquatic Form",           3, 11},                    -- L16   V
     {"Prowl",                  3, 12},                    -- L20   B   (Cat-only; harmless out of cat)
 
-    -- ALT TOP (Bar 4) — DPS casts + heals/rez (mirror of Bar 1 alt-modifier)
-    {"Starfire",               4, 2},                     -- L20   Alt-1 (Balance nuke)
-    {"Insect Swarm",           4, 3},                     -- L20   Alt-2 (Balance talent)
-    -- Alt-QERT: rez + Balance AOE + utility heals (mouseover-friendly)
+    -- ALT TOP (Bar 4) — CAST-TIME damage (caster filler nukes) + Balance AOE + heals/rez
+    -- Per class_setup_pattern.md "ranged casts on top, heals on bottom".
+    {"Wrath",                  4, 2},                     -- L1    Alt-1 (caster filler — most-spammed cast; was on ` previously)
+    {"Starfire",               4, 3},                     -- L20   Alt-2 (slow Balance nuke)
+    {"Insect Swarm",           4, 4},                     -- L20   Alt-3 (Balance talent DoT)
+    {"Hurricane",              4, 5, "self-cast"},        -- L40   Alt-4 (channeled AOE — Balance signature; was on Alt-E)
+    {"Tiger's Fury",           4, 6, "startattack"},      -- L20   Alt-5 (Cat energy boost — frequent CD)
+    -- Alt-QERT: rez + utility heals (mouseover-friendly)
     -- NOTE: TBC Druids don't have an out-of-combat rez (Revive is WotLK+).
     {"Rebirth",                4, 8, "mouseover-help"},   -- L20   Alt-Q (combat rez)
-    {"Hurricane",              4, 10, "self-cast"},       -- L40 Bal Alt-E (channeled AOE — Balance signature)
     {"Tranquility",            4, 11, "self-cast"},       -- L30   Alt-R (channeled AOE heal)
     {"Innervate",              4, 12, "mouseover-help"},  -- L40   Alt-T (mana donate)
 
@@ -64,12 +68,9 @@ local LAYOUT = {
     {"Nature's Grasp",         5, 10, "self-cast"},       -- L8    Alt-C (root-on-attack)
     {"Barkskin",               5, 11, "self-cast"},       -- L44   Alt-V (defensive)
     {"Dash",                   5, 12},                    -- L26   Alt-B (Cat sprint)
-
-    -- COOLDOWNS / PANIC — kept on bar (form-aware combat actions, not OPie material)
-    -- These were Bar 9 in earlier design; with Bar 9 disabled, fold into Alt-numrow.
-    {"Tiger's Fury",           4, 4, "startattack"},      -- L20   Alt-3 (Cat energy boost)
-    {"Frenzied Regeneration",  4, 5, "self-cast"},        -- L36   Alt-4 (Bear self-heal)
-    {"Enrage",                 4, 6, "self-cast"},        -- L14   Alt-5 (Bear rage gen)
+    -- Frenzied Regen + Enrage moved to IGNORE → manual placement on Bear form page
+    -- (consistent with Maul/Swipe/etc.; Tiger's Fury kept on Alt-5 since it's
+    --  high-frequency Cat-only and benefits from quick alt-modifier access).
 }
 
 local IGNORE = {
@@ -84,8 +85,9 @@ local IGNORE = {
     -- Race passives (Tauren / Night Elf — Druid races in TBC)
     ["Endurance"]=true, ["Cultivation"]=true, ["Nature Resistance"]=true,
     ["Quickness"]=true, ["Wisp Spirit"]=true, ["Touch of Elune"]=true,
-    -- Race actives the user may want manually placed (NOT auto-placed)
-    ["War Stomp"]=true, ["Shadowmeld"]=true, ["Elune's Grace"]=true,
+    -- Race actives — Tauren War Stomp auto-placed via RACIALS table per docs/racials.md.
+    -- Shadowmeld kept in IGNORE: Druid alt-bottom is full of utility, no clean slot.
+    ["Shadowmeld"]=true, ["Elune's Grace"]=true,
     -- Buffs in OPie ring (don't flag as orphans)
     ["Mark of the Wild"]=true, ["Thorns"]=true, ["Gift of the Wild"]=true,
     -- Travel toggles in OPie ring (also bar-bound, but OPie has them too)
@@ -98,7 +100,9 @@ local IGNORE = {
     ["Faerie Fire (Feral)"]=true, ["Lacerate"]=true,
     ["Maim"]=true, ["Ravage"]=true, ["Savage Bite"]=true,
     ["Berserk"]=true,
-    -- Hurricane removed from IGNORE — now placed on Alt-E for Balance druids
+    -- Bear-form CDs: drag manually onto Bear form page (joins Maul/Swipe/etc.)
+    ["Frenzied Regeneration"]=true, ["Enrage"]=true,
+    -- Hurricane removed from IGNORE — now placed on Alt-4 for Balance druids
     -- (untrained for Feral/Resto = silently skipped by SetupCore)
     -- Professions / non-combat
     ["First Aid"]=true, ["Cooking"]=true, ["Basic Campfire"]=true,
@@ -114,18 +118,27 @@ local IGNORE = {
 
 -- Form-specific abilities the user should manually place on Bar 1 after
 -- shifting form. Listed here so the print() can guide them concretely.
-local BEAR_ABILITIES = {"Maul", "Swipe", "Bash", "Demoralizing Roar", "Growl", "Challenging Roar", "Faerie Fire (Feral)", "Mangle (Bear)", "Lacerate"}
+local BEAR_ABILITIES = {"Maul", "Swipe", "Bash", "Demoralizing Roar", "Growl", "Challenging Roar", "Faerie Fire (Feral)", "Mangle (Bear)", "Lacerate", "Frenzied Regeneration", "Enrage"}
 local CAT_ABILITIES = {"Claw", "Rake", "Shred", "Pounce", "Rip", "Ferocious Bite", "Cower", "Mangle (Cat)", "Maim", "Ravage"}
 
+-- Per-race racial placement (per docs/racials.md). Druid is Tauren/Night Elf only
+-- in TBC. NE Shadowmeld → IGNORE (alt-bottom full, low-pri OOC).
+local RACIALS = {
+    Tauren = {
+        {"War Stomp", 3, 10},  -- C: combat AOE stun
+    },
+}
+
 local function Run()
-    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE)
+    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("DruidSetup", placed, skipped, orphans)
     print("|cffffd700DruidSetup tip:|r form-locked abilities aren't auto-placed.")
     print("|cff999999  Shift to BEAR, drag onto Bar 1:|r " .. table.concat(BEAR_ABILITIES, ", "))
     print("|cff999999  Shift to CAT, drag onto Bar 1:|r " .. table.concat(CAT_ABILITIES, ", "))
     print("|cff999999  ElvUI saves form-page placements automatically.|r")
     print("|cff999999  Buffs (MotW, Thorns) live in OPie ring on M4.|r")
-    print("|cff999999  Balance druids: Moonkin Form on F, Hurricane on Alt-E, NS on G.|r")
+    print("|cff999999  Balance druids: Moonkin Form on F, Hurricane on Alt-4, NS on G.|r")
+    print("|cff999999  Wrath is on Alt-1 (cast filler); Moonfire on key 1 (instant opener).|r")
 end
 
 SetupCore:RegisterClass("DRUID", Run, LAYOUT)

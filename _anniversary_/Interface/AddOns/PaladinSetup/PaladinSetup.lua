@@ -23,13 +23,14 @@
 --   M5 = Paladin Auras (Devotion/Retribution/Concentration/Crusader/Resistance/Sanctity)
 
 local LAYOUT = {
-    -- MAIN TOP (Bar 1) — Judgement + damage on numrow, heals on QERT
+    -- MAIN TOP (Bar 1) — INSTANTS only on numrow; cast-time damage (Exorcism, Holy
+    -- Wrath) moved to Alt-numrow per class_setup_pattern.md "casts on alt".
+    -- Judgement on ` is the "always-ready combat-modifier" exception (instant, no CD
+    -- gate, defines the always-pressable Pally combat slot).
     {"Judgement",              1, 1},                     -- L4    `   (always-ready; judges active seal)
     {"Crusader Strike",        1, 2, "startattack"},      -- L20   1   (Ret melee filler + engages auto-attack)
-    {"Hammer of Wrath",        1, 3},                     -- L44   2   (execute sub-20% HP)
-    {"Exorcism",               1, 4},                     -- L20   3   (vs Undead/Demon)
-    {"Holy Wrath",             1, 5},                     -- L30   4   (TBC AOE vs Undead/Demon)
-    {"Consecration",           1, 6},                     -- L20   5   (ground AOE)
+    {"Hammer of Wrath",        1, 3},                     -- L44   2   (instant execute sub-20% HP)
+    {"Consecration",           1, 4},                     -- L20   3   (instant ground AOE)
     -- QERT row (Q/E/R/T): heals (mouseover-friendly)
     {"Holy Light",             1, 8, "mouseover-help"},   -- L1    Q
     {"Flash of Light",         1, 10, "mouseover-help"},  -- L20   E
@@ -47,10 +48,12 @@ local LAYOUT = {
     {"Divine Protection",      3, 11, "self-cast"},       -- L6    V   (50% damage reduction)
     {"Repentance",             3, 12, "mouseover-harm"},  -- L40 Ret B (6s incapacitate; talent)
 
-    -- ALT TOP (Bar 4) — CDs + heals/Hand spells (mirror of Bar 1 alt-modifier)
-    -- Alt-numrow: cooldowns + spec damage CDs
-    {"Avenging Wrath",         4, 2, "self-cast"},        -- L40 Ret Alt-1 (+30% dmg/heal CD)
-    {"Avenger's Shield",       4, 3},                     -- L40 Prot Alt-2 (ranged taunt)
+    -- ALT TOP (Bar 4) — CAST-TIME damage + CDs + heals/Hand spells
+    -- Cast-time damage (Exorcism, Holy Wrath) lives here per "casts on alt" rule.
+    {"Exorcism",               4, 2},                     -- L20   Alt-1 (cast vs Undead/Demon)
+    {"Holy Wrath",             4, 3},                     -- L30   Alt-2 (TBC cast AOE vs Undead/Demon)
+    {"Avenging Wrath",         4, 4, "self-cast"},        -- L40 Ret Alt-3 (+30% dmg/heal CD)
+    {"Avenger's Shield",       4, 5},                     -- L40 Prot Alt-4 (ranged taunt)
     -- Alt-QERT: dispel + friendly Hand spells (mouseover-friendly)
     {"Purify",                 4, 8, "mouseover-help"},   -- L8    Alt-Q (disease/poison; Holy spec swaps to Cleanse manually after L42 talent)
     {"Blessing of Freedom",    4, 10, "mouseover-help"},  -- L18   Alt-E (snare break)
@@ -107,9 +110,10 @@ local IGNORE = {
     ["Gun Specialization"]=true, ["Frost Resistance"]=true,
     ["Heroic Presence"]=true, ["Inspiring Presence"]=true,
     ["Shadow Resistance"]=true, ["Magic Resistance"]=true,
-    -- Race actives the user may want manually placed
+    -- Race actives — Stoneform/Arcane Torrent auto-placed via RACIALS table.
+    -- Gift of the Naaru: Pally Alt-QERT row is full of Hand spells; Draenei drag manually.
     ["Perception"]=true, ["Gift of the Naaru"]=true,
-    ["Mana Tap"]=true, ["Arcane Torrent"]=true,
+    ["Mana Tap"]=true,
     -- Cleanse upgrades Purify (Holy talent L42) — Holy spec drags it to Alt-Q manually
     ["Cleanse"]=true,
     -- Professions / non-combat
@@ -122,8 +126,19 @@ local IGNORE = {
     ["Inscription"]=true, ["Milling"]=true,
 }
 
+-- Per-race racial placement (per docs/racials.md). Pally races: Human, Dwarf,
+-- Draenei (Alliance); Blood Elf (Horde, TBC). No combat racial for Human.
+local RACIALS = {
+    Dwarf = {
+        {"Stoneform", 5, 8, "self-cast"},     -- Alt-Z: defensive break (joins alt-bottom defensives)
+    },
+    BloodElf = {
+        {"Arcane Torrent", 3, 10},            -- C: combat CC + mana burst
+    },
+}
+
 local function Run()
-    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE)
+    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("PaladinSetup", placed, skipped, orphans)
     print("|cffffd700PaladinSetup tip:|r Blessings live on OPie M4, Auras on M5.")
     print("|cff999999  Seals: Righteousness on F (default), Crusader on G (open with judge for armor debuff).|r")

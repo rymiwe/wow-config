@@ -18,12 +18,14 @@ Ask the user (or accept from args):
 
 1. `MEMORY.md` for the principle index
 2. `bar_layout_design.md` — bar slot conventions, what's enabled/disabled
-3. `class_setup_pattern.md` — the cross-class template (CRITICAL — defines slot conventions)
+3. `class_setup_pattern.md` — the cross-class template (CRITICAL — defines slot conventions including racial placement)
 4. `bind_value_principle.md` — what gets high-value binds
-5. `ui_design_principles.md` — the 7 guiding principles
-6. `setupcore_architecture.md` — macro template names + LAYOUT 4-tuple format
-7. `E:\Program Files\World of Warcraft\docs\class-spells\<class>.md` — class spell roster + class-specific layout overrides
-8. Existing `ShamanSetup.lua` and `DruidSetup.lua` as reference shape
+5. `auto_attack_no_slot.md` — never put `Attack` in LAYOUT
+6. `ui_design_principles.md` — the 7 guiding principles
+7. `setupcore_architecture.md` — macro template names + LAYOUT 4-tuple format + RACIALS table format
+8. `E:\Program Files\World of Warcraft\docs\class-spells\<class>.md` — class spell roster + class-specific layout overrides
+9. `E:\Program Files\World of Warcraft\docs\racials.md` — per-racial placement intent (auto-placed via RACIALS table per race)
+10. Existing `ShamanSetup.lua` and `DruidSetup.lua` as reference shape
 
 If `docs/class-spells/<class>.md` doesn't exist: STOP and tell the user to create it first (or have them provide the spell list inline so you can author the doc + setup in one pass).
 
@@ -32,15 +34,18 @@ If `docs/class-spells/<class>.md` doesn't exist: STOP and tell the user to creat
 The layout shape is universal across classes (per `class_setup_pattern.md`). The class spell roster doc defines class-specific overrides for which spells go where. Apply rules in this order:
 
 1. **OPie rings first** — identify class-specific categories that suit OPie hold-rings (slow utility, lots of similar choices, low combat priority). Don't put these spells on bars.
-2. **Damage on Bar 1 number row** (` 1 2 3 4 5). Primary opener gets `startattack`. Primary interrupt on `` ` ``.
-3. **Heals on Alt-QERT** (Bar 4 buttons 8/10/11/12). All `mouseover-help`.
-4. **Damage casts on Alt-numrow** (Bar 4 buttons 2-6). Filler ranged casts, AOE.
-5. **Cooldowns on Alt-numrow remainder** (Bar 4 buttons 4-6 if not used by ranged). Tiger's Fury, Berserk, etc.
-6. **Buffs F/G** (Bar 3 buttons 4/5). Class self-buffs and mouseover friend-buffs.
-7. **ZXCVB row** (Bar 3 buttons 8-12). Form/stance toggles, weapon enchants (or OPie), travel utility, Attack.
-8. **Alt-FG / Alt-ZXCVB** (Bar 5 buttons 4/5/8-12). Dispels (mouseover-help/harm), defensives (`self-cast`), travel utility, panic abilities.
-9. **Form-locked combat (Druid Bear/Cat, Rogue stealth)** → IGNORE list, drag manually onto Bar 1 form pages.
-10. **Passives, racials, professions, all OPie-handled spells** → IGNORE.
+2. **Cast-time damage → Bar 4 numrow (Alt-1..5).** Caster filler nukes (Lightning Bolt, Wrath, Starfire), hard-cast spells (Aimed Shot, Steady Shot, Exorcism, Holy Wrath). NOT on Bar 1 numrow. The most-spammed cast goes on Alt-1.
+3. **Instant damage / DoTs / debuffs / instant CC → Bar 1 numrow (1-5).** Primary opener (instant DoT or first-pressed combat spell) on key 1 with `startattack` template.
+4. **Bar 1 `` ` `` slot — interrupt or "always-ready" instant only.** Reserve for: (a) class baseline interrupt (Shaman: Earth Shock; Mage: Counterspell; Rogue: Kick); (b) ranged anchor with no better home (Hunter: Auto Shot); (c) always-ready combat-modifier (Pally: Judgement; Warr: Heroic Strike). Otherwise leave empty — `` ` `` is a pinky-stretch and NEVER hosts the most-spammed action.
+5. **Heals on Alt-QERT** (Bar 4 buttons 8/10/11/12). All `mouseover-help`.
+6. **Cooldowns on Alt-numrow remainder** (Bar 4 buttons 4-6 if not used by cast-damage). Tiger's Fury, Berserk, Avenging Wrath, Recklessness, etc.
+7. **Buffs F/G** (Bar 3 buttons 4/5). Class self-buffs, spec-defining toggles (Moonkin Form, Seals), and mouseover friend-buffs.
+8. **ZXCVB row** (Bar 3 buttons 8-12). Form/stance toggles, weapon enchants (or OPie), travel utility, class spells. Never `Attack` (see `auto_attack_no_slot.md`).
+9. **Alt-FG / Alt-ZXCVB** (Bar 5 buttons 4/5/8-12). Dispels (mouseover-help/harm), defensives (`self-cast`), travel utility, panic abilities.
+10. **Form-locked combat (Druid Bear/Cat, Rogue stealth)** → IGNORE list, drag manually onto Bar 1 form pages.
+11. **Passives, racials, professions, all OPie-handled spells** → IGNORE.
+
+**Cast-vs-instant principle (rules 2 & 3):** instants are "decision points" you weave tactically; casts are the spam-filler between them. Putting them on different modifier rows separates muscle memory and matches caster gameplay flow. A class with no cast-time damage (pure-melee Warrior/Rogue) leaves Alt-numrow free for cooldowns + utility instead.
 
 ## Step 4 — Macro template choice
 
@@ -100,11 +105,12 @@ Write two files:
 **`E:\Program Files\World of Warcraft\_anniversary_\Interface\AddOns\<Class>Setup\<Class>Setup.lua`** — full file mirroring DruidSetup/ShamanSetup, including:
 1. Header comment (1-2 paragraphs explaining class + leveling defaults + OPie ring summary)
 2. `local LAYOUT = { ... }` with grouped sections (MAIN TOP / MAIN BOTTOM / ALT TOP / ALT BOTTOM, with comment headers)
-3. `local IGNORE = { ... }` with grouped sections (combat passives, class talents, race passives/actives, OPie-handled, form-locked if applicable, professions, death-handling)
+3. `local IGNORE = { ... }` with grouped sections (combat passives, class talents, race passives, OPie-handled, form-locked if applicable, professions, death-handling). Most race actives are NOT in IGNORE — they're auto-placed via RACIALS table.
 4. Class-specific helper tables if applicable (e.g. `BEAR_ABILITIES` for Druid)
-5. `local function Run() ... end`
-6. `SetupCore:RegisterClass("<CLASS_TOKEN>", Run, LAYOUT)` — CLASS_TOKEN is uppercase ("HUNTER", "MAGE", etc.)
-7. `do ... end` OPie ring block at bottom
+5. `local RACIALS = { ... }` — per-race racial placements. Consult `docs/racials.md` for placement intent per race; pick slot per the class's available layout. Pass to `SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)`.
+6. `local function Run() ... end`
+7. `SetupCore:RegisterClass("<CLASS_TOKEN>", Run, LAYOUT)` — CLASS_TOKEN is uppercase ("HUNTER", "MAGE", etc.)
+8. `do ... end` OPie ring block at bottom
 
 ## Step 7 — Update related files
 

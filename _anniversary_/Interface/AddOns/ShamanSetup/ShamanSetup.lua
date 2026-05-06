@@ -46,8 +46,8 @@ local LAYOUT = {
     {"Chain Heal",             4, 12, "mouseover-help"},  -- L40   Alt-T
 
     -- ALT BOTTOM (Bar 5) ===========================================
-    -- Alt-FG: utility/cast-time spells (Alt-F empty after Tremor → OPie + Ghost Wolf → Z)
-    {"Gift of the Naaru",      5, 5, "mouseover-help"},   -- racial Alt-G (moved from G; cast-time heal, fits with other heals)
+    -- Alt-FG: utility (Alt-F empty after Tremor → OPie + Ghost Wolf → Z;
+    -- Alt-G now claimed by Draenei racial Gift of the Naaru via RACIALS table below)
     -- Alt-ZXCVB: travel + dispels (mouseover-friendly)
     {"Water Breathing",        5, 8},                     -- L24   Alt-Z
     {"Water Walking",          5, 9},                     -- L28   Alt-X
@@ -95,8 +95,8 @@ local IGNORE = {
     ["Da Voodoo Shuffle"]=true, ["Throwing Specialization"]=true,
     ["Bow Specialization"]=true, ["Beast Slaying"]=true,
     ["Regeneration"]=true,
-    -- Race actives the user may want manually placed
-    ["War Stomp"]=true, ["Blood Fury"]=true, ["Berserking"]=true,
+    -- Race actives — auto-placed via RACIALS table per docs/racials.md.
+    -- Stoneform left in IGNORE (no Dwarf Shaman in TBC, but harmless).
     ["Stoneform"]=true,
     -- Professions / non-combat
     ["First Aid"]=true, ["Cooking"]=true, ["Basic Campfire"]=true,
@@ -123,8 +123,25 @@ local IGNORE = {
 local TOTEM_MELEE_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Mana Spring Totem, Windfury Totem"
 local TOTEM_CASTER_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Mana Spring Totem, Wrath of Air Totem"
 
+-- Per-race racial placement (per docs/racials.md). Untrained racials silently
+-- skip. Asog (Draenei) keeps Gift of the Naaru on Alt-G — established convention.
+local RACIALS = {
+    Draenei = {
+        {"Gift of the Naaru", 5, 5, "mouseover-help"},  -- Alt-G: heal slot fallback (Alt-Q heals row full)
+    },
+    Tauren = {
+        {"War Stomp", 3, 10},                           -- C: combat AOE stun
+    },
+    Orc = {
+        {"Blood Fury", 4, 5, "self-cast"},              -- Alt-4: damage CD (joins Alt-numrow with Water Shield/etc.)
+    },
+    Troll = {
+        {"Berserking", 4, 5, "self-cast"},              -- Alt-4: damage CD
+    },
+}
+
 local function Run()
-    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE)
+    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
 
     -- Totem-set macros placed on Q (1,8) and E (1,10) — empty after OPie migration.
     local _, _, meleeIcon = GetSpellInfo("Strength of Earth Totem")
