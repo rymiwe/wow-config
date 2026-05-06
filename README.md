@@ -162,18 +162,17 @@ Two patterns depending on how you launch WoW. **Pick one.**
 
 A background watcher that polls for `WowClassic.exe`, attaches when it appears, and runs `checkpoint.ps1` every time it exits. Truly invisible — you launch via Battle.net normally and the repo stays in sync.
 
-Drop a shortcut in your Windows Startup folder so it auto-launches at login:
+**Install as a hidden Scheduled Task** (recommended — no terminal, no taskbar entry):
 
 ```powershell
-$startup = [Environment]::GetFolderPath('Startup')
-$WshShell = New-Object -ComObject WScript.Shell
-$sc = $WshShell.CreateShortcut("$startup\wow-config-watch.lnk")
-$sc.TargetPath = "powershell.exe"
-$sc.Arguments = '-WindowStyle Minimized -ExecutionPolicy Bypass -File "<path to>\scripts\watch.ps1"'
-$sc.Save()
+.\scripts\install-watch-task.ps1
 ```
 
-Or just run it manually each session (`.\scripts\watch.ps1`) and leave the window minimized.
+This registers a `wow-config-watch` task that runs at every logon under your user (so git credentials work), with `-WindowStyle Hidden` so there's nothing to alt-tab past. Idempotent — re-run anytime to refresh.
+
+Uninstall with `.\scripts\install-watch-task.ps1 -Uninstall`.
+
+To run manually instead (visible terminal window): `.\scripts\watch.ps1`.
 
 #### Direct-launch users → `scripts/play.ps1`
 
