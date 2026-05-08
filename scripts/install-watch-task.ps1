@@ -31,6 +31,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $watchPath = (Resolve-Path "$PSScriptRoot/watch.ps1").Path
+$vbsPath = (Resolve-Path "$PSScriptRoot/watch-hidden.vbs").Path
 $workDir = (Resolve-Path "$PSScriptRoot/..").Path
 $startupShortcut = Join-Path ([Environment]::GetFolderPath('Startup')) "wow-config-watch.lnk"
 
@@ -59,9 +60,13 @@ if (Test-Path $startupShortcut) {
 }
 
 # Register hidden Scheduled Task
+# Use wscript.exe + watch-hidden.vbs to launch PowerShell with a truly hidden
+# window (no console flash, no minimized leftover). Direct powershell.exe
+# -WindowStyle Hidden in Scheduled Tasks is unreliable because conhost.exe
+# attaches before PS hides the window.
 $action = New-ScheduledTaskAction `
-    -Execute "powershell.exe" `
-    -Argument "-WindowStyle Hidden -NonInteractive -ExecutionPolicy Bypass -File `"$watchPath`"" `
+    -Execute "wscript.exe" `
+    -Argument "`"$vbsPath`"" `
     -WorkingDirectory $workDir
 
 $trigger = New-ScheduledTaskTrigger -AtLogOn -User "$env:USERDOMAIN\$env:USERNAME"
