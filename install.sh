@@ -156,4 +156,10 @@ if [[ -f "$SRC_TPL/Config.wtf" ]]; then
 fi
 
 echo
-echo "Install complete. Launch WoW and log in - SetupCore will run /setupbars on first login."
+echo "Install complete. Next steps:"
+echo "  1. Open WoWUp-CF, then Options > Import Addons. Get the import string with:"
+echo "       curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt | wl-copy"
+echo "     (use xclip -selection clipboard on X11). Paste into WoWUp-CF and click Import."
+echo "  2. Launch WoW and log in - SetupCore runs /setupbars on first login."
+echo "  3. Bind OPie rings: in-game /opie -> Ring Bindings -> assign M4/M5 manually (one-time)."
+echo "  4. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"

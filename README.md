@@ -8,52 +8,85 @@ Opinionated UI setup for WoW Anniversary (TBC Classic 2.5.5). Built for casual p
 - **Auto-class-setup** — `/setupbars` places your spells on the right keys when you first log in
 - **Mouseover heals + dispels** — hover a party member, hit your heal key, no target-switching needed
 - **Smart defaults** — Trade/General chat auto-left per character, enemy nameplates always on, friendly off
-- **Reminders** — chat nudge when you train a new spell that needs placement; `/restorebars` undoes any layout change
+- **Auto-place on training** — newly-trained spells go on their reserved bar slot automatically, no `/setupbars` needed; `/restorebars` undoes any layout change
 - **One-shot bulk-install** for recommended companion addons (ElvUI, WeakAuras, BadBoy, OPie, TSM, Questie)
 - **Per-class layouts** — Shaman, Druid (Feral+Balance), Hunter, Paladin, Warrior ship now; new classes generated via the [`wow-class-setup` skill](.claude/skills/wow-class-setup.md)
 
 Designed for the audience: kids, spouses, friends who want to log in and play. Optimized for "discoverability over efficiency" — every key bind is intuitive even if it costs 0.1s of theoretical optimization. PvP-grade speed is explicitly NOT the goal.
 
-## Install (for friends and second machines)
+## End-to-end install
 
-### Windows — Easy mode (recommended for non-technical users)
-1. Download [`install.bat`](https://github.com/rymiwe/wow-config/raw/main/install.bat)
-2. Make sure WoW is closed
-3. Double-click `install.bat`
-4. Follow the prompts
+Pre-req: WoW Anniversary installed and **launched at least once** (so the directory structure exists).
 
-See [`INSTALL.txt`](INSTALL.txt) for click-by-click walkthrough including WoWUp-CF for companion addons.
+### Step 1 — Run the installer
 
-### Windows — PowerShell one-liner
-```powershell
-iex (iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1").Content
-```
+| Platform | Command |
+|---|---|
+| **Windows (easy)** | Download [`install.bat`](https://github.com/rymiwe/wow-config/raw/main/install.bat), close WoW, double-click |
+| **Windows (PowerShell)** | `iex (iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1").Content` |
+| **Linux / Mac / Steam Deck** | `curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh \| bash` |
 
-### Linux / Mac / Steam Deck
+If the script can't auto-detect your WoW install:
 ```bash
-curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | bash
+# Linux/Mac:
+curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | WOWDIR="/path/to/World of Warcraft" bash
+# Or pass via flag:
+curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | bash -s -- --wow-dir "/path/to/World of Warcraft"
 ```
 
-The installer:
-1. Detects your WoW install (override with `WOWDIR=...` env var or `--wow-dir` flag)
-2. Finds your Battle.net account folder under `WTF/Account/` (or prompts if multiple)
-3. Copies custom addons (`SetupCore`, `ChatAnchor`, `ShamanSetup`, `DruidSetup`, `HunterSetup`, `PaladinSetup`, `WarriorSetup`)
-4. Installs bindings + flips an auto-setup flag so `/setupbars` runs on your first login
-5. Merges recommended CVar defaults into `Config.wtf` (nameplates, camera zoom)
+The installer copies our custom addons (`SetupCore`, `ChatAnchor`, `ShamanSetup`, `DruidSetup`, `HunterSetup`, `PaladinSetup`, `WarriorSetup`), seeds bindings + ElvUI layout + Config.wtf CVar defaults, and flips an auto-setup flag so `/setupbars` runs on first login.
+
+### Step 2 — Bulk-install companion addons via WoWUp-CF
+
+Our installer doesn't fetch ElvUI / WeakAuras / OPie etc. — those come from WoWUp-CF. **Install [WoWUp-CF](https://github.com/WowUp/WowUp.CF/releases)** if you don't have it (Windows: `install.ps1` does this for you; Linux/Steam Deck: install manually — Wine, Bottles, or any cross-platform release).
+
+Then copy the import string and paste into WoWUp:
+
+| Platform | Get the import string |
+|---|---|
+| **Windows** | `iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt" \| Set-Clipboard` |
+| **Linux/Steam Deck (Wayland)** | `curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt \| wl-copy` |
+| **Linux (X11)** | `curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt \| xclip -selection clipboard` |
+| **Any** | Open <https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt>, select-all, copy |
+
+Then in WoWUp-CF: **Options** → **Import Addons** → paste → **Import**. Installs ElvUI + WeakAuras + BadBoy + OPie + TSM + Questie in one batch (~1-2 min).
+
+### Step 3 — Launch WoW and log in
+
+SetupCore runs your class's setup automatically on first login. Watch chat for:
+```
+SetupCore suppressed ElvUI wizard on N profile(s)
+SetupCore first-time setup running for <CLASS>...
+SetupCore asserted N bindings (cleared M defaults)
+SetupCore set N CVars
+<Class>Setup placed N spells
+== wow-config welcome ==
+```
+
+If the **ElvUI install wizard** sneaks past the auto-suppression: **close it with the X**. Don't click "Install" / "Apply Layout" — it would wipe the layout we just deployed.
+
+### Step 4 — Bind OPie rings (one-time)
+
+For each class addon's OPie rings: `/opie` → Ring Bindings → find the ring → click binding → press M4 (primary class utility) or M5 (secondary).
+
+OPie 8.x doesn't auto-bind mouse buttons via the `hotkey` field. One-time chore per character, after which they persist.
+
+### Step 5 — (Optional) Import TSM groups
+
+If you use TSM: open `/tsm` → Groups → Import / Export → paste each `.txt` file from <https://github.com/rymiwe/wow-config/tree/main/templates/tsm-groups>. See that folder's README for click-by-click steps.
+
+### Day-to-day after install
+
+- **Train new spells** → they appear on bars automatically (no `/setupbars` typing). The reserved slot fills the moment SPELLS_CHANGED fires.
+- **`/setupbars`** → re-run if you want to re-assert the full layout (rare; useful after a respec).
+- **`/restorebars`** → every `/setupbars` snapshots your previous bars first. Roll back anytime.
+- **`/applybindings`**, **`/applycvars`** → standalone re-apply commands if you need them.
 
 ### Modes
 | flag | behavior |
 |---|---|
 | `--upsert` (default) | Install/update addons. Skip existing bindings, SavedVariables, and ElvUI layout. Merge new CVars into Config.wtf without overwriting existing graphics settings. |
 | `--fresh` | Overwrite bindings, reseed auto-setup flag, install full ElvUI layout, replace Config.wtf entirely. Use this for a brand-new install. |
-
-### After install
-1. Launch WoW and log in any character.
-2. `SetupCore` runs your class's setup automatically (the first time only — `needsSetup` flag self-clears).
-3. Spells land on bars per the class layout.
-4. Re-run `/setupbars` manually after you train new spells.
-5. **`/restorebars`** — every `/setupbars` snapshots your existing bars first. If the new layout isn't what you wanted, this restores your previous setup (preserves only the most recent backup).
-6. **Auto-nudge after training**: when you learn a spell at a trainer that has a LAYOUT slot reserved for it but isn't on a bar yet, SetupCore prints a chat reminder to run `/setupbars`. Rank-ups don't trigger the nudge; only brand-new spells do.
 
 ## Custom addons
 

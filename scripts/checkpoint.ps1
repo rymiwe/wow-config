@@ -28,7 +28,11 @@ param(
     [switch]$Quiet
 )
 
-$ErrorActionPreference = "Stop"
+# Continue (not Stop) — PowerShell treats native-command stderr as terminating
+# errors when ErrorActionPreference = Stop, which makes harmless git warnings
+# (e.g. "LF will be replaced by CRLF") look like failures. We have explicit
+# $LASTEXITCODE checks below for the cases that actually matter.
+$ErrorActionPreference = "Continue"
 $RepoPath = (Resolve-Path "$PSScriptRoot/..").Path
 Set-Location $RepoPath
 
