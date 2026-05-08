@@ -43,7 +43,10 @@ find_wow_dir() {
              "$HOME"/.steam/steam/steamapps/compatdata/*/pfx/drive_c/Program\ Files/World\ of\ Warcraft \
              "$HOME"/Games/battlenet/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
              "$HOME"/.local/share/lutris/runners/wine/*/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
+             "$HOME"/.local/share/lutris/games/world-of-warcraft \
              /Applications/World\ of\ Warcraft \
+             "$HOME"/Games/World\ of\ Warcraft \
+             "$HOME"/Games/world-of-warcraft \
              "$HOME"/World\ of\ Warcraft; do
         if [[ -d "$d/_anniversary_" ]]; then echo "$d"; return; fi
     done
