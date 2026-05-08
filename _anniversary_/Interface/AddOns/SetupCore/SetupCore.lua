@@ -456,8 +456,9 @@ function SetupCore:ApplyBindings()
         if action then
             if SetBinding(key, action) then applied = applied + 1 end
         else
-            -- Unbind: only act if currently bound (avoid spurious "no change" calls)
-            local cur = GetBindingByKey(key)
+            -- Unbind: only act if currently bound (avoid spurious "no change" calls).
+            -- GetBindingAction is the Classic+Retail-safe API (GetBindingByKey is retail-only).
+            local cur = GetBindingAction(key)
             if cur and cur ~= "" then
                 SetBinding(key)
                 cleared = cleared + 1
