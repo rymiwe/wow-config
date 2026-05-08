@@ -11,12 +11,11 @@ SetupCoreCharDB = {
 ["name"] = "SC_HealingTouch",
 ["type"] = "macro",
 },
-[109] = {
-["id"] = 6603,
-["type"] = "spell",
-["name"] = "Attack",
+[38] = {
+["name"] = "SC_Wrath",
+["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-05 21:41:50",
+["timestamp"] = "2026-05-07 21:15:48",
 },
 }
