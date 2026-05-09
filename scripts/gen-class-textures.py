@@ -45,21 +45,26 @@ def draw_leaf(draw, cx, cy, size, angle, color, alpha):
         )
 
 def gen_druid():
-    """Druid: scattered leaf shapes at low alpha on near-black base."""
-    img = Image.new("RGBA", (W, H), (8, 16, 10, 255))
+    """Druid: scattered leaf shapes on near-black base.
+    Leaves at alpha 80-160 = clearly visible without overpowering chat text.
+    Vertically flipped before save because Pillow writes TGA bottom-up by
+    default and WoW expects top-down."""
+    img = Image.new("RGBA", (W, H), (10, 22, 14, 255))
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
     color = CLASS_COLORS["druid"]
     random.seed(42)
-    for _ in range(18):
+    for _ in range(22):
         cx = random.randint(-10, W + 10)
         cy = random.randint(-10, H + 10)
-        size = random.randint(20, 50)
+        size = random.randint(25, 55)
         angle = random.uniform(0, math.pi * 2)
-        alpha = random.randint(15, 35)
+        alpha = random.randint(80, 160)
         draw_leaf(draw, cx, cy, size, angle, color, alpha)
-    overlay = overlay.filter(ImageFilter.GaussianBlur(radius=1.5))
+    overlay = overlay.filter(ImageFilter.GaussianBlur(radius=1.2))
     img = Image.alpha_composite(img, overlay)
+    # WoW reads TGA top-down; Pillow writes bottom-up. Flip so it renders right.
+    img = img.transpose(Image.FLIP_TOP_BOTTOM)
     return img
 
 def gen_generic(class_name, base_dark, density=20):
