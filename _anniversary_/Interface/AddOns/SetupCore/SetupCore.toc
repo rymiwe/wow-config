@@ -1,4 +1,4 @@
-## Interface: 20505
+## Interface: 11508, 20505, 50503, 120005
 ## Title: Setup Core
 ## Notes: Shared plumbing for class setup addons (ShamanSetup, DruidSetup, etc.)
 ## Version: 1.0

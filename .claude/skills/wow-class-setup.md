@@ -95,7 +95,7 @@ Write two files:
 
 **`E:\Program Files\World of Warcraft\_anniversary_\Interface\AddOns\<Class>Setup\<Class>Setup.toc`**
 ```
-## Interface: 20505
+## Interface: 11508, 20505, 50503, 120005
 ## Title: <Class> Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout
 ## Version: 1.0
@@ -104,6 +104,8 @@ Write two files:
 
 <Class>Setup.lua
 ```
+
+**Why multi-version Interface:** WoW silently refuses to load addons whose Interface doesn't match the running client (unless "Load out of date addons" is checked). Multi-version comma-separated declares the addon works on Classic Era (11508), TBC Anniversary (20505), MoP Classic (50503), and Retail (120005). Add new flavor numbers as Blizzard releases them. This was a real bug that hit ChatAnchor on the wife's Anniversary install — single-version 11508 meant the addon never loaded.
 
 **Why `OptionalDeps: OPie`:** WoW loads addons alphabetically by default. Without this directive, every class addon (DruidSetup, HunterSetup, PaladinSetup, ShamanSetup, WarriorSetup — all D/H/P/S/W < O) loads BEFORE OPie. The `OPie and OPie.CustomRings` check in the ring registration block then silently fails because OPie isn't loaded yet → no rings registered → user opens `/opie` and sees no class rings to bind. `OptionalDeps: OPie` forces load order so OPie loads first when present (and addon still works without OPie installed).
 

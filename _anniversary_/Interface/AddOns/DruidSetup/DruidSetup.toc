@@ -1,4 +1,4 @@
-## Interface: 20505
+## Interface: 11508, 20505, 50503, 120005
 ## Title: Druid Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout (Feral leveling defaults)
 ## Version: 1.0
