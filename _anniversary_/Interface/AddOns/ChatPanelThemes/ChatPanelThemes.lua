@@ -11,8 +11,10 @@ local CLASS_TEXTURE = {
     DRUID = "druid",
 }
 
--- 0 = invisible, 1 = fully opaque on top of ElvUI's backdrop.
-local OVERLAY_ALPHA = 0.85
+-- 0 = invisible, 1 = full strength. Texture itself has transparent base so
+-- this controls overall pattern intensity, not how dark the panel gets.
+-- Panel darkness is ElvUI's panelColor (tune in /ec -> Chat -> General).
+local OVERLAY_ALPHA = 1.0
 
 local function ApplyTheme()
     local _, class = UnitClass("player")
