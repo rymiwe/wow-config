@@ -58,8 +58,11 @@ local BINDINGS = {
     {"ALT-Z", "MULTIACTIONBAR2BUTTON8"}, {"ALT-X", "MULTIACTIONBAR2BUTTON9"},
     {"ALT-C", "MULTIACTIONBAR2BUTTON10"}, {"ALT-V", "MULTIACTIONBAR2BUTTON11"},
     {"ALT-B", "MULTIACTIONBAR2BUTTON12"},
-    -- Mouse buttons reserved for OPie rings (unbind WoW defaults)
-    {"BUTTON3", nil}, {"BUTTON4", nil}, {"BUTTON5", nil},
+    -- Mouse buttons (BUTTON3/4/5) DELIBERATELY OMITTED — let OPie + manual user
+    -- bindings own them. Earlier we unbound these every /setupbars, which silently
+    -- destroyed any /opie ring bindings the user had set. The trade-off: if the
+    -- user has a default Blizzard binding on M3/4/5 (rare) it stays until they
+    -- clear it themselves via Esc -> Key Bindings.
     -- NumLock can interfere with movement on some keyboards
     {"NUMLOCK", nil},
     -- Questie convenience
