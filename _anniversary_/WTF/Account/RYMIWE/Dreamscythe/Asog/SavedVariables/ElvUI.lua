@@ -19,9 +19,9 @@ ElvCharacterDB = {
 "/opie",
 "/tsm destroy",
 "/tsm",
-"/rl",
 "/setupbars",
 "/zygor show",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
