@@ -2,8 +2,8 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/rl",
 "/setupbars",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
