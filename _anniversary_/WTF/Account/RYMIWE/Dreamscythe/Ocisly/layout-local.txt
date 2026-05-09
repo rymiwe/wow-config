@@ -8,9 +8,9 @@ W: 32
 H: 32
 Frame: ZygorGuidesViewerFrameMaster
 FrameLevel: 1
-Anchor: RIGHT
-X: -479
-Y: -232
+Anchor: BOTTOMRIGHT
+X: -282
+Y: 278
 W: 40
 H: 40
 Frame: ColorPickerFrame

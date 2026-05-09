@@ -1,0 +1,7 @@
+## Interface: 20505
+## Title: Chat Panel Themes
+## Notes: Subtle class-themed backgrounds for ElvUI's left chat panel
+## Version: 1.0
+## OptionalDeps: ElvUI
+
+ChatPanelThemes.lua

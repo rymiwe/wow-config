@@ -87,7 +87,7 @@ try {
     if (-not (Test-Path $dstSV))     { New-Item -ItemType Directory -Force -Path $dstSV     | Out-Null }
 
     # Addon code is canonical — always overwrite.
-    $addons = @("SetupCore", "ChatAnchor", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
+    $addons = @("SetupCore", "ChatAnchor", "ChatPanelThemes", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
     foreach ($a in $addons) {
         $src = Join-Path $srcAddons $a
         $dst = Join-Path $dstAddons $a

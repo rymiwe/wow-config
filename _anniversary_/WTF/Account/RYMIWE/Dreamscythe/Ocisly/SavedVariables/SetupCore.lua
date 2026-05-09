@@ -12,7 +12,7 @@ SetupCoreCharDB = {
 ["type"] = "macro",
 },
 {
-["name"] = " ",
+["name"] = "SC_Moonfire",
 ["type"] = "macro",
 },
 {
@@ -34,7 +34,7 @@ nil,
 },
 nil,
 {
-["name"] = " ",
+["name"] = "SC_Rejuvenation",
 ["type"] = "macro",
 },
 {
@@ -142,6 +142,6 @@ nil,
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-09 12:09:37",
+["timestamp"] = "2026-05-09 12:39:29",
 },
 }
