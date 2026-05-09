@@ -1,6 +1,5 @@
 
 SetupCoreCharDB = {
-["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -70,33 +69,34 @@ SetupCoreCharDB = {
 ["name"] = "SC_LesserHealing",
 ["type"] = "macro",
 },
-[116] = {
-["id"] = 13262,
-["type"] = "spell",
-["name"] = "Disenchant",
+[10] = {
+["name"] = "SC_TotemCaster",
+["type"] = "macro",
 },
 [54] = {
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
-},
-[112] = {
-["id"] = 2581,
-["type"] = "item",
-},
-[110] = {
-["id"] = 24072,
-["type"] = "item",
 },
 [29] = {
 ["id"] = 325,
 ["type"] = "spell",
 ["name"] = "Lightning Shield",
 },
-[10] = {
-["name"] = "SC_TotemCaster",
-["type"] = "macro",
+[110] = {
+["id"] = 24072,
+["type"] = "item",
+},
+[112] = {
+["id"] = 2581,
+["type"] = "item",
+},
+[116] = {
+["id"] = 13262,
+["type"] = "spell",
+["name"] = "Disenchant",
 },
 },
 ["timestamp"] = "2026-05-08 19:38:00",
 },
+["channelsLeft"] = true,
 }

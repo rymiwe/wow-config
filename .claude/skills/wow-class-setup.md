@@ -100,9 +100,12 @@ Write two files:
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout
 ## Version: 1.0
 ## Dependencies: SetupCore
+## OptionalDeps: OPie
 
 <Class>Setup.lua
 ```
+
+**Why `OptionalDeps: OPie`:** WoW loads addons alphabetically by default. Without this directive, every class addon (DruidSetup, HunterSetup, PaladinSetup, ShamanSetup, WarriorSetup — all D/H/P/S/W < O) loads BEFORE OPie. The `OPie and OPie.CustomRings` check in the ring registration block then silently fails because OPie isn't loaded yet → no rings registered → user opens `/opie` and sees no class rings to bind. `OptionalDeps: OPie` forces load order so OPie loads first when present (and addon still works without OPie installed).
 
 **`E:\Program Files\World of Warcraft\_anniversary_\Interface\AddOns\<Class>Setup\<Class>Setup.lua`** — full file mirroring DruidSetup/ShamanSetup, including:
 1. Header comment (1-2 paragraphs explaining class + leveling defaults + OPie ring summary)
