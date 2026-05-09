@@ -231,6 +231,35 @@ echo
 echo "Note: TSM (TradeSkillMaster) is not on free addon sources we can auto-install."
 echo "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
 
+# On Linux/Mac, drop a .desktop launcher so the user can add "WoW Updater" as a
+# non-Steam game (Steam Deck Game Mode access). Steam's "Add Non-Steam Game"
+# picker scans ~/.local/share/applications/ and auto-lists this entry.
+case "$(uname -s)" in
+    Linux*|Darwin*)
+        APPS_DIR="$HOME/.local/share/applications"
+        mkdir -p "$APPS_DIR"
+        DESKTOP_FILE="$APPS_DIR/wow-config-update.desktop"
+        cat > "$DESKTOP_FILE" <<EOF
+[Desktop Entry]
+Type=Application
+Name=WoW Updater
+Comment=Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)
+Exec=bash -c "curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/scripts/update-addons.sh | bash 2>&1 | tee /tmp/wow-update.log; notify-send 'wow-config' 'Addons refreshed - check /tmp/wow-update.log if anything looks off' 2>/dev/null || true"
+Icon=applications-games
+Categories=Game;
+Terminal=false
+StartupNotify=false
+EOF
+        chmod +x "$DESKTOP_FILE"
+        echo
+        echo "Created launcher: $DESKTOP_FILE"
+        echo "  To use from Steam Deck Game Mode:"
+        echo "  - In Desktop Mode: Steam -> Library -> + Add a Game -> Add a Non-Steam Game"
+        echo "  - Check 'WoW Updater' in the list, click Add"
+        echo "  - It now appears in Game Mode library; click to update addons silently"
+        ;;
+esac
+
 echo
 echo "Install complete. Next steps:"
 echo "  1. Launch WoW and log in - SetupCore runs /setupbars on first login."
