@@ -1,7 +1,4 @@
-VER 3 0000000000000001 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/startattack
-/cast [@mouseover,harm,nodead][] Rend
+VER 3 0000000000000001 " " "135864"
 END
 VER 3 0000000000000002 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
@@ -31,8 +28,6 @@ VER 3 000000000000001D " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /startattack
 /cast Bloodthirst
-END
-VER 3 0000000000000023 " " "135867"
 END
 VER 3 0000000000000019 " druid-travel" "132144"
 #showtooltip Travel Form

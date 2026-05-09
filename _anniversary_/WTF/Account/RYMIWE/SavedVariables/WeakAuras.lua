@@ -209,6 +209,11 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
+["parent"] = "Sham Shields",
+["borderOffset"] = 4,
+["semver"] = "1.2.0",
+["tocversion"] = 20505,
+["id"] = "Lightning shield",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -229,14 +234,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["borderOffset"] = 4,
-["semver"] = "1.2.0",
-["tocversion"] = 20505,
-["id"] = "Lightning shield",
-["parent"] = "Sham Shields",
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
 ["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
+["alpha"] = 1,
 ["config"] = {
 },
 ["uid"] = "Q1U6c1N03cL",
@@ -398,12 +398,15 @@ WeakAurasSaved = {
 ["useAdjustededMax"] = false,
 ["parent"] = "SwingTimer",
 ["enableGradient"] = false,
-["uid"] = "7y6BGEkcT6p",
 ["sparkColor"] = {
 1,
 0,
 0.03921568627451,
 1,
+},
+["config"] = {
+["CbM"] = false,
+["bigBadSync"] = false,
 },
 ["selfPoint"] = "CENTER",
 ["anchorFrameType"] = "SCREEN",
@@ -442,10 +445,7 @@ WeakAurasSaved = {
 ["desc"] = "Might help with red-green colorblindness",
 },
 },
-["config"] = {
-["CbM"] = false,
-["bigBadSync"] = false,
-},
+["uid"] = "7y6BGEkcT6p",
 ["inverse"] = true,
 ["icon"] = false,
 ["orientation"] = "HORIZONTAL",
@@ -632,6 +632,7 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["use_spec"] = true,
 ["pvptalent"] = {
 ["multi"] = {
 },
@@ -640,7 +641,6 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
 ["use_combat"] = true,
 ["spec"] = {
 ["single"] = 1,
@@ -939,8 +939,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
+["type"] = "subborder",
 ["border_size"] = 2,
-["border_offset"] = 1,
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -952,7 +952,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["type"] = "subborder",
+["border_offset"] = 1,
 },
 {
 ["tick_rotation"] = 0,
@@ -1280,22 +1280,22 @@ WeakAurasSaved = {
 ["semver"] = "3.0.5",
 ["tocversion"] = 20505,
 ["id"] = "SwingTimer",
-["config"] = {
-},
-["alpha"] = 1,
+["selfPoint"] = "CENTER",
+["frameStrata"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["authorOptions"] = {
 },
 ["borderInset"] = 1,
 ["uid"] = "9b0ooXp)9Nb",
-["frameStrata"] = 1,
+["config"] = {
+},
 ["conditions"] = {
 },
 ["information"] = {
 ["forceEvents"] = true,
 ["showNilIsFalse"] = true,
 },
-["selfPoint"] = "CENTER",
+["alpha"] = 1,
 },
 ["Sham Shields"] = {
 ["controlledChildren"] = {
@@ -1380,19 +1380,12 @@ WeakAurasSaved = {
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Sham Shields",
-["xOffset"] = 0,
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
-["frameStrata"] = 1,
 ["config"] = {
 },
+["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
+["xOffset"] = 0,
 ["uid"] = "pgn179hZoxd",
-["borderInset"] = 1,
-["conditions"] = {
-},
-["information"] = {
-["showNilIsFalse"] = true,
-},
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -1413,6 +1406,13 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["borderInset"] = 1,
+["conditions"] = {
+},
+["information"] = {
+["showNilIsFalse"] = true,
+},
+["alpha"] = 1,
 },
 ["L Shield 2"] = {
 ["wagoID"] = "OPRZeg-u6",
@@ -1604,6 +1604,7 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["use_spec"] = true,
 ["pvptalent"] = {
 ["multi"] = {
 },
@@ -1612,7 +1613,6 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
 ["use_combat"] = true,
 ["spec"] = {
 ["single"] = 1,
@@ -1848,8 +1848,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
+["type"] = "subborder",
 ["border_size"] = 2,
-["border_offset"] = 1,
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -1861,7 +1861,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["type"] = "subborder",
+["border_offset"] = 1,
 },
 {
 ["tick_rotation"] = 0,
@@ -2260,6 +2260,11 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
+["parent"] = "Sham Shields",
+["borderOffset"] = 4,
+["semver"] = "1.2.0",
+["tocversion"] = 20505,
+["id"] = "Wata shield",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -2280,14 +2285,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["borderOffset"] = 4,
-["semver"] = "1.2.0",
-["tocversion"] = 20505,
-["id"] = "Wata shield",
-["parent"] = "Sham Shields",
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
 ["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
+["alpha"] = 1,
 ["config"] = {
 },
 ["uid"] = "rQfBiekzqnL",
@@ -2677,7 +2677,7 @@ WeakAurasSaved = {
 },
 },
 },
-["editor_font_size"] = 12,
+["login_squelch_time"] = 10,
 ["lastArchiveClear"] = 1777260853,
 ["minimap"] = {
 ["minimapPos"] = 129.5353983366701,
@@ -2686,10 +2686,10 @@ WeakAurasSaved = {
 ["lastUpgrade"] = 1777260857,
 ["dbVersion"] = 89,
 ["migrationCutoff"] = 730,
-["features"] = {
-},
-["login_squelch_time"] = 10,
-["historyCutoff"] = 730,
 ["registered"] = {
 },
+["features"] = {
+},
+["historyCutoff"] = 730,
+["editor_font_size"] = 12,
 }

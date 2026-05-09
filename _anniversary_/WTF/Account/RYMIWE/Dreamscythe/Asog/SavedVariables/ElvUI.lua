@@ -18,10 +18,10 @@ ElvCharacterDB = {
 "/tsm destroy",
 "/tsm",
 "/zygor show",
-"/setupbars",
-"/macro",
 "/opie",
 "/rl",
+"/setupbars",
+"/macro",
 },
 ["ChatHistoryLog"] = {
 },

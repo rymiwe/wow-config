@@ -39,9 +39,8 @@ SetupCoreCharDB = {
 ["name"] = "Ghost Wolf",
 },
 [38] = {
-["id"] = 915,
-["type"] = "spell",
-["name"] = "Lightning Bolt",
+["name"] = "SC_LightningBolt",
+["type"] = "macro",
 },
 [109] = {
 ["id"] = 1179,
@@ -76,18 +75,13 @@ SetupCoreCharDB = {
 ["type"] = "spell",
 ["name"] = "Disenchant",
 },
-[53] = {
+[54] = {
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
 [112] = {
 ["id"] = 2581,
 ["type"] = "item",
-},
-[28] = {
-["id"] = 325,
-["type"] = "spell",
-["name"] = "Lightning Shield",
 },
 [110] = {
 ["id"] = 24072,
@@ -103,6 +97,6 @@ SetupCoreCharDB = {
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-08 19:12:46",
+["timestamp"] = "2026-05-08 19:38:00",
 },
 }
