@@ -19,10 +19,13 @@ local CLASS_TEXTURE = {
     DRUID = "druid",
 }
 
--- 0 = invisible, 1 = full strength. Texture itself has transparent base so
--- this controls overall pattern intensity, not how dark the panel gets.
--- Panel darkness is ElvUI's panelColor (tune in /ec -> Chat -> General).
-local OVERLAY_ALPHA = 1.0
+-- 0 = invisible, 1 = full strength. AI-generated textures (via Pollinations)
+-- have OPAQUE bases (Pollinations doesn't do transparency well), so this
+-- alpha controls how much of the texture vs the underlying ElvUI panel/game
+-- world shows. ~0.55 hits a "GitHub-dark-mode + subtle theme" sweet spot.
+-- For ElvUI panel underneath to actually show through, drop panelColor.a in
+-- /ec -> Chat -> General -> Panel Color.
+local OVERLAY_ALPHA = 0.55
 
 local function ApplyTheme()
     local char = UnitName("player")

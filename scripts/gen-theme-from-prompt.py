@@ -32,57 +32,80 @@ GEN_W, GEN_H = 1024, 512
 TARGET = (512, 256)
 MODEL = "flux"  # flux is Pollinations' best free model
 
+# All prompts share the GitHub dark-mode aesthetic spine: near-black base
+# (#0d1117 / #161b22 territory), heavily muted single-accent color, extreme
+# negative space, ultra-low contrast. Think GitHub README header backgrounds:
+# nothing screams, everything whispers.
+_BASE = (
+    "GitHub dark mode aesthetic. Pure background color RGB(13,17,23) "
+    "(near-black with slight blue undertone), filling 75 to 85 percent of the "
+    "image. Extremely subtle, low-contrast, low-saturation. Wallpaper texture, "
+    "2:1 horizontal aspect ratio. NO text, NO logos, NO bright colors, NO high "
+    "contrast. Refined developer-tool aesthetic. Suitable as a chat backdrop "
+    "where white text must read clearly. "
+)
+
 PRESETS = {
-    "druid_kid": (
-        "Subtle designery wallpaper texture, 2:1 horizontal aspect ratio. "
-        "Dark forest-green watercolor wash background with soft painterly grain. "
-        "Sparse abstracted decorative motifs: small simplified strawberry silhouettes "
-        "in muted dusty rose, abstract paw-print pad shapes in cream-colored ink, "
-        "one delicate crescent moon in pale gold tucked into a corner. "
-        "Asymmetric balanced composition, ~60 percent negative space. "
-        "Inspired by boutique stationery and high-end children's book illustration. "
-        "Refined never cartoonish. NO text, NO bright colors, NO realistic detail. "
-        "Pure pattern wallpaper style suitable as a chat backdrop where white text reads clearly."
+    "druid_kid": _BASE + (
+        "Single muted accent color: dusty sage green RGB(60,90,55). "
+        "A few sparse abstract motifs only barely visible against the dark base: "
+        "tiny simplified strawberry silhouettes, abstract paw-print pad shapes, "
+        "and one small crescent moon. All elements at extremely low alpha so they "
+        "fade nearly into the background. Asymmetric, mostly empty composition."
     ),
-    "druid": (
-        "Subtle designery wallpaper texture, 2:1 horizontal aspect ratio. "
-        "Dark forest-green watercolor wash with painterly organic grain. "
-        "Sparse abstracted leaf shapes: simplified silhouettes of oak fern and clover "
-        "in muted sage and emerald inks. Asymmetric composition with delicate vine "
-        "traces and significant negative space. "
-        "Style references Japanese ink-wash botanical art crossed with modern boutique "
-        "stationery. NO realistic detail, NO bright colors. "
-        "Suitable as a chat backdrop where white text reads clearly."
+    "druid": _BASE + (
+        "Single muted accent color: dusty sage green RGB(60,90,55). "
+        "Sparse abstract leaf silhouettes barely visible against the dark base. "
+        "Asymmetric composition with significant negative space. Like a GitHub "
+        "repo header for an open-source nature library."
     ),
-    "warlock": (
-        "Subtle designery wallpaper texture, 2:1 horizontal aspect ratio. "
-        "Deep charcoal-purple watercolor wash with smoky organic grain. "
-        "Sparse abstracted motifs: faint wisp tendrils in muted fel-green, "
-        "simplified rune fragments in dusty violet, one barely-visible pentagram "
-        "traced in pale gold tucked into a corner. Heavily asymmetric, lots of "
-        "negative space. Style references occult tarot card backs crossed with "
-        "high-end stationery. NO realistic skulls or demons, NO bright neon colors. "
-        "Suitable as a chat backdrop where white text reads clearly."
+    "warlock": _BASE + (
+        "Single muted accent color: dusty violet RGB(85,60,110). "
+        "A few faint smoke wisps and abstract rune fragments barely visible "
+        "against the dark base. Asymmetric, mostly empty composition. Like a "
+        "GitHub repo header for an obscure cryptographic library."
     ),
-    "mage": (
-        "Subtle designery wallpaper texture, 2:1 horizontal aspect ratio. "
-        "Deep midnight-blue watercolor wash with crystalline grain. "
-        "Sparse abstracted motifs: faint frost-fractal shapes in pale cyan, "
-        "simplified arcane sigil fragments in muted lavender, delicate snowflake "
-        "silhouettes scattered minimally. Asymmetric composition, lots of negative "
-        "space. Style references frosted glass etching crossed with ornate book "
-        "endpapers. NO bright magic effects. NO sci-fi detail. "
-        "Suitable as a chat backdrop where white text reads clearly."
+    "mage": _BASE + (
+        "Single muted accent color: dusty cool blue RGB(70,95,130). "
+        "A few abstract crystalline fractures and angular geometric traces "
+        "barely visible against the dark base. Asymmetric composition. Like a "
+        "GitHub repo header for a mathematical algorithm library."
     ),
-    "paladin": (
-        "Subtle designery wallpaper texture, 2:1 horizontal aspect ratio. "
-        "Deep ochre-and-charcoal watercolor wash with parchment grain. "
-        "Sparse heraldic motifs: faint cross-and-laurel fragments in muted gold leaf, "
-        "simplified shield outlines in dusty bronze, one delicate sunburst tucked "
-        "into a corner. Asymmetric, lots of negative space. Style references "
-        "medieval illuminated manuscripts crossed with boutique stationery. "
-        "NO bright gold gleam, NO realistic armor. "
-        "Suitable as a chat backdrop where white text reads clearly."
+    "paladin": _BASE + (
+        "Single muted accent color: dusty olive-gold RGB(115,100,55). "
+        "A few abstract heraldic fragments and faint geometric flourishes barely "
+        "visible against the dark base. Asymmetric composition. Like a GitHub "
+        "repo header for a security audit toolkit."
+    ),
+    "shaman": _BASE + (
+        "Single muted accent color: dusty teal RGB(55,90,100). "
+        "A few faint elemental wave traces and abstract symbol fragments barely "
+        "visible against the dark base. Asymmetric composition. Like a GitHub "
+        "repo header for a distributed systems library."
+    ),
+    "priest": _BASE + (
+        "Single muted accent color: faded warm cream RGB(120,115,95). "
+        "A few abstract radial light traces barely visible against the dark base. "
+        "Asymmetric composition. Like a GitHub repo header for a documentation "
+        "static-site generator."
+    ),
+    "rogue": _BASE + (
+        "Single muted accent color: dusty tan RGB(105,95,75). "
+        "A few faint dagger-edge traces and abstract leather grain patterns "
+        "barely visible against the dark base. Asymmetric composition. Like a "
+        "GitHub repo header for a privacy-focused tool."
+    ),
+    "hunter": _BASE + (
+        "Single muted accent color: weathered umber RGB(95,75,55). "
+        "A few faint arrow traces and abstract wood-grain patterns barely "
+        "visible against the dark base. Asymmetric composition. Like a GitHub "
+        "repo header for a tracking/observability library."
+    ),
+    "warrior": _BASE + (
+        "Single muted accent color: rust red RGB(110,55,50). "
+        "A few faint blade-edge streaks and abstract impact marks barely visible "
+        "against the dark base. Asymmetric composition. Like a GitHub repo "
+        "header for a low-level performance library."
     ),
 }
 
