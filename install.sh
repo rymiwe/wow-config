@@ -155,11 +155,49 @@ if [[ -f "$SRC_TPL/Config.wtf" ]]; then
     fi
 fi
 
+# Auto-install companion addons via CurseBreaker (CLI addon manager).
+# Replaces the WoWUp-CF "open the GUI, paste import string" step. CurseBreaker
+# is placed in <wow>/_anniversary_/ and can be re-run later (./CurseBreaker)
+# to update all addons. One-time download ~23MB.
+ANN_DIR="$WOW/_anniversary_"
+CB_EXE="$ANN_DIR/CurseBreaker"
+if [[ ! -x "$CB_EXE" || "$MODE" == "fresh" ]]; then
+    echo
+    echo "Downloading CurseBreaker (CLI addon manager)..."
+    case "$(uname -s)" in
+        Linux*)
+            curl -fsSL "https://github.com/AcidWeb/CurseBreaker/releases/latest/download/CurseBreaker-linux.gz" -o "$CB_EXE.gz" \
+                && gunzip -f "$CB_EXE.gz" \
+                && chmod +x "$CB_EXE" \
+                || echo "WARN: CurseBreaker download failed; install companion addons manually." >&2
+            ;;
+        Darwin*)
+            tmpzip="$(mktemp -t cb-XXXXXX.zip)"
+            curl -fsSL "https://github.com/AcidWeb/CurseBreaker/releases/latest/download/CurseBreaker-macos.zip" -o "$tmpzip" \
+                && unzip -qo "$tmpzip" -d "$ANN_DIR" \
+                && chmod +x "$CB_EXE" \
+                || echo "WARN: CurseBreaker download failed; install companion addons manually." >&2
+            rm -f "$tmpzip"
+            ;;
+        *)
+            echo "WARN: Unrecognized OS '$(uname -s)' for CurseBreaker download; install companion addons manually." >&2
+            ;;
+    esac
+fi
+if [[ -x "$CB_EXE" ]]; then
+    echo
+    echo "Installing companion addons (ElvUI, WeakAuras, BadBoy, OPie, Questie)..."
+    # CurseBreaker auto-detects Anniversary client from cwd folder name.
+    (cd "$ANN_DIR" && "$CB_EXE" install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 wowi:9094 gh:Questie/Questie) \
+        || echo "WARN: Some addons may have failed; re-run $CB_EXE manually to retry." >&2
+    echo
+    echo "Note: TSM (TradeSkillMaster) is not on free addon sources CurseBreaker supports."
+    echo "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
+fi
+
 echo
 echo "Install complete. Next steps:"
-echo "  1. Open WoWUp-CF, then Options > Import Addons. Get the import string with:"
-echo "       curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt | wl-copy"
-echo "     (use xclip -selection clipboard on X11). Paste into WoWUp-CF and click Import."
-echo "  2. Launch WoW and log in - SetupCore runs /setupbars on first login."
-echo "  3. Bind OPie rings: in-game /opie -> Ring Bindings -> assign M4/M5 manually (one-time)."
+echo "  1. Launch WoW and log in - SetupCore runs /setupbars on first login."
+echo "  2. Bind OPie rings: in-game /opie -> Ring Bindings -> assign M4/M5 manually (one-time per character)."
+echo "  3. (Optional) Install TSM from CurseForge if you use the Auction House."
 echo "  4. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"

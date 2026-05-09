@@ -157,29 +157,37 @@ try {
         }
     }
 
-    # WoWUp-CF (CurseForge fork) — addon manager for the recommended companion stack.
-    # Skip if already installed; download + silent-install otherwise.
-    $wowupExe = "${env:LOCALAPPDATA}\WowUp-CF\WowUp-CF.exe"
-    if (-not (Test-Path $wowupExe) -or $Mode -eq "fresh") {
+    # Auto-install companion addons via CurseBreaker (CLI addon manager).
+    # Replaces the WoWUp-CF "open the GUI, paste import string, click Import" step.
+    # CurseBreaker is placed in <wow>/_anniversary_/ and can be re-run later to
+    # update all installed addons (./CurseBreaker.exe). One-time download ~24MB.
+    $anniversaryDir = Join-Path $wow "_anniversary_"
+    $cbExe = Join-Path $anniversaryDir "CurseBreaker.exe"
+    if (-not (Test-Path $cbExe) -or $Mode -eq "fresh") {
         Write-Host ""
-        Write-Host "Installing WoWUp-CF (addon manager for ElvUI/WeakAuras/etc.)..."
+        Write-Host "Downloading CurseBreaker (CLI addon manager)..."
         try {
-            $release = Invoke-RestMethod -Uri "https://api.github.com/repos/WowUp/WowUp.CF/releases/latest" -UseBasicParsing
-            $asset = $release.assets | Where-Object { $_.name -match 'WowUp-CF-Setup.*\.exe$' } | Select-Object -First 1
-            if ($asset) {
-                $installerPath = Join-Path $env:TEMP $asset.name
-                Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $installerPath -UseBasicParsing
-                Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
-                Remove-Item $installerPath -Force -ErrorAction SilentlyContinue
-                Write-Host "WoWUp-CF installed. Open it later and bulk-import templates/wowup-addons.txt"
-            } else {
-                Write-Warning "WoWUp-CF release asset not found; install manually from https://github.com/WowUp/WowUp.CF/releases"
-            }
+            $cbUrl = "https://github.com/AcidWeb/CurseBreaker/releases/latest/download/CurseBreaker.exe"
+            Invoke-WebRequest -Uri $cbUrl -OutFile $cbExe -UseBasicParsing
+            Write-Host "CurseBreaker installed at $cbExe"
         } catch {
-            Write-Warning "WoWUp-CF download failed: $_. Install manually from https://github.com/WowUp/WowUp.CF/releases"
+            Write-Warning "CurseBreaker download failed: $_. Install companion addons manually or from https://github.com/AcidWeb/CurseBreaker/releases"
         }
-    } else {
-        Write-Host "WoWUp-CF already installed at $wowupExe"
+    }
+    if (Test-Path $cbExe) {
+        Write-Host ""
+        Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, OPie, Questie)..."
+        Push-Location $anniversaryDir
+        try {
+            # CurseBreaker auto-detects the Anniversary client from the cwd folder name.
+            # -i flag disables the client-version check (defensive — auto-detection is reliable).
+            & $cbExe install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 wowi:9094 gh:Questie/Questie
+        } finally {
+            Pop-Location
+        }
+        Write-Host ""
+        Write-Host "Note: TSM (TradeSkillMaster) is not on free addon sources CurseBreaker supports."
+        Write-Host "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
     }
 
     # Auto-checkpoint Scheduled Task — runs scripts/watch.ps1 on logon (hidden,
@@ -194,9 +202,10 @@ try {
 
     Write-Host ""
     Write-Host "Install complete. Next steps:"
-    Write-Host "  1. Open WoWUp-CF -> Options -> Import Addons -> paste contents of templates/wowup-addons.txt"
-    Write-Host "  2. Launch WoW, log in - SetupCore runs /setupbars automatically on first login"
-    Write-Host "  3. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"
+    Write-Host "  1. Launch WoW, log in - SetupCore runs /setupbars automatically on first login"
+    Write-Host "  2. /opie -> Ring Bindings -> assign each ring to M4/M5 (one-time per character)"
+    Write-Host "  3. (Optional) Install TSM from CurseForge if you use the Auction House"
+    Write-Host "  4. (Optional) Import TSM groups via /tsm UI from templates/tsm-groups/"
 }
 finally {
     if (Test-Path $tempDir) { Remove-Item -Recurse -Force $tempDir }

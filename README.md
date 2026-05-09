@@ -34,24 +34,17 @@ curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | W
 curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | bash -s -- --wow-dir "/path/to/World of Warcraft"
 ```
 
-The installer copies our custom addons (`SetupCore`, `ChatAnchor`, `ShamanSetup`, `DruidSetup`, `HunterSetup`, `PaladinSetup`, `WarriorSetup`), seeds bindings + ElvUI layout + Config.wtf CVar defaults, and flips an auto-setup flag so `/setupbars` runs on first login.
+The installer:
+1. Copies our custom addons (`SetupCore`, `ChatAnchor`, `ShamanSetup`, `DruidSetup`, `HunterSetup`, `PaladinSetup`, `WarriorSetup`)
+2. Seeds bindings + ElvUI layout + Config.wtf CVar defaults
+3. Flips an auto-setup flag so `/setupbars` runs on first login
+4. **Downloads [CurseBreaker](https://github.com/AcidWeb/CurseBreaker) (~24MB) and bulk-installs companion addons**: ElvUI (Tukui), WeakAuras (GitHub), BadBoy (WoWInterface), OPie (WoWInterface), Questie (GitHub). No manual import-string step.
 
-### Step 2 — Bulk-install companion addons via WoWUp-CF
+CurseBreaker is placed at `<wow>/_anniversary_/CurseBreaker(.exe)` and you can re-run it later to update all installed addons (`./CurseBreaker.exe` from that directory, or `./CurseBreaker` on Linux/Mac).
 
-Our installer doesn't fetch ElvUI / WeakAuras / OPie etc. — those come from WoWUp-CF. **Install [WoWUp-CF](https://github.com/WowUp/WowUp.CF/releases)** if you don't have it (Windows: `install.ps1` does this for you; Linux/Steam Deck: install manually — Wine, Bottles, or any cross-platform release).
+> **TSM caveat**: TradeSkillMaster isn't on free addon sources CurseBreaker supports (it's distributed via TSM's own desktop app + CurseForge, neither of which CurseBreaker integrates with for free). Install [TSM manually from CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you want it; otherwise skip.
 
-Then copy the import string and paste into WoWUp:
-
-| Platform | Get the import string |
-|---|---|
-| **Windows** | `iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt" \| Set-Clipboard` |
-| **Linux/Steam Deck (Wayland)** | `curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt \| wl-copy` |
-| **Linux (X11)** | `curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt \| xclip -selection clipboard` |
-| **Any** | Open <https://raw.githubusercontent.com/rymiwe/wow-config/main/templates/wowup-addons.txt>, select-all, copy |
-
-Then in WoWUp-CF: **Options** → **Import Addons** → paste → **Import**. Installs ElvUI + WeakAuras + BadBoy + OPie + TSM + Questie in one batch (~1-2 min).
-
-### Step 3 — Launch WoW and log in
+### Step 2 — Launch WoW and log in
 
 SetupCore runs your class's setup automatically on first login. Watch chat for:
 ```
@@ -65,13 +58,13 @@ SetupCore set N CVars
 
 If the **ElvUI install wizard** sneaks past the auto-suppression: **close it with the X**. Don't click "Install" / "Apply Layout" — it would wipe the layout we just deployed.
 
-### Step 4 — Bind OPie rings (one-time)
+### Step 3 — Bind OPie rings (one-time)
 
 For each class addon's OPie rings: `/opie` → Ring Bindings → find the ring → click binding → press M4 (primary class utility) or M5 (secondary).
 
 OPie 8.x doesn't auto-bind mouse buttons via the `hotkey` field. One-time chore per character, after which they persist.
 
-### Step 5 — (Optional) Import TSM groups
+### Step 4 — (Optional) Install TSM + import TSM groups
 
 If you use TSM: open `/tsm` → Groups → Import / Export → paste each `.txt` file from <https://github.com/rymiwe/wow-config/tree/main/templates/tsm-groups>. See that folder's README for click-by-click steps.
 
@@ -116,18 +109,21 @@ Generated macros are named `SC_<spellname>` and re-edited (not duplicated) on su
 
 ## Recommended companion addons
 
-Install **WoWUp-CF** (the CurseForge-flavored fork) — has CurseForge enabled out of the box, no API key required, includes addons not on Wago: <https://github.com/WowUp/WowUp.CF/releases>
+The installer auto-installs these via [CurseBreaker](https://github.com/AcidWeb/CurseBreaker) — **you don't have to do anything**, just run `install.ps1`/`install.sh`. Listed here for context:
 
-> **Note:** the Wago-only WoWUp from `wowup.io` does NOT include CurseForge access. Use the `-CF` build above to install the full recommended stack including OPie.
+**Core stack** (auto-installed):
+- **ElvUI** — UI framework. Required; our config is built around it. (Tukui)
+- **WeakAuras** — cooldown / aura tracker. (GitHub releases)
+- **BadBoy** — kills 80% of in-game spam (gold sellers, RMT, boost spam). Single biggest signal-to-noise win. (WoWInterface)
+- **OPie** — radial menu addon. We use it for class-specific utility rings (totems, blessings, aspects, shouts, etc.). (WoWInterface)
+- **Questie** — quest tracker on minimap and world map. (GitHub releases)
 
-**Core stack:**
-- **ElvUI** — UI framework. Required; our config is built around it.
-- **WeakAuras** — cooldown / aura tracker.
-- **BadBoy** — kills 80% of in-game spam (gold sellers, RMT, boost spam). Single biggest signal-to-noise win.
-- **OPie** — radial menu addon. Recommended for putting non-time-sensitive abilities (mounts, buff totems, hearthstones, consumables) into hold-to-open rings instead of consuming bar slots. Free real estate.
-- **TradeSkillMaster** — auction house replacement. Blizzard's default AH UI is essentially unusable; TSM is the standard tool even for casual players who occasionally buy/sell.
+**Manual install** (CurseBreaker doesn't support free):
+- **TradeSkillMaster** — auction house replacement. Install from [CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you use the AH. Then import groups via [`templates/tsm-groups/`](templates/tsm-groups/).
 
-**Optional (skip unless you hit the specific pain):**
+**Optional alternative — WoWUp-CF (GUI manager)**: if you prefer a GUI for browsing/managing addons over CurseBreaker's CLI, install [WoWUp-CF](https://github.com/WowUp/WowUp.CF/releases) and bulk-import [`templates/wowup-addons.txt`](templates/wowup-addons.txt). The two managers can coexist but watching for double-updates is annoying — pick one.
+
+**Optional individual addons (skip unless you hit the specific pain)**:
 - **Prat-3.0** — chat tab management; ElvUI handles most of this so usually skip
 - **BadBoy_Levels / _Guilded / _CCleaner** — only if BadBoy alone leaks spam through
 - **Leave Spam Channels** — `SetupCore` already does this per-character on first login, so usually skip
