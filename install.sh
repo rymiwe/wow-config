@@ -234,6 +234,7 @@ echo "      Install via https://www.curseforge.com/wow/addons/trade-skill-master
 echo
 echo "Install complete. Next steps:"
 echo "  1. Launch WoW and log in - SetupCore runs /setupbars on first login."
-echo "  2. Bind OPie rings: in-game /opie -> Ring Bindings -> assign M4/M5 manually (one-time per character)."
+echo "  2. OPie rings auto-bind to M4 (primary) and M5 (secondary) on first login."
+echo "     If a ring isn't bound, /opie -> Ring Bindings to set it manually (overrides persist)."
 echo "  3. (Optional) Install TSM from CurseForge if you use the Auction House."
 echo "  4. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"

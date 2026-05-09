@@ -257,7 +257,8 @@ try {
     Write-Host ""
     Write-Host "Install complete. Next steps:"
     Write-Host "  1. Launch WoW, log in - SetupCore runs /setupbars automatically on first login"
-    Write-Host "  2. /opie -> Ring Bindings -> assign each ring to M4/M5 (one-time per character)"
+    Write-Host "  2. OPie rings auto-bind to M4 (primary) and M5 (secondary) on first login."
+    Write-Host "     If a ring isn't bound, /opie -> Ring Bindings to set manually (overrides persist)."
     Write-Host "  3. (Optional) Install TSM from CurseForge if you use the Auction House"
     Write-Host "  4. (Optional) Import TSM groups via /tsm UI from templates/tsm-groups/"
 }

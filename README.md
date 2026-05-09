@@ -61,11 +61,11 @@ SetupCore set N CVars
 
 If the **ElvUI install wizard** sneaks past the auto-suppression: **close it with the X**. Don't click "Install" / "Apply Layout" — it would wipe the layout we just deployed.
 
-### Step 3 — Bind OPie rings (one-time)
+### Step 3 — OPie rings (auto-bound)
 
-For each class addon's OPie rings: `/opie` → Ring Bindings → find the ring → click binding → press M4 (primary class utility) or M5 (secondary).
+OPie ring bindings auto-apply on first login: **M4 = primary class utility ring** (Totems, Buffs, Aspects, Blessings, Shouts), **M5 = secondary** (Weapon Enchants, Forms, Pet, Auras, Stances). Hold the bound mouse button to open the ring; release on a slice to cast.
 
-OPie 8.x doesn't auto-bind mouse buttons via the `hotkey` field. One-time chore per character, after which they persist.
+If a ring doesn't bind for some reason (existing OPie overrides from a prior install can stick), open `/opie` → **Ring Bindings**, find the ring, click the binding cell, press the desired key. Manual overrides persist.
 
 ### Step 4 — (Optional) Install TSM + import TSM groups
 
