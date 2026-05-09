@@ -7,6 +7,14 @@
 
 local TEXTURE_PATH = "Interface\\AddOns\\ChatPanelThemes\\Media\\"
 
+-- Per-character overrides take precedence over per-class defaults. Add custom
+-- entries here for any character that should get a personalized backdrop
+-- (kid's Druid, wife's Warlock, etc.). Falls through to CLASS_TEXTURE if no
+-- character-specific entry.
+local CHAR_TEXTURE = {
+    Ocisly = "ocisly",  -- kid's Balance Druid: pugs + strawberries + moons
+}
+
 local CLASS_TEXTURE = {
     DRUID = "druid",
 }
@@ -17,8 +25,9 @@ local CLASS_TEXTURE = {
 local OVERLAY_ALPHA = 1.0
 
 local function ApplyTheme()
+    local char = UnitName("player")
     local _, class = UnitClass("player")
-    local name = CLASS_TEXTURE[class]
+    local name = CHAR_TEXTURE[char] or CLASS_TEXTURE[class]
     if not name then return end
 
     local panel = _G.LeftChatPanel
@@ -45,6 +54,8 @@ end)
 SLASH_CHATPANELTHEME1 = "/chatpaneltheme"
 SlashCmdList.CHATPANELTHEME = function()
     ApplyTheme()
+    local char = UnitName("player")
     local _, class = UnitClass("player")
-    print("|cff66ff66ChatPanelThemes:|r class="..tostring(class)..", texture="..tostring(CLASS_TEXTURE[class] or "<none mapped>"))
+    local name = CHAR_TEXTURE[char] or CLASS_TEXTURE[class]
+    print("|cff66ff66ChatPanelThemes:|r char="..tostring(char)..", class="..tostring(class)..", texture="..tostring(name or "<none mapped>"))
 end
