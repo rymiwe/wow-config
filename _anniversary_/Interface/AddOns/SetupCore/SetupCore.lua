@@ -420,6 +420,64 @@ function SetupCore:PlaceSpell(name, bar, btn, template)
     return true
 end
 
+-- Fill every BOUND-but-empty bar slot with a placeholder macro so the keyboard
+-- shape stays visible at low levels (when most slots are unfilled because the
+-- spell isn't trained yet). Without this + showGrid=false, empty buttons just
+-- don't render, leaving holes in the keyboard-mirror layout.
+--
+-- The placeholder is a per-character macro named " " (single space) with an
+-- empty body and a question-mark icon. Pressing it does nothing. As the player
+-- trains spells, real spells overlay the placeholders. Idempotent: only fills
+-- slots that are currently empty.
+--
+-- The set of "bound" slots is derived from the BINDINGS table — any binding
+-- whose action is ACTIONBUTTONn or MULTIACTIONBARxBUTTONn maps to a bar slot
+-- we want visible.
+function SetupCore:FillEmptyBoundSlots()
+    local placeholderName = " "
+    local placeholderIcon = "INV_Misc_QuestionMark"
+    local idx = self:EnsureRawMacro(placeholderName, "", placeholderIcon)
+    if not idx then
+        return 0  -- macro slots full; EnsureRawMacro already printed warning
+    end
+
+    -- Map MULTIACTIONBARn (Blizzard naming) to ElvUI bar number.
+    local barMap = {["3"]=3, ["4"]=4, ["2"]=5}
+    local slots = {}
+    for _, b in ipairs(BINDINGS) do
+        local action = b[2]
+        if action then
+            local n = action:match("^ACTIONBUTTON(%d+)$")
+            if n then
+                slots[#slots+1] = {1, tonumber(n)}
+            else
+                local mb, btn = action:match("^MULTIACTIONBAR(%d+)BUTTON(%d+)$")
+                if mb and barMap[mb] then
+                    slots[#slots+1] = {barMap[mb], tonumber(btn)}
+                end
+            end
+        end
+    end
+
+    local placed = 0
+    for _, s in ipairs(slots) do
+        local bar, btn = s[1], s[2]
+        local frame = _G["ElvUI_Bar"..bar.."Button"..btn]
+        if frame then
+            local slotIdx = frame:GetAttribute("action")
+            if slotIdx and not GetActionInfo(slotIdx) then
+                if self:PlaceMacro(placeholderName, bar, btn) then
+                    placed = placed + 1
+                end
+            end
+        end
+    end
+    if placed > 0 then
+        print(string.format("|cff999999SetupCore|r placed %d visual placeholders on empty bound slots", placed))
+    end
+    return placed
+end
+
 -- Evict any "Attack" auto-toggle placement from ALL bars (including Bar 10
 -- which ClearAllBars preserves for consumables). Blizzard auto-places Attack
 -- on new characters; per auto_attack_no_slot.md it never belongs on a bar.
@@ -530,6 +588,10 @@ function SetupCore:ApplyLayout(layout, ignore, racials)
     local mapped = {}
     for _, item in ipairs(layout) do mapped[item[1]] = true end
     ignore = ignore or {}
+
+    -- Fill any remaining empty bound slots with the visual placeholder.
+    self:FillEmptyBoundSlots()
+
     local orphans, seen = {}, {}
     for j = 1, 200 do
         local sname = GetSpellBookItemName(j, "spell")
