@@ -164,7 +164,7 @@ def gen_druid():
         alpha = random.randint(140, 220)
         draw_leaf(draw, cx, cy, size, angle, color, alpha)
     img = img.filter(ImageFilter.GaussianBlur(radius=0.8))
-    img = img.transpose(Image.FLIP_TOP_BOTTOM)
+    # Pillow TGA writes top-down already; do NOT flip (was inverting shapes).
     return img
 
 def gen_ocisly():
@@ -200,7 +200,7 @@ def gen_ocisly():
         size = random.randint(38, 50)
         draw_pug(img, cx, cy, size)
     # WoW reads TGA top-down; Pillow writes bottom-up.
-    img = img.transpose(Image.FLIP_TOP_BOTTOM)
+    # Pillow TGA writes top-down already; do NOT flip (was inverting shapes).
     return img
 
 # ---------------------------------------------------------------------------
