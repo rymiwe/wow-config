@@ -86,16 +86,26 @@ local CVARS = {
 -- Generated macros are named "SC_<spellNameNoSpaces>" so they're idempotent
 -- across re-runs of /setupbars.
 local MACRO_TEMPLATES = {
-    -- Heal/buff target priority (community standard for healers):
-    -- focus -> mouseover -> current target -> self
-    -- Why: focus is "I deliberately set this person as priority" (often the tank);
-    -- mouseover wins over current target because the cursor is an explicit gesture
-    -- and your current target is usually an enemy you're attacking.
+    -- Target priority convention (focus reserved for CC):
+    --   help: mouseover -> current target -> self
+    --   harm: mouseover -> current target
+    -- Focus is intentionally OUT of the help/harm chains — convention is to use
+    -- focus exclusively as a CC target (sheep, sap, root, hibernate). The
+    -- focus-mouseover-harm and interrupt templates put @focus first because
+    -- those spells SHOULD hit the CC target.
     ["mouseover-help"] = function(spell)
-        return "#showtooltip\n/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] " .. spell
+        return "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] " .. spell
     end,
     ["mouseover-harm"] = function(spell)
         return "#showtooltip\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
+    end,
+    -- Like mouseover-harm but adds /startattack so auto-attack engages your
+    -- CURRENT target while the spell lands on mouseover (or current as fallback).
+    -- Use for offensive nukes/DoTs (Moonfire, Wrath, Lightning Bolt, etc.).
+    -- Don't use for CC spells (Entangling Roots, Hibernate) — startattack would
+    -- break the CC by triggering melee swings on the rooted/sleeping mob.
+    ["nuke-mouseover"] = function(spell)
+        return "#showtooltip\n/startattack\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
     end,
     ["focus-mouseover-harm"] = function(spell)
         return "#showtooltip\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell

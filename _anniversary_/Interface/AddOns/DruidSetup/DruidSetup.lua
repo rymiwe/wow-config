@@ -26,8 +26,8 @@ local LAYOUT = {
     -- MAIN TOP (Bar 1) — frequency-weighted: most-spammed spells on plain keys
     -- (regardless of cast/instant), less-frequent on Alt-modifier per Asog/kid
     -- ergonomics principle. ` left empty: Druid has no baseline interrupt.
-    {"Wrath",                  1, 2, "startattack"},      -- L1    1   (cast — most-spammed L1-30)
-    {"Moonfire",               1, 3, "startattack"},      -- L4    2   (instant DoT — applied per-pull)
+    {"Wrath",                  1, 2, "nuke-mouseover"},   -- L1    1   (cast — most-spammed L1-30)
+    {"Moonfire",               1, 3, "nuke-mouseover"},   -- L4    2   (instant DoT — applied per-pull)
     {"Faerie Fire",            1, 4, "mouseover-harm"},   -- L18   3   (instant armor debuff)
     -- 4, 5 left empty (placeholders fill the keyboard shape)
     -- QERT row (Q/E/R/T): heals (mouseover-friendly) — most-frequent for any spec
@@ -43,8 +43,8 @@ local LAYOUT = {
 
     -- ALT TOP (Bar 4) — less-frequent damage casts + CC + utility heals.
     -- Wrath moved off Alt-1 to plain key 1 (frequency-first); Starfire takes Alt-1.
-    {"Starfire",               4, 2},                     -- L20   Alt-1 (slow Balance nuke)
-    {"Insect Swarm",           4, 3},                     -- L20   Alt-2 (Balance talent DoT)
+    {"Starfire",               4, 2, "nuke-mouseover"},   -- L20   Alt-1 (slow Balance nuke)
+    {"Insect Swarm",           4, 3, "nuke-mouseover"},   -- L20   Alt-2 (Balance talent DoT)
     {"Hurricane",              4, 4, "self-cast"},        -- L40   Alt-3 (channeled AOE — Balance)
     {"Entangling Roots",       4, 5, "mouseover-harm"},   -- L8    Alt-4 (CC root — cast)
     {"Hibernate",              4, 6, "mouseover-harm"},   -- L18   Alt-5 (CC sleep — cast)
