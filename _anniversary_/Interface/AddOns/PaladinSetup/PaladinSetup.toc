@@ -1,7 +1,7 @@
-## Interface: 11508, 20505, 50503, 120005
+## Interface: 20505
 ## Title: Paladin Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout (Ret-leaning generalist)
-## Version: 1.0
+## Version: 1.1
 ## Dependencies: SetupCore
 ## OptionalDeps: OPie
 

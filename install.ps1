@@ -100,6 +100,44 @@ try {
         Write-Host "Installed addon: $a"
     }
 
+    # Auto-detect WoW Anniversary client Interface from .build.info, rewrite each
+    # custom addon's TOC Interface line to match. Handles minor version bumps
+    # (2.5.5 -> 2.5.6 -> ...) without manual TOC edits.
+    function Get-AnniversaryInterface {
+        param([string]$WowDir)
+        $buildInfo = Join-Path $WowDir ".build.info"
+        if (-not (Test-Path $buildInfo)) { return "20505" }
+        $lines = Get-Content $buildInfo
+        if ($lines.Count -lt 2) { return "20505" }
+        $header = $lines[0] -split '\|'
+        $verIdx = -1; $prodIdx = -1
+        for ($i = 0; $i -lt $header.Count; $i++) {
+            if ($header[$i] -like 'Version!*')      { $verIdx  = $i }
+            elseif ($header[$i] -like 'Product!*')  { $prodIdx = $i }
+        }
+        if ($verIdx -lt 0 -or $prodIdx -lt 0) { return "20505" }
+        foreach ($line in ($lines | Select-Object -Skip 1)) {
+            $cols = $line -split '\|'
+            if ($cols.Count -gt $prodIdx -and $cols[$prodIdx] -eq "wow_anniversary") {
+                if ($cols[$verIdx] -match '^(\d+)\.(\d+)\.(\d+)') {
+                    return ('{0}{1:D2}{2:D2}' -f [int]$matches[1], [int]$matches[2], [int]$matches[3])
+                }
+            }
+        }
+        return "20505"
+    }
+
+    $ifaceNum = Get-AnniversaryInterface -WowDir $wow
+    Write-Host "Detected Anniversary client Interface: $ifaceNum"
+    foreach ($a in $addons) {
+        $toc = Join-Path $dstAddons "$a\$a.toc"
+        if (Test-Path $toc) {
+            $content = Get-Content $toc
+            $newContent = $content -replace '^## Interface:.*', "## Interface: $ifaceNum"
+            $newContent | Set-Content -Path $toc
+        }
+    }
+
     # Templates respect mode.
     $setupSV = Join-Path $dstSV "SetupCore.lua"
     if ($Mode -eq "fresh" -or -not (Test-Path $setupSV)) {

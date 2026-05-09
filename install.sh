@@ -109,6 +109,47 @@ for a in "${ADDONS[@]}"; do
     echo "Installed addon: $a"
 done
 
+# Auto-detect WoW Anniversary client Interface from .build.info, rewrite each
+# custom addon's TOC Interface line to match. Handles minor version bumps
+# (2.5.5 -> 2.5.6 -> ...) without manual TOC edits. Falls back to 20505 if
+# .build.info is missing or unparseable.
+detect_anniversary_interface() {
+    local build_info="$WOW/.build.info"
+    [[ -f "$build_info" ]] || { echo "20505"; return; }
+    local header version_col= product_col=
+    IFS='|' read -ra cols < "$build_info"
+    for i in "${!cols[@]}"; do
+        case "${cols[$i]}" in
+            Version!*) version_col=$i ;;
+            Product!*) product_col=$i ;;
+        esac
+    done
+    [[ -z "$version_col" || -z "$product_col" ]] && { echo "20505"; return; }
+    local version=""
+    while IFS='|' read -ra row; do
+        if [[ "${row[$product_col]:-}" == "wow_anniversary" ]]; then
+            version="${row[$version_col]}"
+            break
+        fi
+    done < <(tail -n +2 "$build_info")
+    if [[ "$version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+        printf "%d%02d%02d\n" "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}" "${BASH_REMATCH[3]}"
+    else
+        echo "20505"
+    fi
+}
+
+INTERFACE_NUM="$(detect_anniversary_interface)"
+echo "Detected Anniversary client Interface: $INTERFACE_NUM"
+for a in "${ADDONS[@]}"; do
+    toc="$DST_ADDONS/$a/$a.toc"
+    if [[ -f "$toc" ]]; then
+        tmp="$(mktemp)"
+        awk -v iface="$INTERFACE_NUM" '/^## Interface:/ {print "## Interface: " iface; next} {print}' "$toc" > "$tmp"
+        mv "$tmp" "$toc"
+    fi
+done
+
 if [[ "$MODE" == "fresh" || ! -f "$DST_SV/SetupCore.lua" ]]; then
     cp "$SRC_TPL/SetupCore.lua" "$DST_SV/SetupCore.lua"
     echo "Seeded SetupCoreDB.needsSetup = true"

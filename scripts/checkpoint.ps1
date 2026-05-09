@@ -55,6 +55,12 @@ foreach ($p in $paths) {
     }
 }
 
+# Auto-bump TOC Version field on any addon with staged changes (idempotent;
+# no-op if no addon dirs touched). Runs BEFORE the staged-shortstat check so
+# the bumped TOCs are part of the same commit.
+$bumpScript = Join-Path $PSScriptRoot "bump-versions.ps1"
+if (Test-Path $bumpScript) { & $bumpScript -RepoRoot $RepoPath }
+
 # Anything staged?
 $diff = git diff --cached --shortstat
 if (-not $diff) {
