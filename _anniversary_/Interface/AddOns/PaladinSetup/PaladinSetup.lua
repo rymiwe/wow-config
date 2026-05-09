@@ -155,6 +155,9 @@ SetupCore:RegisterClass("PALADIN", Run, LAYOUT)
 -- Blessings are friend-targeted — OPie casts on cursor target by default.
 -- ===========================================================================
 do
+    -- Class-conditional: see ShamanSetup for rationale (cross-class M4/M5 collision).
+    local _, class = UnitClass("player")
+    if class ~= "PALADIN" then return end
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 

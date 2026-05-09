@@ -83,7 +83,9 @@ Apply per-spell based on its targeting + role. Don't over-template; if a spell n
 
 Ring slice format: `{id="/cast {{spell:NNN}}", _u="xx"}` — the `{{spell:N}}` macro syntax casts highest known rank automatically. Use 2-letter `_u` IDs for slice uniqueness within the ring.
 
-Ring registration goes in a `do ... end` block at file bottom, AFTER `RegisterClass`. Wrap in `if not (R and R.AddDefaultRing) then return end` so it gracefully no-ops if OPie isn't installed.
+Ring registration goes in a `do ... end` block at file bottom, AFTER `RegisterClass`. Wrap with TWO guards:
+1. **Class check**: `local _, class = UnitClass("player"); if class ~= "<CLASS>" then return end` — OPie bindings are account-wide; registering rings for non-matching classes causes cross-class M4/M5 collisions.
+2. **OPie check**: `if not (R and R.AddDefaultRing) then return end` — gracefully no-ops if OPie isn't installed.
 
 Ring `hotkey` field: `"BUTTON4"` or `"BUTTON5"`. Note the OPie binding currently doesn't auto-apply for mouse buttons (known gap) — friends manually re-bind in `/opie` UI on first run. Until that's fixed, the `hotkey` field still acts as a default suggestion in OPie's binding panel.
 

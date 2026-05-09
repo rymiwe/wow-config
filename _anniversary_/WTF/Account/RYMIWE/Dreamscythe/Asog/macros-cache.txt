@@ -23,6 +23,11 @@ VER 3 0100000000000003 "SC_LesserHealing" "136043"
 #showtooltip
 /cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Lesser Healing Wave
 END
+VER 3 010000000000000A "SC_LightningBolt" "136048"
+#showtooltip
+/startattack
+/cast Lightning Bolt
+END
 VER 3 0100000000000005 "SC_Purge" "136075"
 #showtooltip
 /cast [@mouseover,harm,nodead][harm,nodead] Purge

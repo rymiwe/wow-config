@@ -162,6 +162,9 @@ SetupCore:RegisterClass("HUNTER", Run, LAYOUT)
 -- Uses {{spell:NNN}} macro syntax; OPie resolves to highest known rank.
 -- ===========================================================================
 do
+    -- Class-conditional: see ShamanSetup for rationale (cross-class M4/M5 collision).
+    local _, class = UnitClass("player")
+    if class ~= "HUNTER" then return end
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 

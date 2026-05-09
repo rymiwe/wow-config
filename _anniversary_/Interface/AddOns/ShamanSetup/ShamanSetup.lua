@@ -166,6 +166,11 @@ SetupCore:RegisterClass("SHAMAN", Run, LAYOUT)
 -- the highest known rank, so untrained spells are gracefully skipped/grayed.
 -- ===========================================================================
 do
+    -- Only register rings for actual Shamans. OPie bindings are account-wide,
+    -- so registering for non-Shamans creates cross-class M4/M5 collisions
+    -- (e.g., WarriorStances would override ShamanWeaponEnchants on M5).
+    local _, class = UnitClass("player")
+    if class ~= "SHAMAN" then return end
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 

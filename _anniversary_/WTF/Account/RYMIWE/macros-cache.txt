@@ -32,6 +32,8 @@ VER 3 000000000000001D " " "INV_MISC_QUESTIONMARK"
 /startattack
 /cast Bloodthirst
 END
+VER 3 0000000000000023 " " "135867"
+END
 VER 3 0000000000000019 " druid-travel" "132144"
 #showtooltip Travel Form
 /cancelform [noform:2/4]

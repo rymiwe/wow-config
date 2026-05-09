@@ -148,6 +148,9 @@ SetupCore:RegisterClass("DRUID", Run, LAYOUT)
 -- See ShamanSetup.lua for pattern reference.
 -- ===========================================================================
 do
+    -- Class-conditional: see ShamanSetup for rationale (cross-class M4/M5 collision).
+    local _, class = UnitClass("player")
+    if class ~= "DRUID" then return end
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 
