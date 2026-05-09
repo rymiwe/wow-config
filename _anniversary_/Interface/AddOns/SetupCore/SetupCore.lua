@@ -435,7 +435,11 @@ end
 -- we want visible.
 function SetupCore:FillEmptyBoundSlots()
     local placeholderName = " "
-    local placeholderIcon = "INV_Misc_QuestionMark"
+    -- Subtle placeholder icon. INV_Misc_QuestionMark (default) is bright yellow
+    -- and visually loud. Gear is neutral grey, low-contrast against bar bg.
+    -- Easy to swap: try Trade_Engineering, INV_Misc_Bag_36, INV_Misc_Note_01,
+    -- or any texture under Interface\Icons\.
+    local placeholderIcon = "Interface\\Icons\\INV_Misc_Gear_02"
     local idx = self:EnsureRawMacro(placeholderName, "", placeholderIcon)
     if not idx then
         return 0  -- macro slots full; EnsureRawMacro already printed warning
