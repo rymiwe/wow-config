@@ -1062,6 +1062,7 @@ nil,
 },
 },
 ["chat"] = {
+["panelBackdrop"] = "LEFT",
 ["tabFontOutline"] = "OUTLINE",
 ["tabSelectorColor"] = {
 ["r"] = 0,
