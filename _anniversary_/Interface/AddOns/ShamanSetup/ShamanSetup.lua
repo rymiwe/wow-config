@@ -29,7 +29,7 @@ local LAYOUT = {
 
     -- MAIN BOTTOM (Bar 3) ==========================================
     -- FG row: buffs (G empty after Gift of the Naaru moved to Alt-G)
-    {"Lightning Shield",       3, 4},                     -- L8    F
+    {"Lightning Shield",       3, 5},                     -- L8    F   (right-aligned)
     -- ZXCVB row: weapon enchants moved to OPie (M5); Ghost Wolf promoted from Alt-F (now instant via talent)
     {"Ghost Wolf",             3, 8},                     -- L16   Z   (instant via Improved Ghost Wolf talent)
     -- C/V/B left empty — startattack template + right-click cover auto-attack

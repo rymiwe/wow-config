@@ -42,8 +42,8 @@ local LAYOUT = {
     {"Immolation Trap",        1, 12},                    -- L16   T   (DoT trap)
 
     -- MAIN BOTTOM (Bar 3) — F/G stings, ZXCVB utility
-    {"Scorpid Sting",          3, 4},                     -- L8    F   (-STR/-AGI debuff)
-    {"Hunter's Mark",          3, 5},                     -- L6    G   (always-on debuff; re-applied often)
+    {"Scorpid Sting",          3, 5},                     -- L8    F   (-STR/-AGI debuff; right-aligned)
+    {"Hunter's Mark",          3, 6},                     -- L6    G   (always-on debuff; re-applied often)
     -- ZXCVB row: utility + auto-attack toggle
     {"Flare",                  3, 8},                     -- L8    Z   (reveals stealth)
     {"Feign Death",            3, 9, "self-cast"},        -- L30   X   (drop combat — high-frequency, prime slot)

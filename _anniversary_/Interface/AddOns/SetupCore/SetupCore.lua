@@ -42,7 +42,7 @@ local BINDINGS = {
     -- Clear default Blizzard binds for unused number keys (no Bar 1 buttons 7,9,...)
     {"6", nil}, {"7", nil}, {"8", nil}, {"9", nil}, {"0", nil}, {"-", nil}, {"=", nil},
     -- Bar 3 (main bottom): F G / Z X C V B
-    {"F", "MULTIACTIONBAR3BUTTON4"}, {"G", "MULTIACTIONBAR3BUTTON5"},
+    {"F", "MULTIACTIONBAR3BUTTON5"}, {"G", "MULTIACTIONBAR3BUTTON6"},  -- right-aligned: F/G end at row's right edge
     {"Z", "MULTIACTIONBAR3BUTTON8"}, {"X", "MULTIACTIONBAR3BUTTON9"},
     {"C", "MULTIACTIONBAR3BUTTON10"}, {"V", "MULTIACTIONBAR3BUTTON11"},
     {"B", "MULTIACTIONBAR3BUTTON12"},

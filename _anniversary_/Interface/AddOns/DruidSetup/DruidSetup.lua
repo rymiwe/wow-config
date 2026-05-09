@@ -37,8 +37,8 @@ local LAYOUT = {
 
     -- MAIN BOTTOM (Bar 3) — F/G = Balance form + utility; ZXCVB = Bear/Cat forms + travel + stealth
     -- F/G row: Balance Moonkin Form + Nature's Swiftness (instant-cast next nature spell)
-    {"Moonkin Form",           3, 4},                     -- L40 Bal F (Balance signature; untrained = empty for Feral/Resto)
-    {"Nature's Swiftness",     3, 5, "self-cast"},        -- L30 Bal/Resto G (instant cast next nature spell; talent-gated)
+    {"Moonkin Form",           3, 5},                     -- L40 Bal F (Balance signature; right-aligned)
+    {"Nature's Swiftness",     3, 6, "self-cast"},        -- L30 Bal/Resto G (instant cast next nature spell; talent-gated)
     -- ZXCVB row: form toggles (Bear/Cat with [noform:N] safety; Travel/Aquatic raw)
     {"Bear Form",              3, 8, "druid-bear-safe"},  -- L10   Z   (won't shift out of Cat)
     {"Cat Form",               3, 9, "druid-cat-safe"},   -- L20   X   (won't shift out of Bear)

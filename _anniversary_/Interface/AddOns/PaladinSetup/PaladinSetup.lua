@@ -39,8 +39,8 @@ local LAYOUT = {
 
     -- MAIN BOTTOM (Bar 3) — F/G seals; ZXCVB defensives + CC
     -- F/G row: primary + secondary seal toggles
-    {"Seal of Righteousness",  3, 4},                     -- L1    F   (default melee damage proc)
-    {"Seal of the Crusader",   3, 5},                     -- L12   G   (judge for armor debuff opener)
+    {"Seal of Righteousness",  3, 5},                     -- L1    F   (default melee damage proc; right-aligned)
+    {"Seal of the Crusader",   3, 6},                     -- L12   G   (judge for armor debuff opener)
     -- ZXCVB row: stuns, defensives, utility
     {"Hammer of Justice",      3, 8},                     -- L8    Z   (6s stun)
     {"Divine Shield",          3, 9, "self-cast"},        -- L18   X   (8s full immunity)

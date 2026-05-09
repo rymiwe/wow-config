@@ -38,8 +38,8 @@ local LAYOUT = {
     {"Rend",                   1, 12},                    -- L4    T   (bleed DoT; Battle/Defensive)
 
     -- MAIN BOTTOM (Bar 3) — F/G/Z stances, X/V/B utility
-    {"Battle Stance",          3, 4},                     -- L1    F   (default stance)
-    {"Defensive Stance",       3, 5},                     -- L10   G   (-10% dmg taken; tank)
+    {"Battle Stance",          3, 5},                     -- L1    F   (default stance; right-aligned)
+    {"Defensive Stance",       3, 6},                     -- L10   G   (-10% dmg taken; tank)
     -- ZXCVB row: third stance + tactical utility
     {"Berserker Stance",       3, 8},                     -- L30   Z   (+crit; AOE/burst)
     {"Sunder Armor",           3, 9},                     -- L10   X   (threat + armor stack)
