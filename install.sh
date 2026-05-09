@@ -186,14 +186,42 @@ if [[ ! -x "$CB_EXE" || "$MODE" == "fresh" ]]; then
 fi
 if [[ -x "$CB_EXE" ]]; then
     echo
-    echo "Installing companion addons (ElvUI, WeakAuras, BadBoy, OPie, Questie)..."
+    echo "Installing companion addons via CurseBreaker (ElvUI, WeakAuras, BadBoy, Questie)..."
     # CurseBreaker auto-detects Anniversary client from cwd folder name.
-    (cd "$ANN_DIR" && "$CB_EXE" install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 wowi:9094 gh:Questie/Questie) \
+    # NOTE: OPie excluded from CurseBreaker - wowi:9094 returns the WRONG legacy
+    # version (Lime 6, Interface 50300, retail-only). WoWInterface API can't
+    # disambiguate multi-release projects. We fetch OPie direct from townlong-yak below.
+    (cd "$ANN_DIR" && "$CB_EXE" install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 gh:Questie/Questie) \
         || echo "WARN: Some addons may have failed; re-run $CB_EXE manually to retry." >&2
-    echo
-    echo "Note: TSM (TradeSkillMaster) is not on free addon sources CurseBreaker supports."
-    echo "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
 fi
+
+# OPie - direct download from townlong-yak (Foxlit's official site).
+# The /addons/gate/<hash>/ URL prefix changes per release, so we scrape the
+# latest from the project page each install.
+ADDONS_DIR="$ANN_DIR/Interface/AddOns"
+echo
+echo "Installing OPie from townlong-yak (CurseBreaker can't get the right version)..."
+opie_page="$(curl -fsSL https://www.townlong-yak.com/addons/opie 2>/dev/null || true)"
+opie_path="$(echo "$opie_page" | grep -oE 'href="/addons/gate/[a-f0-9]+/opie/OPie-[0-9.]+\.zip"' | head -1 | sed -E 's|^href="||; s|"$||')"
+if [[ -n "$opie_path" ]]; then
+    opie_url="https://www.townlong-yak.com${opie_path}"
+    opie_zip="$(mktemp -t opie-XXXXXX.zip)"
+    if curl -fsSL "$opie_url" -o "$opie_zip"; then
+        rm -rf "$ADDONS_DIR/OPie"
+        unzip -qo "$opie_zip" -d "$ADDONS_DIR" \
+            && echo "OPie installed (latest from townlong-yak)" \
+            || echo "WARN: OPie unzip failed; install manually from https://www.townlong-yak.com/addons/opie" >&2
+    else
+        echo "WARN: OPie download failed; install manually from https://www.townlong-yak.com/addons/opie" >&2
+    fi
+    rm -f "$opie_zip"
+else
+    echo "WARN: Could not parse OPie download URL from townlong-yak; install manually from https://www.townlong-yak.com/addons/opie" >&2
+fi
+
+echo
+echo "Note: TSM (TradeSkillMaster) is not on free addon sources we can auto-install."
+echo "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
 
 echo
 echo "Install complete. Next steps:"

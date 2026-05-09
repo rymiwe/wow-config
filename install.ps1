@@ -176,19 +176,48 @@ try {
     }
     if (Test-Path $cbExe) {
         Write-Host ""
-        Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, OPie, Questie)..."
+        Write-Host "Installing companion addons via CurseBreaker (ElvUI, WeakAuras, BadBoy, Questie)..."
         Push-Location $anniversaryDir
         try {
             # CurseBreaker auto-detects the Anniversary client from the cwd folder name.
-            # -i flag disables the client-version check (defensive — auto-detection is reliable).
-            & $cbExe install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 wowi:9094 gh:Questie/Questie
+            # NOTE: OPie excluded from CurseBreaker — wowi:9094 returns the WRONG legacy
+            # version (Lime 6, Interface 50300, retail-only) instead of OPie 8.3.3 with
+            # multi-version support. WoWInterface API can't disambiguate multi-release
+            # projects per CurseBreaker's known issues. We fetch OPie direct from
+            # townlong-yak below.
+            & $cbExe install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 gh:Questie/Questie
         } finally {
             Pop-Location
         }
-        Write-Host ""
-        Write-Host "Note: TSM (TradeSkillMaster) is not on free addon sources CurseBreaker supports."
-        Write-Host "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
     }
+
+    # OPie — direct download from townlong-yak (Foxlit's official site).
+    # The /addons/gate/<hash>/ URL prefix changes per release, so we scrape the
+    # latest from the project page each install.
+    $opieDir = Join-Path $anniversaryDir "Interface\AddOns\OPie"
+    Write-Host ""
+    Write-Host "Installing OPie from townlong-yak (CurseBreaker can't get the right version)..."
+    try {
+        $opiePage = Invoke-WebRequest -Uri "https://www.townlong-yak.com/addons/opie" -UseBasicParsing
+        if ($opiePage.Content -match 'href="(/addons/gate/[a-f0-9]+/opie/OPie-[\d.]+\.zip)"') {
+            $opieUrl = "https://www.townlong-yak.com" + $matches[1]
+            $opieZip = Join-Path $env:TEMP "OPie.zip"
+            Invoke-WebRequest -Uri $opieUrl -OutFile $opieZip -UseBasicParsing
+            $addonsDir = Join-Path $anniversaryDir "Interface\AddOns"
+            if (Test-Path $opieDir) { Remove-Item -Recurse -Force $opieDir }
+            Expand-Archive -Path $opieZip -DestinationPath $addonsDir -Force
+            Remove-Item $opieZip -Force
+            Write-Host "OPie installed (latest from townlong-yak)"
+        } else {
+            Write-Warning "Could not parse OPie download URL from townlong-yak page; install manually from https://www.townlong-yak.com/addons/opie"
+        }
+    } catch {
+        Write-Warning "OPie download failed: $_. Install manually from https://www.townlong-yak.com/addons/opie"
+    }
+
+    Write-Host ""
+    Write-Host "Note: TSM (TradeSkillMaster) is not on free addon sources we can auto-install."
+    Write-Host "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
 
     # Auto-checkpoint Scheduled Task — runs scripts/watch.ps1 on logon (hidden,
     # no terminal). Idempotent: re-running install.ps1 refreshes the task.
