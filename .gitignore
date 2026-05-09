@@ -26,6 +26,14 @@
 !_*/Interface/AddOns/PaladinSetup/**
 !_*/Interface/AddOns/WarriorSetup/
 !_*/Interface/AddOns/WarriorSetup/**
+!_*/Interface/AddOns/MageSetup/
+!_*/Interface/AddOns/MageSetup/**
+!_*/Interface/AddOns/PriestSetup/
+!_*/Interface/AddOns/PriestSetup/**
+!_*/Interface/AddOns/RogueSetup/
+!_*/Interface/AddOns/RogueSetup/**
+!_*/Interface/AddOns/WarlockSetup/
+!_*/Interface/AddOns/WarlockSetup/**
 
 # Distribution (templates and install scripts at repo root)
 !templates/
