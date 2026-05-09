@@ -435,14 +435,14 @@ end
 -- we want visible.
 function SetupCore:FillEmptyBoundSlots()
     local placeholderName = " "
-    -- Subtle placeholder icon. Bare name format (no Interface\Icons\ prefix) —
-    -- the prefixed format silently broke macro creation in TBC Classic. Stick
-    -- to bare names from icons that DEFINITELY exist in TBC. Safe candidates:
-    --   INV_Box_01            - small wooden box (neutral)
-    --   Trade_Engineering     - small wrench (mechanical)
-    --   INV_Misc_QuestionMark - default ? (yellow, loud)
-    -- INV_Misc_Gear_02 didn't exist in TBC, broke this earlier.
-    local placeholderIcon = "INV_Box_01"
+    -- Subtle placeholder icon (file ID, user-chosen). WoW accepts numeric file
+    -- IDs directly via CreateMacro/EditMacro — more reliable than name strings
+    -- which silently fail if the texture isn't in the current client.
+    -- 135864 = the icon rymiwe picked manually in WoW's macro UI as the
+    -- low-contrast placeholder. To change: pick a new icon in-game on the " "
+    -- macro, /reload (or graceful exit), then read the new file ID from
+    -- WTF/Account/<acct>/macros-cache.txt and update this constant.
+    local placeholderIcon = 135864
     local idx = self:EnsureRawMacro(placeholderName, "", placeholderIcon)
     if not idx then
         return 0  -- macro slots full; EnsureRawMacro already printed warning
