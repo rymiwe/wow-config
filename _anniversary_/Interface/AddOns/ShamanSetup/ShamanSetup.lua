@@ -18,7 +18,7 @@ local LAYOUT = {
     -- MAIN TOP (Bar 1) ============================================
     -- Number row: shocks + utility
     {"Earth Shock",            1, 1},                     -- L4    `   (also primary interrupt)
-    {"Flame Shock",            1, 2, "startattack"},      -- L10   1   (opener: DoT + auto-attack engage)
+    {"Flame Shock",            1, 2, "nuke-mouseover"},   -- L10   1   (instant DoT — mouseover spreads to adds while staying engaged with main target)
     {"Frost Shock",            1, 3},                     -- L12   2
     {"Far Sight",              1, 4},                     -- L18   3
     {"Astral Recall",          1, 5},                     -- L30   4
@@ -36,7 +36,7 @@ local LAYOUT = {
 
     -- ALT TOP (Bar 4) ==============================================
     -- Alt-numrow: damage casts
-    {"Lightning Bolt",         4, 2, "startattack"},      -- L1    Alt-1 (startattack ensures L1 Shaman has an opener before Flame Shock at L10)
+    {"Lightning Bolt",         4, 2, "nuke-mouseover"},   -- L1    Alt-1 (cast nuke — mouseover supports kiting / target-swap playstyle)
     {"Chain Lightning",        4, 3},                     -- L32   Alt-2
     {"Water Shield",           4, 4},                     -- L20   Alt-3
     -- Alt-QERT: heals + rez (mouseover-friendly)

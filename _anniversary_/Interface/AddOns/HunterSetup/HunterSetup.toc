@@ -1,7 +1,7 @@
 ## Interface: 20505
 ## Title: Hunter Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout (ranged generalist defaults)
-## Version: 1.1
+## Version: 1.2
 ## Dependencies: SetupCore
 ## OptionalDeps: OPie
 

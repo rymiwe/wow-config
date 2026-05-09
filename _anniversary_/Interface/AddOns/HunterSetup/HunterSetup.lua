@@ -31,7 +31,7 @@ local LAYOUT = {
     -- MAIN TOP (Bar 1) — INSTANTS only on numrow (Auto Shot is the ranged-anchor
     -- exception on `). Cast-time damage (Aimed Shot, Steady Shot) on Alt-numrow.
     {"Auto Shot",              1, 1},                     -- L1    `   (ranged anchor exception; always-ready)
-    {"Serpent Sting",          1, 2, "startattack"},      -- L4    1   (instant DoT opener: engages auto-attack)
+    {"Serpent Sting",          1, 2, "nuke-mouseover"},   -- L4    1   (instant DoT — mouseover spreads DoT across pulls while Auto Shot stays on target)
     {"Arcane Shot",            1, 3},                     -- L6    2   (instant filler)
     {"Concussive Shot",        1, 4},                     -- L8    3   (instant slow / kite)
     {"Multi-Shot",             1, 5},                     -- L18   4   (3-target burst — 0.5s cast, treat as instant)
