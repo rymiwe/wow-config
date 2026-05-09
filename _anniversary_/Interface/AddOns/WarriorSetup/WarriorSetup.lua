@@ -62,8 +62,8 @@ local LAYOUT = {
 
     -- ALT BOTTOM (Bar 5) — defensives + AOE utility
     -- Alt-FG: shield interrupts/blocks (Battle/Defensive)
-    {"Shield Bash",            5, 4},                     -- L16 Battle/Def Alt-F (interrupt)
-    {"Shield Block",           5, 5, "self-cast"},        -- L16 Defensive Alt-G (+block)
+    {"Shield Bash",            5, 5},                     -- L16 Battle/Def Alt-F (interrupt; right-aligned)
+    {"Shield Block",           5, 6, "self-cast"},        -- L16 Defensive Alt-G (+block)
     -- Alt-ZXCVB: defensive cooldowns + AOE shouts
     {"Shield Wall",            5, 8, "self-cast"},        -- L16 Defensive Alt-Z (-75% dmg CD)
     {"Last Stand",             5, 9, "self-cast"},        -- L40 Prot Alt-X (+30% HP CD)

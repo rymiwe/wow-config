@@ -60,8 +60,8 @@ local LAYOUT = {
     {"Innervate",              4, 12, "mouseover-help"},  -- L40   Alt-T (mana donate)
 
     -- ALT BOTTOM (Bar 5) — dispels + defensives + utility
-    {"Cure Poison",            5, 4, "mouseover-help"},   -- L14   Alt-F
-    {"Remove Curse",           5, 5, "mouseover-help"},   -- L24   Alt-G
+    {"Cure Poison",            5, 5, "mouseover-help"},   -- L14   Alt-F (right-aligned)
+    {"Remove Curse",           5, 6, "mouseover-help"},   -- L24   Alt-G
     -- Alt-ZXCVB: combat utility + defensives
     {"Soothe Animal",          5, 8, "mouseover-harm"},   -- L8    Alt-Z (CC enraged beast)
     {"Track Humanoids",        5, 9},                     -- L10   Alt-X (Cat-only tracking)

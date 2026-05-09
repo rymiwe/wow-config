@@ -127,7 +127,7 @@ local TOTEM_CASTER_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin
 -- skip. Asog (Draenei) keeps Gift of the Naaru on Alt-G — established convention.
 local RACIALS = {
     Draenei = {
-        {"Gift of the Naaru", 5, 5, "mouseover-help"},  -- Alt-G: heal slot fallback (Alt-Q heals row full)
+        {"Gift of the Naaru", 5, 6, "mouseover-help"},  -- Alt-G: heal slot fallback (Alt-Q heals row full; right-aligned)
     },
     Tauren = {
         {"War Stomp", 3, 10},                           -- C: combat AOE stun

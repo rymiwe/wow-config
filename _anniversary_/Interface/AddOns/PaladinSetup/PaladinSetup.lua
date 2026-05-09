@@ -62,8 +62,8 @@ local LAYOUT = {
 
     -- ALT BOTTOM (Bar 5) — utility heals + emergency + rez
     -- Alt-FG: hands continued
-    {"Divine Intervention",    5, 4, "mouseover-help"},   -- L30   Alt-F (sacrifice for friend invuln)
-    {"Redemption",             5, 5, "mouseover-help"},   -- L12   Alt-G (out-of-combat rez)
+    {"Divine Intervention",    5, 5, "mouseover-help"},   -- L30   Alt-F (sacrifice for friend invuln; right-aligned)
+    {"Redemption",             5, 6, "mouseover-help"},   -- L12   Alt-G (out-of-combat rez)
     -- Alt-ZXCVB: leave open for player customization (resistance auras, situational seals)
 }
 
