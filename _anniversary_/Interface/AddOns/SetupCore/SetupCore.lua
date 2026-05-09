@@ -435,11 +435,14 @@ end
 -- we want visible.
 function SetupCore:FillEmptyBoundSlots()
     local placeholderName = " "
-    -- Subtle placeholder icon. INV_Misc_QuestionMark (default) is bright yellow
-    -- and visually loud. Gear is neutral grey, low-contrast against bar bg.
-    -- Easy to swap: try Trade_Engineering, INV_Misc_Bag_36, INV_Misc_Note_01,
-    -- or any texture under Interface\Icons\.
-    local placeholderIcon = "Interface\\Icons\\INV_Misc_Gear_02"
+    -- Subtle placeholder icon. Bare name format (no Interface\Icons\ prefix) —
+    -- the prefixed format silently broke macro creation in TBC Classic. Stick
+    -- to bare names from icons that DEFINITELY exist in TBC. Safe candidates:
+    --   INV_Box_01            - small wooden box (neutral)
+    --   Trade_Engineering     - small wrench (mechanical)
+    --   INV_Misc_QuestionMark - default ? (yellow, loud)
+    -- INV_Misc_Gear_02 didn't exist in TBC, broke this earlier.
+    local placeholderIcon = "INV_Box_01"
     local idx = self:EnsureRawMacro(placeholderName, "", placeholderIcon)
     if not idx then
         return 0  -- macro slots full; EnsureRawMacro already printed warning
