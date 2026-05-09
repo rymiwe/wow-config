@@ -155,68 +155,69 @@ if [[ -f "$SRC_TPL/Config.wtf" ]]; then
     fi
 fi
 
-# Auto-install companion addons via CurseBreaker (CLI addon manager).
-# Replaces the WoWUp-CF "open the GUI, paste import string" step. CurseBreaker
-# is placed in <wow>/_anniversary_/ and can be re-run later (./CurseBreaker)
-# to update all addons. One-time download ~23MB.
+# Companion addons: direct downloads from canonical sources, no addon manager.
+# Each addon fetched fresh from upstream so we always get the latest version
+# without WoWInterface multi-release ambiguity or readline/console issues that
+# tripped CurseBreaker on Steam Deck. Re-run install.sh (or scripts/update-addons.sh)
+# anytime to refresh.
 ANN_DIR="$WOW/_anniversary_"
-CB_EXE="$ANN_DIR/CurseBreaker"
-if [[ ! -x "$CB_EXE" || "$MODE" == "fresh" ]]; then
-    echo
-    echo "Downloading CurseBreaker (CLI addon manager)..."
-    case "$(uname -s)" in
-        Linux*)
-            curl -fsSL "https://github.com/AcidWeb/CurseBreaker/releases/latest/download/CurseBreaker-linux.gz" -o "$CB_EXE.gz" \
-                && gunzip -f "$CB_EXE.gz" \
-                && chmod +x "$CB_EXE" \
-                || echo "WARN: CurseBreaker download failed; install companion addons manually." >&2
-            ;;
-        Darwin*)
-            tmpzip="$(mktemp -t cb-XXXXXX.zip)"
-            curl -fsSL "https://github.com/AcidWeb/CurseBreaker/releases/latest/download/CurseBreaker-macos.zip" -o "$tmpzip" \
-                && unzip -qo "$tmpzip" -d "$ANN_DIR" \
-                && chmod +x "$CB_EXE" \
-                || echo "WARN: CurseBreaker download failed; install companion addons manually." >&2
-            rm -f "$tmpzip"
-            ;;
-        *)
-            echo "WARN: Unrecognized OS '$(uname -s)' for CurseBreaker download; install companion addons manually." >&2
-            ;;
-    esac
-fi
-if [[ -x "$CB_EXE" ]]; then
-    echo
-    echo "Installing companion addons via CurseBreaker (ElvUI, WeakAuras, BadBoy, Questie)..."
-    # CurseBreaker auto-detects Anniversary client from cwd folder name.
-    # NOTE: OPie excluded from CurseBreaker - wowi:9094 returns the WRONG legacy
-    # version (Lime 6, Interface 50300, retail-only). WoWInterface API can't
-    # disambiguate multi-release projects. We fetch OPie direct from townlong-yak below.
-    (cd "$ANN_DIR" && "$CB_EXE" install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 gh:Questie/Questie) \
-        || echo "WARN: Some addons may have failed; re-run $CB_EXE manually to retry." >&2
-fi
-
-# OPie - direct download from townlong-yak (Foxlit's official site).
-# The /addons/gate/<hash>/ URL prefix changes per release, so we scrape the
-# latest from the project page each install.
 ADDONS_DIR="$ANN_DIR/Interface/AddOns"
-echo
-echo "Installing OPie from townlong-yak (CurseBreaker can't get the right version)..."
-opie_page="$(curl -fsSL https://www.townlong-yak.com/addons/opie 2>/dev/null || true)"
-opie_path="$(echo "$opie_page" | grep -oE 'href="/addons/gate/[a-f0-9]+/opie/OPie-[0-9.]+\.zip"' | head -1 | sed -E 's|^href="||; s|"$||')"
-if [[ -n "$opie_path" ]]; then
-    opie_url="https://www.townlong-yak.com${opie_path}"
-    opie_zip="$(mktemp -t opie-XXXXXX.zip)"
-    if curl -fsSL "$opie_url" -o "$opie_zip"; then
-        rm -rf "$ADDONS_DIR/OPie"
-        unzip -qo "$opie_zip" -d "$ADDONS_DIR" \
-            && echo "OPie installed (latest from townlong-yak)" \
-            || echo "WARN: OPie unzip failed; install manually from https://www.townlong-yak.com/addons/opie" >&2
-    else
-        echo "WARN: OPie download failed; install manually from https://www.townlong-yak.com/addons/opie" >&2
+
+# Helper: download a zip and unpack into AddOns dir. Tolerates individual failures.
+fetch_addon_zip() {
+    local name="$1" url="$2"
+    if [[ -z "$url" ]]; then
+        echo "WARN: $name has no download URL (upstream changed?)" >&2
+        return 1
     fi
-    rm -f "$opie_zip"
+    local tmp; tmp="$(mktemp -t "addon-XXXXXX.zip")"
+    if curl -fsSL "$url" -o "$tmp" 2>/dev/null; then
+        if unzip -qo "$tmp" -d "$ADDONS_DIR" 2>/dev/null; then
+            echo "Installed $name"
+        else
+            echo "WARN: $name unzip failed" >&2
+        fi
+    else
+        echo "WARN: $name download failed from $url" >&2
+    fi
+    rm -f "$tmp"
+}
+
+# GitHub Releases: extract the first .zip asset's browser_download_url.
+github_latest_zip() {
+    curl -fsSL "https://api.github.com/repos/$1/releases/latest" 2>/dev/null \
+        | grep -oE '"browser_download_url": *"[^"]+\.zip"' | head -1 \
+        | sed -E 's|^.*"(https[^"]+)"|\1|'
+}
+
+echo
+echo "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
+
+# ElvUI from Tukui's JSON API.
+elvui_url="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null \
+    | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
+fetch_addon_zip "ElvUI" "$elvui_url"
+
+# WeakAuras / Questie / BadBoy from GitHub Releases (multi-flavor TOCs).
+fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
+fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
+fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"
+# OPie from townlong-yak. Two-step fetch: main page links to the current
+# /addons/opie/release/<major.minor>/ which contains the actual zip URL with
+# a /addons/gate/<hash>/ anti-hotlink prefix.
+opie_main="$(curl -fsSL https://www.townlong-yak.com/addons/opie 2>/dev/null || true)"
+opie_ver_path="$(echo "$opie_main" | grep -oE 'href="/addons/opie/release/[0-9.]+"' | head -1 | sed -E 's|^href="||; s|"$||')"
+if [[ -n "$opie_ver_path" ]]; then
+    opie_ver_page="$(curl -fsSL "https://www.townlong-yak.com${opie_ver_path}" 2>/dev/null || true)"
+    opie_zip_path="$(echo "$opie_ver_page" | grep -oE 'href="/addons/gate/[a-f0-9]+/opie/OPie-[0-9.]+\.zip"' | head -1 | sed -E 's|^href="||; s|"$||')"
+    if [[ -n "$opie_zip_path" ]]; then
+        rm -rf "$ADDONS_DIR/OPie"
+        fetch_addon_zip "OPie" "https://www.townlong-yak.com${opie_zip_path}"
+    else
+        echo "WARN: OPie zip URL not found on version page; install manually from https://www.townlong-yak.com/addons/opie" >&2
+    fi
 else
-    echo "WARN: Could not parse OPie download URL from townlong-yak; install manually from https://www.townlong-yak.com/addons/opie" >&2
+    echo "WARN: OPie release page link not found on main page; install manually from https://www.townlong-yak.com/addons/opie" >&2
 fi
 
 echo

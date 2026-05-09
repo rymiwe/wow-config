@@ -38,11 +38,14 @@ The installer:
 1. Copies our custom addons (`SetupCore`, `ChatAnchor`, `ShamanSetup`, `DruidSetup`, `HunterSetup`, `PaladinSetup`, `WarriorSetup`)
 2. Seeds bindings + ElvUI layout + Config.wtf CVar defaults
 3. Flips an auto-setup flag so `/setupbars` runs on first login
-4. **Downloads [CurseBreaker](https://github.com/AcidWeb/CurseBreaker) (~24MB) and bulk-installs companion addons**: ElvUI (Tukui), WeakAuras (GitHub), BadBoy (WoWInterface), OPie (WoWInterface), Questie (GitHub). No manual import-string step.
+4. **Direct-downloads companion addons** from canonical sources (no addon manager required):
+   - **ElvUI** from Tukui's JSON API
+   - **WeakAuras / Questie / BadBoy** from GitHub Releases
+   - **OPie** from townlong-yak (Foxlit's official site)
 
-CurseBreaker is placed at `<wow>/_anniversary_/CurseBreaker(.exe)` and you can re-run it later to update all installed addons (`./CurseBreaker.exe` from that directory, or `./CurseBreaker` on Linux/Mac).
+To refresh addon versions later: re-run `install.sh` / `install.ps1` (full reinstall), or use the lighter `scripts/update-addons.sh` / `scripts/update-addons.ps1` which only re-fetches the 5 community addons.
 
-> **TSM caveat**: TradeSkillMaster isn't on free addon sources CurseBreaker supports (it's distributed via TSM's own desktop app + CurseForge, neither of which CurseBreaker integrates with for free). Install [TSM manually from CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you want it; otherwise skip.
+> **TSM caveat**: TradeSkillMaster isn't on a free public source we can script-fetch (distributed via their own desktop app + CurseForge auth-walled API). Install [TSM manually from CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you want it; otherwise skip.
 
 ### Step 2 — Launch WoW and log in
 

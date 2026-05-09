@@ -157,59 +157,77 @@ try {
         }
     }
 
-    # Auto-install companion addons via CurseBreaker (CLI addon manager).
-    # Replaces the WoWUp-CF "open the GUI, paste import string, click Import" step.
-    # CurseBreaker is placed in <wow>/_anniversary_/ and can be re-run later to
-    # update all installed addons (./CurseBreaker.exe). One-time download ~24MB.
+    # Companion addons: direct downloads from canonical sources, no addon manager.
+    # Each addon fetched fresh from upstream so we always get the latest version
+    # without WoWInterface multi-release ambiguity or CurseBreaker readline issues
+    # that broke Steam Deck installs. Re-run install.ps1 (or scripts/update-addons.ps1)
+    # anytime to refresh.
     $anniversaryDir = Join-Path $wow "_anniversary_"
-    $cbExe = Join-Path $anniversaryDir "CurseBreaker.exe"
-    if (-not (Test-Path $cbExe) -or $Mode -eq "fresh") {
-        Write-Host ""
-        Write-Host "Downloading CurseBreaker (CLI addon manager)..."
-        try {
-            $cbUrl = "https://github.com/AcidWeb/CurseBreaker/releases/latest/download/CurseBreaker.exe"
-            Invoke-WebRequest -Uri $cbUrl -OutFile $cbExe -UseBasicParsing
-            Write-Host "CurseBreaker installed at $cbExe"
-        } catch {
-            Write-Warning "CurseBreaker download failed: $_. Install companion addons manually or from https://github.com/AcidWeb/CurseBreaker/releases"
+    $addonsDir = Join-Path $anniversaryDir "Interface\AddOns"
+
+    function Install-AddonZip {
+        param([string]$Name, [string]$Url, [string]$DestDir)
+        if (-not $Url) {
+            Write-Warning "$Name has no download URL (upstream changed?)"
+            return
         }
-    }
-    if (Test-Path $cbExe) {
-        Write-Host ""
-        Write-Host "Installing companion addons via CurseBreaker (ElvUI, WeakAuras, BadBoy, Questie)..."
-        Push-Location $anniversaryDir
+        $tmp = Join-Path $env:TEMP "addon-$Name.zip"
         try {
-            # CurseBreaker auto-detects the Anniversary client from the cwd folder name.
-            # NOTE: OPie excluded from CurseBreaker — wowi:9094 returns the WRONG legacy
-            # version (Lime 6, Interface 50300, retail-only) instead of OPie 8.3.3 with
-            # multi-version support. WoWInterface API can't disambiguate multi-release
-            # projects per CurseBreaker's known issues. We fetch OPie direct from
-            # townlong-yak below.
-            & $cbExe install ElvUI gh:WeakAuras/WeakAuras2 wowi:8736 gh:Questie/Questie
+            Invoke-WebRequest -Uri $Url -OutFile $tmp -UseBasicParsing
+            Expand-Archive -Path $tmp -DestinationPath $DestDir -Force
+            Write-Host "Installed $Name"
+        } catch {
+            Write-Warning "$Name install failed: $_"
         } finally {
-            Pop-Location
+            Remove-Item $tmp -Force -ErrorAction SilentlyContinue
         }
     }
 
-    # OPie — direct download from townlong-yak (Foxlit's official site).
-    # The /addons/gate/<hash>/ URL prefix changes per release, so we scrape the
-    # latest from the project page each install.
-    $opieDir = Join-Path $anniversaryDir "Interface\AddOns\OPie"
+    function Get-GitHubLatestZipUrl {
+        param([string]$Repo)
+        try {
+            $rel = Invoke-RestMethod -Uri "https://api.github.com/repos/$Repo/releases/latest" -UseBasicParsing
+            $asset = $rel.assets | Where-Object { $_.name -match '\.zip$' } | Select-Object -First 1
+            return $asset.browser_download_url
+        } catch {
+            Write-Warning "GitHub API for $Repo failed: $_"
+            return $null
+        }
+    }
+
     Write-Host ""
-    Write-Host "Installing OPie from townlong-yak (CurseBreaker can't get the right version)..."
+    Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
+
+    # ElvUI from Tukui's JSON API.
     try {
-        $opiePage = Invoke-WebRequest -Uri "https://www.townlong-yak.com/addons/opie" -UseBasicParsing
-        if ($opiePage.Content -match 'href="(/addons/gate/[a-f0-9]+/opie/OPie-[\d.]+\.zip)"') {
-            $opieUrl = "https://www.townlong-yak.com" + $matches[1]
-            $opieZip = Join-Path $env:TEMP "OPie.zip"
-            Invoke-WebRequest -Uri $opieUrl -OutFile $opieZip -UseBasicParsing
-            $addonsDir = Join-Path $anniversaryDir "Interface\AddOns"
-            if (Test-Path $opieDir) { Remove-Item -Recurse -Force $opieDir }
-            Expand-Archive -Path $opieZip -DestinationPath $addonsDir -Force
-            Remove-Item $opieZip -Force
-            Write-Host "OPie installed (latest from townlong-yak)"
+        $elvuiInfo = Invoke-RestMethod -Uri "https://api.tukui.org/v1/addon/elvui" -UseBasicParsing
+        Install-AddonZip "ElvUI" $elvuiInfo.url $addonsDir
+    } catch {
+        Write-Warning "ElvUI Tukui API failed: $_"
+    }
+
+    # WeakAuras / Questie / BadBoy from GitHub Releases (multi-flavor TOCs).
+    Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
+    Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
+    Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
+
+    # OPie from townlong-yak. Two-step fetch: main page links to the current
+    # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
+    # a /addons/gate/<hash>/ anti-hotlink prefix.
+    $opieDir = Join-Path $addonsDir "OPie"
+    try {
+        $opieMain = Invoke-WebRequest -Uri "https://www.townlong-yak.com/addons/opie" -UseBasicParsing
+        if ($opieMain.Content -match 'href="(/addons/opie/release/[\d.]+)"') {
+            $opieVerPage = Invoke-WebRequest -Uri ("https://www.townlong-yak.com" + $matches[1]) -UseBasicParsing
+            if ($opieVerPage.Content -match 'href="(/addons/gate/[a-f0-9]+/opie/OPie-[\d.]+\.zip)"') {
+                $opieUrl = "https://www.townlong-yak.com" + $matches[1]
+                if (Test-Path $opieDir) { Remove-Item -Recurse -Force $opieDir }
+                Install-AddonZip "OPie" $opieUrl $addonsDir
+            } else {
+                Write-Warning "OPie zip URL not found on version page; install manually from https://www.townlong-yak.com/addons/opie"
+            }
         } else {
-            Write-Warning "Could not parse OPie download URL from townlong-yak page; install manually from https://www.townlong-yak.com/addons/opie"
+            Write-Warning "OPie release page link not found on main page; install manually from https://www.townlong-yak.com/addons/opie"
         }
     } catch {
         Write-Warning "OPie download failed: $_. Install manually from https://www.townlong-yak.com/addons/opie"
