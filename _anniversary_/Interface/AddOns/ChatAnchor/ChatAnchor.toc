@@ -1,6 +1,7 @@
-## Interface: 11508
+## Interface: 11508, 20505, 50503, 120005
 ## Title: Chat Anchor
 ## Notes: Re-anchors ChatFrame1 to ElvUI's LeftChatPanel on every login/reload
-## Version: 1.0
+## Version: 1.1
+## OptionalDeps: ElvUI
 
 ChatAnchor.lua
