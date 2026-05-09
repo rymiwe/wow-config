@@ -3,5 +3,6 @@
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout
 ## Version: 1.1
 ## Dependencies: SetupCore
+## OptionalDeps: OPie
 
 ShamanSetup.lua
