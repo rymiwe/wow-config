@@ -155,12 +155,19 @@ if [[ -f "$SRC_TPL/Config.wtf" ]]; then
     fi
 fi
 
+# Clean up CurseBreaker artifacts from older install.sh runs (we replaced it
+# with direct downloads). Safe to remove; no in-flight state.
+ANN_DIR="$WOW/_anniversary_"
+for f in "$ANN_DIR/CurseBreaker" "$ANN_DIR/CurseBreaker.exe" "$ANN_DIR/CB.json" \
+         "$ANN_DIR/CurseBreaker_storage.json" "$ANN_DIR/CurseBreaker.html"; do
+    [[ -e "$f" ]] && rm -f "$f" && echo "Removed leftover $(basename "$f")"
+done
+
 # Companion addons: direct downloads from canonical sources, no addon manager.
 # Each addon fetched fresh from upstream so we always get the latest version
 # without WoWInterface multi-release ambiguity or readline/console issues that
 # tripped CurseBreaker on Steam Deck. Re-run install.sh (or scripts/update-addons.sh)
 # anytime to refresh.
-ANN_DIR="$WOW/_anniversary_"
 ADDONS_DIR="$ANN_DIR/Interface/AddOns"
 
 # Helper: download a zip and unpack into AddOns dir. Tolerates individual failures.

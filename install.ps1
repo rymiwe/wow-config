@@ -157,12 +157,19 @@ try {
         }
     }
 
+    # Clean up CurseBreaker artifacts from older install.ps1 runs (replaced
+    # with direct downloads). Safe to remove; no in-flight state.
+    $anniversaryDir = Join-Path $wow "_anniversary_"
+    foreach ($leftover in @("CurseBreaker.exe", "CurseBreaker", "CB.json", "CurseBreaker_storage.json", "CurseBreaker.html")) {
+        $p = Join-Path $anniversaryDir $leftover
+        if (Test-Path $p) { Remove-Item $p -Force -ErrorAction SilentlyContinue; Write-Host "Removed leftover $leftover" }
+    }
+
     # Companion addons: direct downloads from canonical sources, no addon manager.
     # Each addon fetched fresh from upstream so we always get the latest version
     # without WoWInterface multi-release ambiguity or CurseBreaker readline issues
     # that broke Steam Deck installs. Re-run install.ps1 (or scripts/update-addons.ps1)
     # anytime to refresh.
-    $anniversaryDir = Join-Path $wow "_anniversary_"
     $addonsDir = Join-Path $anniversaryDir "Interface\AddOns"
 
     function Install-AddonZip {
