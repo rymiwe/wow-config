@@ -1,6 +1,15 @@
--- MageSetup: Frost-leaning generalist (works for Fire + Arcane via untrained-skip).
--- Frost is the default leveling spec because Frost Nova + Ice Barrier + Cold Snap
--- + Frostbolt is the most self-sufficient and survival-friendly leveling kit.
+-- MageSetup: Frost-leaning leveling layout, FREQUENCY-FAVORING profile.
+-- Per user request 2026-05-10: wife prefers minimal modifier reliance, so
+-- everything she'll press in normal Frost play lives on plain (un-modified)
+-- keys. Cast/instant separation is sacrificed for "important = easy to reach."
+--
+-- Most-pressed Frost rotation: Frostbolt (cast spam) -> Fire Blast (instant
+-- filler off-CD) -> Frost Nova (root combo). All three on numrow 1-3.
+-- Defensives (Ice Barrier, Cold Snap) on QERT for one-tap access. Polymorph
+-- on Q with focus-first since focus IS the sheep target.
+--
+-- Alt-bar holds Fire/Arcane spec spells + situational stuff she rarely needs
+-- while leveling. Easy to swap if she pivots specs - just edit this layout.
 --
 -- BAR LAYOUT (matches other classes; see bar_layout_design.md memory):
 --   Bar 1 = MAIN TOP (`, 1-5 / Q E R T)
@@ -8,66 +17,54 @@
 --   Bar 4 = ALT TOP (mirror of Bar 1)
 --   Bar 5 = ALT BOTTOM (mirror of Bar 3)
 --
--- Mage-specific notes:
---   * Counterspell on ` (baseline interrupt at L24 - the iconic mage interrupt)
---   * Polymorph on Q with focus-mouseover-harm (the iconic mage CC; focus-first
---     because focus IS the CC target on a mage)
---   * Cast nukes (Frostbolt/Fireball/Pyroblast) on Alt-numrow per cast/instant
---     separation principle. Frostbolt = Alt-1 (most-spammed Frost cast).
---   * Armor toggles on OPie M4 (4 mutually-exclusive armors, contextual choice).
---   * Conjures + Portals + Teleports on OPie M5 (slow OOC utility).
---
 -- OPie rings:
---   M4 = Mage Armors (Frost, Mage, Ice, Molten)
---   M5 = Conjures + Portals + Teleports
+--   M4 = Mage Armors (Frost, Mage, Ice, Molten - mutually exclusive)
+--   M5 = Conjures + Portals + Teleports (slow OOC utility)
 
 local LAYOUT = {
-    -- MAIN TOP (Bar 1) - ` = Counterspell (baseline interrupt). Numrow = instants.
-    {"Counterspell",           1, 1},                     -- L24   `   (interrupt + 8s lockout school)
-    {"Frost Nova",             1, 2},                     -- L10   1   (instant root + AoE damage)
-    {"Fire Blast",             1, 3, "nuke-mouseover"},   -- L6    2   (instant nuke; mouseover for spread)
-    {"Cone of Cold",           1, 4},                     -- L26   3   (instant frontal AoE + slow)
-    {"Ice Lance",              1, 5, "nuke-mouseover"},   -- TBC L66 4 (instant; triple damage on frozen)
-    {"Arcane Explosion",       1, 6},                     -- L14   5   (instant PBAoE)
-    -- QERT row: CC + control + utility
-    {"Polymorph",              1, 8, "focus-mouseover-harm"}, -- L8 Q  (iconic CC; focus-first - focus IS the sheep target)
-    {"Blink",                  1, 10, "self-cast"},       -- L20   E   (self-anchored escape)
-    {"Spellsteal",             1, 11, "mouseover-harm"},  -- TBC L60 R (steal buff from enemy)
-    {"Slow",                   1, 12, "nuke-mouseover"},  -- TBC L66 T (Arcane snare; spread-friendly)
+    -- MAIN TOP (Bar 1) - HIGH-FREQUENCY everything, no modifier required
+    {"Counterspell",           1, 1},                     -- L24   `   (interrupt + 8s lockout)
+    {"Frostbolt",              1, 2, "nuke-mouseover"},   -- L1    1   (PRIMARY: Frost cast spam)
+    {"Fire Blast",             1, 3, "nuke-mouseover"},   -- L6    2   (instant filler while Frostbolt casts)
+    {"Frost Nova",             1, 4},                     -- L10   3   (instant root + AoE - iconic Frost combo)
+    {"Cone of Cold",           1, 5},                     -- L26   4   (instant frontal AoE + slow)
+    {"Arcane Explosion",       1, 6},                     -- L14   5   (instant PBAoE - emergency)
+    -- QERT row: CC + escape + frequent defensives
+    {"Polymorph",              1, 8, "focus-mouseover-harm"}, -- L8 Q   (iconic CC; focus-first)
+    {"Blink",                  1, 10, "self-cast"},       -- L20   E   (escape; high-frequency)
+    {"Ice Barrier",            1, 11, "self-cast"},       -- L40 Frost R (absorb shield - Frost survival button)
+    {"Cold Snap",              1, 12, "self-cast"},       -- L30 Frost T (reset Frost CDs - high-value)
 
-    -- MAIN BOTTOM (Bar 3) - F/G utility, ZXCVB defensives
-    {"Mage Armor",             3, 5},                     -- L34   F   (default armor; right-aligned. Real toggle in OPie M4)
+    -- MAIN BOTTOM (Bar 3) - F/G utility, ZXCVB backup defensives + niche
+    {"Mage Armor",             3, 5, "self-cast"},        -- L34   F   (default armor; right-aligned)
     {"Conjure Mana Gem",       3, 6, "self-cast"},        -- L28   G   (frequent OOC create)
-    -- ZXCVB row: defensives + utility
-    {"Ice Barrier",            3, 8, "self-cast"},        -- L40 Frost Z (absorb shield - high-frequency defensive)
-    {"Mana Shield",            3, 9, "self-cast"},        -- L20   X   (HP for mana absorb)
-    {"Cold Snap",              3, 10, "self-cast"},       -- L30 Frost C (reset Frost CDs)
-    {"Evocation",              3, 11, "self-cast"},       -- L20   V   (8s mana channel)
-    {"Slow Fall",              3, 12, "mouseover-help"},  -- L12   B   (cast on friend or self)
+    -- ZXCVB row: backup defensives + situational
+    {"Mana Shield",            3, 8, "self-cast"},        -- L20   Z   (HP-for-mana backup defensive)
+    {"Evocation",              3, 9, "self-cast"},        -- L20   X   (mana channel)
+    {"Ice Lance",              3, 10, "nuke-mouseover"},  -- TBC L66 C (triple-damage-on-frozen; Frost combo)
+    {"Slow Fall",              3, 11, "mouseover-help"},  -- L12   V   (cast on friend or self)
+    -- B left empty (placeholder for racial / future)
 
-    -- ALT TOP (Bar 4) - CAST-TIME damage on numrow, utility on Alt-QERT
-    -- ` left empty (or for racial)
-    {"Frostbolt",              4, 2, "nuke-mouseover"},   -- L1    Alt-1 (Frost spam cast - primary nuke)
-    {"Fireball",               4, 3, "nuke-mouseover"},   -- L1    Alt-2 (Fire spam cast)
-    {"Pyroblast",              4, 4, "nuke-mouseover"},   -- L20 Fire Alt-3 (heavy cast nuke)
-    {"Scorch",                 4, 5, "nuke-mouseover"},   -- L22 Fire Alt-4 (Fire short cast)
-    {"Arcane Missiles",        4, 6, "nuke-mouseover"},   -- L1    Alt-5 (channel nuke)
-    -- Alt-QERT: spec CDs + AoE
+    -- ALT TOP (Bar 4) - Fire/Arcane spec spells + spec CDs (rare in Frost play)
+    {"Fireball",               4, 2, "nuke-mouseover"},   -- L1    Alt-1 (Fire spec primary)
+    {"Pyroblast",              4, 3, "nuke-mouseover"},   -- L20 Fire Alt-2 (Fire heavy nuke)
+    {"Scorch",                 4, 4, "nuke-mouseover"},   -- L22 Fire Alt-3 (Fire short cast)
+    {"Arcane Missiles",        4, 5, "nuke-mouseover"},   -- L1    Alt-4 (Arcane channel)
+    {"Blizzard",               4, 6},                     -- L20 Frost Alt-5 (low-frequency channel AoE)
+    -- Alt-QERT: spec cooldowns + niche utility
     {"Combustion",             4, 8, "self-cast"},        -- L30 Fire Alt-Q (crit CD)
     {"Presence of Mind",       4, 10, "self-cast"},       -- L30 Arcane Alt-E (instant cast next spell)
     {"Arcane Power",           4, 11, "self-cast"},       -- L30 Arcane Alt-R (damage CD)
-    {"Blizzard",               4, 12},                    -- L20 Frost Alt-T (channel ground AoE)
+    {"Spellsteal",             4, 12, "mouseover-harm"},  -- TBC L60 Alt-T (steal buff - niche)
 
-    -- ALT BOTTOM (Bar 5) - dispels + utility
+    -- ALT BOTTOM (Bar 5) - dispels + niche AOE/CC
     {"Remove Lesser Curse",    5, 5, "mouseover-help"},   -- L18   Alt-F (dispel curse from friend)
     -- Alt-G reserved for Draenei Gift of the Naaru via RACIALS (heal beats inspect).
-    -- Detect Magic moved to IGNORE - low-use OOC inspect, drag manually if wanted.
-    -- Alt-ZXCVB: situational + niche
-    {"Dragon's Breath",        5, 8},                     -- TBC L60 Fire Alt-Z (instant frontal disorient + damage)
+    {"Dragon's Breath",        5, 8},                     -- TBC L60 Fire Alt-Z (instant frontal disorient)
     {"Blast Wave",             5, 9},                     -- L30 Fire Alt-X (instant PBAoE + slow)
-    {"Mass Dispel",            5, 10},                    -- TBC L60 Alt-C (channel - dispel buffs/debuffs en masse)
-    {"Frostbite",              5, 11},                    -- (Frost talent passive - skip if absent)
-    {"Mage Ward",              5, 12, "self-cast"},       -- (placeholder - swap if not in TBC)
+    {"Mass Dispel",            5, 10},                    -- TBC L60 Alt-C (channel mass dispel)
+    {"Slow",                   5, 11, "nuke-mouseover"},  -- TBC L66 Alt-V (Arcane snare - niche)
+    -- Alt-B left empty (placeholder for racial)
 }
 
 local IGNORE = {
@@ -156,8 +153,9 @@ local RACIALS = {
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("MageSetup", placed, skipped, orphans)
-    print("|cffffd700MageSetup tip:|r Polymorph on Q uses focus-first targeting -")
-    print("|cff999999  /focus a mob, then Q sheeps your focus regardless of current target.|r")
+    print("|cffffd700MageSetup tip:|r Frost rotation on plain keys: 1=Frostbolt, 2=Fire Blast, 3=Frost Nova.")
+    print("|cff999999  Defensives: R=Ice Barrier, T=Cold Snap. Escape: E=Blink. CC: Q=Polymorph (focus-first).|r")
+    print("|cff999999  Alt-bar holds Fire/Arcane spec spells - rare in Frost play.|r")
     print("|cff999999  Armors: hold M4 (OPie ring). Conjures/Portals/Teleports: hold M5.|r")
 end
 
