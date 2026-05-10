@@ -1,0 +1,4 @@
+VER 3 0100000000000001 "SC_HolyLight" "135920"
+#showtooltip
+/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Holy Light
+END

@@ -111,8 +111,9 @@ local IGNORE = {
     ["Heroic Presence"]=true, ["Inspiring Presence"]=true,
     ["Shadow Resistance"]=true, ["Magic Resistance"]=true,
     -- Race actives — Stoneform/Arcane Torrent auto-placed via RACIALS table.
-    -- Gift of the Naaru: Pally Alt-QERT row is full of Hand spells; Draenei drag manually.
-    ["Perception"]=true, ["Gift of the Naaru"]=true,
+    -- Gift of the Naaru handled via RACIALS table (Draenei -> Alt-Z, since Pally
+    -- Alt-QERT is full of Hand spells). NOT in IGNORE.
+    ["Perception"]=true,
     ["Mana Tap"]=true,
     -- Cleanse upgrades Purify (Holy talent L42) — Holy spec drags it to Alt-Q manually
     ["Cleanse"]=true,
@@ -131,6 +132,9 @@ local IGNORE = {
 local RACIALS = {
     Dwarf = {
         {"Stoneform", 5, 8, "self-cast"},     -- Alt-Z: defensive break (joins alt-bottom defensives)
+    },
+    Draenei = {
+        {"Gift of the Naaru", 5, 9, "mouseover-help"},  -- Alt-X: Alt-Q/G are full (Purify/Redemption); X is empty in alt-ZXCVB
     },
     BloodElf = {
         {"Arcane Torrent", 3, 10},            -- C: combat CC + mana burst

@@ -60,7 +60,8 @@ local LAYOUT = {
 
     -- ALT BOTTOM (Bar 5) - dispels + utility
     {"Remove Lesser Curse",    5, 5, "mouseover-help"},   -- L18   Alt-F (dispel curse from friend)
-    {"Detect Magic",           5, 6, "mouseover-help"},   -- L16   Alt-G (inspect buffs on friend)
+    -- Alt-G reserved for Draenei Gift of the Naaru via RACIALS (heal beats inspect).
+    -- Detect Magic moved to IGNORE - low-use OOC inspect, drag manually if wanted.
     -- Alt-ZXCVB: situational + niche
     {"Dragon's Breath",        5, 8},                     -- TBC L60 Fire Alt-Z (instant frontal disorient + damage)
     {"Blast Wave",             5, 9},                     -- L30 Fire Alt-X (instant PBAoE + slow)
@@ -115,7 +116,10 @@ local IGNORE = {
     -- Race actives - placed via RACIALS or IGNORE
     ["Blood Fury"]=true, ["Berserking"]=true, ["War Stomp"]=true,
     ["Shadowmeld"]=true, ["Will of the Forsaken"]=true, ["Cannibalize"]=true,
-    ["Mana Tap"]=true, ["Arcane Torrent"]=true, ["Gift of the Naaru"]=true,
+    ["Mana Tap"]=true, ["Arcane Torrent"]=true,
+    -- Gift of the Naaru handled via RACIALS table (Draenei -> Alt-G). NOT in IGNORE.
+    -- Detect Magic moved to IGNORE so Alt-G is free for the racial heal.
+    ["Detect Magic"]=true,
     ["Underwater Breathing"]=true,
     -- Professions / non-combat
     ["First Aid"]=true, ["Cooking"]=true, ["Basic Campfire"]=true,
@@ -134,6 +138,9 @@ local RACIALS = {
         {"Escape Artist", 5, 12, "self-cast"},  -- Alt-B: defensive break
     },
     Human = {},
+    Draenei = {
+        {"Gift of the Naaru", 5, 6, "mouseover-help"},  -- Alt-G: heal slot (replaces Detect Magic)
+    },
     Troll = {
         {"Berserking", 5, 12, "self-cast"},     -- Alt-B: damage CD
     },
