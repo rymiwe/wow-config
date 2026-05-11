@@ -250,25 +250,61 @@ fetch_addon_zip() {
     rm -f "$tmp"
 }
 
-# GitHub Releases: extract the first .zip asset's browser_download_url.
-github_latest_zip() {
-    curl -fsSL "https://api.github.com/repos/$1/releases/latest" 2>/dev/null \
-        | grep -oE '"browser_download_url": *"[^"]+\.zip"' | head -1 \
-        | sed -E 's|^.*"(https[^"]+)"|\1|'
+# Read local TOC ## Version field. Returns empty if not installed/parseable.
+local_toc_version() {
+    local toc="$1"
+    [[ -f "$toc" ]] || { echo ""; return; }
+    grep -oE '^## Version:[[:space:]]*\S+' "$toc" 2>/dev/null \
+        | head -1 | sed -E 's|^## Version:[[:space:]]*||'
+}
+
+# Normalize version strings for comparison. Strips leading "v" / "V".
+strip_v() { sed -E 's|^[vV]||'; }
+
+# Skip download if local TOC version matches remote. Otherwise fetch + unzip.
+maybe_install_addon() {
+    local name="$1" toc_path="$2" remote_ver="$3" url="$4"
+    local local_ver; local_ver="$(local_toc_version "$toc_path")"
+    if [[ -n "$local_ver" && -n "$remote_ver" ]]; then
+        local lv; lv="$(echo "$local_ver" | strip_v)"
+        local rv; rv="$(echo "$remote_ver" | strip_v)"
+        if [[ "$lv" == "$rv" ]]; then
+            echo "$name: up-to-date (v$lv)"
+            return 0
+        fi
+    fi
+    if [[ -z "$local_ver" ]]; then
+        echo "$name: not installed -> v${remote_ver:-?}"
+    else
+        echo "$name: v$local_ver -> v${remote_ver:-?}"
+    fi
+    fetch_addon_zip "$name" "$url"
+}
+
+# GitHub Releases: returns "VERSION|URL" tuple (extract tag_name + first zip URL).
+github_latest_release() {
+    local data; data="$(curl -fsSL "https://api.github.com/repos/$1/releases/latest" 2>/dev/null)"
+    local ver; ver="$(echo "$data" | grep -oE '"tag_name": *"[^"]+"' | head -1 | sed -E 's|^.*"tag_name": *"([^"]+)"|\1|')"
+    local url; url="$(echo "$data" | grep -oE '"browser_download_url": *"[^"]+\.zip"' | head -1 | sed -E 's|^.*"(https[^"]+)"|\1|')"
+    echo "${ver}|${url}"
 }
 
 echo
-echo "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
+echo "Checking companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
 
 # ElvUI from Tukui's JSON API.
-elvui_url="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null \
-    | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
-fetch_addon_zip "ElvUI" "$elvui_url"
+elvui_json="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null)"
+elvui_url="$(echo "$elvui_json" | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
+elvui_ver="$(echo "$elvui_json" | grep -oE '"version":"[^"]+"' | head -1 | sed -E 's|^"version":"||;s|"$||')"
+maybe_install_addon "ElvUI" "$ADDONS_DIR/ElvUI/ElvUI.toc" "$elvui_ver" "$elvui_url"
 
 # WeakAuras / Questie / BadBoy from GitHub Releases (multi-flavor TOCs).
-fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
-fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
-fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"
+wa_data="$(github_latest_release WeakAuras/WeakAuras2)"
+maybe_install_addon "WeakAuras" "$ADDONS_DIR/WeakAuras/WeakAuras.toc" "${wa_data%%|*}" "${wa_data##*|}"
+q_data="$(github_latest_release Questie/Questie)"
+maybe_install_addon "Questie" "$ADDONS_DIR/Questie/Questie.toc" "${q_data%%|*}" "${q_data##*|}"
+bb_data="$(github_latest_release funkydude/BadBoy)"
+maybe_install_addon "BadBoy" "$ADDONS_DIR/BadBoy/BadBoy.toc" "${bb_data%%|*}" "${bb_data##*|}"
 # OPie from townlong-yak. Two-step fetch: main page links to the current
 # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
 # a /addons/gate/<hash>/ anti-hotlink prefix.
@@ -278,8 +314,21 @@ if [[ -n "$opie_ver_path" ]]; then
     opie_ver_page="$(curl -fsSL "https://www.townlong-yak.com${opie_ver_path}" 2>/dev/null || true)"
     opie_zip_path="$(echo "$opie_ver_page" | grep -oE 'href="/addons/gate/[a-f0-9]+/opie/OPie-[0-9.]+\.zip"' | head -1 | sed -E 's|^href="||; s|"$||')"
     if [[ -n "$opie_zip_path" ]]; then
-        rm -rf "$ADDONS_DIR/OPie"
-        fetch_addon_zip "OPie" "https://www.townlong-yak.com${opie_zip_path}"
+        # Extract version from URL (e.g., OPie-6.7.4.zip -> 6.7.4) for skip-check.
+        opie_ver="$(echo "$opie_zip_path" | grep -oE 'OPie-[0-9.]+' | head -1 | sed 's|OPie-||')"
+        local_opie="$(local_toc_version "$ADDONS_DIR/OPie/OPie.toc")"
+        # OPie TOC may have extra version components (e.g., 6.7.4.5); compare prefix.
+        if [[ -n "$local_opie" && "$local_opie" == "$opie_ver"* ]]; then
+            echo "OPie: up-to-date (v$local_opie)"
+        else
+            if [[ -z "$local_opie" ]]; then
+                echo "OPie: not installed -> v$opie_ver"
+            else
+                echo "OPie: v$local_opie -> v$opie_ver"
+            fi
+            rm -rf "$ADDONS_DIR/OPie"
+            fetch_addon_zip "OPie" "https://www.townlong-yak.com${opie_zip_path}"
+        fi
     else
         echo "WARN: OPie zip URL not found on version page; install manually from https://www.townlong-yak.com/addons/opie" >&2
     fi
