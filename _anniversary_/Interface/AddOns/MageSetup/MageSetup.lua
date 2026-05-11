@@ -1,65 +1,77 @@
--- MageSetup: combo-column layout for L5 leveling (per user 2026-05-10).
--- Vertical pairs that share a school sit in the same column, so the muscle
--- memory becomes "Frost combo = 1+Q, Fire combo = 3+E".
+-- MageSetup: tier-based leveling layout (per user 2026-05-10).
+-- LAYOUT_TIERS replaces single LAYOUT - SetupCore picks the highest tier where
+-- player level >= minLevel. Tier crossings prompt /setupbars on level-up.
 --
--- Bar 1 columns (top above bottom):
---   `        Counterspell    (interrupt, L24)
---   1 / Q    Frostbolt / Frost Nova   <- Frost cast above instant
---   2        Arcane Missiles          <- alone (W gap below; Arcane has no good column-mate)
---   3 / E    Fire Blast / Fireball    <- Fire instant above cast (combo: instant first then big cast)
---   R        Polymorph (CC, focus-first)
---   T        Blink (escape)
+-- Layout principle (per user):
+--   * Cast-time "bolt" spells on numrow 1-5 (top bar)
+--   * Q = Frost Nova, E = Fire Blast (mirror instants)
+--   * R = Polymorph (CC, focus-first)
+--   * Alt-bar intentionally empty per wife's preference (no auto-placed skills)
 --
--- ALL three school primaries are L1, so the bar is useful from her first
--- login. Less modifier reliance: high-frequency on plain keys, alt-bar holds
--- spec CDs + L60+ TBC spells.
+-- Tiers:
+--   L1   - L1 base kit (Frostbolt/Fireball/Arcane Missiles + Frost Armor)
+--   L10  - + Frost Nova (Q), Slow Fall (B L12), Arcane Explosion (X L14)
+--   L20  - + Pyroblast/Scorch (4/5), Counterspell (`), Blink (T), Mana Shield (C),
+--          Cone of Cold (Z L26), Conjure Mana Gem (G L28)
 --
--- Draenei: Gift of the Naaru auto-places on V (plain) via RACIALS - heal
--- racial deserves a no-modifier slot for a leveling mage.
+-- Higher tiers (L30, L40+) added when wife levels into them - keeps the layout
+-- file lean and avoids speculating on her future preferences.
 --
--- BAR LAYOUT (matches other classes; see bar_layout_design.md memory):
---   Bar 1 = MAIN TOP (`, 1-5 / Q E R T)
---   Bar 3 = MAIN BOTTOM (F G / Z X C V B)
---   Bar 4 = ALT TOP (mirror of Bar 1)
---   Bar 5 = ALT BOTTOM (mirror of Bar 3)
---
--- OPie rings:
---   M4 = Mage Armors (Frost, Mage, Ice, Molten - mutually exclusive)
---   M5 = Conjures + Portals + Teleports (slow OOC utility)
+-- Draenei: Gift of the Naaru auto-places on V (plain) via RACIALS at all tiers.
 
-local LAYOUT = {
-    -- MAIN TOP (Bar 1) - COMBO COLUMNS: each pair vertically aligned.
-    -- Frost combo: 1 (cast) above Q (instant) | Fire combo: 3 (instant) above E (cast)
-    -- Per user 2026-05-10: wife is L10 - DO NOT reserve slots for spells she
-    -- doesn't have yet. Higher-level entries commented out + IGNORE'd. Re-enable
-    -- (uncomment + remove from IGNORE) when she trains each one.
-    -- {"Counterspell",           1, 1},                  -- L24   `   FUTURE
-    {"Frostbolt",              1, 2, "nuke-mouseover"},   -- L1    1   (Frost cast - paired above Frost Nova)
-    {"Arcane Missiles",        1, 3, "nuke-mouseover"},   -- L1    2   (Arcane channel - alone, W gap below)
-    {"Fire Blast",             1, 4, "nuke-mouseover"},   -- L6    3   (Fire instant - paired above Fireball)
-    -- QERT: bottom of combo columns + control
-    {"Frost Nova",             1, 8},                     -- L10   Q   (Frost instant - directly below Frostbolt)
-    {"Fireball",               1, 10, "nuke-mouseover"},  -- L1    E   (Fire cast - directly below Fire Blast)
-    {"Polymorph",              1, 11, "focus-mouseover-harm"}, -- L8 R  (CC; focus-first)
-    -- {"Blink",                  1, 12, "self-cast"},    -- L20   T   FUTURE
+local L1_TIER = {
+    -- BAR 1 numrow: cast-time bolts (only Arcane Missiles available at L1)
+    {"Frostbolt",              1, 2, "nuke-mouseover"},   -- L1    1
+    {"Fireball",               1, 3, "nuke-mouseover"},   -- L1    2
+    {"Arcane Missiles",        1, 4, "nuke-mouseover"},   -- L1    3
+    -- 4, 5 empty (Pyroblast L20, Scorch L22 arrive in L20 tier)
+    -- BAR 1 QERT: instants (Fire Blast L6, Polymorph L8 fill in mid-tier)
+    {"Fire Blast",             1, 10, "nuke-mouseover"},  -- L6    E
+    {"Polymorph",              1, 11, "focus-mouseover-harm"}, -- L8 R
+    -- BAR 3: starter armor
+    {"Frost Armor",            3, 5, "self-cast"},        -- L1    F
+    -- V reserved for Draenei Naaru via RACIALS
+}
 
-    -- MAIN BOTTOM (Bar 3) - F/G self-buffs, ZXCVB AoE + utility
-    {"Frost Armor",            3, 5, "self-cast"},        -- L1    F   (starter armor; OPie M4 has variants)
-    -- {"Conjure Mana Gem",       3, 6, "self-cast"},     -- L28   G   FUTURE
-    -- {"Cone of Cold",           3, 8},                  -- L26   Z   FUTURE
-    -- {"Arcane Explosion",       3, 9},                  -- L14   X   FUTURE
-    -- {"Mana Shield",            3, 10, "self-cast"},    -- L20   C   FUTURE
-    -- V left for Draenei Gift of the Naaru via RACIALS (plain-key heal racial, L1)
-    -- {"Slow Fall",              3, 12, "mouseover-help"}, -- L12   B   FUTURE
+local L10_TIER = {
+    {"Frostbolt",              1, 2, "nuke-mouseover"},
+    {"Fireball",               1, 3, "nuke-mouseover"},
+    {"Arcane Missiles",        1, 4, "nuke-mouseover"},
+    {"Frost Nova",             1, 8},                     -- L10   Q   (mirrors Fire Blast on E)
+    {"Fire Blast",             1, 10, "nuke-mouseover"},  -- L6    E
+    {"Polymorph",              1, 11, "focus-mouseover-harm"},
+    {"Frost Armor",            3, 5, "self-cast"},
+    {"Arcane Explosion",       3, 9},                     -- L14   X
+    {"Slow Fall",              3, 12, "mouseover-help"},  -- L12   B
+}
 
-    -- ALT BAR (Bars 4 + 5) - INTENTIONALLY EMPTY per user 2026-05-10:
-    -- wife wants no auto-placed skills on Alt-modified bars while leveling.
-    -- All spec spells (Pyroblast/Scorch/Fireball-on-alt/Arcane Missiles-on-alt
-    -- variations), spec CDs (Combustion/PoM/Arcane Power), AoE casts (Blizzard/
-    -- Dragon's Breath/Blast Wave), Frost survival talents (Ice Barrier, Cold
-    -- Snap), dispels (Remove Lesser Curse, Mass Dispel), and niche utility
-    -- (Evocation, Spellsteal, Slow, Ice Lance) are listed in IGNORE so they
-    -- don't appear as orphans. Drag any manually if she wants them.
+local L20_TIER = {
+    -- BAR 1 numrow: all five cast bolts now placed
+    {"Counterspell",           1, 1},                     -- L24   `
+    {"Frostbolt",              1, 2, "nuke-mouseover"},   -- 1
+    {"Fireball",               1, 3, "nuke-mouseover"},   -- 2
+    {"Arcane Missiles",        1, 4, "nuke-mouseover"},   -- 3
+    {"Pyroblast",              1, 5, "nuke-mouseover"},   -- L20   4   (Fire heavy bolt)
+    {"Scorch",                 1, 6, "nuke-mouseover"},   -- L22   5   (Fire short bolt)
+    -- QERT: instants + control
+    {"Frost Nova",             1, 8},                     -- Q
+    {"Fire Blast",             1, 10, "nuke-mouseover"},  -- E
+    {"Polymorph",              1, 11, "focus-mouseover-harm"}, -- R
+    {"Blink",                  1, 12, "self-cast"},       -- L20   T
+    -- F/G + ZXCVB: utility
+    {"Frost Armor",            3, 5, "self-cast"},        -- F
+    {"Conjure Mana Gem",       3, 6, "self-cast"},        -- L28   G
+    {"Cone of Cold",           3, 8},                     -- L26   Z
+    {"Arcane Explosion",       3, 9},                     -- X
+    {"Mana Shield",            3, 10, "self-cast"},       -- L20   C
+    {"Slow Fall",              3, 12, "mouseover-help"},  -- B
+}
+
+local LAYOUT_TIERS = {
+    {minLevel = 1,  layout = L1_TIER},
+    {minLevel = 10, layout = L10_TIER},
+    {minLevel = 20, layout = L20_TIER},
+    -- L30+ tiers added when wife dings into them.
 }
 
 local IGNORE = {
@@ -75,36 +87,18 @@ local IGNORE = {
     ["Arcane Mind"]=true, ["Improved Arcane Explosion"]=true, ["Arcane Instability"]=true,
     ["Improved Fireball"]=true, ["Impact"]=true, ["Ignite"]=true,
     ["Improved Fire Blast"]=true, ["Incinerate"]=true, ["Improved Flamestrike"]=true,
-    ["Pyroblast"]=true, ["Burning Soul"]=true, ["Improved Scorch"]=true,
+    ["Burning Soul"]=true, ["Improved Scorch"]=true,
     ["Master of Elements"]=true, ["Critical Mass"]=true, ["Blazing Speed"]=true,
-    ["Improved Hot Streak"]=true, ["Combustion"]=true,                  -- skip (placed in LAYOUT - Lua dedup handles)
+    ["Improved Hot Streak"]=true,
     ["Frost Warding"]=true, ["Improved Frostbolt"]=true, ["Elemental Precision"]=true,
     ["Ice Shards"]=true, ["Frostbite"]=true, ["Improved Frost Nova"]=true,
-    ["Permafrost"]=true, ["Piercing Ice"]=true, ["Cold Snap"]=true,
+    ["Permafrost"]=true, ["Piercing Ice"]=true,
     ["Improved Blizzard"]=true, ["Arctic Reach"]=true, ["Frost Channeling"]=true,
-    ["Shatter"]=true, ["Ice Barrier"]=true, ["Winter's Chill"]=true,
-    -- Armors - handled by OPie ring (M4)
-    -- Frost Armor placed in LAYOUT on F (L1 starter armor); upgrades via OPie M4 ring.
+    ["Shatter"]=true, ["Winter's Chill"]=true,
+    -- Armors handled by OPie ring (M4); Frost Armor placed in LAYOUT (L1 starter)
     ["Ice Armor"]=true, ["Molten Armor"]=true,
-    -- Alt-bar intentionally empty per user 2026-05-10 (wife's preference).
-    ["Pyroblast"]=true, ["Scorch"]=true, ["Ice Lance"]=true, ["Slow"]=true,
-    ["Blizzard"]=true, ["Combustion"]=true, ["Presence of Mind"]=true,
-    ["Ice Barrier"]=true, ["Cold Snap"]=true, ["Remove Lesser Curse"]=true,
-    ["Arcane Power"]=true, ["Dragon's Breath"]=true, ["Blast Wave"]=true,
-    ["Mass Dispel"]=true, ["Evocation"]=true, ["Spellsteal"]=true,
-    -- Future-leveling spells: per user 2026-05-10 (wife L10), DON'T reserve slots
-    -- for spells she doesn't have yet. Re-enable in LAYOUT (and remove from here)
-    -- when she trains each:
-    ["Slow Fall"]=true,         -- L12
-    ["Arcane Explosion"]=true,  -- L14
-    ["Blink"]=true,             -- L20
-    ["Mana Shield"]=true,       -- L20
-    ["Counterspell"]=true,      -- L24
-    ["Cone of Cold"]=true,      -- L26
-    ["Conjure Mana Gem"]=true,  -- L28
-    -- Conjures - handled by OPie ring (M5)
+    -- Conjures + Portals + Teleports handled by OPie ring (M5)
     ["Conjure Water"]=true, ["Conjure Food"]=true, ["Conjure Refreshment"]=true,
-    -- Portals + Teleports - handled by OPie ring (M5)
     ["Portal: Stormwind"]=true, ["Portal: Ironforge"]=true, ["Portal: Darnassus"]=true,
     ["Portal: Exodar"]=true, ["Portal: Shattrath"]=true,
     ["Portal: Orgrimmar"]=true, ["Portal: Undercity"]=true, ["Portal: Thunder Bluff"]=true,
@@ -122,14 +116,20 @@ local IGNORE = {
     ["Engineering Specialization"]=true, ["The Human Spirit"]=true,
     ["Sword Specialization"]=true, ["Mace Specialization"]=true, ["Diplomacy"]=true,
     ["Perception"]=true,
-    -- Race actives - placed via RACIALS or IGNORE
+    -- Race actives - placed via RACIALS or skipped
     ["Blood Fury"]=true, ["Berserking"]=true, ["War Stomp"]=true,
     ["Shadowmeld"]=true, ["Will of the Forsaken"]=true, ["Cannibalize"]=true,
     ["Mana Tap"]=true, ["Arcane Torrent"]=true,
-    -- Gift of the Naaru handled via RACIALS table (Draenei -> Alt-G). NOT in IGNORE.
-    -- Detect Magic moved to IGNORE so Alt-G is free for the racial heal.
-    ["Detect Magic"]=true,
     ["Underwater Breathing"]=true,
+    -- Detect Magic moved to IGNORE - low-use OOC inspect, drag manually if wanted.
+    ["Detect Magic"]=true,
+    -- Spec CDs / advanced spells / niche utility kept off bars per wife's "no alt bar"
+    -- preference. Will be re-added to LAYOUT_TIERS when she's ready (L30+ tier).
+    ["Combustion"]=true, ["Presence of Mind"]=true, ["Arcane Power"]=true,
+    ["Ice Barrier"]=true, ["Cold Snap"]=true,
+    ["Blizzard"]=true, ["Dragon's Breath"]=true, ["Blast Wave"]=true,
+    ["Mass Dispel"]=true, ["Evocation"]=true, ["Spellsteal"]=true,
+    ["Slow"]=true, ["Ice Lance"]=true, ["Remove Lesser Curse"]=true,
     -- Professions / non-combat
     ["First Aid"]=true, ["Cooking"]=true, ["Basic Campfire"]=true,
     ["Mining"]=true, ["Smelting"]=true, ["Herbalism"]=true, ["Skinning"]=true,
@@ -148,32 +148,29 @@ local RACIALS = {
     },
     Human = {},
     Draenei = {
-        {"Gift of the Naaru", 3, 11, "mouseover-help"},  -- V (plain): combat heal deserves no-modifier slot
+        {"Gift of the Naaru", 3, 11, "mouseover-help"},  -- V (plain): combat heal
     },
     Troll = {
-        {"Berserking", 5, 12, "self-cast"},     -- Alt-B: damage CD
+        {"Berserking", 5, 12, "self-cast"},     -- Alt-B
     },
     Undead = {
         {"Will of the Forsaken", 5, 12, "self-cast"},
     },
     BloodElf = {
-        {"Arcane Torrent", 3, 10},               -- C: cross-class racial-CC slot (Cold Snap is on C - conflict)
-        -- NOTE: Cold Snap is at 3,10 in LAYOUT - skip Arcane Torrent or document conflict
+        {"Arcane Torrent", 3, 10},
     },
 }
 
 local function Run()
-    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
+    local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT_TIERS, IGNORE, RACIALS)
     SetupCore:PrintResults("MageSetup", placed, skipped, orphans)
-    print("|cffffd700MageSetup tip:|r Combo columns - Frost is 1+Q (Frostbolt/Frost Nova),")
-    print("|cff999999  Fire is 3+E (Fire Blast/Fireball). 2=Arcane Missiles. R=Polymorph.|r")
-    print("|cff999999  Draenei: Gift of the Naaru lives on V (plain key, mouseover heal).|r")
+    print("|cffffd700MageSetup tip:|r Cast bolts on top numrow 1-5. Q=Frost Nova, E=Fire Blast (instant mirror).")
+    print("|cff999999  R=Polymorph (focus-first CC). Draenei: V=Gift of the Naaru.|r")
+    print("|cff999999  Layout grows in tiers: L1, L10, L20 currently defined.|r")
     print("|cff999999  Armors: hold M4 (OPie ring). Conjures/Portals/Teleports: hold M5.|r")
-    print("|cff999999  Alt-bar intentionally empty - drag spec spells manually if wanted.|r")
-    print("|cff999999  Higher-level slots open until trained (Slow Fall L12, Blink L20, etc.).|r")
 end
 
-SetupCore:RegisterClass("MAGE", Run, LAYOUT)
+SetupCore:RegisterClass("MAGE", Run, LAYOUT_TIERS)
 
 -- ===========================================================================
 -- OPie ring registration

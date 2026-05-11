@@ -164,8 +164,49 @@ end
 function SetupCore:RegisterClass(class, applyFn, layout)
     registered[class] = applyFn
     if layout then
+        -- `layout` can be either a flat LAYOUT array or a LAYOUT_TIERS array
+        -- of {minLevel=N, layout={...}} entries. ResolveLayout handles both.
         registeredLayouts[class] = layout
     end
+end
+
+-- ResolveLayout: return the active layout array, given either a flat LAYOUT
+-- table or a LAYOUT_TIERS table of {minLevel, layout} entries. For tiers,
+-- picks the highest tier where the player's level meets minLevel.
+-- Returns: layout array, activeTierMinLevel (or nil if flat layout)
+function SetupCore:ResolveLayout(layoutOrTiers)
+    if not layoutOrTiers or #layoutOrTiers == 0 then return nil, nil end
+    local first = layoutOrTiers[1]
+    -- Tier format detection: first entry has minLevel + layout fields.
+    if type(first) == "table" and first.minLevel and first.layout then
+        local level = UnitLevel("player") or 1
+        local active, activeMin = first.layout, first.minLevel
+        for _, tier in ipairs(layoutOrTiers) do
+            if level >= tier.minLevel and tier.minLevel >= activeMin then
+                active, activeMin = tier.layout, tier.minLevel
+            end
+        end
+        return active, activeMin
+    end
+    -- Flat layout (existing format).
+    return layoutOrTiers, nil
+end
+
+-- TierBoundaries: extract sorted minLevel values from a LAYOUT_TIERS table.
+-- Returns nil if not a tier structure (flat LAYOUT). Used by level-up handler
+-- to detect when the player has crossed into a new tier.
+function SetupCore:TierBoundaries(layoutOrTiers)
+    if not layoutOrTiers or #layoutOrTiers == 0 then return nil end
+    local first = layoutOrTiers[1]
+    if not (type(first) == "table" and first.minLevel and first.layout) then
+        return nil
+    end
+    local boundaries = {}
+    for _, tier in ipairs(layoutOrTiers) do
+        table.insert(boundaries, tier.minLevel)
+    end
+    table.sort(boundaries)
+    return boundaries
 end
 
 -- Returns a list of LAYOUT spell names that:
@@ -174,7 +215,9 @@ end
 -- Used to nudge the user to /setupbars after training new spells.
 function SetupCore:UnplacedLayoutSpells()
     local _, class = UnitClass("player")
-    local layout = registeredLayouts[class]
+    local stored = registeredLayouts[class]
+    if not stored then return {} end
+    local layout = self:ResolveLayout(stored)
     if not layout then return {} end
     local unplaced, seen = {}, {}
     for _, item in ipairs(layout) do
@@ -586,11 +629,25 @@ end
 -- Per docs/racials.md: class addons declare per-race racial entries; SetupCore
 -- merges into LAYOUT based on the player's race. RaceName is the file token
 -- from select(2, UnitRace("player")) — "Tauren", "Orc", "NightElf", etc.
-function SetupCore:ApplyLayout(layout, ignore, racials)
+function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     -- Assert bindings + CVars first; these are per-character and reset on new chars.
     self:ApplyBindings()
     self:ApplyCVars()
     self:EvictAttack()
+
+    -- Resolve LAYOUT_TIERS to the active flat layout for the player's current level.
+    -- Backward-compat: a flat LAYOUT array passes through unchanged.
+    local layout, activeTier = self:ResolveLayout(layoutOrTiers)
+    if not layout then
+        print("|cffff4040SetupCore|r ApplyLayout: no layout to apply")
+        return 0, {}, {}
+    end
+    if activeTier then
+        -- Remember the tier we just applied so PLAYER_LEVEL_UP can detect crossings.
+        SetupCoreCharDB.lastAppliedTier = activeTier
+        SetupCoreCharDB.tierCrossingPending = nil  -- clear pending flag
+        print(string.format("|cff999999SetupCore|r layout tier active: L%d+", activeTier))
+    end
 
     -- Optionally append per-race racial entries.
     if racials then
@@ -757,9 +814,34 @@ elvWatch:SetScript("OnEvent", function(_, event, addon)
     end
 end)
 
+-- Tier crossing detection: when player levels up, check if the new level
+-- crosses a LAYOUT_TIERS boundary. If so, prompt + set needsSetup so the
+-- next /setupbars (or login) applies the new tier.
+local function CheckTierCrossing(newLevel)
+    local _, class = UnitClass("player")
+    local stored = registeredLayouts[class]
+    if not stored then return end
+    local boundaries = SetupCore:TierBoundaries(stored)
+    if not boundaries then return end  -- not a tier structure, no-op
+    for _, boundary in ipairs(boundaries) do
+        if boundary == newLevel then
+            print(string.format("|cffffd700SetupCore:|r You've crossed into the L%d layout tier — type |cff66ff66/setupbars|r to apply the new layout.", newLevel))
+            SetupCoreCharDB.tierCrossingPending = newLevel
+            return
+        end
+    end
+end
+
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
-f:SetScript("OnEvent", function()
+f:RegisterEvent("PLAYER_LEVEL_UP")
+f:SetScript("OnEvent", function(_, event, ...)
+    if event == "PLAYER_LEVEL_UP" then
+        local newLevel = ...
+        if newLevel then CheckTierCrossing(newLevel) end
+        return
+    end
+    -- PLAYER_LOGIN below
     if SetupCoreDB.needsSetup then
         local _, class = UnitClass("player")
         local fn = registered[class]
@@ -771,6 +853,19 @@ f:SetScript("OnEvent", function()
             C_Timer.After(0.5, function() SetupCore:PrintWelcome() end)
         else
             print("|cffffaa00SetupCore|r needsSetup is set but no setup registered for class "..(class or "?"))
+        end
+    end
+
+    -- If a tier crossing was pending from the prior session (player leveled
+    -- up but didn't /setupbars yet), remind on login.
+    if SetupCoreCharDB.tierCrossingPending then
+        local pending = SetupCoreCharDB.tierCrossingPending
+        local current = UnitLevel("player") or 1
+        if current >= pending then
+            print(string.format("|cffffd700SetupCore:|r L%d layout tier still pending — type |cff66ff66/setupbars|r to apply.", pending))
+        else
+            -- Should not happen, but guard against stale flag
+            SetupCoreCharDB.tierCrossingPending = nil
         end
     end
 
