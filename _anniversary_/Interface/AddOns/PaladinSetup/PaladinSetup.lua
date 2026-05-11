@@ -22,49 +22,56 @@
 --   M4 = Paladin Blessings (Might/Wisdom/Kings/Sanctuary/Salvation/Light + greater variants)
 --   M5 = Paladin Auras (Devotion/Retribution/Concentration/Crusader/Resistance/Sanctity)
 
+-- MOVEMENT-OPTIMAL profile: ALL instants on main (un-modified) bar so the
+-- player can fire them while moving. ALL cast-time spells on Alt bar (you're
+-- standing still to cast anyway, modifier hold is free). Hand spells (BoF/
+-- BoP/BoS) are instants -> they move from Alt-QERT (old layout) to Bar 3
+-- ZXCVB. Heals split: instant heals (Holy Shock, LoH) on QERT main; cast
+-- heals (Holy Light, Flash of Light) on Alt-numrow.
 local LAYOUT = {
-    -- MAIN TOP (Bar 1) — INSTANTS only on numrow; cast-time damage (Exorcism, Holy
-    -- Wrath) moved to Alt-numrow per class_setup_pattern.md "casts on alt".
-    -- Judgement on ` is the "always-ready combat-modifier" exception (instant, no CD
-    -- gate, defines the always-pressable Pally combat slot).
-    {"Judgement",              1, 1, "startattack"},      -- L4    `   (judges active seal + engages auto-attack even if Judgement fizzles - on CD, OOR, etc.)
-    {"Crusader Strike",        1, 2, "startattack"},      -- L20   1   (Ret melee filler + engages auto-attack)
-    {"Hammer of Wrath",        1, 3},                     -- L44   2   (instant execute sub-20% HP)
+    -- MAIN TOP (Bar 1) - DAMAGE INSTANTS on numrow
+    {"Judgement",              1, 1, "startattack"},      -- L4    `   (instant + engages auto-attack)
+    {"Crusader Strike",        1, 2, "startattack"},      -- L20   1   (Ret melee + engages auto-attack)
+    {"Hammer of Wrath",        1, 3},                     -- L44   2   (instant execute sub-20%)
     {"Consecration",           1, 4},                     -- L20   3   (instant ground AOE)
-    -- QERT row (Q/E/R/T): heals (mouseover-friendly)
-    {"Holy Light",             1, 8, "mouseover-help"},   -- L1    Q
-    {"Flash of Light",         1, 10, "mouseover-help"},  -- L20   E
-    {"Holy Shock",             1, 11, "mouseover-help"},  -- L40 Holy R (talent — empty if untrained)
-    {"Lay on Hands",           1, 12, "mouseover-help"},  -- L10   T   (60min CD full-HP)
+    {"Avenger's Shield",       1, 5},                     -- L40 Prot 4 (instant ranged taunt - moved from alt)
+    {"Avenging Wrath",         1, 6, "self-cast"},        -- L40 Ret 5 (instant CD)
+    -- QERT row: instant heals + control
+    {"Holy Shock",             1, 8, "mouseover-help"},   -- L40 Holy Q (instant heal - talent only)
+    {"Lay on Hands",           1, 10, "mouseover-help"},  -- L10   E   (instant emergency 100% HP)
+    {"Cleanse",                1, 11, "mouseover-help"},  -- L42 Holy R (instant dispel; auto-replaces Purify)
+    {"Hammer of Justice",      1, 12},                    -- L8    T   (instant 6s stun)
 
-    -- MAIN BOTTOM (Bar 3) — F/G seals; ZXCVB defensives + CC
-    -- F/G row: primary + secondary seal toggles
-    {"Seal of Righteousness",  3, 5},                     -- L1    F   (default melee damage proc; right-aligned)
+    -- MAIN BOTTOM (Bar 3) - F/G seals; ZXCVB Hand spells + defensives
+    {"Seal of Righteousness",  3, 5},                     -- L1    F   (default melee proc)
     {"Seal of the Crusader",   3, 6},                     -- L12   G   (judge for armor debuff opener)
-    -- ZXCVB row: stuns, defensives, utility
-    {"Hammer of Justice",      3, 8},                     -- L8    Z   (6s stun)
-    {"Divine Shield",          3, 9, "self-cast"},        -- L18   X   (8s full immunity)
-    -- C left empty — startattack template + right-click cover auto-attack
-    {"Divine Protection",      3, 11, "self-cast"},       -- L6    V   (50% damage reduction)
-    {"Repentance",             3, 12, "mouseover-harm"},  -- L40 Ret B (6s incapacitate; talent)
+    -- ZXCVB: Hand spells (mouseover-help instants) + self-defensives
+    {"Blessing of Freedom",    3, 8, "mouseover-help"},   -- L18   Z   (instant snare break)
+    {"Blessing of Protection", 3, 9, "mouseover-help"},   -- L10   X   (instant physical immunity)
+    {"Blessing of Sacrifice",  3, 10, "mouseover-help"},  -- L30   C   (instant damage redirect)
+    {"Divine Shield",          3, 11, "self-cast"},       -- L18   V   (instant 8s full immunity)
+    {"Divine Protection",      3, 12, "self-cast"},       -- L6    B   (instant 50% damage reduction)
 
-    -- ALT TOP (Bar 4) — CAST-TIME damage + CDs + heals/Hand spells
-    -- Cast-time damage (Exorcism, Holy Wrath) lives here per "casts on alt" rule.
-    {"Exorcism",               4, 2},                     -- L20   Alt-1 (cast vs Undead/Demon)
-    {"Holy Wrath",             4, 3},                     -- L30   Alt-2 (TBC cast AOE vs Undead/Demon)
-    {"Avenging Wrath",         4, 4, "self-cast"},        -- L40 Ret Alt-3 (+30% dmg/heal CD)
-    {"Avenger's Shield",       4, 5},                     -- L40 Prot Alt-4 (ranged taunt)
-    -- Alt-QERT: dispel + friendly Hand spells (mouseover-friendly)
-    {"Purify",                 4, 8, "mouseover-help"},   -- L8    Alt-Q (disease/poison; Holy spec swaps to Cleanse manually after L42 talent)
-    {"Blessing of Freedom",    4, 10, "mouseover-help"},  -- L18   Alt-E (snare break)
-    {"Blessing of Protection", 4, 11, "mouseover-help"},  -- L10   Alt-R (BoP physical immunity)
-    {"Blessing of Sacrifice",  4, 12, "mouseover-help"},  -- L30 Prot/Holy Alt-T (damage redirect)
+    -- ALT TOP (Bar 4) - CAST-TIME spells only (heal casts + damage casts + CC)
+    {"Holy Light",             4, 2, "mouseover-help"},   -- L1    Alt-1 (primary cast heal)
+    {"Flash of Light",         4, 3, "mouseover-help"},   -- L20   Alt-2 (fast cast heal)
+    {"Exorcism",               4, 4},                     -- L20   Alt-3 (cast vs Undead/Demon)
+    {"Holy Wrath",             4, 5},                     -- L30   Alt-4 (TBC cast AOE vs Undead/Demon)
+    {"Repentance",             4, 6, "focus-mouseover-harm"}, -- L40 Ret Alt-5 (cast CC; focus-first)
+    -- Alt-QERT: rez + niche cast utility
+    -- Alt-Q reserved for Draenei Gift of the Naaru (cast heal racial) via RACIALS.
+    -- Alt-E left empty (placeholder for future cast spell)
+    {"Redemption",             4, 11, "mouseover-help"},  -- L12   Alt-R (OOC cast rez)
+    -- Alt-T left empty
 
-    -- ALT BOTTOM (Bar 5) — utility heals + emergency + rez
-    -- Alt-FG: hands continued
-    {"Divine Intervention",    5, 5, "mouseover-help"},   -- L30   Alt-F (sacrifice for friend invuln; right-aligned)
-    {"Redemption",             5, 6, "mouseover-help"},   -- L12   Alt-G (out-of-combat rez)
-    -- Alt-ZXCVB: leave open for player customization (resistance auras, situational seals)
+    -- ALT BOTTOM (Bar 5) - rare instants that don't fit on main + niche
+    -- These violate "casts only on alt" by necessity (low-pri instants exceed main bar capacity).
+    {"Divine Intervention",    5, 5, "mouseover-help"},   -- L30   Alt-F (rare friend invuln rez setup - instant)
+    -- Alt-G left empty (or for racial)
+    {"Divine Favor",           5, 8, "self-cast"},        -- L20 Holy Alt-Z (instant crit-heal CD - Holy talent)
+    -- Alt-X reserved via RACIALS for Draenei (was previous Naaru slot - now Naaru moved to Alt-Q)
+    {"Divine Plea",            5, 10, "self-cast"},       -- TBC L66 Alt-C (instant mana CD)
+    -- Alt-V/B left empty (placeholders for racial)
 }
 
 local IGNORE = {
@@ -134,7 +141,7 @@ local RACIALS = {
         {"Stoneform", 5, 8, "self-cast"},     -- Alt-Z: defensive break (joins alt-bottom defensives)
     },
     Draenei = {
-        {"Gift of the Naaru", 5, 9, "mouseover-help"},  -- Alt-X: Alt-Q/G are full (Purify/Redemption); X is empty in alt-ZXCVB
+        {"Gift of the Naaru", 4, 8, "mouseover-help"},  -- Alt-Q: Naaru is a 1.5s cast - fits the alt-bar "casts only" rule cleanly now
     },
     BloodElf = {
         {"Arcane Torrent", 3, 10},            -- C: combat CC + mana burst
@@ -144,11 +151,10 @@ local RACIALS = {
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("PaladinSetup", placed, skipped, orphans)
-    print("|cffffd700PaladinSetup tip:|r Blessings live on OPie M4, Auras on M5.")
-    print("|cff999999  Seals: Righteousness on F (default), Crusader on G (open with judge for armor debuff).|r")
-    print("|cff999999  Holy spec: Holy Shock auto-fills Alt-R when trained.|r")
-    print("|cff999999  Holy talent: Cleanse upgrades Purify on Alt-Q — drag manually after L42.|r")
-    print("|cff999999  Prot spec: Avenger's Shield auto-fills Alt-2 when trained.|r")
+    print("|cffffd700PaladinSetup tip:|r Movement-optimal layout - instants on main (move-and-press),")
+    print("|cff999999  cast-time spells on Alt-bar (Holy Light/Flash, Exorcism, Holy Wrath, Repentance).|r")
+    print("|cff999999  Hand spells (BoF/BoP/BoS) on Z/X/C - mouseover any party member.|r")
+    print("|cff999999  Blessings: hold M4 (OPie ring). Auras: hold M5.|r")
 end
 
 SetupCore:RegisterClass("PALADIN", Run, LAYOUT)
