@@ -39,11 +39,13 @@ local LAYOUT = {
     {"Lightning Bolt",         4, 2, "nuke-mouseover"},   -- L1    Alt-1 (cast nuke — mouseover supports kiting / target-swap playstyle)
     {"Chain Lightning",        4, 3},                     -- L32   Alt-2
     {"Water Shield",           4, 4},                     -- L20   Alt-3
-    -- Alt-QERT: heals + rez (mouseover-friendly)
-    {"Healing Wave",           4, 8, "mouseover-help"},   -- L6    Alt-Q
-    {"Ancestral Spirit",       4, 10, "mouseover-help"},  -- L12   Alt-E
-    {"Lesser Healing Wave",    4, 11, "mouseover-help"},  -- L20   Alt-R
-    {"Chain Heal",             4, 12, "mouseover-help"},  -- L40   Alt-T
+    -- Alt-4 left empty
+    {"Ancestral Spirit",       4, 6, "mouseover-help"},   -- L12   Alt-5 (OOC rez - demoted off heal cluster, low-frequency)
+    -- Alt-QERT: combat heals (mouseover-friendly), promoted by frequency
+    {"Healing Wave",           4, 8, "mouseover-help"},   -- L6    Alt-Q (main slow heal)
+    {"Lesser Healing Wave",    4, 10, "mouseover-help"},  -- L20   Alt-E (promoted from Alt-R - fast emergency heal next to main heal)
+    {"Chain Heal",             4, 11, "mouseover-help"},  -- L40   Alt-R (promoted from Alt-T - group heal)
+    -- Alt-T left empty
 
     -- ALT BOTTOM (Bar 5) ===========================================
     -- Alt-FG: utility (Alt-F empty after Tremor → OPie + Ghost Wolf → Z;
