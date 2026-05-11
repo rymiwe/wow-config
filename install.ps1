@@ -12,8 +12,10 @@
   Defaults to auto-detect.
 
 .PARAMETER Mode
-  upsert (default): install addons, skip existing bindings/SavedVariables.
-  fresh: overwrite bindings + reseed auto-setup flag.
+  fresh (DEFAULT): overwrite bindings/ElvUI/SetupCore + reseed auto-setup flag.
+                   The opinionated baseline wins - any /ec or in-game tweaks revert.
+  upsert: preserve existing bindings/SavedVariables (smart-merge new template
+          bindings only, keeps user customizations).
 
 .EXAMPLE
   iex (iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1").Content
@@ -21,7 +23,7 @@
 param(
     [string]$WowDir = $env:WOWDIR,
     [string]$Account,
-    [ValidateSet("upsert", "fresh")][string]$Mode = "upsert",
+    [ValidateSet("upsert", "fresh")][string]$Mode = "fresh",
     [string]$Branch = "main",
     [string]$RepoUrl = "https://github.com/rymiwe/wow-config.git"
 )
@@ -151,7 +153,32 @@ try {
         Copy-Item (Join-Path $srcTemplates "bindings-cache.wtf") $dstBindings -Force
         Write-Host "Installed bindings-cache.wtf"
     } else {
-        Write-Host "bindings-cache.wtf exists - leaving alone (use -Mode fresh to overwrite)"
+        # Smart merge: append template `bind KEY ACTION` lines whose KEY is not
+        # already in local. Preserves /ec customizations, lets new template
+        # bindings (e.g., META- duplicates) land without -Mode fresh.
+        $tplLines  = Get-Content (Join-Path $srcTemplates "bindings-cache.wtf")
+        $localLines = Get-Content $dstBindings
+        $localKeys = @{}
+        foreach ($l in $localLines) {
+            if ($l -match '^bind\s+(\S+)') { $localKeys[$matches[1]] = $true }
+        }
+        $added = 0
+        $toAppend = @()
+        foreach ($l in $tplLines) {
+            if ($l -match '^\s*$' -or $l -match '^\s*#') { continue }
+            if ($l -match '^bind\s+(\S+)') {
+                if (-not $localKeys.ContainsKey($matches[1])) {
+                    $toAppend += $l
+                    $added++
+                }
+            }
+        }
+        if ($added -gt 0) {
+            Add-Content -Path $dstBindings -Value $toAppend
+            Write-Host "bindings-cache.wtf: appended $added new binding(s) from template (existing bindings preserved)"
+        } else {
+            Write-Host "bindings-cache.wtf: up-to-date (no new template bindings)"
+        }
     }
 
     # ElvUI.lua — full UI layout. Only deploy in --fresh mode; in upsert mode
@@ -299,6 +326,22 @@ try {
     Write-Host "     If a ring isn't bound, /opie -> Ring Bindings to set manually (overrides persist)."
     Write-Host "  3. (Optional) Install TSM from CurseForge if you use the Auction House"
     Write-Host "  4. (Optional) Import TSM groups via /tsm UI from templates/tsm-groups/"
+
+    # Offer a `wcu` PowerShell function for one-command refreshes (PowerShell
+    # doesn't have shell-style aliases for arbitrary commands, so we use a
+    # function instead). Only adds if profile doesn't already have it.
+    $profilePath = $PROFILE.CurrentUserAllHosts
+    $wcuLine = "function wcu { iex (iwr 'https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1').Content }"
+    if (-not (Test-Path $profilePath) -or -not (Select-String -Path $profilePath -Pattern "function wcu" -Quiet -ErrorAction SilentlyContinue)) {
+        Write-Host ""
+        Write-Host "Tip: add a 'wcu' (WoW Config Update) function to your PowerShell profile:"
+        Write-Host "  Add-Content -Path `$PROFILE.CurrentUserAllHosts -Value `"$wcuLine`""
+        Write-Host "  . `$PROFILE.CurrentUserAllHosts"
+        Write-Host "Then any time, just run:  wcu"
+    } else {
+        Write-Host ""
+        Write-Host "(wcu function already in your PowerShell profile - just run 'wcu' to refresh next time)"
+    }
 }
 finally {
     if (Test-Path $tempDir) { Remove-Item -Recurse -Force $tempDir }

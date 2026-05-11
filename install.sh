@@ -9,15 +9,15 @@
 # Flags:
 #   --wow-dir <path>    Path to WoW root (parent of _anniversary_)
 #   --account <name>    Battle.net account folder name (under WTF/Account/)
-#   --fresh             Overwrite bindings + reseed auto-setup flag
-#   --upsert            Skip existing bindings/SavedVariables (default)
+#   --fresh             Overwrite bindings/ElvUI/SetupCore + reseed auto-setup flag (DEFAULT)
+#   --upsert            Preserve existing bindings/SavedVariables (smart-merge new bindings only)
 #   --branch <name>     Repo branch (default: main)
 
 set -euo pipefail
 
 WOWDIR="${WOWDIR:-}"
 ACCOUNT="${ACCOUNT:-}"
-MODE="${MODE:-upsert}"
+MODE="${MODE:-fresh}"
 BRANCH="${BRANCH:-main}"
 REPO_URL="${REPO_URL:-https://github.com/rymiwe/wow-config.git}"
 
@@ -161,7 +161,26 @@ if [[ "$MODE" == "fresh" || ! -f "$DST_BIND" ]]; then
     cp "$SRC_TPL/bindings-cache.wtf" "$DST_BIND"
     echo "Installed bindings-cache.wtf"
 else
-    echo "bindings-cache.wtf exists - leaving alone (use --fresh to overwrite)"
+    # Smart merge: append template's `bind KEY ACTION` lines whose KEY is not
+    # already bound locally. Preserves user's /ec customizations (their KEY
+    # binding wins) while letting new bindings (e.g., META-X duplicates) land
+    # without --fresh. Comments + blank lines from template are skipped.
+    local_keys=$(awk '/^bind / {print $2}' "$DST_BIND")
+    added=0
+    while IFS= read -r line; do
+        [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+        [[ ! "$line" =~ ^bind[[:space:]] ]] && continue
+        key=$(awk '{print $2}' <<< "$line")
+        if ! grep -Fxq "$key" <<< "$local_keys"; then
+            echo "$line" >> "$DST_BIND"
+            added=$((added+1))
+        fi
+    done < "$SRC_TPL/bindings-cache.wtf"
+    if [[ $added -gt 0 ]]; then
+        echo "bindings-cache.wtf: appended $added new binding(s) from template (existing bindings preserved)"
+    else
+        echo "bindings-cache.wtf: up-to-date (no new template bindings)"
+    fi
 fi
 
 # ElvUI.lua — full UI layout. --fresh deploys; --upsert preserves existing.
@@ -308,3 +327,22 @@ echo "  2. OPie rings auto-bind to M4 (primary) and M5 (secondary) on first logi
 echo "     If a ring isn't bound, /opie -> Ring Bindings to set it manually (overrides persist)."
 echo "  3. (Optional) Install TSM from CurseForge if you use the Auction House."
 echo "  4. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"
+
+# Offer to install a `wcu` (WoW Config Update) shell alias for one-command refreshes.
+SHELL_RC=""
+case "$(basename "${SHELL:-}")" in
+    bash) SHELL_RC="$HOME/.bashrc" ;;
+    zsh)  SHELL_RC="$HOME/.zshrc" ;;
+esac
+if [[ -n "$SHELL_RC" && -f "$SHELL_RC" ]]; then
+    if ! grep -q "alias wcu=" "$SHELL_RC" 2>/dev/null; then
+        echo
+        echo "Tip: add a 'wcu' alias to refresh wow-config in one command:"
+        echo "  echo \"alias wcu='curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | bash'\" >> $SHELL_RC"
+        echo "  source $SHELL_RC"
+        echo "Then any time, just run:  wcu"
+    else
+        echo
+        echo "(wcu alias already in $SHELL_RC - just run 'wcu' to refresh next time)"
+    fi
+fi
