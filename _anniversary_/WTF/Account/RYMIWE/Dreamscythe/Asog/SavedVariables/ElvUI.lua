@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/s pleased to meet you fellow adventurers",
 "/p onward i shall go",
 "/p tis a rough smoke",
 "/p gold is",
@@ -21,6 +20,7 @@ ElvCharacterDB = {
 "/cw Nyren-Dreamscythe please sir",
 "from my research it seems we could carefully 4-man deadmines tonight with me healing, but certainly after y'alls leveling session tonight i guess",
 "so like you said... 15ish i guess",
+"/setupbars",
 "/rl",
 },
 ["ChatHistoryLog"] = {

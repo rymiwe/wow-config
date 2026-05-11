@@ -814,15 +814,41 @@ elvWatch:SetScript("OnEvent", function(_, event, addon)
         -- Disable ElvUI's AFK overlay (the screen that pops up over a TSM scan
         -- when WoW marks you AFK). Set on every profile in ElvDB so the choice
         -- persists across profile switches. Idempotent - safe to re-set.
+        -- Also enable ElvUI's tooltip cursor anchor (tooltips follow cursor
+        -- instead of living in the bottom-right of the screen).
         if _G.ElvDB and _G.ElvDB.profiles then
             for _, profile in pairs(_G.ElvDB.profiles) do
                 if type(profile) == "table" then
                     profile.general = profile.general or {}
                     profile.general.afk = false
+                    profile.tooltip = profile.tooltip or {}
+                    profile.tooltip.cursorAnchor = true
                 end
             end
         end
-        if E and E.db and E.db.general then E.db.general.afk = false end
+        if E and E.db then
+            if E.db.general then E.db.general.afk = false end
+            if E.db.tooltip then E.db.tooltip.cursorAnchor = true end
+        end
+        -- Minimap icon positions (LibDBIcon-style angle in degrees). Defer to
+        -- give addon SVs time to load. Idempotent - safe to re-set each login.
+        C_Timer.After(2, function()
+            local positions = {
+                QuestieConfig         = {path = {"profiles", "Default", "minimap"}, value = 175.33},
+                WeakAurasSaved        = {path = {"minimap"},                        value = 185.77},
+                TradeSkillMasterDB    = {path = {"g@ @coreOptions@minimapIcon"},    value = 195.00},
+            }
+            for sv, spec in pairs(positions) do
+                local t = _G[sv]
+                if type(t) == "table" then
+                    for _, k in ipairs(spec.path) do
+                        t[k] = t[k] or {}
+                        t = t[k]
+                    end
+                    if type(t) == "table" then t.minimapPos = spec.value end
+                end
+            end
+        end)
     end
 end)
 

@@ -304,6 +304,7 @@ ElvDB = {
 ["convertPages"] = true,
 ["tooltip"] = {
 ["headerFontSize"] = 11,
+["cursorAnchor"] = true,
 ["cursorAnchorType"] = "ANCHOR_CURSOR_LEFT",
 ["healthBar"] = {
 ["fontSize"] = 9,

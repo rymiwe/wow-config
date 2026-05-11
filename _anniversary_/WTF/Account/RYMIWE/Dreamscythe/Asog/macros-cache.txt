@@ -1,32 +1,32 @@
 VER 3 0100000000000002 "SC_AncestralSpir" "136077"
 #showtooltip
-/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Ancestral Spirit
+/cast [@mouseover,help,nodead][help,nodead][@player] Ancestral Spirit
 END
 VER 3 0100000000000004 "SC_CurePoison" "136067"
 #showtooltip
-/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Cure Poison
+/cast [@mouseover,help,nodead][help,nodead][@player] Cure Poison
 END
 VER 3 0100000000000006 "SC_FlameShock" "135813"
 #showtooltip
 /startattack
-/cast Flame Shock
+/cast [@mouseover,harm,nodead][harm,nodead] Flame Shock
 END
 VER 3 0100000000000007 "SC_GiftoftheNaar" "135923"
 #showtooltip
-/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru
+/cast [@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru
 END
 VER 3 0100000000000001 "SC_HealingWave" "136052"
 #showtooltip
-/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Healing Wave
+/cast [@mouseover,help,nodead][help,nodead][@player] Healing Wave
 END
 VER 3 0100000000000003 "SC_LesserHealing" "136043"
 #showtooltip
-/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Lesser Healing Wave
+/cast [@mouseover,help,nodead][help,nodead][@player] Lesser Healing Wave
 END
 VER 3 010000000000000A "SC_LightningBolt" "136048"
 #showtooltip
 /startattack
-/cast Lightning Bolt
+/cast [@mouseover,harm,nodead][harm,nodead] Lightning Bolt
 END
 VER 3 0100000000000005 "SC_Purge" "136075"
 #showtooltip
