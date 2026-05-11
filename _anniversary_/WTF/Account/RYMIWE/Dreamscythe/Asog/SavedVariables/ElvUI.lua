@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/macro",
-"invite",
-"/p how do you do fair adventurers",
 "/s pleased to meet you fellow adventurers",
 "/p onward i shall go",
 "/p tis a rough smoke",
@@ -22,6 +19,9 @@ ElvCharacterDB = {
 "/p can you invite peliwe",
 "/p not sure he's going to join yet, but just in case",
 "/cw Nyren-Dreamscythe please sir",
+"from my research it seems we could carefully 4-man deadmines tonight with me healing, but certainly after y'alls leveling session tonight i guess",
+"so like you said... 15ish i guess",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },

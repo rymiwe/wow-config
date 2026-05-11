@@ -1,4 +1,11 @@
 Version: 1
+Frame: ZygorGuidesViewerFrameMaster
+FrameLevel: 1
+Anchor: RIGHT
+X: -483
+Y: -305
+W: 40
+H: 40
 Frame: ZygorGuidesViewerPointer_ArrowCtrl
 FrameLevel: 0
 Anchor: TOP
@@ -20,10 +27,3 @@ X: 0
 Y: -12
 W: 610
 H: 438
-Frame: ZygorGuidesViewerFrameMaster
-FrameLevel: 1
-Anchor: RIGHT
-X: -483
-Y: -305
-W: 40
-H: 40
