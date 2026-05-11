@@ -88,7 +88,9 @@ exec > /dev/tty 2>&1
 echo
 url=""
 if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
-    url="$(gh gist create --filename "wow-diag-$(hostname)-$(date +%s).txt" "$TMPLOG" 2>/dev/null | tail -1)"
+    # --public so rymiwe/assistant can find via GitHub gist listing API.
+    # Diagnostic content is paths/hostnames - no secrets.
+    url="$(gh gist create --public --desc "wow-config-diag" --filename "wow-diag-$(hostname)-$(date +%s).txt" "$TMPLOG" 2>/dev/null | tail -1)"
     [[ -n "$url" ]] && echo ">>> Uploaded diagnostic to gist: $url"
 fi
 if [[ -z "$url" ]]; then
