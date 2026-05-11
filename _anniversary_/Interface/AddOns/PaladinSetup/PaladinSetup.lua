@@ -27,7 +27,7 @@ local LAYOUT = {
     -- Wrath) moved to Alt-numrow per class_setup_pattern.md "casts on alt".
     -- Judgement on ` is the "always-ready combat-modifier" exception (instant, no CD
     -- gate, defines the always-pressable Pally combat slot).
-    {"Judgement",              1, 1},                     -- L4    `   (always-ready; judges active seal)
+    {"Judgement",              1, 1, "startattack"},      -- L4    `   (judges active seal + engages auto-attack even if Judgement fizzles - on CD, OOR, etc.)
     {"Crusader Strike",        1, 2, "startattack"},      -- L20   1   (Ret melee filler + engages auto-attack)
     {"Hammer of Wrath",        1, 3},                     -- L44   2   (instant execute sub-20% HP)
     {"Consecration",           1, 4},                     -- L20   3   (instant ground AOE)
