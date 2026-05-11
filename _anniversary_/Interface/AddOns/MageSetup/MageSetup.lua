@@ -30,26 +30,27 @@
 local LAYOUT = {
     -- MAIN TOP (Bar 1) - COMBO COLUMNS: each pair vertically aligned.
     -- Frost combo: 1 (cast) above Q (instant) | Fire combo: 3 (instant) above E (cast)
-    {"Counterspell",           1, 1},                     -- L24   `   (interrupt + 8s lockout)
+    -- Per user 2026-05-10: wife is L10 - DO NOT reserve slots for spells she
+    -- doesn't have yet. Higher-level entries commented out + IGNORE'd. Re-enable
+    -- (uncomment + remove from IGNORE) when she trains each one.
+    -- {"Counterspell",           1, 1},                  -- L24   `   FUTURE
     {"Frostbolt",              1, 2, "nuke-mouseover"},   -- L1    1   (Frost cast - paired above Frost Nova)
     {"Arcane Missiles",        1, 3, "nuke-mouseover"},   -- L1    2   (Arcane channel - alone, W gap below)
     {"Fire Blast",             1, 4, "nuke-mouseover"},   -- L6    3   (Fire instant - paired above Fireball)
-    -- 4, 5 empty (future: Ice Lance L66 / Cone of Cold could fill)
     -- QERT: bottom of combo columns + control
     {"Frost Nova",             1, 8},                     -- L10   Q   (Frost instant - directly below Frostbolt)
     {"Fireball",               1, 10, "nuke-mouseover"},  -- L1    E   (Fire cast - directly below Fire Blast)
     {"Polymorph",              1, 11, "focus-mouseover-harm"}, -- L8 R  (CC; focus-first)
-    {"Blink",                  1, 12, "self-cast"},       -- L20   T   (escape)
+    -- {"Blink",                  1, 12, "self-cast"},    -- L20   T   FUTURE
 
     -- MAIN BOTTOM (Bar 3) - F/G self-buffs, ZXCVB AoE + utility
     {"Frost Armor",            3, 5, "self-cast"},        -- L1    F   (starter armor; OPie M4 has variants)
-    {"Conjure Mana Gem",       3, 6, "self-cast"},        -- L28   G   (frequent OOC create)
-    -- ZXCVB row: AoE + defensives + travel
-    {"Cone of Cold",           3, 8},                     -- L26   Z   (instant frontal AoE + slow)
-    {"Arcane Explosion",       3, 9},                     -- L14   X   (instant PBAoE)
-    {"Mana Shield",            3, 10, "self-cast"},       -- L20   C   (HP-for-mana defensive)
-    -- V left for Draenei Gift of the Naaru via RACIALS (plain-key heal racial)
-    {"Slow Fall",              3, 12, "mouseover-help"},  -- L12   B   (cast on friend or self)
+    -- {"Conjure Mana Gem",       3, 6, "self-cast"},     -- L28   G   FUTURE
+    -- {"Cone of Cold",           3, 8},                  -- L26   Z   FUTURE
+    -- {"Arcane Explosion",       3, 9},                  -- L14   X   FUTURE
+    -- {"Mana Shield",            3, 10, "self-cast"},    -- L20   C   FUTURE
+    -- V left for Draenei Gift of the Naaru via RACIALS (plain-key heal racial, L1)
+    -- {"Slow Fall",              3, 12, "mouseover-help"}, -- L12   B   FUTURE
 
     -- ALT BAR (Bars 4 + 5) - INTENTIONALLY EMPTY per user 2026-05-10:
     -- wife wants no auto-placed skills on Alt-modified bars while leveling.
@@ -86,13 +87,21 @@ local IGNORE = {
     -- Frost Armor placed in LAYOUT on F (L1 starter armor); upgrades via OPie M4 ring.
     ["Ice Armor"]=true, ["Molten Armor"]=true,
     -- Alt-bar intentionally empty per user 2026-05-10 (wife's preference).
-    -- These would normally auto-place on Alt-numrow / Alt-QERT / Alt-ZXCVB but
-    -- are IGNORE'd to suppress orphan warnings. Drag manually if wanted.
     ["Pyroblast"]=true, ["Scorch"]=true, ["Ice Lance"]=true, ["Slow"]=true,
     ["Blizzard"]=true, ["Combustion"]=true, ["Presence of Mind"]=true,
     ["Ice Barrier"]=true, ["Cold Snap"]=true, ["Remove Lesser Curse"]=true,
     ["Arcane Power"]=true, ["Dragon's Breath"]=true, ["Blast Wave"]=true,
     ["Mass Dispel"]=true, ["Evocation"]=true, ["Spellsteal"]=true,
+    -- Future-leveling spells: per user 2026-05-10 (wife L10), DON'T reserve slots
+    -- for spells she doesn't have yet. Re-enable in LAYOUT (and remove from here)
+    -- when she trains each:
+    ["Slow Fall"]=true,         -- L12
+    ["Arcane Explosion"]=true,  -- L14
+    ["Blink"]=true,             -- L20
+    ["Mana Shield"]=true,       -- L20
+    ["Counterspell"]=true,      -- L24
+    ["Cone of Cold"]=true,      -- L26
+    ["Conjure Mana Gem"]=true,  -- L28
     -- Conjures - handled by OPie ring (M5)
     ["Conjure Water"]=true, ["Conjure Food"]=true, ["Conjure Refreshment"]=true,
     -- Portals + Teleports - handled by OPie ring (M5)
@@ -157,10 +166,11 @@ local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("MageSetup", placed, skipped, orphans)
     print("|cffffd700MageSetup tip:|r Combo columns - Frost is 1+Q (Frostbolt/Frost Nova),")
-    print("|cff999999  Fire is 3+E (Fire Blast/Fireball). 2=Arcane Missiles. R=Polymorph, T=Blink.|r")
+    print("|cff999999  Fire is 3+E (Fire Blast/Fireball). 2=Arcane Missiles. R=Polymorph.|r")
     print("|cff999999  Draenei: Gift of the Naaru lives on V (plain key, mouseover heal).|r")
     print("|cff999999  Armors: hold M4 (OPie ring). Conjures/Portals/Teleports: hold M5.|r")
     print("|cff999999  Alt-bar intentionally empty - drag spec spells manually if wanted.|r")
+    print("|cff999999  Higher-level slots open until trained (Slow Fall L12, Blink L20, etc.).|r")
 end
 
 SetupCore:RegisterClass("MAGE", Run, LAYOUT)
