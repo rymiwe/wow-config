@@ -1,50 +1,49 @@
 
 SetupCoreCharDB = {
-["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
-["id"] = 20271,
+["name"] = "SC_Judgement",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+nil,
+{
+["name"] = " ",
+["type"] = "macro",
+},
+nil,
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["id"] = 853,
 ["type"] = "spell",
-["name"] = "Judgement",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-nil,
-{
-["name"] = "SC_HolyLight",
-["type"] = "macro",
-},
-nil,
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
+["name"] = "Hammer of Justice",
 },
 [58] = {
 ["name"] = " ",
@@ -60,9 +59,8 @@ nil,
 ["type"] = "macro",
 },
 [32] = {
-["id"] = 853,
-["type"] = "spell",
-["name"] = "Hammer of Justice",
+["name"] = " ",
+["type"] = "macro",
 },
 [33] = {
 ["name"] = " ",
@@ -73,11 +71,11 @@ nil,
 ["type"] = "macro",
 },
 [35] = {
-["name"] = "SC_DivineProtect",
+["name"] = " ",
 ["type"] = "macro",
 },
 [36] = {
-["name"] = " ",
+["name"] = "SC_DivineProtect",
 ["type"] = "macro",
 },
 [37] = {
@@ -85,7 +83,7 @@ nil,
 ["type"] = "macro",
 },
 [38] = {
-["name"] = " ",
+["name"] = "SC_HolyLight",
 ["type"] = "macro",
 },
 [39] = {
@@ -104,18 +102,9 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[116] = {
-["id"] = 28880,
-["type"] = "spell",
-["name"] = "Gift of the Naaru",
-},
 [44] = {
-["name"] = "SC_Purify",
+["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
-},
-[113] = {
-["id"] = 24105,
-["type"] = "item",
 },
 [46] = {
 ["name"] = " ",
@@ -130,11 +119,11 @@ nil,
 ["type"] = "macro",
 },
 [112] = {
-["id"] = 23329,
+["id"] = 159,
 ["type"] = "item",
 },
 [111] = {
-["id"] = 117,
+["id"] = 23756,
 ["type"] = "item",
 },
 [110] = {
@@ -171,6 +160,7 @@ nil,
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-10 18:02:33",
+["timestamp"] = "2026-05-10 18:37:28",
 },
+["channelsLeft"] = true,
 }
