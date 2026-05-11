@@ -1,0 +1,7 @@
+## Interface: 20505
+## Title: Zygor Setup
+## Notes: Apply opinionated Zygor Guides Viewer config on first login per character
+## Version: 1.0
+## OptionalDeps: ZygorGuidesViewerClassic
+
+ZygorSetup.lua

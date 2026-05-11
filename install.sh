@@ -99,7 +99,7 @@ DST_CONFIG="$WOW/_anniversary_/WTF/Config.wtf"
 
 mkdir -p "$DST_ADDONS" "$DST_SV"
 
-ADDONS=(SetupCore ChatAnchor ChatPanelThemes ShamanSetup DruidSetup HunterSetup PaladinSetup WarriorSetup MageSetup PriestSetup RogueSetup WarlockSetup)
+ADDONS=(SetupCore ChatAnchor ChatPanelThemes ZygorSetup ShamanSetup DruidSetup HunterSetup PaladinSetup WarriorSetup MageSetup PriestSetup RogueSetup WarlockSetup)
 for a in "${ADDONS[@]}"; do
     src="$SRC_ADDONS/$a"
     dst="$DST_ADDONS/$a"
