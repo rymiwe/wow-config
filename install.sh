@@ -250,10 +250,20 @@ fetch_addon_zip() {
     rm -f "$tmp"
 }
 
-# Read local TOC ## Version field. Returns empty if not installed/parseable.
+# Read local TOC ## Version field from an addon directory. Many addons ship
+# multi-flavor TOCs (ElvUI_TBC.toc, ElvUI_Mainline.toc, WeakAuras_TBC.toc, etc.)
+# instead of a single <Name>.toc, so we glob for any *.toc and prefer the TBC
+# variant for our Anniversary client. Returns empty if no TOC found/parseable.
 local_toc_version() {
-    local toc="$1"
-    [[ -f "$toc" ]] || { echo ""; return; }
+    local addon_dir="$1"
+    local toc=""
+    for candidate in "$addon_dir"/*_TBC.toc "$addon_dir"/*_Wrath.toc "$addon_dir"/*_Vanilla.toc "$addon_dir"/*.toc; do
+        if [[ -f "$candidate" ]]; then
+            toc="$candidate"
+            break
+        fi
+    done
+    [[ -z "$toc" ]] && { echo ""; return; }
     grep -oE '^## Version:[[:space:]]*\S+' "$toc" 2>/dev/null \
         | head -1 | sed -E 's|^## Version:[[:space:]]*||'
 }
@@ -263,8 +273,8 @@ strip_v() { sed -E 's|^[vV]||'; }
 
 # Skip download if local TOC version matches remote. Otherwise fetch + unzip.
 maybe_install_addon() {
-    local name="$1" toc_path="$2" remote_ver="$3" url="$4"
-    local local_ver; local_ver="$(local_toc_version "$toc_path")"
+    local name="$1" addon_dir="$2" remote_ver="$3" url="$4"
+    local local_ver; local_ver="$(local_toc_version "$addon_dir")"
     if [[ -n "$local_ver" && -n "$remote_ver" ]]; then
         local lv; lv="$(echo "$local_ver" | strip_v)"
         local rv; rv="$(echo "$remote_ver" | strip_v)"
@@ -296,15 +306,15 @@ echo "Checking companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
 elvui_json="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null)"
 elvui_url="$(echo "$elvui_json" | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
 elvui_ver="$(echo "$elvui_json" | grep -oE '"version":"[^"]+"' | head -1 | sed -E 's|^"version":"||;s|"$||')"
-maybe_install_addon "ElvUI" "$ADDONS_DIR/ElvUI/ElvUI.toc" "$elvui_ver" "$elvui_url"
+maybe_install_addon "ElvUI" "$ADDONS_DIR/ElvUI" "$elvui_ver" "$elvui_url"
 
 # WeakAuras / Questie / BadBoy from GitHub Releases (multi-flavor TOCs).
 wa_data="$(github_latest_release WeakAuras/WeakAuras2)"
-maybe_install_addon "WeakAuras" "$ADDONS_DIR/WeakAuras/WeakAuras.toc" "${wa_data%%|*}" "${wa_data##*|}"
+maybe_install_addon "WeakAuras" "$ADDONS_DIR/WeakAuras" "${wa_data%%|*}" "${wa_data##*|}"
 q_data="$(github_latest_release Questie/Questie)"
-maybe_install_addon "Questie" "$ADDONS_DIR/Questie/Questie.toc" "${q_data%%|*}" "${q_data##*|}"
+maybe_install_addon "Questie" "$ADDONS_DIR/Questie" "${q_data%%|*}" "${q_data##*|}"
 bb_data="$(github_latest_release funkydude/BadBoy)"
-maybe_install_addon "BadBoy" "$ADDONS_DIR/BadBoy/BadBoy.toc" "${bb_data%%|*}" "${bb_data##*|}"
+maybe_install_addon "BadBoy" "$ADDONS_DIR/BadBoy" "${bb_data%%|*}" "${bb_data##*|}"
 # OPie from townlong-yak. Two-step fetch: main page links to the current
 # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
 # a /addons/gate/<hash>/ anti-hotlink prefix.
@@ -316,7 +326,7 @@ if [[ -n "$opie_ver_path" ]]; then
     if [[ -n "$opie_zip_path" ]]; then
         # Extract version from URL (e.g., OPie-6.7.4.zip -> 6.7.4) for skip-check.
         opie_ver="$(echo "$opie_zip_path" | grep -oE 'OPie-[0-9.]+' | head -1 | sed 's|OPie-||')"
-        local_opie="$(local_toc_version "$ADDONS_DIR/OPie/OPie.toc")"
+        local_opie="$(local_toc_version "$ADDONS_DIR/OPie")"
         # OPie TOC may have extra version components (e.g., 6.7.4.5); compare prefix.
         if [[ -n "$local_opie" && "$local_opie" == "$opie_ver"* ]]; then
             echo "OPie: up-to-date (v$local_opie)"
