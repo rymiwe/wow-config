@@ -324,11 +324,14 @@ if [[ -n "$opie_ver_path" ]]; then
     opie_ver_page="$(curl -fsSL "https://www.townlong-yak.com${opie_ver_path}" 2>/dev/null || true)"
     opie_zip_path="$(echo "$opie_ver_page" | grep -oE 'href="/addons/gate/[a-f0-9]+/opie/OPie-[0-9.]+\.zip"' | head -1 | sed -E 's|^href="||; s|"$||')"
     if [[ -n "$opie_zip_path" ]]; then
-        # Extract version from URL (e.g., OPie-6.7.4.zip -> 6.7.4) for skip-check.
-        opie_ver="$(echo "$opie_zip_path" | grep -oE 'OPie-[0-9.]+' | head -1 | sed 's|OPie-||')"
+        # Extract version from URL via bash parameter expansion (cleaner than
+        # regex - the previous `[0-9.]+` greedy match captured the dot from
+        # `.zip` giving "8.3.3." with trailing dot, breaking version compare).
+        opie_tmp="${opie_zip_path##*OPie-}"; opie_ver="${opie_tmp%.zip}"
         local_opie="$(local_toc_version "$ADDONS_DIR/OPie")"
-        # OPie TOC may have extra version components (e.g., 6.7.4.5); compare prefix.
-        if [[ -n "$local_opie" && "$local_opie" == "$opie_ver"* ]]; then
+        # OPie TOC may have extra version components (e.g., 6.7.4.5); accept
+        # match in either direction (local prefix-of remote OR remote prefix-of local).
+        if [[ -n "$local_opie" && ( "$local_opie" == "$opie_ver"* || "$opie_ver" == "$local_opie"* ) ]]; then
             echo "OPie: up-to-date (v$local_opie)"
         else
             if [[ -z "$local_opie" ]]; then
