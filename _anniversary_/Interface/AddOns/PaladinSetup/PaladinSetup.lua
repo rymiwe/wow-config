@@ -39,7 +39,7 @@ local LAYOUT = {
     -- QERT row: instant heals + control
     {"Holy Shock",             1, 8, "mouseover-help"},   -- L40 Holy Q (instant heal - talent only)
     {"Lay on Hands",           1, 10, "mouseover-help"},  -- L10   E   (instant emergency 100% HP)
-    {"Cleanse",                1, 11, "mouseover-help"},  -- L42 Holy R (instant dispel; auto-replaces Purify)
+    {"Purify",                 1, 11, "pally-dispel"},    -- L8    R   (instant dispel; macro tries Cleanse first if Holy-talented, falls back to Purify - works for any spec)
     {"Hammer of Justice",      1, 12},                    -- L8    T   (instant 6s stun)
 
     -- MAIN BOTTOM (Bar 3) - F/G seals; ZXCVB Hand spells + defensives

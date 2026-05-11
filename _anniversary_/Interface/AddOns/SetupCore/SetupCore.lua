@@ -133,6 +133,23 @@ local MACRO_TEMPLATES = {
     ["interrupt"] = function(spell)
         return "#showtooltip\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell
     end,
+    -- Paladin dispel cascade: Cleanse (L42 Holy talent, dispels Magic too) tried
+    -- first; falls through to Purify (L8 base, Disease/Poison only) if Cleanse
+    -- not known or target invalid. Targeting follows mouseover-help priority.
+    -- The spell-name parameter is ignored - macro is hardcoded; pass "Purify"
+    -- in LAYOUT so the macro slot is still labeled meaningfully when only
+    -- Purify is trained.
+    ["pally-dispel"] = function(_)
+        return table.concat({
+            "#showtooltip",
+            "/cast [@mouseover,help,nodead] Cleanse",
+            "/cast [@mouseover,help,nodead] Purify",
+            "/cast [help,nodead] Cleanse",
+            "/cast [help,nodead] Purify",
+            "/cast [@player] Cleanse",
+            "/cast [@player] Purify",
+        }, "\n")
+    end,
 }
 
 -- Class addons can build a smart-interrupt macro by passing the class's
