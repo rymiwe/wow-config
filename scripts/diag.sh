@@ -1,8 +1,18 @@
 #!/bin/bash
 # diag.sh — print diagnostic info about a wow-config install.
 # Run on any machine: curl -sSL https://raw.githubusercontent.com/rymiwe/wow-config/main/scripts/diag.sh | bash
+#
+# Auto-uploads the report to a shareable URL:
+#   1. If `gh` CLI is authenticated -> creates a secret GitHub gist (preferred)
+#   2. Otherwise -> uploads to 0x0.st (no-auth public paste, expires in ~1yr)
+#   3. Either way, prints the URL at the end. Share that URL instead of pasting.
 
 set -uo pipefail
+
+# Capture all output for upload while still streaming to terminal.
+TMPLOG="$(mktemp -t wow-diag-XXXXXX.txt)"
+trap 'rm -f "$TMPLOG"' EXIT
+exec > >(tee "$TMPLOG")
 
 echo "=== wow-config diagnostic ==="
 echo "Date:   $(date)"
@@ -70,3 +80,24 @@ curl -sSL "https://api.github.com/repos/rymiwe/wow-config/commits/main" 2>/dev/n
 
 echo
 echo "=== done ==="
+
+# Stop tee so the upload log is finalized.
+exec > /dev/tty 2>&1
+
+# Try to upload the captured log to a shareable URL.
+echo
+url=""
+if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
+    url="$(gh gist create --filename "wow-diag-$(hostname)-$(date +%s).txt" "$TMPLOG" 2>/dev/null | tail -1)"
+    [[ -n "$url" ]] && echo ">>> Uploaded diagnostic to gist: $url"
+fi
+if [[ -z "$url" ]]; then
+    # Fallback to 0x0.st (no auth, public expiring URL ~1yr)
+    url="$(curl -sSF "file=@$TMPLOG" https://0x0.st 2>/dev/null)"
+    if [[ -n "$url" && "$url" =~ ^https:// ]]; then
+        echo ">>> Uploaded diagnostic to: $url"
+    else
+        echo ">>> Upload failed - paste the output above manually"
+    fi
+fi
+echo ">>> Share this URL with the assistant"
