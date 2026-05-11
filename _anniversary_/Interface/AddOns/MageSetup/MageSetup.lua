@@ -51,26 +51,14 @@ local LAYOUT = {
     -- V left for Draenei Gift of the Naaru via RACIALS (plain-key heal racial)
     {"Slow Fall",              3, 12, "mouseover-help"},  -- L12   B   (cast on friend or self)
 
-    -- ALT TOP (Bar 4) - higher-level spec spells + Frost survival CDs
-    {"Pyroblast",              4, 2, "nuke-mouseover"},   -- L20 Fire Alt-1 (Fire heavy nuke)
-    {"Scorch",                 4, 3, "nuke-mouseover"},   -- L22 Fire Alt-2 (Fire short cast)
-    {"Ice Lance",              4, 4, "nuke-mouseover"},   -- TBC L66 Alt-3 (Frost instant on frozen)
-    {"Slow",                   4, 5, "nuke-mouseover"},   -- TBC L66 Alt-4 (Arcane snare)
-    {"Blizzard",               4, 6},                     -- L20 Frost Alt-5 (channel ground AoE)
-    -- Alt-QERT: spec CDs + Frost survival (paired below R/T main row)
-    {"Combustion",             4, 8, "self-cast"},        -- L30 Fire Alt-Q (crit CD)
-    {"Presence of Mind",       4, 10, "self-cast"},       -- L30 Arcane Alt-E (instant cast next spell)
-    {"Ice Barrier",            4, 11, "self-cast"},       -- L40 Frost Alt-R (absorb shield - L40 talent)
-    {"Cold Snap",              4, 12, "self-cast"},       -- L30 Frost Alt-T (reset Frost CDs - L30 talent)
-
-    -- ALT BOTTOM (Bar 5) - dispels + niche
-    {"Remove Lesser Curse",    5, 5, "mouseover-help"},   -- L18   Alt-F (dispel curse from friend)
-    {"Arcane Power",           5, 6, "self-cast"},        -- L30 Arcane Alt-G (damage CD)
-    {"Dragon's Breath",        5, 8},                     -- TBC L60 Fire Alt-Z (instant disorient)
-    {"Blast Wave",             5, 9},                     -- L30 Fire Alt-X (PBAoE)
-    {"Mass Dispel",            5, 10},                    -- TBC L60 Alt-C (mass dispel)
-    {"Evocation",              5, 11, "self-cast"},       -- L20   Alt-V (mana channel)
-    {"Spellsteal",             5, 12, "mouseover-harm"},  -- TBC L60 Alt-B (steal buff)
+    -- ALT BAR (Bars 4 + 5) - INTENTIONALLY EMPTY per user 2026-05-10:
+    -- wife wants no auto-placed skills on Alt-modified bars while leveling.
+    -- All spec spells (Pyroblast/Scorch/Fireball-on-alt/Arcane Missiles-on-alt
+    -- variations), spec CDs (Combustion/PoM/Arcane Power), AoE casts (Blizzard/
+    -- Dragon's Breath/Blast Wave), Frost survival talents (Ice Barrier, Cold
+    -- Snap), dispels (Remove Lesser Curse, Mass Dispel), and niche utility
+    -- (Evocation, Spellsteal, Slow, Ice Lance) are listed in IGNORE so they
+    -- don't appear as orphans. Drag any manually if she wants them.
 }
 
 local IGNORE = {
@@ -97,6 +85,14 @@ local IGNORE = {
     -- Armors - handled by OPie ring (M4)
     -- Frost Armor placed in LAYOUT on F (L1 starter armor); upgrades via OPie M4 ring.
     ["Ice Armor"]=true, ["Molten Armor"]=true,
+    -- Alt-bar intentionally empty per user 2026-05-10 (wife's preference).
+    -- These would normally auto-place on Alt-numrow / Alt-QERT / Alt-ZXCVB but
+    -- are IGNORE'd to suppress orphan warnings. Drag manually if wanted.
+    ["Pyroblast"]=true, ["Scorch"]=true, ["Ice Lance"]=true, ["Slow"]=true,
+    ["Blizzard"]=true, ["Combustion"]=true, ["Presence of Mind"]=true,
+    ["Ice Barrier"]=true, ["Cold Snap"]=true, ["Remove Lesser Curse"]=true,
+    ["Arcane Power"]=true, ["Dragon's Breath"]=true, ["Blast Wave"]=true,
+    ["Mass Dispel"]=true, ["Evocation"]=true, ["Spellsteal"]=true,
     -- Conjures - handled by OPie ring (M5)
     ["Conjure Water"]=true, ["Conjure Food"]=true, ["Conjure Refreshment"]=true,
     -- Portals + Teleports - handled by OPie ring (M5)
@@ -164,6 +160,7 @@ local function Run()
     print("|cff999999  Fire is 3+E (Fire Blast/Fireball). 2=Arcane Missiles. R=Polymorph, T=Blink.|r")
     print("|cff999999  Draenei: Gift of the Naaru lives on V (plain key, mouseover heal).|r")
     print("|cff999999  Armors: hold M4 (OPie ring). Conjures/Portals/Teleports: hold M5.|r")
+    print("|cff999999  Alt-bar intentionally empty - drag spec spells manually if wanted.|r")
 end
 
 SetupCore:RegisterClass("MAGE", Run, LAYOUT)

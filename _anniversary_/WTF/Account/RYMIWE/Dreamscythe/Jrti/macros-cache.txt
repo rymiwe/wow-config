@@ -2,9 +2,18 @@ VER 3 0100000000000002 "SC_DivineProtect" "135954"
 #showtooltip
 /cast [@player] Divine Protection
 END
+VER 3 0100000000000005 "SC_GiftoftheNaar" "135923"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru
+END
 VER 3 0100000000000001 "SC_HolyLight" "135920"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Holy Light
+END
+VER 3 0100000000000004 "SC_Judgement" "135959"
+#showtooltip
+/startattack
+/cast Judgement
 END
 VER 3 0100000000000003 "SC_Purify" "135949"
 #showtooltip

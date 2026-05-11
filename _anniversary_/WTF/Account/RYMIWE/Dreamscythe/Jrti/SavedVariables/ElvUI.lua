@@ -11,11 +11,12 @@ ElvCharacterDB = {
 "/p 5 more",
 "/p now we go",
 "/p one sec",
-"/zygor show",
 "yt homie?",
 "/clap",
 "/p break for pee?",
 "/setupbars",
+"/s 8",
+"/zygor show",
 "/rl",
 },
 ["ChatHistoryLog"] = {
