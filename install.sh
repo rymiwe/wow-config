@@ -328,13 +328,13 @@ echo "     If a ring isn't bound, /opie -> Ring Bindings to set it manually (ove
 echo "  3. (Optional) Install TSM from CurseForge if you use the Auction House."
 echo "  4. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"
 
-# Hyprland integration hint - if user is on a Hyprland session (Omarchy etc.),
-# point them at the standalone script that sets up Super+number passthrough.
+# Hyprland integration - auto-run on Hyprland-detected systems (Omarchy etc.)
+# so Super+1-9 passes through to WoW while focused. Idempotent; safe on every
+# wcu refresh. Per the "opinionated, fresh always" philosophy: detect, do.
 if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]] || command -v hyprctl >/dev/null 2>&1; then
     echo
-    echo "Hyprland detected. To free up Super+1-9 for WoW (preserves Super+Tab"
-    echo "for workspace cycling while in-game), run once:"
-    echo "  bash scripts/install-omarchy-wow.sh"
+    echo "Hyprland detected - applying integration (Super+number passes to WoW)..."
+    REPO_DIR="$TMP" bash "$TMP/scripts/install-omarchy-wow.sh"
 fi
 
 # Offer to install a `wcu` (WoW Config Update) shell alias for one-command refreshes.
