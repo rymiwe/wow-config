@@ -811,6 +811,18 @@ elvWatch:SetScript("OnEvent", function(_, event, addon)
             end)
             E._SetupCore_InstallHooked = true
         end
+        -- Disable ElvUI's AFK overlay (the screen that pops up over a TSM scan
+        -- when WoW marks you AFK). Set on every profile in ElvDB so the choice
+        -- persists across profile switches. Idempotent - safe to re-set.
+        if _G.ElvDB and _G.ElvDB.profiles then
+            for _, profile in pairs(_G.ElvDB.profiles) do
+                if type(profile) == "table" then
+                    profile.general = profile.general or {}
+                    profile.general.afk = false
+                end
+            end
+        end
+        if E and E.db and E.db.general then E.db.general.afk = false end
     end
 end)
 

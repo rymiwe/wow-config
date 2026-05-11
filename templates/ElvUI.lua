@@ -42,6 +42,7 @@ ElvDB = {
 },
 },
 ["general"] = {
+["afk"] = false,
 ["valuecolor"] = {
 ["r"] = 0,
 ["g"] = 0.44,
