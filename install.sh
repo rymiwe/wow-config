@@ -365,8 +365,8 @@ case "$(uname -s)" in
 [Desktop Entry]
 Type=Application
 Name=WoW Updater
-Comment=Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)
-Exec=bash -c "curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/scripts/update-addons.sh | bash 2>&1 | tee /tmp/wow-update.log; notify-send 'wow-config' 'Addons refreshed - check /tmp/wow-update.log if anything looks off' 2>/dev/null || true"
+Comment=Refresh wow-config: addons + custom code + bindings + templates (full wcu)
+Exec=bash -c "curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | bash 2>&1 | tee /tmp/wow-update.log; notify-send 'wow-config' 'wow-config refreshed - check /tmp/wow-update.log if anything looks off' 2>/dev/null || true"
 Icon=applications-games
 Categories=Game;
 Terminal=false
