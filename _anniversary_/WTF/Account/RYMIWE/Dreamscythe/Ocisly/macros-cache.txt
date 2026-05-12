@@ -1,18 +1,22 @@
+VER 3 0100000000000005 "SC_EntanglingRoo" "136100"
+#showtooltip
+/cast [@mouseover,harm,nodead][harm,nodead] Entangling Roots
+END
 VER 3 0100000000000002 "SC_HealingTouch" "136041"
 #showtooltip
-/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Healing Touch
+/cast [@mouseover,help,nodead][help,nodead][@player] Healing Touch
 END
 VER 3 0100000000000003 "SC_Moonfire" "136096"
 #showtooltip
 /startattack
-/cast Moonfire
+/cast [@mouseover,harm,nodead][harm,nodead] Moonfire
 END
 VER 3 0100000000000004 "SC_Rejuvenation" "136081"
 #showtooltip
-/cast [@focus,help,nodead][@mouseover,help,nodead][help,nodead][@player] Rejuvenation
+/cast [@mouseover,help,nodead][help,nodead][@player] Rejuvenation
 END
 VER 3 0100000000000001 "SC_Wrath" "136006"
 #showtooltip
 /startattack
-/cast Wrath
+/cast [@mouseover,harm,nodead][harm,nodead] Wrath
 END

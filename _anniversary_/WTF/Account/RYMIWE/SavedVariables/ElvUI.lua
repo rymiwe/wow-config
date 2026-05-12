@@ -54,9 +54,9 @@ ElvDB = {
 ["general"] = {
 ["bottomPanel"] = false,
 ["valuecolor"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.04,
+["g"] = 0.49,
+["r"] = 1,
 },
 ["fontStyle"] = "SHADOW",
 ["loginmessage"] = false,
@@ -161,9 +161,9 @@ ElvDB = {
 ["chat"] = {
 ["tabFontOutline"] = "OUTLINE",
 ["tabSelectorColor"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.04,
+["g"] = 0.49,
+["r"] = 1,
 },
 ["socialQueueMessages"] = true,
 ["tabSelector"] = "BOX1",
@@ -620,11 +620,11 @@ ElvDB = {
 ["height"] = 20,
 ["sizeOverride"] = 33,
 },
-["pvpTrinket"] = {
-["xOffset"] = 7,
-["size"] = 32,
-},
 ["pvpSpecIcon"] = false,
+["portrait"] = {
+["width"] = 25,
+["style"] = "Class",
+},
 ["spacing"] = 15,
 ["pvpclassificationindicator"] = {
 ["size"] = 32,
@@ -654,9 +654,9 @@ ElvDB = {
 ["position"] = "LEFT",
 ["xOffset"] = 2,
 },
-["portrait"] = {
-["width"] = 25,
-["style"] = "Class",
+["pvpTrinket"] = {
+["xOffset"] = 7,
+["size"] = 32,
 },
 ["height"] = 27,
 ["buffs"] = {
@@ -725,9 +725,9 @@ ElvDB = {
 ["font"] = "Expressway",
 ["colors"] = {
 ["auraBarBuff"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.04,
+["g"] = 0.49,
+["r"] = 1,
 },
 ["healthclass"] = true,
 ["castClassColor"] = true,

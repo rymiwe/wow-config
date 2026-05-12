@@ -209,14 +209,11 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
-["alpha"] = 1,
+["frameStrata"] = 1,
 ["borderOffset"] = 4,
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Lightning shield",
-["parent"] = "Sham Shields",
-["frameStrata"] = 1,
-["anchorFrameType"] = "SCREEN",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -237,6 +234,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["alpha"] = 1,
+["anchorFrameType"] = "SCREEN",
+["parent"] = "Sham Shields",
 ["uid"] = "Q1U6c1N03cL",
 ["config"] = {
 },
@@ -398,11 +398,13 @@ WeakAurasSaved = {
 ["useAdjustededMax"] = false,
 ["parent"] = "SwingTimer",
 ["enableGradient"] = false,
-["config"] = {
-["CbM"] = false,
-["bigBadSync"] = false,
-},
 ["uid"] = "7y6BGEkcT6p",
+["sparkColor"] = {
+1,
+0,
+0.03921568627451,
+1,
+},
 ["selfPoint"] = "CENTER",
 ["anchorFrameType"] = "SCREEN",
 ["useAdjustededMin"] = false,
@@ -440,11 +442,9 @@ WeakAurasSaved = {
 ["desc"] = "Might help with red-green colorblindness",
 },
 },
-["sparkColor"] = {
-1,
-0,
-0.03921568627451,
-1,
+["config"] = {
+["CbM"] = false,
+["bigBadSync"] = false,
 },
 ["inverse"] = true,
 ["icon"] = false,
@@ -632,15 +632,15 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["pvptalent"] = {
+["multi"] = {
+},
+},
 ["faction"] = {
 ["multi"] = {
 },
 },
 ["use_spec"] = true,
-["pvptalent"] = {
-["multi"] = {
-},
-},
 ["use_combat"] = true,
 ["spec"] = {
 ["single"] = 1,
@@ -939,8 +939,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
+["border_size"] = 2,
 ["border_offset"] = 1,
-["type"] = "subborder",
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -952,7 +952,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["border_size"] = 2,
+["type"] = "subborder",
 },
 {
 ["tick_rotation"] = 0,
@@ -1283,12 +1283,12 @@ WeakAurasSaved = {
 ["uid"] = "9b0ooXp)9Nb",
 ["frameStrata"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["authorOptions"] = {
-},
+["selfPoint"] = "CENTER",
 ["config"] = {
 },
-["selfPoint"] = "CENTER",
 ["borderInset"] = 1,
+["authorOptions"] = {
+},
 ["conditions"] = {
 },
 ["information"] = {
@@ -1380,19 +1380,6 @@ WeakAurasSaved = {
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Sham Shields",
-["uid"] = "pgn179hZoxd",
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
-["xOffset"] = 0,
-["borderInset"] = 1,
-["config"] = {
-},
-["frameStrata"] = 1,
-["conditions"] = {
-},
-["information"] = {
-["showNilIsFalse"] = true,
-},
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -1413,6 +1400,19 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
+["xOffset"] = 0,
+["borderInset"] = 1,
+["config"] = {
+},
+["uid"] = "pgn179hZoxd",
+["conditions"] = {
+},
+["information"] = {
+["showNilIsFalse"] = true,
+},
+["alpha"] = 1,
 },
 ["L Shield 2"] = {
 ["wagoID"] = "OPRZeg-u6",
@@ -1604,15 +1604,15 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["pvptalent"] = {
+["multi"] = {
+},
+},
 ["faction"] = {
 ["multi"] = {
 },
 },
 ["use_spec"] = true,
-["pvptalent"] = {
-["multi"] = {
-},
-},
 ["use_combat"] = true,
 ["spec"] = {
 ["single"] = 1,
@@ -1848,8 +1848,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
+["border_size"] = 2,
 ["border_offset"] = 1,
-["type"] = "subborder",
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -1861,7 +1861,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["border_size"] = 2,
+["type"] = "subborder",
 },
 {
 ["tick_rotation"] = 0,
@@ -2260,14 +2260,11 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
-["alpha"] = 1,
+["frameStrata"] = 1,
 ["borderOffset"] = 4,
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Wata shield",
-["parent"] = "Sham Shields",
-["frameStrata"] = 1,
-["anchorFrameType"] = "SCREEN",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -2288,6 +2285,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["alpha"] = 1,
+["anchorFrameType"] = "SCREEN",
+["parent"] = "Sham Shields",
 ["uid"] = "rQfBiekzqnL",
 ["config"] = {
 },
@@ -2677,8 +2677,7 @@ WeakAurasSaved = {
 },
 },
 },
-["registered"] = {
-},
+["editor_font_size"] = 12,
 ["lastArchiveClear"] = 1777260853,
 ["minimap"] = {
 ["minimapPos"] = 185.77,
@@ -2689,7 +2688,8 @@ WeakAurasSaved = {
 ["migrationCutoff"] = 730,
 ["features"] = {
 },
-["editor_font_size"] = 12,
-["historyCutoff"] = 730,
 ["login_squelch_time"] = 10,
+["historyCutoff"] = 730,
+["registered"] = {
+},
 }
