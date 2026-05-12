@@ -163,40 +163,15 @@ local RACIALS = {
     },
 }
 
--- Apply a form-specific layout. Caller already verified form. Reuses SetupCore
--- primitives so untrained-spell skipping + backup behaves as usual. ClearAllBars
--- only clears the CURRENT form's slots (because the buttons' "action" attribute
--- points to the current form's page), so this leaves caster/other-form bars alone.
-local function ApplyFormLayout(formName, formLayout)
-    SetupCore:ApplyBindings()
-    SetupCore:ApplyCVars()
-    SetupCore:BackupBars()
-    SetupCore:ClearAllBars()
-    local placed, skipped = 0, {}
-    for _, item in ipairs(formLayout) do
-        local name, bar, btn, template = item[1], item[2], item[3], item[4]
-        if SetupCore:PlaceSpell(name, bar, btn, template) then
-            placed = placed + 1
-        else
-            table.insert(skipped, name)
-        end
-    end
-    SetupCore:FillEmptyBoundSlots()
-    print(string.format("|cff00ff00DruidSetup|r %s form placed %d abilities", formName, placed))
-    if #skipped > 0 then
-        print("|cff999999Skipped (not yet trained):|r "..table.concat(skipped, ", "))
-    end
-end
-
 local function Run()
     local form = GetShapeshiftForm()
     -- TBC Druid form indices: 1=Bear, 2=Aquatic, 3=Cat, 4=Travel, 5=Moonkin/Tree.
     if form == 1 then
-        ApplyFormLayout("BEAR", BEAR_LAYOUT)
+        SetupCore:ApplyFormLayout("DruidSetup", "BEAR form", BEAR_LAYOUT)
         print("|cff999999  Caster + Cat bars untouched. Shift to Cat and /setupbars to set up that bar.|r")
         return
     elseif form == 3 then
-        ApplyFormLayout("CAT", CAT_LAYOUT)
+        SetupCore:ApplyFormLayout("DruidSetup", "CAT form", CAT_LAYOUT)
         print("|cff999999  Caster + Bear bars untouched. Shift to Bear and /setupbars to set up that bar.|r")
         return
     end

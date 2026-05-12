@@ -629,6 +629,33 @@ end
 -- Per docs/racials.md: class addons declare per-race racial entries; SetupCore
 -- merges into LAYOUT based on the player's race. RaceName is the file token
 -- from select(2, UnitRace("player")) — "Tauren", "Orc", "NightElf", etc.
+-- ApplyFormLayout: configure a specific form/stance/stealth bar (Druid bear/cat,
+-- Warrior stances, Rogue stealth). Caller verifies form; we just place the
+-- given abilities onto whichever action slots the current ElvUI buttons map to.
+-- Because ElvUI buttons' `action` attribute points to the current form's bonus
+-- bar page, ClearAllBars + PlaceSpell here only affects the form-specific
+-- slots - the caster/other-form placements are untouched.
+function SetupCore:ApplyFormLayout(addonName, formName, formLayout)
+    self:ApplyBindings()
+    self:ApplyCVars()
+    self:BackupBars()
+    self:ClearAllBars()
+    local placed, skipped = 0, {}
+    for _, item in ipairs(formLayout) do
+        local name, bar, btn, template = item[1], item[2], item[3], item[4]
+        if self:PlaceSpell(name, bar, btn, template) then
+            placed = placed + 1
+        else
+            table.insert(skipped, name)
+        end
+    end
+    self:FillEmptyBoundSlots()
+    print(string.format("|cff00ff00%s|r %s placed %d abilities", addonName, formName, placed))
+    if #skipped > 0 then
+        print("|cff999999Skipped (not yet trained):|r "..table.concat(skipped, ", "))
+    end
+end
+
 function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     -- Assert bindings + CVars first; these are per-character and reset on new chars.
     self:ApplyBindings()

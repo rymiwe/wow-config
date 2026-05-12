@@ -70,6 +70,22 @@ local LAYOUT = {
     -- Alt-V/B left empty (placeholders for racial)
 }
 
+-- Stealth-form layout: applied when /setupbars runs while stealthed
+-- (GetShapeshiftForm() == 1 for Rogue). Stealth-only openers go here;
+-- non-stealth caster bar is untouched.
+local STEALTH_LAYOUT = {
+    {"Kick",                   1, 1},                     -- `   (kept consistent - interrupt always available)
+    {"Cheap Shot",             1, 2},                     -- 1   (stun opener)
+    {"Garrote",                1, 3},                     -- 2   (silence + bleed opener)
+    {"Ambush",                 1, 4},                     -- 3   (high-damage burst opener)
+    {"Sap",                    1, 5, "focus-mouseover-harm"}, -- 4 (CC humanoid)
+    {"Pick Pocket",            1, 6},                     -- 5   (loot before pulling)
+    {"Premeditation",          1, 8, "self-cast"},        -- Q   (Subt talent - free combo points; skip if not specced)
+    {"Distract",               1, 10},                    -- E   (turn enemies for stealth positioning)
+    {"Vanish",                 1, 11, "self-cast"},       -- R   (re-stealth if broken)
+    {"Sprint",                 1, 12, "self-cast"},       -- T   (movement while stealthed)
+}
+
 local IGNORE = {
     -- Combat passives + universal stuff
     ["Attack"]=true, ["Block"]=true, ["Dodge"]=true, ["Parry"]=true,
@@ -165,11 +181,18 @@ local RACIALS = {
 }
 
 local function Run()
+    -- TBC Rogue: GetShapeshiftForm() returns 1 when stealthed (Stealth or Vanish),
+    -- 0 otherwise. Stealth pages bar 1 to its own bonus bar; we populate that
+    -- separately so caster placements aren't disturbed.
+    if GetShapeshiftForm() == 1 then
+        SetupCore:ApplyFormLayout("RogueSetup", "STEALTH form", STEALTH_LAYOUT)
+        print("|cff999999  Non-stealth bar untouched. Drop stealth and /setupbars to set up that bar.|r")
+        return
+    end
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("RogueSetup", placed, skipped, orphans)
-    print("|cffffd700RogueSetup tip:|r stealth-only openers (Cheap Shot / Garrote / Ambush)")
-    print("|cff999999  appear on the stealth BonusActionBar - drag them onto Bar 1 manually|r")
-    print("|cff999999  while stealthed (Blizzard remembers per-stealth-state slots).|r")
+    print("|cffffd700RogueSetup tip:|r Stealth, then /setupbars - fills stealth-bar with")
+    print("|cff999999  Cheap Shot / Garrote / Ambush / Sap / Premeditation / etc.|r")
     print("|cff999999  Sap on Alt-G uses focus-first - /focus a mob, Alt-G saps it.|r")
 end
 
