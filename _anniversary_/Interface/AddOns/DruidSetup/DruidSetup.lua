@@ -120,6 +120,10 @@ local IGNORE = {
 --
 -- Untrained abilities silently skip (kid in L10 bear has only Maul; the rest
 -- fill in as he levels and re-runs /setupbars in form).
+-- Form layouts ONLY place Bar 1 entries (the form-paged bar). Bar 3-5 are
+-- shared across forms; placing form-specific abilities there would clobber
+-- caster utility on form /setupbars. Faerie Fire (Feral) and Cower don't have
+-- a Bar 1 slot in our default; drag manually if wanted on a form page.
 local BEAR_LAYOUT = {
     {"Maul",                   1, 1},                     -- L10   `   (next-swing rage dump - always-ready)
     {"Mangle (Bear)",          1, 2},                     -- L50+  1   (primary builder, replaces Maul-spam)
@@ -131,7 +135,6 @@ local BEAR_LAYOUT = {
     {"Challenging Roar",       1, 10},                    -- L40   E   (AoE taunt)
     {"Frenzied Regeneration",  1, 11, "self-cast"},       -- L40   R   (emergency heal CD)
     {"Enrage",                 1, 12, "self-cast"},       -- L26   T   (rage generation)
-    {"Faerie Fire (Feral)",    3, 5},                     -- L18 talent F (armor debuff in form)
 }
 
 local CAT_LAYOUT = {
@@ -145,8 +148,6 @@ local CAT_LAYOUT = {
     {"Pounce",                 1, 10},                    -- L24   E   (stealth stun opener)
     {"Ravage",                 1, 11},                    -- L36   R   (stealth burst opener)
     {"Maim",                   1, 12},                    -- TBC L62 T (knockback finisher)
-    {"Faerie Fire (Feral)",    3, 5},                     -- L18 talent F (armor debuff in form)
-    {"Cower",                  3, 6, "self-cast"},        -- L20   G   (threat dump)
 }
 
 -- Used by print() in caster-form Run() to advertise form layouts.

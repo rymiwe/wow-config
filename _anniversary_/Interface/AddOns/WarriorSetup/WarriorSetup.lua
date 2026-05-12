@@ -72,6 +72,49 @@ local LAYOUT = {
     {"Challenging Shout",      5, 12},                    -- L20   Alt-B (AOE taunt)
 }
 
+-- Stance-specific layouts. Each stance has its own Bar 1 page (Battle = page 7,
+-- Defensive = page 8, Berserker = page 9 per ElvUI TBC defaults). Run /setupbars
+-- in each stance once to populate. Shared utility (Sunder Armor, Disarm, etc.)
+-- lives on Bar 3 placed by main LAYOUT and stays accessible from any stance.
+local BATTLE_LAYOUT = {
+    {"Heroic Strike",          1, 1, "startattack"},      -- `   (queued next-swing)
+    {"Mortal Strike",          1, 2, "startattack"},      -- 1   (Arms primary)
+    {"Bloodthirst",            1, 3, "startattack"},      -- 2   (Fury primary - usable any stance)
+    {"Charge",                 1, 4, "startattack"},      -- 3   (Battle stance opener)
+    {"Overpower",              1, 5},                     -- 4   (Battle reactive after dodge)
+    {"Thunder Clap",           1, 6},                     -- 5   (Battle/Def AoE)
+    {"Hamstring",              1, 8},                     -- Q   (universal snare)
+    {"Rend",                   1, 10},                    -- E   (Battle/Def DoT)
+    {"Slam",                   1, 11},                    -- R   (universal cast)
+    {"Execute",                1, 12},                    -- T   (sub-20% finisher)
+}
+
+local DEFENSIVE_LAYOUT = {
+    {"Heroic Strike",          1, 1, "startattack"},      -- `
+    {"Sunder Armor",           1, 2},                     -- 1   (threat builder)
+    {"Revenge",                1, 3},                     -- 2   (Def reactive after dodge/parry/block)
+    {"Shield Slam",            1, 4},                     -- 3   (Prot key ability)
+    {"Shield Block",           1, 5, "self-cast"},        -- 4   (defensive CD)
+    {"Disarm",                 1, 6},                     -- 5   (Def/Battle)
+    {"Hamstring",              1, 8},                     -- Q
+    {"Shield Bash",            1, 10},                    -- E   (interrupt - Def/Battle)
+    {"Shield Wall",            1, 11, "self-cast"},       -- R   (big damage reduction CD)
+    {"Intervene",              1, 12, "mouseover-help"},  -- T   (TBC L66 - friend redirect)
+}
+
+local BERSERKER_LAYOUT = {
+    {"Heroic Strike",          1, 1, "startattack"},      -- `
+    {"Mortal Strike",          1, 2, "startattack"},      -- 1   (Arms - any stance)
+    {"Bloodthirst",            1, 3, "startattack"},      -- 2   (Fury - any stance)
+    {"Whirlwind",              1, 4, "startattack"},      -- 3   (Berserker only AoE)
+    {"Intercept",              1, 5, "startattack"},      -- 4   (Berserker gap-closer + stun)
+    {"Berserker Rage",         1, 6, "self-cast"},        -- 5   (fear break + rage gen)
+    {"Hamstring",              1, 8},                     -- Q
+    {"Pummel",                 1, 10},                    -- E   (Berserker interrupt)
+    {"Slam",                   1, 11},                    -- R
+    {"Execute",                1, 12},                    -- T
+}
+
 local IGNORE = {
     -- Combat passives + universal stuff
     ["Attack"]=true, ["Block"]=true, ["Dodge"]=true, ["Parry"]=true,
@@ -167,13 +210,34 @@ local RACIALS = {
 }
 
 local function Run()
+    -- TBC Warrior stance indices: 1=Battle, 2=Defensive, 3=Berserker.
+    -- Stance-aware /setupbars: in each stance, populate that stance's Bar 1
+    -- page. Bar 3-5 (shared utility) come from the main LAYOUT below.
+    local stance = GetShapeshiftForm()
+    if stance == 1 then
+        SetupCore:ApplyFormLayout("WarriorSetup", "BATTLE stance", BATTLE_LAYOUT)
+        print("|cff999999  Shift to Defensive/Berserker and /setupbars to set up those stances.|r")
+        return
+    elseif stance == 2 then
+        SetupCore:ApplyFormLayout("WarriorSetup", "DEFENSIVE stance", DEFENSIVE_LAYOUT)
+        print("|cff999999  Tank kit placed. Shift to Battle/Berserker for those stances.|r")
+        return
+    elseif stance == 3 then
+        SetupCore:ApplyFormLayout("WarriorSetup", "BERSERKER stance", BERSERKER_LAYOUT)
+        print("|cff999999  DPS kit placed. Shift to Battle/Defensive for those stances.|r")
+        return
+    end
+    -- No stance (rare): apply default LAYOUT (used as Battle-stance fallback +
+    -- populates Bar 3-5 shared utility for all stances).
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("WarriorSetup", placed, skipped, orphans)
     print("|cffffd700WarriorSetup tip:|r Shouts on OPie M4, Stances on M5 (also F/G/Z).")
-    print("|cff999999  Arms: Mortal Strike on 1 + Sweeping Strikes on Alt-3 are your CDs.|r")
-    print("|cff999999  Fury: Bloodthirst on 2 + Death Wish on Alt-2 + Recklessness on Alt-1.|r")
-    print("|cff999999  Prot: Shield Slam on Alt-5 + Last Stand on Alt-X. Drag Devastate over Sunder.|r")
-    print("|cff999999  Stance-locked spells (Whirlwind, etc.) error silently in wrong stance.|r")
+    print("|cff999999  Bar 3-5 holds shared utility (Sunder, Disarm, Shouts, etc.) - works any stance.|r")
+    print("|cff999999  Shift to each stance and /setupbars to populate that stance's Bar 1:|r")
+    print("|cff999999    Battle: Charge/Overpower/Thunder Clap/Rend|r")
+    print("|cff999999    Defensive: Sunder/Revenge/Shield Slam/Shield Block/Shield Wall|r")
+    print("|cff999999    Berserker: Whirlwind/Intercept/Berserker Rage/Pummel/Recklessness|r")
+    print("|cff999999  Shift held = caster bar shown (page 1) in any stance.|r")
 end
 
 SetupCore:RegisterClass("WARRIOR", Run, LAYOUT)

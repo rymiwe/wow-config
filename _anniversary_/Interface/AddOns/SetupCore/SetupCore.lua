@@ -639,7 +639,19 @@ function SetupCore:ApplyFormLayout(addonName, formName, formLayout)
     self:ApplyBindings()
     self:ApplyCVars()
     self:BackupBars()
-    self:ClearAllBars()
+    -- Only clear Bar 1 - it's the only bar that pages with form/stance/stealth.
+    -- Bar 3-5 are shared across forms; clearing them on a form /setupbars would
+    -- wipe the caster's utility/dispel placements made in caster form.
+    for i = 1, 12 do
+        local btn = _G["ElvUI_Bar1Button"..i]
+        if btn then
+            local slot = btn:GetAttribute("action")
+            if slot and HasAction(slot) then
+                PickupAction(slot)
+                ClearCursor()
+            end
+        end
+    end
     local placed, skipped = 0, {}
     for _, item in ipairs(formLayout) do
         local name, bar, btn, template = item[1], item[2], item[3], item[4]
