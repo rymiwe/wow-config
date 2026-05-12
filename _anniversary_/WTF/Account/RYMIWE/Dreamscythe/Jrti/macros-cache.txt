@@ -17,10 +17,5 @@ VER 3 0100000000000004 "SC_Judgement" "135959"
 END
 VER 3 0100000000000003 "SC_Purify" "135949"
 #showtooltip
-/cast [@mouseover,help,nodead] Cleanse
-/cast [@mouseover,help,nodead] Purify
-/cast [help,nodead] Cleanse
-/cast [help,nodead] Purify
-/cast [@player] Cleanse
-/cast [@player] Purify
+/cast [@mouseover,help,nodead][help,nodead][@player] Purify
 END

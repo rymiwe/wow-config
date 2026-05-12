@@ -2,8 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p tis a rough smoke",
-"/p gold is",
 "/p not that i speak from experience",
 "/p i do speak from wisdom",
 "/p wisdom of the ancients",
@@ -21,6 +19,8 @@ ElvCharacterDB = {
 "so like you said... 15ish i guess",
 "/setupbars",
 "/zygor show",
+"/p yo homie",
+"/p whatcha thinkin",
 "/rl",
 },
 ["ChatHistoryLog"] = {

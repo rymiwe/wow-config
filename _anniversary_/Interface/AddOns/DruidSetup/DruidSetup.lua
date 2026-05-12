@@ -110,10 +110,50 @@ local IGNORE = {
     ["Reincarnation"]=true,
 }
 
--- Form-specific abilities the user should manually place on Bar 1 form pages.
--- Listed here so the print() can guide them concretely.
-local BEAR_ABILITIES = {"Maul", "Swipe", "Bash", "Demoralizing Roar", "Growl", "Challenging Roar", "Faerie Fire (Feral)", "Mangle (Bear)", "Lacerate", "Frenzied Regeneration", "Enrage"}
-local CAT_ABILITIES = {"Claw", "Rake", "Shred", "Pounce", "Rip", "Ferocious Bite", "Cower", "Mangle (Cat)", "Maim", "Ravage", "Tiger's Fury"}
+-- Form-specific bar layouts. When /setupbars runs while the Druid is in Bear or
+-- Cat form, we apply that form's layout (not the caster LAYOUT above). Each
+-- form has its own action-bar page in Blizzard's bonus-bar system, so placing
+-- to "bar 1 slot 1" while in bear form lands on the bear page; the caster
+-- placements (made in caster form) are untouched. Same form-key shape as the
+-- caster layout so muscle memory carries: numrow = primary attacks, QERT =
+-- control + defensives, F/G = utility, ZXCVB = situational.
+--
+-- Untrained abilities silently skip (kid in L10 bear has only Maul; the rest
+-- fill in as he levels and re-runs /setupbars in form).
+local BEAR_LAYOUT = {
+    {"Maul",                   1, 1},                     -- L10   `   (next-swing rage dump - always-ready)
+    {"Mangle (Bear)",          1, 2},                     -- L50+  1   (primary builder, replaces Maul-spam)
+    {"Swipe",                  1, 3},                     -- L16   2   (frontal AoE)
+    {"Lacerate",               1, 4},                     -- TBC L66 3 (bleed DoT - talent/recipe)
+    {"Demoralizing Roar",      1, 5},                     -- L20   4   (AoE -AP debuff)
+    {"Bash",                   1, 6},                     -- L24   5   (4s stun)
+    {"Growl",                  1, 8},                     -- L14   Q   (taunt - tank essential)
+    {"Challenging Roar",       1, 10},                    -- L40   E   (AoE taunt)
+    {"Frenzied Regeneration",  1, 11, "self-cast"},       -- L40   R   (emergency heal CD)
+    {"Enrage",                 1, 12, "self-cast"},       -- L26   T   (rage generation)
+    {"Faerie Fire (Feral)",    3, 5},                     -- L18 talent F (armor debuff in form)
+}
+
+local CAT_LAYOUT = {
+    {"Claw",                   1, 1},                     -- L10   `   (basic builder)
+    {"Mangle (Cat)",           1, 2},                     -- L50+  1   (primary builder)
+    {"Shred",                  1, 3},                     -- L22   2   (positional builder behind target)
+    {"Rake",                   1, 4},                     -- L24   3   (bleed builder)
+    {"Ferocious Bite",         1, 5},                     -- L32   4   (finisher)
+    {"Rip",                    1, 6},                     -- L20   5   (bleed finisher)
+    {"Tiger's Fury",           1, 8, "self-cast"},        -- L30   Q   (damage CD)
+    {"Pounce",                 1, 10},                    -- L24   E   (stealth stun opener)
+    {"Ravage",                 1, 11},                    -- L36   R   (stealth burst opener)
+    {"Maim",                   1, 12},                    -- TBC L62 T (knockback finisher)
+    {"Faerie Fire (Feral)",    3, 5},                     -- L18 talent F (armor debuff in form)
+    {"Cower",                  3, 6, "self-cast"},        -- L20   G   (threat dump)
+}
+
+-- Used by print() in caster-form Run() to advertise form layouts.
+local BEAR_NAMES = {}
+local CAT_NAMES = {}
+for _, e in ipairs(BEAR_LAYOUT) do table.insert(BEAR_NAMES, e[1]) end
+for _, e in ipairs(CAT_LAYOUT)  do table.insert(CAT_NAMES,  e[1]) end
 
 -- Per-race racial placement (per docs/racials.md). Druid is Tauren/Night Elf only
 -- in TBC. NE Shadowmeld → IGNORE (alt-bottom full, low-pri OOC).
@@ -123,15 +163,51 @@ local RACIALS = {
     },
 }
 
+-- Apply a form-specific layout. Caller already verified form. Reuses SetupCore
+-- primitives so untrained-spell skipping + backup behaves as usual. ClearAllBars
+-- only clears the CURRENT form's slots (because the buttons' "action" attribute
+-- points to the current form's page), so this leaves caster/other-form bars alone.
+local function ApplyFormLayout(formName, formLayout)
+    SetupCore:ApplyBindings()
+    SetupCore:ApplyCVars()
+    SetupCore:BackupBars()
+    SetupCore:ClearAllBars()
+    local placed, skipped = 0, {}
+    for _, item in ipairs(formLayout) do
+        local name, bar, btn, template = item[1], item[2], item[3], item[4]
+        if SetupCore:PlaceSpell(name, bar, btn, template) then
+            placed = placed + 1
+        else
+            table.insert(skipped, name)
+        end
+    end
+    SetupCore:FillEmptyBoundSlots()
+    print(string.format("|cff00ff00DruidSetup|r %s form placed %d abilities", formName, placed))
+    if #skipped > 0 then
+        print("|cff999999Skipped (not yet trained):|r "..table.concat(skipped, ", "))
+    end
+end
+
 local function Run()
+    local form = GetShapeshiftForm()
+    -- TBC Druid form indices: 1=Bear, 2=Aquatic, 3=Cat, 4=Travel, 5=Moonkin/Tree.
+    if form == 1 then
+        ApplyFormLayout("BEAR", BEAR_LAYOUT)
+        print("|cff999999  Caster + Cat bars untouched. Shift to Cat and /setupbars to set up that bar.|r")
+        return
+    elseif form == 3 then
+        ApplyFormLayout("CAT", CAT_LAYOUT)
+        print("|cff999999  Caster + Bear bars untouched. Shift to Bear and /setupbars to set up that bar.|r")
+        return
+    end
+    -- Caster form (or no form): apply the main caster LAYOUT.
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("DruidSetup", placed, skipped, orphans)
     print("|cffffd700DruidSetup tip:|r Wrath on key 1, Moonfire on 2, heals on Q/E/R/T.")
     print("|cff999999  Form toggles live in OPie M5 ring (Bear, Cat, Travel, Moonkin, etc.).|r")
-    print("|cff999999  Form-locked abilities aren't auto-placed on bars:|r")
-    print("|cff999999    BEAR (drag onto Bar 1 in form):|r " .. table.concat(BEAR_ABILITIES, ", "))
-    print("|cff999999    CAT (drag onto Bar 1 in form):|r " .. table.concat(CAT_ABILITIES, ", "))
-    print("|cff999999  ElvUI saves form-page placements automatically.|r")
+    print("|cff999999  Bear/Cat bars: shift to that form, run /setupbars - bar 1 fills with form abilities.|r")
+    print("|cff999999    BEAR layout (when in bear):|r " .. table.concat(BEAR_NAMES, ", "))
+    print("|cff999999    CAT layout (when in cat):|r " .. table.concat(CAT_NAMES, ", "))
     print("|cff999999  Buffs (MotW, Thorns) live in OPie M4 ring.|r")
 end
 

@@ -5,6 +5,7 @@ ElvCharacterDB = {
 "/setupbars",
 "/rl",
 "/zygor show",
+"sry brb",
 },
 ["ChatHistoryLog"] = {
 },

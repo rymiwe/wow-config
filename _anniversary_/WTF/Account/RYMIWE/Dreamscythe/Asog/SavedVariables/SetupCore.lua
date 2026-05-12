@@ -59,14 +59,14 @@ nil,
 ["name"] = "SC_Purge",
 ["type"] = "macro",
 },
-[57] = {
-["name"] = " ",
-["type"] = "macro",
-},
 [29] = {
 ["id"] = 325,
 ["type"] = "spell",
 ["name"] = "Lightning Shield",
+},
+[57] = {
+["name"] = " ",
+["type"] = "macro",
 },
 [32] = {
 ["id"] = 2645,
