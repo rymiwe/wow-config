@@ -857,6 +857,38 @@ elvWatch:SetScript("OnEvent", function(_, event, addon)
             if E.db.general then E.db.general.afk = false end
             if E.db.tooltip then E.db.tooltip.cursorAnchor = true end
         end
+        -- Shift-modifier paging: hold Shift in any form/stance/stealth -> bar 1
+        -- shows the caster (page 1) bar. Pressing a caster spell while in form
+        -- auto-cancelforms via WoW's built-in spell-casting behavior - no macro
+        -- needed. Set on every profile + active so it persists across switches.
+        local SHIFT_PAGING = {
+            DRUID   = "[mod:shift] 1; [possessbar] 16; [bonusbar:1,nostealth] 7; [bonusbar:1,stealth] 8; [bonusbar:2] 10; [bonusbar:3] 9; [bonusbar:4] 10;",
+            ROGUE   = "[mod:shift] 1; [possessbar] 16; [bonusbar:1] 7;",
+            WARRIOR = "[mod:shift] 1; [possessbar] 16; [bonusbar:1] 7; [bonusbar:2] 8; [bonusbar:3] 9;",
+        }
+        if _G.ElvDB and _G.ElvDB.profiles then
+            for _, profile in pairs(_G.ElvDB.profiles) do
+                if type(profile) == "table" then
+                    profile.actionbar = profile.actionbar or {}
+                    profile.actionbar.bar1 = profile.actionbar.bar1 or {}
+                    profile.actionbar.bar1.paging = profile.actionbar.bar1.paging or {}
+                    for class, str in pairs(SHIFT_PAGING) do
+                        profile.actionbar.bar1.paging[class] = str
+                    end
+                end
+            end
+        end
+        if E and E.db and E.db.actionbar and E.db.actionbar.bar1 then
+            E.db.actionbar.bar1.paging = E.db.actionbar.bar1.paging or {}
+            for class, str in pairs(SHIFT_PAGING) do
+                E.db.actionbar.bar1.paging[class] = str
+            end
+            -- Trigger ElvUI to re-evaluate paging from the new string.
+            local AB = E:GetModule("ActionBars", true)
+            if AB and AB.PositionAndSizeBar then
+                pcall(AB.PositionAndSizeBar, AB, "bar1")
+            end
+        end
         -- Minimap icon positions (LibDBIcon-style angle in degrees). Defer to
         -- give addon SVs time to load. Idempotent - safe to re-set each login.
         C_Timer.After(2, function()
