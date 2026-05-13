@@ -27,13 +27,14 @@ local PRESET = {
     autogearauto    = true,
     frame_anchor    = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 278.01},
     -- Action bar (the strip of clickable quest items + targeting buttons):
-    -- UN-snap from the viewer so it stops drifting onto the viewer on reload.
-    -- Independent anchor placed just above the viewer; user can drag via
-    -- Zygor's right-click -> Frame Manager if they want a different spot
-    -- (will revert to this position on next login - edit PRESET to change
-    -- permanently).
-    actionbar_anchor_snapped = false,
-    actionbar_anchor = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 533},
+    -- Stays SNAPPED to the viewer (follows on position changes) but the
+    -- anchor point is the viewer's TOP edge - so when the viewer grows
+    -- upward (resizeup=true), the actionbar moves up with it instead of
+    -- being overlapped by the growing viewer. Zygor interprets snap=true
+    -- by re-relativizing the anchor against the viewer frame, so the
+    -- anchor here reads "actionbar BOTTOMLEFT pinned to viewer TOPLEFT + 5px gap".
+    actionbar_anchor_snapped = true,
+    actionbar_anchor = {"BOTTOMLEFT", nil, "TOPLEFT", 0, 5},
 }
 
 local function ApplyConfig()
