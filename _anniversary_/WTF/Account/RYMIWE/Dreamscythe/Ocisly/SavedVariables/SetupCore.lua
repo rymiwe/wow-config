@@ -79,13 +79,13 @@ SetupCoreCharDB = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[57] = {
-["name"] = " ",
-["type"] = "macro",
-},
 [114] = {
 ["id"] = 1251,
 ["type"] = "item",
+},
+[57] = {
+["name"] = " ",
+["type"] = "macro",
 },
 [113] = {
 ["id"] = 118,

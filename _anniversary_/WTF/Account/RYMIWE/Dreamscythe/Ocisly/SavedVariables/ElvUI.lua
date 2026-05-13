@@ -11,6 +11,7 @@ ElvCharacterDB = {
 "/p got perrin and i both bear form",
 "/p and training 2h mace",
 "/p you should do 2h mace for hazel if you didn't",
+"/who",
 },
 ["ChatHistoryLog"] = {
 },

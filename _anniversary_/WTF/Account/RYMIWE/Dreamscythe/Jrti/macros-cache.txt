@@ -1,3 +1,7 @@
+VER 3 0100000000000007 "SC_BlessingofPro" "135964"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Blessing of Protection
+END
 VER 3 0100000000000002 "SC_DivineProtect" "135954"
 #showtooltip
 /cast [@player] Divine Protection
@@ -15,7 +19,16 @@ VER 3 0100000000000004 "SC_Judgement" "135959"
 /startattack
 /cast Judgement
 END
+VER 3 0100000000000006 "SC_LayonHands" "135928"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Lay on Hands
+END
 VER 3 0100000000000003 "SC_Purify" "135949"
 #showtooltip
-/cast [@mouseover,help,nodead][help,nodead][@player] Purify
+/cast [@mouseover,help,nodead] Cleanse
+/cast [@mouseover,help,nodead] Purify
+/cast [help,nodead] Cleanse
+/cast [help,nodead] Purify
+/cast [@player] Cleanse
+/cast [@player] Purify
 END

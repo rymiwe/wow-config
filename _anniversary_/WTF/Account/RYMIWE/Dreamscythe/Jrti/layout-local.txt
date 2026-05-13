@@ -8,9 +8,9 @@ W: 32
 H: 32
 Frame: ZygorGuidesViewerFrameMaster
 FrameLevel: 1
-Anchor: BOTTOMRIGHT
-X: -287
-Y: 280
+Anchor: RIGHT
+X: -291
+Y: -101
 W: 40
 H: 40
 Frame: ZygorGuidesViewerPointer_ArrowCtrl
