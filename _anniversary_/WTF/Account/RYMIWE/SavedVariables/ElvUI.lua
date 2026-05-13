@@ -54,9 +54,9 @@ ElvDB = {
 ["general"] = {
 ["bottomPanel"] = false,
 ["valuecolor"] = {
-["r"] = 0,
-["g"] = 0.44,
-["b"] = 0.87,
+["r"] = 1,
+["g"] = 0.49,
+["b"] = 0.04,
 },
 ["fontStyle"] = "SHADOW",
 ["loginmessage"] = false,
@@ -589,11 +589,11 @@ ElvDB = {
 ["height"] = 20,
 ["sizeOverride"] = 33,
 },
-["pvpSpecIcon"] = false,
-["portrait"] = {
-["width"] = 25,
-["style"] = "Class",
+["pvpTrinket"] = {
+["xOffset"] = 7,
+["size"] = 32,
 },
+["pvpSpecIcon"] = false,
 ["spacing"] = 15,
 ["pvpclassificationindicator"] = {
 ["size"] = 32,
@@ -619,9 +619,9 @@ ElvDB = {
 ["xOffset"] = -2,
 ["text_format"] = "[healthcolor][health:percent-with-absorbs]",
 },
-["pvpTrinket"] = {
-["xOffset"] = 7,
-["size"] = 32,
+["portrait"] = {
+["width"] = 25,
+["style"] = "Class",
 },
 ["height"] = 27,
 ["buffs"] = {
@@ -718,9 +718,9 @@ ElvDB = {
 ["font"] = "Expressway",
 ["colors"] = {
 ["auraBarBuff"] = {
-["r"] = 0,
-["g"] = 0.44,
-["b"] = 0.87,
+["r"] = 1,
+["g"] = 0.49,
+["b"] = 0.04,
 },
 ["healthclass"] = true,
 ["castClassColor"] = true,
@@ -1075,9 +1075,9 @@ nil,
 ["chat"] = {
 ["tabFontOutline"] = "OUTLINE",
 ["tabSelectorColor"] = {
-["r"] = 0,
-["g"] = 0.44,
-["b"] = 0.87,
+["r"] = 1,
+["g"] = 0.49,
+["b"] = 0.04,
 },
 ["socialQueueMessages"] = true,
 ["customTimeColor"] = {

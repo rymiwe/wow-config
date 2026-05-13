@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p i do speak from wisdom",
-"/p wisdom of the ancients",
-"/p i have located a pittance i may be able to afford you",
 "/p a worthy trade",
 "/p special cloth for my wrappings",
 "/p i shall retreat momentarily into the traders den to recover my funds",
@@ -22,6 +19,9 @@ ElvCharacterDB = {
 "/p whatcha thinkin",
 "/rl",
 "/tsm destroy",
+"inv",
+"uhh",
+"i'll invite you then?",
 },
 ["ChatHistoryLog"] = {
 },

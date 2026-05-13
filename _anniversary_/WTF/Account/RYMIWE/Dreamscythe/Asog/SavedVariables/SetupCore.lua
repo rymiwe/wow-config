@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -58,14 +59,14 @@ nil,
 ["name"] = "SC_Purge",
 ["type"] = "macro",
 },
-[116] = {
-["id"] = 13262,
+[29] = {
+["id"] = 325,
 ["type"] = "spell",
-["name"] = "Disenchant",
+["name"] = "Lightning Shield",
 },
-[112] = {
-["id"] = 23986,
-["type"] = "item",
+[57] = {
+["name"] = " ",
+["type"] = "macro",
 },
 [32] = {
 ["id"] = 2645,
@@ -120,9 +121,9 @@ nil,
 ["name"] = "SC_HealingWave",
 ["type"] = "macro",
 },
-[110] = {
-["id"] = 24072,
-["type"] = "item",
+[56] = {
+["name"] = " ",
+["type"] = "macro",
 },
 [46] = {
 ["name"] = "SC_AncestralSpir",
@@ -136,9 +137,9 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[114] = {
-["id"] = 858,
-["type"] = "item",
+[59] = {
+["name"] = "SC_CurePoison",
+["type"] = "macro",
 },
 [111] = {
 ["id"] = 2683,
@@ -160,25 +161,24 @@ nil,
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
-[59] = {
-["name"] = "SC_CurePoison",
-["type"] = "macro",
+[114] = {
+["id"] = 858,
+["type"] = "item",
 },
-[56] = {
-["name"] = " ",
-["type"] = "macro",
+[110] = {
+["id"] = 24072,
+["type"] = "item",
 },
-[57] = {
-["name"] = " ",
-["type"] = "macro",
+[112] = {
+["id"] = 23986,
+["type"] = "item",
 },
-[29] = {
-["id"] = 325,
+[116] = {
+["id"] = 13262,
 ["type"] = "spell",
-["name"] = "Lightning Shield",
+["name"] = "Disenchant",
 },
 },
 ["timestamp"] = "2026-05-10 20:41:55",
 },
-["channelsLeft"] = true,
 }
