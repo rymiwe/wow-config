@@ -4,7 +4,7 @@ OPie_SavedData = {
 },
 ["_OPieVersion"] = "8.3.3 (4.141)",
 ["_StoreVersion"] = 122,
-["_GameLocale"] = "enUS",
+["_GameVersion"] = "2.5.5",
 ["_StoreVersion2"] = 122,
 ["ProfileStorage"] = {
 ["default"] = {
@@ -20,5 +20,5 @@ OPie_SavedData = {
 },
 },
 },
-["_GameVersion"] = "2.5.5",
+["_GameLocale"] = "enUS",
 }
