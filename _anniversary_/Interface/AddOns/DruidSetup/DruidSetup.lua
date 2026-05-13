@@ -48,11 +48,15 @@ local LAYOUT = {
     {"Hurricane",              4, 4, "self-cast"},        -- L40   Alt-3 (channeled AOE — Balance)
     {"Entangling Roots",       4, 5, "mouseover-harm"},   -- L8    Alt-4 (CC root — cast)
     {"Hibernate",              4, 6, "mouseover-harm"},   -- L18   Alt-5 (CC sleep — cast)
-    -- Alt-QERT: rez + utility (Innervate moved up from Alt-T for adjacency to heals).
-    {"Rebirth",                4, 8, "mouseover-help"},   -- L20   Alt-Q (cast combat rez)
-    {"Innervate",              4, 10, "mouseover-help"},  -- L40   Alt-E (instant friend mana)
-    {"Tranquility",            4, 11, "self-cast"},       -- L30   Alt-R (channel raid heal)
-    -- Alt-T (4, 12) left empty (placeholder).
+    -- Alt-QERT: cross-form heal access. Same caster heals as Bar 1's QERT row,
+    -- duplicated onto alt-bar so Alt+key works from bear/cat/travel. WoW's
+    -- /cast auto-cancelforms when casting a caster spell from a form, so the
+    -- mouseover-help template works as-is - no /cancelform needed. Use Alt as
+    -- a thumb-reachable modifier (no Shift hand contortion needed for kid).
+    {"Healing Touch",          4, 8, "mouseover-help"},   -- L1    Alt-Q (cross-form main heal)
+    {"Rejuvenation",           4, 10, "mouseover-help"},  -- L4    Alt-E (cross-form instant HoT)
+    {"Regrowth",               4, 11, "mouseover-help"},  -- L12   Alt-R (cross-form hybrid HoT+direct)
+    {"Rebirth",                4, 12, "mouseover-help"},  -- L20   Alt-T (combat rez - also a caster spell, auto-cancels form)
 
     -- ALT BOTTOM (Bar 5) — dispels + defensives + utility (right-aligned F/G).
     {"Cure Poison",            5, 5, "mouseover-help"},   -- L14   Alt-F
@@ -108,6 +112,11 @@ local IGNORE = {
     ["Engineering"]=true, ["Blacksmithing"]=true, ["Jewelcrafting"]=true,
     -- Death-handling
     ["Reincarnation"]=true,
+    -- Displaced from alt-QERT to make room for cross-form heal duplicates.
+    -- High-level spells (L30/L40) - drag manually when trained, or re-add to
+    -- LAYOUT in a future tier when kid actually has them.
+    ["Innervate"]=true,         -- L40 friend mana CD
+    ["Tranquility"]=true,       -- L30 channeled raid heal
 }
 
 -- Form-specific bar layouts. When /setupbars runs while the Druid is in Bear or
@@ -180,6 +189,8 @@ local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("DruidSetup", placed, skipped, orphans)
     print("|cffffd700DruidSetup tip:|r Wrath on key 1, Moonfire on 2, heals on Q/E/R/T.")
+    print("|cff999999  Cross-form heals: Alt+Q/E/R = Healing Touch/Rejuv/Regrowth, Alt+T = Rebirth.|r")
+    print("|cff999999  In bear/cat, Alt+E auto-cancels form and casts Rejuv (no special macro needed).|r")
     print("|cff999999  Form toggles live in OPie M5 ring (Bear, Cat, Travel, Moonkin, etc.).|r")
     print("|cff999999  Bear/Cat bars: shift to that form, run /setupbars - bar 1 fills with form abilities.|r")
     print("|cff999999    BEAR layout (when in bear):|r " .. table.concat(BEAR_NAMES, ", "))
