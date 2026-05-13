@@ -209,6 +209,11 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
+["frameStrata"] = 1,
+["borderOffset"] = 4,
+["semver"] = "1.2.0",
+["tocversion"] = 20505,
+["id"] = "Lightning shield",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -229,17 +234,12 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["borderOffset"] = 4,
-["semver"] = "1.2.0",
-["tocversion"] = 20505,
-["id"] = "Lightning shield",
-["parent"] = "Sham Shields",
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["frameStrata"] = 1,
+["parent"] = "Sham Shields",
+["uid"] = "Q1U6c1N03cL",
 ["config"] = {
 },
-["uid"] = "Q1U6c1N03cL",
 ["borderInset"] = 1,
 ["conditions"] = {
 },
@@ -398,15 +398,12 @@ WeakAurasSaved = {
 ["useAdjustededMax"] = false,
 ["parent"] = "SwingTimer",
 ["enableGradient"] = false,
+["uid"] = "7y6BGEkcT6p",
 ["sparkColor"] = {
 1,
 0,
 0.03921568627451,
 1,
-},
-["config"] = {
-["CbM"] = false,
-["bigBadSync"] = false,
 },
 ["selfPoint"] = "CENTER",
 ["anchorFrameType"] = "SCREEN",
@@ -445,7 +442,10 @@ WeakAurasSaved = {
 ["desc"] = "Might help with red-green colorblindness",
 },
 },
-["uid"] = "7y6BGEkcT6p",
+["config"] = {
+["CbM"] = false,
+["bigBadSync"] = false,
+},
 ["inverse"] = true,
 ["icon"] = false,
 ["orientation"] = "HORIZONTAL",
@@ -632,7 +632,6 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
 ["pvptalent"] = {
 ["multi"] = {
 },
@@ -641,6 +640,7 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["use_spec"] = true,
 ["use_combat"] = true,
 ["spec"] = {
 ["single"] = 1,
@@ -928,9 +928,9 @@ WeakAurasSaved = {
 ["text_font"] = "PEPSI",
 ["text_anchorYOffset"] = 60,
 ["text_shadowYOffset"] = -1,
-["text_fontType"] = "None",
-["text_wordWrap"] = "WordWrap",
 ["text_visible"] = false,
+["text_wordWrap"] = "WordWrap",
+["text_fontType"] = "None",
 ["text_text_format_p_time_format"] = 0,
 ["text_text_format_p_time_precision"] = 1,
 ["anchor_point"] = "INNER_CENTER",
@@ -939,8 +939,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
-["type"] = "subborder",
 ["border_size"] = 2,
+["border_offset"] = 1,
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -952,7 +952,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["border_offset"] = 1,
+["type"] = "subborder",
 },
 {
 ["tick_rotation"] = 0,
@@ -1071,8 +1071,8 @@ WeakAurasSaved = {
 ["message"] = "",
 ["custom"] = "\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\n\n\n\n",
 ["message_type"] = "PRINT",
-["do_message"] = false,
 ["do_custom"] = false,
+["do_message"] = false,
 ["message_custom"] = "function ()\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\nend\n\n\n",
 },
 ["finish"] = {
@@ -1280,14 +1280,14 @@ WeakAurasSaved = {
 ["semver"] = "3.0.5",
 ["tocversion"] = 20505,
 ["id"] = "SwingTimer",
+["borderInset"] = 1,
 ["alpha"] = 1,
-["frameStrata"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["selfPoint"] = "CENTER",
+["frameStrata"] = 1,
+["uid"] = "9b0ooXp)9Nb",
 ["config"] = {
 },
-["borderInset"] = 1,
-["uid"] = "9b0ooXp)9Nb",
+["selfPoint"] = "CENTER",
 ["conditions"] = {
 },
 ["information"] = {
@@ -1380,7 +1380,7 @@ WeakAurasSaved = {
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Sham Shields",
-["borderInset"] = 1,
+["alpha"] = 1,
 ["frameStrata"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["animation"] = {
@@ -1403,10 +1403,10 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["uid"] = "pgn179hZoxd",
+["borderInset"] = 1,
 ["config"] = {
 },
-["alpha"] = 1,
-["uid"] = "pgn179hZoxd",
 ["conditions"] = {
 },
 ["information"] = {
@@ -1604,7 +1604,6 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
 ["pvptalent"] = {
 ["multi"] = {
 },
@@ -1613,6 +1612,7 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["use_spec"] = true,
 ["use_combat"] = true,
 ["spec"] = {
 ["single"] = 1,
@@ -1837,9 +1837,9 @@ WeakAurasSaved = {
 ["text_font"] = "PEPSI",
 ["text_anchorYOffset"] = 60,
 ["text_shadowYOffset"] = -1,
-["text_fontType"] = "None",
-["text_wordWrap"] = "WordWrap",
 ["text_visible"] = false,
+["text_wordWrap"] = "WordWrap",
+["text_fontType"] = "None",
 ["text_text_format_p_time_format"] = 0,
 ["text_text_format_p_time_precision"] = 1,
 ["anchor_point"] = "INNER_CENTER",
@@ -1848,8 +1848,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
-["type"] = "subborder",
 ["border_size"] = 2,
+["border_offset"] = 1,
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -1861,7 +1861,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["border_offset"] = 1,
+["type"] = "subborder",
 },
 {
 ["tick_rotation"] = 0,
@@ -1970,8 +1970,8 @@ WeakAurasSaved = {
 ["message"] = "",
 ["custom"] = "\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\n\n\n\n",
 ["message_type"] = "PRINT",
-["do_message"] = false,
 ["do_custom"] = false,
+["do_message"] = false,
 ["message_custom"] = "function ()\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\nend\n\n\n",
 },
 ["finish"] = {
@@ -2260,6 +2260,11 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
+["frameStrata"] = 1,
+["borderOffset"] = 4,
+["semver"] = "1.2.0",
+["tocversion"] = 20505,
+["id"] = "Wata shield",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -2280,17 +2285,12 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["borderOffset"] = 4,
-["semver"] = "1.2.0",
-["tocversion"] = 20505,
-["id"] = "Wata shield",
-["parent"] = "Sham Shields",
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
-["frameStrata"] = 1,
+["parent"] = "Sham Shields",
+["uid"] = "rQfBiekzqnL",
 ["config"] = {
 },
-["uid"] = "rQfBiekzqnL",
 ["borderInset"] = 1,
 ["conditions"] = {
 },
@@ -2677,7 +2677,7 @@ WeakAurasSaved = {
 },
 },
 },
-["login_squelch_time"] = 10,
+["editor_font_size"] = 12,
 ["lastArchiveClear"] = 1777260853,
 ["minimap"] = {
 ["minimapPos"] = 185.77,
@@ -2686,10 +2686,10 @@ WeakAurasSaved = {
 ["lastUpgrade"] = 1777260857,
 ["dbVersion"] = 89,
 ["migrationCutoff"] = 730,
-["registered"] = {
-},
 ["features"] = {
 },
+["login_squelch_time"] = 10,
 ["historyCutoff"] = 730,
-["editor_font_size"] = 12,
+["registered"] = {
+},
 }

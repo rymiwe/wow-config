@@ -193,7 +193,8 @@ local function Run()
     print("|cffffd700DruidSetup tip:|r Wrath on key 1, Moonfire on 2, heals on Q/E/R/T.")
     print("|cff999999  Alt-bar MIRRORS Bar 1: Alt+1=Wrath, Alt+E=Rejuv, etc. Auto-cancels form when cast in bear/cat.|r")
     print("|cff999999  Alt+Z/X = Entangling Roots/Hibernate (CC). Alt+C = Rebirth (combat rez).|r")
-    print("|cff999999  Form toggles live in OPie M5 ring (Bear, Cat, Travel, Moonkin, etc.).|r")
+    print("|cff999999  Form toggles live in OPie M4 ring (Bear, Cat, Travel, Moonkin, Prowl).|r")
+    print("|cff999999  Buffs (MotW, Thorns, GotW) on OPie M5 ring.|r")
     print("|cff999999  Bear/Cat bars: shift to that form, run /setupbars - bar 1 fills with form abilities.|r")
     print("|cff999999    BEAR layout (when in bear):|r " .. table.concat(BEAR_NAMES, ", "))
     print("|cff999999    CAT layout (when in cat):|r " .. table.concat(CAT_NAMES, ", "))
@@ -213,17 +214,11 @@ do
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 
-    -- Buffs ring (M4 hold) — pre-pull friendly buffs.
-    R:AddDefaultRing("DruidBuffs", {
-        {id="/cast {{spell:1126}}",  _u="mw"}, -- Mark of the Wild
-        {id="/cast {{spell:467}}",   _u="th"}, -- Thorns
-        {id="/cast {{spell:21849}}", _u="gw"}, -- Gift of the Wild (L50+, group MotW)
-        name = "Buffs", hotkey = "BUTTON4", _u = "DrdBuf", v = 2,
-    })
-
-    -- Forms ring (M5 hold) — all forms in one ring. Bear/Cat use [noform:N]
-    -- safety so accidental shift from the OTHER combat form doesn't waste
-    -- rage/energy (form 1 = Bear, form 4 = Cat in TBC).
+    -- Forms ring (M4 hold) — primary class action for Druid. Per user
+    -- preference, forms live on the lower (closer-to-thumb) button since
+    -- shape-shifting is the most-pressed Druid utility. All forms in one
+    -- ring; Bear/Cat use [noform:N] safety so accidental shift from the
+    -- OTHER combat form doesn't waste rage/energy (form 1 = Bear, form 4 = Cat).
     R:AddDefaultRing("DruidForms", {
         {id="/cast [noform:4] {{spell:5487}}",  _u="be"}, -- Bear Form (won't shift from Cat)
         {id="/cast [noform:1] {{spell:768}}",   _u="ca"}, -- Cat Form (won't shift from Bear)
@@ -234,6 +229,15 @@ do
         {id="/cast [noform:1/4] {{spell:24858}}", _u="mk"}, -- Moonkin Form (Balance L40, won't break Bear/Cat)
         {id="/cast [noform:1/4] {{spell:33891}}", _u="to"}, -- Tree of Life (Resto L40, won't break Bear/Cat)
         {id="/cast {{spell:5215}}",             _u="pr"}, -- Prowl (Cat-only stealth)
-        name = "Forms", hotkey = "BUTTON5", _u = "DrdFrm", v = 1,
+        name = "Forms", hotkey = "BUTTON4", _u = "DrdFrm", v = 2,
+    })
+
+    -- Buffs ring (M5 hold) — pre-pull friendly buffs. Less frequently
+    -- needed than forms; lives on the upper side button.
+    R:AddDefaultRing("DruidBuffs", {
+        {id="/cast {{spell:1126}}",  _u="mw"}, -- Mark of the Wild
+        {id="/cast {{spell:467}}",   _u="th"}, -- Thorns
+        {id="/cast {{spell:21849}}", _u="gw"}, -- Gift of the Wild (L50+, group MotW)
+        name = "Buffs", hotkey = "BUTTON5", _u = "DrdBuf", v = 3,
     })
 end
