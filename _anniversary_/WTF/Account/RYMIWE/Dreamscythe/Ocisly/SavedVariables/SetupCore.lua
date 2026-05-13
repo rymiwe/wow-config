@@ -2,6 +2,48 @@
 SetupCoreCharDB = {
 ["lastBackup"] = {
 ["slots"] = {
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = "SC_Wrath",
+["type"] = "macro",
+},
+{
+["name"] = "SC_Moonfire",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+nil,
+{
+["name"] = "SC_HealingTouch",
+["type"] = "macro",
+},
+nil,
+{
+["name"] = "SC_Rejuvenation",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
 [58] = {
 ["name"] = " ",
 ["type"] = "macro",
@@ -78,13 +120,13 @@ SetupCoreCharDB = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[116] = {
-["id"] = 159,
-["type"] = "item",
-},
-[29] = {
+[57] = {
 ["name"] = " ",
 ["type"] = "macro",
+},
+[114] = {
+["id"] = 1251,
+["type"] = "item",
 },
 [113] = {
 ["id"] = 118,
@@ -106,16 +148,16 @@ SetupCoreCharDB = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[57] = {
+[29] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[114] = {
-["id"] = 1251,
+[116] = {
+["id"] = 159,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-05-12 16:30:07",
+["timestamp"] = "2026-05-13 05:57:14",
 },
 ["channelsLeft"] = true,
 }
