@@ -136,12 +136,15 @@ local IGNORE = {
 -- caster utility on form /setupbars. Faerie Fire (Feral) and Cower don't have
 -- a Bar 1 slot in our default; drag manually if wanted on a form page.
 local BEAR_LAYOUT = {
-    {"Maul",                   1, 1},                     -- L10   `   (next-swing rage dump - always-ready)
+    -- ` holds Bash for cross-class interrupt convention (Shaman: Earth Shock,
+    -- Mage: Counterspell, Rogue: Kick, Pally: Hammer of Justice). Bash is the
+    -- bear-form interrupt-by-stun (4s stun). Maul moves to key 5.
+    {"Bash",                   1, 1},                     -- L24   `   (4s stun - interrupt-by-stun convention)
     {"Mangle (Bear)",          1, 2},                     -- L50+  1   (primary builder, replaces Maul-spam)
     {"Swipe",                  1, 3},                     -- L16   2   (frontal AoE)
     {"Lacerate",               1, 4},                     -- TBC L66 3 (bleed DoT - talent/recipe)
     {"Demoralizing Roar",      1, 5},                     -- L20   4   (AoE -AP debuff)
-    {"Bash",                   1, 6},                     -- L24   5   (4s stun)
+    {"Maul",                   1, 6},                     -- L10   5   (next-swing rage dump - always-ready)
     {"Growl",                  1, 8},                     -- L14   Q   (taunt - tank essential)
     {"Challenging Roar",       1, 10},                    -- L40   E   (AoE taunt)
     {"Frenzied Regeneration",  1, 11, "self-cast"},       -- L40   R   (emergency heal CD)

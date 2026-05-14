@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -33,7 +34,7 @@ nil,
 },
 nil,
 {
-["name"] = " ",
+["name"] = "SC_LayonHands",
 ["type"] = "macro",
 },
 {
@@ -50,7 +51,7 @@ nil,
 ["type"] = "macro",
 },
 [30] = {
-["id"] = 21082,
+["id"] = 20162,
 ["type"] = "spell",
 ["name"] = "Seal of the Crusader",
 },
@@ -63,7 +64,7 @@ nil,
 ["type"] = "macro",
 },
 [33] = {
-["name"] = " ",
+["name"] = "SC_BlessingofPro",
 ["type"] = "macro",
 },
 [34] = {
@@ -102,12 +103,16 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
+[116] = {
+["id"] = 3239,
+["type"] = "item",
+},
 [44] = {
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
-[116] = {
-["id"] = 3239,
+[113] = {
+["id"] = 159,
 ["type"] = "item",
 },
 [46] = {
@@ -123,15 +128,15 @@ nil,
 ["type"] = "macro",
 },
 [112] = {
-["id"] = 159,
-["type"] = "item",
-},
-[110] = {
-["id"] = 2454,
+["id"] = 24105,
 ["type"] = "item",
 },
 [111] = {
 ["id"] = 23756,
+["type"] = "item",
+},
+[110] = {
+["id"] = 2454,
 ["type"] = "item",
 },
 [109] = {
@@ -155,7 +160,7 @@ nil,
 ["type"] = "macro",
 },
 [29] = {
-["id"] = 21084,
+["id"] = 20287,
 ["type"] = "spell",
 ["name"] = "Seal of Righteousness",
 },
@@ -164,7 +169,6 @@ nil,
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-12 19:50:28",
+["timestamp"] = "2026-05-13 19:17:48",
 },
-["channelsLeft"] = true,
 }
