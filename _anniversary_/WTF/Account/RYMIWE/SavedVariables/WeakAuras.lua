@@ -209,6 +209,14 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
+["alpha"] = 1,
+["borderOffset"] = 4,
+["semver"] = "1.2.0",
+["tocversion"] = 20505,
+["id"] = "Lightning shield",
+["parent"] = "Sham Shields",
+["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -229,17 +237,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["borderOffset"] = 4,
-["semver"] = "1.2.0",
-["tocversion"] = 20505,
-["id"] = "Lightning shield",
-["parent"] = "Sham Shields",
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
-["frameStrata"] = 1,
+["uid"] = "Q1U6c1N03cL",
 ["config"] = {
 },
-["uid"] = "Q1U6c1N03cL",
 ["borderInset"] = 1,
 ["conditions"] = {
 },
@@ -928,9 +928,9 @@ WeakAurasSaved = {
 ["text_font"] = "PEPSI",
 ["text_anchorYOffset"] = 60,
 ["text_shadowYOffset"] = -1,
-["text_fontType"] = "None",
-["text_wordWrap"] = "WordWrap",
 ["text_visible"] = false,
+["text_wordWrap"] = "WordWrap",
+["text_fontType"] = "None",
 ["text_text_format_p_time_format"] = 0,
 ["text_text_format_p_time_precision"] = 1,
 ["anchor_point"] = "INNER_CENTER",
@@ -1071,8 +1071,8 @@ WeakAurasSaved = {
 ["message"] = "",
 ["custom"] = "\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\n\n\n\n",
 ["message_type"] = "PRINT",
-["do_message"] = false,
 ["do_custom"] = false,
+["do_message"] = false,
 ["message_custom"] = "function ()\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\nend\n\n\n",
 },
 ["finish"] = {
@@ -1280,22 +1280,22 @@ WeakAurasSaved = {
 ["semver"] = "3.0.5",
 ["tocversion"] = 20505,
 ["id"] = "SwingTimer",
-["config"] = {
-},
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
-["authorOptions"] = {
-},
-["borderInset"] = 1,
 ["uid"] = "9b0ooXp)9Nb",
 ["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
+["selfPoint"] = "CENTER",
+["config"] = {
+},
+["borderInset"] = 1,
+["authorOptions"] = {
+},
 ["conditions"] = {
 },
 ["information"] = {
 ["forceEvents"] = true,
 ["showNilIsFalse"] = true,
 },
-["selfPoint"] = "CENTER",
+["alpha"] = 1,
 },
 ["Sham Shields"] = {
 ["controlledChildren"] = {
@@ -1380,19 +1380,6 @@ WeakAurasSaved = {
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Sham Shields",
-["xOffset"] = 0,
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
-["frameStrata"] = 1,
-["config"] = {
-},
-["uid"] = "pgn179hZoxd",
-["borderInset"] = 1,
-["conditions"] = {
-},
-["information"] = {
-["showNilIsFalse"] = true,
-},
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -1413,6 +1400,19 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
+["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
+["xOffset"] = 0,
+["borderInset"] = 1,
+["config"] = {
+},
+["uid"] = "pgn179hZoxd",
+["conditions"] = {
+},
+["information"] = {
+["showNilIsFalse"] = true,
+},
+["alpha"] = 1,
 },
 ["L Shield 2"] = {
 ["wagoID"] = "OPRZeg-u6",
@@ -1837,9 +1837,9 @@ WeakAurasSaved = {
 ["text_font"] = "PEPSI",
 ["text_anchorYOffset"] = 60,
 ["text_shadowYOffset"] = -1,
-["text_fontType"] = "None",
-["text_wordWrap"] = "WordWrap",
 ["text_visible"] = false,
+["text_wordWrap"] = "WordWrap",
+["text_fontType"] = "None",
 ["text_text_format_p_time_format"] = 0,
 ["text_text_format_p_time_precision"] = 1,
 ["anchor_point"] = "INNER_CENTER",
@@ -1970,8 +1970,8 @@ WeakAurasSaved = {
 ["message"] = "",
 ["custom"] = "\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\n\n\n\n",
 ["message_type"] = "PRINT",
-["do_message"] = false,
 ["do_custom"] = false,
+["do_message"] = false,
 ["message_custom"] = "function ()\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\nend\n\n\n",
 },
 ["finish"] = {
@@ -2260,6 +2260,14 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
+["alpha"] = 1,
+["borderOffset"] = 4,
+["semver"] = "1.2.0",
+["tocversion"] = 20505,
+["id"] = "Wata shield",
+["parent"] = "Sham Shields",
+["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -2280,17 +2288,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["borderOffset"] = 4,
-["semver"] = "1.2.0",
-["tocversion"] = 20505,
-["id"] = "Wata shield",
-["parent"] = "Sham Shields",
-["alpha"] = 1,
-["anchorFrameType"] = "SCREEN",
-["frameStrata"] = 1,
+["uid"] = "rQfBiekzqnL",
 ["config"] = {
 },
-["uid"] = "rQfBiekzqnL",
 ["borderInset"] = 1,
 ["conditions"] = {
 },

@@ -10,6 +10,11 @@ VER 3 0100000000000005 "SC_GiftoftheNaar" "135923"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru
 END
+VER 3 0100000000000008 "SC_HammerofJusti" "135963"
+#showtooltip
+/startattack
+/cast Hammer of Justice
+END
 VER 3 0100000000000001 "SC_HolyLight" "135920"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Holy Light

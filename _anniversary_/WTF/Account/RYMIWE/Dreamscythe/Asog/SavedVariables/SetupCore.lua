@@ -168,14 +168,14 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
+[57] = {
+["name"] = " ",
+["type"] = "macro",
+},
 [29] = {
 ["id"] = 325,
 ["type"] = "spell",
 ["name"] = "Lightning Shield",
-},
-[57] = {
-["name"] = " ",
-["type"] = "macro",
 },
 },
 ["timestamp"] = "2026-05-10 20:41:55",

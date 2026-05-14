@@ -2,8 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"all 3 of you?",
-"not sure how to best play",
 "think candy's done for the day and perrin is still uncompelled, but also underleveled",
 "i'll heal y'all in dungeon when you're ready to try",
 "seems easier to do that together since i can be overleveled and stuff",
@@ -22,6 +20,8 @@ ElvCharacterDB = {
 "/p he did",
 "/setupbars",
 "/rl",
+"hey dude",
+"15",
 },
 ["ChatHistoryLog"] = {
 },

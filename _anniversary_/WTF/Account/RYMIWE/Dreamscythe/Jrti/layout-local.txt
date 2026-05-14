@@ -1,4 +1,11 @@
 Version: 1
+Frame: ZygorGuidesViewer_ActionBar
+FrameLevel: 10
+Anchor: RIGHT
+X: -217
+Y: 241
+W: 135
+H: 40
 Frame: ZygorGuidesViewerMapIcon
 FrameLevel: 4
 Anchor: BOTTOMRIGHT

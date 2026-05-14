@@ -4,7 +4,7 @@ SetupCoreCharDB = {
 ["lastBackup"] = {
 ["slots"] = {
 {
-["name"] = "SC_Judgement",
+["name"] = "SC_HammerofJusti",
 ["type"] = "macro",
 },
 {
@@ -29,7 +29,7 @@ SetupCoreCharDB = {
 },
 nil,
 {
-["name"] = " ",
+["name"] = "SC_Judgement",
 ["type"] = "macro",
 },
 nil,
@@ -42,9 +42,8 @@ nil,
 ["type"] = "macro",
 },
 {
-["id"] = 853,
-["type"] = "spell",
-["name"] = "Hammer of Justice",
+["name"] = " ",
+["type"] = "macro",
 },
 [58] = {
 ["name"] = " ",
@@ -111,8 +110,8 @@ nil,
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
-[113] = {
-["id"] = 159,
+[112] = {
+["id"] = 24105,
 ["type"] = "item",
 },
 [46] = {
@@ -127,16 +126,16 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[112] = {
-["id"] = 24105,
+[110] = {
+["id"] = 2454,
 ["type"] = "item",
 },
 [111] = {
 ["id"] = 23756,
 ["type"] = "item",
 },
-[110] = {
-["id"] = 2454,
+[113] = {
+["id"] = 159,
 ["type"] = "item",
 },
 [109] = {
@@ -159,16 +158,16 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
+[57] = {
+["name"] = " ",
+["type"] = "macro",
+},
 [29] = {
 ["id"] = 20287,
 ["type"] = "spell",
 ["name"] = "Seal of Righteousness",
 },
-[57] = {
-["name"] = " ",
-["type"] = "macro",
 },
-},
-["timestamp"] = "2026-05-13 19:17:48",
+["timestamp"] = "2026-05-13 19:27:08",
 },
 }
