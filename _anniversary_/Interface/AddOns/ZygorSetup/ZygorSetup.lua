@@ -27,14 +27,18 @@ local PRESET = {
     autogearauto    = true,
     frame_anchor    = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 278.01},
     -- Action bar (the strip of clickable quest items + targeting buttons):
-    -- Stays SNAPPED to the viewer (follows on position changes) but the
-    -- anchor point is the viewer's TOP edge - so when the viewer grows
-    -- upward (resizeup=true), the actionbar moves up with it instead of
-    -- being overlapped by the growing viewer. Zygor interprets snap=true
-    -- by re-relativizing the anchor against the viewer frame, so the
-    -- anchor here reads "actionbar BOTTOMLEFT pinned to viewer TOPLEFT + 5px gap".
-    actionbar_anchor_snapped = true,
-    actionbar_anchor = {"BOTTOMLEFT", nil, "TOPLEFT", 0, 5},
+    -- Zygor's snap=true is BROKEN for the resizeup viewer case (verified by
+    -- reading Functions.lua + ActionBar.lua source):
+    --   - SetFrameAnchor ignores the relativeTo field, always uses UIParent
+    --   - SavePosition with snap=true pins action bar to UIParent at the
+    --     CURRENT viewer top position; doesn't follow viewer on growth
+    --   - When viewer grows up, viewer's top extends above action bar's
+    --     stale saved position -> overlap
+    -- So: snap=false + fixed screen position high enough to never overlap.
+    -- Y=700 sits well above viewer's max growth on a default UIScale.
+    -- User can drag via Zygor Frame Manager for fine-tuning; revert by /rl.
+    actionbar_anchor_snapped = false,
+    actionbar_anchor = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 700},
 }
 
 local function ApplyConfig()
