@@ -34,7 +34,7 @@ local LAYOUT = {
     -- Earth Shock, Mage: Counterspell, Rogue: Kick all on `). HoJ is a 6s
     -- stun = effective interrupt for casters. Judgement moves to Q (most-
     -- pressed Ret button, ergonomic finger reach).
-    {"Hammer of Justice",      1, 1, "startattack"},      -- L8    `   (interrupt-by-stun; engages auto-attack)
+    {"Hammer of Justice",      1, 1},                     -- L8    `   (interrupt-by-stun; NO startattack - HoJ may be used on a CC'd target to chain-stun, /startattack would break the upstream CC)
     {"Crusader Strike",        1, 2, "startattack"},      -- L20   1   (Ret melee + engages auto-attack)
     {"Hammer of Wrath",        1, 3},                     -- L44   2   (instant execute sub-20%)
     {"Consecration",           1, 4},                     -- L20   3   (instant ground AOE)
