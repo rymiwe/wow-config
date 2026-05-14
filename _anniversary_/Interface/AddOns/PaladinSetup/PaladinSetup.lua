@@ -30,17 +30,21 @@
 -- heals (Holy Light, Flash of Light) on Alt-numrow.
 local LAYOUT = {
     -- MAIN TOP (Bar 1) - DAMAGE INSTANTS on numrow
-    {"Judgement",              1, 1, "startattack"},      -- L4    `   (instant + engages auto-attack)
+    -- ` holds Hammer of Justice for cross-class interrupt convention (Shaman:
+    -- Earth Shock, Mage: Counterspell, Rogue: Kick all on `). HoJ is a 6s
+    -- stun = effective interrupt for casters. Judgement moves to Q (most-
+    -- pressed Ret button, ergonomic finger reach).
+    {"Hammer of Justice",      1, 1, "startattack"},      -- L8    `   (interrupt-by-stun; engages auto-attack)
     {"Crusader Strike",        1, 2, "startattack"},      -- L20   1   (Ret melee + engages auto-attack)
     {"Hammer of Wrath",        1, 3},                     -- L44   2   (instant execute sub-20%)
     {"Consecration",           1, 4},                     -- L20   3   (instant ground AOE)
     {"Avenger's Shield",       1, 5},                     -- L40 Prot 4 (instant ranged taunt - moved from alt)
     {"Avenging Wrath",         1, 6, "self-cast"},        -- L40 Ret 5 (instant CD)
-    -- QERT row: instant heals + control
-    {"Holy Shock",             1, 8, "mouseover-help"},   -- L40 Holy Q (instant heal - talent only)
+    -- QERT row: rotation builder + heals + dispel + heal-CD
+    {"Judgement",              1, 8, "startattack"},      -- L4    Q   (most-pressed Ret combat - judges active seal)
     {"Lay on Hands",           1, 10, "mouseover-help"},  -- L10   E   (instant emergency 100% HP)
-    {"Purify",                 1, 11, "pally-dispel"},    -- L8    R   (instant dispel; macro tries Cleanse first if Holy-talented, falls back to Purify - works for any spec)
-    {"Hammer of Justice",      1, 12},                    -- L8    T   (instant 6s stun)
+    {"Purify",                 1, 11, "pally-dispel"},    -- L8    R   (Cleanse-or-Purify cascade, works any spec)
+    {"Holy Shock",             1, 12, "mouseover-help"},  -- L40 Holy T (instant heal CD - talent only)
 
     -- MAIN BOTTOM (Bar 3) - F/G seals; ZXCVB Hand spells + defensives
     {"Seal of Righteousness",  3, 5},                     -- L1    F   (default melee proc)
