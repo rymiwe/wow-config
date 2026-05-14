@@ -151,8 +151,9 @@ local RACIALS = {
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("PaladinSetup", placed, skipped, orphans)
-    print("|cffffd700PaladinSetup tip:|r Movement-optimal layout - instants on main (move-and-press),")
-    print("|cff999999  cast-time spells on Alt-bar (Holy Light/Flash, Exorcism, Holy Wrath, Repentance).|r")
+    print("|cffffd700PaladinSetup tip:|r Movement-optimal - instants on main, casts on Alt-bar.")
+    print("|cff999999  ` = Hammer of Justice (interrupt-by-stun, matches Shaman/Mage/Rogue convention).|r")
+    print("|cff999999  Q = Judgement (most-pressed Ret combat). T = Holy Shock (Holy heal CD).|r")
     print("|cff999999  Hand spells (BoF/BoP/BoS) on Z/X/C - mouseover any party member.|r")
     print("|cff999999  Blessings: hold M4 (OPie ring). Auras: hold M5.|r")
 end
