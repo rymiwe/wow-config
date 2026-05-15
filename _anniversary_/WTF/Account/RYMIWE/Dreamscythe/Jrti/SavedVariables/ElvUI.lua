@@ -18,9 +18,9 @@ ElvCharacterDB = {
 "what's up",
 "/p peliwe#1721",
 "/p he did",
-"/setupbars",
 "hey dude",
 "15",
+"/setupbars",
 "/rl",
 },
 ["ChatHistoryLog"] = {

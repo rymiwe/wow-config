@@ -15,6 +15,8 @@ In Notepad: Ctrl+A, Ctrl+C. Then in WoW: `/wa` → **Import** → Ctrl+V → con
 | file | source | purpose |
 |---|---|---|
 | `lightning-shield.wa.txt` | [wago.io/OPRZeg-u6](https://wago.io/OPRZeg-u6) | Shev's Water/Lightning Shield reminder. Auto-picks the right shield by spec; alerts when missing. |
+| `paladin-ret-hiadne-anniversary.txt` | [wago.io/2wYCelRZc](https://wago.io/2wYCelRZc) | **Hiadne — SoD/TBC Anniversary Retribution Paladin.** Anniversary-tagged Ret pack: Hammer of Wrath sub-20% proc, Crusader Strike CD, Judgement debuff tracker, Seal swap indicator, Avenging Wrath CD, more. Recommended primary. |
+| `paladin-ret-baranor.txt` | [wago.io/kcu8bck8n](https://wago.io/kcu8bck8n) | **Baranor's TBC Retribution Paladin.** Alternative Ret pack — slightly leaner, well-maintained (last update Feb 2026). Worth comparing against Hiadne's if Hiadne feels too busy. |
 
 ## Building your own (Bandage reminder example)
 
