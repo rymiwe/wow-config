@@ -62,11 +62,11 @@ local LAYOUT = {
     {"Exorcism",               4, 4},                     -- L20   Alt-3 (cast vs Undead/Demon)
     {"Holy Wrath",             4, 5},                     -- L30   Alt-4 (TBC cast AOE vs Undead/Demon)
     {"Repentance",             4, 6, "focus-mouseover-harm"}, -- L40 Ret Alt-5 (cast CC; focus-first)
-    -- Alt-QERT: rez + niche cast utility
+    -- Alt-QERT: rez + niche cast utility + tank taunt
     -- Alt-Q reserved for Draenei Gift of the Naaru (cast heal racial) via RACIALS.
     -- Alt-E left empty (placeholder for future cast spell)
     {"Redemption",             4, 11, "mouseover-help"},  -- L12   Alt-R (OOC cast rez)
-    -- Alt-T left empty
+    {"Righteous Defense",      4, 12, "mouseover-help"},  -- TBC L66 Alt-T (friend-redirect taunt - Prot key ability; cast on tank to pull mobs to you)
 
     -- ALT BOTTOM (Bar 5) - rare instants that don't fit on main + niche
     -- These violate "casts only on alt" by necessity (low-pri instants exceed main bar capacity).
@@ -75,7 +75,8 @@ local LAYOUT = {
     {"Divine Favor",           5, 8, "self-cast"},        -- L20 Holy Alt-Z (instant crit-heal CD - Holy talent)
     -- Alt-X reserved via RACIALS for Draenei (was previous Naaru slot - now Naaru moved to Alt-Q)
     {"Divine Plea",            5, 10, "self-cast"},       -- TBC L66 Alt-C (instant mana CD)
-    -- Alt-V/B left empty (placeholders for racial)
+    -- Alt-V left empty (placeholder for racial)
+    {"Righteous Fury",         5, 12, "self-cast"},       -- L16   Alt-B (tank-mode threat toggle - set-and-forget when tanking)
 }
 
 local IGNORE = {
@@ -89,7 +90,7 @@ local IGNORE = {
     ["Divine Strength"]=true, ["Divine Intellect"]=true, ["Healing Light"]=true,
     ["Improved Lay on Hands"]=true, ["Improved Blessing of Wisdom"]=true,
     ["Spell Warding"]=true, ["Anticipation"]=true,
-    ["Improved Righteous Fury"]=true, ["Toughness"]=true,
+    ["Improved Righteous Fury"]=true, ["Toughness"]=true,  -- "Improved" is the talent passive; Righteous Fury itself is in LAYOUT
     ["Reckoning"]=true, ["Improved Hammer of Justice"]=true,
     ["Pursuit of Justice"]=true, ["Vindication"]=true,
     ["Improved Seal of the Crusader"]=true, ["Conviction"]=true,
@@ -98,7 +99,8 @@ local IGNORE = {
     ["Holy Shield"]=true, ["Improved Devotion Aura"]=true,
     ["Improved Concentration Aura"]=true, ["Improved Retribution Aura"]=true,
     ["Sanctity Aura"]=true, ["Improved Sanctity Aura"]=true,
-    ["Righteous Fury"]=true,
+    -- Righteous Fury: now placed on Alt-B (was IGNORE'd as set-and-forget; user
+    -- requested visibility for tank-mode toggling). Removed from IGNORE.
     -- Blessings — handled by OPie ring (M4)
     ["Blessing of Might"]=true, ["Blessing of Wisdom"]=true,
     ["Blessing of Kings"]=true, ["Blessing of Sanctuary"]=true,

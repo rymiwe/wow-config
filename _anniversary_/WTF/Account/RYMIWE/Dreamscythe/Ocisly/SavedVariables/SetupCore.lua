@@ -1,6 +1,5 @@
 
 SetupCoreCharDB = {
-["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 [106] = {
@@ -141,19 +140,20 @@ SetupCoreCharDB = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[115] = {
-["id"] = 1251,
-["type"] = "item",
+[54] = {
+["name"] = " ",
+["type"] = "macro",
 },
 [114] = {
 ["id"] = 118,
 ["type"] = "item",
 },
-[54] = {
-["name"] = " ",
-["type"] = "macro",
+[115] = {
+["id"] = 1251,
+["type"] = "item",
 },
 },
 ["timestamp"] = "2026-05-14 12:36:05",
 },
+["channelsLeft"] = true,
 }
