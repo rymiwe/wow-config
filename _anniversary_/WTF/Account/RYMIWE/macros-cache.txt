@@ -85,6 +85,9 @@ VER 3 000000000000001C "skin swap" "INV_MISC_QUESTIONMARK"
 /equipslot [worn:two-hand] 16 Finkle's Skinner
 /eq [noworn:shield] Draconian Deflector
 END
+VER 3 0000000000000023 "skull" "134400"
+/script SetRaidTarget("mouseover", 8)
+END
 VER 3 0000000000000011 "weapon swap" "INV_MISC_QUESTIONMARK"
 #showtooltip
 /eq [noworn:two-hand] Dreadforge Retaliator

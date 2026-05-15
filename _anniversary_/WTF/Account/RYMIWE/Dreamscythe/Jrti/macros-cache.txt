@@ -37,3 +37,7 @@ VER 3 0100000000000003 "SC_Purify" "135949"
 /cast [@player] Cleanse
 /cast [@player] Purify
 END
+VER 3 0100000000000009 "SC_Redemption" "135955"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Redemption
+END
