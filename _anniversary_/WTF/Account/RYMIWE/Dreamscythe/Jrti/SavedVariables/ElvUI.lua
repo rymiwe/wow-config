@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"invite",
 "can't invite yet",
 "/p all good?",
 "/p i can't invite josh",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/wa",
 "/rl",
 "/setupbars",
+"/zygor show",
 },
 ["ChatHistoryLog"] = {
 },

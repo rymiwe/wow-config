@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -55,11 +56,15 @@ nil,
 ["name"] = "Seal of the Crusader",
 },
 [60] = {
-["name"] = " ",
+["name"] = "SC_RighteousFury",
 ["type"] = "macro",
 },
 [116] = {
 ["id"] = 2862,
+["type"] = "item",
+},
+[114] = {
+["id"] = 23986,
 ["type"] = "item",
 },
 [32] = {
@@ -107,15 +112,15 @@ nil,
 ["type"] = "macro",
 },
 [115] = {
-["id"] = 1251,
+["id"] = 2581,
 ["type"] = "item",
 },
 [44] = {
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
-[114] = {
-["id"] = 23989,
+[113] = {
+["id"] = 1179,
 ["type"] = "item",
 },
 [46] = {
@@ -127,19 +132,19 @@ nil,
 ["type"] = "macro",
 },
 [48] = {
-["name"] = " ",
+["name"] = "SC_RighteousDefe",
 ["type"] = "macro",
 },
-[113] = {
-["id"] = 1179,
+[112] = {
+["id"] = 24105,
 ["type"] = "item",
 },
-[112] = {
-["id"] = 5477,
+[111] = {
+["id"] = 4605,
 ["type"] = "item",
 },
 [110] = {
-["id"] = 5997,
+["id"] = 1180,
 ["type"] = "item",
 },
 [109] = {
@@ -172,7 +177,6 @@ nil,
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-15 00:11:43",
+["timestamp"] = "2026-05-15 01:46:10",
 },
-["channelsLeft"] = true,
 }

@@ -1,3 +1,7 @@
+VER 3 010000000000000C "SC_BlessingofFre" "135968"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Blessing of Freedom
+END
 VER 3 0100000000000007 "SC_BlessingofPro" "135964"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Blessing of Protection
