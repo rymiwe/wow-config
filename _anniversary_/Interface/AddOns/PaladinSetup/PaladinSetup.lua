@@ -42,7 +42,9 @@ local LAYOUT = {
     {"Avenging Wrath",         1, 6, "self-cast"},        -- L40 Ret 5 (instant CD)
     -- QERT row: rotation builder + heals + dispel + heal-CD
     {"Judgement",              1, 8, "startattack"},      -- L4    Q   (most-pressed Ret combat - judges active seal)
-    {"Lay on Hands",           1, 10, "mouseover-help"},  -- L10   E   (instant emergency 100% HP)
+    -- E left empty - prime slot, but no Prot/Ret rotation ability obviously
+    -- belongs here. Lay on Hands moved to Alt-E (60-min CD doesn't earn prime
+    -- real estate). User can fill manually if something useful emerges.
     {"Purify",                 1, 11, "pally-dispel"},    -- L8    R   (Cleanse-or-Purify cascade, works any spec)
     {"Righteous Defense",      1, 12, "mouseover-help"},  -- TBC L66 T (friend-redirect taunt - reactive tank tool, plain key for instant access)
 
@@ -64,7 +66,7 @@ local LAYOUT = {
     {"Repentance",             4, 6, "focus-mouseover-harm"}, -- L40 Ret Alt-5 (cast CC; focus-first)
     -- Alt-QERT: rez + niche cast utility + tank taunt
     -- Alt-Q reserved for Draenei Gift of the Naaru (cast heal racial) via RACIALS.
-    -- Alt-E left empty (placeholder for future cast spell)
+    {"Lay on Hands",           4, 10, "mouseover-help"},  -- L10   Alt-E (60-min CD emergency 100% heal - decision-time button, modifier OK)
     {"Redemption",             4, 11, "mouseover-help"},  -- L12   Alt-R (OOC cast rez)
     {"Holy Shock",             4, 12, "mouseover-help"},  -- L40 Holy Alt-T (instant heal CD - Holy talent only, demoted from main T to free that for Righteous Defense)
 
