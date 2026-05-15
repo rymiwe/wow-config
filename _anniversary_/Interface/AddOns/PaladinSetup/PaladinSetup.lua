@@ -44,7 +44,7 @@ local LAYOUT = {
     {"Judgement",              1, 8, "startattack"},      -- L4    Q   (most-pressed Ret combat - judges active seal)
     {"Lay on Hands",           1, 10, "mouseover-help"},  -- L10   E   (instant emergency 100% HP)
     {"Purify",                 1, 11, "pally-dispel"},    -- L8    R   (Cleanse-or-Purify cascade, works any spec)
-    {"Holy Shock",             1, 12, "mouseover-help"},  -- L40 Holy T (instant heal CD - talent only)
+    {"Righteous Defense",      1, 12, "mouseover-help"},  -- TBC L66 T (friend-redirect taunt - reactive tank tool, plain key for instant access)
 
     -- MAIN BOTTOM (Bar 3) - F/G seals; ZXCVB Hand spells + defensives
     {"Seal of Righteousness",  3, 5},                     -- L1    F   (default melee proc)
@@ -66,7 +66,7 @@ local LAYOUT = {
     -- Alt-Q reserved for Draenei Gift of the Naaru (cast heal racial) via RACIALS.
     -- Alt-E left empty (placeholder for future cast spell)
     {"Redemption",             4, 11, "mouseover-help"},  -- L12   Alt-R (OOC cast rez)
-    {"Righteous Defense",      4, 12, "mouseover-help"},  -- TBC L66 Alt-T (friend-redirect taunt - Prot key ability; cast on tank to pull mobs to you)
+    {"Holy Shock",             4, 12, "mouseover-help"},  -- L40 Holy Alt-T (instant heal CD - Holy talent only, demoted from main T to free that for Righteous Defense)
 
     -- ALT BOTTOM (Bar 5) - rare instants that don't fit on main + niche
     -- These violate "casts only on alt" by necessity (low-pri instants exceed main bar capacity).

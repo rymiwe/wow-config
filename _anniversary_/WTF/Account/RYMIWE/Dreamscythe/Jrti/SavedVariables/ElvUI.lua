@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/setupbars",
-"yes",
-"inv",
 "invite",
 "can't invite yet",
 "/p all good?",
@@ -20,8 +17,11 @@ ElvCharacterDB = {
 "/s indeed =P",
 "/s bit underleveled",
 "/train",
-"/macro",
 "/dance",
+"/macro",
+"/setupbars",
+"/wa",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },

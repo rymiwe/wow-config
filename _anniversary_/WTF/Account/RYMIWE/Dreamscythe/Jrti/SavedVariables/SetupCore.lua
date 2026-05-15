@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -58,6 +59,10 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
+[116] = {
+["id"] = 2862,
+["type"] = "item",
+},
 [32] = {
 ["name"] = " ",
 ["type"] = "macro",
@@ -102,12 +107,16 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
+[115] = {
+["id"] = 1251,
+["type"] = "item",
+},
 [44] = {
 ["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
-[116] = {
-["id"] = 3239,
+[114] = {
+["id"] = 23989,
 ["type"] = "item",
 },
 [46] = {
@@ -115,7 +124,7 @@ nil,
 ["type"] = "macro",
 },
 [47] = {
-["name"] = " ",
+["name"] = "SC_Redemption",
 ["type"] = "macro",
 },
 [48] = {
@@ -123,19 +132,19 @@ nil,
 ["type"] = "macro",
 },
 [113] = {
-["id"] = 159,
+["id"] = 1179,
 ["type"] = "item",
 },
 [112] = {
-["id"] = 24105,
+["id"] = 5477,
 ["type"] = "item",
 },
 [110] = {
-["id"] = 2454,
+["id"] = 5997,
 ["type"] = "item",
 },
 [109] = {
-["id"] = 118,
+["id"] = 858,
 ["type"] = "item",
 },
 [53] = {
@@ -164,7 +173,6 @@ nil,
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-14 17:22:45",
+["timestamp"] = "2026-05-14 23:36:55",
 },
-["channelsLeft"] = true,
 }
