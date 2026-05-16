@@ -28,8 +28,6 @@ local L1_TIER = {
     -- BAR 1 QERT: instants (Fire Blast L6, Polymorph L8 fill in mid-tier)
     {"Fire Blast",             1, 10, "nuke-mouseover"},  -- L6    E
     {"Polymorph",              1, 11, "focus-mouseover-harm"}, -- L8 R
-    -- BAR 3: starter armor
-    {"Frost Armor",            3, 5, "self-cast"},        -- L1    F
     -- V reserved for Draenei Naaru via RACIALS
 }
 
@@ -40,7 +38,6 @@ local L10_TIER = {
     {"Frost Nova",             1, 8},                     -- L10   Q   (mirrors Fire Blast on E)
     {"Fire Blast",             1, 10, "nuke-mouseover"},  -- L6    E
     {"Polymorph",              1, 11, "focus-mouseover-harm"},
-    {"Frost Armor",            3, 5, "self-cast"},
     {"Arcane Explosion",       3, 9},                     -- L14   X
     {"Slow Fall",              3, 12, "mouseover-help"},  -- L12   B
 }
@@ -59,7 +56,6 @@ local L20_TIER = {
     {"Polymorph",              1, 11, "focus-mouseover-harm"}, -- R
     {"Blink",                  1, 12, "self-cast"},       -- L20   T
     -- F/G + ZXCVB: utility
-    {"Frost Armor",            3, 5, "self-cast"},        -- F
     {"Conjure Mana Gem",       3, 6, "self-cast"},        -- L28   G
     {"Cone of Cold",           3, 8},                     -- L26   Z
     {"Arcane Explosion",       3, 9},                     -- X
@@ -95,8 +91,8 @@ local IGNORE = {
     ["Permafrost"]=true, ["Piercing Ice"]=true,
     ["Improved Blizzard"]=true, ["Arctic Reach"]=true, ["Frost Channeling"]=true,
     ["Shatter"]=true, ["Winter's Chill"]=true,
-    -- Armors handled by OPie ring (M4); Frost Armor placed in LAYOUT (L1 starter)
-    ["Ice Armor"]=true, ["Molten Armor"]=true,
+    -- Armors handled exclusively by OPie ring (M4)
+    ["Frost Armor"]=true, ["Ice Armor"]=true, ["Molten Armor"]=true,
     -- Conjures + Portals + Teleports handled by OPie ring (M5)
     ["Conjure Water"]=true, ["Conjure Food"]=true, ["Conjure Refreshment"]=true,
     ["Portal: Stormwind"]=true, ["Portal: Ironforge"]=true, ["Portal: Darnassus"]=true,
