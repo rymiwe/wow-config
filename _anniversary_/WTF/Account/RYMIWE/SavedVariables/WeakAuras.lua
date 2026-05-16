@@ -215,8 +215,18 @@ WeakAurasSaved = {
 ["tocversion"] = 20505,
 ["id"] = "Lightning shield",
 ["xOffset"] = -60.171203613281,
-["frameStrata"] = 1,
+["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
+["parent"] = "Sham Shields",
+["config"] = {
+},
+["frameStrata"] = 1,
+["borderInset"] = 1,
+["conditions"] = {
+},
+["information"] = {
+["showNilIsFalse"] = true,
+},
 ["animation"] = {
 ["start"] = {
 ["type"] = "none",
@@ -237,16 +247,6 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["config"] = {
-},
-["alpha"] = 1,
-["borderInset"] = 1,
-["conditions"] = {
-},
-["information"] = {
-["showNilIsFalse"] = true,
-},
-["parent"] = "Sham Shields",
 },
 ["OHTick"] = {
 ["sparkWidth"] = 2,
@@ -391,12 +391,15 @@ WeakAurasSaved = {
 ["useAdjustededMax"] = false,
 ["parent"] = "SwingTimer",
 ["icon"] = false,
-["uid"] = "7y6BGEkcT6p",
 ["sparkColor"] = {
 1,
 0,
 0.03921568627451,
 1,
+},
+["config"] = {
+["CbM"] = false,
+["bigBadSync"] = false,
 },
 ["authorOptions"] = {
 {
@@ -435,10 +438,7 @@ WeakAurasSaved = {
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["selfPoint"] = "CENTER",
-["config"] = {
-["CbM"] = false,
-["bigBadSync"] = false,
-},
+["uid"] = "7y6BGEkcT6p",
 ["inverse"] = true,
 ["enableGradient"] = false,
 ["orientation"] = "HORIZONTAL",
@@ -636,6 +636,7 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["use_spec"] = true,
 ["pvptalent"] = {
 ["multi"] = {
 },
@@ -644,7 +645,6 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
 ["use_combat"] = true,
 ["ingroup"] = {
 ["multi"] = {
@@ -939,8 +939,8 @@ WeakAurasSaved = {
 },
 },
 {
+["type"] = "subborder",
 ["border_size"] = 2,
-["border_offset"] = 1,
 ["border_visible"] = false,
 ["text_color"] = {
 },
@@ -952,7 +952,7 @@ WeakAurasSaved = {
 },
 ["anchor_area"] = "bar",
 ["border_edge"] = "None",
-["type"] = "subborder",
+["border_offset"] = 1,
 },
 {
 ["tick_rotation"] = 0,
@@ -1280,22 +1280,22 @@ WeakAurasSaved = {
 ["semver"] = "3.0.5",
 ["tocversion"] = 20505,
 ["id"] = "SwingTimer",
-["borderInset"] = 1,
+["authorOptions"] = {
+},
 ["frameStrata"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["alpha"] = 1,
 ["uid"] = "9b0ooXp)9Nb",
 ["config"] = {
 },
-["selfPoint"] = "CENTER",
+["borderInset"] = 1,
 ["conditions"] = {
 },
 ["information"] = {
 ["forceEvents"] = true,
 ["showNilIsFalse"] = true,
 },
-["authorOptions"] = {
-},
+["selfPoint"] = "CENTER",
 },
 ["Sham Shields"] = {
 ["controlledChildren"] = {
@@ -1380,9 +1380,19 @@ WeakAurasSaved = {
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Sham Shields",
+["uid"] = "pgn179hZoxd",
 ["frameStrata"] = 1,
-["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
+["alpha"] = 1,
+["borderInset"] = 1,
+["xOffset"] = 0,
+["config"] = {
+},
+["conditions"] = {
+},
+["information"] = {
+["showNilIsFalse"] = true,
+},
 ["animation"] = {
 ["start"] = {
 ["type"] = "none",
@@ -1403,16 +1413,6 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["uid"] = "pgn179hZoxd",
-["borderInset"] = 1,
-["config"] = {
-},
-["conditions"] = {
-},
-["information"] = {
-["showNilIsFalse"] = true,
-},
-["xOffset"] = 0,
 },
 ["W Shield 2"] = {
 ["wagoID"] = "OPRZeg-u6",
@@ -1860,6 +1860,7 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
+["use_spec"] = true,
 ["pvptalent"] = {
 ["multi"] = {
 },
@@ -1868,7 +1869,6 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
 ["use_combat"] = true,
 ["ingroup"] = {
 ["multi"] = {
@@ -2100,8 +2100,8 @@ WeakAurasSaved = {
 },
 },
 {
+["type"] = "subborder",
 ["border_size"] = 2,
-["border_offset"] = 1,
 ["border_visible"] = false,
 ["text_color"] = {
 },
@@ -2113,7 +2113,7 @@ WeakAurasSaved = {
 },
 ["anchor_area"] = "bar",
 ["border_edge"] = "None",
-["type"] = "subborder",
+["border_offset"] = 1,
 },
 {
 ["tick_rotation"] = 0,
@@ -2391,8 +2391,18 @@ WeakAurasSaved = {
 ["tocversion"] = 20505,
 ["id"] = "Wata shield",
 ["xOffset"] = -60.171203613281,
-["frameStrata"] = 1,
+["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
+["parent"] = "Sham Shields",
+["config"] = {
+},
+["frameStrata"] = 1,
+["borderInset"] = 1,
+["conditions"] = {
+},
+["information"] = {
+["showNilIsFalse"] = true,
+},
 ["animation"] = {
 ["start"] = {
 ["type"] = "none",
@@ -2413,16 +2423,6 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["config"] = {
-},
-["alpha"] = 1,
-["borderInset"] = 1,
-["conditions"] = {
-},
-["information"] = {
-["showNilIsFalse"] = true,
-},
-["parent"] = "Sham Shields",
 },
 ["L Shield 3"] = {
 ["wagoID"] = "OPRZeg-u6",
@@ -2726,7 +2726,7 @@ WeakAurasSaved = {
 },
 ["config"] = {
 },
-["gridType"] = "RD",
+["internalVersion"] = 89,
 ["load"] = {
 ["talent"] = {
 ["multi"] = {
@@ -2752,8 +2752,30 @@ WeakAurasSaved = {
 1,
 0.5,
 },
-["rotation"] = 0,
+["fullCircle"] = true,
 ["animate"] = false,
+["authorOptions"] = {
+},
+["scale"] = 1,
+["centerType"] = "LR",
+["border"] = false,
+["borderEdge"] = "Square Full White",
+["regionType"] = "dynamicgroup",
+["borderSize"] = 2,
+["sort"] = "none",
+["gridType"] = "RD",
+["rotation"] = 0,
+["constantFactor"] = "RADIUS",
+["stepAngle"] = 15,
+["borderOffset"] = 4,
+["rowSpace"] = 1,
+["alpha"] = 1,
+["id"] = "New",
+["frameStrata"] = 1,
+["gridWidth"] = 5,
+["anchorFrameType"] = "SCREEN",
+["useLimit"] = false,
+["borderInset"] = 1,
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -2774,37 +2796,15 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["scale"] = 1,
-["centerType"] = "LR",
-["border"] = false,
-["borderEdge"] = "Square Full White",
-["regionType"] = "dynamicgroup",
-["borderSize"] = 2,
-["sort"] = "none",
-["internalVersion"] = 89,
-["fullCircle"] = true,
-["constantFactor"] = "RADIUS",
-["stepAngle"] = 15,
-["borderOffset"] = 4,
-["rowSpace"] = 1,
-["alpha"] = 1,
-["id"] = "New",
-["frameStrata"] = 1,
-["gridWidth"] = 5,
-["anchorFrameType"] = "SCREEN",
-["useLimit"] = false,
-["borderInset"] = 1,
-["authorOptions"] = {
-},
-["arcLength"] = 360,
+["uid"] = "IdbYyDSAl4t",
 ["conditions"] = {
 },
 ["information"] = {
 },
-["uid"] = "IdbYyDSAl4t",
+["arcLength"] = 360,
 },
 },
-["editor_font_size"] = 12,
+["login_squelch_time"] = 10,
 ["lastArchiveClear"] = 1777260853,
 ["minimap"] = {
 ["minimapPos"] = 185.77,
@@ -2813,10 +2813,10 @@ WeakAurasSaved = {
 ["lastUpgrade"] = 1777260857,
 ["dbVersion"] = 89,
 ["migrationCutoff"] = 730,
-["registered"] = {
-},
-["login_squelch_time"] = 10,
-["historyCutoff"] = 730,
 ["features"] = {
 },
+["registered"] = {
+},
+["historyCutoff"] = 730,
+["editor_font_size"] = 12,
 }

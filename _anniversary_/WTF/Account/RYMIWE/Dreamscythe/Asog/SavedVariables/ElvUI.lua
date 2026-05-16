@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p a worthy trade",
 "/p special cloth for my wrappings",
 "/p i shall retreat momentarily into the traders den to recover my funds",
 "/p i'll ask again",
@@ -17,11 +16,12 @@ ElvCharacterDB = {
 "/zygor show",
 "/p yo homie",
 "/p whatcha thinkin",
-"/rl",
 "inv",
 "uhh",
 "i'll invite you then?",
 "/tsm destroy",
+"/rl",
+"/cheer",
 },
 ["ChatHistoryLog"] = {
 },
