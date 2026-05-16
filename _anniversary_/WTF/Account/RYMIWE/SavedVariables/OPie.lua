@@ -4,7 +4,7 @@ OPie_SavedData = {
 },
 ["_OPieVersion"] = "8.3.3 (4.141)",
 ["_StoreVersion"] = 122,
-["_GameVersion"] = "2.5.5",
+["_GameLocale"] = "enUS",
 ["_StoreVersion2"] = 122,
 ["ProfileStorage"] = {
 ["default"] = {
@@ -14,11 +14,14 @@ OPie_SavedData = {
 },
 },
 ["PersistentStorage"] = {
+["AutoQuestWhitelist"] = {
+[23818] = true,
+},
 ["RingKeeper"] = {
 ["OPieFlagStore"] = {
 ["StoreVersion"] = 3,
 },
 },
 },
-["_GameLocale"] = "enUS",
+["_GameVersion"] = "2.5.5",
 }

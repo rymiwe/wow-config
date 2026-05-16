@@ -1,0 +1,32 @@
+VER 3 0100000000000006 "SC_ArcaneMissile" "136096"
+#showtooltip
+/startattack
+/cast [@mouseover,harm,nodead][harm,nodead] Arcane Missiles
+END
+VER 3 0100000000000001 "SC_Fireball" "135812"
+#showtooltip
+/startattack
+/cast [@mouseover,harm,nodead][harm,nodead] Fireball
+END
+VER 3 0100000000000005 "SC_FireBlast" "135807"
+#showtooltip
+/startattack
+/cast [@mouseover,harm,nodead][harm,nodead] Fire Blast
+END
+VER 3 0100000000000002 "SC_FrostArmor" "135843"
+#showtooltip
+/cast [@player] Frost Armor
+END
+VER 3 0100000000000004 "SC_Frostbolt" "135846"
+#showtooltip
+/startattack
+/cast [@mouseover,harm,nodead][harm,nodead] Frostbolt
+END
+VER 3 0100000000000003 "SC_GiftoftheNaar" "135923"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru
+END
+VER 3 0100000000000007 "SC_Polymorph" "136071"
+#showtooltip
+/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] Polymorph
+END

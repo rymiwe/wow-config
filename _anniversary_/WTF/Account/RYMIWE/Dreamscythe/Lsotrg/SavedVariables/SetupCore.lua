@@ -1,23 +1,23 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
+["lastAppliedTier"] = 10,
 ["lastBackup"] = {
 ["slots"] = {
 {
-["id"] = 8045,
-["type"] = "spell",
-["name"] = "Earth Shock",
-},
-{
-["name"] = "SC_FlameShock",
+["name"] = " ",
 ["type"] = "macro",
 },
 {
-["id"] = 8056,
-["type"] = "spell",
-["name"] = "Frost Shock",
+["name"] = "SC_Frostbolt",
+["type"] = "macro",
 },
 {
-["name"] = " ",
+["name"] = "SC_Fireball",
+["type"] = "macro",
+},
+{
+["name"] = "SC_ArcaneMissile",
 ["type"] = "macro",
 },
 {
@@ -30,12 +30,12 @@ SetupCoreCharDB = {
 },
 nil,
 {
-["name"] = "SC_TotemMelee",
+["name"] = " ",
 ["type"] = "macro",
 },
 nil,
 {
-["name"] = "SC_TotemCaster",
+["name"] = "SC_FireBlast",
 ["type"] = "macro",
 },
 {
@@ -55,22 +55,12 @@ nil,
 ["type"] = "macro",
 },
 [60] = {
-["name"] = "SC_Purge",
+["name"] = " ",
 ["type"] = "macro",
 },
-[116] = {
-["id"] = 13262,
-["type"] = "spell",
-["name"] = "Disenchant",
-},
-[112] = {
-["id"] = 23986,
-["type"] = "item",
-},
 [32] = {
-["id"] = 2645,
-["type"] = "spell",
-["name"] = "Ghost Wolf",
+["name"] = " ",
+["type"] = "macro",
 },
 [33] = {
 ["name"] = " ",
@@ -81,7 +71,7 @@ nil,
 ["type"] = "macro",
 },
 [35] = {
-["name"] = " ",
+["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
 [36] = {
@@ -93,7 +83,7 @@ nil,
 ["type"] = "macro",
 },
 [38] = {
-["name"] = "SC_LightningBolt",
+["name"] = " ",
 ["type"] = "macro",
 },
 [39] = {
@@ -113,43 +103,35 @@ nil,
 ["type"] = "macro",
 },
 [115] = {
-["id"] = 23871,
+["id"] = 5349,
 ["type"] = "item",
 },
 [44] = {
-["name"] = "SC_HealingWave",
+["name"] = " ",
 ["type"] = "macro",
 },
-[110] = {
-["id"] = 24072,
-["type"] = "item",
-},
 [46] = {
-["name"] = "SC_AncestralSpir",
+["name"] = " ",
 ["type"] = "macro",
 },
 [47] = {
-["name"] = "SC_LesserHealing",
+["name"] = " ",
 ["type"] = "macro",
 },
 [48] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[114] = {
-["id"] = 858,
+[116] = {
+["id"] = 5350,
 ["type"] = "item",
 },
-[111] = {
-["id"] = 2683,
-["type"] = "item",
-},
-[113] = {
-["id"] = 2581,
+[110] = {
+["id"] = 2454,
 ["type"] = "item",
 },
 [109] = {
-["id"] = 1179,
+["id"] = 118,
 ["type"] = "item",
 },
 [53] = {
@@ -157,11 +139,11 @@ nil,
 ["type"] = "macro",
 },
 [54] = {
-["name"] = "SC_GiftoftheNaar",
+["name"] = " ",
 ["type"] = "macro",
 },
 [59] = {
-["name"] = "SC_CurePoison",
+["name"] = " ",
 ["type"] = "macro",
 },
 [56] = {
@@ -169,16 +151,14 @@ nil,
 ["type"] = "macro",
 },
 [29] = {
-["id"] = 325,
-["type"] = "spell",
-["name"] = "Lightning Shield",
+["name"] = "SC_FrostArmor",
+["type"] = "macro",
 },
 [57] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-10 20:41:55",
+["timestamp"] = "2026-05-15 17:15:20",
 },
-["channelsLeft"] = true,
 }
