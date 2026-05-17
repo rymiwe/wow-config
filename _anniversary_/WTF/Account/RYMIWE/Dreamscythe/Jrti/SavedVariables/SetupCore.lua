@@ -1,6 +1,5 @@
 
 SetupCoreCharDB = {
-["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -35,7 +34,7 @@ nil,
 },
 nil,
 {
-["name"] = "SC_LayonHands",
+["name"] = " ",
 ["type"] = "macro",
 },
 {
@@ -43,7 +42,7 @@ nil,
 ["type"] = "macro",
 },
 {
-["name"] = " ",
+["name"] = "SC_RighteousDefe",
 ["type"] = "macro",
 },
 [58] = {
@@ -68,7 +67,7 @@ nil,
 ["type"] = "item",
 },
 [32] = {
-["name"] = " ",
+["name"] = "SC_BlessingofFre",
 ["type"] = "macro",
 },
 [33] = {
@@ -124,7 +123,7 @@ nil,
 ["type"] = "item",
 },
 [46] = {
-["name"] = " ",
+["name"] = "SC_LayonHands",
 ["type"] = "macro",
 },
 [47] = {
@@ -132,7 +131,7 @@ nil,
 ["type"] = "macro",
 },
 [48] = {
-["name"] = "SC_RighteousDefe",
+["name"] = " ",
 ["type"] = "macro",
 },
 [112] = {
@@ -140,7 +139,7 @@ nil,
 ["type"] = "item",
 },
 [111] = {
-["id"] = 4605,
+["id"] = 24072,
 ["type"] = "item",
 },
 [110] = {
@@ -168,7 +167,7 @@ nil,
 ["type"] = "macro",
 },
 [29] = {
-["id"] = 20287,
+["id"] = 20288,
 ["type"] = "spell",
 ["name"] = "Seal of Righteousness",
 },
@@ -177,6 +176,7 @@ nil,
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-05-15 01:46:10",
+["timestamp"] = "2026-05-16 15:57:30",
 },
+["channelsLeft"] = true,
 }

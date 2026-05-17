@@ -19,9 +19,9 @@ ElvCharacterDB = {
 "/dance",
 "/macro",
 "/wa",
+"/zygor show",
 "/rl",
 "/setupbars",
-"/zygor show",
 },
 ["ChatHistoryLog"] = {
 },

@@ -591,13 +591,10 @@ ElvDB = {
 ["height"] = 20,
 ["sizeOverride"] = 33,
 },
+["pvpSpecIcon"] = false,
 ["portrait"] = {
 ["width"] = 25,
 ["style"] = "Class",
-},
-["pvpTrinket"] = {
-["xOffset"] = 7,
-["size"] = 32,
 },
 ["spacing"] = 15,
 ["pvpclassificationindicator"] = {
@@ -624,7 +621,10 @@ ElvDB = {
 ["xOffset"] = -2,
 ["text_format"] = "[healthcolor][health:percent-with-absorbs]",
 },
-["pvpSpecIcon"] = false,
+["pvpTrinket"] = {
+["xOffset"] = 7,
+["size"] = 32,
+},
 ["height"] = 27,
 ["buffs"] = {
 ["xOffset"] = -4,
