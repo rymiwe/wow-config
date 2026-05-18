@@ -34,10 +34,3 @@ X: 0
 Y: -12
 W: 610
 H: 438
-Frame: ItemRackOptFrame
-FrameLevel: 0
-Anchor: CENTER
-X: 1
-Y: 99
-W: 288
-H: 348

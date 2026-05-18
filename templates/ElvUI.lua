@@ -790,10 +790,10 @@ ElvDB = {
 },
 ["bar10"] = {
 ["enabled"] = true,
-["buttonsPerRow"] = 8,
+["buttonsPerRow"] = 12,
 ["buttonSpacing"] = 3,
 ["buttonSize"] = 36,
-["buttons"] = 8,
+["buttons"] = 12,
 ["backdrop"] = true,
 },
 ["globalFadeAlpha"] = 0.63,

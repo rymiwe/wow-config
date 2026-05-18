@@ -1,0 +1,68 @@
+# Prospecting Shopping Groups for TBC Classic / Anniversary
+
+This file is **not** a raw TSM import string (those are huge and fragile).
+
+Instead, this is a clean, recommended group structure + operation guidance you can quickly set up in TSM for ore prospecting loops (Jewelcrafting + Disenchanting profit).
+
+## Recommended Group Tree (create this in /tsm → Groups)
+
+Prospecting Ores
+├── Low Tier
+│   ├── Copper Ore
+│   └── Tin Ore
+├── Mid Tier
+│   ├── Iron Ore
+│   └── Mithril Ore
+├── High Tier (Classic)
+│   ├── Thorium Ore
+│   └── Rich Thorium Ore
+└── Outland
+    ├── Fel Iron Ore
+    ├── Adamantite Ore
+    ├── Rich Adamantite Ore
+    └── Khorium Ore
+
+## How to set this up quickly
+
+1. In TSM, go to **Groups** → create the folders above.
+2. Add the ores to the correct subgroups (easy to do via the item list or search).
+3. Create one strong **Shopping Operation** and attach it to the parent "Prospecting Ores" group (or to each tier if you want different margins).
+
+## Recommended Shopping Operation Settings
+
+Name: `Prospecting - Ore Buy`
+
+**Max Price** (use one of these formulas in the operation):
+
+Basic (easy):
+`avg(dbmarket, dbminbuyout) * 0.8`
+
+Better (accounting for what you actually get from prospecting):
+Use a custom price source or the following style:
+
+For Copper Ore example:
+`min( dbmin(Shadowgem) * 0.9 , dbmin(Malachite) * 1.1 , ... ) * expected_yield - 0.5g`
+
+Many people keep it simple at first:
+- Set Max Price to 60-80% of the current average value of the gems that ore prospects into.
+- Use TSM's "Destroying" or manual tracking for expected yield.
+
+## Feeding into Crafting
+
+Once you have the gems:
+
+- Use the existing **Gems** group (from Materials/Gems imports).
+- Create or attach **Crafting Operations** on your Jewelcrafting recipes.
+- In the Crafting operation, factor in the **Disenchant value** of the items you craft (many TBC JC crafts DE for good shards/essences when the sell price is low).
+
+Would you like me to also create a suggested set of **Crafting Operations** tailored to prospect → craft → DE?
+
+Just say the word and I'll give you the exact settings.
+
+## Quick Tip for "Steals"
+
+When scanning "Prospecting Ores":
+- Sort by % market value in TSM Shopping.
+- Anything under ~65-70% market value on ore is usually worth buying to prospect (depending on your server economy and how fast you can sell the resulting gems/shards).
+
+This structure works on every character that has Jewelcrafting — just attach the same Shopping operation to the group on every profile.

@@ -31,9 +31,10 @@ If TSM throws an error during import, run `/reload` and re-check whether the gro
 1. **Materials.txt** — herbs, ores, bars, leather, cloth, enchanting mats. Foundational.
 2. **Consumables.txt** — flasks, elixirs, food, potions, scrolls.
 3. **Gems.txt** — uncut + cut gems (TBC jewelcrafting).
-4. **Patterns-Plans.txt** — recipes, schematics, formulas, patterns.
-5. **Miscellaneous.txt** — bags, BoE epics, curiosities.
-6. **Gear-Looted-Crafted.txt** — biggest file (~18KB); BoE drops + crafted gear by slot.
+4. **Prospecting.txt** — dedicated ore groups for Jewelcrafting prospecting loops (new, see file for setup).
+5. **Patterns-Plans.txt** — recipes, schematics, formulas, patterns.
+6. **Miscellaneous.txt** — bags, BoE epics, curiosities.
+7. **Gear-Looted-Crafted.txt** — biggest file (~18KB); BoE drops + crafted gear by slot.
 
 ## What's NOT included
 
