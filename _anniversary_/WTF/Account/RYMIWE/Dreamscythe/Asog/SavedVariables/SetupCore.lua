@@ -3,7 +3,7 @@ SetupCoreCharDB = {
 ["lastBackup"] = {
 ["slots"] = {
 {
-["id"] = 8045,
+["id"] = 8046,
 ["type"] = "spell",
 ["name"] = "Earth Shock",
 },
@@ -17,8 +17,9 @@ SetupCoreCharDB = {
 ["name"] = "Frost Shock",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 6196,
+["type"] = "spell",
+["name"] = "Far Sight",
 },
 {
 ["name"] = " ",
@@ -47,7 +48,7 @@ nil,
 ["type"] = "macro",
 },
 [58] = {
-["name"] = " ",
+["name"] = "SC_CureDisease",
 ["type"] = "macro",
 },
 [30] = {
@@ -62,8 +63,8 @@ nil,
 ["id"] = 858,
 ["type"] = "item",
 },
-[112] = {
-["id"] = 4605,
+[114] = {
+["id"] = 1970,
 ["type"] = "item",
 },
 [32] = {
@@ -119,8 +120,8 @@ nil,
 ["name"] = "SC_HealingWave",
 ["type"] = "macro",
 },
-[110] = {
-["id"] = 1205,
+[113] = {
+["id"] = 3530,
 ["type"] = "item",
 },
 [46] = {
@@ -135,16 +136,16 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[114] = {
-["id"] = 1970,
+[112] = {
+["id"] = 2683,
 ["type"] = "item",
 },
 [111] = {
-["id"] = 4542,
+["id"] = 1179,
 ["type"] = "item",
 },
-[113] = {
-["id"] = 3530,
+[110] = {
+["id"] = 1205,
 ["type"] = "item",
 },
 [109] = {
@@ -164,20 +165,21 @@ nil,
 ["type"] = "macro",
 },
 [56] = {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 131,
+["type"] = "spell",
+["name"] = "Water Breathing",
+},
+[29] = {
+["id"] = 905,
+["type"] = "spell",
+["name"] = "Lightning Shield",
 },
 [57] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[29] = {
-["id"] = 325,
-["type"] = "spell",
-["name"] = "Lightning Shield",
 },
-},
-["timestamp"] = "2026-05-16 19:30:36",
+["timestamp"] = "2026-05-17 20:43:50",
 },
 ["channelsLeft"] = true,
 }
