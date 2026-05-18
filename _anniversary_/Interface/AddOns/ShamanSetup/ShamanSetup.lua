@@ -23,7 +23,7 @@ local LAYOUT = {
     {"Far Sight",              1, 4},                     -- L18   3
     {"Astral Recall",          1, 5},                     -- L30   4
     -- QERT row (Q/E/R/T): Q + E populated by totem-set /castsequence macros in Run()
-    --   Q = melee party set (SoE → Searing → Mana Spring → Windfury)
+    --   Q = melee party set (SoE → Searing → Healing Stream → Windfury)   [Mana Spring trainable at 26]
     --   E = caster party set (Stoneskin → Flametongue → Mana Spring → Wrath of Air)
     --   R/T left empty for player customization; OPie M4 holds individual totems
 
@@ -116,13 +116,15 @@ local IGNORE = {
 -- Resets out of combat or after 15s of inactivity (whichever first).
 -- #showtooltip with no arg dynamically shows the next-to-cast totem icon.
 --
--- Melee party set: Strength of Earth + Searing + Mana Spring + Windfury
+-- Melee party set: Strength of Earth + Searing + Healing Stream + Windfury
+--   Levels 20-25 (pre-Mana Spring @26): uses Healing Stream (strong for dungeons).
+--   At 26+ you can manually change Healing Stream → Mana Spring in this macro if preferred.
 --   Fully usable around L32+ (Windfury = L32). Pre-L32 the Windfury slot
 --   silently fails to advance; player can press again or drop manually.
 -- Caster party set: Stoneskin + Flametongue + Mana Spring + Wrath of Air
 --   Fully usable around L64+ (Wrath of Air = TBC L64). Pre-30 falls back
 --   to Stoneskin only — at low level just use the melee set on Q.
-local TOTEM_MELEE_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Mana Spring Totem, Windfury Totem"
+local TOTEM_MELEE_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem"
 local TOTEM_CASTER_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Mana Spring Totem, Wrath of Air Totem"
 
 -- Per-race racial placement (per docs/racials.md). Untrained racials silently
