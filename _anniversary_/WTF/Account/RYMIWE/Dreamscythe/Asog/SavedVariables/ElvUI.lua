@@ -2,11 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/cw Nyren-Dreamscythe please sir",
-"from my research it seems we could carefully 4-man deadmines tonight with me healing, but certainly after y'alls leveling session tonight i guess",
-"so like you said... 15ish i guess",
-"/p yo homie",
-"/p whatcha thinkin",
 "inv",
 "uhh",
 "i'll invite you then?",
@@ -20,8 +15,13 @@ ElvCharacterDB = {
 "/cw Nyrenn-Dreamscythe apparently there's some regular non-carrion birds in redridge",
 "/zygor show",
 "31 cray cray",
-"/rl",
 "/setupbars",
+"/rl",
+"/itemrack opt",
+"/p just blackrock menace atm i think",
+"/p i can res",
+"/p if i can find",
+"/p hmm gotcha but in combat for some reason",
 },
 ["ChatHistoryLog"] = {
 },
