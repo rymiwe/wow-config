@@ -12,6 +12,8 @@
 --   * Auto-equip suggested gear upgrades (autogearauto)
 --   * Frame anchored above the minimap area (BOTTOMRIGHT screen anchor with
 --     user's offsets - re-position via /zygor menu if your screen differs)
+--   * Arrow: smallest scale (arrowscale=0.625), text with OUTLINE, arrow locked
+--     and reset to centered screen position (text size left at Zygor default)
 --
 -- Note: Zygor doesn't load until after PLAYER_LOGIN, so we wait for its
 -- SavedVariable global to appear. If Zygor isn't installed, this is a no-op.
@@ -39,6 +41,12 @@ local PRESET = {
     -- User can drag via Zygor Frame Manager for fine-tuning; revert by /rl.
     actionbar_anchor_snapped = false,
     actionbar_anchor = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 700},
+
+    -- Arrow settings
+    arrowscale = 0.625,     -- smallest arrow size
+    arrowoutline = true,    -- outline on arrow text
+    arrow_locked = true,    -- lock arrow position (text size left at default)
+    arrowanchor = {"CENTER", nil, "CENTER", 0, 150},  -- reset to centered position
 }
 
 local function ApplyConfig()

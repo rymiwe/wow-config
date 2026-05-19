@@ -16,8 +16,8 @@ H: 40
 Frame: ZygorGuidesViewerPointer_ArrowCtrl
 FrameLevel: 0
 Anchor: TOP
-X: 11
-Y: -167
+X: 6
+Y: -130
 W: 1
 H: 1
 Frame: ColorPickerFrame
