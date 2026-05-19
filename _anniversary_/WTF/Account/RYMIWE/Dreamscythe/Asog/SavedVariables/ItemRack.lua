@@ -8,7 +8,7 @@ ItemRackUser = {
 },
 ["EnableQueueContextCheck"] = "ON",
 ["MainScale"] = 1,
-["SetMenuWrapValue"] = 3,
+["CurrentSet"] = "Enhancement",
 ["SetMenuWrap"] = "OFF",
 ["EnableQueues"] = "ON",
 ["Sets"] = {
@@ -103,5 +103,5 @@ ItemRackUser = {
 ["Queues"] = {
 },
 ["MenuScale"] = 0.85,
-["CurrentSet"] = "Enhancement",
+["SetMenuWrapValue"] = 3,
 }

@@ -2,8 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/cheer",
-"/cw Enyxrbear want a hand?",
 "/ty",
 "/p hey",
 "/p still there?",
@@ -16,12 +14,14 @@ ElvCharacterDB = {
 "/p i can res",
 "/p if i can find",
 "/p hmm gotcha but in combat for some reason",
-"/setupbars",
 "/tsm destroy",
 "/s np",
 "/heydaddy",
+"can you get your mount already?",
+"/s sorry",
 "/rl",
 "/hd",
+"/setupbars",
 },
 ["ChatHistoryLog"] = {
 },
