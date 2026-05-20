@@ -1,6 +1,5 @@
 
 SetupCoreCharDB = {
-["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -23,8 +22,9 @@ SetupCoreCharDB = {
 ["name"] = "Far Sight",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 556,
+["type"] = "spell",
+["name"] = "Astral Recall",
 },
 {
 ["name"] = " ",
@@ -60,23 +60,14 @@ nil,
 ["name"] = "SC_Purge",
 ["type"] = "macro",
 },
-[29] = {
-["id"] = 905,
-["type"] = "spell",
-["name"] = "Lightning Shield",
-},
-[57] = {
-["name"] = " ",
-["type"] = "macro",
-},
 [32] = {
 ["id"] = 2645,
 ["type"] = "spell",
 ["name"] = "Ghost Wolf",
 },
 [33] = {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 29744,
+["type"] = "item",
 },
 [34] = {
 ["name"] = " ",
@@ -115,17 +106,17 @@ nil,
 ["type"] = "macro",
 },
 [115] = {
-["id"] = 858,
+["id"] = 6450,
 ["type"] = "item",
 },
 [44] = {
 ["name"] = "SC_HealingWave",
 ["type"] = "macro",
 },
-[56] = {
-["id"] = 131,
+[57] = {
+["id"] = 546,
 ["type"] = "spell",
-["name"] = "Water Breathing",
+["name"] = "Water Walking",
 },
 [46] = {
 ["name"] = "SC_LesserHealing",
@@ -139,20 +130,22 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
+[29] = {
+["id"] = 905,
+["type"] = "spell",
+["name"] = "Lightning Shield",
+},
+[56] = {
+["id"] = 131,
+["type"] = "spell",
+["name"] = "Water Breathing",
+},
 [59] = {
 ["name"] = "SC_CurePoison",
 ["type"] = "macro",
 },
-[111] = {
-["id"] = 2683,
-["type"] = "item",
-},
-[113] = {
-["id"] = 1322,
-["type"] = "item",
-},
 [109] = {
-["id"] = 3385,
+["id"] = 3827,
 ["type"] = "item",
 },
 [53] = {
@@ -164,7 +157,7 @@ nil,
 ["type"] = "macro",
 },
 [114] = {
-["id"] = 1970,
+["id"] = 4606,
 ["type"] = "item",
 },
 [110] = {
@@ -172,14 +165,15 @@ nil,
 ["type"] = "item",
 },
 [112] = {
-["id"] = 3531,
+["id"] = 1322,
 ["type"] = "item",
 },
 [116] = {
-["id"] = 929,
+["id"] = 1710,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-05-18 23:36:34",
+["timestamp"] = "2026-05-19 19:17:49",
 },
+["channelsLeft"] = true,
 }

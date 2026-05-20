@@ -4,12 +4,13 @@ ItemRackUser = {
 ["QueuesEnabled"] = {
 },
 ["Locked"] = "OFF",
-["CurrentSet"] = "Enhancement",
+["EventStack"] = {
+},
 ["EnableQueueContextCheck"] = "ON",
 ["MainScale"] = 1,
-["SetMenuWrapValue"] = 3,
+["CurrentSet"] = "Enhancement",
 ["SetMenuWrap"] = "OFF",
-["EnablePerSetQueues"] = "OFF",
+["EnableQueues"] = "ON",
 ["Sets"] = {
 ["~BaseGear"] = {
 ["equip"] = {
@@ -44,8 +45,8 @@ ItemRackUser = {
 0,
 [0] = 0,
 },
-["AssociatedSpec"] = 1,
 ["icon"] = 132405,
+["AssociatedSpec"] = 1,
 ["old"] = {
 },
 },
@@ -72,8 +73,8 @@ ItemRackUser = {
 0,
 [0] = 0,
 },
-["AssociatedSpec"] = 1,
 ["icon"] = 135814,
+["AssociatedSpec"] = 1,
 ["old"] = {
 },
 },
@@ -82,10 +83,10 @@ ItemRackUser = {
 },
 },
 },
-["EnableQueues"] = "ON",
-["Queues"] = {
+["EnablePerSetQueues"] = "OFF",
+["Buttons"] = {
 },
-["Alpha"] = 1,
+["EnableEvents"] = "ON",
 ["ItemsUsed"] = {
 },
 ["Events"] = {
@@ -98,10 +99,9 @@ ItemRackUser = {
 },
 ["Hidden"] = {
 },
-["EnableEvents"] = "ON",
-["Buttons"] = {
+["Alpha"] = 1,
+["Queues"] = {
 },
 ["MenuScale"] = 0.85,
-["EventStack"] = {
-},
+["SetMenuWrapValue"] = 3,
 }

@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/ty",
-"/p hey",
-"/p still there?",
 "/cw Nyrenn can you see the \"family\" of pet in any pet scren?",
 "/cw Nyrenn-Dreamscythe apparently there's some regular non-carrion birds in redridge",
 "/zygor show",
@@ -19,9 +16,12 @@ ElvCharacterDB = {
 "/heydaddy",
 "can you get your mount already?",
 "/s sorry",
-"/rl",
 "/hd",
+"/rl",
 "/setupbars",
+"/cheer",
+"/train",
+"/point",
 },
 ["ChatHistoryLog"] = {
 },
