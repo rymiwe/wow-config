@@ -27,13 +27,6 @@ X: 0
 Y: 0
 W: 365
 H: 239
-Frame: ZGV_PointerMapFrame
-FrameLevel: 1
-Anchor: TOPLEFT
-X: 0
-Y: 0
-W: 772
-H: 539
 Frame: WorldMapFrame
 FrameLevel: 1
 Anchor: TOPLEFT
