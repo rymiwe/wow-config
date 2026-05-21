@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/zygor show",
 "31 cray cray",
 "/itemrack opt",
 "/p just blackrock menace atm i think",
@@ -17,11 +16,12 @@ ElvCharacterDB = {
 "/cheer",
 "/train",
 "/point",
-"/tsm destroy",
 "/s /c",
-"/rl",
+"/m",
 "/ec",
 "/setupbars",
+"/rl",
+"/tsm destroy",
 },
 ["ChatHistoryLog"] = {
 },

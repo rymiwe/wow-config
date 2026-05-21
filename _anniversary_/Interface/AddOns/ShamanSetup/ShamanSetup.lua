@@ -7,9 +7,9 @@
 --   Bar 3 = MAIN BOTTOM (12 buttons, 6×2) — _, _, _, F, G, _ / _, Z, X, C, V, B
 --   Bar 4 = ALT TOP (mirror of Bar 1) — Alt-`, Alt-1..5 / _, Alt-Q, _, Alt-E, Alt-R, Alt-T
 --   Bar 5 = ALT BOTTOM (mirror of Bar 3) — _, _, _, Alt-F, Alt-G, _ / _, Alt-Z, Alt-X, Alt-C, Alt-V, Alt-B
+--   Bar 6 = CONSUMABLES / utility (12 buttons, click only, NOT cleared by /setupbars; drag your professions/mounts/hearth/etc here)
 --   Bar 7 = DISABLED (was special bar; M3 unbound)
 --   Bar 9 = DISABLED (was totem-swap; OPie totem ring replaces it)
---   Bar 10 = CONSUMABLES (click only, NOT cleared by /setupbars)
 --
 -- Totems and weapon enchants live in OPie rings (M4 = Totems, M5 = Weapon Enchants).
 -- See bottom of file for ring registration.
@@ -116,14 +116,19 @@ local IGNORE = {
 -- Resets out of combat or after 15s of inactivity (whichever first).
 -- #showtooltip with no arg dynamically shows the next-to-cast totem icon.
 --
--- Melee party set: Strength of Earth + Searing + Mana Spring + Windfury
---   Mana Spring available at level 26+. Fully usable around L32+ (Windfury = L32).
---   Pre-L32 the Windfury slot silently fails to advance; player can press again or drop manually.
--- Caster party set: Stoneskin + Flametongue + Mana Spring + Wrath of Air
---   Fully usable around L64+ (Wrath of Air = TBC L64). Pre-30 falls back
---   to Stoneskin only — at low level just use the melee set on Q.
-local TOTEM_MELEE_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Mana Spring Totem, Windfury Totem"
-local TOTEM_CASTER_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Mana Spring Totem, Wrath of Air Totem"
+-- Q/E keep the two primary profiles for fast one-button spam (no ring navigation needed).
+-- Additional profiles (MeleeGroup, CasterGroup, AoE) are created as macros for your OPie ring (M4).
+-- Put the SC_Totem* macros on the ring slices — one click opens ring + selects profile, then spam the key to drop the full set.
+--
+-- Basic melee: Strength of Earth + Searing + Healing Stream + Windfury (group survival focused)
+-- Basic caster: Stoneskin + Flametongue + Healing Stream + Wrath of Air
+-- AoE: Stoneclaw (aggro on adds) + Magma (pulsing AoE) + Healing Stream + Windfury
+local TOTEM_MELEE_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem"
+local TOTEM_CASTER_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem, Wrath of Air Totem"
+
+local TOTEM_MELEE_GROUP_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem"
+local TOTEM_CASTER_GROUP_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem, Wrath of Air Totem"
+local TOTEM_AOE_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneclaw Totem, Magma Totem, Healing Stream Totem, Windfury Totem"
 
 -- Per-race racial placement (per docs/racials.md). Untrained racials silently
 -- skip. Asog (Draenei) keeps Gift of the Naaru on Alt-G — established convention.
@@ -154,10 +159,21 @@ local function Run()
     SetupCore:EnsureRawMacro("SC_TotemCaster", TOTEM_CASTER_BODY, casterIcon)
     if SetupCore:PlaceMacro("SC_TotemCaster", 1, 10) then placed = placed + 1 end
 
+    -- Extra totem profiles (for OPie ring slices). Create the macros so you can drop them on M4 ring.
+    -- Spam the bound key after selecting the profile slice to advance the full 4-totem sequence without re-opening the ring.
+    local _, _, hsIcon = GetSpellInfo("Healing Stream Totem")
+    SetupCore:EnsureRawMacro("SC_TotemMeleeGroup", TOTEM_MELEE_GROUP_BODY, hsIcon)
+    SetupCore:EnsureRawMacro("SC_TotemCasterGroup", TOTEM_CASTER_GROUP_BODY, hsIcon)
+    SetupCore:EnsureRawMacro("SC_TotemAoE", TOTEM_AOE_BODY, GetSpellInfo("Stoneclaw Totem"))
+
+    -- Combined decurse on middle mouse (Button3). Mouseover priority: friendly poison/disease, harm Purge.
+    local decurseIcon = GetSpellInfo("Cure Poison") or GetSpellInfo("Cure Disease")
+    SetupCore:EnsureRawMacro("SC_Decurse", "#showtooltip\n/cast [target=mouseover,help,nodead] Cure Poison; [target=mouseover,help,nodead] Cure Disease; [target=mouseover,harm,nodead] Purge; [help,nodead] Cure Poison; [help,nodead] Cure Disease; [harm,nodead] Purge", decurseIcon)
+
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
-    print("|cffffd700ShamanSetup tip:|r Q = melee totem set, E = caster totem set.")
-    print("|cff999999  /castsequence drops one per press; resets in 15s OOC.|r")
-    print("|cff999999  Hold M4 (totems ring) for individual placements; element-color-coded.|r")
+    print("|cffffd700ShamanSetup tip:|r Q = melee totem set (now Healing Stream), E = caster totem set.")
+    print("|cff999999  Extra profiles (SC_Totem*Group / SC_TotemAoE) + SC_Decurse created as macros.|r")
+    print("|cff999999  Drag SC_Decurse to middle mouse (or bind it). Put the three *Group/*AoE macros on your M4 OPie ring for quick profile access.|r")
 end
 
 SetupCore:RegisterClass("SHAMAN", Run, LAYOUT)

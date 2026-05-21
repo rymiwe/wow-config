@@ -233,7 +233,7 @@ ElvDB = {
 ["PlayerPowerBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,209",
 ["ElvAB_7"] = "BOTTOM,ElvUIParent,BOTTOM,0,290",
 ["RightChatMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-233,26",
-["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,462,108",
+["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,0,4",
 ["RequestStopButton"] = "TOP,ElvUIParent,TOP,0,-161",
 ["ElvUF_AssistMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,4,-260",
 ["HonorBarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,4",
@@ -788,13 +788,16 @@ ElvDB = {
 ["inheritGlobalFade"] = true,
 ["hotkeytext"] = false,
 },
-["bar10"] = {
+["bar6"] = {
 ["enabled"] = true,
 ["buttonsPerRow"] = 12,
 ["buttonSpacing"] = 3,
 ["buttonSize"] = 36,
 ["buttons"] = 12,
 ["backdrop"] = true,
+},
+["bar10"] = {
+["enabled"] = false,
 },
 ["globalFadeAlpha"] = 0.63,
 ["microbar"] = {
