@@ -60,15 +60,15 @@ nil,
 ["name"] = "SC_Purge",
 ["type"] = "macro",
 },
-[57] = {
-["id"] = 546,
-["type"] = "spell",
-["name"] = "Water Walking",
-},
 [29] = {
 ["id"] = 905,
 ["type"] = "spell",
 ["name"] = "Lightning Shield",
+},
+[57] = {
+["id"] = 546,
+["type"] = "spell",
+["name"] = "Water Walking",
 },
 [32] = {
 ["id"] = 2645,
