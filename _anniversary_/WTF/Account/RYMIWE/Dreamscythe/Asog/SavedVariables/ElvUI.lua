@@ -17,11 +17,11 @@ ElvCharacterDB = {
 "/cheer",
 "/train",
 "/point",
-"/setupbars",
 "/tsm destroy",
 "/s /c",
 "/rl",
 "/ec",
+"/setupbars",
 },
 ["ChatHistoryLog"] = {
 },
