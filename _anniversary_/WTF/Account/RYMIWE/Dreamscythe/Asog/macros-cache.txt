@@ -52,6 +52,10 @@ VER 3 010000000000000D "SC_TotemCasterGr" "135127"
 #showtooltip
 /castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem, Wrath of Air Totem
 END
+VER 3 0100000000000011 "SC_TotemCasterSo" "135127"
+#showtooltip
+/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem
+END
 VER 3 0100000000000008 "SC_TotemMelee" "136023"
 #showtooltip
 /castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem
@@ -59,4 +63,8 @@ END
 VER 3 010000000000000C "SC_TotemMeleeGro" "135127"
 #showtooltip
 /castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem
+END
+VER 3 0100000000000010 "SC_TotemMeleeSol" "Windfury Weapon"
+#showtooltip
+/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Weapon
 END

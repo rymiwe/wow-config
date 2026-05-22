@@ -4,10 +4,10 @@ ItemRackUser = {
 ["QueuesEnabled"] = {
 },
 ["Locked"] = "OFF",
-["SetMenuWrapValue"] = 3,
+["CurrentSet"] = "Enhancement",
 ["EnableQueueContextCheck"] = "ON",
 ["MainScale"] = 1,
-["CurrentSet"] = "Enhancement",
+["SetMenuWrapValue"] = 3,
 ["SetMenuWrap"] = "OFF",
 ["EnablePerSetQueues"] = "OFF",
 ["Sets"] = {

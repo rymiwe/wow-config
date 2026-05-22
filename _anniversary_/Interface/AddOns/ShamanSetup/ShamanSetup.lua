@@ -179,9 +179,9 @@ local function Run()
     SetupCore:EnsureRawMacro("SC_Decurse", "#showtooltip\n/cast [target=mouseover,help,nodead] Cure Poison; [target=mouseover,help,nodead] Cure Disease; [target=mouseover,harm,nodead] Purge; [help,nodead] Cure Poison; [help,nodead] Cure Disease; [harm,nodead] Purge", decurseIcon)
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
-    print("|cffffd700ShamanSetup tip:|r Q = melee group totems, E = caster group totems (both use Windfury Totem when grouped).")
-    print("|cff999999  Solo versions (SC_Totem*Solo) + Group/AoE profiles + SC_Decurse created as macros.|r")
-    print("|cff999999  Add the *Solo and *Group/*AoE macros to your M4 OPie ring. Use the solo ones when alone (better personal DPS).|r")
+    print("|cffffd700ShamanSetup tip:|r Q = Melee Group, E = Caster Group (both use Windfury Totem).")
+    print("|cff999999  Hold Alt + M4 for the Totem Profiles ring (Group / Solo / AoE versions).|r")
+    print("|cff999999  All profile macros + SC_Decurse are created and available for the ring.|r")
 end
 
 SetupCore:RegisterClass("SHAMAN", Run, LAYOUT)
@@ -241,5 +241,16 @@ do
         {id="/cast {{spell:8033}}",  _u="fb"}, -- Frostbrand Weapon
         {id="/cast {{spell:8232}}",  _u="wf"}, -- Windfury Weapon
         name = "Weapon Enchants", hotkey = "BUTTON5", _u = "ShmWep", v = 1,
+    })
+
+    -- Totem Profile ring (separate from the individual totem ring on M4).
+    -- This lets you quickly select a full loadout, then spam the key to drop the set.
+    R:AddDefaultRing("ShamanTotemProfiles", {
+        {id = "macro:SC_TotemMeleeGroup",   name = "Melee - Group",  icon = "Interface\\Icons\\INV_Axe_09"},
+        {id = "macro:SC_TotemMeleeSolo",    name = "Melee - Solo",   icon = "Interface\\Icons\\INV_Sword_27"},
+        {id = "macro:SC_TotemCasterGroup",  name = "Caster - Group", icon = "Interface\\Icons\\Spell_Nature_StarFall"},
+        {id = "macro:SC_TotemCasterSolo",   name = "Caster - Solo",  icon = "Interface\\Icons\\Spell_Fire_Fireball02"},
+        {id = "macro:SC_TotemAoE",          name = "AoE",            icon = "Interface\\Icons\\Spell_Fire_SelfDestruct"},
+        name = "Totem Profiles", hotkey = "ALT-BUTTON4", _u = "ShmTtmProf", v = 1,
     })
 end

@@ -27,6 +27,13 @@ X: 0
 Y: 0
 W: 365
 H: 239
+Frame: WeakAurasOptions
+FrameLevel: 1
+Anchor: CENTER
+X: -283
+Y: -14
+W: 830
+H: 665
 Frame: WorldMapFrame
 FrameLevel: 1
 Anchor: TOPLEFT
