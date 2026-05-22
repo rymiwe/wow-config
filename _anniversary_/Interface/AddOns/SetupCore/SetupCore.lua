@@ -273,14 +273,14 @@ function SetupCore:FindHighestRank(name)
     return last
 end
 
--- Clears action slots on bars 1..maxBar but ALWAYS skips Bar 10 (consumables).
--- Consumables are user-curated click-only items; clearing them every /setupbars
--- would force the user to re-drag food/water/scrolls on every layout refresh.
+-- Clears action slots on bars 1..maxBar but ALWAYS skips Bar 6 (utility/consumables).
+-- Utility bar is user-curated click-only items; clearing it every /setupbars
+-- would force the user to re-drag professions/mounts/hearth/etc on every layout refresh.
 -- Pass `maxBar` = number of HIGHEST bar to clear (default 9).
 function SetupCore:ClearAllBars(maxBar)
     maxBar = maxBar or 9
     for b = 1, maxBar do
-        if b ~= 10 then
+        if b ~= 6 then
             for i = 1, 12 do
                 local btn = _G["ElvUI_Bar"..b.."Button"..i]
                 if btn then

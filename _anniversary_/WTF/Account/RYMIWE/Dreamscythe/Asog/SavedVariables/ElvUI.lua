@@ -2,11 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"31 cray cray",
-"/itemrack opt",
-"/p just blackrock menace atm i think",
-"/p i can res",
-"/p if i can find",
 "/p hmm gotcha but in combat for some reason",
 "/s np",
 "/heydaddy",
@@ -19,9 +14,14 @@ ElvCharacterDB = {
 "/s /c",
 "/m",
 "/ec",
-"/rl",
 "/tsm destroy",
 "/setupbars",
+"/reload",
+"/p heh",
+"/p yep",
+"/p gl",
+"/rl",
+"/wa",
 },
 ["ChatHistoryLog"] = {
 },
