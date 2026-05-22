@@ -19,8 +19,8 @@ ElvCharacterDB = {
 "/p heh",
 "/p yep",
 "/p gl",
-"/rl",
 "/wa",
+"/rl",
 "/setupbars",
 },
 ["ChatHistoryLog"] = {

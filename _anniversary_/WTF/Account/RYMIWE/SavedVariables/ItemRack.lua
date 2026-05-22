@@ -26,7 +26,7 @@ ItemRackSettings = {
 ["AllowEmpty"] = "ON",
 ["CooldownCount"] = "OFF",
 ["DisableSwapSound"] = "OFF",
-["DisableTooltipsInCombat"] = "OFF",
+["HideArena"] = "OFF",
 ["DisableAltClick"] = "OFF",
 ["LeftSlotsGoRight"] = "OFF",
 ["TooltipFollow"] = "OFF",
@@ -38,7 +38,7 @@ ItemRackSettings = {
 ["RightClickUse"] = "OFF",
 ["EquipOnSetPick"] = "OFF",
 ["LargeNumbers"] = "OFF",
-["HideArena"] = "OFF",
+["DisableTooltipsInCombat"] = "OFF",
 ["TinyTooltips"] = "OFF",
 }
 ItemRackEvents = {

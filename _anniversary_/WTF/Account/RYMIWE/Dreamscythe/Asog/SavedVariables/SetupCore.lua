@@ -13,7 +13,7 @@ SetupCoreCharDB = {
 ["type"] = "macro",
 },
 {
-["id"] = 8056,
+["id"] = 8058,
 ["type"] = "spell",
 ["name"] = "Frost Shock",
 },
@@ -223,6 +223,6 @@ nil,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-05-22 00:57:04",
+["timestamp"] = "2026-05-22 13:59:19",
 },
 }
