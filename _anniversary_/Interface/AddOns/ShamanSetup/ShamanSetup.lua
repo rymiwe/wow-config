@@ -246,11 +246,12 @@ do
     -- Totem Profile ring (separate from the individual totem ring on M4).
     -- This lets you quickly select a full loadout, then spam the key to drop the set.
     R:AddDefaultRing("ShamanTotemProfiles", {
-        {id = "/click SC_TotemMeleeGroup",   name = "Melee - Group",  icon = "Interface\\Icons\\INV_Axe_09",  _u = "mg"},
-        {id = "/click SC_TotemMeleeSolo",    name = "Melee - Solo",   icon = "Interface\\Icons\\INV_Sword_27", _u = "ms"},
-        {id = "/click SC_TotemCasterGroup",  name = "Caster - Group", icon = "Interface\\Icons\\Spell_Nature_StarFall", _u = "cg"},
-        {id = "/click SC_TotemCasterSolo",   name = "Caster - Solo",  icon = "Interface\\Icons\\Spell_Fire_Fireball02", _u = "cs"},
-        {id = "/click SC_TotemAoE",          name = "AoE",            icon = "Interface\\Icons\\Spell_Fire_SelfDestruct", _u = "aoe"},
+        {id = "macrotext:/click SC_TotemMeleeGroup",   name = "Melee - Group",  icon = "Interface\\Icons\\INV_Axe_09",  _u = "mg"},
+        {id = "macrotext:/click SC_TotemMeleeSolo",    name = "Melee - Solo",   icon = "Interface\\Icons\\INV_Sword_27", _u = "ms"},
+        {id = "macrotext:/click SC_TotemCasterGroup",  name = "Caster - Group", icon = "Interface\\Icons\\Spell_Nature_StarFall", _u = "cg"},
+        {id = "macrotext:/click SC_TotemCasterSolo",   name = "Caster - Solo",  icon = "Interface\\Icons\\Spell_Fire_Fireball02", _u = "cs"},
+        {id = "macrotext:/click SC_TotemAoE",          name = "AoE",            icon = "Interface\\Icons\\Spell_Fire_SelfDestruct", _u = "aoe"},
         name = "Totem Profiles", hotkey = "ALT-BUTTON4", _u = "ShmTtmProf", v = 1,
+        options = { quickAction = true },
     })
 end
