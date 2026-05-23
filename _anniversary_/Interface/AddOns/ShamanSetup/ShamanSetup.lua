@@ -200,6 +200,15 @@ do
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 
+    -- Create the profile macros early (before ring registration) so that
+    -- `id = "macro:..."` lookups succeed when the rings are registered.
+    local _, _, hsIcon = GetSpellInfo("Healing Stream Totem")
+    SetupCore:EnsureRawMacro("SC_TotemMeleeGroup", TOTEM_MELEE_GROUP_BODY, hsIcon)
+    SetupCore:EnsureRawMacro("SC_TotemCasterGroup", TOTEM_CASTER_GROUP_BODY, hsIcon)
+    SetupCore:EnsureRawMacro("SC_TotemAoE", TOTEM_AOE_BODY, GetSpellInfo("Stoneclaw Totem"))
+    SetupCore:EnsureRawMacro("SC_TotemMeleeSolo", TOTEM_MELEE_SOLO_BODY, GetSpellInfo("Windfury Weapon"))
+    SetupCore:EnsureRawMacro("SC_TotemCasterSolo", TOTEM_CASTER_SOLO_BODY, hsIcon)
+
     -- Element colors (RGB 0-1 floats) — visually groups slices on the radial.
     -- Earth = warm tan, Fire = red-orange, Water = blue, Air = pale cyan.
     local EARTH_R, EARTH_G, EARTH_B = 0.65, 0.45, 0.20
@@ -244,14 +253,15 @@ do
     })
 
     -- Totem Profile ring (separate from the individual totem ring on M4).
-    -- This lets you quickly select a full loadout, then spam the key to drop the set.
     R:AddDefaultRing("ShamanTotemProfiles", {
-        {id = "macrotext:/click SC_TotemMeleeGroup",   name = "Melee - Group",  icon = "Interface\\Icons\\INV_Axe_09",  _u = "mg"},
-        {id = "macrotext:/click SC_TotemMeleeSolo",    name = "Melee - Solo",   icon = "Interface\\Icons\\INV_Sword_27", _u = "ms"},
-        {id = "macrotext:/click SC_TotemCasterGroup",  name = "Caster - Group", icon = "Interface\\Icons\\Spell_Nature_StarFall", _u = "cg"},
-        {id = "macrotext:/click SC_TotemCasterSolo",   name = "Caster - Solo",  icon = "Interface\\Icons\\Spell_Fire_Fireball02", _u = "cs"},
-        {id = "macrotext:/click SC_TotemAoE",          name = "AoE",            icon = "Interface\\Icons\\Spell_Fire_SelfDestruct", _u = "aoe"},
+        {id = "macro:SC_TotemMeleeGroup",   name = "Melee - Group",  icon = "Interface\\Icons\\INV_Axe_09",  _u = "mg"},
+        {id = "macro:SC_TotemMeleeSolo",    name = "Melee - Solo",   icon = "Interface\\Icons\\INV_Sword_27", _u = "ms"},
+        {id = "macro:SC_TotemCasterGroup",  name = "Caster - Group", icon = "Interface\\Icons\\Spell_Nature_StarFall", _u = "cg"},
+        {id = "macro:SC_TotemCasterSolo",   name = "Caster - Solo",  icon = "Interface\\Icons\\Spell_Fire_Fireball02", _u = "cs"},
+        {id = "macro:SC_TotemAoE",          name = "AoE",            icon = "Interface\\Icons\\Spell_Fire_SelfDestruct", _u = "aoe"},
         name = "Totem Profiles", hotkey = "ALT-BUTTON4", _u = "ShmTtmProf", v = 1,
         options = { quickAction = true },
     })
+    print("|cff00ff00ShamanSetup|r: Registered ShamanTotemProfiles ring on ALT-BUTTON4")
+
 end

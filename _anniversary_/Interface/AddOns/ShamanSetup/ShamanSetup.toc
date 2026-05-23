@@ -1,7 +1,7 @@
 ## Interface: 20505
 ## Title: Shaman Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout
-## Version: 1.11
+## Version: 1.12
 ## Dependencies: SetupCore
 ## OptionalDeps: OPie
 

@@ -2,11 +2,9 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/cw Pinkiepai 1g for a guild sig?",
 "/p ty",
 "y'all going to be on for a bit?",
 "/who",
-"/rl",
 "invite please",
 "inv",
 "asog",
@@ -22,6 +20,8 @@ ElvCharacterDB = {
 "/p =P",
 "/p think i'm done but will fight out",
 "/p cheers",
+"/cw Barelythetip yo... 2g for guild charter sig?",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
