@@ -49,3 +49,5 @@ WarlockSetup: enabled
 WarriorSetup: enabled
 ZygorSetup: enabled
 ItemRackOptions: enabled
+ItemRack: disabled
+ItemRackSetup: disabled
