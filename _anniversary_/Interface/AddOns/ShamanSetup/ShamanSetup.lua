@@ -38,7 +38,7 @@ local LAYOUT = {
     -- Alt-numrow: damage casts
     {"Lightning Bolt",         4, 2, "nuke-mouseover"},   -- L1    Alt-1 (cast nuke — mouseover supports kiting / target-swap playstyle)
     {"Chain Lightning",        4, 3},                     -- L32   Alt-2
-    {"Water Shield",           4, 4},                     -- L20   Alt-3
+    {"Water Shield",           4, 4, "self-cast"},         -- L20   Alt-3
     -- Alt-4 left empty
     {"Ancestral Spirit",       4, 6, "mouseover-help"},   -- L12   Alt-5 (OOC rez - demoted off heal cluster, low-frequency)
     -- Alt-QERT: combat heals (mouseover-friendly), promoted by frequency
@@ -111,6 +111,17 @@ local IGNORE = {
     ["Reincarnation"]=true,
 }
 
+-- Profile macro names MUST stay <= 16 chars (WoW limit). OPie looks up by exact
+-- name; longer names get silently truncated and only the shortest (SC_TotemAoE) matched.
+local TOTEM_MACRO = {
+    meleeGroup = "SC_TP_MeleeGrp",
+    meleeSolo  = "SC_TP_MeleeSol",
+    casterGroup = "SC_TP_CastGrp",
+    casterSolo  = "SC_TP_CastSol",
+    aoeNova     = "SC_TP_AoENova",
+    aoeMagma    = "SC_TP_AoEMagma",
+}
+
 -- Default totem sets — placed AFTER ApplyLayout so they survive the bar clear.
 -- /castsequence drops one totem per press, advancing through the list.
 -- Resets out of combat or after 15s of inactivity (whichever first).
@@ -122,13 +133,15 @@ local IGNORE = {
 --
 -- Basic melee: Strength of Earth + Searing + Healing Stream + Windfury (group survival focused)
 -- Basic caster: Stoneskin + Flametongue + Healing Stream + Wrath of Air
--- AoE: Stoneclaw (aggro on adds) + Magma (pulsing AoE) + Healing Stream + Windfury
+-- AoE — Nova (L14+, works while leveling): Stoneclaw → Searing → Fire Nova → HS
+-- AoE — Magma (L40+ sustained cleave): Stoneclaw → Magma → HS → Windfury
+local TOTEM_AOE_NOVA_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneclaw Totem, Searing Totem, Fire Nova Totem, Healing Stream Totem"
+local TOTEM_AOE_MAGMA_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneclaw Totem, Magma Totem, Healing Stream Totem, Windfury Totem"
+
 local TOTEM_MELEE_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem"
 local TOTEM_CASTER_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem, Wrath of Air Totem"
-
-local TOTEM_MELEE_GROUP_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem"
-local TOTEM_CASTER_GROUP_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem, Wrath of Air Totem"
-local TOTEM_AOE_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneclaw Totem, Magma Totem, Healing Stream Totem, Windfury Totem"
+local TOTEM_MELEE_GROUP_BODY = TOTEM_MELEE_BODY
+local TOTEM_CASTER_GROUP_BODY = TOTEM_CASTER_BODY
 
 -- Solo versions: use weapon imbue instead of Windfury Totem (stronger when alone, doesn't stack)
 local TOTEM_MELEE_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Weapon"
@@ -166,13 +179,14 @@ local function Run()
     -- Extra totem profiles (for OPie ring slices). Create the macros so you can drop them on M4 ring.
     -- Spam the bound key after selecting the profile slice to advance the full 4-totem sequence without re-opening the ring.
     local _, _, hsIcon = GetSpellInfo("Healing Stream Totem")
-    SetupCore:EnsureRawMacro("SC_TotemMeleeGroup", TOTEM_MELEE_GROUP_BODY, hsIcon)
-    SetupCore:EnsureRawMacro("SC_TotemCasterGroup", TOTEM_CASTER_GROUP_BODY, hsIcon)
-    SetupCore:EnsureRawMacro("SC_TotemAoE", TOTEM_AOE_BODY, GetSpellInfo("Stoneclaw Totem"))
+    SetupCore:EnsureRawMacro(TOTEM_MACRO.meleeGroup, TOTEM_MELEE_GROUP_BODY, hsIcon)
+    SetupCore:EnsureRawMacro(TOTEM_MACRO.casterGroup, TOTEM_CASTER_GROUP_BODY, hsIcon)
+    SetupCore:EnsureRawMacro(TOTEM_MACRO.aoeNova, TOTEM_AOE_NOVA_BODY, GetSpellInfo("Fire Nova Totem"))
+    SetupCore:EnsureRawMacro(TOTEM_MACRO.aoeMagma, TOTEM_AOE_MAGMA_BODY, GetSpellInfo("Stoneclaw Totem"))
 
     -- Solo versions (for when you're not grouped)
-    SetupCore:EnsureRawMacro("SC_TotemMeleeSolo", TOTEM_MELEE_SOLO_BODY, GetSpellInfo("Windfury Weapon"))
-    SetupCore:EnsureRawMacro("SC_TotemCasterSolo", TOTEM_CASTER_SOLO_BODY, hsIcon)
+    SetupCore:EnsureRawMacro(TOTEM_MACRO.meleeSolo, TOTEM_MELEE_SOLO_BODY, GetSpellInfo("Windfury Weapon"))
+    SetupCore:EnsureRawMacro(TOTEM_MACRO.casterSolo, TOTEM_CASTER_SOLO_BODY, hsIcon)
 
     -- Combined decurse on middle mouse (Button3). Mouseover priority: friendly poison/disease, harm Purge.
     local decurseIcon = GetSpellInfo("Cure Poison") or GetSpellInfo("Cure Disease")
@@ -180,8 +194,8 @@ local function Run()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Q = Melee Group, E = Caster Group (both use Windfury Totem).")
-    print("|cff999999  Hold Alt + M4 for the Totem Profiles ring (Group / Solo / AoE versions).|r")
-    print("|cff999999  All profile macros + SC_Decurse are created and available for the ring.|r")
+    print("|cff999999  Alt + M4: Totem Profiles ring — pick a set, then spam Alt + M4 to drop all four totems.|r")
+    print("|cff999999  M4 / M5: individual totems / weapon enchants.|r")
 end
 
 SetupCore:RegisterClass("SHAMAN", Run, LAYOUT)
@@ -204,11 +218,12 @@ do
     -- `id = "macro:..."` lookups succeed when the rings are registered.
     -- Create them as global macros for better OPie compatibility.
     local _, _, hsIcon = GetSpellInfo("Healing Stream Totem")
-    CreateMacro("SC_TotemMeleeGroup", hsIcon, TOTEM_MELEE_GROUP_BODY, false)
-    CreateMacro("SC_TotemCasterGroup", hsIcon, TOTEM_CASTER_GROUP_BODY, false)
-    CreateMacro("SC_TotemAoE", GetSpellInfo("Stoneclaw Totem"), TOTEM_AOE_BODY, false)
-    CreateMacro("SC_TotemMeleeSolo", GetSpellInfo("Windfury Weapon"), TOTEM_MELEE_SOLO_BODY, false)
-    CreateMacro("SC_TotemCasterSolo", hsIcon, TOTEM_CASTER_SOLO_BODY, false)
+    CreateMacro(TOTEM_MACRO.meleeGroup, hsIcon, TOTEM_MELEE_GROUP_BODY, false)
+    CreateMacro(TOTEM_MACRO.casterGroup, hsIcon, TOTEM_CASTER_GROUP_BODY, false)
+    CreateMacro(TOTEM_MACRO.aoeNova, GetSpellInfo("Fire Nova Totem"), TOTEM_AOE_NOVA_BODY, false)
+    CreateMacro(TOTEM_MACRO.aoeMagma, GetSpellInfo("Stoneclaw Totem"), TOTEM_AOE_MAGMA_BODY, false)
+    CreateMacro(TOTEM_MACRO.meleeSolo, GetSpellInfo("Windfury Weapon"), TOTEM_MELEE_SOLO_BODY, false)
+    CreateMacro(TOTEM_MACRO.casterSolo, hsIcon, TOTEM_CASTER_SOLO_BODY, false)
 
     -- Element colors (RGB 0-1 floats) — visually groups slices on the radial.
     -- Earth = warm tan, Fire = red-orange, Water = blue, Air = pale cyan.
@@ -253,16 +268,68 @@ do
         name = "Weapon Enchants", hotkey = "BUTTON5", _u = "ShmWep", v = 1,
     })
 
-    -- Totem Profile ring (separate from the individual totem ring on M4).
+    -- Totem Profile ring (Alt+M4). Slices use OPie's "macro" action type (named
+    -- SC_Totem* macros from Run()). String ids would become imptext and /say the
+    -- literal "macro:..." text. CenterAction is seeded below so spamming Alt+M4
+    -- advances the castsequence without re-opening the ring.
     R:AddDefaultRing("ShamanTotemProfiles", {
-        {id = "macro:SC_TotemMeleeGroup",   name = "Melee - Group",  icon = "Interface\\Icons\\INV_Axe_09",  _u = "mg"},
-        {id = "macro:SC_TotemMeleeSolo",    name = "Melee - Solo",   icon = "Interface\\Icons\\INV_Sword_27", _u = "ms"},
-        {id = "macro:SC_TotemCasterGroup",  name = "Caster - Group", icon = "Interface\\Icons\\Spell_Nature_StarFall", _u = "cg"},
-        {id = "macro:SC_TotemCasterSolo",   name = "Caster - Solo",  icon = "Interface\\Icons\\Spell_Fire_Fireball02", _u = "cs"},
-        {id = "macro:SC_TotemAoE",          name = "AoE",            icon = "Interface\\Icons\\Spell_Fire_SelfDestruct", _u = "aoe"},
-        name = "Totem Profiles", hotkey = "ALT-BUTTON4", _u = "ShmTtmProf", v = 1,
-        options = { quickAction = true },
+        {[1] = "macro", [2] = TOTEM_MACRO.meleeGroup,  label = "Melee - Group",  icon = "Interface/Icons/INV_Axe_09",              _u = "mg"},
+        {[1] = "macro", [2] = TOTEM_MACRO.meleeSolo,   label = "Melee - Solo",   icon = "Interface/Icons/INV_Sword_27",            _u = "ms"},
+        {[1] = "macro", [2] = TOTEM_MACRO.casterGroup, label = "Caster - Group", icon = "Interface/Icons/Spell_Nature_StarFall",   _u = "cg"},
+        {[1] = "macro", [2] = TOTEM_MACRO.casterSolo,  label = "Caster - Solo",  icon = "Interface/Icons/Spell_Fire_Fireball02",   _u = "cs"},
+        {[1] = "macro", [2] = TOTEM_MACRO.aoeNova,     label = "AoE - Nova",     icon = "Interface/Icons/Spell_Fire_SealOfFire",   _u = "an"},
+        {[1] = "macro", [2] = TOTEM_MACRO.aoeMagma,    label = "AoE - Magma",    icon = "Interface/Icons/Spell_Fire_SelfDestruct", _u = "am"},
+        name = "Totem Profiles", hotkey = "ALT-BUTTON4", _u = "ShmTtmProf", v = 3,
     })
+
+    -- Quick action at ring center: select a profile once, then spam Alt+M4 for the
+    -- full 4-totem castsequence without reopening the radial menu.
+    -- Also seed ring bindings so M4/M5/Alt+M4 work with zero manual /opie config.
+    if OPie_SavedData then
+        OPie_SavedData.ProfileStorage = OPie_SavedData.ProfileStorage or {}
+        local profile = OPie_SavedData.ProfileStorage.default
+        if type(profile) ~= "table" then
+            profile = {Bindings = {}, RingOptions = {}}
+            OPie_SavedData.ProfileStorage.default = profile
+        end
+        profile.Bindings = profile.Bindings or {}
+        local binds = profile.Bindings
+        if binds["ShamanTotems"] == nil then
+            binds["ShamanTotems"] = "BUTTON4"
+        end
+        if binds["ShamanWeaponEnchants"] == nil then
+            binds["ShamanWeaponEnchants"] = "BUTTON5"
+        end
+        if binds["ShamanTotemProfiles"] == nil then
+            binds["ShamanTotemProfiles"] = "ALT-BUTTON4"
+        end
+        profile.RingOptions = profile.RingOptions or {}
+        local ringOpts = profile.RingOptions
+        local prefix = "ShamanTotemProfiles#"
+        if ringOpts[prefix .. "CenterAction"] == nil then
+            ringOpts[prefix .. "CenterAction"] = true
+        end
+        if ringOpts[prefix .. "QuickActionOnRelease"] == nil then
+            ringOpts[prefix .. "QuickActionOnRelease"] = true
+        end
+    end
+
     print("|cff00ff00ShamanSetup|r: Registered ShamanTotemProfiles ring on ALT-BUTTON4")
 
 end
+
+-- After login/reload, overlay real spells onto placeholder slots (e.g. Water Shield
+-- trained after placeholders were laid down) without a full /setupbars clear.
+local loginFrame = CreateFrame("Frame")
+loginFrame:RegisterEvent("PLAYER_LOGIN")
+loginFrame:SetScript("OnEvent", function(self)
+    self:UnregisterEvent("PLAYER_LOGIN")
+    local _, class = UnitClass("player")
+    if class ~= "SHAMAN" then return end
+    C_Timer.After(3, function()
+        local placed = SetupCore:AutoPlaceUnplaced()
+        if #placed > 0 then
+            print("|cff00ff00ShamanSetup|r auto-placed: |cffffffff" .. table.concat(placed, ", ") .. "|r")
+        end
+    end)
+end)

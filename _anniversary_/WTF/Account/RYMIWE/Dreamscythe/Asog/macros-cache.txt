@@ -68,3 +68,7 @@ VER 3 0100000000000010 "SC_TotemMeleeSol" "Windfury Weapon"
 #showtooltip
 /castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Weapon
 END
+VER 3 0100000000000012 "SC_TP_MeleeGrp" "135127"
+#showtooltip
+/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem
+END

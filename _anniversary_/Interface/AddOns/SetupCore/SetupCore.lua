@@ -20,6 +20,12 @@ SetupCore = SetupCore or {}
 local registered = {}
 local registeredLayouts = {}
 
+-- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
+-- slots (professions, mount, hearth, consumables) — never wiped by /setupbars.
+local PROTECTED_BARS = {
+    [6] = "utility",
+}
+
 -- Channels auto-left on first login of each new character.
 local CHANNELS_TO_LEAVE = {"General", "Trade", "LocalDefense", "LookingForGroup"}
 
@@ -58,6 +64,20 @@ local BINDINGS = {
     {"ALT-Z", "MULTIACTIONBAR2BUTTON8"}, {"ALT-X", "MULTIACTIONBAR2BUTTON9"},
     {"ALT-C", "MULTIACTIONBAR2BUTTON10"}, {"ALT-V", "MULTIACTIONBAR2BUTTON11"},
     {"ALT-B", "MULTIACTIONBAR2BUTTON12"},
+    -- Neutralize Shift+key page-cycle defaults (mirror templates/bindings-cache.wtf).
+    -- ElvUI [mod:shift]1 handles form paging on bar 1; accidental Shift+wheel/page
+    -- swaps mid-combat are undesirable.
+    {"SHIFT-`", "ACTIONBUTTON1"},
+    {"SHIFT-1", "ACTIONBUTTON2"}, {"SHIFT-2", "ACTIONBUTTON3"}, {"SHIFT-3", "ACTIONBUTTON4"},
+    {"SHIFT-4", "ACTIONBUTTON5"}, {"SHIFT-5", "ACTIONBUTTON6"},
+    {"SHIFT-Q", "ACTIONBUTTON8"},  {"SHIFT-E", "ACTIONBUTTON10"},
+    {"SHIFT-R", "ACTIONBUTTON11"}, {"SHIFT-T", "ACTIONBUTTON12"},
+    {"SHIFT-F", "MULTIACTIONBAR3BUTTON5"}, {"SHIFT-G", "MULTIACTIONBAR3BUTTON6"},
+    {"SHIFT-Z", "MULTIACTIONBAR3BUTTON8"}, {"SHIFT-X", "MULTIACTIONBAR3BUTTON9"},
+    {"SHIFT-C", "MULTIACTIONBAR3BUTTON10"}, {"SHIFT-V", "MULTIACTIONBAR3BUTTON11"},
+    {"SHIFT-B", "MULTIACTIONBAR3BUTTON12"},
+    {"SHIFT-6", nil},
+    {"SHIFT-MOUSEWHEELUP", nil}, {"SHIFT-MOUSEWHEELDOWN", nil},
     -- Mouse buttons (BUTTON3/4/5) DELIBERATELY OMITTED — let OPie + manual user
     -- bindings own them. Earlier we unbound these every /setupbars, which silently
     -- destroyed any /opie ring bindings the user had set. The trade-off: if the
@@ -226,7 +246,7 @@ function SetupCore:UnplacedLayoutSpells()
             local b = _G["ElvUI_Bar"..bar.."Button"..btn]
             if b then
                 local slot = b:GetAttribute("action")
-                if slot and not GetActionInfo(slot) then
+                if slot and self:IsSlotEmpty(slot) then
                     table.insert(unplaced, name)
                     seen[name] = true
                 end
@@ -242,7 +262,7 @@ end
 -- user typing /setupbars. Returns the list of placed spell names.
 function SetupCore:AutoPlaceUnplaced()
     local _, class = UnitClass("player")
-    local layout = registeredLayouts[class]
+    local layout = self:ResolveLayout(registeredLayouts[class])
     if not layout then return {} end
     local placed, seen = {}, {}
     for _, item in ipairs(layout) do
@@ -251,7 +271,7 @@ function SetupCore:AutoPlaceUnplaced()
             local b = _G["ElvUI_Bar"..bar.."Button"..btn]
             if b then
                 local slot = b:GetAttribute("action")
-                if slot and not GetActionInfo(slot) then
+                if slot and self:IsSlotEmpty(slot) then
                     if self:PlaceSpell(name, bar, btn, template) then
                         table.insert(placed, name)
                         seen[name] = true
@@ -263,24 +283,51 @@ function SetupCore:AutoPlaceUnplaced()
     return placed
 end
 
+function SetupCore:NormalizeSpellName(sname)
+    if not sname then return nil end
+    local base = sname:match("^(.-)%s*%(") or sname
+    return base:match("^%s*(.-)%s*$")
+end
+
 function SetupCore:FindHighestRank(name)
+    local targetID = select(7, GetSpellInfo(name))
     local last
-    for j = 1, 200 do
-        local sname = GetSpellBookItemName(j, "spell")
-        if not sname then break end
-        if sname == name then last = j end
+    for j = 1, 500 do
+        local _, spellType, spellID = GetSpellBookItemInfo(j, "spell")
+        if not spellType then break end
+        if spellType == "SPELL" then
+            local spellName = GetSpellInfo(spellID)
+            if spellName and self:NormalizeSpellName(spellName) == name then
+                last = j
+            elseif targetID and spellID == targetID then
+                last = j
+            end
+        end
     end
     return last
 end
 
--- Clears action slots on bars 1..maxBar but ALWAYS skips Bar 6 (utility/consumables).
--- Utility bar is user-curated click-only items; clearing it every /setupbars
--- would force the user to re-drag professions/mounts/hearth/etc on every layout refresh.
+function SetupCore:IsSlotEmpty(slot)
+    if not slot then return true end
+    local actionType, id = GetActionInfo(slot)
+    if not actionType then return true end
+    if actionType == "macro" then
+        local mname = GetMacroInfo(id)
+        return mname == " " or mname == ""
+    end
+    return false
+end
+
+function SetupCore:IsProtectedBar(bar)
+    return PROTECTED_BARS[bar] ~= nil
+end
+
+-- Clears action slots on bars 1..maxBar but skips PROTECTED_BARS (see table above).
 -- Pass `maxBar` = number of HIGHEST bar to clear (default 9).
 function SetupCore:ClearAllBars(maxBar)
     maxBar = maxBar or 9
     for b = 1, maxBar do
-        if b ~= 6 then
+        if not PROTECTED_BARS[b] then
             for i = 1, 12 do
                 local btn = _G["ElvUI_Bar"..b.."Button"..i]
                 if btn then
@@ -542,7 +589,7 @@ function SetupCore:FillEmptyBoundSlots()
         local frame = _G["ElvUI_Bar"..bar.."Button"..btn]
         if frame then
             local slotIdx = frame:GetAttribute("action")
-            if slotIdx and not GetActionInfo(slotIdx) then
+            if slotIdx and self:IsSlotEmpty(slotIdx) then
                 if self:PlaceMacro(placeholderName, bar, btn) then
                     placed = placed + 1
                 end
@@ -555,8 +602,8 @@ function SetupCore:FillEmptyBoundSlots()
     return placed
 end
 
--- Evict any "Attack" auto-toggle placement from ALL bars (including Bar 10
--- which ClearAllBars preserves for consumables). Blizzard auto-places Attack
+-- Evict any "Attack" auto-toggle placement from ALL bars (including protected
+-- utility bar 6). Blizzard auto-places Attack
 -- on new characters; per auto_attack_no_slot.md it never belongs on a bar.
 function SetupCore:EvictAttack()
     local count = 0
@@ -723,12 +770,16 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     self:FillEmptyBoundSlots()
 
     local orphans, seen = {}, {}
-    for j = 1, 200 do
-        local sname = GetSpellBookItemName(j, "spell")
-        if not sname then break end
-        if not mapped[sname] and not ignore[sname] and not seen[sname] then
-            table.insert(orphans, sname)
-            seen[sname] = true
+    for j = 1, 500 do
+        local _, spellType, spellID = GetSpellBookItemInfo(j, "spell")
+        if not spellType then break end
+        if spellType == "SPELL" then
+            local sname = GetSpellInfo(spellID)
+            local norm = sname and self:NormalizeSpellName(sname)
+            if norm and not mapped[norm] and not ignore[norm] and not ignore[sname] and not seen[norm] then
+                table.insert(orphans, sname)
+                seen[norm] = true
+            end
         end
     end
     return placed, skipped, orphans
