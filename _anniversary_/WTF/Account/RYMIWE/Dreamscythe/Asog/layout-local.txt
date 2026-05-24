@@ -3,7 +3,7 @@ Frame: ZygorGuidesViewerMapIcon
 FrameLevel: 4
 Anchor: BOTTOMRIGHT
 X: -219
-Y: 185
+Y: 187
 W: 32
 H: 32
 Frame: ZygorGuidesViewerFrameMaster

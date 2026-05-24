@@ -202,12 +202,13 @@ do
 
     -- Create the profile macros early (before ring registration) so that
     -- `id = "macro:..."` lookups succeed when the rings are registered.
+    -- Create them as global macros for better OPie compatibility.
     local _, _, hsIcon = GetSpellInfo("Healing Stream Totem")
-    SetupCore:EnsureRawMacro("SC_TotemMeleeGroup", TOTEM_MELEE_GROUP_BODY, hsIcon)
-    SetupCore:EnsureRawMacro("SC_TotemCasterGroup", TOTEM_CASTER_GROUP_BODY, hsIcon)
-    SetupCore:EnsureRawMacro("SC_TotemAoE", TOTEM_AOE_BODY, GetSpellInfo("Stoneclaw Totem"))
-    SetupCore:EnsureRawMacro("SC_TotemMeleeSolo", TOTEM_MELEE_SOLO_BODY, GetSpellInfo("Windfury Weapon"))
-    SetupCore:EnsureRawMacro("SC_TotemCasterSolo", TOTEM_CASTER_SOLO_BODY, hsIcon)
+    CreateMacro("SC_TotemMeleeGroup", hsIcon, TOTEM_MELEE_GROUP_BODY, false)
+    CreateMacro("SC_TotemCasterGroup", hsIcon, TOTEM_CASTER_GROUP_BODY, false)
+    CreateMacro("SC_TotemAoE", GetSpellInfo("Stoneclaw Totem"), TOTEM_AOE_BODY, false)
+    CreateMacro("SC_TotemMeleeSolo", GetSpellInfo("Windfury Weapon"), TOTEM_MELEE_SOLO_BODY, false)
+    CreateMacro("SC_TotemCasterSolo", hsIcon, TOTEM_CASTER_SOLO_BODY, false)
 
     -- Element colors (RGB 0-1 floats) — visually groups slices on the radial.
     -- Earth = warm tan, Fire = red-orange, Water = blue, Air = pale cyan.
