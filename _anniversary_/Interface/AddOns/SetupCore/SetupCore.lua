@@ -19,6 +19,8 @@ SetupCore = SetupCore or {}
 
 local registered = {}
 local registeredLayouts = {}
+local registeredIgnores = {}
+local registeredRacials = {}
 
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
 -- slots (professions, mount, hearth, consumables) — never wiped by /setupbars.
@@ -181,13 +183,37 @@ function SetupCore:EnsureInterruptMacro(spellName)
     return self:EnsureMacro(spellName, "interrupt")
 end
 
-function SetupCore:RegisterClass(class, applyFn, layout)
+function SetupCore:RegisterClass(class, applyFn, layout, meta)
     registered[class] = applyFn
     if layout then
         -- `layout` can be either a flat LAYOUT array or a LAYOUT_TIERS array
         -- of {minLevel=N, layout={...}} entries. ResolveLayout handles both.
         registeredLayouts[class] = layout
     end
+    if type(meta) == "table" then
+        registeredIgnores[class] = meta.ignore
+        registeredRacials[class] = meta.racials
+    end
+end
+
+function SetupCore:MergeRacials(layout)
+    if not layout then return nil end
+    local _, class = UnitClass("player")
+    local racials = registeredRacials[class]
+    if not racials then return layout end
+    local _, race = UnitRace("player")
+    local extras = race and racials[race]
+    if not extras or #extras == 0 then return layout end
+    local merged = {}
+    for _, e in ipairs(layout) do table.insert(merged, e) end
+    for _, e in ipairs(extras) do table.insert(merged, e) end
+    return merged
+end
+
+function SetupCore:GetActiveLayout()
+    local _, class = UnitClass("player")
+    local layout = self:ResolveLayout(registeredLayouts[class])
+    return self:MergeRacials(layout)
 end
 
 -- ResolveLayout: return the active layout array, given either a flat LAYOUT
@@ -234,10 +260,7 @@ end
 --   2. Are NOT currently placed at their LAYOUT-specified bar slot
 -- Used to nudge the user to /setupbars after training new spells.
 function SetupCore:UnplacedLayoutSpells()
-    local _, class = UnitClass("player")
-    local stored = registeredLayouts[class]
-    if not stored then return {} end
-    local layout = self:ResolveLayout(stored)
+    local layout = self:GetActiveLayout()
     if not layout then return {} end
     local unplaced, seen = {}, {}
     for _, item in ipairs(layout) do
@@ -261,8 +284,7 @@ end
 -- by the SPELLS_CHANGED handler to auto-place newly-trained spells without the
 -- user typing /setupbars. Returns the list of placed spell names.
 function SetupCore:AutoPlaceUnplaced()
-    local _, class = UnitClass("player")
-    local layout = self:ResolveLayout(registeredLayouts[class])
+    local layout = self:GetActiveLayout()
     if not layout then return {} end
     local placed, seen = {}, {}
     for _, item in ipairs(layout) do
@@ -290,18 +312,12 @@ function SetupCore:NormalizeSpellName(sname)
 end
 
 function SetupCore:FindHighestRank(name)
-    local targetID = select(7, GetSpellInfo(name))
     local last
     for j = 1, 500 do
-        local _, spellType, spellID = GetSpellBookItemInfo(j, "spell")
-        if not spellType then break end
-        if spellType == "SPELL" then
-            local spellName = GetSpellInfo(spellID)
-            if spellName and self:NormalizeSpellName(spellName) == name then
-                last = j
-            elseif targetID and spellID == targetID then
-                last = j
-            end
+        local sname = GetSpellBookItemName(j, "spell")
+        if not sname then break end
+        if self:NormalizeSpellName(sname) == name then
+            last = j
         end
     end
     return last
@@ -489,6 +505,26 @@ function SetupCore:EnsureRawMacro(macroName, body, icon)
     end
 end
 
+function SetupCore:DeleteMacro(name)
+    if not name or name == "" then return false end
+    local idx = GetMacroIndexByName(name)
+    if idx and idx > 0 then
+        DeleteMacro(idx)
+        return true
+    end
+    return false
+end
+
+function SetupCore:DeleteMacros(names)
+    local removed = 0
+    for i = 1, #names do
+        if self:DeleteMacro(names[i]) then
+            removed = removed + 1
+        end
+    end
+    return removed
+end
+
 -- Place an existing macro by name on a bar slot. Companion to EnsureRawMacro.
 function SetupCore:PlaceMacro(macroName, bar, btn)
     local b = _G["ElvUI_Bar"..bar.."Button"..btn]
@@ -507,6 +543,12 @@ function SetupCore:PlaceMacro(macroName, bar, btn)
     return true
 end
 
+function SetupCore:ClearSlot(slot)
+    if not slot or not HasAction(slot) then return end
+    PickupAction(slot)
+    ClearCursor()
+end
+
 function SetupCore:PlaceSpell(name, bar, btn, template)
     local b = _G["ElvUI_Bar"..bar.."Button"..btn]
     if not b then return false end
@@ -519,22 +561,32 @@ function SetupCore:PlaceSpell(name, bar, btn, template)
         if not self:FindHighestRank(name) then return false end
         local macroIdx = self:EnsureMacro(name, template)
         if not macroIdx then return false end
+        if not self:IsSlotEmpty(slot) then
+            self:ClearSlot(slot)
+        end
         PickupMacro(macroIdx)
         if GetCursorInfo() == "macro" then
             PlaceAction(slot)
+            ClearCursor()
+            return true
         end
         ClearCursor()
-        return true
+        return false
     end
 
     local idx = self:FindHighestRank(name)
     if not idx then return false end
+    if not self:IsSlotEmpty(slot) then
+        self:ClearSlot(slot)
+    end
     PickupSpellBookItem(idx, "spell")
     if GetCursorInfo() == "spell" then
         PlaceAction(slot)
+        ClearCursor()
+        return true
     end
     ClearCursor()
-    return true
+    return false
 end
 
 -- Fill every BOUND-but-empty bar slot with a placeholder macro so the keyboard
@@ -735,16 +787,15 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
         print(string.format("|cff999999SetupCore|r layout tier active: L%d+", activeTier))
     end
 
-    -- Optionally append per-race racial entries.
+    -- Optionally append per-race racial entries (also stored via RegisterClass meta).
     if racials then
-        local _, race = UnitRace("player")
-        local extras = race and racials[race]
-        if extras and #extras > 0 then
-            local merged = {}
-            for _, e in ipairs(layout) do table.insert(merged, e) end
-            for _, e in ipairs(extras) do table.insert(merged, e) end
-            layout = merged
-        end
+        local _, class = UnitClass("player")
+        registeredRacials[class] = racials
+        layout = self:MergeRacials(layout)
+    end
+    if ignore then
+        local _, class = UnitClass("player")
+        registeredIgnores[class] = ignore
     end
 
     -- Snapshot existing bars before clearing, in case user wants to revert.
@@ -769,20 +820,41 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     -- Fill any remaining empty bound slots with the visual placeholder.
     self:FillEmptyBoundSlots()
 
-    local orphans, seen = {}, {}
-    for j = 1, 500 do
-        local _, spellType, spellID = GetSpellBookItemInfo(j, "spell")
-        if not spellType then break end
-        if spellType == "SPELL" then
-            local sname = GetSpellInfo(spellID)
-            local norm = sname and self:NormalizeSpellName(sname)
-            if norm and not mapped[norm] and not ignore[norm] and not ignore[sname] and not seen[norm] then
-                table.insert(orphans, sname)
-                seen[norm] = true
-            end
+    return placed, skipped, self:FindOrphans(mapped, ignore)
+end
+
+function SetupCore:FindOrphans(mappedOverride, ignoreOverride)
+    local layout = self:GetActiveLayout()
+    local mapped = mappedOverride
+    if not mapped then
+        mapped = {}
+        if layout then
+            for _, item in ipairs(layout) do mapped[item[1]] = true end
         end
     end
-    return placed, skipped, orphans
+    local _, class = UnitClass("player")
+    local ignore = ignoreOverride or registeredIgnores[class] or {}
+    local orphans, seen = {}, {}
+    for j = 1, 500 do
+        local sname = GetSpellBookItemName(j, "spell")
+        if not sname then break end
+        local norm = self:NormalizeSpellName(sname)
+        if norm and not mapped[norm] and not ignore[norm] and not ignore[sname] and not seen[norm] then
+            table.insert(orphans, sname)
+            seen[norm] = true
+        end
+    end
+    return orphans
+end
+
+function SetupCore:ReportOrphans()
+    local orphans = self:FindOrphans()
+    if #orphans > 0 then
+        print("|cffff5500SetupCore unmapped skills|r (need a key, clickable bar, or OPie ring):")
+        print("|cffffffff"..table.concat(orphans, ", ").."|r")
+        print("|cff999999Add to LAYOUT, an OPie ring, or IGNORE — includes racials if not placed.|r")
+    end
+    return orphans
 end
 
 function SetupCore:PrintResults(addonName, placed, skipped, orphans)
@@ -791,7 +863,8 @@ function SetupCore:PrintResults(addonName, placed, skipped, orphans)
         print("|cff999999Skipped (not yet trained):|r "..table.concat(skipped, ", "))
     end
     if #orphans > 0 then
-        print("|cffffaa00Orphans (trained but unmapped):|r "..table.concat(orphans, ", "))
+        print("|cffff5500Unmapped skills|r (need a key, clickable bar, or OPie ring):")
+        print("|cffffffff"..table.concat(orphans, ", ").."|r")
     end
 end
 
@@ -858,6 +931,7 @@ trainerWatch:SetScript("OnEvent", function()
             print("|cffffd700SetupCore|r auto-placed new spell"..(#placed > 1 and "s" or "")..
                 ": |cffffffff"..table.concat(placed, ", ").."|r")
         end
+        SetupCore:ReportOrphans()
     end)
 end)
 
@@ -1028,6 +1102,17 @@ f:SetScript("OnEvent", function(_, event, ...)
             SetupCoreCharDB.tierCrossingPending = nil
         end
     end
+
+    -- Fill layout gaps (e.g. Water Shield on a placeholder slot) and warn about
+    -- anything still unmapped — racials included if not on bars.
+    C_Timer.After(4, function()
+        if SetupCoreDB.needsSetup then return end
+        local placed = SetupCore:AutoPlaceUnplaced()
+        if #placed > 0 then
+            print("|cff00ff00SetupCore|r auto-placed on login: |cffffffff"..table.concat(placed, ", ").."|r")
+        end
+        SetupCore:ReportOrphans()
+    end)
 
     -- Auto-leave noisy channels — once per character.
     if not SetupCoreCharDB.channelsLeft then
