@@ -1,0 +1,5 @@
+VER 3 0100000000000001 "SC_HeroicStrike" "132282"
+#showtooltip
+/startattack
+/cast Heroic Strike
+END
