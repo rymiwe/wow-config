@@ -549,11 +549,24 @@ function SetupCore:ClearSlot(slot)
     ClearCursor()
 end
 
+-- Remove visual placeholder macros so real spells/macros can land on bound keys.
+function SetupCore:PrepareSlotForPlace(slot)
+    if not slot or not HasAction(slot) then return end
+    local actionType, id = GetActionInfo(slot)
+    if actionType == "macro" then
+        local mname = GetMacroInfo(id)
+        if mname == " " or mname == "" then
+            self:ClearSlot(slot)
+        end
+    end
+end
+
 function SetupCore:PlaceSpell(name, bar, btn, template)
     local b = _G["ElvUI_Bar"..bar.."Button"..btn]
     if not b then return false end
     local slot = b:GetAttribute("action")
     if not slot then return false end
+    self:PrepareSlotForPlace(slot)
 
     if template then
         -- Skip if the underlying spell isn't trained yet — no point creating a
@@ -561,9 +574,6 @@ function SetupCore:PlaceSpell(name, bar, btn, template)
         if not self:FindHighestRank(name) then return false end
         local macroIdx = self:EnsureMacro(name, template)
         if not macroIdx then return false end
-        if not self:IsSlotEmpty(slot) then
-            self:ClearSlot(slot)
-        end
         PickupMacro(macroIdx)
         if GetCursorInfo() == "macro" then
             PlaceAction(slot)
@@ -576,9 +586,6 @@ function SetupCore:PlaceSpell(name, bar, btn, template)
 
     local idx = self:FindHighestRank(name)
     if not idx then return false end
-    if not self:IsSlotEmpty(slot) then
-        self:ClearSlot(slot)
-    end
     PickupSpellBookItem(idx, "spell")
     if GetCursorInfo() == "spell" then
         PlaceAction(slot)
