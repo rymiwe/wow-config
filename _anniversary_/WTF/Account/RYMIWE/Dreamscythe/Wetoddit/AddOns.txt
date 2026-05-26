@@ -1,5 +1,5 @@
 BadBoy: enabled
-ChatAnchor: enabled
+ElvUIFixes: enabled
 DruidSetup: enabled
 ElvUI_Libraries: enabled
 ElvUI_Options: enabled

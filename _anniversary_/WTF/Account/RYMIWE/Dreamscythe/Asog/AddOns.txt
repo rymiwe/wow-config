@@ -31,7 +31,7 @@ kExtraBossFrames: disabled
 WeakAurasCompanion: enabled
 OPie_Classic: disabled
 BadBoy: enabled
-ChatAnchor: enabled
+ElvUIFixes: enabled
 ChatPanelThemes: enabled
 DruidSetup: enabled
 HunterSetup: enabled

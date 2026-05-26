@@ -1,6 +1,5 @@
 
 SetupCoreCharDB = {
-["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -42,8 +41,9 @@ nil,
 ["type"] = "macro",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 17364,
+["type"] = "spell",
+["name"] = "Stormstrike",
 },
 {
 ["name"] = " ",
@@ -81,8 +81,9 @@ nil,
 ["name"] = "Ghost Wolf",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 36936,
+["type"] = "spell",
+["name"] = "Totemic Call",
 },
 {
 ["name"] = " ",
@@ -132,7 +133,7 @@ nil,
 ["type"] = "macro",
 },
 {
-["name"] = " ",
+["name"] = "SC_ChainHeal",
 ["type"] = "macro",
 },
 {
@@ -148,7 +149,7 @@ nil,
 ["type"] = "macro",
 },
 {
-["name"] = " ",
+["name"] = "SC_GiftoftheNaar",
 ["type"] = "macro",
 },
 nil,
@@ -188,7 +189,7 @@ nil,
 ["name"] = "Totemic Call",
 },
 [71] = {
-["id"] = 6451,
+["id"] = 8544,
 ["type"] = "item",
 },
 [66] = {
@@ -200,7 +201,7 @@ nil,
 ["type"] = "item",
 },
 [72] = {
-["id"] = 1710,
+["id"] = 3928,
 ["type"] = "item",
 },
 [67] = {
@@ -212,6 +213,7 @@ nil,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-05-24 22:37:51",
+["timestamp"] = "2026-05-25 18:53:15",
 },
+["channelsLeft"] = true,
 }

@@ -68,7 +68,8 @@ local BINDINGS = {
     {"ALT-B", "MULTIACTIONBAR2BUTTON12"},
     -- Neutralize Shift+key page-cycle defaults (mirror templates/bindings-cache.wtf).
     -- ElvUI [mod:shift]1 handles form paging on bar 1; accidental Shift+wheel/page
-    -- swaps mid-combat are undesirable.
+    -- swaps mid-combat are undesirable. Exception: SHIFT-B -> OPENALLBAGS (bags),
+    -- not bar-3 B — Purge/utility on B is Alt-B.
     {"SHIFT-`", "ACTIONBUTTON1"},
     {"SHIFT-1", "ACTIONBUTTON2"}, {"SHIFT-2", "ACTIONBUTTON3"}, {"SHIFT-3", "ACTIONBUTTON4"},
     {"SHIFT-4", "ACTIONBUTTON5"}, {"SHIFT-5", "ACTIONBUTTON6"},
@@ -77,7 +78,7 @@ local BINDINGS = {
     {"SHIFT-F", "MULTIACTIONBAR3BUTTON5"}, {"SHIFT-G", "MULTIACTIONBAR3BUTTON6"},
     {"SHIFT-Z", "MULTIACTIONBAR3BUTTON8"}, {"SHIFT-X", "MULTIACTIONBAR3BUTTON9"},
     {"SHIFT-C", "MULTIACTIONBAR3BUTTON10"}, {"SHIFT-V", "MULTIACTIONBAR3BUTTON11"},
-    {"SHIFT-B", "MULTIACTIONBAR3BUTTON12"},
+    {"SHIFT-B", "OPENALLBAGS"},
     {"SHIFT-6", nil},
     {"SHIFT-MOUSEWHEELUP", nil}, {"SHIFT-MOUSEWHEELDOWN", nil},
     -- Mouse buttons (BUTTON3/4/5) DELIBERATELY OMITTED — let OPie + manual user

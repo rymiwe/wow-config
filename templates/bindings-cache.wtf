@@ -89,7 +89,8 @@ bind SHIFT-Z MULTIACTIONBAR3BUTTON8
 bind SHIFT-X MULTIACTIONBAR3BUTTON9
 bind SHIFT-C MULTIACTIONBAR3BUTTON10
 bind SHIFT-V MULTIACTIONBAR3BUTTON11
-bind SHIFT-B MULTIACTIONBAR3BUTTON12
+# Shift+B opens all bags (Blizzard default). Not mirrored to bar-3 B — Purge is Alt-B.
+bind SHIFT-B OPENALLBAGS
 bind SHIFT-6 NONE
 # Disable Shift+MouseWheel page-cycle defaults (accidental triggers)
 bind SHIFT-MOUSEWHEELUP NONE

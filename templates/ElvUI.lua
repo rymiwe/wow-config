@@ -762,6 +762,7 @@ ElvDB = {
 ["point"] = "TOPLEFT",
 ["buttonSpacing"] = 3,
 ["buttons"] = 12,
+["buttonsPerRow"] = 6,
 ["buttonSize"] = 36,
 ["showGrid"] = false,
 },
@@ -771,6 +772,7 @@ ElvDB = {
 ["enabled"] = false,
 },
 ["bar1"] = {
+["buttons"] = 12,
 ["buttonsPerRow"] = 6,
 ["point"] = "TOPLEFT",
 ["buttonSpacing"] = 3,
@@ -807,6 +809,7 @@ ElvDB = {
 ["buttonSize"] = 24,
 },
 ["bar2"] = {
+["enabled"] = false,
 ["visibility"] = "[vehicleui][overridebar][petbattle][possessbar] hide; show",
 },
 ["bar5"] = {
@@ -815,6 +818,7 @@ ElvDB = {
 ["buttonSpacing"] = 3,
 ["buttonSize"] = 36,
 ["buttons"] = 12,
+["buttonsPerRow"] = 6,
 ["showGrid"] = false,
 },
 ["extraActionButton"] = {
@@ -833,6 +837,7 @@ ElvDB = {
 ["inheritGlobalFade"] = true,
 },
 ["bar4"] = {
+["buttons"] = 12,
 ["buttonsPerRow"] = 6,
 ["point"] = "TOPLEFT",
 ["buttonSpacing"] = 3,

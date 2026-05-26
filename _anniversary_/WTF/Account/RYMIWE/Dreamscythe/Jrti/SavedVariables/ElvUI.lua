@@ -2,11 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"can't invite yet",
-"/p all good?",
-"/p i can't invite josh",
-"/p says offline",
-"i keep trying",
 "you're still in app",
 "still can't",
 "wtf",
@@ -20,8 +15,13 @@ ElvCharacterDB = {
 "/macro",
 "/wa",
 "/zygor show",
-"/rl",
+"invite",
+"jrti",
+"not the account",
+"/p zygor >settings >gear",
+"/p auto-select quest rewards",
 "/setupbars",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },

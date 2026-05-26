@@ -1,0 +1,7 @@
+## Interface: 20505
+## Title: ElvUI Fixes
+## Notes: ElvUI/Anniversary workarounds: chat dock, chat settings crash, game-menu logout
+## Version: 1.1
+## OptionalDeps: ElvUI
+
+ElvUIFixes.lua

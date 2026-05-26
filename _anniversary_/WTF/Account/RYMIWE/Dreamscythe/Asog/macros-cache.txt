@@ -2,6 +2,10 @@ VER 3 0100000000000002 "SC_AncestralSpir" "136077"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Ancestral Spirit
 END
+VER 3 0100000000000010 "SC_ChainHeal" "136042"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Chain Heal
+END
 VER 3 010000000000000B "SC_CureDisease" "136083"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Cure Disease

@@ -1,7 +1,0 @@
-## Interface: 20505
-## Title: Chat Anchor
-## Notes: Fixes ElvUI chat by forcing GeneralDockManager.primary=ChatFrame1 before PositionChats runs
-## Version: 1.4
-## OptionalDeps: ElvUI
-
-ChatAnchor.lua
