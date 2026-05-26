@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -118,8 +119,8 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[72] = {
-["name"] = "SC_RighteousFury",
+[59] = {
+["name"] = " ",
 ["type"] = "macro",
 },
 [71] = {
@@ -134,25 +135,24 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[29] = {
-["id"] = 20288,
-["type"] = "spell",
-["name"] = "Seal of Righteousness",
+[57] = {
+["name"] = " ",
+["type"] = "macro",
 },
 [56] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[57] = {
-["name"] = " ",
-["type"] = "macro",
+[29] = {
+["id"] = 20288,
+["type"] = "spell",
+["name"] = "Seal of Righteousness",
 },
-[59] = {
-["name"] = " ",
+[72] = {
+["name"] = "SC_RighteousFury",
 ["type"] = "macro",
 },
 },
 ["timestamp"] = "2026-05-25 20:11:07",
 },
-["channelsLeft"] = true,
 }

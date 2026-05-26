@@ -169,46 +169,76 @@ local function IsQuitLabel(text)
     return text == "Exit Game"
 end
 
+local function IsGameMenuActionButton(btn)
+    if not btn or btn == _G.GameMenuFrame then return false end
+    if not btn.IsObjectType or not btn:IsObjectType("Button") then return false end
+    local w, h = btn:GetSize()
+    if not w or not h or w < 40 or h < 10 then return false end
+    -- Real menu rows are ~144x21; reject frames that span the whole panel.
+    if w > 320 or h > 48 then return false end
+    return true
+end
+
+local function ClearSecureOverlay(btn)
+    if not btn or not btn.ElvUIFixesSecure then return end
+    btn.ElvUIFixesSecure:Hide()
+    btn.ElvUIFixesSecure:ClearAllPoints()
+    btn.ElvUIFixesSecure:SetParent(nil)
+    btn.ElvUIFixesSecure = nil
+end
+
 local function EnsureSecureMacroOverlay(btn, macrotext)
-    if not btn or not macrotext or InCombatLockdown() then return end
+    if not IsGameMenuActionButton(btn) or not macrotext or InCombatLockdown() then return end
     local overlay = btn.ElvUIFixesSecure
     if not overlay then
         overlay = CreateFrame("Button", nil, btn, "SecureActionButtonTemplate")
-        overlay:SetAllPoints()
+        overlay:SetPoint("TOPLEFT", btn, "TOPLEFT", 0, 0)
+        overlay:SetPoint("BOTTOMRIGHT", btn, "BOTTOMRIGHT", 0, 0)
         overlay:SetFrameStrata(btn:GetFrameStrata())
-        overlay:SetFrameLevel(btn:GetFrameLevel() + 5)
         overlay:RegisterForClicks("AnyUp", "AnyDown")
         overlay:EnableMouse(true)
         btn.ElvUIFixesSecure = overlay
     end
+    overlay:SetFrameLevel(btn:GetFrameLevel() + 2)
     if overlay:GetAttribute("macrotext") ~= macrotext then
         overlay:SetAttribute("type", "macro")
         overlay:SetAttribute("macrotext", macrotext)
     end
-    overlay:SetFrameLevel(btn:GetFrameLevel() + 5)
+    overlay:Show()
 end
 
-local function BindGameMenuButton(btn, action)
-    if not btn then return end
-    local macrotext = (action == "logout") and "/logout" or "/quit"
-    EnsureSecureMacroOverlay(btn, macrotext)
+local function ConsiderGameMenuButton(btn)
+    if not IsGameMenuActionButton(btn) then return end
+    local text = btn.GetText and btn:GetText()
+    if IsLogoutLabel(text) then
+        EnsureSecureMacroOverlay(btn, "/logout")
+    elseif IsQuitLabel(text) then
+        EnsureSecureMacroOverlay(btn, "/quit")
+    else
+        ClearSecureOverlay(btn)
+    end
 end
 
 local function FixGameMenuLogoutButtons()
-    BindGameMenuButton(_G.GameMenuButtonLogout, "logout")
-    BindGameMenuButton(_G.GameMenuButtonQuit, "quit")
-
     local menu = _G.GameMenuFrame
-    if menu and menu.buttonPool and menu.buttonPool.EnumerateActive then
+    if not menu then return end
+
+    if menu.buttonPool and menu.buttonPool.EnumerateActive then
         for button in menu.buttonPool:EnumerateActive() do
-            local text = button.GetText and button:GetText()
-            if IsLogoutLabel(text) then
-                BindGameMenuButton(button, "logout")
-            elseif IsQuitLabel(text) then
-                BindGameMenuButton(button, "quit")
-            end
+            ConsiderGameMenuButton(button)
         end
     end
+
+    if menu.MenuButtons then
+        for _, button in pairs(menu.MenuButtons) do
+            ConsiderGameMenuButton(button)
+        end
+    end
+
+    -- Legacy named buttons (pre-buttonPool). Only bind when label matches — the global
+    -- can point at the wrong frame on TBC/Anniversary and cover the whole menu.
+    ConsiderGameMenuButton(_G.GameMenuButtonLogout)
+    ConsiderGameMenuButton(_G.GameMenuButtonQuit)
 end
 
 local gameMenuHooked = false

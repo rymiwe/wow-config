@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"you're still in app",
 "still can't",
 "wtf",
 "/cheer",
@@ -21,6 +20,7 @@ ElvCharacterDB = {
 "/p zygor >settings >gear",
 "/p auto-select quest rewards",
 "/setupbars",
+"/questie",
 "/rl",
 },
 ["ChatHistoryLog"] = {

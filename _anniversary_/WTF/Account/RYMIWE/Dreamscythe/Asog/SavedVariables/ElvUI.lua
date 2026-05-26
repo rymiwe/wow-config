@@ -2,8 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/join 2",
-"/cw Abancque-Dreamscythe ty",
 "/cw Abancque cheers",
 "/2 buying guild charter sigs, 3g each is what i can afford right now",
 "/p ty",
@@ -21,6 +19,8 @@ ElvCharacterDB = {
 "/rl",
 "/setupbars",
 "/tsm destoy",
+"/tsm destroyu",
+"/ginvite Jrti",
 "/tsm destroy",
 },
 ["ChatHistoryLog"] = {
