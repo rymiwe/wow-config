@@ -16,11 +16,11 @@ ElvCharacterDB = {
 "/tsm",
 "/tsm warehousing",
 "/tsm warehouse",
-"/rl",
 "/setupbars",
-"/tsm destoy",
 "/tsm destroyu",
 "/ginvite Jrti",
+"/rl",
+"/tsm destoy",
 "/tsm destroy",
 },
 ["ChatHistoryLog"] = {
