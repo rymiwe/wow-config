@@ -29,8 +29,8 @@ W: 365
 H: 239
 Frame: WorldMapFrame
 FrameLevel: 1
-Anchor: CENTER
+Anchor: TOPLEFT
 X: 0
-Y: 79
+Y: -12
 W: 610
 H: 438
