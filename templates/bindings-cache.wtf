@@ -3,6 +3,7 @@ bind A STRAFELEFT
 bind D STRAFERIGHT
 bind NUMLOCK NONE
 bind BUTTON3 NONE
+# M3 -> SC_Decurse / SC_Purify macro after /setupbars (dispel on mouseover)
 bind BUTTON4 NONE
 bind BUTTON5 NONE
 bind ` ACTIONBUTTON1

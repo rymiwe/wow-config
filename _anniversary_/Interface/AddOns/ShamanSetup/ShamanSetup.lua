@@ -195,17 +195,19 @@ local function Run()
     SetupCore:EnsureRawMacro("SC_TotemCaster", TOTEM_CASTER_BODY, casterIcon)
     if SetupCore:PlaceMacro("SC_TotemCaster", 1, 10) then placed = placed + 1 end
 
-    -- Combined decurse on middle mouse (Button3). Mouseover priority: friendly poison/disease, harm Purge.
-    local decurseIcon = GetSpellInfo("Cure Poison") or GetSpellInfo("Cure Disease")
-    SetupCore:EnsureRawMacro("SC_Decurse", "#showtooltip\n/cast [target=mouseover,help,nodead] Cure Poison; [target=mouseover,help,nodead] Cure Disease; [target=mouseover,harm,nodead] Purge; [help,nodead] Cure Poison; [help,nodead] Cure Disease; [harm,nodead] Purge", decurseIcon)
+    -- M3 decurse: mouseover poison/disease on friends, Purge on enemies.
+    SetupCore:EnsureDecurseMacro("decurse-shaman", "Cure Poison")
+    SetupCore:ApplyMacroBindings()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Q = Melee Group, E = Caster Group (both use Windfury Totem).")
+    print("|cff999999  Middle-click (M3) = decurse mouseover (Cure Poison/Disease or Purge).|r")
     print("|cff999999  Alt + M4: Totem Profiles ring — pick a set, then spam Alt + M4 to drop all four totems.|r")
     print("|cff999999  M4 / M5: individual totems / weapon enchants.|r")
 end
 
 SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {ignore = IGNORE, racials = RACIALS})
+SetupCore:RegisterDecurseMacro("SC_Decurse", "SHAMAN")
 
 -- ===========================================================================
 -- OPie ring registration — only fires if OPie is installed.

@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/2 buying guild charter sigs, 3g each is what i can afford",
 "/p cheers",
 "/cw Mctubby trouble you for a guild sig? 1g?",
 "/s cheers",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "i have been playing during meetings heh",
 "k",
 "/tsm destroy",
+"/2 WTS |cffffd000|Henchant:13661|h[Enchant Bracer - Strength]|h|r 50s",
 },
 ["ChatHistoryLog"] = {
 },

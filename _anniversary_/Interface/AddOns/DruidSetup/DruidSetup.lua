@@ -192,11 +192,14 @@ local function Run()
     end
     -- Caster form (or no form): apply the main caster LAYOUT.
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
+    SetupCore:EnsureDecurseMacro("decurse-druid", "Cure Poison")
+    SetupCore:ApplyMacroBindings()
     SetupCore:PrintResults("DruidSetup", placed, skipped, orphans)
     print("|cffffd700DruidSetup tip:|r Wrath on key 1, Moonfire on 2, heals on Q/E/R/T.")
     print("|cff999999  Alt-bar MIRRORS Bar 1: Alt+1=Wrath, Alt+E=Rejuv, etc. Auto-cancels form when cast in bear/cat.|r")
     print("|cff999999  Alt+Z/X = Entangling Roots/Hibernate (CC). Alt+C = Rebirth (combat rez).|r")
     print("|cff999999  Form toggles live in OPie M4 ring (Bear, Cat, Travel, Moonkin, Prowl).|r")
+    print("|cff999999  Middle-click (M3) = decurse mouseover (Cure Poison / Remove Curse).|r")
     print("|cff999999  Buffs (MotW, Thorns, GotW) on OPie M5 ring.|r")
     print("|cff999999  Bear/Cat bars: shift to that form, run /setupbars - bar 1 fills with form abilities.|r")
     print("|cff999999    BEAR layout (when in bear):|r " .. table.concat(BEAR_NAMES, ", "))
@@ -205,6 +208,7 @@ local function Run()
 end
 
 SetupCore:RegisterClass("DRUID", Run, LAYOUT)
+SetupCore:RegisterDecurseMacro("SC_Decurse", "DRUID")
 
 -- ===========================================================================
 -- OPie ring registration — only fires if OPie is installed (graceful no-op).

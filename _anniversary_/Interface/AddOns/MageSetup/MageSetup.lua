@@ -159,14 +159,18 @@ local RACIALS = {
 
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT_TIERS, IGNORE, RACIALS)
+    SetupCore:EnsureDecurseMacro("decurse-mage", "Remove Lesser Curse")
+    SetupCore:ApplyMacroBindings()
     SetupCore:PrintResults("MageSetup", placed, skipped, orphans)
     print("|cffffd700MageSetup tip:|r Cast bolts on top numrow 1-5. Q=Frost Nova, E=Fire Blast (instant mirror).")
+    print("|cff999999  Middle-click (M3) = Remove Lesser Curse on mouseover.|r")
     print("|cff999999  R=Polymorph (focus-first CC). Draenei: V=Gift of the Naaru.|r")
     print("|cff999999  Layout grows in tiers: L1, L10, L20 currently defined.|r")
     print("|cff999999  Armors: hold M4 (OPie ring). Conjures/Portals/Teleports: hold M5.|r")
 end
 
 SetupCore:RegisterClass("MAGE", Run, LAYOUT_TIERS)
+SetupCore:RegisterDecurseMacro("SC_Decurse", "MAGE")
 
 -- ===========================================================================
 -- OPie ring registration

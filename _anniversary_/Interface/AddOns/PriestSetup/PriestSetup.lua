@@ -145,14 +145,18 @@ local RACIALS = {
 
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
+    SetupCore:EnsureDecurseMacro("decurse-priest", "Dispel Magic")
+    SetupCore:ApplyMacroBindings()
     SetupCore:PrintResults("PriestSetup", placed, skipped, orphans)
     print("|cffffd700PriestSetup tip:|r heals on QERT (PW:Shield/Renew/Flash/Greater) all")
+    print("|cff999999  Middle-click (M3) = dispel mouseover (Dispel Magic / Cure Disease).|r")
     print("|cff999999  use mouseover - hover party member to heal them.|r")
     print("|cff999999  SW:Pain spreads via mouseover too - DoT adds while Mind Blast hits main.|r")
     print("|cff999999  Buffs: hold M4 (OPie ring). OOC utility: hold M5.|r")
 end
 
 SetupCore:RegisterClass("PRIEST", Run, LAYOUT)
+SetupCore:RegisterDecurseMacro("SC_Decurse", "PRIEST")
 
 -- ===========================================================================
 -- OPie ring registration

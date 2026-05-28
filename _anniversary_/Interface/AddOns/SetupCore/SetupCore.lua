@@ -21,6 +21,10 @@ local registered = {}
 local registeredLayouts = {}
 local registeredIgnores = {}
 local registeredRacials = {}
+local macroBindingsByClass = {}
+
+-- Middle mouse: class dispel/decurse macro (SC_Decurse or SC_Purify). M4/M5 stay OPie.
+SetupCore.DECURSE_MOUSE = "BUTTON3"
 
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
 -- slots (professions, mount, hearth, consumables) — never wiped by /setupbars.
@@ -81,11 +85,8 @@ local BINDINGS = {
     {"SHIFT-B", "OPENALLBAGS"},
     {"SHIFT-6", nil},
     {"SHIFT-MOUSEWHEELUP", nil}, {"SHIFT-MOUSEWHEELDOWN", nil},
-    -- Mouse buttons (BUTTON3/4/5) DELIBERATELY OMITTED — let OPie + manual user
-    -- bindings own them. Earlier we unbound these every /setupbars, which silently
-    -- destroyed any /opie ring bindings the user had set. The trade-off: if the
-    -- user has a default Blizzard binding on M3/4/5 (rare) it stays until they
-    -- clear it themselves via Esc -> Key Bindings.
+    -- Mouse buttons: M3 = decurse macro (RegisterDecurseMacro). M4/M5 = OPie rings.
+    -- Do not bind M4/M5 here — /setupbars would clobber /opie ring bindings.
     -- NumLock can interfere with movement on some keyboards
     {"NUMLOCK", nil},
     -- Questie convenience
@@ -173,6 +174,50 @@ local MACRO_TEMPLATES = {
             "/cast [@player] Purify",
         }, "\n")
     end,
+    -- M3 decurse macros (mouseover-first). Class addons call EnsureDecurseMacro().
+    ["decurse-shaman"] = function()
+        return table.concat({
+            "#showtooltip",
+            "/cast [@mouseover,help,nodead] Cure Poison",
+            "/cast [@mouseover,help,nodead] Cure Disease",
+            "/cast [@mouseover,harm,nodead] Purge",
+            "/cast [help,nodead] Cure Poison",
+            "/cast [help,nodead] Cure Disease",
+            "/cast [harm,nodead] Purge",
+        }, "\n")
+    end,
+    ["decurse-druid"] = function()
+        return table.concat({
+            "#showtooltip",
+            "/cast [@mouseover,help,nodead] Cure Poison",
+            "/cast [@mouseover,help,nodead] Remove Curse",
+            "/cast [help,nodead] Cure Poison",
+            "/cast [help,nodead] Remove Curse",
+            "/cast [@player] Cure Poison",
+            "/cast [@player] Remove Curse",
+        }, "\n")
+    end,
+    ["decurse-priest"] = function()
+        return table.concat({
+            "#showtooltip",
+            "/cast [@mouseover,help,nodead] Dispel Magic",
+            "/cast [@mouseover,help,nodead] Cure Disease",
+            "/cast [@mouseover,help,nodead] Abolish Disease",
+            "/cast [help,nodead] Dispel Magic",
+            "/cast [help,nodead] Cure Disease",
+            "/cast [help,nodead] Abolish Disease",
+            "/cast [@player] Dispel Magic",
+            "/cast [@player] Cure Disease",
+        }, "\n")
+    end,
+    ["decurse-mage"] = function()
+        return table.concat({
+            "#showtooltip",
+            "/cast [@mouseover,help,nodead] Remove Lesser Curse",
+            "/cast [help,nodead] Remove Lesser Curse",
+            "/cast [@player] Remove Lesser Curse",
+        }, "\n")
+    end,
 }
 
 -- Class addons can build a smart-interrupt macro by passing the class's
@@ -182,6 +227,54 @@ local MACRO_TEMPLATES = {
 -- declare it via EnsureInterruptMacro and the user binds at their discretion.
 function SetupCore:EnsureInterruptMacro(spellName)
     return self:EnsureMacro(spellName, "interrupt")
+end
+
+function SetupCore:RegisterMacroBinding(key, macroName, classFile)
+    classFile = classFile or select(2, UnitClass("player"))
+    if not classFile then return end
+    macroBindingsByClass[classFile] = macroBindingsByClass[classFile] or {}
+    macroBindingsByClass[classFile][key] = macroName
+end
+
+function SetupCore:RegisterDecurseMacro(macroName, classFile)
+    self:RegisterMacroBinding(self.DECURSE_MOUSE, macroName, classFile)
+end
+
+function SetupCore:BindMacro(key, macroName)
+    if not key or not macroName then return false end
+    local idx = GetMacroIndexByName(macroName)
+    if not idx or idx == 0 then return false end
+    if SetBinding(key, "MACRO " .. idx) then
+        SaveBindings(2)
+        return true
+    end
+    return false
+end
+
+function SetupCore:ApplyMacroBindings()
+    local _, class = UnitClass("player")
+    local bindings = class and macroBindingsByClass[class]
+    if not bindings then return end
+    local applied = 0
+    for key, name in pairs(bindings) do
+        if self:BindMacro(key, name) then
+            applied = applied + 1
+        end
+    end
+    if applied > 0 then
+        print(string.format("|cff999999SetupCore|r bound %d macro key(s) (e.g. M3 decurse)", applied))
+    end
+end
+
+-- Build/update SC_Decurse from a MACRO_TEMPLATES decurse-* entry.
+function SetupCore:EnsureDecurseMacro(templateName, iconSpell)
+    local tmpl = MACRO_TEMPLATES[templateName]
+    if not tmpl then
+        print("|cffff0000SetupCore|r unknown decurse template: " .. tostring(templateName))
+        return nil
+    end
+    local _, _, icon = GetSpellInfo(iconSpell or "Cure Poison")
+    return self:EnsureRawMacro("SC_Decurse", tmpl(), icon)
 end
 
 function SetupCore:RegisterClass(class, applyFn, layout, meta)
@@ -714,6 +807,7 @@ function SetupCore:ApplyBindings()
     if applied > 0 or cleared > 0 then
         print(string.format("|cff999999SetupCore|r asserted %d bindings (cleared %d defaults)", applied, cleared))
     end
+    self:ApplyMacroBindings()
 end
 
 -- Apply CVars from the CVARS table. Per-character CVars (autoLootDefault) reset
