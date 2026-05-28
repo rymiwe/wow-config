@@ -18,10 +18,10 @@ ElvCharacterDB = {
 "/ginvite Jrti",
 "/rl",
 "/tsm destoy",
-"/tsm destroy",
 "little work day wow?",
 "i have been playing during meetings heh",
 "k",
+"/tsm destroy",
 },
 ["ChatHistoryLog"] = {
 },
