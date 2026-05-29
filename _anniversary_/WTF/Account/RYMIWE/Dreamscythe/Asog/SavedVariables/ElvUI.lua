@@ -19,9 +19,9 @@ ElvCharacterDB = {
 "i have been playing during meetings heh",
 "k",
 "/2 WTS |cffffd000|Henchant:13661|h[Enchant Bracer - Strength]|h|r 50s",
-"/rl",
 "/setupbars",
 "/tsm destroy",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
