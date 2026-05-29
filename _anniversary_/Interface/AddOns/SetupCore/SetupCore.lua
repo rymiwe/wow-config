@@ -21,6 +21,7 @@ local registered = {}
 local registeredLayouts = {}
 local registeredIgnores = {}
 local registeredRacials = {}
+local registeredFreedKeys = {}
 local macroBindingsByClass = {}
 
 -- Middle mouse: class dispel/decurse macro (SC_Decurse or SC_Purify). M4/M5 stay OPie.
@@ -29,7 +30,8 @@ SetupCore.DECURSE_MOUSE = "BUTTON3"
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
 -- slots (professions, mount, hearth, consumables) — never wiped by /setupbars.
 local PROTECTED_BARS = {
-    [6] = "utility",
+    [6] = "utility",      -- click skills: travel, rez, scouting
+    [7] = "consumables",  -- food, pots, bandages — user fills; never wiped
 }
 
 -- Channels auto-left on first login of each new character.
@@ -45,7 +47,7 @@ local BINDINGS = {
     {"W", "TOGGLEAUTORUN"},
     {"A", "STRAFELEFT"},
     {"D", "STRAFERIGHT"},
-    -- Bar 1 (main top): ` 1 2 3 4 5 / Q E R T
+    -- Bar 1 (main top): ` 1 2 [3 4 class-freed] / Q E R T
     {"`", "ACTIONBUTTON1"},
     {"1", "ACTIONBUTTON2"}, {"2", "ACTIONBUTTON3"}, {"3", "ACTIONBUTTON4"},
     {"4", "ACTIONBUTTON5"}, {"5", "ACTIONBUTTON6"},
@@ -73,7 +75,7 @@ local BINDINGS = {
     -- Neutralize Shift+key page-cycle defaults (mirror templates/bindings-cache.wtf).
     -- ElvUI [mod:shift]1 handles form paging on bar 1; accidental Shift+wheel/page
     -- swaps mid-combat are undesirable. Exception: SHIFT-B -> OPENALLBAGS (bags),
-    -- not bar-3 B — Purge/utility on B is Alt-B.
+    -- not bar-3 B.
     {"SHIFT-`", "ACTIONBUTTON1"},
     {"SHIFT-1", "ACTIONBUTTON2"}, {"SHIFT-2", "ACTIONBUTTON3"}, {"SHIFT-3", "ACTIONBUTTON4"},
     {"SHIFT-4", "ACTIONBUTTON5"}, {"SHIFT-5", "ACTIONBUTTON6"},
@@ -287,7 +289,17 @@ function SetupCore:RegisterClass(class, applyFn, layout, meta)
     if type(meta) == "table" then
         registeredIgnores[class] = meta.ignore
         registeredRacials[class] = meta.racials
+        registeredFreedKeys[class] = meta.freedKeys
     end
+end
+
+function SetupCore:GetFreedKeySet()
+    local _, class = UnitClass("player")
+    local freed = registeredFreedKeys[class]
+    if not freed or #freed == 0 then return {} end
+    local set = {}
+    for _, key in ipairs(freed) do set[key] = true end
+    return set
 end
 
 function SetupCore:MergeRacials(layout)
@@ -432,6 +444,70 @@ function SetupCore:IsProtectedBar(bar)
     return PROTECTED_BARS[bar] ~= nil
 end
 
+-- ElvUI button attribute is the only source of truth for which Blizzard action
+-- slot a bar button displays. Arithmetic slot guessing can clear/write the
+-- wrong slot and leave stale duplicates visible on the bar.
+function SetupCore:ResolveActionSlot(bar, btn)
+    local frame = _G["ElvUI_Bar"..bar.."Button"..btn]
+    if not frame then return nil end
+    return frame:GetAttribute("action")
+end
+
+function SetupCore:ClearSlot(slot)
+    if not slot then return end
+    for _ = 1, 3 do
+        if not HasAction(slot) then return end
+        PickupAction(slot)
+        ClearCursor()
+    end
+end
+
+-- True if this action slot holds the given layout spell (raw spell or SC_ macro).
+function SetupCore:ActionRepresentsSpell(slot, spellName, template)
+    if not slot or not HasAction(slot) then return false end
+    local want = self:NormalizeSpellName(spellName)
+    local actionType, id = GetActionInfo(slot)
+    if actionType == "spell" then
+        return self:NormalizeSpellName(GetSpellInfo(id)) == want
+    end
+    if actionType == "macro" then
+        local mname = GetMacroInfo(id) or ""
+        local expected = "SC_" .. want:gsub("%s", "")
+        if #expected > 16 then expected = expected:sub(1, 16) end
+        -- Match macro identity only — never substring-scan bodies (e.g.
+        -- "Healing Wave" must not match SC_LesserHealingWave).
+        return mname == expected or (#expected > 0 and mname:sub(1, #expected) == expected)
+    end
+    return false
+end
+
+-- After a layout migration, remove stale copies (e.g. Lightning Shield on F when
+-- it now lives on E). Keeps only the canonical bar/button from LAYOUT.
+function SetupCore:EvictLayoutDuplicates(layout, maxBar)
+    maxBar = maxBar or 5
+    local evicted = 0
+    for _, item in ipairs(layout) do
+        local name, wantBar, wantBtn, template = item[1], item[2], item[3], item[4]
+        for b = 1, maxBar do
+            if not PROTECTED_BARS[b] then
+                for i = 1, 12 do
+                    if b ~= wantBar or i ~= wantBtn then
+                        local slot = self:ResolveActionSlot(b, i)
+                        if self:ActionRepresentsSpell(slot, name, template) then
+                            self:ClearSlot(slot)
+                            evicted = evicted + 1
+                        end
+                    end
+                end
+            end
+        end
+    end
+    if evicted > 0 then
+        print(string.format("|cff999999SetupCore|r evicted %d stale duplicate action(s)", evicted))
+    end
+    return evicted
+end
+
 -- Clears action slots on bars 1..maxBar but skips PROTECTED_BARS (see table above).
 -- Pass `maxBar` = number of HIGHEST bar to clear (default 9).
 function SetupCore:ClearAllBars(maxBar)
@@ -439,14 +515,8 @@ function SetupCore:ClearAllBars(maxBar)
     for b = 1, maxBar do
         if not PROTECTED_BARS[b] then
             for i = 1, 12 do
-                local btn = _G["ElvUI_Bar"..b.."Button"..i]
-                if btn then
-                    local slot = btn:GetAttribute("action")
-                    if slot then
-                        PickupAction(slot)
-                        ClearCursor()
-                    end
-                end
+                local slot = self:ResolveActionSlot(b, i)
+                if slot then self:ClearSlot(slot) end
             end
         end
     end
@@ -465,22 +535,20 @@ function SetupCore:BackupBars(maxBar)
     for b = 1, maxBar do
         for i = 1, 12 do
             local btn = _G["ElvUI_Bar"..b.."Button"..i]
-            if btn then
-                local slot = btn:GetAttribute("action")
-                if slot then
-                    local actionType, id = GetActionInfo(slot)
-                    if actionType == "spell" then
-                        local name = GetSpellInfo(id)
-                        snapshot.slots[slot] = {type = "spell", id = id, name = name}
-                        count = count + 1
-                    elseif actionType == "macro" then
-                        local mname = GetMacroInfo(id)
-                        snapshot.slots[slot] = {type = "macro", name = mname}
-                        count = count + 1
-                    elseif actionType == "item" then
-                        snapshot.slots[slot] = {type = "item", id = id}
-                        count = count + 1
-                    end
+            local slot = self:ResolveActionSlot(b, i)
+            if slot then
+                local actionType, id = GetActionInfo(slot)
+                if actionType == "spell" then
+                    local name = GetSpellInfo(id)
+                    snapshot.slots[slot] = {type = "spell", id = id, name = name}
+                    count = count + 1
+                elseif actionType == "macro" then
+                    local mname = GetMacroInfo(id)
+                    snapshot.slots[slot] = {type = "macro", name = mname}
+                    count = count + 1
+                elseif actionType == "item" then
+                    snapshot.slots[slot] = {type = "item", id = id}
+                    count = count + 1
                 end
             end
         end
@@ -621,9 +689,7 @@ end
 
 -- Place an existing macro by name on a bar slot. Companion to EnsureRawMacro.
 function SetupCore:PlaceMacro(macroName, bar, btn)
-    local b = _G["ElvUI_Bar"..bar.."Button"..btn]
-    if not b then return false end
-    local slot = b:GetAttribute("action")
+    local slot = self:ResolveActionSlot(bar, btn)
     if not slot then return false end
 
     local idx = GetMacroIndexByName(macroName)
@@ -635,12 +701,6 @@ function SetupCore:PlaceMacro(macroName, bar, btn)
     end
     ClearCursor()
     return true
-end
-
-function SetupCore:ClearSlot(slot)
-    if not slot or not HasAction(slot) then return end
-    PickupAction(slot)
-    ClearCursor()
 end
 
 -- Remove visual placeholder macros so real spells/macros can land on bound keys.
@@ -655,12 +715,39 @@ function SetupCore:PrepareSlotForPlace(slot)
     end
 end
 
-function SetupCore:PlaceSpell(name, bar, btn, template)
-    local b = _G["ElvUI_Bar"..bar.."Button"..btn]
-    if not b then return false end
-    local slot = b:GetAttribute("action")
+-- Place spells on protected bars (6 utility, 7 consumables) only in empty slots.
+-- Never overwrites mount, hearth, food, etc. the user already placed.
+function SetupCore:SeedProtectedBar(layout)
+    if not layout then return 0 end
+    local placed = 0
+    for _, item in ipairs(layout) do
+        local name, bar, btn, template = item[1], item[2], item[3], item[4]
+        if PROTECTED_BARS[bar] then
+            local b = _G["ElvUI_Bar"..bar.."Button"..btn]
+            if b then
+                local slot = b:GetAttribute("action")
+                if slot and self:IsSlotEmpty(slot) then
+                    if self:PlaceSpell(name, bar, btn, template) then
+                        placed = placed + 1
+                    end
+                end
+            end
+        end
+    end
+    if placed > 0 then
+        print(string.format("|cff999999SetupCore|r seeded %d spell(s) on protected click bar(s)", placed))
+    end
+    return placed
+end
+
+function SetupCore:PlaceSpell(name, bar, btn, template, forceClear)
+    local slot = self:ResolveActionSlot(bar, btn)
     if not slot then return false end
-    self:PrepareSlotForPlace(slot)
+    if forceClear then
+        self:ClearSlot(slot)
+    else
+        self:PrepareSlotForPlace(slot)
+    end
 
     if template then
         -- Skip if the underlying spell isn't trained yet — no point creating a
@@ -690,19 +777,9 @@ function SetupCore:PlaceSpell(name, bar, btn, template)
     return false
 end
 
--- Fill every BOUND-but-empty bar slot with a placeholder macro so the keyboard
--- shape stays visible at low levels (when most slots are unfilled because the
--- spell isn't trained yet). Without this + showGrid=false, empty buttons just
--- don't render, leaving holes in the keyboard-mirror layout.
---
--- The placeholder is a per-character macro named " " (single space) with an
--- empty body and a question-mark icon. Pressing it does nothing. As the player
--- trains spells, real spells overlay the placeholders. Idempotent: only fills
--- slots that are currently empty.
---
--- The set of "bound" slots is derived from the BINDINGS table — any binding
--- whose action is ACTIONBUTTONn or MULTIACTIONBARxBUTTONn maps to a bar slot
--- we want visible.
+-- Fill empty slots that have an active keybind (respects class freedKeys).
+-- freedKeys = key released entirely (no bind, no placeholder). All other
+-- bound-but-empty slots get a placeholder so the keyboard shape stays visible.
 function SetupCore:FillEmptyBoundSlots()
     local placeholderName = " "
     -- Subtle placeholder icon (file ID, user-chosen). WoW accepts numeric file
@@ -720,10 +797,11 @@ function SetupCore:FillEmptyBoundSlots()
 
     -- Map MULTIACTIONBARn (Blizzard naming) to ElvUI bar number.
     local barMap = {["3"]=3, ["4"]=4, ["2"]=5}
+    local freedSet = self:GetFreedKeySet()
     local slots = {}
     for _, b in ipairs(BINDINGS) do
-        local action = b[2]
-        if action then
+        local key, action = b[1], b[2]
+        if action and not freedSet[key] then
             local n = action:match("^ACTIONBUTTON(%d+)$")
             if n then
                 slots[#slots+1] = {1, tonumber(n)}
@@ -737,22 +815,56 @@ function SetupCore:FillEmptyBoundSlots()
     end
 
     local placed = 0
-    for _, s in ipairs(slots) do
-        local bar, btn = s[1], s[2]
-        local frame = _G["ElvUI_Bar"..bar.."Button"..btn]
-        if frame then
-            local slotIdx = frame:GetAttribute("action")
-            if slotIdx and self:IsSlotEmpty(slotIdx) then
-                if self:PlaceMacro(placeholderName, bar, btn) then
-                    placed = placed + 1
-                end
+    local function maybePlaceholder(bar, btn)
+        local slotIdx = self:ResolveActionSlot(bar, btn)
+        if slotIdx and self:IsSlotEmpty(slotIdx) then
+            if self:PlaceMacro(placeholderName, bar, btn) then
+                placed = placed + 1
             end
         end
     end
+
+    for _, s in ipairs(slots) do
+        maybePlaceholder(s[1], s[2])
+    end
+
     if placed > 0 then
         print(string.format("|cff999999SetupCore|r placed %d visual placeholders on empty bound slots", placed))
     end
     return placed
+end
+
+-- Strip actions from bar slots whose keys are class-freed (e.g. Shaman 3/4).
+-- Handles leftovers from older setups that still placed placeholders there.
+function SetupCore:ClearFreedKeySlots()
+    local freedSet = self:GetFreedKeySet()
+    if not next(freedSet) then return 0 end
+
+    local barMap = {["3"]=3, ["4"]=4, ["2"]=5}
+    local cleared = 0
+    for _, b in ipairs(BINDINGS) do
+        local key, action = b[1], b[2]
+        if action and freedSet[key] then
+            local bar, btn
+            local n = action:match("^ACTIONBUTTON(%d+)$")
+            if n then
+                bar, btn = 1, tonumber(n)
+            else
+                local mb, button = action:match("^MULTIACTIONBAR(%d+)BUTTON(%d+)$")
+                if mb and barMap[mb] then
+                    bar, btn = barMap[mb], tonumber(button)
+                end
+            end
+            if bar and btn then
+                local slot = self:ResolveActionSlot(bar, btn)
+                if slot and HasAction(slot) then
+                    self:ClearSlot(slot)
+                    cleared = cleared + 1
+                end
+            end
+        end
+    end
+    return cleared
 end
 
 -- Evict any "Attack" auto-toggle placement from ALL bars (including protected
@@ -789,10 +901,11 @@ end
 -- Idempotent: safe to call repeatedly.
 function SetupCore:ApplyBindings()
     local applied, cleared = 0, 0
+    local freedSet = self:GetFreedKeySet()
     for _, b in ipairs(BINDINGS) do
         local key, action = b[1], b[2]
         if action then
-            if SetBinding(key, action) then applied = applied + 1 end
+            if not freedSet[key] and SetBinding(key, action) then applied = applied + 1 end
         else
             -- Unbind: only act if currently bound (avoid spurious "no change" calls).
             -- GetBindingAction is the Classic+Retail-safe API (GetBindingByKey is retail-only).
@@ -801,6 +914,13 @@ function SetupCore:ApplyBindings()
                 SetBinding(key)
                 cleared = cleared + 1
             end
+        end
+    end
+    for key in pairs(freedSet) do
+        local cur = GetBindingAction(key)
+        if cur and cur ~= "" then
+            SetBinding(key)
+            cleared = cleared + 1
         end
     end
     SaveBindings(2)  -- 2 = per-character; safer than account-wide for friend installs
@@ -909,18 +1029,20 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     local placed, skipped = 0, {}
     for _, item in ipairs(layout) do
         local name, bar, btn, template = item[1], item[2], item[3], item[4]
-        if self:PlaceSpell(name, bar, btn, template) then
+        if self:PlaceSpell(name, bar, btn, template, true) then
             placed = placed + 1
         else
             table.insert(skipped, name)
         end
     end
+    self:EvictLayoutDuplicates(layout)
     local mapped = {}
     for _, item in ipairs(layout) do mapped[item[1]] = true end
     ignore = ignore or {}
 
     -- Fill any remaining empty bound slots with the visual placeholder.
     self:FillEmptyBoundSlots()
+    self:ClearFreedKeySlots()
 
     return placed, skipped, self:FindOrphans(mapped, ignore)
 end

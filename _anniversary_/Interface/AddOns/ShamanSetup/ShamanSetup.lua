@@ -2,63 +2,49 @@
 -- Format: {spellName, bar, button[, macroTemplate]}
 --   See SetupCore.lua for the list of available macroTemplate names.
 --
--- BAR LAYOUT (post-OPie-migration):
---   Bar 1 = MAIN TOP (12 buttons, 6×2) — `, 1, 2, 3, 4, 5 / _, Q, _, E, R, T
---   Bar 3 = MAIN BOTTOM (12 buttons, 6×2) — _, _, _, F, G, _ / _, Z, X, C, V, B
---   Bar 4 = ALT TOP (mirror of Bar 1) — Alt-`, Alt-1..5 / _, Alt-Q, _, Alt-E, Alt-R, Alt-T
---   Bar 5 = ALT BOTTOM (mirror of Bar 3) — _, _, _, Alt-F, Alt-G, _ / _, Alt-Z, Alt-X, Alt-C, Alt-V, Alt-B
---   Bar 6 = UTILITY (12 buttons, click only, NOT cleared by /setupbars; drag your professions/mounts/hearth/etc here)
---   Bar 7 = DISABLED (was special bar; M3 unbound)
---   Bar 9 = DISABLED (was totem-swap; OPie totem ring replaces it)
+-- BAR LAYOUT:
+--   Bar 1 = MAIN TOP — ` 1 2 3 4 / Q E R T  (3/4 = bound placeholders, no spells)
+--   Bar 3 = MAIN BOTTOM — F G / Z X C V B  (F = placeholder after LS→E)
+--   Bar 4 = ALT — numrow heals (Alt-1/2/3), home row casts (Alt-Q/E/R)
+--   Bar 5 = ALT BOTTOM — Alt-F/G racials; Alt-Z/X placeholders; Alt-C/V/B placeholders (M3 decurse)
+--   Bar 6 = UTILITY (click): water travel, far sight, recall, rez — seeded, never wiped
+--   Bar 7 = CONSUMABLES (click): food/pots/bandages — user fills, never wiped
 --
--- Totems and weapon enchants live in OPie rings (M4 = Totems, M5 = Weapon Enchants).
--- See bottom of file for ring registration.
+-- Totems and weapon enchants: OPie M4 / Alt+M4 profiles / M5.
 
 local LAYOUT = {
     -- MAIN TOP (Bar 1) ============================================
-    -- Number row: shocks + utility
-    {"Earth Shock",            1, 1},                     -- L4    `   (also primary interrupt)
-    {"Flame Shock",            1, 2, "nuke-mouseover"},   -- L10   1   (instant DoT — mouseover spreads to adds while staying engaged with main target)
+    {"Earth Shock",            1, 1},                     -- L4    `   interrupt
+    {"Flame Shock",            1, 2, "nuke-mouseover"},   -- L10   1
     {"Frost Shock",            1, 3},                     -- L12   2
-    {"Far Sight",              1, 4},                     -- L18   3
-    {"Astral Recall",          1, 5},                     -- L30   4
-    -- QERT row (Q/E/R/T): Q + E populated by totem-set /castsequence macros in Run()
-    --   Q = melee party set (SoE → Searing → Mana Spring → Windfury)
-    --   E = caster party set (Stoneskin → Flametongue → Mana Spring → Wrath of Air)
-    {"Stormstrike",            1, 11},                     -- R   Enhancement nuke (skipped until trained)
-    {"Shamanistic Rage",       1, 12},                     -- T   Enhancement CD (skipped until talented)
-    -- OPie M4 holds individual totems
+    -- 3/4 = keybound placeholders only (travel spells on utility bar 6)
+    {"Stormstrike",            1, 8, "startattack"},     -- Q   Enh nuke (skipped until trained)
+    {"Lightning Shield",       1, 10},                    -- E   instant self-buff refresh
+    {"Shamanistic Rage",       1, 12},                    -- T   Enh CD (skipped until talented)
 
     -- MAIN BOTTOM (Bar 3) ==========================================
-    -- FG row: buffs (G empty after Gift of the Naaru moved to Alt-G)
-    {"Lightning Shield",       3, 5},                     -- L8    F   (right-aligned)
-    -- ZXCVB row: weapon enchants moved to OPie (M5); Ghost Wolf promoted from Alt-F (now instant via talent)
-    {"Ghost Wolf",             3, 8},                     -- L16   Z   (instant via Improved Ghost Wolf talent)
-    {"Totemic Call",           3, 9},                     -- X     recall all totems
-    -- C/V/B left empty — startattack template + right-click cover auto-attack
+    -- F free after Lightning Shield moved to E; G = racial on Draenei
+    {"Ghost Wolf",             3, 8},                     -- Z
+    {"Totemic Call",           3, 9},                     -- X
 
-    -- ALT TOP (Bar 4) ==============================================
-    -- Alt-numrow: damage casts
-    {"Lightning Bolt",         4, 2, "nuke-mouseover"},   -- L1    Alt-1 (cast nuke — mouseover supports kiting / target-swap playstyle)
-    {"Chain Lightning",        4, 3},                     -- L32   Alt-2
-    {"Water Shield",           4, 4},                     -- L20   Alt-3  (self-buff; raw spell)
-    -- Alt-4 left empty
-    {"Ancestral Spirit",       4, 6, "mouseover-help"},   -- L12   Alt-5 (OOC rez - demoted off heal cluster, low-frequency)
-    -- Alt-QERT: combat heals (mouseover-friendly), promoted by frequency
-    {"Healing Wave",           4, 8, "mouseover-help"},   -- L6    Alt-Q (main slow heal)
-    {"Lesser Healing Wave",    4, 10, "mouseover-help"},  -- L20   Alt-E (promoted from Alt-R - fast emergency heal next to main heal)
-    {"Chain Heal",             4, 11, "mouseover-help"},  -- L40   Alt-R (promoted from Alt-T - group heal)
-    -- Alt-T left empty
+    -- ALT TOP (Bar 4) — heals on numrow, damage on Q/E/R home row ========
+    {"Healing Wave",           4, 2, "mouseover-help"},   -- Alt-1
+    {"Lesser Healing Wave",    4, 3, "mouseover-help"},   -- Alt-2
+    {"Chain Heal",             4, 4, "mouseover-help"},   -- Alt-3
+    -- Alt-4 = racial CD (Orc/Troll via RACIALS); Alt-5 = placeholder
+    {"Lightning Bolt",         4, 8, "nuke-mouseover"},   -- Alt-Q
+    {"Chain Lightning",        4, 10},                     -- Alt-E
+    {"Water Shield",           4, 11},                     -- Alt-R
+    -- Alt-T = placeholder
+}
 
-    -- ALT BOTTOM (Bar 5) ===========================================
-    -- Alt-FG: utility (Alt-F empty after Tremor → OPie + Ghost Wolf → Z;
-    -- Alt-G now claimed by Draenei racial Gift of the Naaru via RACIALS table below)
-    -- Alt-ZXCVB: travel + dispels (mouseover-friendly)
-    {"Water Breathing",        5, 8},                     -- L24   Alt-Z
-    {"Water Walking",          5, 9},                     -- L28   Alt-X
-    {"Cure Disease",           5, 10, "mouseover-help"},  -- L18   Alt-C
-    {"Cure Poison",            5, 11, "mouseover-help"},  -- L14   Alt-V
-    {"Purge",                  5, 12, "mouseover-harm"},  -- L10   Alt-B
+-- Click-only bar 6: travel, scouting, recall, rez. Only fills empty slots.
+local UTILITY_LAYOUT = {
+    {"Water Breathing",        6, 1},
+    {"Water Walking",          6, 2},
+    {"Far Sight",              6, 3},
+    {"Astral Recall",          6, 4},
+    {"Ancestral Spirit",       6, 5, "mouseover-help"},
 }
 
 local IGNORE = {
@@ -116,6 +102,11 @@ local IGNORE = {
     ["Blacksmithing"]=true, ["Jewelcrafting"]=true,
     -- Auto-handled
     ["Reincarnation"]=true,
+    -- M3 SC_Decurse macro (mouseover poison/disease + Purge)
+    ["Cure Disease"]=true, ["Cure Poison"]=true, ["Purge"]=true,
+    -- Bar 6 utility clickables (SeedProtectedBar)
+    ["Water Breathing"]=true, ["Water Walking"]=true,
+    ["Far Sight"]=true, ["Astral Recall"]=true, ["Ancestral Spirit"]=true,
 }
 
 -- Obsolete totem profile macros (truncated-name duplicates + pre-ring-rename leftovers).
@@ -126,6 +117,8 @@ local OBSOLETE_MACROS = {
     "SC_TotemMeleeSol",
     "SC_TotemCasterGr",
     "SC_TotemCasterSo",
+    "SC_TotemMelee",
+    "SC_TotemCaster",
     "SC_TotemMeleeGroup",
     "SC_TotemMeleeSolo",
     "SC_TotemCasterGroup",
@@ -138,13 +131,8 @@ local OBSOLETE_MACROS = {
     "SC_TP_AoEMagma",
 }
 
--- Default totem sets — placed AFTER ApplyLayout so they survive the bar clear.
--- /castsequence drops one totem per press, advancing through the list.
--- Resets out of combat or after 15s of inactivity (whichever first).
--- #showtooltip with no arg dynamically shows the next-to-cast totem icon.
---
--- Q/E keep two primary profiles for fast spam. Alt+M4 ring uses inline OPie macro
--- bodies (no extra named macros — saves precious macro slots).
+-- Totem profile bodies for the Alt+M4 OPie ring (inline macros — no named macro slots).
+-- /castsequence drops one totem per press; resets out of combat or after 15s idle.
 -- Basic melee: Strength of Earth + Searing + Healing Stream + Windfury (group survival focused)
 -- Basic caster: Stoneskin + Flametongue + Healing Stream + Wrath of Air
 -- AoE — Nova (L14+, works while leveling): Stoneclaw → Searing → Fire Nova → HS
@@ -186,27 +174,21 @@ local function Run()
 
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
 
-    -- Totem-set macros on Q/E (temporary until ring workflow replaces them).
-    local _, _, meleeIcon = GetSpellInfo("Strength of Earth Totem")
-    SetupCore:EnsureRawMacro("SC_TotemMelee", TOTEM_MELEE_BODY, meleeIcon)
-    if SetupCore:PlaceMacro("SC_TotemMelee", 1, 8) then placed = placed + 1 end
-
-    local _, _, casterIcon = GetSpellInfo("Stoneskin Totem")
-    SetupCore:EnsureRawMacro("SC_TotemCaster", TOTEM_CASTER_BODY, casterIcon)
-    if SetupCore:PlaceMacro("SC_TotemCaster", 1, 10) then placed = placed + 1 end
+    SetupCore:SeedProtectedBar(UTILITY_LAYOUT)
 
     -- M3 decurse: mouseover poison/disease on friends, Purge on enemies.
     SetupCore:EnsureDecurseMacro("decurse-shaman", "Cure Poison")
     SetupCore:ApplyMacroBindings()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
-    print("|cffffd700ShamanSetup tip:|r Q = Melee Group, E = Caster Group (both use Windfury Totem).")
-    print("|cff999999  Middle-click (M3) = decurse mouseover (Cure Poison/Disease or Purge).|r")
-    print("|cff999999  Alt + M4: Totem Profiles ring — pick a set, then spam Alt + M4 to drop all four totems.|r")
-    print("|cff999999  M4 / M5: individual totems / weapon enchants.|r")
+    print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")
+    print("|cff999999  M3 decurse | M4/Alt+M4 totems | M5 weapon enchants. Bar 6=travel/rez click, bar 7=consumables.|r")
 end
 
-SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {ignore = IGNORE, racials = RACIALS})
+SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {
+    ignore = IGNORE,
+    racials = RACIALS,
+})
 SetupCore:RegisterDecurseMacro("SC_Decurse", "SHAMAN")
 
 -- ===========================================================================

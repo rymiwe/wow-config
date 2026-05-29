@@ -17,6 +17,44 @@
 --
 -- Note: Zygor doesn't load until after PLAYER_LOGIN, so we wait for its
 -- SavedVariable global to appear. If Zygor isn't installed, this is a no-op.
+--
+-- SIS fix: QuestDB:FindStartingPoint (Zygor 8.1) calls condition_suggested_race()
+-- on past guides without checking for nil. Some Anniversary guide chains only
+-- define condition_suggested_exclusive. We wrap FindStartingPoint and backfill
+-- a permissive race check before Zygor walks the guide chain.
+
+local ZYGOR_ADDON_NAMES = {
+    "ZygorGuidesViewerClassicTBCAnniv",
+    "ZygorGuidesViewerClassic",
+}
+
+local function EnsureGuideRaceConditions()
+    if not ZGV or not ZGV.registeredguides then return end
+    for _, guide in pairs(ZGV.registeredguides) do
+        if not guide.condition_suggested_race then
+            guide.condition_suggested_race = function() return true end
+        end
+    end
+end
+
+local function PatchZygorSISRaceGuard()
+    if not ZGV or not ZGV.QuestDB then return false end
+    if ZGV.QuestDB._ZygorSetupSISPatched then return true end
+    local orig = ZGV.QuestDB.FindStartingPoint
+    if type(orig) ~= "function" then return false end
+
+    ZGV.QuestDB.FindStartingPoint = function(self, ...)
+        EnsureGuideRaceConditions()
+        return orig(self, ...)
+    end
+    ZGV.QuestDB._ZygorSetupSISPatched = true
+    return true
+end
+
+local function TryPatchZygor()
+    EnsureGuideRaceConditions()
+    return PatchZygorSISRaceGuard()
+end
 
 local PRESET = {
     windowlocked    = true,
@@ -77,13 +115,26 @@ end
 
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
-f:SetScript("OnEvent", function()
+f:RegisterEvent("ADDON_LOADED")
+f:SetScript("OnEvent", function(_, event, addon)
+    if event == "ADDON_LOADED" then
+        for _, name in ipairs(ZYGOR_ADDON_NAMES) do
+            if addon == name then
+                TryPatchZygor()
+                return
+            end
+        end
+        return
+    end
+
     -- Zygor's SV table may not be populated yet at PLAYER_LOGIN. Try
     -- immediately; if it fails, retry a few times with backoff.
+    TryPatchZygor()
     if ApplyConfig() then return end
     local attempts = 0
     local function retry()
         attempts = attempts + 1
+        TryPatchZygor()
         if ApplyConfig() then return end
         if attempts < 5 then
             C_Timer.After(1, retry)

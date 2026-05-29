@@ -12,7 +12,6 @@ ElvCharacterDB = {
 "/tsm",
 "/tsm warehousing",
 "/tsm warehouse",
-"/setupbars",
 "/tsm destroyu",
 "/ginvite Jrti",
 "/tsm destoy",
@@ -21,6 +20,7 @@ ElvCharacterDB = {
 "k",
 "/2 WTS |cffffd000|Henchant:13661|h[Enchant Bracer - Strength]|h|r 50s",
 "/rl",
+"/setupbars",
 "/tsm destroy",
 },
 ["ChatHistoryLog"] = {

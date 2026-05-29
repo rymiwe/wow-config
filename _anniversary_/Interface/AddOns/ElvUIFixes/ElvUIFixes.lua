@@ -3,6 +3,7 @@
 -- Chat:
 --   - Force GeneralDockManager.primary=ChatFrame1, re-snap after SetPoint drift
 --   - Consolidate chat tabs into left panel; hide unused right panel
+--   - Close unused chat windows 4–10 (persisted in chat-cache) so tabs stop reappearing
 --   - Guard ChatConfigFrame Settings when extra chat tabs aren't initialized
 --
 -- Game menu:
@@ -15,6 +16,36 @@ end
 local function GetCH()
     local E = _G.ElvUI and _G.ElvUI[1]
     return E and E:GetModule('Chat', true)
+end
+
+local KEEP_CHAT_WINDOWS = 3 -- General, Combat Log, Voice
+
+local function GetChatWindowName(index)
+    if not _G.FCF_GetChatWindowInfo then return nil end
+    local name = _G.FCF_GetChatWindowInfo(index)
+    if type(name) ~= 'string' or name == '' then return nil end
+    return name
+end
+
+local function IsExtraChatWindow(index)
+    if type(index) ~= 'number' or index <= KEEP_CHAT_WINDOWS then return false end
+    if index > (_G.NUM_CHAT_WINDOWS or 10) then return false end
+    local name = GetChatWindowName(index)
+    if not name then return true end
+    if name:match('^Chat %d+$') then return true end
+    return false
+end
+
+local function PruneExtraChatWindows()
+    if not _G.FCF_Close then return end
+    for i = (_G.NUM_CHAT_WINDOWS or 10), KEEP_CHAT_WINDOWS + 1, -1 do
+        if IsExtraChatWindow(i) then
+            local chat = _G['ChatFrame' .. i]
+            if chat then
+                pcall(_G.FCF_Close, chat)
+            end
+        end
+    end
 end
 
 local function GetChatTab(chatFrame)
@@ -30,6 +61,7 @@ local function ChatIndexHasTab(index)
 end
 
 local function InitChatFrame(index)
+    if IsExtraChatWindow(index) then return false end
     local chatFrame = _G['ChatFrame' .. index]
     if not chatFrame then return false end
     if _G.FloatingChatFrame_Update then
@@ -52,7 +84,7 @@ local function ResolveChatConfigIndex(index)
         local cur = _G.FCF_GetCurrentChatFrameID()
         if type(cur) == 'number' and InitChatFrame(cur) then return cur end
     end
-    for i = 1, (_G.NUM_CHAT_WINDOWS or 10) do
+    for i = 1, KEEP_CHAT_WINDOWS do
         if InitChatFrame(i) then return i end
     end
     return 1
@@ -73,7 +105,7 @@ local function PrepareChatConfigOpen()
 end
 
 local function EnsureChatTabs()
-    for i = 1, (_G.NUM_CHAT_WINDOWS or 10) do
+    for i = 1, KEEP_CHAT_WINDOWS do
         local chat = _G['ChatFrame' .. i]
         if chat and chat:IsShown() then
             InitChatFrame(i)
@@ -103,7 +135,10 @@ local function ConsolidateChats()
     for _, frameName in ipairs(_G.CHAT_FRAMES or {}) do
         local chat = _G[frameName]
         if chat and chat ~= _G.ChatFrame1 then
-            if chat.isDocked then
+            local id = chat.GetID and chat:GetID()
+            if id and IsExtraChatWindow(id) then
+                -- skip empty slots persisted in chat-cache
+            elseif chat.isDocked then
                 local _, relativeTo = chat:GetPoint()
                 if dock and relativeTo ~= dock then
                     _G.FCF_DockFrame(chat)
@@ -132,6 +167,7 @@ local function ConsolidateChats()
 end
 
 local function ApplyInitFix()
+    PruneExtraChatWindows()
     local dock = GetDock()
     if dock and _G.ChatFrame1 and dock.primary ~= _G.ChatFrame1 then
         dock.primary = _G.ChatFrame1

@@ -17,14 +17,12 @@ SetupCoreCharDB = {
 ["name"] = "Frost Shock",
 },
 {
-["id"] = 6196,
-["type"] = "spell",
-["name"] = "Far Sight",
+["name"] = " ",
+["type"] = "macro",
 },
 {
-["id"] = 556,
-["type"] = "spell",
-["name"] = "Astral Recall",
+["name"] = " ",
+["type"] = "macro",
 },
 {
 ["name"] = " ",
@@ -32,41 +30,12 @@ SetupCoreCharDB = {
 },
 nil,
 {
-["name"] = "SC_TotemMelee",
+["name"] = "SC_Stormstrike",
 ["type"] = "macro",
 },
 nil,
 {
-["name"] = "SC_TotemCaster",
-["type"] = "macro",
-},
-{
-["id"] = 17364,
-["type"] = "spell",
-["name"] = "Stormstrike",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-{
-["id"] = 945,
+["id"] = 8134,
 ["type"] = "spell",
 ["name"] = "Lightning Shield",
 },
@@ -74,146 +43,138 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-nil,
 {
+["name"] = " ",
+["type"] = "macro",
+},
+[30] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[61] = {
+["id"] = 6149,
+["type"] = "item",
+},
+[62] = {
+["id"] = 1708,
+["type"] = "item",
+},
+[32] = {
 ["id"] = 2645,
 ["type"] = "spell",
 ["name"] = "Ghost Wolf",
 },
-{
+[33] = {
 ["id"] = 36936,
 ["type"] = "spell",
 ["name"] = "Totemic Call",
 },
-{
+[34] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-{
+[35] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-{
+[36] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-{
+[37] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-{
+[38] = {
 ["name"] = "SC_LightningBolt",
 ["type"] = "macro",
 },
-{
-["id"] = 421,
-["type"] = "spell",
-["name"] = "Chain Lightning",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = "SC_AncestralSpir",
-["type"] = "macro",
-},
-nil,
-{
-["name"] = "SC_HealingWave",
-["type"] = "macro",
-},
-nil,
-{
+[39] = {
 ["name"] = "SC_LesserHealing",
 ["type"] = "macro",
 },
-{
-["name"] = "SC_ChainHeal",
-["type"] = "macro",
+[40] = {
+["id"] = 930,
+["type"] = "spell",
+["name"] = "Chain Lightning",
 },
-{
+[41] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-nil,
-nil,
-nil,
-nil,
-{
+[42] = {
 ["name"] = " ",
 ["type"] = "macro",
-},
-{
-["name"] = "SC_GiftoftheNaar",
-["type"] = "macro",
-},
-nil,
-{
-["id"] = 131,
-["type"] = "spell",
-["name"] = "Water Breathing",
-},
-{
-["id"] = 546,
-["type"] = "spell",
-["name"] = "Water Walking",
-},
-{
-["name"] = "SC_CureDisease",
-["type"] = "macro",
-},
-{
-["name"] = "SC_CurePoison",
-["type"] = "macro",
-},
-{
-["name"] = "SC_Purge",
-["type"] = "macro",
-},
-{
-["id"] = 6149,
-["type"] = "item",
-},
-{
-["id"] = 4791,
-["type"] = "item",
-},
-{
-["id"] = 36936,
-["type"] = "spell",
-["name"] = "Totemic Call",
-},
-[71] = {
-["id"] = 8544,
-["type"] = "item",
-},
-[66] = {
-["id"] = 29744,
-["type"] = "item",
-},
-[70] = {
-["id"] = 6807,
-["type"] = "item",
 },
 [72] = {
 ["id"] = 3928,
 ["type"] = "item",
 },
+[44] = {
+["name"] = "SC_HealingWave",
+["type"] = "macro",
+},
+[64] = {
+["id"] = 556,
+["type"] = "spell",
+["name"] = "Astral Recall",
+},
+[46] = {
+["name"] = "SC_ChainHeal",
+["type"] = "macro",
+},
+[47] = {
+["name"] = "SC_LesserHealing",
+["type"] = "macro",
+},
+[48] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[65] = {
+["name"] = "SC_AncestralSpir",
+["type"] = "macro",
+},
 [67] = {
-["id"] = 1322,
+["id"] = 13262,
+["type"] = "spell",
+["name"] = "Disenchant",
+},
+[66] = {
+["id"] = 29744,
 ["type"] = "item",
 },
-[69] = {
-["id"] = 3771,
+[71] = {
+["id"] = 8544,
 ["type"] = "item",
 },
+[53] = {
+["name"] = " ",
+["type"] = "macro",
 },
-["timestamp"] = "2026-05-25 18:53:15",
+[54] = {
+["name"] = "SC_GiftoftheNaar",
+["type"] = "macro",
+},
+[63] = {
+["id"] = 6196,
+["type"] = "spell",
+["name"] = "Far Sight",
+},
+[56] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[29] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[57] = {
+["name"] = " ",
+["type"] = "macro",
+},
+},
+["timestamp"] = "2026-05-29 01:36:39",
 },
 ["channelsLeft"] = true,
 }

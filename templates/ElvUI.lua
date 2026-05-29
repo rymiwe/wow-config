@@ -231,7 +231,7 @@ ElvDB = {
 ["ElvAB_10"] = "BOTTOM,ElvUIParent,BOTTOM,0,4",
 ["tokenHolderMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-164",
 ["PlayerPowerBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,209",
-["ElvAB_7"] = "BOTTOM,ElvUIParent,BOTTOM,0,290",
+["ElvAB_7"] = "BOTTOM,ElvUIParent,BOTTOM,0,44",
 ["RightChatMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-233,26",
 ["ElvAB_6"] = "BOTTOM,ElvUIParent,BOTTOM,0,4",
 ["RequestStopButton"] = "TOP,ElvUIParent,TOP,0,-161",
@@ -781,7 +781,13 @@ ElvDB = {
 },
 ["font"] = "Expressway",
 ["bar7"] = {
-["enabled"] = false,
+["enabled"] = true,
+["buttons"] = 6,
+["buttonsPerRow"] = 6,
+["buttonSpacing"] = 3,
+["buttonSize"] = 36,
+["backdrop"] = true,
+["hotkeytext"] = false,
 },
 ["barPet"] = {
 ["buttonHeight"] = 22,
