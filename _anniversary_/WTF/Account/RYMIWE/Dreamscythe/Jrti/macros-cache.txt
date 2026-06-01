@@ -10,6 +10,10 @@ VER 3 0100000000000002 "SC_DivineProtect" "135954"
 #showtooltip
 /cast [@player] Divine Protection
 END
+VER 3 010000000000000D "SC_FlashofLight" "135907"
+#showtooltip
+/cast [@mouseover,help,nodead][help,nodead][@player] Flash of Light
+END
 VER 3 0100000000000005 "SC_GiftoftheNaar" "135923"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru

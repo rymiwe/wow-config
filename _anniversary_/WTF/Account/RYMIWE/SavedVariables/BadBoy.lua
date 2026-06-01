@@ -1,6 +1,6 @@
 
 BADBOY_BLACKLIST = {
-["dayFromCal"] = 29,
+["dayFromCal"] = 31,
 }
 BADBOY_OPTIONS = {
 }

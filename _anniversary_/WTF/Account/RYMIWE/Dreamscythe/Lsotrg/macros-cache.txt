@@ -3,6 +3,12 @@ VER 3 0100000000000006 "SC_ArcaneMissile" "136096"
 /startattack
 /cast [@mouseover,harm,nodead][harm,nodead] Arcane Missiles
 END
+VER 3 0100000000000008 "SC_Decurse" "INV_Misc_QuestionMark"
+#showtooltip
+/cast [@mouseover,help,nodead] Remove Lesser Curse
+/cast [help,nodead] Remove Lesser Curse
+/cast [@player] Remove Lesser Curse
+END
 VER 3 0100000000000001 "SC_Fireball" "135812"
 #showtooltip
 /startattack
