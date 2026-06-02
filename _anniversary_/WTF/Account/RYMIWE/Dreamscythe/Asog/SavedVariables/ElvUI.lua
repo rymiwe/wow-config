@@ -20,8 +20,8 @@ ElvCharacterDB = {
 "k",
 "/2 WTS |cffffd000|Henchant:13661|h[Enchant Bracer - Strength]|h|r 50s",
 "/setupbars",
-"/tsm destroy",
 "/rl",
+"/tsm destroy",
 },
 ["ChatHistoryLog"] = {
 },
