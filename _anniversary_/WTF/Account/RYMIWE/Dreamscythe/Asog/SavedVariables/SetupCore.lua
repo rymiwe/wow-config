@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -106,15 +107,16 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[72] = {
-["id"] = 3928,
-["type"] = "item",
+[64] = {
+["id"] = 556,
+["type"] = "spell",
+["name"] = "Astral Recall",
 },
 [44] = {
 ["name"] = "SC_HealingWave",
 ["type"] = "macro",
 },
-[29] = {
+[57] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
@@ -164,17 +166,15 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[57] = {
+[29] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[64] = {
-["id"] = 556,
-["type"] = "spell",
-["name"] = "Astral Recall",
+[72] = {
+["id"] = 3928,
+["type"] = "item",
 },
 },
 ["timestamp"] = "2026-05-29 01:36:39",
 },
-["channelsLeft"] = true,
 }
