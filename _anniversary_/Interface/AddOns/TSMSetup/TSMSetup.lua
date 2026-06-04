@@ -5,24 +5,33 @@
 --   - Custom minprice (sniper): max(min(dbminbuyout, dbmarket), vendorsell)
 --   - Auctioning min price floor: vendorsell/0.95+1c
 -- Disenchant helper custom source:
---   - deprofit_est = destroy - dbminbuyout (profit vs realm cheapest buyout; item-level)
+--   - deprofit = destroy - dbminbuyout (no spaces — TSM parses reliably)
 
 local DESIRED_MAT_PRICE = "min(dbminbuyout, dbmarket)"
 local DESIRED_CRAFT_PRICE = "0.8 * dbmarket"
 local DESIRED_MINPRICE = "max(min(dbminbuyout, dbmarket), vendorsell)"
 local VENDOR_MIN_FLOOR = "vendorsell/0.95+1c"
 
+-- Compact formula (no spaces around operators) matches in-game custom sources that work.
+local DEPROFIT_FORMULA = "ifgt(dbminbuyout,0,max(destroy-dbminbuyout,0c))"
+
 local CUSTOM_SOURCES = {
     minprice = DESIRED_MINPRICE,
-    deprofit_est = "ifgt(dbminbuyout, 0, max(destroy - dbminbuyout, 0c))",
+    deprofit = DEPROFIT_FORMULA,
 }
 
 local CUSTOM_SOURCE_FORMATS = {
     minprice = "gold",
-    deprofit_est = "gold",
+    deprofit = "gold",
 }
 
-local DEPROFIT_COLUMN_ID = "_customSource_deprofit_est"
+-- Retired in v1.6 (duplicate column + source that often failed to evaluate).
+local LEGACY_CUSTOM_SOURCES = {
+    deprofit_est = true,
+}
+
+local DEPROFIT_COLUMN_ID = "_customSource_deprofit"
+local LEGACY_DEPROFIT_COLUMN_ID = "_customSource_deprofit_est"
 local SHOPPING_TABLE_KEY = "g@ @auctionUIContext@shoppingAuctionScrollingTable"
 
 local CORE_KEYS = {
@@ -177,6 +186,20 @@ local function ApplyCustomPriceSources(db)
             changed = true
         end
     end
+
+    for legacyName in pairs(LEGACY_CUSTOM_SOURCES) do
+        if sources[legacyName] ~= nil then
+            RecordBackup("customPriceSources." .. legacyName .. " (removed)", sources[legacyName])
+            sources[legacyName] = nil
+            changed = true
+        end
+        if formats[legacyName] ~= nil then
+            RecordBackup("customPriceSourceFormat." .. legacyName .. " (removed)", formats[legacyName])
+            formats[legacyName] = nil
+            changed = true
+        end
+    end
+
     return changed
 end
 
@@ -194,13 +217,25 @@ local function ApplyShoppingDeProfitColumn(db)
     if type(tableSettings) ~= "table" or type(tableSettings.cols) ~= "table" then
         return false
     end
-    if TableHasColumn(tableSettings.cols, DEPROFIT_COLUMN_ID) then
-        return false
+
+    local cols = tableSettings.cols
+    local changed = false
+
+    for i = #cols, 1, -1 do
+        if cols[i].id == LEGACY_DEPROFIT_COLUMN_ID then
+            RecordBackup("shoppingAuctionScrollingTable.cols", "removed " .. LEGACY_DEPROFIT_COLUMN_ID)
+            table.remove(cols, i)
+            changed = true
+        end
     end
 
-    RecordBackup("shoppingAuctionScrollingTable.cols", "added " .. DEPROFIT_COLUMN_ID)
-    table.insert(tableSettings.cols, { id = DEPROFIT_COLUMN_ID, width = 95 })
-    return true
+    if not TableHasColumn(cols, DEPROFIT_COLUMN_ID) then
+        RecordBackup("shoppingAuctionScrollingTable.cols", "added " .. DEPROFIT_COLUMN_ID)
+        table.insert(cols, { id = DEPROFIT_COLUMN_ID, width = 100 })
+        changed = true
+    end
+
+    return changed
 end
 
 local function ApplyDefaults()
@@ -228,10 +263,10 @@ local function ApplyDefaults()
         print("|cff00ff00TSMSetup|r: Set shopping pct source -> " .. DESIRED_MAT_PRICE)
     end
     if customChanged then
-        print("|cff00ff00TSMSetup|r: Updated custom sources (minprice, deprofit_est).")
+        print("|cff00ff00TSMSetup|r: Updated custom sources (minprice, deprofit).")
     end
     if columnChanged then
-        print("|cff00ff00TSMSetup|r: Added |cffffd200deprofit_est|r column to Shopping (destroy - dbminbuyout).")
+        print("|cff00ff00TSMSetup|r: Shopping column -> |cffffd200deprofit|r (removed legacy deprofit_est).")
     end
     if auctionChanged then
         print("|cff00ff00TSMSetup|r: Added vendor-sell floor to Auctioning min prices (" .. VENDOR_MIN_FLOOR .. ").")

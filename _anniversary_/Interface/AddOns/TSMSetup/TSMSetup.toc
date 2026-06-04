@@ -1,7 +1,7 @@
 ## Interface: 20505
 ## Title: TSM Setup
 ## Notes: TSM defaults — aligned mat/destroy/shopping pricing, minprice, vendor floor
-## Version: 1.5
+## Version: 1.7
 ## OptionalDeps: TradeSkillMaster
 
 TSMSetup.lua
