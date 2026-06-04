@@ -94,7 +94,7 @@ If you use the auction house:
 |---|---|
 | **SetupCore** | Shared plumbing: `ApplyLayout`, `EnsureMacro` (mouseover/startattack/etc. templates), `/setupbars` slash command, auto-leave noisy channels on first login per character. Class addons depend on it. |
 | **ChatAnchor** | Re-anchors `ChatFrame1` to ElvUI's left chat panel — fixes a chat-text drift bug at 4K. |
-| **TSMSetup** | TradeSkillMaster pricing defaults on login: `min(dbminbuyout, dbmarket)` mats, `0.8 * dbmarket` craft price, vendor auction floors, `deprofit_est` shopping column. Requires TSM. `/tsmsetup` to re-apply. |
+| **TSMSetup** | TradeSkillMaster pricing defaults on login: `min(dbminbuyout, dbmarket)` mats, `0.8 * dbmarket` craft price, vendor auction floors, `deprofit` shopping column. Requires TSM. `/tsmsetup` to re-apply. |
 | **ShamanSetup** | `/setupbars` Shaman layout. Pre-loaded with full TBC roster. Heals/dispels use mouseover macros automatically. Totems on OPie M4, Weapon Enchants on M5. |
 | **DruidSetup** | `/setupbars` Druid layout. Feral + Balance generalist defaults; Resto-friendly heals. Form-toggle keys on the ZXCVB row; Moonkin Form on F. Bear/Cat form-specific abilities placed manually on Bar 1 form pages. Buffs (MotW/Thorns/GotW) on OPie M4, Travel forms on M5. |
 | **HunterSetup** | `/setupbars` Hunter layout. Ranged generalist; Marks/Survival/BM-friendly. Auto Shot on `` ` ``, traps on QERT row. Pet bar is Blizzard's PetActionBar (not managed here). Aspects on OPie M4, Pet OOC commands on M5. |
@@ -148,7 +148,7 @@ See [`templates/weakauras/README.md`](templates/weakauras/README.md) for install
 
 ## TSM (TradeSkillMaster)
 
-**TSMSetup** (custom addon) applies conservative pricing defaults every login — mat cost, craft price, destroy/shopping sources, vendor auction floors, and a `deprofit_est` column for DE shopping.
+**TSMSetup** (custom addon) applies conservative pricing defaults every login — mat cost, craft price, destroy/shopping sources, vendor auction floors, and a `deprofit` column for DE shopping.
 
 **Groups** — MonChiSub TBC import strings in [`templates/tsm-groups/`](templates/tsm-groups/) (Materials, Consumables, Gems, etc.). Paste into `/tsm` once per profile.
 

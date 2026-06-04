@@ -68,7 +68,7 @@ In `/tsm` → **Settings**:
 | Crafting → default craft price | `0.8 * dbmarket` |
 | Shopping → % source | `min(dbminbuyout, dbmarket)` |
 
-In **Shopping** search results, you should see a **deprofit_est** column (destroy minus cheapest buyout) for DE sniping.
+In **Shopping** search results, you should see a **deprofit** column (destroy minus cheapest buyout) for DE sniping.
 
 Post or scan a grey — minimum price should not fall below vendor sell (vendor floor `vendorsell/0.95+1c`).
 
@@ -80,7 +80,7 @@ Chat on login may show green `TSMSetup:` lines when something was updated.
 - Expected sale price for crafts: `0.8 * dbmarket`
 - Custom **minprice** for sniping: `max(min(dbminbuyout, dbmarket), vendorsell)`
 - Auctioning min price floors on known operation names (and wraps others with vendor floor)
-- Custom source **deprofit_est** = `destroy - dbminbuyout`
+- Custom source **deprofit** = `ifgt(dbminbuyout,0,max(destroy-dbminbuyout,0c))`
 
 Slash: `/tsmsetup` — re-apply without relogging.
 

@@ -90,7 +90,7 @@ E:\Program Files\World of Warcraft\
   chat tabs into the left dock and hides RightChatPanel.
 - **TSMSetup**: on `PLAYER_LOGIN`, writes conservative TSM pricing into
   `TradeSkillMasterDB` (mat/destroy/shopping `min(dbminbuyout, dbmarket)`,
-  craft price `0.8 * dbmarket`, custom `minprice`/`deprofit_est`, vendor floors
+  craft price `0.8 * dbmarket`, custom `minprice`/`deprofit`, vendor floors
   on auctioning ops). `/tsmsetup` to re-apply. OptionalDep on TradeSkillMaster.
   Groups/operations still imported manually — see `templates/tsm-groups/README.md`.
 - **ZygorSetup**: writes opinionated Zygor settings per-character on PLAYER_LOGIN
