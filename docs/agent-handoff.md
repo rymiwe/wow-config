@@ -40,6 +40,7 @@ E:\Program Files\World of Warcraft\
 ├── _anniversary_\Interface\AddOns\
 │   ├── SetupCore\           ← shared plumbing (the heart of everything)
 │   ├── ChatAnchor\          ← fixes ElvUI chat dock + consolidates panels
+│   ├── TSMSetup\            ← TSM pricing defaults on login (requires TradeSkillMaster)
 │   ├── ZygorSetup\          ← per-character Zygor preset injector
 │   ├── ShamanSetup\ DruidSetup\ PaladinSetup\ WarriorSetup\
 │   ├── HunterSetup\ MageSetup\ PriestSetup\ RogueSetup\ WarlockSetup\
@@ -53,7 +54,7 @@ E:\Program Files\World of Warcraft\
 │   ├── ElvUI.lua            ← ElvUI layout template
 │   ├── Config.wtf           ← WoW CVars template
 │   ├── SetupCore.lua        ← seeds needsSetup=true on fresh install
-│   ├── tsm-groups\          ← TSM group import strings
+│   ├── tsm-groups\          ← TSM group import strings + full-stack README
 │   ├── weakauras\           ← WeakAura import strings (.txt)
 │   └── hypr-wow-submap.conf ← Hyprland keybind submap for in-game
 ├── scripts\
@@ -87,6 +88,11 @@ E:\Program Files\World of Warcraft\
 - **ChatAnchor**: hooks ChatFrame1 SetPoint to keep it docked in LeftChatPanel
   (works around an ElvUI Anniversary bug — see below). Also consolidates all
   chat tabs into the left dock and hides RightChatPanel.
+- **TSMSetup**: on `PLAYER_LOGIN`, writes conservative TSM pricing into
+  `TradeSkillMasterDB` (mat/destroy/shopping `min(dbminbuyout, dbmarket)`,
+  craft price `0.8 * dbmarket`, custom `minprice`/`deprofit_est`, vendor floors
+  on auctioning ops). `/tsmsetup` to re-apply. OptionalDep on TradeSkillMaster.
+  Groups/operations still imported manually — see `templates/tsm-groups/README.md`.
 - **ZygorSetup**: writes opinionated Zygor settings per-character on PLAYER_LOGIN
   (windowlocked, opacity, autoselectitem, autogearauto, frame_anchor, action
   bar position).
@@ -597,7 +603,7 @@ When in doubt:
 
 Custom addons are auto-bumped on commit. Latest versions visible via:
 ```
-grep -h "## Version" _anniversary_/Interface/AddOns/{SetupCore,ChatAnchor,ZygorSetup,DruidSetup,PaladinSetup,ShamanSetup,WarriorSetup,HunterSetup,MageSetup,PriestSetup,RogueSetup,WarlockSetup}/*.toc
+grep -h "## Version" _anniversary_/Interface/AddOns/{SetupCore,ChatAnchor,TSMSetup,ZygorSetup,DruidSetup,PaladinSetup,ShamanSetup,WarriorSetup,HunterSetup,MageSetup,PriestSetup,RogueSetup,WarlockSetup}/*.toc
 ```
 
 Community addons (auto-fetched, can drift):

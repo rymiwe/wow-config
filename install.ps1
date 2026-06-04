@@ -89,7 +89,7 @@ try {
     if (-not (Test-Path $dstSV))     { New-Item -ItemType Directory -Force -Path $dstSV     | Out-Null }
 
     # Addon code is canonical — always overwrite.
-    $addons = @("SetupCore", "ChatAnchor", "ZygorSetup", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
+    $addons = @("SetupCore", "ChatAnchor", "TSMSetup", "ZygorSetup", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
     foreach ($a in $addons) {
         $src = Join-Path $srcAddons $a
         $dst = Join-Path $dstAddons $a
@@ -324,8 +324,10 @@ try {
     Write-Host "  1. Launch WoW, log in - SetupCore runs /setupbars automatically on first login"
     Write-Host "  2. OPie rings auto-bind to M4 (primary) and M5 (secondary) on first login."
     Write-Host "     If a ring isn't bound, /opie -> Ring Bindings to set manually (overrides persist)."
-    Write-Host "  3. (Optional) Install TSM from CurseForge if you use the Auction House"
-    Write-Host "  4. (Optional) Import TSM groups via /tsm UI from templates/tsm-groups/"
+    Write-Host "  3. (Optional) Install TSM + TSM App Helper from CurseForge if you use the AH"
+    Write-Host "     Enable TSMSetup in the addon list (installed with wow-config)"
+    Write-Host "  4. (Optional) TSM one-time setup: templates/tsm-groups/README.md"
+    Write-Host "     (import MonChiSub groups, then /tsmsetup after TSM is installed)"
 
     # Offer a `wcu` PowerShell function for one-command refreshes (PowerShell
     # doesn't have shell-style aliases for arbitrary commands, so we use a

@@ -81,6 +81,24 @@ PART 3 — First login (2 minutes)
 
 
 -----------------------------------------------------------------
+PART 4 — Auction House / TSM (optional, ~20 min once)
+-----------------------------------------------------------------
+
+  Only if you use TradeSkillMaster for the auction house.
+
+  1. In WoWUp-CF (or CurseForge), install:
+     - TradeSkillMaster
+     - TradeSkillMaster App Helper
+
+  2. On the character-select screen, make sure TSMSetup is checked
+     (it was installed with wow-config in Part 1).
+
+  3. Log in. Open the full guide in the repo:
+     templates\tsm-groups\README.md
+     (import item groups, set up operations, verify with /tsmsetup)
+
+
+-----------------------------------------------------------------
 TROUBLESHOOTING
 -----------------------------------------------------------------
 

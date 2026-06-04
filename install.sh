@@ -99,7 +99,7 @@ DST_CONFIG="$WOW/_anniversary_/WTF/Config.wtf"
 
 mkdir -p "$DST_ADDONS" "$DST_SV"
 
-ADDONS=(SetupCore ChatAnchor ZygorSetup ShamanSetup DruidSetup HunterSetup PaladinSetup WarriorSetup MageSetup PriestSetup RogueSetup WarlockSetup)
+ADDONS=(SetupCore ChatAnchor TSMSetup ZygorSetup ShamanSetup DruidSetup HunterSetup PaladinSetup WarriorSetup MageSetup PriestSetup RogueSetup WarlockSetup)
 for a in "${ADDONS[@]}"; do
     src="$SRC_ADDONS/$a"
     dst="$DST_ADDONS/$a"
@@ -387,8 +387,10 @@ echo "Install complete. Next steps:"
 echo "  1. Launch WoW and log in - SetupCore runs /setupbars on first login."
 echo "  2. OPie rings auto-bind to M4 (primary) and M5 (secondary) on first login."
 echo "     If a ring isn't bound, /opie -> Ring Bindings to set it manually (overrides persist)."
-echo "  3. (Optional) Install TSM from CurseForge if you use the Auction House."
-echo "  4. (Optional) /tsm -> Groups -> Import each file from templates/tsm-groups/"
+echo "  3. (Optional) Install TSM + TSM App Helper from CurseForge if you use the AH."
+echo "     Enable TSMSetup in the addon list (installed with wow-config)."
+echo "  4. (Optional) TSM one-time setup: templates/tsm-groups/README.md"
+echo "     (import MonChiSub groups, then /tsmsetup after TSM is installed)"
 
 # Hyprland integration - auto-run on Hyprland-detected systems (Omarchy etc.)
 # so Super+1-9 passes through to WoW while focused. Idempotent; safe on every
