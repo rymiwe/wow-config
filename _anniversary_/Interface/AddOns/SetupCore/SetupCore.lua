@@ -210,14 +210,12 @@ local MACRO_TEMPLATES = {
     end,
     -- M3 decurse macros (mouseover-first). Class addons call EnsureDecurseMacro().
     ["decurse-shaman"] = function()
+        -- Disease before poison; [@player] so self-dispel works without mouseover.
         return table.concat({
             "#showtooltip",
-            "/cast [@mouseover,help,nodead] Cure Poison",
-            "/cast [@mouseover,help,nodead] Cure Disease",
-            "/cast [@mouseover,harm,nodead] Purge",
-            "/cast [help,nodead] Cure Poison",
-            "/cast [help,nodead] Cure Disease",
-            "/cast [harm,nodead] Purge",
+            "/cast [@mouseover,help,nodead][help,nodead][@player] Cure Disease",
+            "/cast [@mouseover,help,nodead][help,nodead][@player] Cure Poison",
+            "/cast [@mouseover,harm,nodead][harm,nodead] Purge",
         }, "\n")
     end,
     ["decurse-druid"] = function()
@@ -366,7 +364,24 @@ function SetupCore:RefreshDecurseBinding()
     local spec = DECURSE_BY_CLASS[class]
     if not spec then return false end
     self:EnsureDecurseMacro(spec.template, spec.icon, spec.macroName)
-    return self:BindMacro(self.DECURSE_MOUSE, spec.macroName)
+    local idx = GetMacroIndexByName(spec.macroName)
+    if not idx or idx == 0 then
+        print("|cffff0000SetupCore|r " .. spec.macroName .. " macro missing (macro slots full?)")
+        return false
+    end
+    local want = "MACRO " .. idx
+    local cur = GetBindingAction(self.DECURSE_MOUSE)
+    if cur == want then return true end
+    if SetBinding(self.DECURSE_MOUSE, want) then
+        SaveBindings(2)
+        print(string.format(
+            "|cff999999SetupCore|r M3 -> %s (macro %d%s)",
+            spec.macroName, idx,
+            (cur and cur ~= "" and (", was " .. cur) or "")
+        ))
+        return true
+    end
+    return false
 end
 
 function SetupCore:ApplyMacroBindings()
@@ -1050,6 +1065,8 @@ function SetupCore:ApplyBindings()
     end
     self:ApplyMovementKeybinds()
     self:ApplyMacroBindings()
+    -- Last: M3 must not stay a stale MACRO N from bindings-cache (e.g. MACRO 125).
+    self:RefreshDecurseBinding()
 end
 
 -- Apply CVars from the CVARS table. Per-character CVars (autoLootDefault) reset
@@ -1453,6 +1470,7 @@ f:SetScript("OnEvent", function(_, event, ...)
     -- Restore Z bar bind + mount macro keybind (after ElvUI buttons exist).
     C_Timer.After(1, function()
         SetupCore:ApplyBindings()
+        SetupCore:RefreshDecurseBinding()
     end)
     C_Timer.After(2.5, function()
         SetupCore:ApplyTravelSlots()
