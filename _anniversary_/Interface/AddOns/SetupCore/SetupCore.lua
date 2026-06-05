@@ -36,16 +36,16 @@ local MOVEMENT_SPELL_BY_CLASS = {
 }
 
 local MOUNT_MACRO_NAME = "SC_Mount"
--- /cast Mount does not work on Classic/TBC (no such spell). Use mount journal API.
-local MOUNT_MACRO_BODY_DEFAULT = "#showtooltip\n/run if IsMounted() then Dismount() else C_MountJournal.SummonByID(0) end"
-local MOUNT_MACRO_BODY_SHAMAN = "#showtooltip\n/run if IsMounted() then Dismount() else if GetShapeshiftForm()>0 then CastSpellByName(\"Ghost Wolf\") end C_MountJournal.SummonByID(0) end"
+-- Summon Random Favorite Mount (journal button spell). /cast Mount is invalid on Classic.
+local MOUNT_SPELL_ID = 150544
+local MOUNT_MACRO_BODY_DEFAULT = "#showtooltip\n/run if IsMounted() then Dismount() elseif C_MountJournal and C_MountJournal.SummonByID then C_MountJournal.SummonByID(0) else CastSpellByID(" .. MOUNT_SPELL_ID .. ") end"
+local MOUNT_MACRO_BODY_SHAMAN = "#showtooltip\n/run if IsMounted() then Dismount() elseif GetShapeshiftForm()>0 then CastSpellByName(\"Ghost Wolf\") elseif C_MountJournal and C_MountJournal.SummonByID then C_MountJournal.SummonByID(0) else CastSpellByID(" .. MOUNT_SPELL_ID .. ") end"
 local TRAVEL_BAR = { movement = {3, 8}, mount = {5, 8} }
-local TRAVEL_KEYBINDS = {
+local MOVEMENT_KEYBINDS = {
     {"Z", "MULTIACTIONBAR3BUTTON8"},
     {"SHIFT-Z", "MULTIACTIONBAR3BUTTON8"},
-    {"ALT-Z", "MULTIACTIONBAR2BUTTON8"},
-    {"META-Z", "MULTIACTIONBAR2BUTTON8"},
 }
+local MOUNT_KEYS = { "ALT-Z", "META-Z" }
 
 -- Per-class M3 dispel: macro name, template key, icon spell for EnsureDecurseMacro.
 local DECURSE_BY_CLASS = {
@@ -99,10 +99,9 @@ local BINDINGS = {
     {"ALT-5", "MULTIACTIONBAR4BUTTON6"},
     {"ALT-Q", "MULTIACTIONBAR4BUTTON8"},  {"ALT-E", "MULTIACTIONBAR4BUTTON10"},
     {"ALT-R", "MULTIACTIONBAR4BUTTON11"}, {"ALT-T", "MULTIACTIONBAR4BUTTON12"},
-    -- Bar 5 (alt bottom): Alt-F Alt-G / Alt-Z Alt-X Alt-C Alt-V Alt-B  (Alt-Z = slot 8 mount macro)
+    -- Bar 5 (alt bottom): Alt-F Alt-G / Alt-X Alt-C Alt-V Alt-B (Alt-Z = SC_Mount via RefreshMountBinding)
     {"ALT-F", "MULTIACTIONBAR2BUTTON5"}, {"ALT-G", "MULTIACTIONBAR2BUTTON6"},  -- right-aligned to mirror F/G on Bar 3
-    {"ALT-Z", "MULTIACTIONBAR2BUTTON8"}, {"ALT-X", "MULTIACTIONBAR2BUTTON9"},
-    {"META-Z", "MULTIACTIONBAR2BUTTON8"},
+    {"ALT-X", "MULTIACTIONBAR2BUTTON9"},
     {"ALT-C", "MULTIACTIONBAR2BUTTON10"}, {"ALT-V", "MULTIACTIONBAR2BUTTON11"},
     {"ALT-B", "MULTIACTIONBAR2BUTTON12"},
     -- Neutralize Shift+key page-cycle defaults (mirror templates/bindings-cache.wtf).
@@ -301,16 +300,34 @@ function SetupCore:EnsureMountMacro()
     return self:EnsureRawMacro(MOUNT_MACRO_NAME, self:GetMountMacroBody(), "Ability_Mount_RidingHorse")
 end
 
--- Z/Alt-Z must stay bar-slot binds (not SPELL/MACRO index); overrides stale bindings-cache.
-function SetupCore:ApplyTravelKeybinds()
+function SetupCore:ApplyMovementKeybinds()
     local n = 0
-    for _, pair in ipairs(TRAVEL_KEYBINDS) do
+    for _, pair in ipairs(MOVEMENT_KEYBINDS) do
         if SetBinding(pair[1], pair[2]) then
             n = n + 1
         end
     end
     if n > 0 then SaveBindings(2) end
     return n > 0
+end
+
+-- Alt-Z / Meta-Z -> SC_Mount macro index (same pattern as M3 decurse). Bar slot is visual only.
+function SetupCore:RefreshMountBinding()
+    if not self:EnsureMountMacro() then
+        print("|cffff0000SetupCore|r could not create SC_Mount (macro slots full?)")
+        return false
+    end
+    local idx = GetMacroIndexByName(MOUNT_MACRO_NAME)
+    local bound = 0
+    for _, key in ipairs(MOUNT_KEYS) do
+        if self:BindMacro(key, MOUNT_MACRO_NAME) then
+            bound = bound + 1
+        end
+    end
+    if bound > 0 then
+        print(string.format("|cff999999SetupCore|r Alt-Z -> SC_Mount (macro %d)", idx or 0))
+    end
+    return bound > 0
 end
 
 -- Place movement (bar 3:8) and mount macro (bar 5:8). Keys stay MULTIACTIONBAR binds.
@@ -356,6 +373,7 @@ function SetupCore:ApplyMacroBindings()
     if self:RefreshDecurseBinding() then
         print("|cff999999SetupCore|r bound M3 -> dispel macro (mouseover decurse/purge)")
     end
+    self:RefreshMountBinding()
     local _, class = UnitClass("player")
     local bindings = class and macroBindingsByClass[class]
     if not bindings then return end
@@ -1030,7 +1048,7 @@ function SetupCore:ApplyBindings()
     if applied > 0 or cleared > 0 then
         print(string.format("|cff999999SetupCore|r asserted %d bindings (cleared %d defaults)", applied, cleared))
     end
-    self:ApplyTravelKeybinds()
+    self:ApplyMovementKeybinds()
     self:ApplyMacroBindings()
 end
 
@@ -1432,14 +1450,13 @@ f:SetScript("OnEvent", function(_, event, ...)
         end
     end
 
-    -- Restore bar-key binds + travel slots (bindings-cache SPELL entries break on Classic).
+    -- Restore Z bar bind + mount macro keybind (after ElvUI buttons exist).
     C_Timer.After(1, function()
         SetupCore:ApplyBindings()
-        if SetupCore:RefreshDecurseBinding() then
-            print("|cff999999SetupCore|r rebound middle-click (M3) dispel macro")
-        end
+    end)
+    C_Timer.After(2.5, function()
         SetupCore:ApplyTravelSlots()
-        SetupCore:ApplyTravelKeybinds()
+        SetupCore:RefreshMountBinding()
     end)
 
     -- Fill layout gaps (e.g. Water Shield on a placeholder slot) and warn about
