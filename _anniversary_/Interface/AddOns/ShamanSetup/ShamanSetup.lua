@@ -24,7 +24,7 @@ local LAYOUT = {
 
     -- MAIN BOTTOM (Bar 3) ==========================================
     -- F free after Lightning Shield moved to E; G = racial on Draenei
-    {"Ghost Wolf",             3, 8},                     -- Z
+    {"Ghost Wolf",             3, 8},                     -- Z (also forced by SetupCore travel slots)
     {"Totemic Call",           3, 9},                     -- X
 
     -- ALT TOP (Bar 4) — heals on numrow, damage on Q/E/R home row ========

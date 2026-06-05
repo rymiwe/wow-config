@@ -1,7 +1,7 @@
 ## Interface: 20505
 ## Title: Rogue Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout (Combat-Swords leveling generalist)
-## Version: 1.0
+## Version: 1.1
 ## Dependencies: SetupCore
 ## OptionalDeps: OPie
 

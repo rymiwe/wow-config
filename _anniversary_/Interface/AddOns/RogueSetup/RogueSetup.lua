@@ -32,7 +32,7 @@ local LAYOUT = {
     {"Expose Armor",           1, 6},                     -- L14   5   (-armor finisher; group utility)
     -- QERT row: utility / panic
     {"Gouge",                  1, 8},                     -- L6    Q   (4s incapacitate front; emergency CC)
-    {"Sprint",                 1, 10, "self-cast"},       -- L1    E   (movement CD)
+    {"Sprint",                 1, 10, "self-cast"},       -- L1    E   (also on Z)
     {"Vanish",                 1, 11, "self-cast"},       -- L22   R   (stealth CD - threat reset)
     {"Evasion",                1, 12, "self-cast"},       -- L8    T   (defensive CD)
 
@@ -40,7 +40,8 @@ local LAYOUT = {
     {"Stealth",                3, 5, "self-cast"},        -- L1    F   (open combat from stealth; right-aligned)
     {"Feint",                  3, 6, "self-cast"},        -- L16   G   (drop threat finisher)
     -- ZXCVB row: utility + reactives
-    {"Blind",                  3, 8, "mouseover-harm"},   -- L26   Z   (10s disorient; emergency CC)
+    {"Sprint",                 3, 8, "self-cast"},       -- L1    Z   (movement CD)
+    {"Blind",                  3, 7, "mouseover-harm"},   -- L26   (10s disorient; emergency CC)
     {"Kidney Shot",            3, 9},                     -- L30   X   (stun finisher)
     {"Riposte",                3, 10},                    -- L20 Combat C (reactive after parry)
     {"Distract",               3, 11},                    -- L20   V   (turn enemies; pull/pickpocket utility)
@@ -64,7 +65,7 @@ local LAYOUT = {
     {"Cloak of Shadows",       5, 5, "self-cast"},        -- TBC L66 Alt-F (magic immunity + remove magic effects)
     {"Sap",                    5, 6, "focus-mouseover-harm"}, -- L10 Alt-G (CC humanoid - focus-first)
     -- Alt-ZXCVB: situational + travel
-    {"Shadowstep",             5, 8},                     -- TBC L60 Subt Alt-Z (gap-closer + dmg buff)
+    {"Shadowstep",             5, 7},                     -- TBC L60 Subt (gap-closer; Alt-Z = mount)
     {"Detect Traps",           5, 9, "self-cast"},        -- L18   Alt-X (toggle - low-use; could go in OPie)
     {"Safe Fall",              5, 10, "self-cast"},       -- L20   Alt-C (survival utility)
     -- Alt-V/B left empty (placeholders for racial)

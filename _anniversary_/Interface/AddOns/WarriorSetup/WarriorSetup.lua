@@ -65,7 +65,7 @@ local LAYOUT = {
     {"Shield Bash",            5, 5},                     -- L16 Battle/Def Alt-F (interrupt; right-aligned)
     {"Shield Block",           5, 6, "self-cast"},        -- L16 Defensive Alt-G (+block)
     -- Alt-ZXCVB: defensive cooldowns + AOE shouts
-    {"Shield Wall",            5, 8, "self-cast"},        -- L16 Defensive Alt-Z (-75% dmg CD)
+    {"Shield Wall",            5, 7, "self-cast"},        -- L16 Defensive (-75% dmg CD; Alt-Z = mount)
     {"Last Stand",             5, 9, "self-cast"},        -- L40 Prot Alt-X (+30% HP CD)
     {"Spell Reflection",       5, 10, "self-cast"},       -- TBC L20 Alt-C (reflect spell)
     {"Demoralizing Shout",     5, 11},                    -- L14   Alt-V (-AP AOE)

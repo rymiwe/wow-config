@@ -45,6 +45,10 @@ VER 3 010000000000000A "SC_LightningBolt" "136048"
 /startattack
 /cast [@mouseover,harm,nodead][harm,nodead] Lightning Bolt
 END
+VER 3 0100000000000012 "SC_Mount" "Ability_Mount_RidingHorse"
+#showtooltip
+/run if IsMounted() then Dismount() else if GetShapeshiftForm()>0 then CastSpellByName("Ghost Wolf") end C_MountJournal.SummonByID(0) end
+END
 VER 3 0100000000000005 "SC_Purge" "136075"
 #showtooltip
 /cast [@mouseover,harm,nodead][harm,nodead] Purge

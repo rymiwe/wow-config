@@ -36,10 +36,10 @@ local LAYOUT = {
     {"Regrowth",               1, 11, "mouseover-help"},  -- L12   R   (cast hybrid HoT+direct)
     {"Lifebloom",              1, 12, "mouseover-help"},  -- TBC L64+ T (instant stacking HoT, Resto)
 
-    -- MAIN BOTTOM (Bar 3) — F/G utility; ZXCVB intentionally empty (forms in OPie).
+    -- MAIN BOTTOM (Bar 3) — F/G utility; Z = Dash (SetupCore travel slot)
     -- Right-aligned per class_setup_pattern.md.
     {"Nature's Swiftness",     3, 6, "self-cast"},        -- L30 talent G (instant cast next nature spell)
-    -- F (3, 5) and ZXCVB left empty — forms moved to OPie M5 ring.
+    {"Dash",                   3, 8},                     -- L26   Z
 
     -- ALT TOP (Bar 4) — MIRRORS caster Bar 1 numrow + QERT so Alt+key always
     -- casts the caster version from any form. WoW's /cast auto-cancelforms
@@ -60,12 +60,12 @@ local LAYOUT = {
     -- ALT BOTTOM (Bar 5) — dispels + CCs + Rebirth + defensives + travel
     {"Cure Poison",            5, 5, "mouseover-help"},   -- L14   Alt-F
     {"Remove Curse",           5, 6, "mouseover-help"},   -- L24   Alt-G
-    -- Alt-ZXCVB: CC + emergency rez + defensives
-    {"Entangling Roots",       5, 8, "mouseover-harm"},   -- L8    Alt-Z (CC root - moved from alt-numrow when alt-bar became caster mirror)
+    -- Alt-Z = mount (SetupCore); Alt-XCVB: CC + emergency rez + defensives
+    {"Entangling Roots",       5, 7, "mouseover-harm"},   -- L8    (was Alt-Z before mount key)
     {"Hibernate",              5, 9, "mouseover-harm"},   -- L18   Alt-X (CC sleep beast/dragonkin)
     {"Rebirth",                5, 10, "mouseover-help"},  -- L20   Alt-C (combat rez)
     {"Barkskin",               5, 11, "self-cast"},       -- L44   Alt-V (defensive)
-    {"Dash",                   5, 12},                    -- L26   Alt-B (Cat sprint)
+
 }
 
 local IGNORE = {
@@ -192,7 +192,8 @@ local function Run()
     end
     -- Caster form (or no form): apply the main caster LAYOUT.
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
-    SetupCore:RefreshDecurseBinding()
+    SetupCore:EnsureDecurseMacro("decurse-druid", "Cure Poison")
+    SetupCore:ApplyMacroBindings()
     SetupCore:PrintResults("DruidSetup", placed, skipped, orphans)
     print("|cffffd700DruidSetup tip:|r Wrath on key 1, Moonfire on 2, heals on Q/E/R/T.")
     print("|cff999999  Alt-bar MIRRORS Bar 1: Alt+1=Wrath, Alt+E=Rejuv, etc. Auto-cancels form when cast in bear/cat.|r")

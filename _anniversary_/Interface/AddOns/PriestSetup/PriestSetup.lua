@@ -61,7 +61,7 @@ local LAYOUT = {
     {"Dispel Magic",           5, 5, "mouseover-help"},   -- L18   Alt-F (dispel from friend - mouseover-help)
     {"Cure Disease",           5, 6, "mouseover-help"},   -- L14   Alt-G (cure disease)
     -- Alt-ZXCVB: rez + cooldowns + niche CC
-    {"Abolish Disease",        5, 8, "mouseover-help"},   -- L32   Alt-Z (rolling disease cure - HoT)
+    {"Abolish Disease",        5, 7, "mouseover-help"},   -- L32   (rolling disease cure - HoT; Alt-Z = mount)
     {"Mass Dispel",            5, 9},                     -- TBC L60 Alt-X (channel mass dispel)
     {"Pain Suppression",       5, 10, "mouseover-help"},  -- TBC Disc Alt-C (50% damage reduction CD)
     {"Shackle Undead",         5, 11, "focus-mouseover-harm"}, -- L20 Alt-V (CC vs undead - focus-first)
@@ -145,7 +145,8 @@ local RACIALS = {
 
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
-    SetupCore:RefreshDecurseBinding()
+    SetupCore:EnsureDecurseMacro("decurse-priest", "Dispel Magic")
+    SetupCore:ApplyMacroBindings()
     SetupCore:PrintResults("PriestSetup", placed, skipped, orphans)
     print("|cffffd700PriestSetup tip:|r heals on QERT (PW:Shield/Renew/Flash/Greater) all")
     print("|cff999999  Middle-click (M3) = dispel mouseover (Dispel Magic / Cure Disease).|r")

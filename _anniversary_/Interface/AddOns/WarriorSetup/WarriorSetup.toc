@@ -1,7 +1,7 @@
 ## Interface: 20505
 ## Title: Warrior Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout (Arms-leaning generalist)
-## Version: 1.1
+## Version: 1.2
 ## Dependencies: SetupCore
 ## OptionalDeps: OPie
 
