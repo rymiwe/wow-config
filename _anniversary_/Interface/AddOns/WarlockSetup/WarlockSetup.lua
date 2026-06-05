@@ -62,7 +62,7 @@ local LAYOUT = {
     {"Soulshatter",            5, 5, "self-cast"},        -- TBC L62 Alt-F (drop threat - high-value defensive)
     {"Curse of Exhaustion",    5, 6, "mouseover-harm"},   -- L36 Affl Alt-G (snare debuff; Affl talent)
     -- Alt-ZXCVB: panic + escapes
-    {"Fear",                   5, 8, "mouseover-harm"},   -- L8    Alt-Z (single-target fear; primary CC)
+    {"Fear",                   5, 7, "mouseover-harm"},   -- L8    (single-target fear; Alt-Z = mount)
     {"Mortal Coil",            5, 9, "self-cast"},        -- (Soul Link talent? skip if absent)
     {"Enslave Demon",          5, 10, "mouseover-harm"},  -- L30   Alt-C (channel; control demon)
     {"Sense Demons",           5, 11, "self-cast"},       -- L20   Alt-V (tracking; low-use)

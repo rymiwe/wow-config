@@ -74,7 +74,7 @@ local LAYOUT = {
     -- These violate "casts only on alt" by necessity (low-pri instants exceed main bar capacity).
     {"Divine Intervention",    5, 5, "mouseover-help"},   -- L30   Alt-F (rare friend invuln rez setup - instant)
     -- Alt-G left empty (or for racial)
-    {"Divine Favor",           5, 8, "self-cast"},        -- L20 Holy Alt-Z (instant crit-heal CD - Holy talent)
+    {"Divine Favor",           5, 7, "self-cast"},        -- L20 Holy (instant crit-heal CD - Holy talent; Alt-Z = mount)
     -- Alt-X reserved via RACIALS for Draenei (was previous Naaru slot - now Naaru moved to Alt-Q)
     {"Divine Plea",            5, 10, "self-cast"},       -- TBC L66 Alt-C (instant mana CD)
     -- Alt-V left empty (placeholder for racial)
@@ -146,7 +146,7 @@ local IGNORE = {
 -- Draenei (Alliance); Blood Elf (Horde, TBC). No combat racial for Human.
 local RACIALS = {
     Dwarf = {
-        {"Stoneform", 5, 8, "self-cast"},     -- Alt-Z: defensive break (joins alt-bottom defensives)
+        {"Stoneform", 5, 7, "self-cast"},     -- defensive break (Alt-Z = mount)
     },
     Draenei = {
         {"Gift of the Naaru", 4, 8, "mouseover-help"},  -- Alt-Q: Naaru is a 1.5s cast - fits the alt-bar "casts only" rule cleanly now
@@ -158,7 +158,7 @@ local RACIALS = {
 
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
-    SetupCore:ApplyMacroBindings()
+    SetupCore:RefreshDecurseBinding()
     SetupCore:PrintResults("PaladinSetup", placed, skipped, orphans)
     print("|cffffd700PaladinSetup tip:|r Movement-optimal - instants on main, casts on Alt-bar.")
     print("|cff999999  Middle-click (M3) = dispel mouseover (Cleanse / Purify).|r")

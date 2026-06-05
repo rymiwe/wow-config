@@ -69,7 +69,7 @@ local LAYOUT = {
     -- ALT BOTTOM (Bar 5) — defensives + Survival reactives + travel utility
     -- Alt-FG: Hunter has no friend-target heals; leave for racials/utility
     -- Alt-ZXCVB: defensives + Survival reactives
-    {"Deterrence",             5, 8, "self-cast"},        -- L40 Surv Alt-Z (defensive parry buff)
+    {"Deterrence",             5, 7, "self-cast"},        -- L40 Surv (defensive parry buff; Alt-Z = mount)
     {"Scatter Shot",           5, 9},                     -- L30 Surv Alt-X (4s disorient CC break)
     {"Counterattack",          5, 10},                    -- L30 Surv Alt-C (reactive after parry)
     {"Mongoose Bite",          5, 11},                    -- L16 Surv Alt-V (reactive after dodge)

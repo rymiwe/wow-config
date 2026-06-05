@@ -24,7 +24,7 @@ local LAYOUT = {
 
     -- MAIN BOTTOM (Bar 3) ==========================================
     -- F free after Lightning Shield moved to E; G = racial on Draenei
-    {"Ghost Wolf",             3, 8},                     -- Z
+    -- Z = Ghost Wolf via SetupCore direct keybind (not a bar slot)
     {"Totemic Call",           3, 9},                     -- X
 
     -- ALT TOP (Bar 4) — heals on numrow, damage on Q/E/R home row ========
@@ -104,6 +104,8 @@ local IGNORE = {
     ["Reincarnation"]=true,
     -- M3 SC_Decurse macro (mouseover poison/disease + Purge)
     ["Cure Disease"]=true, ["Cure Poison"]=true, ["Purge"]=true,
+    -- Z keybind (SetupCore direct SPELL, not a bar slot)
+    ["Ghost Wolf"]=true,
     -- Bar 6 utility clickables (SeedProtectedBar)
     ["Water Breathing"]=true, ["Water Walking"]=true,
     ["Far Sight"]=true, ["Astral Recall"]=true, ["Ancestral Spirit"]=true,
@@ -177,8 +179,7 @@ local function Run()
     SetupCore:SeedProtectedBar(UTILITY_LAYOUT)
 
     -- M3 decurse: mouseover poison/disease on friends, Purge on enemies.
-    SetupCore:EnsureDecurseMacro("decurse-shaman", "Cure Poison")
-    SetupCore:ApplyMacroBindings()
+    SetupCore:RefreshDecurseBinding()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")

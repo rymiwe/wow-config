@@ -64,7 +64,7 @@ local LAYOUT = {
     {"Cloak of Shadows",       5, 5, "self-cast"},        -- TBC L66 Alt-F (magic immunity + remove magic effects)
     {"Sap",                    5, 6, "focus-mouseover-harm"}, -- L10 Alt-G (CC humanoid - focus-first)
     -- Alt-ZXCVB: situational + travel
-    {"Shadowstep",             5, 8},                     -- TBC L60 Subt Alt-Z (gap-closer + dmg buff)
+    {"Shadowstep",             5, 7},                     -- TBC L60 Subt (gap-closer; Alt-Z = mount)
     {"Detect Traps",           5, 9, "self-cast"},        -- L18   Alt-X (toggle - low-use; could go in OPie)
     {"Safe Fall",              5, 10, "self-cast"},       -- L20   Alt-C (survival utility)
     -- Alt-V/B left empty (placeholders for racial)
