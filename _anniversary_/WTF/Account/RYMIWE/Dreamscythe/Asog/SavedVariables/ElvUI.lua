@@ -2,11 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p cheers",
-"/cw Mctubby trouble you for a guild sig? 1g?",
-"/s cheers",
-"/cw Notredbran trouble you for a guild sig? 1g?",
-"/cw Notredbran-Dreamscythe never mind, got 10/10 now... ty anyway",
 "/g thanks all",
 "/help",
 "/tsm",
@@ -21,6 +16,11 @@ ElvCharacterDB = {
 "/2 WTS |cffffd000|Henchant:13661|h[Enchant Bracer - Strength]|h|r 50s",
 "/setupbars",
 "/rl",
+"/p trying",
+"/p i have no audio input settings",
+"/p me niether",
+"/p just disappeared",
+"/p |cff0070dd|Hitem:1722:963:::::::42::::::::::|h[Thornstone Sledgehammer]|h|r",
 "/tsm destroy",
 },
 ["ChatHistoryLog"] = {
