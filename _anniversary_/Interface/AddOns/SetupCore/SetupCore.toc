@@ -1,7 +1,7 @@
 ## Interface: 20505
 ## Title: Setup Core
 ## Notes: Shared plumbing for class setup addons (ShamanSetup, DruidSetup, etc.)
-## Version: 1.28
+## Version: 1.29
 ## SavedVariables: SetupCoreDB
 ## SavedVariablesPerCharacter: SetupCoreCharDB
 
