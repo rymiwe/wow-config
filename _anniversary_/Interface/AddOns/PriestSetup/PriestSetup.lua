@@ -145,8 +145,7 @@ local RACIALS = {
 
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
-    SetupCore:EnsureDecurseMacro("decurse-priest", "Dispel Magic")
-    SetupCore:ApplyMacroBindings()
+    SetupCore:RefreshDecurseBinding()
     SetupCore:PrintResults("PriestSetup", placed, skipped, orphans)
     print("|cffffd700PriestSetup tip:|r heals on QERT (PW:Shield/Renew/Flash/Greater) all")
     print("|cff999999  Middle-click (M3) = dispel mouseover (Dispel Magic / Cure Disease).|r")

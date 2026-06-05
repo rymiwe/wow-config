@@ -177,8 +177,7 @@ local function Run()
     SetupCore:SeedProtectedBar(UTILITY_LAYOUT)
 
     -- M3 decurse: mouseover poison/disease on friends, Purge on enemies.
-    SetupCore:EnsureDecurseMacro("decurse-shaman", "Cure Poison")
-    SetupCore:ApplyMacroBindings()
+    SetupCore:RefreshDecurseBinding()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")

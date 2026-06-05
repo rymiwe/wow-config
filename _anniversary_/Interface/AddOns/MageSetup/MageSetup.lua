@@ -159,8 +159,7 @@ local RACIALS = {
 
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT_TIERS, IGNORE, RACIALS)
-    SetupCore:EnsureDecurseMacro("decurse-mage", "Remove Lesser Curse")
-    SetupCore:ApplyMacroBindings()
+    SetupCore:RefreshDecurseBinding()
     SetupCore:PrintResults("MageSetup", placed, skipped, orphans)
     print("|cffffd700MageSetup tip:|r Cast bolts on top numrow 1-5. Q=Frost Nova, E=Fire Blast (instant mirror).")
     print("|cff999999  Middle-click (M3) = Remove Lesser Curse on mouseover.|r")

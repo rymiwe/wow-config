@@ -158,7 +158,7 @@ local RACIALS = {
 
 local function Run()
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
-    SetupCore:ApplyMacroBindings()
+    SetupCore:RefreshDecurseBinding()
     SetupCore:PrintResults("PaladinSetup", placed, skipped, orphans)
     print("|cffffd700PaladinSetup tip:|r Movement-optimal - instants on main, casts on Alt-bar.")
     print("|cff999999  Middle-click (M3) = dispel mouseover (Cleanse / Purify).|r")

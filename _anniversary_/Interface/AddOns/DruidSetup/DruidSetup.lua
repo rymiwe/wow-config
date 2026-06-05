@@ -192,8 +192,7 @@ local function Run()
     end
     -- Caster form (or no form): apply the main caster LAYOUT.
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
-    SetupCore:EnsureDecurseMacro("decurse-druid", "Cure Poison")
-    SetupCore:ApplyMacroBindings()
+    SetupCore:RefreshDecurseBinding()
     SetupCore:PrintResults("DruidSetup", placed, skipped, orphans)
     print("|cffffd700DruidSetup tip:|r Wrath on key 1, Moonfire on 2, heals on Q/E/R/T.")
     print("|cff999999  Alt-bar MIRRORS Bar 1: Alt+1=Wrath, Alt+E=Rejuv, etc. Auto-cancels form when cast in bear/cat.|r")

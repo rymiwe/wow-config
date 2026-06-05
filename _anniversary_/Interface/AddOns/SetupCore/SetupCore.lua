@@ -24,6 +24,15 @@ local registeredRacials = {}
 local registeredFreedKeys = {}
 local macroBindingsByClass = {}
 
+-- Per-class M3 dispel: macro name, template key, icon spell for EnsureDecurseMacro.
+local DECURSE_BY_CLASS = {
+    SHAMAN  = { macroName = "SC_Decurse", template = "decurse-shaman", icon = "Cure Poison" },
+    DRUID   = { macroName = "SC_Decurse", template = "decurse-druid",  icon = "Cure Poison" },
+    PRIEST  = { macroName = "SC_Decurse", template = "decurse-priest", icon = "Dispel Magic" },
+    MAGE    = { macroName = "SC_Decurse", template = "decurse-mage",   icon = "Remove Lesser Curse" },
+    PALADIN = { macroName = "SC_Purify",  template = "pally-dispel",   icon = "Purify" },
+}
+
 -- Middle mouse: class dispel/decurse macro (SC_Decurse or SC_Purify). M4/M5 stay OPie.
 SetupCore.DECURSE_MOUSE = "BUTTON3"
 
@@ -239,7 +248,10 @@ function SetupCore:RegisterMacroBinding(key, macroName, classFile)
 end
 
 function SetupCore:RegisterDecurseMacro(macroName, classFile)
-    self:RegisterMacroBinding(self.DECURSE_MOUSE, macroName, classFile)
+    local spec = DECURSE_BY_CLASS[classFile]
+    if spec and spec.macroName == macroName then
+        self:RegisterMacroBinding(self.DECURSE_MOUSE, macroName, classFile)
+    end
 end
 
 function SetupCore:BindMacro(key, macroName)
@@ -253,30 +265,44 @@ function SetupCore:BindMacro(key, macroName)
     return false
 end
 
+-- Ensure dispel macro exists and M3 points at the current macro index (fixes stale
+-- bindings-cache entries like MACRO 125 when SC_Decurse moved to slot 15).
+function SetupCore:RefreshDecurseBinding()
+    local _, class = UnitClass("player")
+    local spec = DECURSE_BY_CLASS[class]
+    if not spec then return false end
+    self:EnsureDecurseMacro(spec.template, spec.icon, spec.macroName)
+    return self:BindMacro(self.DECURSE_MOUSE, spec.macroName)
+end
+
 function SetupCore:ApplyMacroBindings()
+    if self:RefreshDecurseBinding() then
+        print("|cff999999SetupCore|r bound M3 -> dispel macro (mouseover decurse/purge)")
+    end
     local _, class = UnitClass("player")
     local bindings = class and macroBindingsByClass[class]
     if not bindings then return end
     local applied = 0
     for key, name in pairs(bindings) do
-        if self:BindMacro(key, name) then
+        if key ~= self.DECURSE_MOUSE and self:BindMacro(key, name) then
             applied = applied + 1
         end
     end
     if applied > 0 then
-        print(string.format("|cff999999SetupCore|r bound %d macro key(s) (e.g. M3 decurse)", applied))
+        print(string.format("|cff999999SetupCore|r bound %d other macro key(s)", applied))
     end
 end
 
--- Build/update SC_Decurse from a MACRO_TEMPLATES decurse-* entry.
-function SetupCore:EnsureDecurseMacro(templateName, iconSpell)
+-- Build/update a dispel macro from a MACRO_TEMPLATES decurse-* / pally-dispel entry.
+function SetupCore:EnsureDecurseMacro(templateName, iconSpell, macroName)
+    macroName = macroName or "SC_Decurse"
     local tmpl = MACRO_TEMPLATES[templateName]
     if not tmpl then
         print("|cffff0000SetupCore|r unknown decurse template: " .. tostring(templateName))
         return nil
     end
     local _, _, icon = GetSpellInfo(iconSpell or "Cure Poison")
-    return self:EnsureRawMacro("SC_Decurse", tmpl(), icon)
+    return self:EnsureRawMacro(macroName, tmpl(), icon)
 end
 
 function SetupCore:RegisterClass(class, applyFn, layout, meta)
@@ -1326,6 +1352,13 @@ f:SetScript("OnEvent", function(_, event, ...)
             SetupCoreCharDB.tierCrossingPending = nil
         end
     end
+
+    -- Re-bind M3 to the live SC_Decurse/SC_Purify index (bindings-cache can go stale).
+    C_Timer.After(1, function()
+        if SetupCore:RefreshDecurseBinding() then
+            print("|cff999999SetupCore|r rebound middle-click (M3) dispel macro")
+        end
+    end)
 
     -- Fill layout gaps (e.g. Water Shield on a placeholder slot) and warn about
     -- anything still unmapped — racials included if not on bars.
