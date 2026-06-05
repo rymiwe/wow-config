@@ -45,7 +45,8 @@ local LAYOUT = {
     {"Scorpid Sting",          3, 5},                     -- L8    F   (-STR/-AGI debuff; right-aligned)
     {"Hunter's Mark",          3, 6},                     -- L6    G   (always-on debuff; re-applied often)
     -- ZXCVB row: utility + auto-attack toggle
-    {"Flare",                  3, 8},                     -- L8    Z   (reveals stealth)
+    {"Aspect of the Cheetah",  3, 8},                     -- L16   Z   (travel speed; also in OPie aspects ring)
+    {"Flare",                  3, 7},                     -- L8    (reveals stealth)
     {"Feign Death",            3, 9, "self-cast"},        -- L30   X   (drop combat — high-frequency, prime slot)
     -- C left empty — startattack template + right-click cover auto-attack
     {"Wing Clip",              3, 11},                    -- L12   V   (melee snare)
@@ -99,7 +100,7 @@ local IGNORE = {
     ["Survival Instincts"]=true, ["Improved Stings"]=true,
     ["Mortal Shots"]=true, ["Go for the Throat"]=true,
     -- Aspects — handled by OPie ring (M4)
-    ["Aspect of the Hawk"]=true, ["Aspect of the Cheetah"]=true,
+    ["Aspect of the Hawk"]=true,
     ["Aspect of the Pack"]=true, ["Aspect of the Beast"]=true,
     ["Aspect of the Monkey"]=true, ["Aspect of the Wild"]=true,
     ["Aspect of the Viper"]=true,

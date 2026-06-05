@@ -32,7 +32,7 @@ local LAYOUT = {
     {"Expose Armor",           1, 6},                     -- L14   5   (-armor finisher; group utility)
     -- QERT row: utility / panic
     {"Gouge",                  1, 8},                     -- L6    Q   (4s incapacitate front; emergency CC)
-    {"Sprint",                 1, 10, "self-cast"},       -- L1    E   (movement CD)
+    {"Sprint",                 1, 10, "self-cast"},       -- L1    E   (also on Z)
     {"Vanish",                 1, 11, "self-cast"},       -- L22   R   (stealth CD - threat reset)
     {"Evasion",                1, 12, "self-cast"},       -- L8    T   (defensive CD)
 
@@ -40,7 +40,8 @@ local LAYOUT = {
     {"Stealth",                3, 5, "self-cast"},        -- L1    F   (open combat from stealth; right-aligned)
     {"Feint",                  3, 6, "self-cast"},        -- L16   G   (drop threat finisher)
     -- ZXCVB row: utility + reactives
-    {"Blind",                  3, 8, "mouseover-harm"},   -- L26   Z   (10s disorient; emergency CC)
+    {"Sprint",                 3, 8, "self-cast"},       -- L1    Z   (movement CD)
+    {"Blind",                  3, 7, "mouseover-harm"},   -- L26   (10s disorient; emergency CC)
     {"Kidney Shot",            3, 9},                     -- L30   X   (stun finisher)
     {"Riposte",                3, 10},                    -- L20 Combat C (reactive after parry)
     {"Distract",               3, 11},                    -- L20   V   (turn enemies; pull/pickpocket utility)

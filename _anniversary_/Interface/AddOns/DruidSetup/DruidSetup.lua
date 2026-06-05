@@ -36,10 +36,10 @@ local LAYOUT = {
     {"Regrowth",               1, 11, "mouseover-help"},  -- L12   R   (cast hybrid HoT+direct)
     {"Lifebloom",              1, 12, "mouseover-help"},  -- TBC L64+ T (instant stacking HoT, Resto)
 
-    -- MAIN BOTTOM (Bar 3) — F/G utility; Z = Dash via SetupCore keybind
+    -- MAIN BOTTOM (Bar 3) — F/G utility; Z = Dash (SetupCore travel slot)
     -- Right-aligned per class_setup_pattern.md.
     {"Nature's Swiftness",     3, 6, "self-cast"},        -- L30 talent G (instant cast next nature spell)
-    {"Entangling Roots",       3, 8, "mouseover-harm"},   -- L8    Z-bar slot (key is Dash direct bind)
+    {"Dash",                   3, 8},                     -- L26   Z
 
     -- ALT TOP (Bar 4) — MIRRORS caster Bar 1 numrow + QERT so Alt+key always
     -- casts the caster version from any form. WoW's /cast auto-cancelforms
@@ -61,10 +61,11 @@ local LAYOUT = {
     {"Cure Poison",            5, 5, "mouseover-help"},   -- L14   Alt-F
     {"Remove Curse",           5, 6, "mouseover-help"},   -- L24   Alt-G
     -- Alt-Z = mount (SetupCore); Alt-XCVB: CC + emergency rez + defensives
+    {"Entangling Roots",       5, 7, "mouseover-harm"},   -- L8    (was Alt-Z before mount key)
     {"Hibernate",              5, 9, "mouseover-harm"},   -- L18   Alt-X (CC sleep beast/dragonkin)
     {"Rebirth",                5, 10, "mouseover-help"},  -- L20   Alt-C (combat rez)
     {"Barkskin",               5, 11, "self-cast"},       -- L44   Alt-V (defensive)
-    {"Dash",                   5, 12},                    -- L26   Alt-B (Cat sprint)
+
 }
 
 local IGNORE = {
@@ -84,8 +85,6 @@ local IGNORE = {
     ["Shadowmeld"]=true, ["Elune's Grace"]=true,
     -- Buffs in OPie M4 ring (don't flag as orphans)
     ["Mark of the Wild"]=true, ["Thorns"]=true, ["Gift of the Wild"]=true,
-    -- Z keybind (SetupCore direct SPELL, not a bar slot)
-    ["Dash"]=true,
     -- Forms in OPie M5 ring (NOT placed on bars; user uses OPie to shift)
     ["Bear Form"]=true, ["Cat Form"]=true, ["Travel Form"]=true,
     ["Aquatic Form"]=true, ["Flight Form"]=true, ["Swift Flight Form"]=true,

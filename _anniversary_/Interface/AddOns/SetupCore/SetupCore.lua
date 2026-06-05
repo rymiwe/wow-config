@@ -24,8 +24,9 @@ local registeredRacials = {}
 local registeredFreedKeys = {}
 local macroBindingsByClass = {}
 
--- Z = class movement speed instant (direct SPELL bind). Alt/Meta-Z = mount macro.
--- Classes omitted here keep Z on bar-3 slot 8 (MULTIACTIONBAR3BUTTON8).
+-- Z -> bar 3 slot 8; Alt/Meta-Z -> bar 5 slot 8 (mount macro). Movement classes
+-- get their travel instant forced onto bar 3:8 in ApplyTravelSlots (SPELL keybinds
+-- do not work on Classic/TBC Anniversary clients).
 local MOVEMENT_SPELL_BY_CLASS = {
     SHAMAN = "Ghost Wolf",
     DRUID  = "Dash",
@@ -35,9 +36,8 @@ local MOVEMENT_SPELL_BY_CLASS = {
 }
 
 local MOUNT_MACRO_NAME = "SC_Mount"
-local MOUNT_MACRO_BODY = "#showtooltip\n/cast [mounted] !Mount; [nomounted] Mount"
-local BAR3_Z_ACTION = "MULTIACTIONBAR3BUTTON8"
-local TRAVEL_KEYS = { mount = {"ALT-Z", "META-Z"}, z = {"Z", "SHIFT-Z"} }
+local MOUNT_MACRO_BODY = "#showtooltip\n/dismount [mounted]\n/cast [nomounted] Mount"
+local TRAVEL_BAR = { movement = {3, 8}, mount = {5, 8} }
 
 -- Per-class M3 dispel: macro name, template key, icon spell for EnsureDecurseMacro.
 local DECURSE_BY_CLASS = {
@@ -79,9 +79,9 @@ local BINDINGS = {
     {"R", "ACTIONBUTTON11"}, {"T", "ACTIONBUTTON12"},
     -- Clear default Blizzard binds for unused number keys (no Bar 1 buttons 7,9,...)
     {"6", nil}, {"7", nil}, {"8", nil}, {"9", nil}, {"0", nil}, {"-", nil}, {"=", nil},
-    -- Bar 3 (main bottom): F G / [Z travel] X C V B — Z bound in ApplyTravelBindings
+    -- Bar 3 (main bottom): F G / Z X C V B  (Z = slot 8; movement spell in ApplyTravelSlots)
     {"F", "MULTIACTIONBAR3BUTTON5"}, {"G", "MULTIACTIONBAR3BUTTON6"},  -- right-aligned: F/G end at row's right edge
-    {"X", "MULTIACTIONBAR3BUTTON9"},
+    {"Z", "MULTIACTIONBAR3BUTTON8"}, {"X", "MULTIACTIONBAR3BUTTON9"},
     {"C", "MULTIACTIONBAR3BUTTON10"}, {"V", "MULTIACTIONBAR3BUTTON11"},
     {"B", "MULTIACTIONBAR3BUTTON12"},
     -- Bar 4 (alt top): Alt-` Alt-1..5 / Alt-Q Alt-E Alt-R Alt-T
@@ -91,9 +91,10 @@ local BINDINGS = {
     {"ALT-5", "MULTIACTIONBAR4BUTTON6"},
     {"ALT-Q", "MULTIACTIONBAR4BUTTON8"},  {"ALT-E", "MULTIACTIONBAR4BUTTON10"},
     {"ALT-R", "MULTIACTIONBAR4BUTTON11"}, {"ALT-T", "MULTIACTIONBAR4BUTTON12"},
-    -- Bar 5 (alt bottom): Alt-F Alt-G / [Alt-Z mount] Alt-X Alt-C Alt-V Alt-B
+    -- Bar 5 (alt bottom): Alt-F Alt-G / Alt-Z Alt-X Alt-C Alt-V Alt-B  (Alt-Z = slot 8 mount macro)
     {"ALT-F", "MULTIACTIONBAR2BUTTON5"}, {"ALT-G", "MULTIACTIONBAR2BUTTON6"},  -- right-aligned to mirror F/G on Bar 3
-    {"ALT-X", "MULTIACTIONBAR2BUTTON9"},
+    {"ALT-Z", "MULTIACTIONBAR2BUTTON8"}, {"ALT-X", "MULTIACTIONBAR2BUTTON9"},
+    {"META-Z", "MULTIACTIONBAR2BUTTON8"},
     {"ALT-C", "MULTIACTIONBAR2BUTTON10"}, {"ALT-V", "MULTIACTIONBAR2BUTTON11"},
     {"ALT-B", "MULTIACTIONBAR2BUTTON12"},
     -- Neutralize Shift+key page-cycle defaults (mirror templates/bindings-cache.wtf).
@@ -106,7 +107,7 @@ local BINDINGS = {
     {"SHIFT-Q", "ACTIONBUTTON8"},  {"SHIFT-E", "ACTIONBUTTON10"},
     {"SHIFT-R", "ACTIONBUTTON11"}, {"SHIFT-T", "ACTIONBUTTON12"},
     {"SHIFT-F", "MULTIACTIONBAR3BUTTON5"}, {"SHIFT-G", "MULTIACTIONBAR3BUTTON6"},
-    {"SHIFT-X", "MULTIACTIONBAR3BUTTON9"},
+    {"SHIFT-Z", "MULTIACTIONBAR3BUTTON8"}, {"SHIFT-X", "MULTIACTIONBAR3BUTTON9"},
     {"SHIFT-C", "MULTIACTIONBAR3BUTTON10"}, {"SHIFT-V", "MULTIACTIONBAR3BUTTON11"},
     {"SHIFT-B", "OPENALLBAGS"},
     {"SHIFT-6", nil},
@@ -280,53 +281,37 @@ function SetupCore:BindMacro(key, macroName)
     return false
 end
 
-function SetupCore:PlayerKnowsSpell(spellName)
-    if not spellName then return false end
-    return select(7, GetSpellInfo(spellName)) ~= nil
-end
-
-function SetupCore:BindSpell(key, spellName)
-    if not key or not spellName or not self:PlayerKnowsSpell(spellName) then return false end
-    return SetBinding(key, "SPELL " .. spellName)
-end
-
 function SetupCore:EnsureMountMacro()
-    local _, _, icon = GetSpellInfo("Mount")
-    return self:EnsureRawMacro(MOUNT_MACRO_NAME, MOUNT_MACRO_BODY, icon or "Ability_Mount_RidingHorse")
+    return self:EnsureRawMacro(MOUNT_MACRO_NAME, MOUNT_MACRO_BODY, "Ability_Mount_RidingHorse")
 end
 
--- Z (+ Shift-Z) = movement instant when class has one; else bar-3 slot 8.
--- Alt-Z / Meta-Z = SC_Mount (dismount if mounted, else summon mount).
-function SetupCore:ApplyTravelBindings()
+-- Place movement (bar 3:8) and mount macro (bar 5:8). Keys stay MULTIACTIONBAR binds.
+function SetupCore:ApplyTravelSlots()
     local _, class = UnitClass("player")
     local movement = class and MOVEMENT_SPELL_BY_CLASS[class]
-    local applied = 0
-
-    for _, key in ipairs(TRAVEL_KEYS.z) do
-        local action
-        if movement and self:PlayerKnowsSpell(movement) then
-            if self:BindSpell(key, movement) then
-                applied = applied + 1
-            end
-        elseif SetBinding(key, BAR3_Z_ACTION) then
-            applied = applied + 1
-        end
-    end
+    local parts = {}
 
     self:EnsureMountMacro()
-    for _, key in ipairs(TRAVEL_KEYS.mount) do
-        if self:BindMacro(key, MOUNT_MACRO_NAME) then
-            applied = applied + 1
+    local mBar, mBtn = TRAVEL_BAR.mount[1], TRAVEL_BAR.mount[2]
+    local mSlot = self:ResolveActionSlot(mBar, mBtn)
+    if mSlot then
+        self:ClearSlot(mSlot)
+        if self:PlaceMacro(MOUNT_MACRO_NAME, mBar, mBtn) then
+            parts[#parts + 1] = "Alt-Z mount"
         end
     end
 
-    if applied > 0 then
-        SaveBindings(2)
-        local zDesc = movement and self:PlayerKnowsSpell(movement)
-            and ("Z -> " .. movement) or "Z -> bar slot"
-        print(string.format("|cff999999SetupCore|r travel: %s, Alt-Z -> mount", zDesc))
+    if movement then
+        local zBar, zBtn = TRAVEL_BAR.movement[1], TRAVEL_BAR.movement[2]
+        if self:PlaceSpell(movement, zBar, zBtn, nil, true) then
+            parts[#parts + 1] = "Z -> " .. movement
+        end
     end
-    return applied > 0
+
+    if #parts > 0 then
+        print("|cff999999SetupCore|r travel: " .. table.concat(parts, ", "))
+    end
+    return #parts > 0
 end
 
 -- Ensure dispel macro exists and M3 points at the current macro index (fixes stale
@@ -903,11 +888,6 @@ function SetupCore:FillEmptyBoundSlots()
             end
         end
     end
-    -- Non-movement classes: Z still maps to bar-3 button 8.
-    local _, class = UnitClass("player")
-    if not (class and MOVEMENT_SPELL_BY_CLASS[class]) then
-        slots[#slots+1] = {3, 8}
-    end
 
     local placed = 0
     local function maybePlaceholder(bar, btn)
@@ -1022,7 +1002,6 @@ function SetupCore:ApplyBindings()
     if applied > 0 or cleared > 0 then
         print(string.format("|cff999999SetupCore|r asserted %d bindings (cleared %d defaults)", applied, cleared))
     end
-    self:ApplyTravelBindings()
     self:ApplyMacroBindings()
 end
 
@@ -1132,6 +1111,7 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
         end
     end
     self:EvictLayoutDuplicates(layout)
+    self:ApplyTravelSlots()
     local mapped = {}
     for _, item in ipairs(layout) do mapped[item[1]] = true end
     ignore = ignore or {}
@@ -1423,12 +1403,13 @@ f:SetScript("OnEvent", function(_, event, ...)
         end
     end
 
-    -- Re-bind M3 + Z/Alt-Z travel keys (bindings-cache can go stale).
+    -- Restore bar-key binds + travel slots (bindings-cache SPELL entries break on Classic).
     C_Timer.After(1, function()
+        SetupCore:ApplyBindings()
         if SetupCore:RefreshDecurseBinding() then
             print("|cff999999SetupCore|r rebound middle-click (M3) dispel macro")
         end
-        SetupCore:ApplyTravelBindings()
+        SetupCore:ApplyTravelSlots()
     end)
 
     -- Fill layout gaps (e.g. Water Shield on a placeholder slot) and warn about

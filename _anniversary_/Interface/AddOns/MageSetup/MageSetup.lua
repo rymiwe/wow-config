@@ -54,10 +54,11 @@ local L20_TIER = {
     {"Frost Nova",             1, 8},                     -- Q
     {"Fire Blast",             1, 10, "nuke-mouseover"},  -- E
     {"Polymorph",              1, 11, "focus-mouseover-harm"}, -- R
-    {"Blink",                  1, 12, "self-cast"},       -- L20   T
+    {"Blink",                  1, 12, "self-cast"},       -- L20   T (duplicate; Z is primary)
     -- F/G + ZXCVB: utility
     {"Conjure Mana Gem",       3, 6, "self-cast"},        -- L28   G
-    {"Cone of Cold",           3, 8},                     -- L26   Z
+    {"Blink",                  3, 8, "self-cast"},       -- L20   Z
+    {"Cone of Cold",           3, 7},                     -- L26
     {"Arcane Explosion",       3, 9},                     -- X
     {"Mana Shield",            3, 10, "self-cast"},       -- L20   C
     {"Slow Fall",              3, 12, "mouseover-help"},  -- B
