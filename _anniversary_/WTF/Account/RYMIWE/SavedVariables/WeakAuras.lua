@@ -46,7 +46,7 @@ WeakAurasSaved = {
 },
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["desaturate"] = false,
 ["rotation"] = 0,
@@ -175,7 +175,7 @@ WeakAurasSaved = {
 },
 },
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["version"] = 2,
 ["subRegions"] = {
@@ -209,11 +209,14 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
-["parent"] = "Sham Shields",
+["alpha"] = 1,
 ["borderOffset"] = 4,
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Lightning shield",
+["parent"] = "Sham Shields",
+["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -234,12 +237,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["frameStrata"] = 1,
-["anchorFrameType"] = "SCREEN",
-["alpha"] = 1,
+["uid"] = "Q1U6c1N03cL",
 ["config"] = {
 },
-["uid"] = "Q1U6c1N03cL",
 ["borderInset"] = 1,
 ["conditions"] = {
 },
@@ -318,7 +318,7 @@ WeakAurasSaved = {
 1,
 1,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["progressSource"] = {
 -1,
 "",
@@ -349,6 +349,12 @@ WeakAurasSaved = {
 0,
 0,
 },
+["barColor2"] = {
+1,
+1,
+0,
+1,
+},
 ["barColor"] = {
 1,
 0,
@@ -356,13 +362,8 @@ WeakAurasSaved = {
 0,
 },
 ["desaturate"] = false,
-["barColor2"] = {
-1,
-1,
-0,
-1,
-},
 ["preferToUpdate"] = false,
+["parent"] = "SwingTimer",
 ["version"] = 15,
 ["subRegions"] = {
 {
@@ -396,13 +397,18 @@ WeakAurasSaved = {
 },
 ["sparkBlendMode"] = "BLEND",
 ["useAdjustededMax"] = false,
-["parent"] = "SwingTimer",
 ["enableGradient"] = false,
+["sparkColor"] = {
+1,
+0,
+0.03921568627451,
+1,
+},
+["toolTipArea"] = "ICON",
 ["config"] = {
 ["CbM"] = false,
 ["bigBadSync"] = false,
 },
-["uid"] = "7y6BGEkcT6p",
 ["selfPoint"] = "CENTER",
 ["anchorFrameType"] = "SCREEN",
 ["useAdjustededMin"] = false,
@@ -440,12 +446,7 @@ WeakAurasSaved = {
 ["desc"] = "Might help with red-green colorblindness",
 },
 },
-["sparkColor"] = {
-1,
-0,
-0.03921568627451,
-1,
-},
+["uid"] = "7y6BGEkcT6p",
 ["inverse"] = true,
 ["icon"] = false,
 ["orientation"] = "HORIZONTAL",
@@ -632,12 +633,12 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["faction"] = {
+["use_spec"] = true,
+["pvptalent"] = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
-["pvptalent"] = {
+["faction"] = {
 ["multi"] = {
 },
 },
@@ -652,6 +653,7 @@ WeakAurasSaved = {
 },
 },
 },
+["toolTipArea"] = "ICON",
 ["smoothProgress"] = false,
 ["useAdjustededMin"] = false,
 ["regionType"] = "aurabar",
@@ -826,7 +828,7 @@ WeakAurasSaved = {
 ["customTriggerLogic"] = "function(t)\n    return t[1] or t[2]\nend",
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["progressSource"] = {
 -1,
 "",
@@ -928,9 +930,9 @@ WeakAurasSaved = {
 ["text_font"] = "PEPSI",
 ["text_anchorYOffset"] = 60,
 ["text_shadowYOffset"] = -1,
-["text_fontType"] = "None",
-["text_wordWrap"] = "WordWrap",
 ["text_visible"] = false,
+["text_wordWrap"] = "WordWrap",
+["text_fontType"] = "None",
 ["text_text_format_p_time_format"] = 0,
 ["text_text_format_p_time_precision"] = 1,
 ["anchor_point"] = "INNER_CENTER",
@@ -939,8 +941,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
-["border_offset"] = 1,
 ["type"] = "subborder",
+["border_size"] = 2,
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -952,7 +954,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["border_size"] = 2,
+["border_offset"] = 1,
 },
 {
 ["tick_rotation"] = 0,
@@ -1071,8 +1073,8 @@ WeakAurasSaved = {
 ["message"] = "",
 ["custom"] = "\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\n\n\n\n",
 ["message_type"] = "PRINT",
-["do_message"] = false,
 ["do_custom"] = false,
+["do_message"] = false,
 ["message_custom"] = "function ()\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\nend\n\n\n",
 },
 ["finish"] = {
@@ -1223,7 +1225,7 @@ WeakAurasSaved = {
 },
 },
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -1280,15 +1282,15 @@ WeakAurasSaved = {
 ["semver"] = "3.0.5",
 ["tocversion"] = 20505,
 ["id"] = "SwingTimer",
-["config"] = {
+["authorOptions"] = {
 },
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["frameStrata"] = 1,
-["borderInset"] = 1,
-["authorOptions"] = {
-},
 ["uid"] = "9b0ooXp)9Nb",
+["config"] = {
+},
+["borderInset"] = 1,
 ["conditions"] = {
 },
 ["information"] = {
@@ -1339,7 +1341,7 @@ WeakAurasSaved = {
 },
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["desaturate"] = false,
 ["rotation"] = 0,
@@ -1467,7 +1469,7 @@ WeakAurasSaved = {
 },
 },
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["version"] = 2,
 ["subRegions"] = {
@@ -1505,13 +1507,19 @@ WeakAurasSaved = {
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Sham Shields",
-["borderInset"] = 1,
+["uid"] = "pgn179hZoxd",
 ["alpha"] = 1,
 ["anchorFrameType"] = "SCREEN",
 ["frameStrata"] = 1,
+["borderInset"] = 1,
+["xOffset"] = 0,
 ["config"] = {
 },
-["uid"] = "pgn179hZoxd",
+["conditions"] = {
+},
+["information"] = {
+["showNilIsFalse"] = true,
+},
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -1532,12 +1540,6 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["conditions"] = {
-},
-["information"] = {
-["showNilIsFalse"] = true,
-},
-["xOffset"] = 0,
 },
 ["L Shield 2"] = {
 ["wagoID"] = "OPRZeg-u6",
@@ -1581,7 +1583,7 @@ WeakAurasSaved = {
 },
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["desaturate"] = false,
 ["rotation"] = 0,
@@ -1729,12 +1731,12 @@ WeakAurasSaved = {
 ["multi"] = {
 },
 },
-["faction"] = {
+["use_spec"] = true,
+["pvptalent"] = {
 ["multi"] = {
 },
 },
-["use_spec"] = true,
-["pvptalent"] = {
+["faction"] = {
 ["multi"] = {
 },
 },
@@ -1749,6 +1751,7 @@ WeakAurasSaved = {
 },
 },
 },
+["toolTipArea"] = "ICON",
 ["smoothProgress"] = false,
 ["useAdjustededMin"] = false,
 ["regionType"] = "aurabar",
@@ -1860,7 +1863,7 @@ WeakAurasSaved = {
 ["customTriggerLogic"] = "function(t)\n    return t[1] or t[2]\nend",
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["progressSource"] = {
 -1,
 "",
@@ -1962,9 +1965,9 @@ WeakAurasSaved = {
 ["text_font"] = "PEPSI",
 ["text_anchorYOffset"] = 60,
 ["text_shadowYOffset"] = -1,
-["text_fontType"] = "None",
-["text_wordWrap"] = "WordWrap",
 ["text_visible"] = false,
+["text_wordWrap"] = "WordWrap",
+["text_fontType"] = "None",
 ["text_text_format_p_time_format"] = 0,
 ["text_text_format_p_time_precision"] = 1,
 ["anchor_point"] = "INNER_CENTER",
@@ -1973,8 +1976,8 @@ WeakAurasSaved = {
 ["text_text_format_p_format"] = "timed",
 },
 {
-["border_offset"] = 1,
 ["type"] = "subborder",
+["border_size"] = 2,
 ["anchor_area"] = "bar",
 ["text_color"] = {
 },
@@ -1986,7 +1989,7 @@ WeakAurasSaved = {
 },
 ["border_visible"] = false,
 ["border_edge"] = "None",
-["border_size"] = 2,
+["border_offset"] = 1,
 },
 {
 ["tick_rotation"] = 0,
@@ -2095,8 +2098,8 @@ WeakAurasSaved = {
 ["message"] = "",
 ["custom"] = "\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\n\n\n\n",
 ["message_type"] = "PRINT",
-["do_message"] = false,
 ["do_custom"] = false,
+["do_message"] = false,
 ["message_custom"] = "function ()\n    if aura_env.mh_hilight then\n        return true\n    else return false\n    end\nend\n\n\n",
 },
 ["finish"] = {
@@ -2222,7 +2225,7 @@ WeakAurasSaved = {
 },
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["desaturate"] = false,
 ["rotation"] = 0,
@@ -2351,7 +2354,7 @@ WeakAurasSaved = {
 },
 },
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["version"] = 2,
 ["subRegions"] = {
@@ -2385,11 +2388,14 @@ WeakAurasSaved = {
 ["borderEdge"] = "Square Full White",
 ["regionType"] = "group",
 ["borderSize"] = 2,
-["parent"] = "Sham Shields",
+["alpha"] = 1,
 ["borderOffset"] = 4,
 ["semver"] = "1.2.0",
 ["tocversion"] = 20505,
 ["id"] = "Wata shield",
+["parent"] = "Sham Shields",
+["frameStrata"] = 1,
+["anchorFrameType"] = "SCREEN",
 ["animation"] = {
 ["start"] = {
 ["easeStrength"] = 3,
@@ -2410,12 +2416,9 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["frameStrata"] = 1,
-["anchorFrameType"] = "SCREEN",
-["alpha"] = 1,
+["uid"] = "rQfBiekzqnL",
 ["config"] = {
 },
-["uid"] = "rQfBiekzqnL",
 ["borderInset"] = 1,
 ["conditions"] = {
 },
@@ -2466,7 +2469,7 @@ WeakAurasSaved = {
 },
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["desaturate"] = false,
 ["rotation"] = 0,
@@ -2593,7 +2596,7 @@ WeakAurasSaved = {
 },
 ["activeTriggerMode"] = -10,
 },
-["internalVersion"] = 89,
+["internalVersion"] = 90,
 ["selfPoint"] = "CENTER",
 ["desaturate"] = false,
 ["rotation"] = 0,
@@ -2725,7 +2728,8 @@ WeakAurasSaved = {
 ["subRegions"] = {
 },
 ["borderInset"] = 1,
-["uid"] = "IdbYyDSAl4t",
+["authorOptions"] = {
+},
 ["load"] = {
 ["size"] = {
 ["multi"] = {
@@ -2751,6 +2755,16 @@ WeakAurasSaved = {
 1,
 0.5,
 },
+["uid"] = "IdbYyDSAl4t",
+["animate"] = false,
+["rotation"] = 0,
+["scale"] = 1,
+["centerType"] = "LR",
+["border"] = false,
+["borderEdge"] = "Square Full White",
+["regionType"] = "dynamicgroup",
+["borderSize"] = 2,
+["limit"] = 5,
 ["animation"] = {
 ["start"] = {
 ["type"] = "none",
@@ -2771,18 +2785,7 @@ WeakAurasSaved = {
 ["easeType"] = "none",
 },
 },
-["animate"] = false,
-["internalVersion"] = 89,
-["scale"] = 1,
-["centerType"] = "LR",
-["border"] = false,
-["borderEdge"] = "Square Full White",
-["regionType"] = "dynamicgroup",
-["borderSize"] = 2,
-["limit"] = 5,
 ["arcLength"] = 360,
-["authorOptions"] = {
-},
 ["constantFactor"] = "RADIUS",
 ["useLimit"] = false,
 ["borderOffset"] = 4,
@@ -2795,28 +2798,36 @@ WeakAurasSaved = {
 ["stepAngle"] = 15,
 ["config"] = {
 },
-["gridType"] = "RD",
 ["fullCircle"] = true,
+["internalVersion"] = 90,
 ["conditions"] = {
 },
 ["information"] = {
 },
-["rotation"] = 0,
+["gridType"] = "RD",
 },
 },
-["registered"] = {
+["lastLoaded"] = {
+["YStTrNHNW(1"] = 261291.719,
+["bKDFLW2aasC"] = 261291.719,
+["NZrH1zj9FTV"] = 261291.719,
+["V(9vKtKIz)b"] = 261291.719,
+["vUdZjgIeaYU"] = 261291.719,
+["284YsQqMA4B"] = 261291.719,
 },
+["login_squelch_time"] = 10,
 ["lastArchiveClear"] = 1779766654,
 ["minimap"] = {
 ["minimapPos"] = 185.77,
 ["hide"] = false,
 },
-["lastUpgrade"] = 1777260857,
-["dbVersion"] = 89,
+["lastUpgrade"] = 1780610759,
+["dbVersion"] = 90,
 ["migrationCutoff"] = 730,
 ["features"] = {
 },
-["editor_font_size"] = 12,
+["registered"] = {
+},
 ["historyCutoff"] = 730,
-["login_squelch_time"] = 10,
+["editor_font_size"] = 12,
 }
