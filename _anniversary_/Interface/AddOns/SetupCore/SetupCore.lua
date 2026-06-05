@@ -36,8 +36,16 @@ local MOVEMENT_SPELL_BY_CLASS = {
 }
 
 local MOUNT_MACRO_NAME = "SC_Mount"
-local MOUNT_MACRO_BODY = "#showtooltip\n/dismount [mounted]\n/cast [nomounted] Mount"
+-- /cast Mount does not work on Classic/TBC (no such spell). Use mount journal API.
+local MOUNT_MACRO_BODY_DEFAULT = "#showtooltip\n/run if IsMounted() then Dismount() else C_MountJournal.SummonByID(0) end"
+local MOUNT_MACRO_BODY_SHAMAN = "#showtooltip\n/run if IsMounted() then Dismount() else if GetShapeshiftForm()>0 then CastSpellByName(\"Ghost Wolf\") end C_MountJournal.SummonByID(0) end"
 local TRAVEL_BAR = { movement = {3, 8}, mount = {5, 8} }
+local TRAVEL_KEYBINDS = {
+    {"Z", "MULTIACTIONBAR3BUTTON8"},
+    {"SHIFT-Z", "MULTIACTIONBAR3BUTTON8"},
+    {"ALT-Z", "MULTIACTIONBAR2BUTTON8"},
+    {"META-Z", "MULTIACTIONBAR2BUTTON8"},
+}
 
 -- Per-class M3 dispel: macro name, template key, icon spell for EnsureDecurseMacro.
 local DECURSE_BY_CLASS = {
@@ -281,8 +289,28 @@ function SetupCore:BindMacro(key, macroName)
     return false
 end
 
+function SetupCore:GetMountMacroBody()
+    local _, class = UnitClass("player")
+    if class == "SHAMAN" then
+        return MOUNT_MACRO_BODY_SHAMAN
+    end
+    return MOUNT_MACRO_BODY_DEFAULT
+end
+
 function SetupCore:EnsureMountMacro()
-    return self:EnsureRawMacro(MOUNT_MACRO_NAME, MOUNT_MACRO_BODY, "Ability_Mount_RidingHorse")
+    return self:EnsureRawMacro(MOUNT_MACRO_NAME, self:GetMountMacroBody(), "Ability_Mount_RidingHorse")
+end
+
+-- Z/Alt-Z must stay bar-slot binds (not SPELL/MACRO index); overrides stale bindings-cache.
+function SetupCore:ApplyTravelKeybinds()
+    local n = 0
+    for _, pair in ipairs(TRAVEL_KEYBINDS) do
+        if SetBinding(pair[1], pair[2]) then
+            n = n + 1
+        end
+    end
+    if n > 0 then SaveBindings(2) end
+    return n > 0
 end
 
 -- Place movement (bar 3:8) and mount macro (bar 5:8). Keys stay MULTIACTIONBAR binds.
@@ -1002,6 +1030,7 @@ function SetupCore:ApplyBindings()
     if applied > 0 or cleared > 0 then
         print(string.format("|cff999999SetupCore|r asserted %d bindings (cleared %d defaults)", applied, cleared))
     end
+    self:ApplyTravelKeybinds()
     self:ApplyMacroBindings()
 end
 
@@ -1410,6 +1439,7 @@ f:SetScript("OnEvent", function(_, event, ...)
             print("|cff999999SetupCore|r rebound middle-click (M3) dispel macro")
         end
         SetupCore:ApplyTravelSlots()
+        SetupCore:ApplyTravelKeybinds()
     end)
 
     -- Fill layout gaps (e.g. Water Shield on a placeholder slot) and warn about
