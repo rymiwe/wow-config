@@ -32,7 +32,7 @@ WeakAurasCompanion: enabled
 OPie_Classic: disabled
 BadBoy: enabled
 ElvUIFixes: enabled
-ChatPanelThemes: disabled
+ChatPanelThemes: enabled
 DruidSetup: enabled
 HunterSetup: enabled
 MageSetup: enabled
@@ -48,6 +48,9 @@ TradeSkillMaster_AppHelper: enabled
 WarlockSetup: enabled
 WarriorSetup: enabled
 ZygorSetup: enabled
+ItemRackOptions: enabled
+ItemRack: disabled
+ItemRackSetup: disabled
 HeyDaddy: enabled
 TSMSetup: enabled
 WeakAurasSetup: enabled

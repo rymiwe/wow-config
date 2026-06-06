@@ -6,22 +6,15 @@ VER 3 0100000000000010 "SC_ChainHeal" "136042"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Chain Heal
 END
-VER 3 010000000000000B "SC_CureDisease" "136083"
-#showtooltip
-/cast [@mouseover,help,nodead][help,nodead][@player] Cure Disease
-END
-VER 3 0100000000000004 "SC_CurePoison" "136067"
-#showtooltip
-/cast [@mouseover,help,nodead][help,nodead][@player] Cure Poison
-END
 VER 3 010000000000000F "SC_Decurse" "136067"
 #showtooltip
-/cast [@mouseover,help,nodead] Cure Poison
 /cast [@mouseover,help,nodead] Cure Disease
-/cast [@mouseover,harm,nodead] Purge
-/cast [help,nodead] Cure Poison
+/cast [@mouseover,help,nodead] Cure Poison
 /cast [help,nodead] Cure Disease
-/cast [harm,nodead] Purge
+/cast [help,nodead] Cure Poison
+/cast [@player] Cure Disease
+/cast [@player] Cure Poison
+/cast [@mouseover,harm,nodead] Pur
 END
 VER 3 0100000000000006 "SC_FlameShock" "135813"
 #showtooltip
@@ -45,16 +38,17 @@ VER 3 010000000000000A "SC_LightningBolt" "136048"
 /startattack
 /cast [@mouseover,harm,nodead][harm,nodead] Lightning Bolt
 END
-VER 3 0100000000000012 "SC_Mount" "Ability_Mount_RidingHorse"
+VER 3 0100000000000019 "SC_Mount" "132255"
 #showtooltip
-/run if IsMounted() then Dismount() else if GetShapeshiftForm()>0 then CastSpellByName("Ghost Wolf") end C_MountJournal.SummonByID(0) end
-END
-VER 3 0100000000000005 "SC_Purge" "136075"
-#showtooltip
-/cast [@mouseover,harm,nodead][harm,nodead] Purge
+/cancelform [noform:0]
+/use item:29744
 END
 VER 3 0100000000000011 "SC_Stormstrike" "132314"
 #showtooltip
 /startattack
 /cast Stormstrike
+END
+VER 3 0100000000000018 "SC_TotemDrop" "136098"
+#showtooltip
+/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem, Wrath of Air Totem
 END

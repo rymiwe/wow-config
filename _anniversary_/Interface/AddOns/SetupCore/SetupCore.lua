@@ -227,12 +227,17 @@ local MACRO_TEMPLATES = {
     end,
     -- M3 decurse macros (mouseover-first). Class addons call EnsureDecurseMacro().
     ["decurse-shaman"] = function()
-        -- Disease before poison; [@player] so self-dispel works without mouseover.
+        -- Separate /cast lines (reliable mouseover on TBC frames); disease before poison.
         return table.concat({
             "#showtooltip",
-            "/cast [@mouseover,help,nodead][help,nodead][@player] Cure Disease",
-            "/cast [@mouseover,help,nodead][help,nodead][@player] Cure Poison",
-            "/cast [@mouseover,harm,nodead][harm,nodead] Purge",
+            "/cast [@mouseover,help,nodead] Cure Disease",
+            "/cast [@mouseover,help,nodead] Cure Poison",
+            "/cast [help,nodead] Cure Disease",
+            "/cast [help,nodead] Cure Poison",
+            "/cast [@player] Cure Disease",
+            "/cast [@player] Cure Poison",
+            "/cast [@mouseover,harm,nodead] Purge",
+            "/cast [harm,nodead] Purge",
         }, "\n")
     end,
     ["decurse-druid"] = function()
@@ -747,13 +752,19 @@ function SetupCore:RefreshDecurseBinding()
     if cur == want then return true end
     if SetBinding(self.DECURSE_MOUSE, want) then
         SaveBindings(2)
+        local now = GetBindingAction(self.DECURSE_MOUSE)
         print(string.format(
             "|cff999999SetupCore|r M3 -> %s (macro %d%s)",
             spec.macroName, idx,
             (cur and cur ~= "" and (", was " .. cur) or "")
         ))
+        if now ~= want then
+            print("|cffff0000SetupCore|r M3 bind failed (still " .. tostring(now) .. ")")
+            return false
+        end
         return true
     end
+    print("|cffff0000SetupCore|r SetBinding failed for M3 -> " .. want)
     return false
 end
 
@@ -1685,7 +1696,27 @@ SlashCmdList["RESTOREBARS"] = function() SetupCore:RestoreBars() end
 
 -- Standalone bindings/CVars asserters (also auto-run as part of /setupbars)
 SLASH_APPLYBINDINGS1 = "/applybindings"
-SlashCmdList["APPLYBINDINGS"] = function() SetupCore:ApplyBindings() end
+SlashCmdList["APPLYBINDINGS"] = function()
+    SetupCore:ApplyBindings()
+    SetupCore:RefreshDecurseBinding()
+end
+
+SLASH_DECURSEFIX1 = "/decursefix"
+SlashCmdList["DECURSEFIX"] = function()
+    print("|cff999999SetupCore|r decursefix (v1.40)")
+    local _, class = UnitClass("player")
+    local spec = DECURSE_BY_CLASS[class]
+    if not spec then
+        print("|cffff0000SetupCore|r no dispel macro for class " .. tostring(class))
+        return
+    end
+    SetupCore:EnsureDecurseMacro(spec.template, spec.icon, spec.macroName)
+    if SetupCore:RefreshDecurseBinding() then
+        local idx = GetMacroIndexByName(spec.macroName)
+        print("|cff999999SetupCore|r M3 dispel ready — mouseover friends for disease/poison, enemies for Purge")
+        print("|cff999999SetupCore|r " .. spec.macroName .. " is macro " .. tostring(idx) .. " (/dump GetBindingAction('BUTTON3') to verify)")
+    end
+end
 
 SLASH_SETMOUNT1 = "/setmount"
 SlashCmdList["SETMOUNT"] = function(msg)
@@ -1739,6 +1770,10 @@ end
 
 SLASH_SETUPMOUNT1 = "/mountfix"
 SlashCmdList["SETUPMOUNT"] = function()
+    print("|cff999999SetupCore|r mountfix (v1.39)")
+    if not SetupCore:HasContainerAPI() then
+        print("|cffffaa00SetupCore|r C_Container bag API not ready — carry mount item; try |cff66ff66/setmount item:ID|r")
+    end
     SetupCore:ApplyMountBarSlot()
     SetupCore:ApplyBindings()
     local ok, how = SetupCore:VerifyMountOnBar()
@@ -1930,11 +1965,16 @@ end
 
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
+f:RegisterEvent("PLAYER_ENTERING_WORLD")
 f:RegisterEvent("PLAYER_LEVEL_UP")
 f:SetScript("OnEvent", function(_, event, ...)
     if event == "PLAYER_LEVEL_UP" then
         local newLevel = ...
         if newLevel then CheckTierCrossing(newLevel) end
+        return
+    end
+    if event == "PLAYER_ENTERING_WORLD" then
+        C_Timer.After(0.5, function() SetupCore:RefreshDecurseBinding() end)
         return
     end
     -- PLAYER_LOGIN below
@@ -1965,6 +2005,8 @@ f:SetScript("OnEvent", function(_, event, ...)
         end
     end
 
+    -- M3 dispel must not stay a stale MACRO N from bindings-cache (e.g. MACRO 123).
+    SetupCore:RefreshDecurseBinding()
     -- Restore Z bar bind + mount macro keybind (after ElvUI buttons exist).
     C_Timer.After(1, function()
         SetupCore:ApplyBindings()
@@ -1987,4 +2029,19 @@ f:SetScript("OnEvent", function(_, event, ...)
         if #placed > 0 then
             print("|cff00ff00SetupCore|r auto-placed on login: |cffffffff"..table.concat(placed, ", ").."|r")
         end
-        SetupCore:Re
+        SetupCore:ReportOrphans()
+    end)
+
+    -- Auto-leave noisy channels — once per character.
+    if not SetupCoreCharDB.channelsLeft then
+        C_Timer.After(3, function()
+            local left = {}
+            for _, name in ipairs(CHANNELS_TO_LEAVE) do
+                LeaveChannelByName(name)
+                table.insert(left, name)
+            end
+            SetupCoreCharDB.channelsLeft = true
+            print("|cff00ff00SetupCore|r left channels: "..table.concat(left, ", "))
+        end)
+    end
+end)

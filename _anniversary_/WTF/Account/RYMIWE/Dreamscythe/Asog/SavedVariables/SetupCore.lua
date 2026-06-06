@@ -1,5 +1,7 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
+["totemProfile"] = "caster_group",
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -63,13 +65,11 @@ nil,
 nil,
 nil,
 nil,
+nil,
 {
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
+["id"] = 36936,
+["type"] = "spell",
+["name"] = "Totemic Call",
 },
 nil,
 {
@@ -78,9 +78,8 @@ nil,
 ["name"] = "Ghost Wolf",
 },
 {
-["id"] = 36936,
-["type"] = "spell",
-["name"] = "Totemic Call",
+["name"] = " ",
+["type"] = "macro",
 },
 {
 ["name"] = " ",
@@ -150,10 +149,7 @@ nil,
 ["type"] = "macro",
 },
 nil,
-{
-["name"] = " ",
-["type"] = "macro",
-},
+nil,
 {
 ["name"] = " ",
 ["type"] = "macro",
@@ -221,7 +217,6 @@ nil,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-06-04 22:41:07",
+["timestamp"] = "2026-06-05 17:54:23",
 },
-["channelsLeft"] = true,
 }
