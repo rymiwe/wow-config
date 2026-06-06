@@ -344,40 +344,35 @@ function SetupCore:IsMountItemID(itemID)
     return false
 end
 
--- Anniversary client exposes bag APIs on C_Container, not legacy globals.
+-- Anniversary client: bag APIs live on C_Container only (legacy globals are nil).
+function SetupCore:HasContainerAPI()
+    return type(C_Container) == "table"
+        and type(C_Container.GetContainerNumSlots) == "function"
+        and type(C_Container.GetContainerItemID) == "function"
+end
+
 function SetupCore:GetContainerNumSlots(bagID)
-    if C_Container and C_Container.GetContainerNumSlots then
-        return C_Container.GetContainerNumSlots(bagID) or 0
-    end
-    if GetContainerNumSlots then
-        return GetContainerNumSlots(bagID) or 0
-    end
-    return 0
+    if not self:HasContainerAPI() then return 0 end
+    local ok, slots = pcall(C_Container.GetContainerNumSlots, bagID)
+    return (ok and slots) or 0
 end
 
 function SetupCore:GetContainerItemID(bagID, slot)
-    if C_Container and C_Container.GetContainerItemID then
-        return C_Container.GetContainerItemID(bagID, slot)
-    end
-    if GetContainerItemID then
-        return GetContainerItemID(bagID, slot)
-    end
-    if C_Container and C_Container.GetContainerItemInfo then
-        local info = C_Container.GetContainerItemInfo(bagID, slot)
-        return info and info.itemID
-    end
-    if GetContainerItemInfo then
-        return select(10, GetContainerItemInfo(bagID, slot))
+    if not self:HasContainerAPI() then return nil end
+    local ok, itemID = pcall(C_Container.GetContainerItemID, bagID, slot)
+    if ok and itemID then return itemID end
+    if type(C_Container.GetContainerItemInfo) == "function" then
+        local ok2, info = pcall(C_Container.GetContainerItemInfo, bagID, slot)
+        if ok2 and info then return info.itemID end
     end
     return nil
 end
 
 function SetupCore:PickupContainerItem(bagID, slot)
-    if C_Container and C_Container.PickupContainerItem then
-        C_Container.PickupContainerItem(bagID, slot)
-    elseif PickupContainerItem then
-        PickupContainerItem(bagID, slot)
-    end
+    if not self:HasContainerAPI() then return false end
+    if type(C_Container.PickupContainerItem) ~= "function" then return false end
+    local ok = pcall(C_Container.PickupContainerItem, bagID, slot)
+    return ok
 end
 
 function SetupCore:ForEachBagItem(fn)
@@ -479,9 +474,13 @@ end
 function SetupCore:GetPreferredMount()
     if SetupCoreCharDB.mountItem then
         local id = SetupCoreCharDB.mountItem
-        if self:FindItemInBags(id) and self:IsMountItemID(id) then
+        local inBags = self:FindItemInBags(id) ~= nil
+        if inBags or self:IsMountItemID(id) or GetItemInfo(id) then
             return "item", id, GetItemInfo(id) or ("item:" .. id)
         end
+    end
+    if not self:HasContainerAPI() then
+        return nil
     end
     local items = self:FindMountItems()
     if #items > 0 then
@@ -1692,6 +1691,9 @@ SLASH_SETMOUNT1 = "/setmount"
 SlashCmdList["SETMOUNT"] = function(msg)
     local name = (msg or ""):match("^%s*(.+)%s*$")
     if not name or name == "" then
+        if not SetupCore:HasContainerAPI() then
+            print("|cffff0000SetupCore|r bag API unavailable — use |cff66ff66/setmount item:12345|r with your mount's item ID")
+        end
         local items = SetupCore:FindMountItems()
         local spells = SetupCore:FindMountSpells()
         print("|cffffaa00SetupCore|r usage: /setmount Cerulean Phase-Hunter")
@@ -1706,6 +1708,14 @@ SlashCmdList["SETMOUNT"] = function(msg)
         if #items == 0 and #spells == 0 then
             print("|cff999999No mounts found — keep a mount item in your bags.|r")
         end
+        return
+    end
+    local itemID = tonumber(name:match("^item:(%d+)$"))
+    if itemID then
+        SetupCoreCharDB.mountItem = itemID
+        SetupCoreCharDB.mountSpell = nil
+        SetupCore:ApplyMountBarSlot()
+        print("|cff999999SetupCore|r preferred mount item ID: |cffffffff" .. itemID .. "|r")
         return
     end
     local norm = SetupCore:NormalizeSpellName(name)
@@ -1977,19 +1987,4 @@ f:SetScript("OnEvent", function(_, event, ...)
         if #placed > 0 then
             print("|cff00ff00SetupCore|r auto-placed on login: |cffffffff"..table.concat(placed, ", ").."|r")
         end
-        SetupCore:ReportOrphans()
-    end)
-
-    -- Auto-leave noisy channels — once per character.
-    if not SetupCoreCharDB.channelsLeft then
-        C_Timer.After(3, function()
-            local left = {}
-            for _, name in ipairs(CHANNELS_TO_LEAVE) do
-                LeaveChannelByName(name)
-                table.insert(left, name)
-            end
-            SetupCoreCharDB.channelsLeft = true
-            print("|cff00ff00SetupCore|r left channels: "..table.concat(left, ", "))
-        end)
-    end
-end)
+        SetupCore:Re
