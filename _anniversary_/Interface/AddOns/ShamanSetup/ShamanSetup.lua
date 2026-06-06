@@ -4,7 +4,7 @@
 --
 -- BAR LAYOUT:
 --   Bar 1 = MAIN TOP — ` 1 2 3 4 / Q E R T  (3/4 = bound placeholders, no spells)
---   Bar 3 = MAIN BOTTOM — F G / Z X C V B  (F = placeholder after LS→E)
+--   Bar 3 = MAIN BOTTOM — F G / Z X C V B  (F = totem drop, G = Totemic Call)
 --   Bar 4 = ALT — numrow heals (Alt-1/2/3), home row casts (Alt-Q/E/R)
 --   Bar 5 = ALT BOTTOM — Alt-F/G racials; Alt-Z/X placeholders; Alt-C/V/B placeholders (M3 decurse)
 --   Bar 6 = UTILITY (click): water travel, far sight, recall, rez — seeded, never wiped
@@ -23,9 +23,9 @@ local LAYOUT = {
     {"Shamanistic Rage",       1, 12},                    -- T   Enh CD (skipped until talented)
 
     -- MAIN BOTTOM (Bar 3) ==========================================
-    -- F free after Lightning Shield moved to E; G = racial on Draenei
+    -- F = SC_TotemDrop macro (profile from Alt+M4 OPie ring); G = recall
+    {"Totemic Call",           3, 6},                     -- G
     {"Ghost Wolf",             3, 8},                     -- Z (also forced by SetupCore travel slots)
-    {"Totemic Call",           3, 9},                     -- X
 
     -- ALT TOP (Bar 4) — heals on numrow, damage on Q/E/R home row ========
     {"Healing Wave",           4, 2, "mouseover-help"},   -- Alt-1
@@ -131,8 +131,12 @@ local OBSOLETE_MACROS = {
     "SC_TP_AoEMagma",
 }
 
--- Totem profile bodies for the Alt+M4 OPie ring (inline macros — no named macro slots).
+ShamanSetup = ShamanSetup or {}
+
+local TOTEM_DROP_MACRO = "SC_TotemDrop"
+
 -- /castsequence drops one totem per press; resets out of combat or after 15s idle.
+-- SC_TotemDrop on bar 3:F is rewritten when you pick a profile on the Alt+M4 ring.
 -- Basic melee: Strength of Earth + Searing + Healing Stream + Windfury (group survival focused)
 -- Basic caster: Stoneskin + Flametongue + Healing Stream + Wrath of Air
 -- AoE — Nova (L14+, works while leveling): Stoneclaw → Searing → Fire Nova → HS
@@ -148,6 +152,80 @@ local TOTEM_CASTER_GROUP_BODY = TOTEM_CASTER_BODY
 -- Solo versions: use weapon imbue instead of Windfury Totem (stronger when alone, doesn't stack)
 local TOTEM_MELEE_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Weapon"
 local TOTEM_CASTER_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem"  -- no strong solo equivalent for last slot
+
+local TOTEM_PROFILES = {
+    melee_group = {
+        label = "Melee - Group",
+        selectMacro = "SC_TotSelMG",
+        body = TOTEM_MELEE_GROUP_BODY,
+        icon = "Interface/Icons/INV_Axe_09",
+    },
+    melee_solo = {
+        label = "Melee - Solo",
+        selectMacro = "SC_TotSelMS",
+        body = TOTEM_MELEE_SOLO_BODY,
+        icon = "Interface/Icons/INV_Sword_27",
+    },
+    caster_group = {
+        label = "Caster - Group",
+        selectMacro = "SC_TotSelCG",
+        body = TOTEM_CASTER_GROUP_BODY,
+        icon = "Interface/Icons/Spell_Nature_StarFall",
+    },
+    caster_solo = {
+        label = "Caster - Solo",
+        selectMacro = "SC_TotSelCS",
+        body = TOTEM_CASTER_SOLO_BODY,
+        icon = "Interface/Icons/Spell_Fire_Fireball02",
+    },
+    aoe_nova = {
+        label = "AoE - Nova",
+        selectMacro = "SC_TotSelAN",
+        body = TOTEM_AOE_NOVA_BODY,
+        icon = "Interface/Icons/Spell_Fire_SealOfFire",
+    },
+    aoe_magma = {
+        label = "AoE - Magma",
+        selectMacro = "SC_TotSelAM",
+        body = TOTEM_AOE_MAGMA_BODY,
+        icon = "Interface/Icons/Spell_Fire_SelfDestruct",
+    },
+}
+
+local TOTEM_PROFILE_ALIASES = {
+    mg = "melee_group", melee = "melee_group", melee_group = "melee_group",
+    ms = "melee_solo",  melee_solo = "melee_solo",
+    cg = "caster_group", caster = "caster_group", caster_group = "caster_group",
+    cs = "caster_solo",  caster_solo = "caster_solo",
+    an = "aoe_nova", aoe = "aoe_nova", aoe_nova = "aoe_nova", nova = "aoe_nova",
+    am = "aoe_magma", aoe_magma = "aoe_magma", magma = "aoe_magma",
+}
+
+function ShamanSetup:ResolveTotemProfileKey(key)
+    if not key or key == "" then return nil end
+    key = key:lower():gsub("[%s%-]+", "_")
+    return TOTEM_PROFILE_ALIASES[key] or (TOTEM_PROFILES[key] and key or nil)
+end
+
+function ShamanSetup:EnsureTotemSelectMacros()
+    for key, prof in pairs(TOTEM_PROFILES) do
+        SetupCore:EnsureRawMacro(prof.selectMacro, "/shamantotem " .. key, prof.icon)
+    end
+end
+
+function ShamanSetup:SetTotemProfile(key)
+    key = self:ResolveTotemProfileKey(key)
+    local prof = key and TOTEM_PROFILES[key]
+    if not prof then return false end
+    SetupCoreCharDB.totemProfile = key
+    if not SetupCore:EnsureRawMacro(TOTEM_DROP_MACRO, prof.body, prof.icon) then
+        print("|cffff0000ShamanSetup|r could not update " .. TOTEM_DROP_MACRO .. " (macro slots full?)")
+        return false
+    end
+    SetupCore:PlaceMacro(TOTEM_DROP_MACRO, 3, 5)
+    print(string.format("|cff999999ShamanSetup|r totem profile: |cffffffff%s|r — spam F to drop", prof.label))
+    return true
+end
 
 -- Per-race racial placement (per docs/racials.md). Untrained racials silently
 -- skip. Asog (Draenei) keeps Gift of the Naaru on Alt-G — established convention.
@@ -179,9 +257,22 @@ local function Run()
     -- M3 decurse: mouseover poison/disease on friends, Purge on enemies.
     SetupCore:RefreshDecurseBinding()
 
+    ShamanSetup:EnsureTotemSelectMacros()
+    ShamanSetup:SetTotemProfile(SetupCoreCharDB.totemProfile or "melee_group")
+
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")
-    print("|cff999999  M3 decurse | M4/Alt+M4 totems | M5 weapon enchants. Bar 6=travel/rez click, bar 7=consumables.|r")
+    print("|cff999999  F = drop totem profile | G = Totemic Call | Alt+M4 = pick profile | M4 totems | M5 enchants.|r")
+end
+
+SLASH_SHAMANTOTEM1 = "/shamantotem"
+SLASH_SHAMANTOTEM2 = "/stotem"
+SlashCmdList["SHAMANTOTEM"] = function(msg)
+    local key = ShamanSetup:ResolveTotemProfileKey((msg or ""):match("^%s*(%S+)"))
+    if not key or not ShamanSetup:SetTotemProfile(key) then
+        print("|cffff0000ShamanSetup|r usage: /shamantotem melee_group|melee_solo|caster_group|caster_solo|aoe_nova|aoe_magma")
+        print("|cff999999Aliases:|r mg ms cg cs an am")
+    end
 end
 
 SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {
@@ -247,20 +338,18 @@ do
         name = "Weapon Enchants", hotkey = "BUTTON5", _u = "ShmWep", v = 1,
     })
 
-    -- Totem Profile ring (Alt+M4). Inline macro bodies = zero extra named macros.
+    -- Totem Profile ring (Alt+M4): each slice selects a preset for F (SC_TotemDrop).
     R:AddDefaultRing("ShamanTotemProfiles", {
-        {id = TOTEM_MELEE_GROUP_BODY,  label = "Melee - Group",  icon = "Interface/Icons/INV_Axe_09",              _u = "mg"},
-        {id = TOTEM_MELEE_SOLO_BODY,   label = "Melee - Solo",   icon = "Interface/Icons/INV_Sword_27",            _u = "ms"},
-        {id = TOTEM_CASTER_GROUP_BODY, label = "Caster - Group", icon = "Interface/Icons/Spell_Nature_StarFall",   _u = "cg"},
-        {id = TOTEM_CASTER_SOLO_BODY,  label = "Caster - Solo",  icon = "Interface/Icons/Spell_Fire_Fireball02",   _u = "cs"},
-        {id = TOTEM_AOE_NOVA_BODY,     label = "AoE - Nova",     icon = "Interface/Icons/Spell_Fire_SealOfFire",   _u = "an"},
-        {id = TOTEM_AOE_MAGMA_BODY,    label = "AoE - Magma",    icon = "Interface/Icons/Spell_Fire_SelfDestruct", _u = "am"},
-        name = "Totem Profiles", hotkey = "ALT-BUTTON4", _u = "ShmTtmProf", v = 4,
+        {"macro", "SC_TotSelMG", label = "Melee - Group",  icon = "Interface/Icons/INV_Axe_09",              _u = "mg"},
+        {"macro", "SC_TotSelMS", label = "Melee - Solo",   icon = "Interface/Icons/INV_Sword_27",            _u = "ms"},
+        {"macro", "SC_TotSelCG", label = "Caster - Group", icon = "Interface/Icons/Spell_Nature_StarFall",   _u = "cg"},
+        {"macro", "SC_TotSelCS", label = "Caster - Solo",  icon = "Interface/Icons/Spell_Fire_Fireball02",   _u = "cs"},
+        {"macro", "SC_TotSelAN", label = "AoE - Nova",     icon = "Interface/Icons/Spell_Fire_SealOfFire",   _u = "an"},
+        {"macro", "SC_TotSelAM", label = "AoE - Magma",    icon = "Interface/Icons/Spell_Fire_SelfDestruct", _u = "am"},
+        name = "Totem Profiles", hotkey = "ALT-BUTTON4", _u = "ShmTtmProf", v = 5,
     })
 
-    -- Quick action at ring center: select a profile once, then spam Alt+M4 for the
-    -- full 4-totem castsequence without reopening the radial menu.
-    -- Also seed ring bindings so M4/M5/Alt+M4 work with zero manual /opie config.
+    -- Seed ring bindings so M4/M5/Alt+M4 work with zero manual /opie config.
     if OPie_SavedData then
         OPie_SavedData.ProfileStorage = OPie_SavedData.ProfileStorage or {}
         local profile = OPie_SavedData.ProfileStorage.default
@@ -279,17 +368,23 @@ do
         if binds["ShamanTotemProfiles"] == nil then
             binds["ShamanTotemProfiles"] = "ALT-BUTTON4"
         end
-        profile.RingOptions = profile.RingOptions or {}
-        local ringOpts = profile.RingOptions
-        local prefix = "ShamanTotemProfiles#"
-        if ringOpts[prefix .. "CenterAction"] == nil then
-            ringOpts[prefix .. "CenterAction"] = true
-        end
-        if ringOpts[prefix .. "QuickActionOnRelease"] == nil then
-            ringOpts[prefix .. "QuickActionOnRelease"] = true
-        end
     end
 
-    print("|cff00ff00ShamanSetup|r: Registered ShamanTotemProfiles ring on ALT-BUTTON4")
+    ShamanSetup:EnsureTotemSelectMacros()
+
+    print("|cff00ff00ShamanSetup|r: Totem profiles on Alt+M4; F drops selected set, G recalls")
 
 end
+
+-- Restore totem drop macro on login (F bar slot) without requiring /setupbars.
+local totemLoginFrame = CreateFrame("Frame")
+totemLoginFrame:RegisterEvent("PLAYER_LOGIN")
+totemLoginFrame:SetScript("OnEvent", function(self)
+    self:UnregisterEvent("PLAYER_LOGIN")
+    C_Timer.After(3, function()
+        local _, class = UnitClass("player")
+        if class ~= "SHAMAN" then return end
+        ShamanSetup:EnsureTotemSelectMacros()
+        ShamanSetup:SetTotemProfile(SetupCoreCharDB.totemProfile or "melee_group")
+    end)
+end)

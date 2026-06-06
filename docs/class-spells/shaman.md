@@ -19,6 +19,7 @@ These typically go on Bar 1 number row (` 1 2 3 4 5). Primary opener gets `start
 - 8056 | Frost Shock | 12 | damage | enemy-instant | Slows; kiting utility; shock CD
 - 403 | Lightning Bolt | 1 | damage | enemy-cast | Main caster nuke; 3s cast (faster ranks); ALT cluster (Alt-1)
 - 421 | Chain Lightning | 32 | damage | enemy-cast | AOE jumping; Elemental focus; ALT cluster (Alt-2)
+- 17364 | Stormstrike | 20pt Enh | damage | enemy-instant | Enhancement signature; Bar 1 R
 
 ## HEALS — friend-targeted, mouseover-friendly
 
@@ -38,7 +39,7 @@ All heals get `mouseover-help` template. Live on alt-cluster QERT row (Alt-Q/E/R
 - 8024 | Flametongue Weapon | 10 | weapon-enchant | self-instant | OPie ring
 - 8033 | Frostbrand Weapon | 20 | weapon-enchant | self-instant | OPie ring
 - 8017 | Rockbiter Weapon | 1 | weapon-enchant | self-instant | OPie ring
-- 36936 | Totemic Call | TBC | utility | self-instant | Recall all totems
+- 36936 | Totemic Call | TBC | utility | self-instant | Recall all totems; Bar 3 G
 
 ## TOTEMS — all handled by OPie "Totems" ring on M4 (NOT action bar)
 
@@ -129,14 +130,14 @@ First Aid, Cooking, Basic Campfire, Mining, Smelting, Herbalism, Skinning, Fishi
 
 When generating ShamanSetup.lua's LAYOUT, apply these rules in order:
 
-1. **All totems → OPie "ShamanTotems" ring on M4 (NOT bar slots).** Ring registration goes in `do ... end` block at file bottom.
+1. **Individual totems → OPie "ShamanTotems" on M4.** Preset groups: Alt+M4 picks profile; **F** drops SC_TotemDrop sequence; **G** = Totemic Call.
 2. **All weapon enchants → OPie "ShamanWeaponEnchants" ring on M5.** Same.
 3. **Primary opener with DoT/instant → key 1 (Bar 1 button 2) with `startattack` template.** For Shaman, that's Flame Shock.
 4. **Primary interrupt → `` ` `` (Bar 1 button 1) raw, no macro.** For Shaman, Earth Shock.
 5. **Other shocks → numrow 2-5.** Frost Shock (2), Far Sight (3), Astral Recall (4 if trained).
 6. **Heals (mouseover-help) → Alt-cluster QERT row (Bar 4 buttons 8/10/11/12).** Order by frequency: Healing Wave, Ancestral Spirit, Lesser Healing Wave, Chain Heal.
 7. **Damage casts → Alt-numrow (Bar 4 buttons 2-6).** Lightning Bolt, Chain Lightning, Water Shield (toggleable).
-8. **Buffs F/G → Bar 3 row 1 buttons 4/5.** Lightning Shield (F). G empty for Shaman after Gift of the Naaru → Alt-G.
+8. **F/G → Bar 3 buttons 5/6.** F = SC_TotemDrop (castsequence from Alt+M4 profile). G = Totemic Call. Lightning Shield on E (Bar 1).
 9. **Bar 3 ZXCVB row** → Ghost Wolf (Z if instant via talent), Attack (C). Z/X/C/V/B mostly empty without weapon enchants.
 10. **Alt-FG → utility (Ghost Wolf moved to Z, Gift of the Naaru on Alt-G with mouseover-help).**
 11. **Alt-ZXCVB → travel + dispels.** Water Breathing (Alt-Z), Water Walking (Alt-X), Cure Disease (Alt-C, mouseover-help), Cure Poison (Alt-V, mouseover-help), Purge (Alt-B, mouseover-harm).
