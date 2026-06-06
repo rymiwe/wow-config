@@ -116,8 +116,7 @@ local OBSOLETE_MACROS = {
     "SC_CureDisease",
     "SC_CurePoison",
     "SC_Purge",
-    -- Mount is bar spell 150544; SC_Mount macro optional fallback only
-    "SC_Mount",
+
     -- v1.31 selector macros (OPie calls /shamantotem directly — saves 6 slots)
     "SC_TotSelMG",
     "SC_TotSelMS",
