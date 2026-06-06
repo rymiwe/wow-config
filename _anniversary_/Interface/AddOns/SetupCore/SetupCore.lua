@@ -344,11 +344,47 @@ function SetupCore:IsMountItemID(itemID)
     return false
 end
 
+-- Anniversary client exposes bag APIs on C_Container, not legacy globals.
+function SetupCore:GetContainerNumSlots(bagID)
+    if C_Container and C_Container.GetContainerNumSlots then
+        return C_Container.GetContainerNumSlots(bagID) or 0
+    end
+    if GetContainerNumSlots then
+        return GetContainerNumSlots(bagID) or 0
+    end
+    return 0
+end
+
+function SetupCore:GetContainerItemID(bagID, slot)
+    if C_Container and C_Container.GetContainerItemID then
+        return C_Container.GetContainerItemID(bagID, slot)
+    end
+    if GetContainerItemID then
+        return GetContainerItemID(bagID, slot)
+    end
+    if C_Container and C_Container.GetContainerItemInfo then
+        local info = C_Container.GetContainerItemInfo(bagID, slot)
+        return info and info.itemID
+    end
+    if GetContainerItemInfo then
+        return select(10, GetContainerItemInfo(bagID, slot))
+    end
+    return nil
+end
+
+function SetupCore:PickupContainerItem(bagID, slot)
+    if C_Container and C_Container.PickupContainerItem then
+        C_Container.PickupContainerItem(bagID, slot)
+    elseif PickupContainerItem then
+        PickupContainerItem(bagID, slot)
+    end
+end
+
 function SetupCore:ForEachBagItem(fn)
     for bag = 0, 4 do
-        local slots = GetContainerNumSlots(bag) or 0
+        local slots = self:GetContainerNumSlots(bag)
         for slot = 1, slots do
-            local itemID = GetContainerItemID(bag, slot)
+            local itemID = self:GetContainerItemID(bag, slot)
             if itemID then fn(bag, slot, itemID) end
         end
     end
@@ -554,7 +590,7 @@ function SetupCore:PlaceItem(itemID, bar, btn, forceClear)
     end
     local bag, bagSlot = self:FindItemInBags(itemID)
     if bag then
-        PickupContainerItem(bag, bagSlot)
+        self:PickupContainerItem(bag, bagSlot)
     else
         PickupItem(itemID)
     end
