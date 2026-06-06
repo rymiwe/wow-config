@@ -239,7 +239,10 @@ function ShamanSetup:SetTotemProfile(key)
             return false
         end
     end
-    SetupCore:PlaceMacro(TOTEM_DROP_MACRO, 3, 5)
+    if not SetupCore:PlaceMacro(TOTEM_DROP_MACRO, 3, 5, true) then
+        print("|cffff0000ShamanSetup|r could not place " .. TOTEM_DROP_MACRO .. " on bar 3:5 (F) — /reload then /setupbars")
+        return false
+    end
     print(string.format("|cff999999ShamanSetup|r totem profile: |cffffffff%s|r — spam F to drop", prof.label))
     return true
 end
@@ -271,8 +274,6 @@ local function Run()
     -- M3 decurse: mouseover poison/disease on friends, Purge on enemies.
     SetupCore:RefreshDecurseBinding()
 
-    ShamanSetup:SetTotemProfile(SetupCoreCharDB.totemProfile or "melee_group")
-
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")
     print("|cff999999  F = drop totem profile | G = Totemic Call | Alt+M4 = pick profile | M4 totems | M5 enchants.|r")
@@ -292,7 +293,16 @@ SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {
     ignore = IGNORE,
     racials = RACIALS,
 })
+SetupCore:RegisterPostLayout("SHAMAN", function()
+    ShamanSetup:SetTotemProfile(SetupCoreCharDB.totemProfile or "melee_group")
+end)
 SetupCore:RegisterDecurseMacro("SC_Decurse", "SHAMAN")
+
+SLASH_TOTEMFIX1 = "/totemfix"
+SlashCmdList["TOTEMFIX"] = function()
+    ShamanSetup:PruneObsoleteMacros()
+    ShamanSetup:SetTotemProfile(SetupCoreCharDB.totemProfile or "melee_group")
+end
 
 -- ===========================================================================
 -- OPie ring registration — only fires if OPie is installed.
@@ -399,7 +409,7 @@ local totemLoginFrame = CreateFrame("Frame")
 totemLoginFrame:RegisterEvent("PLAYER_LOGIN")
 totemLoginFrame:SetScript("OnEvent", function(self)
     self:UnregisterEvent("PLAYER_LOGIN")
-    C_Timer.After(3, function()
+    C_Timer.After(4, function()
         local _, class = UnitClass("player")
         if class ~= "SHAMAN" then return end
         ShamanSetup:PruneObsoleteMacros()

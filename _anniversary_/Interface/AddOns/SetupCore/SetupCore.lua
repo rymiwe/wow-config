@@ -22,6 +22,7 @@ local registeredLayouts = {}
 local registeredIgnores = {}
 local registeredRacials = {}
 local registeredFreedKeys = {}
+local registeredPostLayout = {}
 local macroBindingsByClass = {}
 
 -- Z -> bar 3 slot 8; Alt/Meta-Z -> bar 5 slot 8 (mount macro). Movement classes
@@ -479,6 +480,18 @@ function SetupCore:RegisterClass(class, applyFn, layout, meta)
     end
 end
 
+-- Optional hook after ApplyLayout (placeholders filled). Class addons use this
+-- for macros on bound slots that are not LAYOUT spells (e.g. shaman F totem drop).
+function SetupCore:RegisterPostLayout(class, fn)
+    registeredPostLayout[class] = fn
+end
+
+function SetupCore:RunPostLayout()
+    local _, class = UnitClass("player")
+    local fn = class and registeredPostLayout[class]
+    if fn then return fn() end
+end
+
 function SetupCore:GetFreedKeySet()
     local _, class = UnitClass("player")
     local freed = registeredFreedKeys[class]
@@ -874,19 +887,27 @@ function SetupCore:DeleteMacros(names)
 end
 
 -- Place an existing macro by name on a bar slot. Companion to EnsureRawMacro.
-function SetupCore:PlaceMacro(macroName, bar, btn)
+function SetupCore:PlaceMacro(macroName, bar, btn, forceClear)
     local slot = self:ResolveActionSlot(bar, btn)
     if not slot then return false end
 
     local idx = GetMacroIndexByName(macroName)
     if not idx or idx == 0 then return false end
 
-    PickupMacro(idx)
-    if GetCursorInfo() == "macro" then
-        PlaceAction(slot)
+    if forceClear then
+        self:ClearSlot(slot)
+    else
+        self:PrepareSlotForPlace(slot)
     end
+
+    PickupMacro(idx)
+    if GetCursorInfo() ~= "macro" then
+        ClearCursor()
+        return false
+    end
+    PlaceAction(slot)
     ClearCursor()
-    return true
+    return HasAction(slot)
 end
 
 -- Remove visual placeholder macros so real spells/macros can land on bound keys.
@@ -1234,6 +1255,7 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     -- Fill any remaining empty bound slots with the visual placeholder.
     self:FillEmptyBoundSlots()
     self:ClearFreedKeySlots()
+    self:RunPostLayout()
 
     return placed, skipped, self:FindOrphans(mapped, ignore)
 end
