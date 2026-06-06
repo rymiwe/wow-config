@@ -25,7 +25,8 @@ param(
     [string]$Account,
     [ValidateSet("upsert", "fresh")][string]$Mode = "fresh",
     [string]$Branch = "main",
-    [string]$RepoUrl = "https://github.com/rymiwe/wow-config.git"
+    [string]$RepoUrl = "https://github.com/rymiwe/wow-config.git",
+    [switch]$UseLocal
 )
 
 $ErrorActionPreference = "Stop"
@@ -64,18 +65,33 @@ function Find-Account {
     return $dirs[[int]$idx].Name
 }
 
+if ($UseLocal -and -not $WowDir) { $WowDir = $PSScriptRoot }
+
 $wow = Find-WowDir
 $acct = Find-Account -Wow $wow
 
 Write-Host "WoW directory:  $wow"
 Write-Host "Account:        $acct"
 Write-Host "Mode:           $Mode"
-Write-Host "Repo:           $RepoUrl ($Branch)"
+if ($UseLocal) {
+    Write-Host "Source:         local repo ($PSScriptRoot)"
+} else {
+    Write-Host "Repo:           $RepoUrl ($Branch)"
+}
 
-$tempDir = Join-Path $env:TEMP "wow-config-install-$([guid]::NewGuid())"
-Write-Host "Cloning repo to $tempDir..."
-& git clone --depth 1 --branch $Branch $RepoUrl $tempDir 2>&1 | Out-Null
-if ($LASTEXITCODE -ne 0) { throw "git clone failed" }
+$removeTempDir = $false
+if ($UseLocal) {
+    $tempDir = $PSScriptRoot
+    if (-not (Test-Path (Join-Path $tempDir "_anniversary_"))) {
+        throw "-UseLocal must run from the wow-config repo root (needs _anniversary_)."
+    }
+} else {
+    $tempDir = Join-Path $env:TEMP "wow-config-install-$([guid]::NewGuid())"
+    Write-Host "Cloning repo to $tempDir..."
+    & git clone --depth 1 --branch $Branch $RepoUrl $tempDir 2>&1 | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw "git clone failed" }
+    $removeTempDir = $true
+}
 
 try {
     $srcAddons    = Join-Path $tempDir "_anniversary_\Interface\AddOns"
@@ -89,12 +105,16 @@ try {
     if (-not (Test-Path $dstSV))     { New-Item -ItemType Directory -Force -Path $dstSV     | Out-Null }
 
     # Addon code is canonical — always overwrite.
-    $addons = @("SetupCore", "ChatAnchor", "ZygorSetup", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
+    $addons = @("SetupCore", "ElvUIFixes", "ZygorSetup", "TSMSetup", "HeyDaddy", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
     foreach ($a in $addons) {
         $src = Join-Path $srcAddons $a
         $dst = Join-Path $dstAddons $a
         if (-not (Test-Path $src)) {
             Write-Warning "Source addon not found: $src - skipping"
+            continue
+        }
+        if ($UseLocal -and (Resolve-Path $srcAddons).Path -eq (Resolve-Path $dstAddons).Path) {
+            Write-Host "Addon already in place (local repo): $a"
             continue
         }
         if (Test-Path $dst) { Remove-Item -Recurse -Force $dst }
@@ -188,7 +208,7 @@ try {
     if (Test-Path $srcElvUI) {
         if ($Mode -eq "fresh" -or -not (Test-Path $dstElvUI)) {
             Copy-Item $srcElvUI $dstElvUI -Force
-            Write-Host "Installed ElvUI.lua (full layout — bars, movers, fonts, panels)"
+            Write-Host "Installed ElvUI.lua (full layout: bars, movers, fonts, panels)"
         } else {
             Write-Host "ElvUI.lua exists - leaving alone (use -Mode fresh to install layout)"
         }
@@ -331,18 +351,18 @@ try {
     # doesn't have shell-style aliases for arbitrary commands, so we use a
     # function instead). Only adds if profile doesn't already have it.
     $profilePath = $PROFILE.CurrentUserAllHosts
-    $wcuLine = "function wcu { iex (iwr 'https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1').Content }"
+    $wcuLine = "function wcu { & '$wow\install.ps1' -UseLocal -Mode upsert -WowDir '$wow' }"
     if (-not (Test-Path $profilePath) -or -not (Select-String -Path $profilePath -Pattern "function wcu" -Quiet -ErrorAction SilentlyContinue)) {
         Write-Host ""
-        Write-Host "Tip: add a 'wcu' (WoW Config Update) function to your PowerShell profile:"
+        Write-Host "Tip: double-click wcu.bat in the repo, or add a PowerShell shortcut:"
         Write-Host "  Add-Content -Path `$PROFILE.CurrentUserAllHosts -Value `"$wcuLine`""
         Write-Host "  . `$PROFILE.CurrentUserAllHosts"
-        Write-Host "Then any time, just run:  wcu"
+        Write-Host "Then any time:  wcu   (or double-click update.bat for ElvUI/Questie only)"
     } else {
         Write-Host ""
         Write-Host "(wcu function already in your PowerShell profile - just run 'wcu' to refresh next time)"
     }
 }
 finally {
-    if (Test-Path $tempDir) { Remove-Item -Recurse -Force $tempDir }
+    if ($removeTempDir -and (Test-Path $tempDir)) { Remove-Item -Recurse -Force $tempDir }
 }

@@ -46,4 +46,3 @@ PatchWerk: disabled
 kExtraBossFrames: disabled
 OPie_Classic: disabled
 WeakAurasCompanion: enabled
-ItemRackOptions: enabled

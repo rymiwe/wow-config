@@ -48,9 +48,6 @@ TradeSkillMaster_AppHelper: enabled
 WarlockSetup: enabled
 WarriorSetup: enabled
 ZygorSetup: enabled
-ItemRackOptions: enabled
-ItemRack: disabled
-ItemRackSetup: disabled
 HeyDaddy: enabled
 TSMSetup: enabled
 WeakAurasSetup: enabled

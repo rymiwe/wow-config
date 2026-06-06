@@ -30,4 +30,3 @@ ElvUI_RatioMinimapAuras: disabled
 PatchWerk: disabled
 !PatchWerk: disabled
 kExtraBossFrames: disabled
-ItemRackOptions: enabled

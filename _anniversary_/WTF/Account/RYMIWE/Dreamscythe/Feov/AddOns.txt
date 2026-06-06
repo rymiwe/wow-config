@@ -7,9 +7,6 @@ ElvUI_Options: enabled
 ElvUI: enabled
 HeyDaddy: enabled
 HunterSetup: enabled
-ItemRack: disabled
-ItemRackSetup: disabled
-ItemRackOptions: enabled
 MageSetup: enabled
 OPie: enabled
 PaladinSetup: enabled

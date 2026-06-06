@@ -56,12 +56,15 @@ find_wow_dir() {
 
 WOW="$(find_wow_dir)"
 
-find_account() {
-    if [[ -n "$ACCOUNT" ]]; then echo "$ACCOUNT"; return; fi
+list_accounts() {
     local acct_dir="$WOW/_anniversary_/WTF/Account"
     if [[ ! -d "$acct_dir" ]]; then
         echo "ERROR: No WTF/Account directory at $acct_dir. Launch WoW once first." >&2
         exit 1
+    fi
+    if [[ -n "$ACCOUNT" ]]; then
+        echo "$ACCOUNT"
+        return
     fi
     local accts=()
     for d in "$acct_dir"/*/; do
@@ -71,17 +74,13 @@ find_account() {
         accts+=("$name")
     done
     if [[ ${#accts[@]} -eq 0 ]]; then echo "ERROR: No account folders" >&2; exit 1; fi
-    if [[ ${#accts[@]} -eq 1 ]]; then echo "${accts[0]}"; return; fi
-    echo "Multiple accounts:" >&2
-    for i in "${!accts[@]}"; do echo "  [$i] ${accts[$i]}" >&2; done
-    read -r -p "Select account index: " idx
-    echo "${accts[$idx]}"
+    printf '%s\n' "${accts[@]}"
 }
 
-ACCT="$(find_account)"
+mapfile -t ACCOUNTS < <(list_accounts)
 
 echo "WoW directory:  $WOW"
-echo "Account:        $ACCT"
+echo "Accounts:       ${ACCOUNTS[*]}"
 echo "Mode:           $MODE"
 echo "Repo:           $REPO_URL ($BRANCH)"
 
@@ -93,13 +92,11 @@ git clone --depth 1 --branch "$BRANCH" "$REPO_URL" "$TMP" >/dev/null
 SRC_ADDONS="$TMP/_anniversary_/Interface/AddOns"
 DST_ADDONS="$WOW/_anniversary_/Interface/AddOns"
 SRC_TPL="$TMP/templates"
-DST_SV="$WOW/_anniversary_/WTF/Account/$ACCT/SavedVariables"
-DST_BIND="$WOW/_anniversary_/WTF/Account/$ACCT/bindings-cache.wtf"
 DST_CONFIG="$WOW/_anniversary_/WTF/Config.wtf"
 
-mkdir -p "$DST_ADDONS" "$DST_SV"
+mkdir -p "$DST_ADDONS"
 
-ADDONS=(SetupCore ChatAnchor ZygorSetup ShamanSetup DruidSetup HunterSetup PaladinSetup WarriorSetup MageSetup PriestSetup RogueSetup WarlockSetup)
+ADDONS=(SetupCore ElvUIFixes ZygorSetup TSMSetup HeyDaddy ShamanSetup DruidSetup HunterSetup PaladinSetup WarriorSetup MageSetup PriestSetup RogueSetup WarlockSetup)
 for a in "${ADDONS[@]}"; do
     src="$SRC_ADDONS/$a"
     dst="$DST_ADDONS/$a"
@@ -150,6 +147,13 @@ for a in "${ADDONS[@]}"; do
     fi
 done
 
+for ACCT in "${ACCOUNTS[@]}"; do
+    echo ""
+    echo "=== Account: $ACCT ==="
+    DST_SV="$WOW/_anniversary_/WTF/Account/$ACCT/SavedVariables"
+    DST_BIND="$WOW/_anniversary_/WTF/Account/$ACCT/bindings-cache.wtf"
+    mkdir -p "$DST_SV"
+
 if [[ "$MODE" == "fresh" || ! -f "$DST_SV/SetupCore.lua" ]]; then
     cp "$SRC_TPL/SetupCore.lua" "$DST_SV/SetupCore.lua"
     echo "Seeded SetupCoreDB.needsSetup = true"
@@ -183,18 +187,19 @@ else
     fi
 fi
 
-# ElvUI.lua — full UI layout. --fresh deploys; --upsert preserves existing.
-if [[ -f "$SRC_TPL/ElvUI.lua" ]]; then
-    DST_ELVUI="$DST_SV/ElvUI.lua"
-    if [[ "$MODE" == "fresh" || ! -f "$DST_ELVUI" ]]; then
-        cp "$SRC_TPL/ElvUI.lua" "$DST_ELVUI"
-        echo "Installed ElvUI.lua (full layout)"
-    else
-        echo "ElvUI.lua exists - leaving alone (use --fresh to install layout)"
+    if [[ -f "$SRC_TPL/ElvUI.lua" ]]; then
+        DST_ELVUI="$DST_SV/ElvUI.lua"
+        if [[ "$MODE" == "fresh" || ! -f "$DST_ELVUI" ]]; then
+            cp "$SRC_TPL/ElvUI.lua" "$DST_ELVUI"
+            echo "Installed ElvUI.lua (full layout)"
+        else
+            echo "ElvUI.lua exists - leaving alone (use --fresh to install layout)"
+        fi
     fi
-fi
 
-# Config.wtf — CVar defaults. Append-merge to avoid clobbering user graphics settings.
+done
+
+# Config.wtf — shared per client install (not per account).
 if [[ -f "$SRC_TPL/Config.wtf" ]]; then
     if [[ "$MODE" == "fresh" || ! -f "$DST_CONFIG" ]]; then
         cp "$SRC_TPL/Config.wtf" "$DST_CONFIG"
@@ -315,6 +320,7 @@ q_data="$(github_latest_release Questie/Questie)"
 maybe_install_addon "Questie" "$ADDONS_DIR/Questie" "${q_data%%|*}" "${q_data##*|}"
 bb_data="$(github_latest_release funkydude/BadBoy)"
 maybe_install_addon "BadBoy" "$ADDONS_DIR/BadBoy" "${bb_data%%|*}" "${bb_data##*|}"
+
 # OPie from townlong-yak. Two-step fetch: main page links to the current
 # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
 # a /addons/gate/<hash>/ anti-hotlink prefix.
@@ -361,12 +367,12 @@ case "$(uname -s)" in
         APPS_DIR="$HOME/.local/share/applications"
         mkdir -p "$APPS_DIR"
         DESKTOP_FILE="$APPS_DIR/wow-config-update.desktop"
-        cat > "$DESKTOP_FILE" <<EOF
+        cat > "$DESKTOP_FILE" <<'EOF'
 [Desktop Entry]
 Type=Application
 Name=WoW Updater
-Comment=Refresh wow-config: addons + custom code + bindings + templates (full wcu)
-Exec=bash -c "curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | bash 2>&1 | tee /tmp/wow-update.log; notify-send 'wow-config' 'wow-config refreshed - check /tmp/wow-update.log if anything looks off' 2>/dev/null || true"
+Comment=Refresh wow-config: addons + custom code + bindings (all accounts)
+Exec=bash -lc 'export PATH="/usr/bin:/bin:$HOME/.local/bin:$PATH"; tmp=$(mktemp); curl -fsSL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh -o "$tmp" || { notify-send "WoW Updater FAILED" "curl could not download install.sh" 2>/dev/null; exit 1; }; bash "$tmp" --upsert 2>&1 | tee /tmp/wow-update.log; ec=$?; rm -f "$tmp"; if [ "$ec" -eq 0 ]; then notify-send "WoW Updater" "Update OK — /reload in WoW, then /setupbars" 2>/dev/null; else notify-send "WoW Updater FAILED" "See /tmp/wow-update.log" 2>/dev/null; fi; exit "$ec"'
 Icon=applications-games
 Categories=Game;
 Terminal=false
