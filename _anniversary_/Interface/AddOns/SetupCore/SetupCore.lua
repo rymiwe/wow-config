@@ -46,8 +46,9 @@ local MOUNT_NOT_SPELLS = {
 local MOUNT_NAME_HINTS = {
     "Elekk", "Ram", "Wolf", "Kodo", "Raptor", "Tiger", "Strider", "Mechanostrider",
     "Horse", "Steed", "Charger", "Thalassian", "Hawkstrider", "Cockatrice", "Talbuk",
-    "Gryphon", "Wyvern", "Drake", "Ray",
+    "Gryphon", "Wyvern", "Drake", "Ray", "Ravasaur", "Panther", "Rhino", "Bear",
 }
+local PLACEHOLDER_ICON = 135864
 local TRAVEL_BAR = { movement = {3, 8}, mount = {5, 8} }
 local MOVEMENT_KEYBINDS = {
     {"Z", "MULTIACTIONBAR3BUTTON8"},
@@ -302,10 +303,12 @@ function SetupCore:IsMountSpellName(name)
     if not name then return false end
     local norm = self:NormalizeSpellName(name)
     if not norm or MOUNT_NOT_SPELLS[norm] then return false end
-    if norm:match("Riding$") then return false end
+    if norm:match("Riding$") or norm:find("Riding Skill", 1, true) then return false end
     for _, hint in ipairs(MOUNT_NAME_HINTS) do
         if norm:find(hint, 1, true) then return true end
     end
+    -- TBC mount spells are often named "... Mount" (e.g. summon-style leftovers).
+    if norm:find("Mount", 1, true) and not norm:find("Mountain", 1, true) then return true end
     return false
 end
 
@@ -391,8 +394,18 @@ function SetupCore:SlotHoldsMountSpell(slot)
     if not slot or not HasAction(slot) then return false end
     local actionType, id = GetActionInfo(slot)
     if actionType ~= "spell" then return false end
-    local name = GetSpellInfo(id)
-    return name and self:IsMountSpellName(name)
+    local name = self:NormalizeSpellName(GetSpellInfo(id))
+    if not name then return false end
+    local ground, flying = self:GetPreferredMountSpells()
+    if ground and name == ground then return true end
+    if flying and name == flying then return true end
+    return self:IsMountSpellName(name)
+end
+
+function SetupCore:SlotHoldsMountMacro(slot)
+    if not slot or not HasAction(slot) then return false end
+    local actionType, id = GetActionInfo(slot)
+    return actionType == "macro" and GetMacroInfo(id) == MOUNT_MACRO_NAME
 end
 
 -- True when bar 5:8 holds a mount spell or SC_Mount.
@@ -403,8 +416,7 @@ function SetupCore:VerifyMountOnBar()
     if self:SlotHoldsMountSpell(slot) then
         return true, "spell"
     end
-    local actionType, id = GetActionInfo(slot)
-    if actionType == "macro" and GetMacroInfo(id) == MOUNT_MACRO_NAME then
+    if self:SlotHoldsMountMacro(slot) then
         return true, "macro"
     end
     return false
@@ -419,12 +431,6 @@ function SetupCore:PlaceMountOnBar()
 
     local ground, flying = self:GetPreferredMountSpells()
     local mountSpell = ground or flying
-    if not mountSpell then
-        if self:PlacePlaceholder(bar, btn) then
-            return false, "no_mount"
-        end
-        return false, "empty"
-    end
 
     if not self:EnsureMountMacro() then
         local numGlobal, numChar = GetNumMacros()
@@ -434,18 +440,20 @@ function SetupCore:PlaceMountOnBar()
         ))
     end
 
-    if self:PlaceSpell(mountSpell, bar, btn, nil, true) and self:VerifyMountOnBar() then
+    -- Prefer the real mount spell when trained; SC_Mount is always the fallback.
+    if mountSpell and self:PlaceSpell(mountSpell, bar, btn, nil, true) and self:SlotHoldsMountSpell(slot) then
         return true, "spell"
     end
     if slot and HasAction(slot) then
         self:ClearSlot(slot)
     end
 
-    if self:PlaceMacro(MOUNT_MACRO_NAME, bar, btn, true) and self:VerifyMountOnBar() then
-        return true, "macro"
+    if self:PlaceMacro(MOUNT_MACRO_NAME, bar, btn, true) and self:SlotHoldsMountMacro(slot) then
+        return true, mountSpell and "macro" or "no_mount"
     end
+
     if self:PlacePlaceholder(bar, btn) then
-        return false, "placeholder"
+        return false, mountSpell and "placeholder" or "no_mount"
     end
     return false, "empty"
 end
@@ -457,17 +465,20 @@ function SetupCore:ApplyMountBarSlot()
         if ok then
             self:ApplyMountKeybinds()
             local ground, flying = self:GetPreferredMountSpells()
-            local label = ground or flying or "mount"
+            local label = ground or flying
             if how == "spell" then
                 print(string.format("|cff999999SetupCore|r Alt-Z mount: |cffffffff%s|r (spell on bar 5:8)", label))
-            else
+            elseif label then
                 print(string.format("|cff999999SetupCore|r Alt-Z mount: |cffffffff%s|r (SC_Mount macro)", label))
+            else
+                print("|cffffaa00SetupCore|r Alt-Z = SC_Mount on bar 5:8 — no mount in spellbook yet; train riding and buy one")
             end
             return true, how
         end
         if how == "no_mount" then
             self:ApplyMountKeybinds()
             print("|cffffaa00SetupCore|r no mount in spellbook — train riding, buy a mount, then /mountfix")
+            print("|cff999999Type |cff66ff66/setmount|r after buying a mount to pick which one Alt-Z uses.|r")
             return false, how
         end
         if how == "placeholder" then
@@ -637,6 +648,7 @@ function SetupCore:IsReservedSlot(bar, btn)
 end
 
 function SetupCore:PlacePlaceholder(bar, btn)
+    if not self:EnsureRawMacro(" ", "", PLACEHOLDER_ICON) then return false end
     return self:PlaceMacro(" ", bar, btn, false)
 end
 
@@ -1144,8 +1156,7 @@ function SetupCore:FillEmptyBoundSlots()
     -- low-contrast placeholder. To change: pick a new icon in-game on the " "
     -- macro, /reload (or graceful exit), then read the new file ID from
     -- WTF/Account/<acct>/macros-cache.txt and update this constant.
-    local placeholderIcon = 135864
-    local idx = self:EnsureRawMacro(placeholderName, "", placeholderIcon)
+    local idx = self:EnsureRawMacro(placeholderName, "", PLACEHOLDER_ICON)
     if not idx then
         return 0  -- macro slots full; EnsureRawMacro already printed warning
     end
@@ -1780,3 +1791,4 @@ f:SetScript("OnEvent", function(_, event, ...)
         end)
     end
 end)
+                                  
