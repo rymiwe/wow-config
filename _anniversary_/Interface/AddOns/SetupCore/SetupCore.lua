@@ -38,7 +38,11 @@ local MOVEMENT_SPELL_BY_CLASS = {
 }
 
 local MOUNT_MACRO_NAME = "SC_Mount"
--- TBC: mounts are normal spellbook spells (Brown Elekk, Gray Wolf, etc.) — no Collections.
+-- TBC Anniversary: mounts are usable items in bags (e.g. Cerulean Phase-Hunter).
+-- Original TBC also has spellbook mount spells — we support both.
+local MOUNT_ITEM_EXCLUDE = {
+    ["Hearthstone"] = true,
+}
 local MOUNT_NOT_SPELLS = {
     ["Ghost Wolf"] = true, ["Travel Form"] = true, ["Dash"] = true, ["Sprint"] = true,
     ["Blink"] = true, ["Aspect of the Cheetah"] = true, ["Crusader Aura"] = true,
@@ -315,9 +319,82 @@ end
 function SetupCore:IsFlyingMountName(name)
     if not name then return false end
     return name:find("Gryphon") or name:find("Wyvern") or name:find("Drake")
+        or name:find("Phase%-Hunter") or name:find("Phase Hunter")
 end
 
--- Scan spellbook for trained mount spells (TBC has no mount journal).
+function SetupCore:IsMountItemName(name)
+    if not name or MOUNT_ITEM_EXCLUDE[name] then return false end
+    for _, hint in ipairs(MOUNT_NAME_HINTS) do
+        if name:find(hint, 1, true) then return true end
+    end
+    if name:find("Phase%-Hunter", 1, true) or name:find("Phase Hunter", 1, true) then return true end
+    if name:find("Reins of", 1, true) then return true end
+    if name:find("Mount", 1, true) and not name:find("Mountain", 1, true) then return true end
+    return false
+end
+
+function SetupCore:IsMountItemID(itemID)
+    if not itemID then return false end
+    local name = GetItemInfo(itemID)
+    if name and self:IsMountItemName(name) then return true end
+    local spellName = GetItemSpell(itemID)
+    if spellName and (self:IsMountSpellName(spellName) or spellName:find("Summon", 1, true)) then
+        return true
+    end
+    return false
+end
+
+function SetupCore:ForEachBagItem(fn)
+    for bag = 0, 4 do
+        local slots = GetContainerNumSlots(bag) or 0
+        for slot = 1, slots do
+            local itemID = GetContainerItemID(bag, slot)
+            if itemID then fn(bag, slot, itemID) end
+        end
+    end
+end
+
+function SetupCore:FindItemInBags(itemID)
+    local foundBag, foundSlot
+    self:ForEachBagItem(function(bag, slot, id)
+        if id == itemID then foundBag, foundSlot = bag, slot end
+    end)
+    return foundBag, foundSlot
+end
+
+function SetupCore:FindItemInBagsByName(name)
+    local want = self:NormalizeSpellName(name)
+    if not want then return nil end
+    local foundID
+    self:ForEachBagItem(function(_, _, itemID)
+        if foundID then return end
+        local iname = GetItemInfo(itemID)
+        if iname and self:NormalizeSpellName(iname) == want and self:IsMountItemID(itemID) then
+            foundID = itemID
+        end
+    end)
+    return foundID
+end
+
+-- Scan bags for mount items (TBC Anniversary primary path).
+function SetupCore:FindMountItems()
+    local seen, mounts = {}, {}
+    self:ForEachBagItem(function(bag, slot, itemID)
+        if not seen[itemID] and self:IsMountItemID(itemID) then
+            seen[itemID] = true
+            mounts[#mounts + 1] = {
+                id = itemID,
+                name = GetItemInfo(itemID) or ("item:" .. itemID),
+                bag = bag,
+                slot = slot,
+            }
+        end
+    end)
+    table.sort(mounts, function(a, b) return a.name < b.name end)
+    return mounts
+end
+
+-- Scan spellbook for trained mount spells (original TBC fallback).
 function SetupCore:FindMountSpells()
     local seen, mounts = {}, {}
     for j = 1, 500 do
@@ -362,32 +439,75 @@ function SetupCore:GetPreferredMountSpells()
     return ground or mounts[1], flying
 end
 
-function SetupCore:GetMountMacroBody()
+-- Returns kind ("item"|"spell"), id-or-name key, display label.
+function SetupCore:GetPreferredMount()
+    if SetupCoreCharDB.mountItem then
+        local id = SetupCoreCharDB.mountItem
+        if self:FindItemInBags(id) and self:IsMountItemID(id) then
+            return "item", id, GetItemInfo(id) or ("item:" .. id)
+        end
+    end
+    local items = self:FindMountItems()
+    if #items > 0 then
+        local pick = items[1]
+        for _, it in ipairs(items) do
+            if not self:IsFlyingMountName(it.name) then
+                pick = it
+                break
+            end
+        end
+        return "item", pick.id, pick.name
+    end
     local ground, flying = self:GetPreferredMountSpells()
+    if ground and flying and flying ~= ground then
+        return "spell", ground, ground, flying
+    end
+    if ground then return "spell", ground, ground end
+    if flying then return "spell", flying, flying end
+    return nil
+end
+
+function SetupCore:GetMountMacroBody()
+    local kind, id, name, flying = self:GetPreferredMount()
     local lines = {"#showtooltip"}
-    if not ground and not flying then
-        lines[#lines + 1] = "/run print(\"SetupCore: no mount in spellbook — train riding and buy a mount\")"
+    if not kind then
+        lines[#lines + 1] = "/run print(\"SetupCore: put your mount item in bags, then /mountfix\")"
         return table.concat(lines, "\n")
     end
     lines[#lines + 1] = "/cancelform [noform:0]"
-    if flying and ground and flying ~= ground then
-        lines[#lines + 1] = string.format("/cast [flyable] %s; %s", flying, ground)
+    if kind == "item" then
+        lines[#lines + 1] = "/use item:" .. id
+    elseif flying and flying ~= name then
+        lines[#lines + 1] = string.format("/cast [flyable] %s; %s", flying, name)
     else
-        lines[#lines + 1] = string.format("/cast %s", ground or flying)
+        lines[#lines + 1] = string.format("/cast %s", name)
     end
     return table.concat(lines, "\n")
 end
 
 function SetupCore:EnsureMountMacro()
-    local ground, flying = self:GetPreferredMountSpells()
-    local iconSpell = ground or flying or "Brown Elekk"
-    local _, _, icon = GetSpellInfo(iconSpell)
-    icon = icon or 132261
+    local kind, id, name = self:GetPreferredMount()
+    local icon = 132261
+    if kind == "item" then
+        icon = GetItemIcon(id) or icon
+    elseif kind == "spell" then
+        local _, _, spellIcon = GetSpellInfo(name)
+        icon = spellIcon or icon
+    end
     return self:EnsureRawMacro(MOUNT_MACRO_NAME, self:GetMountMacroBody(), icon)
 end
 
 function SetupCore:MountBarCoords()
     return TRAVEL_BAR.mount[1], TRAVEL_BAR.mount[2]
+end
+
+function SetupCore:SlotHoldsMountItem(slot)
+    if not slot or not HasAction(slot) then return false end
+    local actionType, id = GetActionInfo(slot)
+    if actionType ~= "item" then return false end
+    local kind, prefID = self:GetPreferredMount()
+    if kind == "item" and id == prefID then return true end
+    return self:IsMountItemID(id)
 end
 
 function SetupCore:SlotHoldsMountSpell(slot)
@@ -396,9 +516,8 @@ function SetupCore:SlotHoldsMountSpell(slot)
     if actionType ~= "spell" then return false end
     local name = self:NormalizeSpellName(GetSpellInfo(id))
     if not name then return false end
-    local ground, flying = self:GetPreferredMountSpells()
-    if ground and name == ground then return true end
-    if flying and name == flying then return true end
+    local kind, _, prefName = self:GetPreferredMount()
+    if kind == "spell" and name == prefName then return true end
     return self:IsMountSpellName(name)
 end
 
@@ -408,17 +527,43 @@ function SetupCore:SlotHoldsMountMacro(slot)
     return actionType == "macro" and GetMacroInfo(id) == MOUNT_MACRO_NAME
 end
 
--- True when bar 5:8 holds a mount spell or SC_Mount.
+-- True when bar 5:8 holds a mount item/spell or SC_Mount.
 function SetupCore:VerifyMountOnBar()
     local bar, btn = self:MountBarCoords()
     local slot = self:ResolveActionSlot(bar, btn)
     if not slot or not HasAction(slot) then return false end
+    if self:SlotHoldsMountItem(slot) then
+        return true, "item"
+    end
     if self:SlotHoldsMountSpell(slot) then
         return true, "spell"
     end
     if self:SlotHoldsMountMacro(slot) then
         return true, "macro"
     end
+    return false
+end
+
+function SetupCore:PlaceItem(itemID, bar, btn, forceClear)
+    local slot = self:ResolveActionSlot(bar, btn)
+    if not slot or not itemID then return false end
+    if forceClear then
+        self:ClearSlot(slot)
+    else
+        self:PrepareSlotForPlace(slot)
+    end
+    local bag, bagSlot = self:FindItemInBags(itemID)
+    if bag then
+        PickupContainerItem(bag, bagSlot)
+    else
+        PickupItem(itemID)
+    end
+    if GetCursorInfo() == "item" then
+        PlaceAction(slot)
+        ClearCursor()
+        return HasAction(slot)
+    end
+    ClearCursor()
     return false
 end
 
@@ -429,8 +574,8 @@ function SetupCore:PlaceMountOnBar()
         return false, "no_slot"
     end
 
-    local ground, flying = self:GetPreferredMountSpells()
-    local mountSpell = ground or flying
+    local kind, id, label = self:GetPreferredMount()
+    local hasMount = kind ~= nil
 
     if not self:EnsureMountMacro() then
         local numGlobal, numChar = GetNumMacros()
@@ -440,8 +585,10 @@ function SetupCore:PlaceMountOnBar()
         ))
     end
 
-    -- Prefer the real mount spell when trained; SC_Mount is always the fallback.
-    if mountSpell and self:PlaceSpell(mountSpell, bar, btn, nil, true) and self:SlotHoldsMountSpell(slot) then
+    if kind == "item" and self:PlaceItem(id, bar, btn, true) and self:SlotHoldsMountItem(slot) then
+        return true, "item"
+    end
+    if kind == "spell" and self:PlaceSpell(id, bar, btn, nil, true) and self:SlotHoldsMountSpell(slot) then
         return true, "spell"
     end
     if slot and HasAction(slot) then
@@ -449,11 +596,11 @@ function SetupCore:PlaceMountOnBar()
     end
 
     if self:PlaceMacro(MOUNT_MACRO_NAME, bar, btn, true) and self:SlotHoldsMountMacro(slot) then
-        return true, mountSpell and "macro" or "no_mount"
+        return true, hasMount and "macro" or "no_mount"
     end
 
     if self:PlacePlaceholder(bar, btn) then
-        return false, mountSpell and "placeholder" or "no_mount"
+        return false, hasMount and "placeholder" or "no_mount"
     end
     return false, "empty"
 end
@@ -464,21 +611,22 @@ function SetupCore:ApplyMountBarSlot()
         local ok, how = self:PlaceMountOnBar()
         if ok then
             self:ApplyMountKeybinds()
-            local ground, flying = self:GetPreferredMountSpells()
-            local label = ground or flying
-            if how == "spell" then
+            local kind, _, label = self:GetPreferredMount()
+            if how == "item" then
+                print(string.format("|cff999999SetupCore|r Alt-Z mount: |cffffffff%s|r (item on bar 5:8)", label))
+            elseif how == "spell" then
                 print(string.format("|cff999999SetupCore|r Alt-Z mount: |cffffffff%s|r (spell on bar 5:8)", label))
             elseif label then
                 print(string.format("|cff999999SetupCore|r Alt-Z mount: |cffffffff%s|r (SC_Mount macro)", label))
             else
-                print("|cffffaa00SetupCore|r Alt-Z = SC_Mount on bar 5:8 — no mount in spellbook yet; train riding and buy one")
+                print("|cffffaa00SetupCore|r Alt-Z = SC_Mount on bar 5:8 — put mount item in bags, then /mountfix")
             end
             return true, how
         end
         if how == "no_mount" then
             self:ApplyMountKeybinds()
-            print("|cffffaa00SetupCore|r no mount in spellbook — train riding, buy a mount, then /mountfix")
-            print("|cff999999Type |cff66ff66/setmount|r after buying a mount to pick which one Alt-Z uses.|r")
+            print("|cffffaa00SetupCore|r no mount item in bags — keep mount item on you, then /mountfix")
+            print("|cff999999Type |cff66ff66/setmount|r to pick which mount item Alt-Z uses.|r")
             return false, how
         end
         if how == "placeholder" then
@@ -1508,23 +1656,39 @@ SLASH_SETMOUNT1 = "/setmount"
 SlashCmdList["SETMOUNT"] = function(msg)
     local name = (msg or ""):match("^%s*(.+)%s*$")
     if not name or name == "" then
-        local mounts = SetupCore:FindMountSpells()
-        print("|cffffaa00SetupCore|r usage: /setmount Brown Elekk")
-        if #mounts > 0 then
-            print("|cff999999Mounts in spellbook:|r " .. table.concat(mounts, ", "))
-        else
-            print("|cff999999No mount spells found — train riding and buy one from a vendor.|r")
+        local items = SetupCore:FindMountItems()
+        local spells = SetupCore:FindMountSpells()
+        print("|cffffaa00SetupCore|r usage: /setmount Cerulean Phase-Hunter")
+        if #items > 0 then
+            local names = {}
+            for _, it in ipairs(items) do names[#names + 1] = it.name end
+            print("|cff999999Mount items in bags:|r " .. table.concat(names, ", "))
+        end
+        if #spells > 0 then
+            print("|cff999999Mount spells in spellbook:|r " .. table.concat(spells, ", "))
+        end
+        if #items == 0 and #spells == 0 then
+            print("|cff999999No mounts found — keep a mount item in your bags.|r")
         end
         return
     end
     local norm = SetupCore:NormalizeSpellName(name)
-    if not SetupCore:FindHighestRank(norm) then
-        print("|cffff0000SetupCore|r mount not in spellbook: " .. norm)
+    local itemID = SetupCore:FindItemInBagsByName(norm)
+    if itemID then
+        SetupCoreCharDB.mountItem = itemID
+        SetupCoreCharDB.mountSpell = nil
+        SetupCore:ApplyMountBarSlot()
+        print("|cff999999SetupCore|r preferred mount item: |cffffffff" .. (GetItemInfo(itemID) or norm) .. "|r")
         return
     end
-    SetupCoreCharDB.mountSpell = norm
-    SetupCore:ApplyMountBarSlot()
-    print("|cff999999SetupCore|r preferred mount set to |cffffffff" .. norm .. "|r")
+    if SetupCore:FindHighestRank(norm) then
+        SetupCoreCharDB.mountSpell = norm
+        SetupCoreCharDB.mountItem = nil
+        SetupCore:ApplyMountBarSlot()
+        print("|cff999999SetupCore|r preferred mount spell: |cffffffff" .. norm .. "|r")
+        return
+    end
+    print("|cffff0000SetupCore|r mount not found in bags or spellbook: " .. norm)
 end
 
 SLASH_SETUPMOUNT1 = "/mountfix"
@@ -1532,9 +1696,9 @@ SlashCmdList["SETUPMOUNT"] = function()
     SetupCore:ApplyMountBarSlot()
     SetupCore:ApplyBindings()
     local ok, how = SetupCore:VerifyMountOnBar()
-    local ground, flying = SetupCore:GetPreferredMountSpells()
-    if not ok and not ground and not flying then
-        print("|cffffaa00SetupCore|r no mount trained — buy one after learning riding")
+    local kind, _, label = SetupCore:GetPreferredMount()
+    if not ok and not kind then
+        print("|cffffaa00SetupCore|r no mount item in bags — carry your mount, then /mountfix")
     end
     local altz = GetBindingAction("ALT-Z") or "(unbound)"
     local bar, btn = SetupCore:MountBarCoords()
@@ -1546,6 +1710,8 @@ SlashCmdList["SETUPMOUNT"] = function()
         local actionType, id = GetActionInfo(slot)
         if actionType == "spell" then
             barDesc = (GetSpellInfo(id) or ("spell:" .. tostring(id)))
+        elseif actionType == "item" then
+            barDesc = (GetItemInfo(id) or ("item:" .. tostring(id)))
         elseif actionType == "macro" then
             barDesc = "macro " .. (GetMacroInfo(id) or tostring(id))
         else
@@ -1791,4 +1957,3 @@ f:SetScript("OnEvent", function(_, event, ...)
         end)
     end
 end)
-                                  
