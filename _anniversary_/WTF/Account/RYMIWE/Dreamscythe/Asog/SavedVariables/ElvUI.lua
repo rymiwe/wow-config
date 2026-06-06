@@ -2,11 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"think it doesn't make sense until outland",
-"the ores that is... i'm down for instance",
-"|cff0070dd|Hitem:13058::::::::44::::::::::|h[Khoo's Point]|h|r just dropped",
-"/setupbars",
-"/totemfix",
 "/setmount",
 "/setmount |cff0070dd|Hitem:29744::::::::44::::::::::|h[Gray Elekk]|h|r",
 "/setmount Gray Elekk",
@@ -21,7 +16,12 @@ ElvCharacterDB = {
 "/p put a bunch of crap in there i'm not ready to deal with",
 "/p gotta put perrin down",
 "/p lulz",
+"/g trying to fix my audio thing",
+"/g join guild voice",
+"/g also want to dungeon?",
+"/g same as party",
 "/rl",
+"/voicefix",
 },
 ["ChatHistoryLog"] = {
 },

@@ -157,6 +157,12 @@ local CVARS = {
     takeScreenshotOnLevelUp = "1",
 }
 
+-- Voice chat routing (C_VoiceChat displayName match). Re-applied on login because
+-- WoW/Windows sometimes resets voice output to speakers after patches or reboots.
+local VOICE_OUTPUT_NAME = "Headset Earphone (A50 X Voice)"
+local VOICE_INPUT_NAME  = "Headset Microphone"
+local VOICE_VOLUME      = 100
+
 -- Macro templates: function(spellName) -> macro body string.
 -- Generated macros are named "SC_<spellNameNoSpaces>" so they're idempotent
 -- across re-runs of /setupbars.
@@ -1497,6 +1503,121 @@ end
 
 -- Apply CVars from the CVARS table. Per-character CVars (autoLootDefault) reset
 -- on character creation, so we re-assert on every /setupbars run.
+function SetupCore:NormalizeDeviceName(name)
+    if not name then return "" end
+    return name:lower():gsub("%s+", " ")
+end
+
+-- Exact displayName match first, then substring (case-insensitive).
+function SetupCore:FindVoiceDevice(devices, wantName)
+    if not devices or not wantName or wantName == "" then return nil end
+    local want = self:NormalizeDeviceName(wantName)
+    local partial = nil
+    for _, dev in ipairs(devices) do
+        local dn = self:NormalizeDeviceName(dev.displayName)
+        if dn == want then return dev end
+        if not partial and dn:find(want, 1, true) then partial = dev end
+    end
+    return partial
+end
+
+function SetupCore:SetVoiceDevice(kind, device)
+    if not device or not device.deviceID then return false end
+    local id = device.deviceID
+    if kind == "input" then
+        if C_VoiceChat.SetInputDevice then C_VoiceChat.SetInputDevice(id) end
+        if GetCVar("VoiceInputDevice") ~= id then SetCVar("VoiceInputDevice", id) end
+    else
+        if C_VoiceChat.SetOutputDevice then C_VoiceChat.SetOutputDevice(id) end
+        if GetCVar("VoiceOutputDevice") ~= id then SetCVar("VoiceOutputDevice", id) end
+    end
+    return true
+end
+
+function SetupCore:ApplyVoiceVolumes()
+    local vol = VOICE_VOLUME
+    local changed = false
+    if C_VoiceChat.SetOutputVolume then
+        local cur = C_VoiceChat.GetOutputVolume and C_VoiceChat.GetOutputVolume()
+        if cur ~= vol then
+            C_VoiceChat.SetOutputVolume(vol)
+            changed = true
+        end
+    end
+    if C_VoiceChat.SetInputVolume then
+        local cur = C_VoiceChat.GetInputVolume and C_VoiceChat.GetInputVolume()
+        if cur ~= vol then
+            C_VoiceChat.SetInputVolume(vol)
+            changed = true
+        end
+    end
+    local outCvar = GetCVar("VoiceOutputVolume")
+    if outCvar and outCvar ~= tostring(vol) then
+        SetCVar("VoiceOutputVolume", tostring(vol))
+        changed = true
+    end
+    local inCvar = GetCVar("VoiceInputVolume")
+    if inCvar and inCvar ~= tostring(vol) then
+        SetCVar("VoiceInputVolume", tostring(vol))
+        changed = true
+    end
+    return changed
+end
+
+function SetupCore:ListVoiceDevices()
+    if not C_VoiceChat then
+        print("|cffff0000SetupCore|r C_VoiceChat unavailable")
+        return
+    end
+    print("|cff999999SetupCore|r voice output devices:")
+    local outs = C_VoiceChat.GetAvailableOutputDevices and C_VoiceChat.GetAvailableOutputDevices() or {}
+    for _, d in ipairs(outs or {}) do
+        print("  " .. tostring(d.displayName))
+    end
+    print("|cff999999SetupCore|r voice input devices:")
+    local ins = C_VoiceChat.GetAvailableInputDevices and C_VoiceChat.GetAvailableInputDevices() or {}
+    for _, d in ipairs(ins or {}) do
+        print("  " .. tostring(d.displayName))
+    end
+end
+
+-- Pin voice chat I/O to the A50 headset. silent=true skips chat unless something changed.
+function SetupCore:ApplyVoiceDevices(opts)
+    opts = opts or {}
+    if not C_VoiceChat then
+        if not opts.silent then
+            print("|cffffaa00SetupCore|r C_VoiceChat unavailable (voice devices not set)")
+        end
+        return false
+    end
+    local changed, missing = {}, {}
+    local outs = C_VoiceChat.GetAvailableOutputDevices and C_VoiceChat.GetAvailableOutputDevices()
+    local outDev = self:FindVoiceDevice(outs, VOICE_OUTPUT_NAME)
+    if outDev and self:SetVoiceDevice("output", outDev) then
+        changed[#changed + 1] = "output -> " .. (outDev.displayName or VOICE_OUTPUT_NAME)
+    else
+        missing[#missing + 1] = VOICE_OUTPUT_NAME
+    end
+    local ins = C_VoiceChat.GetAvailableInputDevices and C_VoiceChat.GetAvailableInputDevices()
+    local inDev = self:FindVoiceDevice(ins, VOICE_INPUT_NAME)
+    if inDev and self:SetVoiceDevice("input", inDev) then
+        changed[#changed + 1] = "mic -> " .. (inDev.displayName or VOICE_INPUT_NAME)
+    else
+        missing[#missing + 1] = VOICE_INPUT_NAME
+    end
+    if self:ApplyVoiceVolumes() then
+        changed[#changed + 1] = "volume -> " .. VOICE_VOLUME .. "%"
+    end
+    if #changed > 0 and not opts.silent then
+        print("|cff999999SetupCore|r voice: " .. table.concat(changed, ", "))
+    end
+    if #missing > 0 and not opts.silent then
+        print("|cffffaa00SetupCore|r voice device(s) not found: " .. table.concat(missing, ", "))
+        print("|cff999999SetupCore|r run |cff66ff66/voicefix list|r to see available names")
+    end
+    return #changed > 0
+end
+
 function SetupCore:ApplyCVars()
     local count = 0
     for cvar, value in pairs(CVARS) do
@@ -1509,6 +1630,7 @@ function SetupCore:ApplyCVars()
     if count > 0 then
         print(string.format("|cff999999SetupCore|r set %d CVars", count))
     end
+    self:ApplyVoiceDevices({ silent = true })
 end
 
 -- racials: optional table {RaceName = {{spell, bar, btn, [template]}, ...}, ...}
@@ -1805,6 +1927,16 @@ end
 SLASH_APPLYCVARS1 = "/applycvars"
 SlashCmdList["APPLYCVARS"] = function() SetupCore:ApplyCVars() end
 
+SLASH_VOICEFIX1 = "/voicefix"
+SlashCmdList["VOICEFIX"] = function(msg)
+    if (msg or ""):match("^%s*list%s*$") then
+        SetupCore:ListVoiceDevices()
+        return
+    end
+    print("|cff999999SetupCore|r voicefix (v1.43)")
+    SetupCore:ApplyVoiceDevices()
+end
+
 -- Watch for newly-trained spells that have an unfilled LAYOUT slot. AUTO-PLACE
 -- them so kids/casual players don't have to type /setupbars after every trainer
 -- visit. Non-destructive: only fills EMPTY slots, never overwrites existing
@@ -2012,6 +2144,9 @@ f:SetScript("OnEvent", function(_, event, ...)
         SetupCore:ApplyBindings()
         SetupCore:RefreshDecurseBinding()
     end)
+    -- Voice device list can be empty on early login; retry a few times.
+    C_Timer.After(2, function() SetupCore:ApplyVoiceDevices() end)
+    C_Timer.After(6, function() SetupCore:ApplyVoiceDevices({ silent = true }) end)
     C_Timer.After(3, function()
         SetupCore:ApplyTravelSlots()
         SetupCore:ApplyMountBarSlot()
