@@ -23,6 +23,7 @@ local registeredIgnores = {}
 local registeredRacials = {}
 local registeredFreedKeys = {}
 local registeredPostLayout = {}
+local registeredReservedSlots = {}
 local macroBindingsByClass = {}
 
 -- Z -> bar 3 slot 8; Alt/Meta-Z -> bar 5 slot 8 (mount macro). Movement classes
@@ -490,6 +491,25 @@ function SetupCore:RunPostLayout()
     local _, class = UnitClass("player")
     local fn = class and registeredPostLayout[class]
     if fn then return fn() end
+end
+
+-- Bound bar slots owned by class post-layout (skip placeholder fill). e.g. shaman F.
+function SetupCore:RegisterReservedSlots(class, slots)
+    registeredReservedSlots[class] = slots
+end
+
+function SetupCore:IsReservedSlot(bar, btn)
+    local _, class = UnitClass("player")
+    local slots = class and registeredReservedSlots[class]
+    if not slots then return false end
+    for _, s in ipairs(slots) do
+        if s[1] == bar and s[2] == btn then return true end
+    end
+    return false
+end
+
+function SetupCore:PlacePlaceholder(bar, btn)
+    return self:PlaceMacro(" ", bar, btn, false)
 end
 
 function SetupCore:GetFreedKeySet()
@@ -1023,9 +1043,10 @@ function SetupCore:FillEmptyBoundSlots()
 
     local placed = 0
     local function maybePlaceholder(bar, btn)
+        if self:IsReservedSlot(bar, btn) then return end
         local slotIdx = self:ResolveActionSlot(bar, btn)
         if slotIdx and self:IsSlotEmpty(slotIdx) then
-            if self:PlaceMacro(placeholderName, bar, btn) then
+            if self:PlaceMacro(placeholderName, bar, btn, false) then
                 placed = placed + 1
             end
         end

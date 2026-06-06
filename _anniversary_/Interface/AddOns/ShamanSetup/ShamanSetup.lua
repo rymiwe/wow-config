@@ -167,36 +167,41 @@ local TOTEM_CASTER_GROUP_BODY = TOTEM_CASTER_BODY
 local TOTEM_MELEE_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Weapon"
 local TOTEM_CASTER_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem"  -- no strong solo equivalent for last slot
 
+local function TotemIcon(spellName)
+    local _, _, icon = GetSpellInfo(spellName)
+    return icon or 136098
+end
+
 local TOTEM_PROFILES = {
     melee_group = {
         label = "Melee - Group",
         body = TOTEM_MELEE_GROUP_BODY,
-        icon = "Interface/Icons/INV_Axe_09",
+        iconSpell = "Strength of Earth Totem",
     },
     melee_solo = {
         label = "Melee - Solo",
         body = TOTEM_MELEE_SOLO_BODY,
-        icon = "Interface/Icons/INV_Sword_27",
+        iconSpell = "Windfury Weapon",
     },
     caster_group = {
         label = "Caster - Group",
         body = TOTEM_CASTER_GROUP_BODY,
-        icon = "Interface/Icons/Spell_Nature_StarFall",
+        iconSpell = "Stoneskin Totem",
     },
     caster_solo = {
         label = "Caster - Solo",
         body = TOTEM_CASTER_SOLO_BODY,
-        icon = "Interface/Icons/Spell_Fire_Fireball02",
+        iconSpell = "Flametongue Totem",
     },
     aoe_nova = {
         label = "AoE - Nova",
         body = TOTEM_AOE_NOVA_BODY,
-        icon = "Interface/Icons/Spell_Fire_SealOfFire",
+        iconSpell = "Fire Nova Totem",
     },
     aoe_magma = {
         label = "AoE - Magma",
         body = TOTEM_AOE_MAGMA_BODY,
-        icon = "Interface/Icons/Spell_Fire_SelfDestruct",
+        iconSpell = "Magma Totem",
     },
 }
 
@@ -223,14 +228,23 @@ function ShamanSetup:PruneObsoleteMacros()
     return removed
 end
 
+function ShamanSetup:PlaceTotemDropOnBar()
+    if SetupCore:PlaceMacro(TOTEM_DROP_MACRO, 3, 5, false) then
+        return true
+    end
+    SetupCore:PlacePlaceholder(3, 5)
+    return false
+end
+
 function ShamanSetup:SetTotemProfile(key)
     key = self:ResolveTotemProfileKey(key)
     local prof = key and TOTEM_PROFILES[key]
     if not prof then return false end
     SetupCoreCharDB.totemProfile = key
-    if not SetupCore:EnsureRawMacro(TOTEM_DROP_MACRO, prof.body, prof.icon) then
+    local icon = TotemIcon(prof.iconSpell)
+    if not SetupCore:EnsureRawMacro(TOTEM_DROP_MACRO, prof.body, icon) then
         self:PruneObsoleteMacros()
-        if not SetupCore:EnsureRawMacro(TOTEM_DROP_MACRO, prof.body, prof.icon) then
+        if not SetupCore:EnsureRawMacro(TOTEM_DROP_MACRO, prof.body, icon) then
             local numGlobal, numChar = GetNumMacros()
             print(string.format(
                 "|cffff0000ShamanSetup|r could not update %s (%d/%d char + %d/%d global macros in use)",
@@ -239,12 +253,34 @@ function ShamanSetup:SetTotemProfile(key)
             return false
         end
     end
-    if not SetupCore:PlaceMacro(TOTEM_DROP_MACRO, 3, 5, true) then
-        print("|cffff0000ShamanSetup|r could not place " .. TOTEM_DROP_MACRO .. " on bar 3:5 (F) — /reload then /setupbars")
+    if not self:PlaceTotemDropOnBar() then
+        print("|cffff0000ShamanSetup|r could not place " .. TOTEM_DROP_MACRO .. " on bar 3:5 (F) — /reload then /totemfix")
         return false
+    end
+    if SetBinding("F", "MULTIACTIONBAR3BUTTON5") then
+        SaveBindings(2)
     end
     print(string.format("|cff999999ShamanSetup|r totem profile: |cffffffff%s|r — spam F to drop", prof.label))
     return true
+end
+
+function ShamanSetup:ApplyTotemDropSlot()
+    local key = SetupCoreCharDB.totemProfile or "melee_group"
+    local prof = TOTEM_PROFILES[key]
+    if not prof then return end
+    SetupCore:EnsureRawMacro(TOTEM_DROP_MACRO, prof.body, TotemIcon(prof.iconSpell))
+    local function attempt(n)
+        if ShamanSetup:PlaceTotemDropOnBar() then
+            if SetBinding("F", "MULTIACTIONBAR3BUTTON5") then SaveBindings(2) end
+            return
+        end
+        if n > 0 then
+            C_Timer.After(0.25, function() attempt(n - 1) end)
+        else
+            print("|cffff0000ShamanSetup|r F slot still empty — type |cff66ff66/totemfix|r")
+        end
+    end
+    attempt(4)
 end
 
 -- Per-race racial placement (per docs/racials.md). Untrained racials silently
@@ -293,8 +329,9 @@ SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {
     ignore = IGNORE,
     racials = RACIALS,
 })
+SetupCore:RegisterReservedSlots("SHAMAN", {{3, 5}})
 SetupCore:RegisterPostLayout("SHAMAN", function()
-    ShamanSetup:SetTotemProfile(SetupCoreCharDB.totemProfile or "melee_group")
+    ShamanSetup:ApplyTotemDropSlot()
 end)
 SetupCore:RegisterDecurseMacro("SC_Decurse", "SHAMAN")
 
@@ -413,6 +450,6 @@ totemLoginFrame:SetScript("OnEvent", function(self)
         local _, class = UnitClass("player")
         if class ~= "SHAMAN" then return end
         ShamanSetup:PruneObsoleteMacros()
-        ShamanSetup:SetTotemProfile(SetupCoreCharDB.totemProfile or "melee_group")
+        ShamanSetup:ApplyTotemDropSlot()
     end)
 end)
