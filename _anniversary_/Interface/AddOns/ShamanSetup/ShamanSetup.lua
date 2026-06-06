@@ -162,8 +162,8 @@ local TOTEM_CASTER_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin
 local TOTEM_MELEE_GROUP_BODY = TOTEM_MELEE_BODY
 local TOTEM_CASTER_GROUP_BODY = TOTEM_CASTER_BODY
 
--- Solo versions: use weapon imbue instead of Windfury Totem (stronger when alone, doesn't stack)
-local TOTEM_MELEE_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Weapon"
+-- Solo melee: Grace of Air instead of Windfury Totem (WF totem overlaps M5 imbue); keep WF Weapon on M5.
+local TOTEM_MELEE_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Grace of Air Totem"
 local TOTEM_CASTER_SOLO_BODY = "#showtooltip\n/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem"  -- no strong solo equivalent for last slot
 
 local function TotemIcon(spellName)
@@ -180,7 +180,7 @@ local TOTEM_PROFILES = {
     melee_solo = {
         label = "Melee - Solo",
         body = TOTEM_MELEE_SOLO_BODY,
-        iconSpell = "Windfury Weapon",
+        iconSpell = "Grace of Air Totem",
     },
     caster_group = {
         label = "Caster - Group",
