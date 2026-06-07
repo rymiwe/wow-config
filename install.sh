@@ -300,7 +300,7 @@ github_latest_release() {
 }
 
 echo
-echo "Checking companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
+echo "Checking companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers)..."
 
 # ElvUI from Tukui's JSON API.
 elvui_json="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null)"
@@ -315,6 +315,9 @@ q_data="$(github_latest_release Questie/Questie)"
 maybe_install_addon "Questie" "$ADDONS_DIR/Questie" "${q_data%%|*}" "${q_data##*|}"
 bb_data="$(github_latest_release funkydude/BadBoy)"
 maybe_install_addon "BadBoy" "$ADDONS_DIR/BadBoy" "${bb_data%%|*}" "${bb_data##*|}"
+# TotemTimers (taubut fork): maintained TBC/Classic build with clickable totem grid.
+tt_data="$(github_latest_release taubut/TotemTimers_Fork)"
+maybe_install_addon "TotemTimers" "$ADDONS_DIR/TotemTimers" "${tt_data%%|*}" "${tt_data##*|}"
 # OPie from townlong-yak. Two-step fetch: main page links to the current
 # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
 # a /addons/gate/<hash>/ anti-hotlink prefix.

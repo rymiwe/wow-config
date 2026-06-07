@@ -268,7 +268,7 @@ try {
     }
 
     Write-Host ""
-    Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
+    Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers)..."
 
     # ElvUI from Tukui's JSON API.
     try {
@@ -282,6 +282,7 @@ try {
     Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
     Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
     Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
+    Install-AddonZip "TotemTimers" (Get-GitHubLatestZipUrl "taubut/TotemTimers_Fork") $addonsDir
 
     # OPie from townlong-yak. Two-step fetch: main page links to the current
     # /addons/opie/release/<major.minor>/ which contains the actual zip URL with

@@ -181,7 +181,7 @@ local function Run()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")
-    print("|cff999999  M3 decurse | M4/Alt+M4 totems | M5 weapon enchants. Bar 6=travel/rez click, bar 7=consumables.|r")
+    print("|cff999999  TotemTimers = click grid | M4/Alt+M4 OPie | M5 enchants | M3 decurse. Bar 6/7 = utility/consumables.|r")
 end
 
 SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {

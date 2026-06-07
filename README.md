@@ -125,6 +125,7 @@ The installer auto-installs these via [CurseBreaker](https://github.com/AcidWeb/
 - **BadBoy** — kills 80% of in-game spam (gold sellers, RMT, boost spam). Single biggest signal-to-noise win. (WoWInterface)
 - **OPie** — radial menu addon. We use it for class-specific utility rings (totems, blessings, aspects, shouts, etc.). (WoWInterface)
 - **Questie** — quest tracker on minimap and world map. (GitHub releases)
+- **TotemTimers** — shaman totem grid (click-to-drop, timers, loadouts). (GitHub: taubut/TotemTimers_Fork)
 
 **Manual install** (CurseBreaker doesn't support free):
 - **TradeSkillMaster** — auction house replacement. Install from [CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you use the AH. **TSMSetup** (our addon) installs with wow-config; see [`templates/tsm-groups/README.md`](templates/tsm-groups/README.md) for groups + operations.

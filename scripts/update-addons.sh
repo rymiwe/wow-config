@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie) to latest
+# Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers) to latest
 # upstream versions. Doesn't touch our custom addons, bindings, or SavedVariables.
 #
 # Usage:
@@ -62,6 +62,7 @@ fetch_addon_zip "ElvUI"     "$elvui_url"
 fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
 fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
 fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"
+fetch_addon_zip "TotemTimers" "$(github_latest_zip taubut/TotemTimers_Fork)"
 
 opie_main="$(curl -fsSL https://www.townlong-yak.com/addons/opie 2>/dev/null || true)"
 opie_ver_path="$(echo "$opie_main" | grep -oE 'href="/addons/opie/release/[0-9.]+"' | head -1 | sed -E 's|^href="||; s|"$||')"

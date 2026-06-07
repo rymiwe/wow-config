@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie) to latest
+  Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers) to latest
   upstream versions. Doesn't touch our custom addons, bindings, or SavedVariables.
 
 .PARAMETER WowDir
@@ -71,6 +71,7 @@ try {
 Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
 Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
 Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
+Install-AddonZip "TotemTimers" (Get-GitHubLatestZipUrl "taubut/TotemTimers_Fork") $addonsDir
 
 $opieDir = Join-Path $addonsDir "OPie"
 try {
