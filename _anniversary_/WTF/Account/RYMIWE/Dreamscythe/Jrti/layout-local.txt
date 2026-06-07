@@ -2,9 +2,9 @@ Version: 1
 Frame: ZygorGuidesViewer_ActionBar
 FrameLevel: 10
 Anchor: RIGHT
-X: -231
-Y: 35
-W: 100
+X: -266
+Y: 43
+W: 65
 H: 40
 Frame: ZygorGuidesViewerMapIcon
 FrameLevel: 4

@@ -1,7 +1,7 @@
 
 SetupCoreCharDB = {
 ["channelsLeft"] = true,
-["totemProfile"] = "caster_group",
+["totemProfile"] = "melee_group",
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -65,7 +65,10 @@ nil,
 nil,
 nil,
 nil,
-nil,
+{
+["name"] = "SC_TotemDrop",
+["type"] = "macro",
+},
 {
 ["id"] = 36936,
 ["type"] = "spell",
@@ -78,16 +81,19 @@ nil,
 ["name"] = "Ghost Wolf",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 8012,
+["type"] = "spell",
+["name"] = "Purge",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 2870,
+["type"] = "spell",
+["name"] = "Cure Disease",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 526,
+["type"] = "spell",
+["name"] = "Cure Poison",
 },
 {
 ["name"] = " ",
@@ -149,30 +155,34 @@ nil,
 ["type"] = "macro",
 },
 nil,
-nil,
 {
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["id"] = 6149,
+["id"] = 29744,
 ["type"] = "item",
 },
 {
-["id"] = 1708,
-["type"] = "item",
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["name"] = " ",
+["type"] = "macro",
+},
+{
+["id"] = 556,
+["type"] = "spell",
+["name"] = "Astral Recall",
+},
+{
+["name"] = "SC_AncestralSpir",
+["type"] = "macro",
 },
 {
 ["id"] = 546,
@@ -190,26 +200,28 @@ nil,
 ["name"] = "Far Sight",
 },
 {
-["id"] = 556,
-["type"] = "spell",
-["name"] = "Astral Recall",
-},
-{
-["name"] = "SC_AncestralSpir",
-["type"] = "macro",
-},
-{
 ["id"] = 13262,
 ["type"] = "spell",
 ["name"] = "Disenchant",
 },
 {
-["id"] = 29744,
+["id"] = 2820,
 ["type"] = "item",
 },
-nil,
+{
+["id"] = 8950,
+["type"] = "item",
+},
+{
+["id"] = 4791,
+["type"] = "item",
+},
 {
 ["id"] = 8544,
+["type"] = "item",
+},
+{
+["id"] = 6149,
 ["type"] = "item",
 },
 {
@@ -217,6 +229,6 @@ nil,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-06-05 17:54:23",
+["timestamp"] = "2026-06-07 02:51:53",
 },
 }

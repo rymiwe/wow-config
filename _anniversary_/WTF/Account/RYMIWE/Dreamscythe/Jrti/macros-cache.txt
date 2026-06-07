@@ -36,6 +36,11 @@ VER 3 0100000000000006 "SC_LayonHands" "135928"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Lay on Hands
 END
+VER 3 010000000000000E "SC_Mount" "133725"
+#showtooltip
+/cancelform [noform:0]
+/use item:1697
+END
 VER 3 0100000000000003 "SC_Purify" "135949"
 #showtooltip
 /cast [@mouseover,help,nodead] Cleanse

@@ -221,12 +221,15 @@ local MACRO_TEMPLATES = {
     -- in LAYOUT so the macro slot is still labeled meaningfully when only
     -- Purify is trained.
     ["pally-dispel"] = function(_)
+        -- mouseover party frame, focus, friendly target, then self
         return table.concat({
             "#showtooltip",
             "/cast [@mouseover,help,nodead] Cleanse",
             "/cast [@mouseover,help,nodead] Purify",
-            "/cast [help,nodead] Cleanse",
-            "/cast [help,nodead] Purify",
+            "/cast [@focus,help,nodead] Cleanse",
+            "/cast [@focus,help,nodead] Purify",
+            "/cast [@target,help,nodead] Cleanse",
+            "/cast [@target,help,nodead] Purify",
             "/cast [@player] Cleanse",
             "/cast [@player] Purify",
         }, "\n")
@@ -238,12 +241,14 @@ local MACRO_TEMPLATES = {
             "#showtooltip",
             "/cast [@mouseover,help,nodead] Cure Disease",
             "/cast [@mouseover,help,nodead] Cure Poison",
-            "/cast [help,nodead] Cure Disease",
-            "/cast [help,nodead] Cure Poison",
+            "/cast [@focus,help,nodead] Cure Disease",
+            "/cast [@focus,help,nodead] Cure Poison",
+            "/cast [@target,help,nodead] Cure Disease",
+            "/cast [@target,help,nodead] Cure Poison",
             "/cast [@player] Cure Disease",
             "/cast [@player] Cure Poison",
             "/cast [@mouseover,harm,nodead] Purge",
-            "/cast [harm,nodead] Purge",
+            "/cast [@target,harm,nodead] Purge",
         }, "\n")
     end,
     ["decurse-druid"] = function()
@@ -1824,8 +1829,9 @@ SlashCmdList["APPLYBINDINGS"] = function()
 end
 
 SLASH_DECURSEFIX1 = "/decursefix"
+SLASH_DECURSEFIX2 = "/purifyfix"
 SlashCmdList["DECURSEFIX"] = function()
-    print("|cff999999SetupCore|r decursefix (v1.40)")
+    print("|cff999999SetupCore|r decursefix (v1.44)")
     local _, class = UnitClass("player")
     local spec = DECURSE_BY_CLASS[class]
     if not spec then
@@ -1833,10 +1839,23 @@ SlashCmdList["DECURSEFIX"] = function()
         return
     end
     SetupCore:EnsureDecurseMacro(spec.template, spec.icon, spec.macroName)
+    local idx = GetMacroIndexByName(spec.macroName)
+    if idx and idx > 0 then
+        local _, _, body = GetMacroInfo(idx)
+        local corrupt = (class == "SHAMAN" and body and not body:find("Purge", 1, true))
+            or (class == "PALADIN" and body and not body:find("Purify", 1, true))
+        if corrupt then
+            print("|cffff0000SetupCore|r " .. spec.macroName .. " body was corrupt — rebuilt")
+            SetupCore:EnsureDecurseMacro(spec.template, spec.icon, spec.macroName)
+        end
+    end
     if SetupCore:RefreshDecurseBinding() then
-        local idx = GetMacroIndexByName(spec.macroName)
-        print("|cff999999SetupCore|r M3 dispel ready — mouseover friends for disease/poison, enemies for Purge")
-        print("|cff999999SetupCore|r " .. spec.macroName .. " is macro " .. tostring(idx) .. " (/dump GetBindingAction('BUTTON3') to verify)")
+        idx = GetMacroIndexByName(spec.macroName)
+        local cur = GetBindingAction(SetupCore.DECURSE_MOUSE)
+        print("|cff999999SetupCore|r M3 -> " .. spec.macroName .. " (macro " .. tostring(idx) .. ", bind " .. tostring(cur) .. ")")
+        print("|cff999999  Hover party frame + M3, or target/focus friend, then M3 or R.|r")
+    else
+        print("|cffff0000SetupCore|r M3 bind failed — /dump GetBindingAction(\"BUTTON3\")")
     end
 end
 

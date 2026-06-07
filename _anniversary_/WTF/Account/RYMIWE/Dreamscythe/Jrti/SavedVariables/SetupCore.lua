@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -150,7 +151,7 @@ nil,
 },
 nil,
 {
-["name"] = " ",
+["name"] = "SC_Mount",
 ["type"] = "macro",
 },
 {
@@ -177,36 +178,41 @@ nil,
 ["id"] = 1179,
 ["type"] = "item",
 },
-[71] = {
-["id"] = 4537,
-["type"] = "item",
-},
-[66] = {
-["id"] = 23989,
-["type"] = "item",
-},
-[68] = {
-["name"] = "SC_RighteousFury",
-["type"] = "macro",
-},
-[70] = {
-["id"] = 2581,
-["type"] = "item",
-},
-[65] = {
+nil,
+{
 ["id"] = 23986,
 ["type"] = "item",
 },
-[67] = {
+{
+["id"] = 23989,
+["type"] = "item",
+},
+{
 ["id"] = 3239,
 ["type"] = "item",
 },
-[72] = {
+{
+["id"] = 2862,
+["type"] = "item",
+},
+{
+["id"] = 2454,
+["type"] = "item",
+},
+nil,
+{
+["id"] = 2581,
+["type"] = "item",
+},
+{
+["id"] = 4537,
+["type"] = "item",
+},
+{
 ["id"] = 858,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-05-31 18:57:19",
+["timestamp"] = "2026-06-06 19:54:12",
 },
-["channelsLeft"] = true,
 }

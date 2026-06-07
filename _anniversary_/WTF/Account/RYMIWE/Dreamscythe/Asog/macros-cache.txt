@@ -10,11 +10,10 @@ VER 3 010000000000000F "SC_Decurse" "136067"
 #showtooltip
 /cast [@mouseover,help,nodead] Cure Disease
 /cast [@mouseover,help,nodead] Cure Poison
-/cast [help,nodead] Cure Disease
-/cast [help,nodead] Cure Poison
-/cast [@player] Cure Disease
-/cast [@player] Cure Poison
-/cast [@mouseover,harm,nodead] Pur
+/cast [@focus,help,nodead] Cure Disease
+/cast [@focus,help,nodead] Cure Poison
+/cast [@target,help,nodead] Cure Disease
+/cast [@target,help,nodead] Cure Poi
 END
 VER 3 0100000000000006 "SC_FlameShock" "135813"
 #showtooltip
@@ -48,7 +47,7 @@ VER 3 0100000000000011 "SC_Stormstrike" "132314"
 /startattack
 /cast Stormstrike
 END
-VER 3 0100000000000018 "SC_TotemDrop" "136098"
+VER 3 0100000000000018 "SC_TotemDrop" "136023"
 #showtooltip
-/castsequence reset=combat/15 Stoneskin Totem, Flametongue Totem, Healing Stream Totem, Wrath of Air Totem
+/castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem
 END
