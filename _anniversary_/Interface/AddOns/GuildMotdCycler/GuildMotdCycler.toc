@@ -1,0 +1,8 @@
+## Interface: 20505
+## Title: Guild MOTD Cycler
+## Notes: Daily ATLA elemental GMOTD for guild officers. /gmc preview
+## Version: 1.0
+## SavedVariables: GuildMotdCyclerDB
+
+GuildMotdData.lua
+GuildMotdCycler.lua
