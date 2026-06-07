@@ -1,5 +1,6 @@
--- Element moods: TBC spells that deal Fire, Frost, or Nature damage.
--- Nature is split earth (ground/plant/sting) vs air (lightning/storm).
+-- Element moods for GMOTD flavor text (spell names, not casts).
+-- Fire/Water: damage school. Earth: rock/dirt/soil/plant + shaman earth totems.
+-- Air: lightning/storm Nature. Nature split earth vs air for non-totem spells.
 GuildMotdData = GuildMotdData or {}
 
 GuildMotdData.ELEMENTS = {
@@ -18,10 +19,19 @@ GuildMotdData.ELEMENTS = {
         key = "Earth",
         lord = "Therazane holds the line.",
         moods = {
+            -- Shaman earth totems + shock
             "Earth Shock",
-            "Wrath",
+            "Stoneclaw Totem",
+            "Stoneskin Totem",
+            "Strength of Earth Totem",
+            "Earthbind Totem",
+            "Tremor Totem",
+            "Earth Elemental Totem",
+            -- Druid nature (ground/plant)
+            "Entangling Roots",
             "Insect Swarm",
-            "Serpent Sting",
+            "Wrath",
+            "Force of Nature",
         },
     },
     {
