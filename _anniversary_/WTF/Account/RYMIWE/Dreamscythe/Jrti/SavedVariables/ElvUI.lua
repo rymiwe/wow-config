@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/sit",
 "/reload",
 "/follow",
 "/train",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/grats",
 "/lie",
 "/decursefix",
+"/p in guild chat",
 },
 ["ChatHistoryLog"] = {
 },

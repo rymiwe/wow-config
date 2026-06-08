@@ -23,9 +23,9 @@ local LAYOUT = {
     {"Shamanistic Rage",       1, 12},                    -- T   Enh CD (skipped until talented)
 
     -- MAIN BOTTOM (Bar 3) ==========================================
-    -- F = TT Cast (post-layout); G = racial on Draenei
+    -- F = TT Cast (post-layout); G = Totemic Call recall
+    {"Totemic Call",           3, 6},                     -- G
     {"Ghost Wolf",             3, 8},                     -- Z (also forced by SetupCore travel slots)
-    {"Totemic Call",           3, 9},                     -- X
 
     -- ALT TOP (Bar 4) — heals on numrow, damage on Q/E/R home row ========
     {"Healing Wave",           4, 2, "mouseover-help"},   -- Alt-1
