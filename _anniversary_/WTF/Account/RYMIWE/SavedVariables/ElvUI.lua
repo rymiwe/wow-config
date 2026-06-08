@@ -233,10 +233,10 @@ ElvDB = {
 ["ElvUF_Raid2Mover"] = "TOPLEFT,ElvUIParent,TOPLEFT,192,-295",
 ["ReputationBarMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,4",
 ["MinimapClusterMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,254",
-["ElvUF_PlayerMover"] = "BOTTOM,ElvUIParent,BOTTOM,-136,187",
+["PlayerPowerBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,209",
 ["AddonCompartmentMover"] = "RIGHT,ElvUI_MinimapHolder,RIGHT,-5,10",
 ["ObjectiveFrameMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-79,-293",
-["BNETMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,279",
+["MirrorTimer2Mover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-310,-247",
 ["ShiftAB"] = "BOTTOM,ElvUIParent,BOTTOM,0,68",
 ["TotemBarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,560,31",
 ["AutoButtonBar5Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-279,328",
@@ -244,7 +244,7 @@ ElvDB = {
 ["PvPMover"] = "TOP,ElvUIParent,TOP,0,-28",
 ["TooltipMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,255",
 ["tokenHolderMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-164",
-["PlayerPowerBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,209",
+["ElvUF_PlayerMover"] = "BOTTOM,ElvUIParent,BOTTOM,-136,187",
 ["ElvAB_7"] = "BOTTOM,ElvUIParent,BOTTOM,0,290",
 ["RightChatMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-233,26",
 ["AutoButtonBar1Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-127,211",
@@ -274,8 +274,8 @@ ElvDB = {
 ["PrivateRaidWarningMover"] = "TOP,ElvUIParent,TOP,0,-240",
 ["ElvUF_FocusMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-572,369",
 ["ElvUF_BodyGuardMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,444",
-["ClassBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,80",
-["PrivateAurasMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-4,-177",
+["EventToastMover"] = "TOP,ElvUIParent,TOP,0,-150",
+["MicrobarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,18",
 ["UIErrorsFrameMover"] = "TOP,ElvUIParent,TOP,0,-195",
 ["DTPanelCoordsMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-76,49",
 ["SalvageCrateMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,2,-483",
@@ -291,8 +291,8 @@ ElvDB = {
 ["ElvAB_9"] = "BOTTOM,ElvUIParent,BOTTOM,-523,108",
 ["BelowMinimapContainerMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-43,17",
 ["AutoButtonBar4Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-279,286",
-["MicrobarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,18",
-["EventToastMover"] = "TOP,ElvUIParent,TOP,0,-150",
+["PrivateAurasMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-4,-177",
+["ClassBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,80",
 ["ElvUF_PlayerCastbarMover"] = "BOTTOM,ElvUIParent,BOTTOM,-136,176",
 ["ElvAB_3"] = "BOTTOM,ElvUIParent,BOTTOM,-460,50",
 ["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,460,50",
@@ -309,7 +309,7 @@ ElvDB = {
 ["ElvUF_TankMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,4,-186",
 ["BossHeaderMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-365,-252",
 ["ElvUF_PetMover"] = "BOTTOM,ElvUIParent,BOTTOM,-187,123",
-["MirrorTimer2Mover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-310,-247",
+["BNETMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,279",
 ["ElvUF_PartyMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,279",
 ["AlertFrameMover"] = "TOP,ElvUIParent,TOP,0,-95",
 ["DebuffsMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,4,-4",
@@ -423,19 +423,38 @@ ElvDB = {
 ["raid2"] = {
 ["enable"] = false,
 },
-["targettarget"] = {
+["pet"] = {
+["debuffs"] = {
+["attachTo"] = "BUFFS",
+["enable"] = true,
+["priority"] = "Blacklist,Friendly:Dispellable,Personal,CCDebuffs",
+},
+["threatStyle"] = "NONE",
+["castbar"] = {
+["yOffsetTime"] = -10,
+["xOffsetTime"] = -2,
+["height"] = 8,
+["yOffsetText"] = -10,
+["xOffsetText"] = 2,
+["iconSize"] = 26,
+["iconAttached"] = false,
+["width"] = 130,
+},
+["infoPanel"] = {
+["enable"] = true,
+["height"] = 14,
+["transparent"] = true,
+},
 ["name"] = {
 ["attachTextTo"] = "InfoPanel",
 },
-["power"] = {
+["height"] = 25,
+["buffs"] = {
+["priority"] = "Blacklist,Personal,Dispellable",
+},
+["healPrediction"] = {
 ["enable"] = false,
 },
-["disableMouseoverGlow"] = true,
-["infoPanel"] = {
-["enable"] = true,
-["transparent"] = true,
-},
-["height"] = 25,
 },
 ["player"] = {
 ["portrait"] = {
@@ -457,25 +476,14 @@ ElvDB = {
 ["attachTextTo"] = "InfoPanel",
 },
 ["height"] = 38,
-["fader"] = {
-["minAlpha"] = 0,
-},
-["classbar"] = {
-["detachFromFrame"] = true,
-["autoHide"] = true,
-["detachedWidth"] = 506,
-},
 ["power"] = {
 ["text_format"] = "[powercolor][power:percent]",
 ["yOffset"] = -21,
 ["position"] = "BOTTOMRIGHT",
 ["height"] = 8,
 },
-["width"] = 231,
-["health"] = {
-["position"] = "BOTTOMLEFT",
-["text_format"] = "[healthcolor][health:percent-with-absorbs]",
-["yOffset"] = -21,
+["fader"] = {
+["minAlpha"] = 0,
 },
 ["castbar"] = {
 ["yOffsetTime"] = -12,
@@ -490,6 +498,17 @@ ElvDB = {
 ["g"] = 0.749,
 ["r"] = 0.839,
 },
+},
+["width"] = 231,
+["health"] = {
+["position"] = "BOTTOMLEFT",
+["text_format"] = "[healthcolor][health:percent-with-absorbs]",
+["yOffset"] = -21,
+},
+["classbar"] = {
+["detachFromFrame"] = true,
+["autoHide"] = true,
+["detachedWidth"] = 506,
 },
 },
 ["raid1"] = {
@@ -509,6 +528,20 @@ ElvDB = {
 ["health"] = {
 ["text_format"] = "[healthcolor][health:deficit-percent-absorbs]",
 },
+},
+["targettarget"] = {
+["name"] = {
+["attachTextTo"] = "InfoPanel",
+},
+["power"] = {
+["enable"] = false,
+},
+["disableMouseoverGlow"] = true,
+["infoPanel"] = {
+["enable"] = true,
+["transparent"] = true,
+},
+["height"] = 25,
 },
 ["boss"] = {
 ["name"] = {
@@ -568,39 +601,6 @@ ElvDB = {
 ["enable"] = true,
 },
 },
-["pet"] = {
-["debuffs"] = {
-["attachTo"] = "BUFFS",
-["enable"] = true,
-["priority"] = "Blacklist,Friendly:Dispellable,Personal,CCDebuffs",
-},
-["threatStyle"] = "NONE",
-["castbar"] = {
-["yOffsetTime"] = -10,
-["xOffsetTime"] = -2,
-["height"] = 8,
-["yOffsetText"] = -10,
-["xOffsetText"] = 2,
-["iconSize"] = 26,
-["iconAttached"] = false,
-["width"] = 130,
-},
-["infoPanel"] = {
-["enable"] = true,
-["height"] = 14,
-["transparent"] = true,
-},
-["name"] = {
-["attachTextTo"] = "InfoPanel",
-},
-["height"] = 25,
-["buffs"] = {
-["priority"] = "Blacklist,Personal,Dispellable",
-},
-["healPrediction"] = {
-["enable"] = false,
-},
-},
 ["arena"] = {
 ["debuffs"] = {
 ["xOffset"] = -4,
@@ -611,11 +611,9 @@ ElvDB = {
 ["sizeOverride"] = 33,
 },
 ["pvpSpecIcon"] = false,
-["health"] = {
-["attachTextTo"] = "InfoPanel",
-["position"] = "RIGHT",
-["xOffset"] = -2,
-["text_format"] = "[healthcolor][health:percent-with-absorbs]",
+["pvpTrinket"] = {
+["xOffset"] = 7,
+["size"] = 32,
 },
 ["spacing"] = 15,
 ["pvpclassificationindicator"] = {
@@ -631,9 +629,11 @@ ElvDB = {
 ["enable"] = true,
 ["transparent"] = true,
 },
-["pvpTrinket"] = {
-["xOffset"] = 7,
-["size"] = 32,
+["health"] = {
+["attachTextTo"] = "InfoPanel",
+["position"] = "RIGHT",
+["xOffset"] = -2,
+["text_format"] = "[healthcolor][health:percent-with-absorbs]",
 },
 ["name"] = {
 ["attachTextTo"] = "InfoPanel",
@@ -949,6 +949,10 @@ ElvDB = {
 ["yOffset"] = -9,
 ["format"] = "[name]",
 },
+["title"] = {
+["format"] = "[npctitle]",
+},
+["markHealers"] = false,
 ["health"] = {
 ["height"] = 6,
 ["text"] = {
@@ -960,18 +964,14 @@ ElvDB = {
 },
 ["buffs"] = {
 ["yOffset"] = 20,
-["height"] = 19,
+["maxDuration"] = 0,
 ["keepSizeRatio"] = false,
+["height"] = 19,
 ["spacing"] = 2,
 ["priority"] = "Blacklist,Whitelist,Dispellable,blockNoDuration,RaidBuffsElvUI",
 ["size"] = 36,
 ["numAuras"] = 4,
-["maxDuration"] = 0,
 },
-["title"] = {
-["format"] = "[npctitle]",
-},
-["markHealers"] = false,
 },
 ["FRIENDLY_PLAYER"] = {
 ["debuffs"] = {
@@ -1017,6 +1017,10 @@ ElvDB = {
 ["yOffset"] = -9,
 ["format"] = "[name]",
 },
+["title"] = {
+["format"] = "[npctitle]",
+},
+["markHealers"] = false,
 ["health"] = {
 ["height"] = 6,
 ["text"] = {
@@ -1035,10 +1039,6 @@ ElvDB = {
 ["size"] = 36,
 ["numAuras"] = 4,
 },
-["title"] = {
-["format"] = "[npctitle]",
-},
-["markHealers"] = false,
 },
 },
 ["colors"] = {
@@ -1081,12 +1081,8 @@ nil,
 ["g"] = 0.44,
 ["r"] = 0,
 },
-["socialQueueMessages"] = true,
-["customTimeColor"] = {
-["b"] = 0.596,
-["g"] = 0.6,
-["r"] = 0.607,
-},
+["chatHistory"] = false,
+["tabSelector"] = "BOX1",
 ["numScrollMessages"] = 1,
 ["panelHeightRight"] = 227,
 ["font"] = "Expressway",
@@ -1107,13 +1103,17 @@ nil,
 ["panelSnapLeftID"] = 1,
 ["fadeUndockedTabs"] = true,
 ["fontSize"] = 11,
+["customTimeColor"] = {
+["b"] = 0.596,
+["g"] = 0.6,
+["r"] = 0.607,
+},
 ["editBoxPosition"] = "ABOVE_CHAT_INSIDE",
 ["lockPositions"] = true,
-["chatHistory"] = false,
+["socialQueueMessages"] = true,
 ["hideChatToggles"] = true,
 ["tabFont"] = "Expressway",
 ["copyChatLines"] = true,
-["tabSelector"] = "BOX1",
 ["useBTagName"] = true,
 ["fadeTabsNoBackdrop"] = false,
 },

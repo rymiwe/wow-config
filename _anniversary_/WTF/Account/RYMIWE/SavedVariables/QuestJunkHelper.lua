@@ -1,0 +1,4 @@
+
+QuestJunkHelperDB = {
+["autoScan"] = true,
+}

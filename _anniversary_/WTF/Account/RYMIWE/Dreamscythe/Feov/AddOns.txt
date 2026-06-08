@@ -49,3 +49,4 @@ PatchWerk: disabled
 kExtraBossFrames: disabled
 OPie_Classic: disabled
 WeakAurasCompanion: enabled
+Blizzard_CombatText: enabled

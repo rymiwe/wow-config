@@ -2,11 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p 18% upgrade, but if you want to random on it that's fine",
-"/p lead the way",
-"/p shit worst time to dc",
-"/p trying",
-"/p patrol",
 "/p oops",
 "/p sry posion cleansing",
 "/p pat",
@@ -21,7 +16,12 @@ ElvCharacterDB = {
 "/p made it",
 "/ty",
 "/setupbars",
+"/gmc next",
 "/tsm destroy",
+"/wa",
+"/tt",
+"/mountfix",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },

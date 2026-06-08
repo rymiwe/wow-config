@@ -7,13 +7,8 @@ VER 3 0100000000000010 "SC_ChainHeal" "136042"
 /cast [@mouseover,help,nodead][help,nodead][@player] Chain Heal
 END
 VER 3 010000000000000F "SC_Decurse" "136067"
-#showtooltip
-/cast [@mouseover,help,nodead] Cure Disease
-/cast [@mouseover,help,nodead] Cure Poison
-/cast [@focus,help,nodead] Cure Disease
-/cast [@focus,help,nodead] Cure Poison
-/cast [@target,help,nodead] Cure Disease
-/cast [@target,help,nodead] Cure Poi
+#showtooltip Cure Poison
+/cast [@mouseover,help,nodead][@player] Cure Poison
 END
 VER 3 0100000000000006 "SC_FlameShock" "135813"
 #showtooltip
@@ -39,7 +34,7 @@ VER 3 010000000000000A "SC_LightningBolt" "136048"
 END
 VER 3 0100000000000019 "SC_Mount" "132255"
 #showtooltip
-/cancelform [noform:0]
+/run if not IsMounted() and GetShapeshiftForm()>0 then CastSpellByName("Ghost Wolf") end
 /use item:29744
 END
 VER 3 0100000000000011 "SC_Stormstrike" "132314"
@@ -50,4 +45,8 @@ END
 VER 3 0100000000000018 "SC_TotemDrop" "136023"
 #showtooltip
 /castsequence reset=combat/15 Strength of Earth Totem, Searing Totem, Healing Stream Totem, Windfury Totem
+END
+VER 3 010000000000001A "TT Cast" "INV_MISC_QUESTIONMARK"
+#showtooltips
+/castsequence reset=combat/15 Searing Totem(Rank 4), Strength of Earth Totem(Rank 3), Mana Spring Totem(Rank 3), Grace of Air Totem(Rank 1)
 END

@@ -30,3 +30,4 @@ ElvUI_RatioMinimapAuras: disabled
 PatchWerk: disabled
 !PatchWerk: disabled
 kExtraBossFrames: disabled
+Blizzard_CombatText: enabled

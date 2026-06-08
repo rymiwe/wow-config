@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["mountItemId"] = 29744,
 ["channelsLeft"] = true,
 ["totemProfile"] = "melee_group",
 ["lastBackup"] = {

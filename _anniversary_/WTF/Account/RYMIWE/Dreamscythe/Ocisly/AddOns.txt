@@ -31,3 +31,4 @@ PatchWerk: disabled
 !PatchWerk: disabled
 kExtraBossFrames: disabled
 ChatPanelThemes: disabled
+Blizzard_CombatText: enabled
