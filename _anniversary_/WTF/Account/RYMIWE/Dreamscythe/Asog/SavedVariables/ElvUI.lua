@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p brt",
 "/p no",
 "/p we're in",
 "/p ty all",
@@ -19,9 +18,10 @@ ElvCharacterDB = {
 "/p i'm in guild vocie",
 "/p voice",
 "/p |cffffd000|Henchant:13841|h[Enchant Gloves - Advanced Mining]|h|r",
-"/tsm destroy",
 "/rl",
 "/setupbars",
+"/tsm destroy",
+"/p you too",
 },
 ["ChatHistoryLog"] = {
 },
