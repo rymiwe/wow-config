@@ -36,19 +36,14 @@ VER 3 0100000000000006 "SC_LayonHands" "135928"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Lay on Hands
 END
-VER 3 010000000000000E "SC_Mount" "133725"
+VER 3 010000000000000E "SC_Mount" "132261"
 #showtooltip
-/cancelform [noform:0]
-/use item:1697
+/dismount [mounted]
+/run print("|cffff0000SetupCore|r: no mount in bags — keep a mount item or train a mount spell")
 END
 VER 3 0100000000000003 "SC_Purify" "135949"
-#showtooltip
-/cast [@mouseover,help,nodead] Cleanse
-/cast [@mouseover,help,nodead] Purify
-/cast [help,nodead] Cleanse
-/cast [help,nodead] Purify
-/cast [@player] Cleanse
-/cast [@player] Purify
+#showtooltip Purify
+/cast [@mouseover,help,nodead][@player] Cure Poison
 END
 VER 3 0100000000000009 "SC_Redemption" "135955"
 #showtooltip

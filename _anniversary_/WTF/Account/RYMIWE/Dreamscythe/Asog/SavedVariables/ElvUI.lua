@@ -2,12 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p oops",
-"/p sry posion cleansing",
-"/p pat",
-"/p out",
-"/p is that for the vines?",
-"/p need help?",
 "/p brt",
 "/p no",
 "/p we're in",
@@ -21,6 +15,12 @@ ElvCharacterDB = {
 "/wa",
 "/tt",
 "/mountfix",
+"/decursefix",
+"ok",
+"i mean hell yeah",
+"/p i'm in guild vocie",
+"/p voice",
+"/p |cffffd000|Henchant:13841|h[Enchant Gloves - Advanced Mining]|h|r",
 "/rl",
 },
 ["ChatHistoryLog"] = {

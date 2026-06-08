@@ -4,7 +4,7 @@
 --
 -- BAR LAYOUT:
 --   Bar 1 = MAIN TOP — ` 1 2 3 4 / Q E R T  (3/4 = bound placeholders, no spells)
---   Bar 3 = MAIN BOTTOM — F G / Z X C V B  (F = placeholder after LS→E)
+--   Bar 3 = MAIN BOTTOM — F G / Z X C V B  (F = TT Cast totem drop via TotemTimers)
 --   Bar 4 = ALT — numrow heals (Alt-1/2/3), home row casts (Alt-Q/E/R)
 --   Bar 5 = ALT BOTTOM — Alt-F/G racials; Alt-Z/X placeholders; Alt-C/V/B placeholders (M3 decurse)
 --   Bar 6 = UTILITY (click): water travel, far sight, recall, rez — seeded, never wiped
@@ -23,7 +23,7 @@ local LAYOUT = {
     {"Shamanistic Rage",       1, 12},                    -- T   Enh CD (skipped until talented)
 
     -- MAIN BOTTOM (Bar 3) ==========================================
-    -- F free after Lightning Shield moved to E; G = racial on Draenei
+    -- F = TT Cast (post-layout); G = racial on Draenei
     {"Ghost Wolf",             3, 8},                     -- Z (also forced by SetupCore travel slots)
     {"Totemic Call",           3, 9},                     -- X
 
@@ -162,8 +162,13 @@ local function Run()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")
-    print("|cff999999  M3 decurse | M4 totems (OPie) | M5 weapon enchants | TotemTimers for sets. Bar 6=travel/rez, bar 7=consumables.|r")
+    print("|cff999999  F totem drop | M3 decurse | M4 totems (OPie) | M5 enchants. Bar 6=travel/rez, bar 7=consumables.|r")
 end
+
+SetupCore:RegisterReservedSlots("SHAMAN", {{3, 5}})
+SetupCore:RegisterPostLayout("SHAMAN", function()
+    SetupCore:ApplyTotemCastSlot(6)
+end)
 
 SetupCore:RegisterClass("SHAMAN", Run, LAYOUT, {
     ignore = IGNORE,

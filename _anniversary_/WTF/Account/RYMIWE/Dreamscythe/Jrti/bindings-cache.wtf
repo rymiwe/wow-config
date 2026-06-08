@@ -1,4 +1,4 @@
-bind BUTTON3 MACRO 131
+bind BUTTON3 CLICK SetupCoreDecurseButton:LeftButton
 bind W TOGGLEAUTORUN
 bind A STRAFELEFT
 bind D STRAFERIGHT

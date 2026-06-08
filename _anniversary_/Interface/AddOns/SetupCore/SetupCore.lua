@@ -62,6 +62,8 @@ local MOUNT_SPELL_NAMES = {
     "Summon Warhorse", "Summon Black War Steed",
 }
 local TRAVEL_BAR = { movement = {3, 8}, mount = {5, 8} }
+local TOTEM_CAST_MACRO_NAME = "TT Cast"
+local SHAMAN_TOTEM_DROP_BAR = {3, 5} -- F -> MULTIACTIONBAR3BUTTON5
 local MOVEMENT_KEYBINDS = {
     {"Z", "MULTIACTIONBAR3BUTTON8"},
     {"SHIFT-Z", "MULTIACTIONBAR3BUTTON8"},
@@ -90,6 +92,13 @@ local CLASS_DISPEL = {
     PRIEST  = { Magic = "Dispel Magic", Disease = "Cure Disease" },
     MAGE    = { Curse = "Remove Lesser Curse" },
     PALADIN = { Magic = "Cleanse", Disease = "Purify", Poison = "Purify" },
+}
+local DISPEL_FALLBACK_SPELL = {
+    SHAMAN  = "Cure Poison",
+    DRUID   = "Cure Poison",
+    PRIEST  = "Dispel Magic",
+    MAGE    = "Remove Lesser Curse",
+    PALADIN = "Purify",
 }
 
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
@@ -232,15 +241,8 @@ local MACRO_TEMPLATES = {
     -- in LAYOUT so the macro slot is still labeled meaningfully when only
     -- Purify is trained.
     ["pally-dispel"] = function(_)
-        return table.concat({
-            "#showtooltip",
-            "/cast [@mouseover,help,nodead] Cleanse",
-            "/cast [@mouseover,help,nodead] Purify",
-            "/cast [help,nodead] Cleanse",
-            "/cast [help,nodead] Purify",
-            "/cast [@player] Cleanse",
-            "/cast [@player] Purify",
-        }, "\n")
+        -- Body is overwritten by UpdateDecurseButton (debuff-aware, one spell).
+        return "#showtooltip Purify\n/cast [@player] Purify"
     end,
     -- M3 decurse macros (mouseover-first). Class addons call EnsureDecurseMacro().
     ["decurse-shaman"] = function()
@@ -617,6 +619,66 @@ function SetupCore:ApplyTravelSlots()
     return #parts > 0
 end
 
+function SetupCore:EnsureTotemTimersMacro()
+    if TotemTimers and TotemTimers.UpdateMacro then
+        TotemTimers.UpdateMacro()
+    end
+    return GetMacroIndexByName(TOTEM_CAST_MACRO_NAME)
+end
+
+function SetupCore:TotemDropBarCoords()
+    return SHAMAN_TOTEM_DROP_BAR[1], SHAMAN_TOTEM_DROP_BAR[2]
+end
+
+function SetupCore:VerifyTotemCastOnBar()
+    local bar, btn = self:TotemDropBarCoords()
+    local slot = self:ResolveActionSlot(bar, btn)
+    if not slot or not HasAction(slot) then return false end
+    local actionType, id = GetActionInfo(slot)
+    return actionType == "macro" and GetMacroInfo(id) == TOTEM_CAST_MACRO_NAME
+end
+
+function SetupCore:PlaceTotemCastOnBar()
+    local _, class = UnitClass("player")
+    if class ~= "SHAMAN" then return false, "not_shaman" end
+    local bar, btn = self:TotemDropBarCoords()
+    if not self:ResolveActionSlot(bar, btn) then
+        return false, "no_slot"
+    end
+    if not self:EnsureTotemTimersMacro() then
+        return false, "no_macro"
+    end
+    if self:PlaceMacro(TOTEM_CAST_MACRO_NAME, bar, btn, true) and self:VerifyTotemCastOnBar() then
+        return true, "placed"
+    end
+    return false, "place_failed"
+end
+
+function SetupCore:ApplyTotemCastSlot(attempts)
+    local _, class = UnitClass("player")
+    if class ~= "SHAMAN" then return false end
+    local function attempt(n)
+        local ok, how = self:PlaceTotemCastOnBar()
+        if ok then
+            print("|cff999999SetupCore|r F -> " .. TOTEM_CAST_MACRO_NAME .. " (totem set drop)")
+            return true
+        end
+        if how == "no_slot" and n > 0 then
+            C_Timer.After(0.25, function() attempt(n - 1) end)
+            return nil
+        end
+        if n > 0 then
+            C_Timer.After(0.5, function() attempt(n - 1) end)
+            return nil
+        end
+        if how == "no_macro" then
+            print("|cffffaa00SetupCore|r TotemTimers has not created " .. TOTEM_CAST_MACRO_NAME .. " yet — /reload or /totemfix")
+        end
+        return false, how
+    end
+    return attempt(attempts or 6)
+end
+
 function SetupCore:GetDecurseSpec()
     local _, class = UnitClass("player")
     return class and DECURSE_BY_CLASS[class]
@@ -650,30 +712,55 @@ function SetupCore:ResolveDispelTarget()
     return order[1] or "player", nil
 end
 
+function SetupCore:ResolveDispelSpellForDebuff(debuffType, class, map)
+    if not debuffType or not map then return nil end
+    if class == "PALADIN" then
+        if GetSpellInfo("Cleanse") then
+            if debuffType == "Magic" or debuffType == "Disease" or debuffType == "Poison" then
+                return "Cleanse"
+            end
+        elseif (debuffType == "Disease" or debuffType == "Poison") and GetSpellInfo("Purify") then
+            return "Purify"
+        end
+        return nil
+    end
+    local spell = map[debuffType]
+    if spell and GetSpellInfo(spell) then
+        return spell
+    end
+    return nil
+end
+
 function SetupCore:PickDispelSpell(unit)
     local _, class = UnitClass("player")
     local map = class and CLASS_DISPEL[class]
     if not map then return nil end
     if UnitCanAttack("player", unit) then
-        return map.harm
+        local harm = map.harm
+        if harm and GetSpellInfo(harm) then
+            return harm
+        end
+        return nil
     end
     for i = 1, 40 do
         local name, _, _, _, debuffType = UnitDebuff(unit, i)
         if not name then break end
-        if map[debuffType] then
-            return map[debuffType]
+        local spell = self:ResolveDispelSpellForDebuff(debuffType, class, map)
+        if spell then
+            return spell
         end
     end
     return nil
 end
 
 function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
-    local show = spell or iconSpell or "Cure Poison"
+    local _, class = UnitClass("player")
+    local fallback = (class and DISPEL_FALLBACK_SPELL[class]) or iconSpell or "Cure Poison"
+    local show = spell or iconSpell or fallback
     if not spell then
-        -- Fallback: poison-first self/mouseover (common case; avoids disease GCD block).
         return table.concat({
             "#showtooltip " .. show,
-            "/cast [@mouseover,help,nodead][@player] Cure Poison",
+            string.format("/cast [@mouseover,help,nodead][@player] %s", fallback),
         }, "\n")
     end
     return string.format("#showtooltip %s\n/cast [@%s] %s", spell, unit, spell)
@@ -1672,6 +1759,27 @@ SlashCmdList["RESTOREBARS"] = function() SetupCore:RestoreBars() end
 SLASH_APPLYBINDINGS1 = "/applybindings"
 SlashCmdList["APPLYBINDINGS"] = function() SetupCore:ApplyBindings() end
 
+SLASH_SETUPTOTEM1 = "/totemfix"
+SlashCmdList["SETUPTOTEM"] = function()
+    SetupCore:ApplyTotemCastSlot(6)
+    SetupCore:ApplyBindings()
+    local f = GetBindingAction("F") or "(unbound)"
+    local bar, btn = SetupCore:TotemDropBarCoords()
+    local slot = SetupCore:ResolveActionSlot(bar, btn)
+    local barDesc = "empty"
+    if not slot then
+        barDesc = "ElvUI button not ready"
+    elseif HasAction(slot) then
+        local actionType, id = GetActionInfo(slot)
+        if actionType == "macro" then
+            barDesc = "macro " .. (GetMacroInfo(id) or tostring(id))
+        else
+            barDesc = tostring(actionType)
+        end
+    end
+    print(string.format("|cff999999SetupCore|r F -> %s | bar 3:5 = %s", f, barDesc))
+end
+
 SLASH_SETUPDECURSE1 = "/decursefix"
 SlashCmdList["SETUPDECURSE"] = function()
     local ok, spell, unit = SetupCore:UpdateDecurseButton()
@@ -1925,10 +2033,12 @@ f:SetScript("OnEvent", function(_, event, ...)
     C_Timer.After(3, function()
         SetupCore:ApplyTravelSlots()
         SetupCore:ApplyMountBarSlot()
+        SetupCore:ApplyTotemCastSlot(6)
     end)
     C_Timer.After(5, function()
         SetupCore:ApplyMountBarSlot()
         SetupCore:ApplyMountKeybinds()
+        SetupCore:ApplyTotemCastSlot(4)
     end)
 
     -- Fill layout gaps (e.g. Water Shield on a placeholder slot) and warn about
@@ -1953,5 +2063,13 @@ f:SetScript("OnEvent", function(_, event, ...)
             SetupCoreCharDB.channelsLeft = true
             print("|cff00ff00SetupCore|r left channels: "..table.concat(left, ", "))
         end)
+    end
+end)
+
+local totemAddonWatch = CreateFrame("Frame")
+totemAddonWatch:RegisterEvent("ADDON_LOADED")
+totemAddonWatch:SetScript("OnEvent", function(_, _, name)
+    if name == "TotemTimers" then
+        C_Timer.After(0.5, function() SetupCore:ApplyTotemCastSlot(4) end)
     end
 end)

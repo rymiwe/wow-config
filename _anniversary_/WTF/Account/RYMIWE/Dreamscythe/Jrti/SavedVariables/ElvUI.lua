@@ -4,7 +4,6 @@ ElvCharacterDB = {
 ["ChatEditHistory"] = {
 "/sit",
 "/reload",
-"/decursefix",
 "/follow",
 "/train",
 "/cheer",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/p fresh as a daisy",
 "/grats",
 "/lie",
+"/decursefix",
 },
 ["ChatHistoryLog"] = {
 },
