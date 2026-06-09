@@ -753,6 +753,46 @@ function SetupCore:PickDispelSpell(unit)
     return nil
 end
 
+-- Build a one-spell cast line with conditionals only on units that need this spell
+-- (avoids wrong-type GCD on a single target while still falling back across units).
+function SetupCore:BuildDispelCastLine(spell, primaryUnit)
+    local _, class = UnitClass("player")
+    local map = class and CLASS_DISPEL[class]
+    if map and map.harm and spell == map.harm then
+        return string.format("/cast [@mouseover,harm,nodead][harm,nodead] %s", spell)
+    end
+    local conds = {}
+    local function add(cond)
+        for i = 1, #conds do
+            if conds[i] == cond then return end
+        end
+        conds[#conds + 1] = cond
+    end
+    if UnitExists("mouseover") and not UnitCanAttack("player", "mouseover")
+        and self:PickDispelSpell("mouseover") == spell then
+        add("[@mouseover,help,nodead]")
+    end
+    if UnitExists("target") and not UnitCanAttack("player", "target")
+        and self:PickDispelSpell("target") == spell then
+        add("[help,nodead]")
+    end
+    if self:PickDispelSpell("player") == spell then
+        add("[@player]")
+    end
+    if #conds == 0 then
+        if primaryUnit == "mouseover" then
+            add("[@mouseover,help,nodead]")
+        elseif primaryUnit == "target" then
+            add("[help,nodead]")
+        else
+            add("[@mouseover,help,nodead]")
+            add("[help,nodead]")
+            add("[@player]")
+        end
+    end
+    return string.format("/cast %s %s", table.concat(conds, ""), spell)
+end
+
 function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
     local _, class = UnitClass("player")
     local fallback = (class and DISPEL_FALLBACK_SPELL[class]) or iconSpell or "Cure Poison"
@@ -760,10 +800,10 @@ function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
     if not spell then
         return table.concat({
             "#showtooltip " .. show,
-            string.format("/cast [@mouseover,help,nodead][@player] %s", fallback),
+            string.format("/cast [@mouseover,help,nodead][help,nodead][@player] %s", fallback),
         }, "\n")
     end
-    return string.format("#showtooltip %s\n/cast [@%s] %s", spell, unit, spell)
+    return string.format("#showtooltip %s\n%s", spell, self:BuildDispelCastLine(spell, unit))
 end
 
 function SetupCore:EnsureDecurseButton()
@@ -771,6 +811,11 @@ function SetupCore:EnsureDecurseButton()
     local btn = CreateFrame("Button", DECURSE_BUTTON, UIParent, "SecureActionButtonTemplate")
     btn:RegisterForClicks("AnyUp", "AnyDown")
     btn:SetAttribute("type", "macro")
+    btn:SetScript("PreClick", function()
+        if not InCombatLockdown() then
+            SetupCore:UpdateDecurseButton()
+        end
+    end)
     self.decurseBtn = btn
 
     local frame = CreateFrame("Frame")
@@ -781,9 +826,12 @@ function SetupCore:EnsureDecurseButton()
     frame:SetScript("OnEvent", function(_, event, unit)
         if event == "UNIT_AURA" then
             if unit ~= "player" and unit ~= "target" and unit ~= "mouseover"
-                and not unit:find("^party") then
+                and not unit:find("^party") and not unit:find("^raid") then
                 return
             end
+        end
+        if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
+            SetupCore.decurseStale = nil
         end
         SetupCore:UpdateDecurseButton()
     end)
