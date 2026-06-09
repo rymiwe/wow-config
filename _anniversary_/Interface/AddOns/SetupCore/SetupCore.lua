@@ -100,6 +100,8 @@ local DISPEL_FALLBACK_SPELL = {
     MAGE    = "Remove Lesser Curse",
     PALADIN = "Purify",
 }
+-- Shaman: disease before poison when both present (poison-first fallback masked this bug).
+local SHAMAN_DISPEL_PRIORITY = { "Disease", "Poison" }
 
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
 -- slots (professions, mount, hearth, consumables) — never wiped by /setupbars.
@@ -684,6 +686,35 @@ function SetupCore:GetDecurseSpec()
     return class and DECURSE_BY_CLASS[class]
 end
 
+function SetupCore:IsSpellKnown(spellName)
+    if C_Spell and C_Spell.GetSpellInfo then
+        return C_Spell.GetSpellInfo(spellName) ~= nil
+    end
+    return GetSpellInfo(spellName) ~= nil
+end
+
+-- Modern Anniversary client: dispel type is aura.dispelName (UnitDebuff pos 4).
+-- Legacy: debuffType at UnitDebuff pos 5.
+function SetupCore:GetAuraDispelType(unit, index)
+    if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
+        local data = C_UnitAuras.GetAuraDataByIndex(unit, index, "HARMFUL")
+        if not data or not data.name then return nil end
+        return data.name, data.dispelName
+    end
+    local name, _, _, _, debuffType = UnitDebuff(unit, index)
+    if not name then return nil end
+    return name, debuffType
+end
+
+function SetupCore:UnitHasDispelType(unit, debuffType)
+    for i = 1, 40 do
+        local name, auraType = self:GetAuraDispelType(unit, i)
+        if not name then return false end
+        if auraType == debuffType then return true end
+    end
+    return false
+end
+
 function SetupCore:ResolveDispelUnit()
     if UnitExists("mouseover") then
         return "mouseover"
@@ -725,7 +756,7 @@ function SetupCore:ResolveDispelSpellForDebuff(debuffType, class, map)
         return nil
     end
     local spell = map[debuffType]
-    if spell and GetSpellInfo(spell) then
+    if spell and self:IsSpellKnown(spell) then
         return spell
     end
     return nil
@@ -737,13 +768,23 @@ function SetupCore:PickDispelSpell(unit)
     if not map then return nil end
     if UnitCanAttack("player", unit) then
         local harm = map.harm
-        if harm and GetSpellInfo(harm) then
+        if harm and self:IsSpellKnown(harm) then
             return harm
         end
         return nil
     end
+    if class == "SHAMAN" then
+        for _, debuffType in ipairs(SHAMAN_DISPEL_PRIORITY) do
+            local spell = map[debuffType]
+            if spell and self:IsSpellKnown(spell)
+                and self:UnitHasDispelType(unit, debuffType) then
+                return spell
+            end
+        end
+        return nil
+    end
     for i = 1, 40 do
-        local name, _, _, _, debuffType = UnitDebuff(unit, i)
+        local name, debuffType = self:GetAuraDispelType(unit, i)
         if not name then break end
         local spell = self:ResolveDispelSpellForDebuff(debuffType, class, map)
         if spell then
