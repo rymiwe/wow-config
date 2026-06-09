@@ -33,7 +33,7 @@ Anchor: CENTER
 X: 0
 Y: 0
 W: 365
-H: 239
+H: 240
 Frame: TotemTimers_TrackerFrame
 FrameLevel: 0
 Anchor: BOTTOM
