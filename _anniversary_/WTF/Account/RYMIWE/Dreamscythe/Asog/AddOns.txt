@@ -55,3 +55,6 @@ HeyDaddy: enabled
 TSMSetup: enabled
 WeakAurasSetup: enabled
 Blizzard_CombatText: enabled
+GuildMotdCycler: enabled
+QuestJunkHelper: enabled
+TotemTimers: enabled

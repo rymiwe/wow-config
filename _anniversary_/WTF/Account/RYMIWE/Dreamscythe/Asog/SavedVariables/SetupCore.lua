@@ -82,9 +82,8 @@ nil,
 ["name"] = "Ghost Wolf",
 },
 {
-["id"] = 36936,
-["type"] = "spell",
-["name"] = "Totemic Call",
+["name"] = " ",
+["type"] = "macro",
 },
 {
 ["name"] = " ",
@@ -179,7 +178,7 @@ nil,
 ["type"] = "item",
 },
 {
-["id"] = 8766,
+["id"] = 1645,
 ["type"] = "item",
 },
 {
@@ -221,7 +220,7 @@ nil,
 ["type"] = "item",
 },
 {
-["id"] = 8950,
+["id"] = 3927,
 ["type"] = "item",
 },
 {
@@ -229,6 +228,6 @@ nil,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-06-08 02:13:33",
+["timestamp"] = "2026-06-08 21:09:01",
 },
 }

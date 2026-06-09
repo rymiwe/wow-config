@@ -8,6 +8,9 @@
 --
 -- Game menu:
 --   - Secure /logout and /quit overlays on Esc menu (Logout()/Quit() are protected)
+--
+-- Guild:
+--   - Secure overlays on promote/demote + rank-order arrows (ElvUI skinning taints protected clicks)
 
 local function GetDock()
     return _G.GeneralDockManager or _G.GENERAL_CHAT_DOCK
@@ -215,15 +218,133 @@ local function IsGameMenuActionButton(btn)
     return true
 end
 
+local function RestoreUnderlyingMouse(btn)
+    if btn and btn.ElvUIFixesMouseDisabled then
+        btn:EnableMouse(true)
+        btn.ElvUIFixesMouseDisabled = nil
+    end
+end
+
 local function ClearSecureOverlay(btn)
     if not btn or not btn.ElvUIFixesSecure then return end
     btn.ElvUIFixesSecure:Hide()
     btn.ElvUIFixesSecure:ClearAllPoints()
     btn.ElvUIFixesSecure:SetParent(nil)
     btn.ElvUIFixesSecure = nil
+    RestoreUnderlyingMouse(btn)
 end
 
-local function EnsureSecureMacroOverlay(btn, macrotext)
+-- Parent on UIParent: secure children of ElvUI-skinned buttons inherit taint and cannot
+-- call protected guild APIs even through macro attributes.
+local function EnsureSecureMacroOverlay(btn, macrotext, opts)
+    if not btn or not macrotext or InCombatLockdown() then return end
+    opts = opts or {}
+    if opts.requireEnabled and btn.IsEnabled and not btn:IsEnabled() then
+        ClearSecureOverlay(btn)
+        return
+    end
+    if opts.requireShown and btn.IsShown and not btn:IsShown() then
+        ClearSecureOverlay(btn)
+        return
+    end
+    local overlay = btn.ElvUIFixesSecure
+    if not overlay then
+        overlay = CreateFrame('Button', nil, _G.UIParent, 'SecureActionButtonTemplate')
+        overlay:RegisterForClicks('AnyUp', 'AnyDown')
+        overlay:EnableMouse(true)
+        btn.ElvUIFixesSecure = overlay
+    end
+    local strata = btn.GetFrameStrata and btn:GetFrameStrata() or 'DIALOG'
+    overlay:SetFrameStrata(strata)
+    overlay:SetFrameLevel((btn.GetFrameLevel and btn:GetFrameLevel() or 1) + 20)
+    overlay:ClearAllPoints()
+    overlay:SetPoint('TOPLEFT', btn, 'TOPLEFT', -2, 2)
+    overlay:SetPoint('BOTTOMRIGHT', btn, 'BOTTOMRIGHT', 2, -2)
+    if overlay:GetAttribute('macrotext') ~= macrotext then
+        overlay:SetAttribute('type', 'macro')
+        overlay:SetAttribute('macrotext', macrotext)
+    end
+    if opts.disableUnderlyingMouse and btn.EnableMouse then
+        btn:EnableMouse(false)
+        btn.ElvUIFixesMouseDisabled = true
+    end
+    overlay:Show()
+end
+
+local GUILD_MEMBER_NAME_MACRO =
+    'local n if GuildFrame and GuildFrame.selectedName then n=GuildFrame.selectedName else local i=GetGuildRosterSelection and GetGuildRosterSelection() if i and i>0 and GetGuildRosterInfo then n=GetGuildRosterInfo(i) end end '
+
+local PROMOTE_MACRO = GUILD_MEMBER_NAME_MACRO .. 'if n and C_GuildInfo and C_GuildInfo.Promote then C_GuildInfo.Promote(n) end'
+local DEMOTE_MACRO = GUILD_MEMBER_NAME_MACRO .. 'if n and C_GuildInfo and C_GuildInfo.Demote then C_GuildInfo.Demote(n) end'
+
+local function FixGuildMemberRankButtons()
+    EnsureSecureMacroOverlay(_G.GuildFramePromoteButton, PROMOTE_MACRO, {
+        requireEnabled = true,
+        requireShown = true,
+        disableUnderlyingMouse = true,
+    })
+    EnsureSecureMacroOverlay(_G.GuildFrameDemoteButton, DEMOTE_MACRO, {
+        requireEnabled = true,
+        requireShown = true,
+        disableUnderlyingMouse = true,
+    })
+end
+
+local GUILD_CONTROL_CLEAR_FOCUS =
+    'local f=GuildControlUI and GuildControlUI.activeEditBox if f then f:ClearFocus() end '
+
+local function FixGuildControlRankButtons()
+    if not _G.GuildControlGetNumRanks then return end
+    for i = 1, GuildControlGetNumRanks() do
+        local rankFrame = _G['GuildControlUIRankOrderFrameRank' .. i]
+        if rankFrame then
+            if rankFrame.upButton then
+                EnsureSecureMacroOverlay(rankFrame.upButton,
+                    GUILD_CONTROL_CLEAR_FOCUS .. 'GuildControlUI_DisableRankButtons() GuildControlShiftRankUp(' .. i .. ')',
+                    { requireEnabled = true, requireShown = true, disableUnderlyingMouse = true })
+            end
+            if rankFrame.downButton then
+                EnsureSecureMacroOverlay(rankFrame.downButton,
+                    GUILD_CONTROL_CLEAR_FOCUS .. 'GuildControlUI_DisableRankButtons() GuildControlShiftRankDown(' .. i .. ')',
+                    { requireEnabled = true, requireShown = true, disableUnderlyingMouse = true })
+            end
+        end
+    end
+end
+
+local guildMemberDetailHooked = false
+local guildStatusHooked = false
+local guildControlShowHooked = false
+local guildControlUpdateHooked = false
+local function SetupGuildRankArrowFix()
+    if not guildMemberDetailHooked and _G.GuildMemberDetailFrame then
+        _G.GuildMemberDetailFrame:HookScript('OnShow', function()
+            FixGuildMemberRankButtons()
+            C_Timer.After(0, FixGuildMemberRankButtons)
+        end)
+        guildMemberDetailHooked = true
+    end
+    if not guildStatusHooked and _G.GuildStatus_Update then
+        hooksecurefunc('GuildStatus_Update', FixGuildMemberRankButtons)
+        guildStatusHooked = true
+    end
+
+    if not guildControlShowHooked and _G.GuildControlUI then
+        _G.GuildControlUI:HookScript('OnShow', FixGuildControlRankButtons)
+        guildControlShowHooked = true
+    end
+    if not guildControlUpdateHooked and _G.GuildControlUI_RankOrder_Update then
+        hooksecurefunc('GuildControlUI_RankOrder_Update', function()
+            C_Timer.After(0, FixGuildControlRankButtons)
+        end)
+        guildControlUpdateHooked = true
+    end
+
+    FixGuildMemberRankButtons()
+    FixGuildControlRankButtons()
+end
+
+local function EnsureGameMenuSecureMacroOverlay(btn, macrotext)
     if not IsGameMenuActionButton(btn) or not macrotext or InCombatLockdown() then return end
     local overlay = btn.ElvUIFixesSecure
     if not overlay then
@@ -247,9 +368,9 @@ local function ConsiderGameMenuButton(btn)
     if not IsGameMenuActionButton(btn) then return end
     local text = btn.GetText and btn:GetText()
     if IsLogoutLabel(text) then
-        EnsureSecureMacroOverlay(btn, "/logout")
+        EnsureGameMenuSecureMacroOverlay(btn, "/logout")
     elseif IsQuitLabel(text) then
-        EnsureSecureMacroOverlay(btn, "/quit")
+        EnsureGameMenuSecureMacroOverlay(btn, "/quit")
     else
         ClearSecureOverlay(btn)
     end
@@ -311,11 +432,16 @@ f:SetScript('OnEvent', function(_, event, addon)
         end
         if addon == 'ElvUI' or addon == 'Blizzard_GlueXML' then
             SetupGameMenuFix()
+            SetupGuildRankArrowFix()
+        end
+        if addon == 'Blizzard_GuildControlUI' or addon == 'Blizzard_Communities' then
+            SetupGuildRankArrowFix()
         end
         return
     end
     WrapShowUIPanel()
     SetupGameMenuFix()
+    SetupGuildRankArrowFix()
     C_Timer.After(0.3, function()
         ApplyInitFix()
         SnapToPanel()
@@ -328,3 +454,4 @@ end)
 
 WrapShowUIPanel()
 SetupGameMenuFix()
+SetupGuildRankArrowFix()
