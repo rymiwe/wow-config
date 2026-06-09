@@ -100,8 +100,9 @@ local DISPEL_FALLBACK_SPELL = {
     MAGE    = "Remove Lesser Curse",
     PALADIN = "Purify",
 }
--- Shaman: disease before poison when both present (poison-first fallback masked this bug).
+-- Shaman: disease before poison when both present (lower rank = higher priority).
 local SHAMAN_DISPEL_PRIORITY = { "Disease", "Poison" }
+local SHAMAN_DISPEL_RANK = { Disease = 1, Poison = 2 }
 
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
 -- slots (professions, mount, hearth, consumables) — never wiped by /setupbars.
@@ -687,32 +688,40 @@ function SetupCore:GetDecurseSpec()
 end
 
 function SetupCore:IsSpellKnown(spellName)
+    if GetSpellInfo(spellName) then return true end
     if C_Spell and C_Spell.GetSpellInfo then
         return C_Spell.GetSpellInfo(spellName) ~= nil
     end
-    return GetSpellInfo(spellName) ~= nil
+    return false
+end
+
+function SetupCore:NormalizeDispelType(auraType)
+    if not auraType or auraType == "" then return nil end
+    local lower = auraType:lower()
+    if lower == "poison" then return "Poison"
+    elseif lower == "disease" then return "Disease"
+    elseif lower == "magic" then return "Magic"
+    elseif lower == "curse" then return "Curse"
+    end
+    return auraType
 end
 
 -- Modern Anniversary client: dispel type is aura.dispelName (UnitDebuff pos 4).
 -- Legacy: debuffType at UnitDebuff pos 5.
 function SetupCore:GetAuraDispelType(unit, index)
+    if UnitAura then
+        local name, _, _, dispelName = UnitAura(unit, index, "HARMFUL")
+        if not name then return nil end
+        return name, self:NormalizeDispelType(dispelName)
+    end
     if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
         local data = C_UnitAuras.GetAuraDataByIndex(unit, index, "HARMFUL")
         if not data or not data.name then return nil end
-        return data.name, data.dispelName
+        return data.name, self:NormalizeDispelType(data.dispelName)
     end
     local name, _, _, _, debuffType = UnitDebuff(unit, index)
     if not name then return nil end
-    return name, debuffType
-end
-
-function SetupCore:UnitHasDispelType(unit, debuffType)
-    for i = 1, 40 do
-        local name, auraType = self:GetAuraDispelType(unit, i)
-        if not name then return false end
-        if auraType == debuffType then return true end
-    end
-    return false
+    return name, self:NormalizeDispelType(debuffType)
 end
 
 function SetupCore:ResolveDispelUnit()
@@ -773,65 +782,41 @@ function SetupCore:PickDispelSpell(unit)
         end
         return nil
     end
-    if class == "SHAMAN" then
-        for _, debuffType in ipairs(SHAMAN_DISPEL_PRIORITY) do
-            local spell = map[debuffType]
-            if spell and self:IsSpellKnown(spell)
-                and self:UnitHasDispelType(unit, debuffType) then
-                return spell
-            end
-        end
-        return nil
-    end
+    local bestSpell, bestRank = nil, 999
     for i = 1, 40 do
         local name, debuffType = self:GetAuraDispelType(unit, i)
         if not name then break end
         local spell = self:ResolveDispelSpellForDebuff(debuffType, class, map)
         if spell then
-            return spell
+            local rank = i
+            if class == "SHAMAN" then
+                rank = SHAMAN_DISPEL_RANK[debuffType] or 999
+            end
+            if rank < bestRank then
+                bestRank = rank
+                bestSpell = spell
+            end
         end
     end
-    return nil
+    return bestSpell
 end
 
--- Build a one-spell cast line with conditionals only on units that need this spell
--- (avoids wrong-type GCD on a single target while still falling back across units).
+-- One spell, cascade targeting from the unit ResolveDispelTarget already picked.
 function SetupCore:BuildDispelCastLine(spell, primaryUnit)
     local _, class = UnitClass("player")
     local map = class and CLASS_DISPEL[class]
     if map and map.harm and spell == map.harm then
         return string.format("/cast [@mouseover,harm,nodead][harm,nodead] %s", spell)
     end
-    local conds = {}
-    local function add(cond)
-        for i = 1, #conds do
-            if conds[i] == cond then return end
-        end
-        conds[#conds + 1] = cond
+    if primaryUnit == "mouseover" then
+        return string.format(
+            "/cast [@mouseover,help,nodead][help,nodead][@player] %s", spell)
+    elseif primaryUnit == "target" then
+        return string.format(
+            "/cast [@mouseover,help,nodead][help,nodead] %s", spell)
     end
-    if UnitExists("mouseover") and not UnitCanAttack("player", "mouseover")
-        and self:PickDispelSpell("mouseover") == spell then
-        add("[@mouseover,help,nodead]")
-    end
-    if UnitExists("target") and not UnitCanAttack("player", "target")
-        and self:PickDispelSpell("target") == spell then
-        add("[help,nodead]")
-    end
-    if self:PickDispelSpell("player") == spell then
-        add("[@player]")
-    end
-    if #conds == 0 then
-        if primaryUnit == "mouseover" then
-            add("[@mouseover,help,nodead]")
-        elseif primaryUnit == "target" then
-            add("[help,nodead]")
-        else
-            add("[@mouseover,help,nodead]")
-            add("[help,nodead]")
-            add("[@player]")
-        end
-    end
-    return string.format("/cast %s %s", table.concat(conds, ""), spell)
+    return string.format(
+        "/cast [@mouseover,help,nodead][help,nodead][@player] %s", spell)
 end
 
 function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
