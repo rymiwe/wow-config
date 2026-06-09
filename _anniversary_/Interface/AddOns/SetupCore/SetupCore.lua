@@ -833,51 +833,57 @@ function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
 end
 
 function SetupCore:EnsureDecurseButton()
-    if self.decurseBtn then return self.decurseBtn end
-    local btn = CreateFrame("Button", DECURSE_BUTTON, UIParent, "SecureActionButtonTemplate")
-    btn:RegisterForClicks("AnyUp", "AnyDown")
-    btn:SetAttribute("type", "macro")
-    btn:SetScript("PreClick", function()
-        if not InCombatLockdown() then
-            SetupCore:UpdateDecurseButton()
-        end
-    end)
-    self.decurseBtn = btn
+    local btn = self.decurseBtn
+    if not btn then
+        btn = CreateFrame("Button", DECURSE_BUTTON, UIParent, "SecureActionButtonTemplate")
+        btn:RegisterForClicks("AnyUp", "AnyDown")
+        btn:SetAttribute("type", "macro")
+        self.decurseBtn = btn
 
-    local frame = CreateFrame("Frame")
-    frame:RegisterEvent("UNIT_AURA")
-    frame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-    frame:RegisterEvent("PLAYER_TARGET_CHANGED")
-    frame:RegisterEvent("PLAYER_REGEN_ENABLED")
-    frame:SetScript("OnEvent", function(_, event, unit)
-        if event == "UNIT_AURA" then
-            if unit ~= "player" and unit ~= "target" and unit ~= "mouseover"
-                and not unit:find("^party") and not unit:find("^raid") then
-                return
+        local frame = CreateFrame("Frame")
+        frame:RegisterEvent("UNIT_AURA")
+        frame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+        frame:RegisterEvent("PLAYER_TARGET_CHANGED")
+        frame:RegisterEvent("PLAYER_REGEN_ENABLED")
+        frame:SetScript("OnEvent", function(_, event, unit)
+            if event == "UNIT_AURA" then
+                if unit ~= "player" and unit ~= "target" and unit ~= "mouseover"
+                    and not unit:find("^party") and not unit:find("^raid") then
+                    return
+                end
             end
-        end
-        if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
-            SetupCore.decurseStale = nil
-        end
-        SetupCore:UpdateDecurseButton()
+            if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
+                SetupCore.decurseStale = nil
+            end
+            SetupCore:UpdateDecurseButton()
+        end)
+        self.decurseEventFrame = frame
+    end
+    -- PreClick is secure: refresh macrotext on every M3 press, including in combat.
+    btn:SetScript("PreClick", function()
+        SetupCore:UpdateDecurseButton(true)
     end)
-    self.decurseEventFrame = frame
     return btn
 end
 
-function SetupCore:UpdateDecurseButton()
+-- fromSecureClick: true when invoked from the M3 button's PreClick handler, which
+-- may legally SetAttribute during combat lockdown right before the cast fires.
+function SetupCore:UpdateDecurseButton(fromSecureClick)
     local spec = self:GetDecurseSpec()
     if not spec then return false end
     self:EnsureDecurseButton()
-    if InCombatLockdown() then
+    local inCombat = InCombatLockdown()
+    if inCombat and not fromSecureClick then
         self.decurseStale = true
         return false
     end
     local unit, spell = self:ResolveDispelTarget()
     local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
     self.decurseBtn:SetAttribute("macrotext", body)
-    local _, _, icon = GetSpellInfo(spell or spec.icon)
-    self:EnsureRawMacro(spec.macroName, body, icon or "INV_Misc_QuestionMark")
+    if not inCombat then
+        local _, _, icon = GetSpellInfo(spell or spec.icon)
+        self:EnsureRawMacro(spec.macroName, body, icon or "INV_Misc_QuestionMark")
+    end
     self.decurseStale = false
     return true, spell, unit
 end
