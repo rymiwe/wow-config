@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/g welcome stranger",
-"/g standby",
-"/g can't see them and can't promote you without reloading ui",
 "/g and i'm in a sketchy cave",
 "you see",
 "oh nvm got it",
@@ -14,7 +11,6 @@ ElvCharacterDB = {
 "dooood",
 "sounds fun",
 "/g gnomage squad?",
-"/rl",
 "ok dunno how that works standby",
 "try now",
 "/tsm destroy",
@@ -22,6 +18,10 @@ ElvCharacterDB = {
 "ding ding",
 "ty",
 "/setupbars",
+"too late for dungeon?",
+"kk",
+"/ty",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
