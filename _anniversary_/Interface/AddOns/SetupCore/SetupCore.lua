@@ -22,6 +22,8 @@ local registeredLayouts = {}
 local registeredIgnores = {}
 local registeredRacials = {}
 local registeredFreedKeys = {}
+local registeredPostLayout = {}
+local registeredReservedSlots = {}
 local macroBindingsByClass = {}
 
 -- Z -> bar 3 slot 8; Alt/Meta-Z -> bar 5 slot 8 (mount macro). Movement classes
@@ -36,11 +38,32 @@ local MOVEMENT_SPELL_BY_CLASS = {
 }
 
 local MOUNT_MACRO_NAME = "SC_Mount"
--- Journal favorite-mount button toggles mount/dismiss; /cast Mount and /run SummonByID fail in macros.
-local MOUNT_CLICK = "MountJournalSummonRandomFavoriteSpellFrameButton"
-local MOUNT_MACRO_BODY_DEFAULT = "#showtooltip\n/click " .. MOUNT_CLICK
-local MOUNT_MACRO_BODY_SHAMAN = "#showtooltip\n/run if not IsMounted() and GetShapeshiftForm()>0 then CastSpellByName(\"Ghost Wolf\") end\n/click " .. MOUNT_CLICK
+-- Retail mount journal (not available on TBC Anniversary — kept for MountUsesJournal guard).
+local MOUNT_SPELL_ID = 150544
+-- Known TBC mount items, checked in order. First match in bags wins.
+local MOUNT_ITEM_IDS = {
+    29744, 28481, -- Elekks
+    29220, 29221, 29222, 29223, 29224, -- Hawkstriders
+    5864, 5872, 5873, 13328, 13329, -- Rams
+    5665, 5668, 5663, -- Wolves
+    4608, 1132, -- Other faction wolves/rams
+    8591, 8592, 8595, 8596, 13331, 13332, 13333, 13334, -- Skeletal horses
+    18766, 18767, 18768, 18772, 18773, 18774, 18776, 18777, 18778, -- Epic vendor mounts
+    18241, 18242, 18243, 18244, 18245, 18246, 18247, 18248, -- Epic racial mounts
+    19029, 19030, 19031, -- PvP mounts
+    25473, 25474, 25475, 25476, 25477, -- Swift flying (TBC)
+}
+-- Class/trained mount spells before generic spellbook scan.
+local MOUNT_SPELL_NAMES = {
+    "Summon Charger", "Summon Warhorse",
+    "Summon Dreadsteed", "Summon Felsteed",
+    "Summon Thalanaar",
+    "Summon Hawkstrider", "Summon Black War Hawkstrider",
+    "Summon Warhorse", "Summon Black War Steed",
+}
 local TRAVEL_BAR = { movement = {3, 8}, mount = {5, 8} }
+local TOTEM_CAST_MACRO_NAME = "TT Cast"
+local SHAMAN_TOTEM_DROP_BAR = {3, 5} -- F -> MULTIACTIONBAR3BUTTON5
 local MOVEMENT_KEYBINDS = {
     {"Z", "MULTIACTIONBAR3BUTTON8"},
     {"SHIFT-Z", "MULTIACTIONBAR3BUTTON8"},
@@ -59,8 +82,27 @@ local DECURSE_BY_CLASS = {
     PALADIN = { macroName = "SC_Purify",  template = "pally-dispel",   icon = "Purify" },
 }
 
--- Middle mouse: class dispel/decurse macro (SC_Decurse or SC_Purify). M4/M5 stay OPie.
+-- Middle mouse: class dispel/decurse (secure button + SC_Decurse mirror). M4/M5 stay OPie.
 SetupCore.DECURSE_MOUSE = "BUTTON3"
+local DECURSE_BUTTON = "SetupCoreDecurseButton"
+-- One spell per click — wrong-type dispels trigger GCD and block the next line.
+local CLASS_DISPEL = {
+    SHAMAN  = { harm = "Purge",  Disease = "Cure Disease", Poison = "Cure Poison" },
+    DRUID   = { Poison = "Cure Poison", Curse = "Remove Curse" },
+    PRIEST  = { Magic = "Dispel Magic", Disease = "Cure Disease" },
+    MAGE    = { Curse = "Remove Lesser Curse" },
+    PALADIN = { Magic = "Cleanse", Disease = "Purify", Poison = "Purify" },
+}
+local DISPEL_FALLBACK_SPELL = {
+    SHAMAN  = "Cure Poison",
+    DRUID   = "Cure Poison",
+    PRIEST  = "Dispel Magic",
+    MAGE    = "Remove Lesser Curse",
+    PALADIN = "Purify",
+}
+-- Shaman: disease before poison when both present (lower rank = higher priority).
+local SHAMAN_DISPEL_PRIORITY = { "Disease", "Poison" }
+local SHAMAN_DISPEL_RANK = { Disease = 1, Poison = 2 }
 
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
 -- slots (professions, mount, hearth, consumables) — never wiped by /setupbars.
@@ -202,25 +244,13 @@ local MACRO_TEMPLATES = {
     -- in LAYOUT so the macro slot is still labeled meaningfully when only
     -- Purify is trained.
     ["pally-dispel"] = function(_)
-        return table.concat({
-            "#showtooltip",
-            "/cast [@mouseover,help,nodead] Cleanse",
-            "/cast [@mouseover,help,nodead] Purify",
-            "/cast [help,nodead] Cleanse",
-            "/cast [help,nodead] Purify",
-            "/cast [@player] Cleanse",
-            "/cast [@player] Purify",
-        }, "\n")
+        -- Body is overwritten by UpdateDecurseButton (debuff-aware, one spell).
+        return "#showtooltip Purify\n/cast [@player] Purify"
     end,
     -- M3 decurse macros (mouseover-first). Class addons call EnsureDecurseMacro().
     ["decurse-shaman"] = function()
-        -- Disease before poison; [@player] so self-dispel works without mouseover.
-        return table.concat({
-            "#showtooltip",
-            "/cast [@mouseover,help,nodead][help,nodead][@player] Cure Disease",
-            "/cast [@mouseover,help,nodead][help,nodead][@player] Cure Poison",
-            "/cast [@mouseover,harm,nodead][harm,nodead] Purge",
-        }, "\n")
+        -- Body is overwritten by UpdateDecurseButton (debuff-aware, one spell).
+        return "#showtooltip Cure Poison\n/cast [@player] Cure Poison"
     end,
     ["decurse-druid"] = function()
         return table.concat({
@@ -290,16 +320,264 @@ function SetupCore:BindMacro(key, macroName)
     return false
 end
 
-function SetupCore:GetMountMacroBody()
+function SetupCore:MountUsesJournal()
+    -- TBC Anniversary has no Collections mount journal.
+    return false
+end
+
+-- Bag APIs moved to C_Container on newer Classic/Anniversary clients.
+function SetupCore:GetBagSlotCount(bag)
+    if C_Container and C_Container.GetContainerNumSlots then
+        return C_Container.GetContainerNumSlots(bag) or 0
+    end
+    return GetContainerNumSlots(bag) or 0
+end
+
+function SetupCore:GetBagItemId(bag, slot)
+    if C_Container and C_Container.GetContainerItemID then
+        return C_Container.GetContainerItemID(bag, slot)
+    end
+    return GetContainerItemID(bag, slot)
+end
+
+function SetupCore:ScanBagsForMountItem()
+    local preferred = SetupCoreCharDB.mountItemId
+    if preferred then
+        for bag = 0, 4 do
+            local slots = self:GetBagSlotCount(bag)
+            for slot = 1, slots do
+                if self:GetBagItemId(bag, slot) == preferred then
+                    return preferred, GetItemInfo(preferred)
+                end
+            end
+        end
+    end
+    for i = 1, #MOUNT_ITEM_IDS do
+        local itemId = MOUNT_ITEM_IDS[i]
+        for bag = 0, 4 do
+            local slots = self:GetBagSlotCount(bag)
+            for slot = 1, slots do
+                if self:GetBagItemId(bag, slot) == itemId then
+                    SetupCoreCharDB.mountItemId = itemId
+                    return itemId, GetItemInfo(itemId)
+                end
+            end
+        end
+    end
+    return nil
+end
+
+function SetupCore:FindMountSpellInBook()
+    local preferred = SetupCoreCharDB.mountSpellName
+    if preferred and GetSpellInfo(preferred) then
+        return preferred
+    end
+    for i = 1, #MOUNT_SPELL_NAMES do
+        local spellName = MOUNT_SPELL_NAMES[i]
+        if GetSpellInfo(spellName) then
+            SetupCoreCharDB.mountSpellName = spellName
+            return spellName
+        end
+    end
+    local numTabs = GetNumSpellTabs()
+    for tab = 1, numTabs do
+        local _, _, offset, numSpells = GetSpellTabInfo(tab)
+        for i = offset + 1, offset + numSpells do
+            local spellName = GetSpellBookItemName(i, BOOKTYPE_SPELL)
+            if spellName and spellName:find("Mount", 1, true) then
+                SetupCoreCharDB.mountSpellName = spellName
+                return spellName
+            end
+        end
+    end
+    return nil
+end
+
+function SetupCore:ResolveMountSource()
+    local itemId, itemName = self:ScanBagsForMountItem()
+    if itemId then
+        return "item", itemId, itemName
+    end
+    local spellName = self:FindMountSpellInBook()
+    if spellName then
+        return "spell", spellName
+    end
+    return nil
+end
+
+function SetupCore:DescribeMountSource(src, a, b)
+    if src == "item" then
+        return b or ("item:" .. tostring(a))
+    end
+    if src == "spell" then
+        return a
+    end
+    return "no mount found"
+end
+
+function SetupCore:GetMountMacroBody(src, a)
+    if not src then
+        src, a = self:ResolveMountSource()
+    end
+    local lines = {"#showtooltip"}
     local _, class = UnitClass("player")
     if class == "SHAMAN" then
-        return MOUNT_MACRO_BODY_SHAMAN
+        lines[#lines + 1] = '/run if not IsMounted() and GetShapeshiftForm()>0 then CastSpellByName("Ghost Wolf") end'
+    elseif class == "DRUID" then
+        lines[#lines + 1] = "/cancelform [noform:0]"
+    else
+        lines[#lines + 1] = "/dismount [mounted]"
     end
-    return MOUNT_MACRO_BODY_DEFAULT
+    if src == "item" then
+        lines[#lines + 1] = "/use item:" .. a
+    elseif src == "spell" then
+        lines[#lines + 1] = "/cast " .. a
+    else
+        lines[#lines + 1] = '/run print("|cffff0000SetupCore|r: no mount in bags — keep a mount item or train a mount spell")'
+    end
+    return table.concat(lines, "\n")
 end
 
 function SetupCore:EnsureMountMacro()
-    return self:EnsureRawMacro(MOUNT_MACRO_NAME, self:GetMountMacroBody(), "Ability_Mount_RidingHorse")
+    local src, a, b = self:ResolveMountSource()
+    local icon = 132261
+    if src == "item" then
+        icon = GetItemIcon(a) or icon
+    elseif src == "spell" then
+        local _, _, spellIcon = GetSpellInfo(a)
+        icon = spellIcon or icon
+    end
+    local body = self:GetMountMacroBody(src, a)
+    local idx = self:EnsureRawMacro(MOUNT_MACRO_NAME, body, icon)
+    return idx, self:DescribeMountSource(src, a, b)
+end
+
+function SetupCore:EnsureMountJournalLoaded()
+    if _G.MountJournal then return true end
+    if C_AddOns and C_AddOns.LoadAddOn then
+        local ok = C_AddOns.LoadAddOn("Blizzard_Collections")
+        if ok and _G.MountJournal then return true end
+    elseif LoadAddOn then
+        local ok = LoadAddOn("Blizzard_Collections")
+        if ok and _G.MountJournal then return true end
+    end
+    return _G.MountJournal ~= nil
+end
+
+function SetupCore:PickupMountSpell()
+    if not GetSpellInfo(MOUNT_SPELL_ID) then return false end
+    if C_Spell and C_Spell.PickupSpell then
+        C_Spell.PickupSpell(MOUNT_SPELL_ID)
+    else
+        PickupSpell(MOUNT_SPELL_ID)
+    end
+    return GetCursorInfo() == "spell"
+end
+
+-- Place journal favorite-mount spell on a bar (same as dragging from Collections).
+function SetupCore:PlaceFavoriteMountSpell(bar, btn)
+    local slot = self:ResolveActionSlot(bar, btn)
+    if not slot then return false end
+    self:PrepareSlotForPlace(slot)
+    if not self:PickupMountSpell() then
+        ClearCursor()
+        return false
+    end
+    PlaceAction(slot)
+    ClearCursor()
+    return HasAction(slot)
+end
+
+function SetupCore:MountBarCoords()
+    return TRAVEL_BAR.mount[1], TRAVEL_BAR.mount[2]
+end
+
+-- True when bar 5:8 holds the journal favorite-mount spell or SC_Mount.
+function SetupCore:VerifyMountOnBar()
+    local bar, btn = self:MountBarCoords()
+    local slot = self:ResolveActionSlot(bar, btn)
+    if not slot or not HasAction(slot) then return false end
+    local actionType, id = GetActionInfo(slot)
+    if actionType == "spell" and id == MOUNT_SPELL_ID then
+        return true, "spell"
+    end
+    if actionType == "macro" and GetMacroInfo(id) == MOUNT_MACRO_NAME then
+        return true, "macro"
+    end
+    return false
+end
+
+function SetupCore:PlaceMountOnBar()
+    local bar, btn = self:MountBarCoords()
+    local slot = self:ResolveActionSlot(bar, btn)
+    if not slot then
+        return false, "no_slot"
+    end
+
+    -- Always create SC_Mount before placement so macro fallback cannot silently skip.
+    local _, mountDesc = self:EnsureMountMacro()
+    if not GetMacroIndexByName(MOUNT_MACRO_NAME) then
+        local numGlobal, numChar = GetNumMacros()
+        print(string.format(
+            "|cffff0000SetupCore|r %s missing (%d/%d char + %d/%d global macros in use)",
+            MOUNT_MACRO_NAME, numChar, 18, numGlobal, 18
+        ))
+    end
+
+    if self:MountUsesJournal() then
+        self:EnsureMountJournalLoaded()
+        if self:PlaceFavoriteMountSpell(bar, btn) and self:VerifyMountOnBar() then
+            return true, "spell"
+        end
+        if slot and HasAction(slot) then
+            self:ClearSlot(slot)
+        end
+    elseif slot and HasAction(slot) then
+        self:ClearSlot(slot)
+    end
+
+    if self:PlaceMacro(MOUNT_MACRO_NAME, bar, btn, true) and self:VerifyMountOnBar() then
+        return true, "macro", mountDesc
+    end
+    if self:PlacePlaceholder(bar, btn) then
+        return false, "placeholder"
+    end
+    return false, "empty"
+end
+
+function SetupCore:ApplyMountBarSlot()
+    self:EnsureMountMacro()
+    local function attempt(n)
+        local ok, how, mountDesc = self:PlaceMountOnBar()
+        if ok then
+            self:ApplyMountKeybinds()
+            if how == "macro" and mountDesc and mountDesc ~= "no mount found" then
+                print("|cff999999SetupCore|r mount macro: " .. mountDesc)
+            end
+            return true, how
+        end
+        if how == "placeholder" then
+            self:ApplyMountKeybinds()
+            print("|cffffaa00SetupCore|r mount fallback: placeholder on bar 5:8 — keep a mount item in bags or train a mount spell")
+            return false, how
+        end
+        if how == "no_slot" and n > 0 then
+            C_Timer.After(0.25, function() attempt(n - 1) end)
+            return nil, "retry"
+        end
+        if n > 0 then
+            C_Timer.After(0.25, function() attempt(n - 1) end)
+            return nil, "retry"
+        end
+        self:ApplyMountKeybinds()
+        print("|cffff0000SetupCore|r could not place mount on bar 5:8 — /reload then /mountfix")
+        return false, how or "empty"
+    end
+    return attempt(4)
+end
+
+function SetupCore:ApplyMountSlot(attempts)
+    return self:ApplyMountBarSlot()
 end
 
 function SetupCore:ApplyMovementKeybinds()
@@ -315,21 +593,14 @@ end
 
 -- Alt-Z -> bar 5 slot 8 (same pattern as Z -> bar 3 slot 8). Repairs stale MACRO N binds.
 function SetupCore:ApplyMountKeybinds()
-    local fixed = 0
+    local n = 0
     for _, pair in ipairs(MOUNT_KEYBINDS) do
-        local key, want = pair[1], pair[2]
-        local cur = GetBindingAction(key)
-        if cur ~= want then
-            if SetBinding(key, want) then
-                fixed = fixed + 1
-            end
+        if SetBinding(pair[1], pair[2]) then
+            n = n + 1
         end
     end
-    if fixed > 0 then
-        SaveBindings(2)
-        print("|cff999999SetupCore|r Alt-Z -> bar 5 slot 8 (favorite mount button)")
-    end
-    return fixed > 0
+    SaveBindings(2)
+    return n > 0
 end
 
 -- Place movement (bar 3:8) and mount macro (bar 5:8). Keys use MULTIACTIONBAR binds.
@@ -337,26 +608,6 @@ function SetupCore:ApplyTravelSlots()
     local _, class = UnitClass("player")
     local movement = class and MOVEMENT_SPELL_BY_CLASS[class]
     local parts = {}
-
-    if not self:EnsureMountMacro() then
-        print("|cffff0000SetupCore|r SC_Mount macro missing (macro slots full?)")
-    else
-        local mBar, mBtn = TRAVEL_BAR.mount[1], TRAVEL_BAR.mount[2]
-        local frame = _G["ElvUI_Bar"..mBar.."Button"..mBtn]
-        if not frame then
-            print("|cffff0000SetupCore|r mount bar button not ready — /reload then /mountfix")
-        else
-            local mSlot = self:ResolveActionSlot(mBar, mBtn)
-            if mSlot then
-                self:ClearSlot(mSlot)
-                if self:PlaceMacro(MOUNT_MACRO_NAME, mBar, mBtn) then
-                    parts[#parts + 1] = "mount on bar 5:8"
-                else
-                    print("|cffff0000SetupCore|r could not place SC_Mount on bar 5 slot 8")
-                end
-            end
-        end
-    end
 
     if movement then
         local zBar, zBtn = TRAVEL_BAR.movement[1], TRAVEL_BAR.movement[2]
@@ -368,30 +619,283 @@ function SetupCore:ApplyTravelSlots()
     if #parts > 0 then
         print("|cff999999SetupCore|r travel: " .. table.concat(parts, ", "))
     end
-    self:ApplyMountKeybinds()
     return #parts > 0
 end
 
--- Ensure dispel macro exists and M3 points at the current macro index (fixes stale
--- bindings-cache entries like MACRO 125 when SC_Decurse moved to slot 15).
-function SetupCore:RefreshDecurseBinding()
+function SetupCore:EnsureTotemTimersMacro()
+    if TotemTimers and TotemTimers.UpdateMacro then
+        TotemTimers.UpdateMacro()
+    end
+    return GetMacroIndexByName(TOTEM_CAST_MACRO_NAME)
+end
+
+function SetupCore:TotemDropBarCoords()
+    return SHAMAN_TOTEM_DROP_BAR[1], SHAMAN_TOTEM_DROP_BAR[2]
+end
+
+function SetupCore:VerifyTotemCastOnBar()
+    local bar, btn = self:TotemDropBarCoords()
+    local slot = self:ResolveActionSlot(bar, btn)
+    if not slot or not HasAction(slot) then return false end
+    local actionType, id = GetActionInfo(slot)
+    return actionType == "macro" and GetMacroInfo(id) == TOTEM_CAST_MACRO_NAME
+end
+
+function SetupCore:PlaceTotemCastOnBar()
     local _, class = UnitClass("player")
-    local spec = DECURSE_BY_CLASS[class]
+    if class ~= "SHAMAN" then return false, "not_shaman" end
+    local bar, btn = self:TotemDropBarCoords()
+    if not self:ResolveActionSlot(bar, btn) then
+        return false, "no_slot"
+    end
+    if not self:EnsureTotemTimersMacro() then
+        return false, "no_macro"
+    end
+    if self:PlaceMacro(TOTEM_CAST_MACRO_NAME, bar, btn, true) and self:VerifyTotemCastOnBar() then
+        return true, "placed"
+    end
+    return false, "place_failed"
+end
+
+function SetupCore:ApplyTotemCastSlot(attempts)
+    local _, class = UnitClass("player")
+    if class ~= "SHAMAN" then return false end
+    local function attempt(n)
+        local ok, how = self:PlaceTotemCastOnBar()
+        if ok then
+            print("|cff999999SetupCore|r F -> " .. TOTEM_CAST_MACRO_NAME .. " (totem set drop)")
+            return true
+        end
+        if how == "no_slot" and n > 0 then
+            C_Timer.After(0.25, function() attempt(n - 1) end)
+            return nil
+        end
+        if n > 0 then
+            C_Timer.After(0.5, function() attempt(n - 1) end)
+            return nil
+        end
+        if how == "no_macro" then
+            print("|cffffaa00SetupCore|r TotemTimers has not created " .. TOTEM_CAST_MACRO_NAME .. " yet — /reload or /totemfix")
+        end
+        return false, how
+    end
+    return attempt(attempts or 6)
+end
+
+function SetupCore:GetDecurseSpec()
+    local _, class = UnitClass("player")
+    return class and DECURSE_BY_CLASS[class]
+end
+
+function SetupCore:IsSpellKnown(spellName)
+    if GetSpellInfo(spellName) then return true end
+    if C_Spell and C_Spell.GetSpellInfo then
+        return C_Spell.GetSpellInfo(spellName) ~= nil
+    end
+    return false
+end
+
+function SetupCore:NormalizeDispelType(auraType)
+    if not auraType or auraType == "" then return nil end
+    local lower = auraType:lower()
+    if lower == "poison" then return "Poison"
+    elseif lower == "disease" then return "Disease"
+    elseif lower == "magic" then return "Magic"
+    elseif lower == "curse" then return "Curse"
+    end
+    return auraType
+end
+
+-- Modern Anniversary client: dispel type is aura.dispelName (UnitDebuff pos 4).
+-- Legacy: debuffType at UnitDebuff pos 5.
+function SetupCore:GetAuraDispelType(unit, index)
+    if UnitAura then
+        local name, _, _, dispelName = UnitAura(unit, index, "HARMFUL")
+        if not name then return nil end
+        return name, self:NormalizeDispelType(dispelName)
+    end
+    if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
+        local data = C_UnitAuras.GetAuraDataByIndex(unit, index, "HARMFUL")
+        if not data or not data.name then return nil end
+        return data.name, self:NormalizeDispelType(data.dispelName)
+    end
+    local name, _, _, _, debuffType = UnitDebuff(unit, index)
+    if not name then return nil end
+    return name, self:NormalizeDispelType(debuffType)
+end
+
+function SetupCore:ResolveDispelUnit()
+    if UnitExists("mouseover") then
+        return "mouseover"
+    end
+    if UnitExists("target") and not UnitCanAttack("player", "target") then
+        return "target"
+    end
+    return "player"
+end
+
+-- mouseover -> target -> player; skip empty friendly mouseover when self needs dispel.
+function SetupCore:ResolveDispelTarget()
+    local order = {}
+    if UnitExists("mouseover") then order[#order + 1] = "mouseover" end
+    if UnitExists("target") and not UnitCanAttack("player", "target") then
+        order[#order + 1] = "target"
+    end
+    order[#order + 1] = "player"
+    for i = 1, #order do
+        local unit = order[i]
+        local spell = self:PickDispelSpell(unit)
+        if spell then
+            return unit, spell
+        end
+    end
+    return order[1] or "player", nil
+end
+
+function SetupCore:ResolveDispelSpellForDebuff(debuffType, class, map)
+    if not debuffType or not map then return nil end
+    if class == "PALADIN" then
+        if GetSpellInfo("Cleanse") then
+            if debuffType == "Magic" or debuffType == "Disease" or debuffType == "Poison" then
+                return "Cleanse"
+            end
+        elseif (debuffType == "Disease" or debuffType == "Poison") and GetSpellInfo("Purify") then
+            return "Purify"
+        end
+        return nil
+    end
+    local spell = map[debuffType]
+    if spell and self:IsSpellKnown(spell) then
+        return spell
+    end
+    return nil
+end
+
+function SetupCore:PickDispelSpell(unit)
+    local _, class = UnitClass("player")
+    local map = class and CLASS_DISPEL[class]
+    if not map then return nil end
+    if UnitCanAttack("player", unit) then
+        local harm = map.harm
+        if harm and self:IsSpellKnown(harm) then
+            return harm
+        end
+        return nil
+    end
+    local bestSpell, bestRank = nil, 999
+    for i = 1, 40 do
+        local name, debuffType = self:GetAuraDispelType(unit, i)
+        if not name then break end
+        local spell = self:ResolveDispelSpellForDebuff(debuffType, class, map)
+        if spell then
+            local rank = i
+            if class == "SHAMAN" then
+                rank = SHAMAN_DISPEL_RANK[debuffType] or 999
+            end
+            if rank < bestRank then
+                bestRank = rank
+                bestSpell = spell
+            end
+        end
+    end
+    return bestSpell
+end
+
+-- One spell, cascade targeting from the unit ResolveDispelTarget already picked.
+function SetupCore:BuildDispelCastLine(spell, primaryUnit)
+    local _, class = UnitClass("player")
+    local map = class and CLASS_DISPEL[class]
+    if map and map.harm and spell == map.harm then
+        return string.format("/cast [@mouseover,harm,nodead][harm,nodead] %s", spell)
+    end
+    if primaryUnit == "mouseover" then
+        return string.format(
+            "/cast [@mouseover,help,nodead][help,nodead][@player] %s", spell)
+    elseif primaryUnit == "target" then
+        return string.format(
+            "/cast [@mouseover,help,nodead][help,nodead] %s", spell)
+    end
+    return string.format(
+        "/cast [@mouseover,help,nodead][help,nodead][@player] %s", spell)
+end
+
+function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
+    local _, class = UnitClass("player")
+    local fallback = (class and DISPEL_FALLBACK_SPELL[class]) or iconSpell or "Cure Poison"
+    local show = spell or iconSpell or fallback
+    if not spell then
+        return table.concat({
+            "#showtooltip " .. show,
+            string.format("/cast [@mouseover,help,nodead][help,nodead][@player] %s", fallback),
+        }, "\n")
+    end
+    return string.format("#showtooltip %s\n%s", spell, self:BuildDispelCastLine(spell, unit))
+end
+
+function SetupCore:EnsureDecurseButton()
+    if self.decurseBtn then return self.decurseBtn end
+    local btn = CreateFrame("Button", DECURSE_BUTTON, UIParent, "SecureActionButtonTemplate")
+    btn:RegisterForClicks("AnyUp", "AnyDown")
+    btn:SetAttribute("type", "macro")
+    btn:SetScript("PreClick", function()
+        if not InCombatLockdown() then
+            SetupCore:UpdateDecurseButton()
+        end
+    end)
+    self.decurseBtn = btn
+
+    local frame = CreateFrame("Frame")
+    frame:RegisterEvent("UNIT_AURA")
+    frame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+    frame:RegisterEvent("PLAYER_TARGET_CHANGED")
+    frame:RegisterEvent("PLAYER_REGEN_ENABLED")
+    frame:SetScript("OnEvent", function(_, event, unit)
+        if event == "UNIT_AURA" then
+            if unit ~= "player" and unit ~= "target" and unit ~= "mouseover"
+                and not unit:find("^party") and not unit:find("^raid") then
+                return
+            end
+        end
+        if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
+            SetupCore.decurseStale = nil
+        end
+        SetupCore:UpdateDecurseButton()
+    end)
+    self.decurseEventFrame = frame
+    return btn
+end
+
+function SetupCore:UpdateDecurseButton()
+    local spec = self:GetDecurseSpec()
     if not spec then return false end
-    self:EnsureDecurseMacro(spec.template, spec.icon, spec.macroName)
-    local idx = GetMacroIndexByName(spec.macroName)
-    if not idx or idx == 0 then
-        print("|cffff0000SetupCore|r " .. spec.macroName .. " macro missing (macro slots full?)")
+    self:EnsureDecurseButton()
+    if InCombatLockdown() then
+        self.decurseStale = true
         return false
     end
-    local want = "MACRO " .. idx
+    local unit, spell = self:ResolveDispelTarget()
+    local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
+    self.decurseBtn:SetAttribute("macrotext", body)
+    local _, _, icon = GetSpellInfo(spell or spec.icon)
+    self:EnsureRawMacro(spec.macroName, body, icon or "INV_Misc_QuestionMark")
+    self.decurseStale = false
+    return true, spell, unit
+end
+
+-- Ensure dispel macro exists and M3 clicks the secure debuff-aware button (fixes
+-- stale bindings-cache MACRO N entries and wrong-type GCD blocking).
+function SetupCore:RefreshDecurseBinding()
+    local spec = self:GetDecurseSpec()
+    if not spec then return false end
+    self:UpdateDecurseButton()
+    local want = "CLICK " .. DECURSE_BUTTON .. ":LeftButton"
     local cur = GetBindingAction(self.DECURSE_MOUSE)
     if cur == want then return true end
     if SetBinding(self.DECURSE_MOUSE, want) then
         SaveBindings(2)
         print(string.format(
-            "|cff999999SetupCore|r M3 -> %s (macro %d%s)",
-            spec.macroName, idx,
+            "|cff999999SetupCore|r M3 -> smart dispel (%s%s)",
+            spec.macroName,
             (cur and cur ~= "" and (", was " .. cur) or "")
         ))
         return true
@@ -441,6 +945,39 @@ function SetupCore:RegisterClass(class, applyFn, layout, meta)
         registeredRacials[class] = meta.racials
         registeredFreedKeys[class] = meta.freedKeys
     end
+end
+
+-- Optional hook after ApplyLayout (placeholders filled). Class addons use this
+-- for macros on bound slots that are not LAYOUT spells (e.g. shaman F totem drop).
+function SetupCore:RegisterPostLayout(class, fn)
+    registeredPostLayout[class] = fn
+end
+
+function SetupCore:RunPostLayout()
+    local _, class = UnitClass("player")
+    local fn = class and registeredPostLayout[class]
+    if fn then return fn() end
+end
+
+-- Bound bar slots owned by class post-layout (skip placeholder fill). e.g. shaman F.
+function SetupCore:RegisterReservedSlots(class, slots)
+    registeredReservedSlots[class] = slots
+end
+
+function SetupCore:IsReservedSlot(bar, btn)
+    -- Alt-Z mount slot (all classes)
+    if bar == TRAVEL_BAR.mount[1] and btn == TRAVEL_BAR.mount[2] then return true end
+    local _, class = UnitClass("player")
+    local slots = class and registeredReservedSlots[class]
+    if not slots then return false end
+    for _, s in ipairs(slots) do
+        if s[1] == bar and s[2] == btn then return true end
+    end
+    return false
+end
+
+function SetupCore:PlacePlaceholder(bar, btn)
+    return self:PlaceMacro(" ", bar, btn, false)
 end
 
 function SetupCore:GetFreedKeySet()
@@ -838,19 +1375,27 @@ function SetupCore:DeleteMacros(names)
 end
 
 -- Place an existing macro by name on a bar slot. Companion to EnsureRawMacro.
-function SetupCore:PlaceMacro(macroName, bar, btn)
+function SetupCore:PlaceMacro(macroName, bar, btn, forceClear)
     local slot = self:ResolveActionSlot(bar, btn)
     if not slot then return false end
 
     local idx = GetMacroIndexByName(macroName)
     if not idx or idx == 0 then return false end
 
-    PickupMacro(idx)
-    if GetCursorInfo() == "macro" then
-        PlaceAction(slot)
+    if forceClear then
+        self:ClearSlot(slot)
+    else
+        self:PrepareSlotForPlace(slot)
     end
+
+    PickupMacro(idx)
+    if GetCursorInfo() ~= "macro" then
+        ClearCursor()
+        return false
+    end
+    PlaceAction(slot)
     ClearCursor()
-    return true
+    return HasAction(slot)
 end
 
 -- Remove visual placeholder macros so real spells/macros can land on bound keys.
@@ -966,9 +1511,10 @@ function SetupCore:FillEmptyBoundSlots()
 
     local placed = 0
     local function maybePlaceholder(bar, btn)
+        if self:IsReservedSlot(bar, btn) then return end
         local slotIdx = self:ResolveActionSlot(bar, btn)
         if slotIdx and self:IsSlotEmpty(slotIdx) then
-            if self:PlaceMacro(placeholderName, bar, btn) then
+            if self:PlaceMacro(placeholderName, bar, btn, false) then
                 placed = placed + 1
             end
         end
@@ -1190,7 +1736,6 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
         end
     end
     self:EvictLayoutDuplicates(layout)
-    self:ApplyTravelSlots()
     local mapped = {}
     for _, item in ipairs(layout) do mapped[item[1]] = true end
     ignore = ignore or {}
@@ -1198,6 +1743,10 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     -- Fill any remaining empty bound slots with the visual placeholder.
     self:FillEmptyBoundSlots()
     self:ClearFreedKeySlots()
+    self:ApplyTravelSlots()
+    self:RunPostLayout()
+    self:ApplyMountBarSlot()
+    self:ApplyMountKeybinds()
 
     return placed, skipped, self:FindOrphans(mapped, ignore)
 end
@@ -1284,14 +1833,72 @@ SlashCmdList["RESTOREBARS"] = function() SetupCore:RestoreBars() end
 SLASH_APPLYBINDINGS1 = "/applybindings"
 SlashCmdList["APPLYBINDINGS"] = function() SetupCore:ApplyBindings() end
 
+SLASH_SETUPTOTEM1 = "/totemfix"
+SlashCmdList["SETUPTOTEM"] = function()
+    SetupCore:ApplyTotemCastSlot(6)
+    SetupCore:ApplyBindings()
+    local f = GetBindingAction("F") or "(unbound)"
+    local bar, btn = SetupCore:TotemDropBarCoords()
+    local slot = SetupCore:ResolveActionSlot(bar, btn)
+    local barDesc = "empty"
+    if not slot then
+        barDesc = "ElvUI button not ready"
+    elseif HasAction(slot) then
+        local actionType, id = GetActionInfo(slot)
+        if actionType == "macro" then
+            barDesc = "macro " .. (GetMacroInfo(id) or tostring(id))
+        else
+            barDesc = tostring(actionType)
+        end
+    end
+    print(string.format("|cff999999SetupCore|r F -> %s | bar 3:5 = %s", f, barDesc))
+end
+
+SLASH_SETUPDECURSE1 = "/decursefix"
+SlashCmdList["SETUPDECURSE"] = function()
+    local ok, spell, unit = SetupCore:UpdateDecurseButton()
+    SetupCore:RefreshDecurseBinding()
+    local spec = SetupCore:GetDecurseSpec()
+    local m3 = GetBindingAction(SetupCore.DECURSE_MOUSE) or "(unbound)"
+    if ok and spell then
+        print(string.format("|cff999999SetupCore|r M3 dispel ready: %s on [@%s] | %s", spell, unit or "?", m3))
+    elseif ok then
+        print(string.format("|cff999999SetupCore|r M3 dispel: no debuff now (poison fallback armed) | %s", m3))
+    else
+        print(string.format("|cffffaa00SetupCore|r M3 dispel queued (in combat) — try again after combat | %s", m3))
+    end
+end
+
 SLASH_SETUPMOUNT1 = "/mountfix"
 SlashCmdList["SETUPMOUNT"] = function()
-    SetupCore:EnsureMountMacro()
-    SetupCore:ApplyTravelSlots()
+    local _, mountDesc = SetupCore:EnsureMountMacro()
+    SetupCore:ApplyMountBarSlot()
+    SetupCore:ApplyBindings()
+    local ok, how = SetupCore:VerifyMountOnBar()
+    if ok and how == "spell" then
+        print("|cff999999SetupCore|r bar 5:8 = favorite mount spell")
+    elseif ok and how == "macro" then
+        print("|cff999999SetupCore|r bar 5:8 = SC_Mount (" .. (mountDesc or "?") .. ")")
+    elseif mountDesc == "no mount found" then
+        print("|cffff0000SetupCore|r no mount in bags or spellbook — buy/learn a mount, then /mountfix")
+    end
     local altz = GetBindingAction("ALT-Z") or "(unbound)"
-    local slot = SetupCore:ResolveActionSlot(5, 8)
-    local onBar = slot and HasAction(slot) and GetActionInfo(slot) or nil
-    print(string.format("|cff999999SetupCore|r Alt-Z -> %s | bar 5:8 = %s", altz, onBar or "empty"))
+    local bar, btn = SetupCore:MountBarCoords()
+    local slot = SetupCore:ResolveActionSlot(bar, btn)
+    local barDesc = "empty"
+    if not slot then
+        barDesc = "ElvUI button not ready"
+    elseif HasAction(slot) then
+        local actionType, id = GetActionInfo(slot)
+        if actionType == "spell" then
+            barDesc = (GetSpellInfo(id) or ("spell:" .. tostring(id)))
+        elseif actionType == "macro" then
+            barDesc = "macro " .. (GetMacroInfo(id) or tostring(id))
+        else
+            barDesc = tostring(actionType)
+        end
+    end
+    print(string.format("|cff999999SetupCore|r Alt-Z -> %s | bar 5:8 = %s", altz, barDesc))
 end
 
 SLASH_APPLYCVARS1 = "/applycvars"
@@ -1499,6 +2106,13 @@ f:SetScript("OnEvent", function(_, event, ...)
     end)
     C_Timer.After(3, function()
         SetupCore:ApplyTravelSlots()
+        SetupCore:ApplyMountBarSlot()
+        SetupCore:ApplyTotemCastSlot(6)
+    end)
+    C_Timer.After(5, function()
+        SetupCore:ApplyMountBarSlot()
+        SetupCore:ApplyMountKeybinds()
+        SetupCore:ApplyTotemCastSlot(4)
     end)
 
     -- Fill layout gaps (e.g. Water Shield on a placeholder slot) and warn about
@@ -1523,5 +2137,13 @@ f:SetScript("OnEvent", function(_, event, ...)
             SetupCoreCharDB.channelsLeft = true
             print("|cff00ff00SetupCore|r left channels: "..table.concat(left, ", "))
         end)
+    end
+end)
+
+local totemAddonWatch = CreateFrame("Frame")
+totemAddonWatch:RegisterEvent("ADDON_LOADED")
+totemAddonWatch:SetScript("OnEvent", function(_, _, name)
+    if name == "TotemTimers" then
+        C_Timer.After(0.5, function() SetupCore:ApplyTotemCastSlot(4) end)
     end
 end)
