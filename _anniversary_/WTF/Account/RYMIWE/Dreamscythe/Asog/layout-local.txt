@@ -33,7 +33,14 @@ Anchor: CENTER
 X: 0
 Y: 0
 W: 365
-H: 240
+H: 239
+Frame: WorldMapFrame
+FrameLevel: 1
+Anchor: TOPLEFT
+X: 0
+Y: -12
+W: 610
+H: 438
 Frame: TotemTimers_TrackerFrame
 FrameLevel: 0
 Anchor: BOTTOM
@@ -55,10 +62,3 @@ X: 522
 Y: 207
 W: 36
 H: 36
-Frame: WorldMapFrame
-FrameLevel: 1
-Anchor: TOPLEFT
-X: 0
-Y: -12
-W: 610
-H: 438
