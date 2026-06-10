@@ -12,7 +12,6 @@ ElvCharacterDB = {
 "/g gnomage squad?",
 "ok dunno how that works standby",
 "try now",
-"/tsm destroy",
 "/p ding ding",
 "ding ding",
 "ty",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/ty",
 "/g what's shakin friends",
 "/rl",
+"/tsm destroy",
 },
 ["ChatHistoryLog"] = {
 },
