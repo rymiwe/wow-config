@@ -707,17 +707,23 @@ function SetupCore:NormalizeDispelType(auraType)
 end
 
 -- Modern Anniversary client: dispel type is aura.dispelName (UnitDebuff pos 4).
--- Legacy: debuffType at UnitDebuff pos 5.
-function SetupCore:GetAuraDispelType(unit, index)
+-- Legacy: debuffType at UnitDebuff pos 5. filter = "HARMFUL" (debuffs) or "HELPFUL" (purge).
+function SetupCore:GetAuraDispelType(unit, index, filter)
+    filter = filter or "HARMFUL"
     if UnitAura then
-        local name, _, _, dispelName = UnitAura(unit, index, "HARMFUL")
+        local name, _, _, dispelName = UnitAura(unit, index, filter)
         if not name then return nil end
         return name, self:NormalizeDispelType(dispelName)
     end
     if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
-        local data = C_UnitAuras.GetAuraDataByIndex(unit, index, "HARMFUL")
+        local data = C_UnitAuras.GetAuraDataByIndex(unit, index, filter)
         if not data or not data.name then return nil end
         return data.name, self:NormalizeDispelType(data.dispelName)
+    end
+    if filter == "HELPFUL" then
+        local name, _, _, _, buffType = UnitBuff(unit, index)
+        if not name then return nil end
+        return name, self:NormalizeDispelType(buffType)
     end
     local name, _, _, _, debuffType = UnitDebuff(unit, index)
     if not name then return nil end
@@ -734,22 +740,40 @@ function SetupCore:ResolveDispelUnit()
     return "player"
 end
 
--- mouseover -> target -> player; skip empty friendly mouseover when self needs dispel.
+-- Friendly dispels first (mouseover -> target -> player), then hostile purge
+-- (mouseover -> target). Hostile target was previously skipped, so M3 could not
+-- Purge a buffed enemy you had targeted without mouseover on that unit.
 function SetupCore:ResolveDispelTarget()
-    local order = {}
-    if UnitExists("mouseover") then order[#order + 1] = "mouseover" end
-    if UnitExists("target") and not UnitCanAttack("player", "target") then
-        order[#order + 1] = "target"
+    local _, class = UnitClass("player")
+    local map = class and CLASS_DISPEL[class]
+    local harmSpell = map and map.harm
+
+    local friendlyOrder = {}
+    if UnitExists("mouseover") and not UnitCanAttack("player", "mouseover") then
+        friendlyOrder[#friendlyOrder + 1] = "mouseover"
     end
-    order[#order + 1] = "player"
-    for i = 1, #order do
-        local unit = order[i]
+    if UnitExists("target") and not UnitCanAttack("player", "target") then
+        friendlyOrder[#friendlyOrder + 1] = "target"
+    end
+    friendlyOrder[#friendlyOrder + 1] = "player"
+    for i = 1, #friendlyOrder do
+        local unit = friendlyOrder[i]
         local spell = self:PickDispelSpell(unit)
         if spell then
             return unit, spell
         end
     end
-    return order[1] or "player", nil
+
+    if harmSpell and self:IsSpellKnown(harmSpell) then
+        if UnitExists("mouseover") and UnitCanAttack("player", "mouseover") then
+            return "mouseover", harmSpell
+        end
+        if UnitExists("target") and UnitCanAttack("player", "target") then
+            return "target", harmSpell
+        end
+    end
+
+    return friendlyOrder[1] or "player", nil
 end
 
 function SetupCore:ResolveDispelSpellForDebuff(debuffType, class, map)
@@ -776,10 +800,6 @@ function SetupCore:PickDispelSpell(unit)
     local map = class and CLASS_DISPEL[class]
     if not map then return nil end
     if UnitCanAttack("player", unit) then
-        local harm = map.harm
-        if harm and self:IsSpellKnown(harm) then
-            return harm
-        end
         return nil
     end
     local bestSpell, bestRank = nil, 999
