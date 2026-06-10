@@ -41,6 +41,22 @@ local CORE_KEYS = {
     craftPrice = "g@ @craftingOptions@defaultCraftPriceMethod",
 }
 
+-- Canonical TSM settings keys (note the spaces around @).
+local DE_SEARCH_KEYS = {
+    minLvl = "g@ @shoppingOptions@minDeSearchLvl",
+    maxLvl = "g@ @shoppingOptions@maxDeSearchLvl",
+    maxPct = "g@ @shoppingOptions@maxDeSearchPercent",
+}
+
+-- Stale duplicate keys without spaces — can override UI and break Disenchant Search.
+local LEGACY_SHOPPING_KEYS = {
+    "g@shoppingOptions@minDeSearchLvl",
+    "g@shoppingOptions@maxDeSearchLvl",
+    "g@shoppingOptions@maxDeSearchPercent",
+}
+
+local AUCTIONDB_MAX_AGE_HOURS = 12
+
 local AUCTIONING_MIN_PRICES = {
     ["#Default"] = "check(first(crafting,dbmarket,dbregionmarketavg),max(0.25*avg(crafting,dbmarket,dbregionmarketavg),max(1.5*vendorsell," .. VENDOR_MIN_FLOOR .. ")))",
     ["Sell Gear"] = "max(45% min(DBMarket, DBRegionMarketAvg), " .. VENDOR_MIN_FLOOR .. ")",
@@ -212,6 +228,36 @@ local function TableHasColumn(cols, columnId)
     return false
 end
 
+local function RemoveLegacyShoppingKeys(db)
+    local changed = false
+    for _, key in ipairs(LEGACY_SHOPPING_KEYS) do
+        if db[key] ~= nil then
+            RecordBackup("removed legacy " .. key, tostring(db[key]))
+            db[key] = nil
+            changed = true
+        end
+    end
+    return changed
+end
+
+local function WarnStaleAuctionDB()
+    local TSM = _G.TSM
+    if not (TSM and TSM.AuctionDB and TSM.AuctionDB.GetAppDataUpdateTimes) then
+        return
+    end
+    local realmTime = TSM.AuctionDB.GetAppDataUpdateTimes()
+    if not realmTime or realmTime == 0 then
+        print("|cffff5555TSMSetup|r: No AuctionDB pricing for this realm — Disenchant Search returns nothing.")
+        return
+    end
+    local ageHours = (time() - realmTime) / 3600
+    if ageHours > AUCTIONDB_MAX_AGE_HOURS then
+        print(string.format(
+            "|cffff5555TSMSetup|r: AuctionDB is %.1f hours old. Disenchant Search requires data under %d hours — run the TSM Desktop App, then /reload.",
+            ageHours, AUCTIONDB_MAX_AGE_HOURS))
+    end
+end
+
 local function ApplyShoppingDeProfitColumn(db)
     local tableSettings = db[SHOPPING_TABLE_KEY]
     if type(tableSettings) ~= "table" or type(tableSettings.cols) ~= "table" then
@@ -249,6 +295,7 @@ local function ApplyDefaults()
     local customChanged = ApplyCustomPriceSources(db)
     local columnChanged = ApplyShoppingDeProfitColumn(db)
     local auctionChanged = ApplyAuctioningMinPrices(db)
+    local legacyChanged = RemoveLegacyShoppingKeys(db)
 
     if matChanged then
         print("|cff00ff00TSMSetup|r: Set material cost method -> " .. DESIRED_MAT_PRICE)
@@ -271,7 +318,11 @@ local function ApplyDefaults()
     if auctionChanged then
         print("|cff00ff00TSMSetup|r: Added vendor-sell floor to Auctioning min prices (" .. VENDOR_MIN_FLOOR .. ").")
     end
+    if legacyChanged then
+        print("|cff00ff00TSMSetup|r: Removed legacy duplicate Disenchant Search settings (g@shoppingOptions@*).")
+    end
 
+    WarnStaleAuctionDB()
     return true
 end
 

@@ -20,8 +20,8 @@ ElvCharacterDB = {
 "too late for dungeon?",
 "kk",
 "/ty",
-"/rl",
 "/g what's shakin friends",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },

@@ -11,6 +11,9 @@
 --
 -- Guild:
 --   - Secure overlays on promote/demote + rank-order arrows (ElvUI skinning taints protected clicks)
+--
+-- Quest watch:
+--   - Guard QuestWatch_Update when QuestWatchLine frames are not ready (Anniversary login race)
 
 local function GetDock()
     return _G.GeneralDockManager or _G.GENERAL_CHAT_DOCK
@@ -398,6 +401,127 @@ local function FixGameMenuLogoutButtons()
     ConsiderGameMenuButton(_G.GameMenuButtonQuit)
 end
 
+local function QuestieTrackerActive()
+    if not _G.Questie then
+        return false
+    end
+    if _G.Questie.db and _G.Questie.db.profile then
+        return _G.Questie.db.profile.trackerEnabled ~= false
+    end
+    -- Questie loads db after PLAYER_LOGIN; assume tracker until profile is ready.
+    return true
+end
+
+local function DisableQuestWatchMouseCapture()
+    if _G.QuestWatchFrame then
+        _G.QuestWatchFrame:Hide()
+        _G.QuestWatchFrame:EnableMouse(false)
+    end
+    if _G.QuestTimerFrame then
+        _G.QuestTimerFrame:Hide()
+        _G.QuestTimerFrame:EnableMouse(false)
+    end
+
+    local E = _G.ElvUI and _G.ElvUI[1]
+    local BL = E and E:GetModule('Blizzard', true)
+    if BL and BL.QuestWatch_ClickFrames then
+        for _, clickFrame in pairs(BL.QuestWatch_ClickFrames) do
+            clickFrame:SetScript('OnMouseUp', nil)
+            clickFrame:EnableMouse(false)
+            clickFrame:Hide()
+        end
+    end
+end
+
+local function SafeQuestLogOnEvent(event, ...)
+    if event == 'QUEST_LOG_UPDATE' or event == 'UPDATE_FACTION'
+        or (event == 'UNIT_QUEST_LOG_CHANGED' and select(1, ...) == 'player') then
+        if _G.QuestLog_Update then
+            _G.QuestLog_Update()
+        end
+        if _G.QuestLogFrame and _G.QuestLogFrame:IsVisible() and _G.QuestLog_UpdateQuestDetails then
+            _G.QuestLog_UpdateQuestDetails(1)
+        end
+        if _G.AUTO_QUEST_WATCH == '1' and _G.AutoQuestWatch_CheckDeleted then
+            _G.AutoQuestWatch_CheckDeleted()
+        end
+    elseif event == 'QUEST_WATCH_UPDATE' then
+        if _G.AUTO_QUEST_WATCH == '1' and _G.AutoQuestWatch_Update then
+            _G.AutoQuestWatch_Update(...)
+        end
+    else
+        if _G.QuestLog_Update then
+            _G.QuestLog_Update()
+        end
+        if event == 'PARTY_MEMBERS_CHANGED' and _G.QuestFramePushQuestButton then
+            if _G.GetQuestLogPushable and _G.GetQuestLogPushable()
+                and _G.GetNumPartyMembers and _G.GetNumPartyMembers() > 0 then
+                _G.QuestFramePushQuestButton:Enable()
+            else
+                _G.QuestFramePushQuestButton:Disable()
+            end
+        end
+    end
+    DisableQuestWatchMouseCapture()
+end
+
+local elvQuestWatchHooked = false
+local function SuppressElvUIQuestWatchClicks()
+    if elvQuestWatchHooked then return end
+    local E = _G.ElvUI and _G.ElvUI[1]
+    local BL = E and E:GetModule('Blizzard', true)
+    if not BL or type(BL.QuestWatch_AddQuestClick) ~= 'function' then
+        return
+    end
+
+    local orig = BL.QuestWatch_AddQuestClick
+    BL.QuestWatch_AddQuestClick = function(...)
+        if QuestieTrackerActive() then
+            DisableQuestWatchMouseCapture()
+            return
+        end
+        orig(...)
+        DisableQuestWatchMouseCapture()
+    end
+    elvQuestWatchHooked = true
+end
+
+local questWatchHooked = false
+local function SetupQuestWatchGuard()
+    if questWatchHooked then return end
+
+    -- Blizzard QuestLog_OnEvent calls a file-local QuestWatch_Update; wrap the handler.
+    local origEvent = _G.QuestLog_OnEvent
+    if type(origEvent) == 'function' then
+        _G.QuestLog_OnEvent = function(event, ...)
+            if QuestieTrackerActive() then
+                SafeQuestLogOnEvent(event, ...)
+                return
+            end
+            local ok = pcall(origEvent, event, ...)
+            if not ok then
+                DisableQuestWatchMouseCapture()
+            end
+        end
+    end
+
+    local origUpdate = _G.QuestWatch_Update
+    if type(origUpdate) == 'function' then
+        _G.QuestWatch_Update = function(...)
+            if QuestieTrackerActive() then
+                DisableQuestWatchMouseCapture()
+                return
+            end
+            pcall(origUpdate, ...)
+            DisableQuestWatchMouseCapture()
+        end
+    end
+
+    SuppressElvUIQuestWatchClicks()
+    DisableQuestWatchMouseCapture()
+    questWatchHooked = true
+end
+
 local gameMenuHooked = false
 local function SetupGameMenuFix()
     if gameMenuHooked then return end
@@ -421,6 +545,15 @@ local function SetupGameMenuFix()
     FixGameMenuLogoutButtons()
 end
 
+local questWatchGuardFrame = CreateFrame('Frame')
+questWatchGuardFrame:RegisterEvent('QUEST_LOG_UPDATE')
+questWatchGuardFrame:RegisterEvent('QUEST_WATCH_UPDATE')
+questWatchGuardFrame:SetScript('OnEvent', function()
+    if QuestieTrackerActive() then
+        DisableQuestWatchMouseCapture()
+    end
+end)
+
 local f = CreateFrame('Frame')
 f:RegisterEvent('PLAYER_ENTERING_WORLD')
 f:RegisterEvent('ADDON_LOADED')
@@ -430,9 +563,13 @@ f:SetScript('OnEvent', function(_, event, addon)
             or addon == 'Blizzard_ChatFrameBase' then
             WrapShowUIPanel()
         end
+        if addon == 'Blizzard_UIPanels_Game' or addon == 'Questie' then
+            SetupQuestWatchGuard()
+        end
         if addon == 'ElvUI' or addon == 'Blizzard_GlueXML' then
             SetupGameMenuFix()
             SetupGuildRankArrowFix()
+            SetupQuestWatchGuard()
         end
         if addon == 'Blizzard_GuildControlUI' or addon == 'Blizzard_Communities' then
             SetupGuildRankArrowFix()
@@ -442,8 +579,11 @@ f:SetScript('OnEvent', function(_, event, addon)
     WrapShowUIPanel()
     SetupGameMenuFix()
     SetupGuildRankArrowFix()
+    SetupQuestWatchGuard()
+    DisableQuestWatchMouseCapture()
     C_Timer.After(0.3, function()
         ApplyInitFix()
+        DisableQuestWatchMouseCapture()
         SnapToPanel()
         if not hooked and _G.ChatFrame1 then
             hooksecurefunc(_G.ChatFrame1, 'SetPoint', SnapToPanel)
@@ -455,3 +595,4 @@ end)
 WrapShowUIPanel()
 SetupGameMenuFix()
 SetupGuildRankArrowFix()
+SetupQuestWatchGuard()
