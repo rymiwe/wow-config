@@ -1,4 +1,11 @@
 Version: 1
+Frame: ZygorGuidesViewer_ActionBar
+FrameLevel: 10
+Anchor: RIGHT
+X: -150
+Y: -209
+W: 135
+H: 40
 Frame: TotemTimersFrame
 FrameLevel: 0
 Anchor: BOTTOMLEFT
@@ -34,6 +41,13 @@ X: 0
 Y: 0
 W: 365
 H: 239
+Frame: WorldMapFrame
+FrameLevel: 1
+Anchor: TOPLEFT
+X: 0
+Y: -12
+W: 610
+H: 438
 Frame: TotemTimers_TrackerFrame
 FrameLevel: 0
 Anchor: BOTTOM
@@ -55,10 +69,3 @@ X: 522
 Y: 207
 W: 36
 H: 36
-Frame: WorldMapFrame
-FrameLevel: 1
-Anchor: TOPLEFT
-X: 0
-Y: -12
-W: 610
-H: 438
