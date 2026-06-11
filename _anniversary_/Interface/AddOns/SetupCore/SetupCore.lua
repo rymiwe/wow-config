@@ -764,6 +764,14 @@ function SetupCore:ResolveDispelTarget()
         end
     end
 
+    -- Debuff typedetection can miss; still cure self before Purge on a mob target.
+    if class and self:UnitHasDispellableDebuff("player") then
+        local fallback = DISPEL_FALLBACK_SPELL[class]
+        if fallback and self:IsSpellKnown(fallback) then
+            return "player", self:PickDispelSpell("player") or fallback
+        end
+    end
+
     if harmSpell and self:IsSpellKnown(harmSpell) then
         if UnitExists("mouseover") and UnitCanAttack("player", "mouseover") then
             return "mouseover", harmSpell
@@ -821,19 +829,31 @@ function SetupCore:PickDispelSpell(unit)
     return bestSpell
 end
 
--- One spell, cascade targeting from the unit ResolveDispelTarget already picked.
+function SetupCore:UnitHasDispellableDebuff(unit)
+    for i = 1, 40 do
+        local name, debuffType = self:GetAuraDispelType(unit, i)
+        if not name then break end
+        if debuffType then return true end
+    end
+    return false
+end
+
+-- Cast on the unit ResolveDispelTarget already picked first, then heal fallbacks.
 function SetupCore:BuildDispelCastLine(spell, primaryUnit)
     local _, class = UnitClass("player")
     local map = class and CLASS_DISPEL[class]
     if map and map.harm and spell == map.harm then
         return string.format("/cast [@mouseover,harm,nodead][harm,nodead] %s", spell)
     end
-    if primaryUnit == "mouseover" then
+    if primaryUnit == "player" then
         return string.format(
-            "/cast [@mouseover,help,nodead][help,nodead][@player] %s", spell)
+            "/cast [@player][@mouseover,help,nodead][help,nodead] %s", spell)
     elseif primaryUnit == "target" then
         return string.format(
-            "/cast [@mouseover,help,nodead][help,nodead] %s", spell)
+            "/cast [@target,help,nodead][@mouseover,help,nodead][@player] %s", spell)
+    elseif primaryUnit == "mouseover" then
+        return string.format(
+            "/cast [@mouseover,help,nodead][@player] %s", spell)
     end
     return string.format(
         "/cast [@mouseover,help,nodead][help,nodead][@player] %s", spell)
@@ -843,13 +863,14 @@ function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
     local _, class = UnitClass("player")
     local fallback = (class and DISPEL_FALLBACK_SPELL[class]) or iconSpell or "Cure Poison"
     local show = spell or iconSpell or fallback
+    local castUnit = unit or "player"
     if not spell then
         return table.concat({
             "#showtooltip " .. show,
-            string.format("/cast [@mouseover,help,nodead][help,nodead][@player] %s", fallback),
+            self:BuildDispelCastLine(fallback, castUnit),
         }, "\n")
     end
-    return string.format("#showtooltip %s\n%s", spell, self:BuildDispelCastLine(spell, unit))
+    return string.format("#showtooltip %s\n%s", spell, self:BuildDispelCastLine(spell, castUnit))
 end
 
 function SetupCore:EnsureDecurseButton()
