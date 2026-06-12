@@ -740,9 +740,24 @@ function SetupCore:ResolveDispelUnit()
     return "player"
 end
 
--- Friendly dispels first (mouseover -> target -> player), then hostile purge
--- (mouseover -> target). Hostile target was previously skipped, so M3 could not
--- Purge a buffed enemy you had targeted without mouseover on that unit.
+-- Party/raid tokens for dispel scans when mouseover is unset (common in combat).
+function SetupCore:AppendGroupDispelUnits(order)
+    local seen = {}
+    for i = 1, #order do seen[order[i]] = true end
+    local function add(unit)
+        if not seen[unit] and UnitExists(unit) and not UnitCanAttack("player", unit) then
+            seen[unit] = true
+            order[#order + 1] = unit
+        end
+    end
+    if IsInRaid and IsInRaid() then
+        for i = 1, 40 do add("raid" .. i) end
+    elseif IsInGroup and IsInGroup() then
+        for i = 1, 4 do add("party" .. i) end
+    end
+end
+
+-- Friendly dispels first (mouseover -> target -> player -> group), then hostile purge.
 function SetupCore:ResolveDispelTarget()
     local _, class = UnitClass("player")
     local map = class and CLASS_DISPEL[class]
@@ -756,6 +771,7 @@ function SetupCore:ResolveDispelTarget()
         friendlyOrder[#friendlyOrder + 1] = "target"
     end
     friendlyOrder[#friendlyOrder + 1] = "player"
+    self:AppendGroupDispelUnits(friendlyOrder)
     for i = 1, #friendlyOrder do
         local unit = friendlyOrder[i]
         local spell = self:PickDispelSpell(unit)
@@ -854,6 +870,9 @@ function SetupCore:BuildDispelCastLine(spell, primaryUnit)
     elseif primaryUnit == "mouseover" then
         return string.format(
             "/cast [@mouseover,help,nodead][@player] %s", spell)
+    elseif primaryUnit:match("^party%d+$") or primaryUnit:match("^raid%d+$") then
+        return string.format(
+            "/cast [@%s,help,nodead][@mouseover,help,nodead][@player] %s", primaryUnit, spell)
     end
     return string.format(
         "/cast [@mouseover,help,nodead][help,nodead][@player] %s", spell)
@@ -874,54 +893,69 @@ function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
 end
 
 function SetupCore:EnsureDecurseButton()
-    local btn = self.decurseBtn
-    if not btn then
-        btn = CreateFrame("Button", DECURSE_BUTTON, UIParent, "SecureActionButtonTemplate")
-        btn:RegisterForClicks("AnyUp", "AnyDown")
-        btn:SetAttribute("type", "macro")
-        self.decurseBtn = btn
+    if self.decurseBtn then return self.decurseBtn end
 
-        local frame = CreateFrame("Frame")
-        frame:RegisterEvent("UNIT_AURA")
-        frame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-        frame:RegisterEvent("PLAYER_TARGET_CHANGED")
-        frame:RegisterEvent("PLAYER_REGEN_ENABLED")
-        frame:SetScript("OnEvent", function(_, event, unit)
-            if event == "UNIT_AURA" then
-                if unit ~= "player" and unit ~= "target" and unit ~= "mouseover"
-                    and not unit:find("^party") and not unit:find("^raid") then
-                    return
-                end
-            end
-            if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
-                SetupCore.decurseStale = nil
-            end
-            SetupCore:UpdateDecurseButton()
-        end)
-        self.decurseEventFrame = frame
-    end
-    -- PreClick is secure: refresh macrotext on every M3 press, including in combat.
+    local btn = CreateFrame("Button", DECURSE_BUTTON, UIParent, "SecureActionButtonTemplate")
+    btn:RegisterForClicks("AnyUp", "AnyDown")
+    btn:SetAttribute("type", "macro")
+    self.decurseBtn = btn
+
+    -- PreClick runs in the secure click path: only SetAttribute here (no frame/macro IO).
     btn:SetScript("PreClick", function()
-        SetupCore:UpdateDecurseButton(true)
+        SetupCore:ApplyDecurseMacroText()
     end)
+
+    local frame = CreateFrame("Frame")
+    frame:RegisterEvent("UNIT_AURA")
+    frame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+    frame:RegisterEvent("PLAYER_TARGET_CHANGED")
+    frame:RegisterEvent("PLAYER_REGEN_ENABLED")
+    frame:SetScript("OnEvent", function(_, event, unit)
+        if event == "UNIT_AURA" then
+            if unit ~= "player" and unit ~= "target" and unit ~= "mouseover"
+                and not unit:find("^party") and not unit:find("^raid") then
+                return
+            end
+        end
+        if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
+            SetupCore.decurseStale = nil
+        end
+        SetupCore:UpdateDecurseButton()
+    end)
+    self.decurseEventFrame = frame
     return btn
 end
 
--- fromSecureClick: true when invoked from the M3 button's PreClick handler, which
--- may legally SetAttribute during combat lockdown right before the cast fires.
+-- Set secure-button macrotext from current auras. Safe inside PreClick (combat OK).
+function SetupCore:ApplyDecurseMacroText()
+    local btn = self.decurseBtn
+    local spec = self:GetDecurseSpec()
+    if not btn or not spec then return nil end
+    local unit, spell = self:ResolveDispelTarget()
+    local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
+    btn:SetAttribute("macrotext", body)
+    return unit, spell, body
+end
+
+-- fromSecureClick: true when invoked from PreClick right before the cast fires.
 function SetupCore:UpdateDecurseButton(fromSecureClick)
     local spec = self:GetDecurseSpec()
     if not spec then return false end
-    self:EnsureDecurseButton()
+    if not self.decurseBtn then
+        if InCombatLockdown() then return false end
+        self:EnsureDecurseButton()
+    end
+    if not self.decurseBtn then return false end
+
     local inCombat = InCombatLockdown()
     if inCombat and not fromSecureClick then
         self.decurseStale = true
         return false
     end
-    local unit, spell = self:ResolveDispelTarget()
-    local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
-    self.decurseBtn:SetAttribute("macrotext", body)
+
+    local unit, spell = self:ApplyDecurseMacroText()
     if not inCombat then
+        local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
         local _, _, icon = GetSpellInfo(spell or spec.icon)
         self:EnsureRawMacro(spec.macroName, body, icon or "INV_Misc_QuestionMark")
     end
@@ -1903,16 +1937,25 @@ end
 
 SLASH_SETUPDECURSE1 = "/decursefix"
 SlashCmdList["SETUPDECURSE"] = function()
-    local ok, spell, unit = SetupCore:UpdateDecurseButton()
-    SetupCore:RefreshDecurseBinding()
-    local spec = SetupCore:GetDecurseSpec()
-    local m3 = GetBindingAction(SetupCore.DECURSE_MOUSE) or "(unbound)"
-    if ok and spell then
-        print(string.format("|cff999999SetupCore|r M3 dispel ready: %s on [@%s] | %s", spell, unit or "?", m3))
-    elseif ok then
-        print(string.format("|cff999999SetupCore|r M3 dispel: no debuff now (poison fallback armed) | %s", m3))
+    local inCombat = InCombatLockdown()
+    local spell, unit
+    if inCombat then
+        SetupCore:EnsureDecurseButton()
+        unit, spell = SetupCore:ApplyDecurseMacroText()
     else
-        print(string.format("|cffffaa00SetupCore|r M3 dispel queued (in combat) — try again after combat | %s", m3))
+        local ok
+        ok, spell, unit = SetupCore:UpdateDecurseButton()
+        if not ok then spell, unit = nil, nil end
+    end
+    SetupCore:RefreshDecurseBinding()
+    local m3 = GetBindingAction(SetupCore.DECURSE_MOUSE) or "(unbound)"
+    if spell then
+        print(string.format("|cff999999SetupCore|r M3 dispel ready: %s on [@%s] | %s", spell, unit or "?", m3))
+    else
+        print(string.format("|cff999999SetupCore|r M3 dispel: no debuff now (fallback armed) | %s", m3))
+    end
+    if inCombat then
+        print("|cff999999SetupCore|r in combat: M3 re-scans auras on every click (party/raid included)")
     end
 end
 
