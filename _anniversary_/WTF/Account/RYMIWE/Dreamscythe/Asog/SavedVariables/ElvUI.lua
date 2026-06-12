@@ -19,9 +19,9 @@ ElvCharacterDB = {
 "/p let's do prequests",
 "/invite cats4life#11294",
 "/setupbars",
-"/ty",
 "/rl",
 "too late for zf?",
+"/ty",
 },
 ["ChatHistoryLog"] = {
 },
