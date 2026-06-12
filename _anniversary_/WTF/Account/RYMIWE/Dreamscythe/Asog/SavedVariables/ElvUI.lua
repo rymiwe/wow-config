@@ -2,10 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p ding ding",
-"ding ding",
-"ty",
-"too late for dungeon?",
 "kk",
 "/g what's shakin friends",
 "/tsm destroy",
@@ -22,6 +18,10 @@ ElvCharacterDB = {
 "/rl",
 "too late for zf?",
 "/ty",
+"/p ok",
+"/p thanks but i have no runes =/",
+"/p gotcha",
+"/p cheers",
 },
 ["ChatHistoryLog"] = {
 },
