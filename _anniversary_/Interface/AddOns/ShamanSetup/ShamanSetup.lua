@@ -179,52 +179,84 @@ SetupCore:RegisterDecurseMacro("SC_Decurse", "SHAMAN")
 -- ===========================================================================
 -- OPie ring registration — only fires if OPie is installed.
 -- Uses OPie's public API (R:AddDefaultRing). Macro syntax {{spell:ID}} casts
--- the highest known rank, so untrained spells are gracefully skipped/grayed.
+-- the highest known rank; untrained spells are hidden until learned.
 -- ===========================================================================
-do
-    -- Only register rings for actual Shamans. OPie bindings are account-wide,
-    -- so registering for non-Shamans creates cross-class M4/M5 collisions
-    -- (e.g., WarriorStances would override ShamanWeaponEnchants on M5).
+local shamanOpieRingsRegistered = false
+
+local function SeedShamanOpieBindings()
+    local _, class = UnitClass("player")
+    if class ~= "SHAMAN" or not OPie_SavedData then return end
+
+    OPie_SavedData.ProfileStorage = OPie_SavedData.ProfileStorage or {}
+    local profile = OPie_SavedData.ProfileStorage.default
+    if type(profile) ~= "table" then
+        profile = {Bindings = {}, RingOptions = {}}
+        OPie_SavedData.ProfileStorage.default = profile
+    end
+    profile.Bindings = profile.Bindings or {}
+    local binds = profile.Bindings
+    if not binds["ShamanTotems"] then
+        binds["ShamanTotems"] = "BUTTON4"
+    end
+    if not binds["ShamanWeaponEnchants"] then
+        binds["ShamanWeaponEnchants"] = "BUTTON5"
+    end
+    binds["ShamanTotemProfiles"] = nil
+    if profile.RingOptions then
+        profile.RingOptions["ShamanTotemProfiles#CenterAction"] = nil
+        profile.RingOptions["ShamanTotemProfiles#QuickActionOnRelease"] = nil
+    end
+end
+
+local function RegisterShamanOpieRings()
+    if shamanOpieRingsRegistered then return end
     local _, class = UnitClass("player")
     if class ~= "SHAMAN" then return end
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
+    shamanOpieRingsRegistered = true
 
     -- Element colors (RGB 0-1 floats) — visually groups slices on the radial.
-    -- Earth = warm tan, Fire = red-orange, Water = blue, Air = pale cyan.
     local EARTH_R, EARTH_G, EARTH_B = 0.65, 0.45, 0.20
     local FIRE_R,  FIRE_G,  FIRE_B  = 0.95, 0.30, 0.10
     local WATER_R, WATER_G, WATER_B = 0.20, 0.55, 0.95
     local AIR_R,   AIR_G,   AIR_B   = 0.55, 0.85, 1.00
 
-    -- Element-clustered totem ring. Order: Earth → Fire → Water → Air.
+    -- Full TBC totem roster. v=2 adds resistance/elemental/sentry/windwall/tranquil.
     R:AddDefaultRing("ShamanTotems", {
         -- Earth
         {id="/cast {{spell:8071}}",  _u="ss", _r=EARTH_R, _g=EARTH_G, _b=EARTH_B}, -- Stoneskin Totem
         {id="/cast {{spell:8075}}",  _u="se", _r=EARTH_R, _g=EARTH_G, _b=EARTH_B}, -- Strength of Earth Totem
         {id="/cast {{spell:5730}}",  _u="sc", _r=EARTH_R, _g=EARTH_G, _b=EARTH_B}, -- Stoneclaw Totem
         {id="/cast {{spell:2484}}",  _u="eb", _r=EARTH_R, _g=EARTH_G, _b=EARTH_B}, -- Earthbind Totem
-        {id="/cast {{spell:8143}}",  _u="tr", _r=EARTH_R, _g=EARTH_G, _b=EARTH_B}, -- Tremor Totem
+        {id="/cast {{spell:2062}}",  _u="ee", _r=EARTH_R, _g=EARTH_G, _b=EARTH_B}, -- Earth Elemental Totem
         -- Fire
         {id="/cast {{spell:3599}}",  _u="sr", _r=FIRE_R,  _g=FIRE_G,  _b=FIRE_B},  -- Searing Totem
         {id="/cast {{spell:8190}}",  _u="mt", _r=FIRE_R,  _g=FIRE_G,  _b=FIRE_B},  -- Magma Totem
         {id="/cast {{spell:1535}}",  _u="fn", _r=FIRE_R,  _g=FIRE_G,  _b=FIRE_B},  -- Fire Nova Totem
         {id="/cast {{spell:8227}}",  _u="ft", _r=FIRE_R,  _g=FIRE_G,  _b=FIRE_B},  -- Flametongue Totem
+        {id="/cast {{spell:6495}}",  _u="sn", _r=FIRE_R,  _g=FIRE_G,  _b=FIRE_B},  -- Sentry Totem
+        {id="/cast {{spell:2894}}",  _u="fe", _r=FIRE_R,  _g=FIRE_G,  _b=FIRE_B},  -- Fire Elemental Totem
         -- Water
         {id="/cast {{spell:5394}}",  _u="hs", _r=WATER_R, _g=WATER_G, _b=WATER_B}, -- Healing Stream Totem
         {id="/cast {{spell:5675}}",  _u="ms", _r=WATER_R, _g=WATER_G, _b=WATER_B}, -- Mana Spring Totem
-        {id="/cast {{spell:16190}}", _u="mn", _r=WATER_R, _g=WATER_G, _b=WATER_B}, -- Mana Tide Totem (Resto L40)
+        {id="/cast {{spell:16190}}", _u="mn", _r=WATER_R, _g=WATER_G, _b=WATER_B}, -- Mana Tide Totem
         {id="/cast {{spell:8170}}",  _u="dc", _r=WATER_R, _g=WATER_G, _b=WATER_B}, -- Disease Cleansing Totem
         {id="/cast {{spell:8166}}",  _u="pc", _r=WATER_R, _g=WATER_G, _b=WATER_B}, -- Poison Cleansing Totem
         -- Air
+        {id="/cast {{spell:8143}}",  _u="tr", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Tremor Totem
         {id="/cast {{spell:8177}}",  _u="gr", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Grounding Totem
         {id="/cast {{spell:8835}}",  _u="ga", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Grace of Air Totem
         {id="/cast {{spell:8512}}",  _u="wf", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Windfury Totem
         {id="/cast {{spell:3738}}",  _u="wa", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Wrath of Air Totem
-        name = "Totems", hotkey = "BUTTON4", _u = "ShmTtm", v = 1,
+        {id="/cast {{spell:8181}}",  _u="fr", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Frost Resistance Totem
+        {id="/cast {{spell:8184}}",  _u="fi", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Fire Resistance Totem
+        {id="/cast {{spell:10595}}", _u="nr", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Nature Resistance Totem
+        {id="/cast {{spell:15107}}", _u="ww", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Windwall Totem
+        {id="/cast {{spell:25908}}", _u="ta", _r=AIR_R,   _g=AIR_G,   _b=AIR_B},   -- Tranquil Air Totem
+        name = "Totems", hotkey = "BUTTON4", _u = "ShmTtm", v = 2,
     })
 
-    -- Weapon enhancements ring. 4 slices, simple.
     R:AddDefaultRing("ShamanWeaponEnchants", {
         {id="/cast {{spell:8017}}",  _u="rb"}, -- Rockbiter Weapon
         {id="/cast {{spell:8024}}",  _u="ft"}, -- Flametongue Weapon
@@ -232,28 +264,20 @@ do
         {id="/cast {{spell:8232}}",  _u="wf"}, -- Windfury Weapon
         name = "Weapon Enchants", hotkey = "BUTTON5", _u = "ShmWep", v = 1,
     })
-
-    -- Seed ring bindings so M4/M5 work with zero manual /opie config.
-    if OPie_SavedData then
-        OPie_SavedData.ProfileStorage = OPie_SavedData.ProfileStorage or {}
-        local profile = OPie_SavedData.ProfileStorage.default
-        if type(profile) ~= "table" then
-            profile = {Bindings = {}, RingOptions = {}}
-            OPie_SavedData.ProfileStorage.default = profile
-        end
-        profile.Bindings = profile.Bindings or {}
-        local binds = profile.Bindings
-        if binds["ShamanTotems"] == nil then
-            binds["ShamanTotems"] = "BUTTON4"
-        end
-        if binds["ShamanWeaponEnchants"] == nil then
-            binds["ShamanWeaponEnchants"] = "BUTTON5"
-        end
-        binds["ShamanTotemProfiles"] = nil
-        if profile.RingOptions then
-            profile.RingOptions["ShamanTotemProfiles#CenterAction"] = nil
-            profile.RingOptions["ShamanTotemProfiles#QuickActionOnRelease"] = nil
-        end
-    end
-
 end
+
+RegisterShamanOpieRings()
+
+local shamanOpieWatch = CreateFrame("Frame")
+shamanOpieWatch:RegisterEvent("ADDON_LOADED")
+shamanOpieWatch:RegisterEvent("PLAYER_LOGIN")
+shamanOpieWatch:SetScript("OnEvent", function(_, event, addon)
+    if event == "ADDON_LOADED" then
+        if addon == "OPie" or addon == "ShamanSetup" then
+            RegisterShamanOpieRings()
+        end
+        return
+    end
+    RegisterShamanOpieRings()
+    SeedShamanOpieBindings()
+end)
