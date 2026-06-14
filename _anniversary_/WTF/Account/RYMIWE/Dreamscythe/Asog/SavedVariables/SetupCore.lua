@@ -1,7 +1,7 @@
 
 SetupCoreCharDB = {
-["mountItemId"] = 29744,
 ["channelsLeft"] = true,
+["mountItemId"] = 29744,
 ["totemProfile"] = "melee_group",
 ["lastBackup"] = {
 ["slots"] = {
@@ -215,16 +215,16 @@ nil,
 ["type"] = "spell",
 ["name"] = "Prospecting",
 },
+nil,
 {
 ["id"] = 8545,
 ["type"] = "item",
 },
-nil,
 {
 ["id"] = 3928,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-06-11 14:58:22",
+["timestamp"] = "2026-06-14 01:58:22",
 },
 }
