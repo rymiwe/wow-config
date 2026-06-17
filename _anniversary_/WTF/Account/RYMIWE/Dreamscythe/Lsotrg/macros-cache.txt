@@ -4,10 +4,8 @@ VER 3 0100000000000006 "SC_ArcaneMissile" "136096"
 /cast [@mouseover,harm,nodead][harm,nodead] Arcane Missiles
 END
 VER 3 0100000000000008 "SC_Decurse" "INV_Misc_QuestionMark"
-#showtooltip
-/cast [@mouseover,help,nodead] Remove Lesser Curse
-/cast [help,nodead] Remove Lesser Curse
-/cast [@player] Remove Lesser Curse
+#showtooltip Remove Lesser Curse
+/cast [@player][@mouseover,help,nodead][help,nodead] Remove Lesser Curse
 END
 VER 3 0100000000000001 "SC_Fireball" "135812"
 #showtooltip
@@ -31,6 +29,11 @@ END
 VER 3 0100000000000003 "SC_GiftoftheNaar" "135923"
 #showtooltip
 /cast [@mouseover,help,nodead][help,nodead][@player] Gift of the Naaru
+END
+VER 3 0100000000000009 "SC_Mount" "132261"
+#showtooltip
+/dismount [mounted]
+/run print("|cffff0000SetupCore|r: no mount in bags — keep a mount item or train a mount spell")
 END
 VER 3 0100000000000007 "SC_Polymorph" "136071"
 #showtooltip
