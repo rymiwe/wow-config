@@ -267,8 +267,20 @@ try {
         }
     }
 
+    function Get-AmrTbcZipUrl {
+        try {
+            $page = Invoke-WebRequest -Uri "https://www.askmrrobot.com/addon" -UseBasicParsing
+            if ($page.Content -match '<h6>\s*TBC\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-\d+\.zip)"') {
+                return $matches[1]
+            }
+        } catch {
+            Write-Warning "AskMrRobotClassic page fetch failed: $_"
+        }
+        return $null
+    }
+
     Write-Host ""
-    Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers)..."
+    Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers, AskMrRobotClassic)..."
 
     # ElvUI from Tukui's JSON API.
     try {
@@ -306,6 +318,13 @@ try {
         Write-Warning "OPie download failed: $_. Install manually from https://www.townlong-yak.com/addons/opie"
     }
 
+    $amrUrl = Get-AmrTbcZipUrl
+    if ($amrUrl) {
+        Install-AddonZip "AskMrRobotClassic" $amrUrl $addonsDir
+    } else {
+        Write-Warning "AskMrRobotClassic TBC download not found; install from https://www.askmrrobot.com/addon"
+    }
+
     Write-Host ""
     Write-Host "Note: TSM (TradeSkillMaster) is not on free addon sources we can auto-install."
     Write-Host "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
@@ -329,6 +348,7 @@ try {
     Write-Host "     Enable TSMSetup in the addon list (installed with wow-config)"
     Write-Host "  4. (Optional) TSM one-time setup: templates/tsm-groups/README.md"
     Write-Host "     (import MonChiSub groups, then /tsmsetup after TSM is installed)"
+    Write-Host "  5. Ask Mr. Robot: /amr show - export gear to askmrrobot.com, import BiS results back"
 
     # Offer a `wcu` PowerShell function for one-command refreshes (PowerShell
     # doesn't have shell-style aliases for arbitrary commands, so we use a

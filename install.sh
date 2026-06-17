@@ -299,8 +299,25 @@ github_latest_release() {
     echo "${ver}|${url}"
 }
 
+# Ask Mr. Robot Classic (TBC Anniversary): AMR hosts per-flavor zips on their site.
+# Returns "VERSION|URL" for the TBC build (Interface 205xx).
+amr_tbc_release() {
+    local page; page="$(curl -fsSL "https://www.askmrrobot.com/addon" 2>/dev/null || true)"
+    python3 - <<'PY' "$page"
+import re, sys
+html = sys.argv[1] if len(sys.argv) > 1 else ""
+m = re.search(
+    r'<h6>\s*TBC\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-(\d+)\.zip)"',
+    html,
+    re.I | re.S,
+)
+if m:
+    print(f"{m.group(2)}|{m.group(1)}")
+PY
+}
+
 echo
-echo "Checking companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers)..."
+echo "Checking companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers, AskMrRobotClassic)..."
 
 # ElvUI from Tukui's JSON API.
 elvui_json="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null)"
@@ -352,6 +369,13 @@ else
     echo "WARN: OPie release page link not found on main page; install manually from https://www.townlong-yak.com/addons/opie" >&2
 fi
 
+amr_data="$(amr_tbc_release)"
+if [[ -n "${amr_data%%|*}" && -n "${amr_data##*|}" ]]; then
+    maybe_install_addon "AskMrRobotClassic" "$ADDONS_DIR/AskMrRobotClassic" "${amr_data%%|*}" "${amr_data##*|}"
+else
+    echo "WARN: AskMrRobotClassic TBC download not found; install from https://www.askmrrobot.com/addon" >&2
+fi
+
 echo
 echo "Note: TSM (TradeSkillMaster) is not on free addon sources we can auto-install."
 echo "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
@@ -394,6 +418,7 @@ echo "  3. (Optional) Install TSM + TSM App Helper from CurseForge if you use th
 echo "     Enable TSMSetup in the addon list (installed with wow-config)."
 echo "  4. (Optional) TSM one-time setup: templates/tsm-groups/README.md"
 echo "     (import MonChiSub groups, then /tsmsetup after TSM is installed)"
+echo "  5. Ask Mr. Robot: /amr show — export gear to askmrrobot.com, import BiS results back"
 
 # Hyprland integration - auto-run on Hyprland-detected systems (Omarchy etc.)
 # so Super+1-9 passes through to WoW while focused. Idempotent; safe on every

@@ -1,6 +1,7 @@
 <#
 .SYNOPSIS
-  Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers) to latest
+  Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers,
+  AskMrRobotClassic) to latest upstream versions.
   upstream versions. Doesn't touch our custom addons, bindings, or SavedVariables.
 
 .PARAMETER WowDir
@@ -63,6 +64,18 @@ function Get-GitHubLatestZipUrl {
     }
 }
 
+function Get-AmrTbcZipUrl {
+    try {
+        $page = Invoke-WebRequest -Uri "https://www.askmrrobot.com/addon" -UseBasicParsing
+        if ($page.Content -match '<h6>\s*TBC\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-\d+\.zip)"') {
+            return $matches[1]
+        }
+    } catch {
+        Write-Warning "AskMrRobotClassic page fetch failed: $_"
+    }
+    return $null
+}
+
 try {
     $elvuiInfo = Invoke-RestMethod -Uri "https://api.tukui.org/v1/addon/elvui" -UseBasicParsing
     Install-AddonZip "ElvUI" $elvuiInfo.url $addonsDir
@@ -90,6 +103,13 @@ try {
     }
 } catch {
     Write-Warning "OPie download failed: $_"
+}
+
+$amrUrl = Get-AmrTbcZipUrl
+if ($amrUrl) {
+    Install-AddonZip "AskMrRobotClassic" $amrUrl $addonsDir
+} else {
+    Write-Warning "AskMrRobotClassic TBC download not found"
 }
 
 Write-Host ""

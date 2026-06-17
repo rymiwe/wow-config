@@ -9,7 +9,7 @@ Opinionated UI setup for WoW Anniversary (TBC Classic 2.5.5). Built for casual p
 - **Mouseover heals + dispels** — hover a party member, hit your heal key, no target-switching needed
 - **Smart defaults** — Trade/General chat auto-left per character, enemy nameplates always on, friendly off
 - **Auto-place on training** — newly-trained spells go on their reserved bar slot automatically, no `/setupbars` needed; `/restorebars` undoes any layout change
-- **One-shot bulk-install** for recommended companion addons (ElvUI, WeakAuras, BadBoy, OPie, TSM, Questie)
+- **One-shot bulk-install** for recommended companion addons (ElvUI, WeakAuras, BadBoy, OPie, Ask Mr. Robot, TSM, Questie)
 - **Per-class layouts** — Shaman, Druid (Feral+Balance), Hunter, Paladin, Warrior ship now; new classes generated via the [`wow-class-setup` skill](.claude/skills/wow-class-setup.md)
 
 Designed for the audience: kids, spouses, friends who want to log in and play. Optimized for "discoverability over efficiency" — every key bind is intuitive even if it costs 0.1s of theoretical optimization. PvP-grade speed is explicitly NOT the goal.
@@ -42,8 +42,9 @@ The installer:
    - **ElvUI** from Tukui's JSON API
    - **WeakAuras / Questie / BadBoy** from GitHub Releases
    - **OPie** from townlong-yak (Foxlit's official site)
+   - **Ask Mr. Robot Classic** (TBC build) from [askmrrobot.com/addon](https://www.askmrrobot.com/addon)
 
-To refresh addon versions later: re-run `install.sh` / `install.ps1` (full reinstall), or use the lighter `scripts/update-addons.sh` / `scripts/update-addons.ps1` which only re-fetches the 5 community addons.
+To refresh addon versions later: re-run `install.sh` / `install.ps1` (full reinstall), or use the lighter `scripts/update-addons.sh` / `scripts/update-addons.ps1` which only re-fetches the community addons.
 
 > **TSM caveat**: TradeSkillMaster isn't on a free public source we can script-fetch (distributed via their own desktop app + CurseForge auth-walled API). Install [TSM manually from CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you want it; otherwise skip.
 
