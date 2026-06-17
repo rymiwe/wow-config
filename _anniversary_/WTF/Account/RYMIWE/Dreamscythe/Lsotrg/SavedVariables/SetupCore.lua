@@ -104,14 +104,14 @@ nil,
 [54] = {
 ["type"] = "macro",
 },
-[57] = {
+[29] = {
+["name"] = "SC_FrostArmor",
 ["type"] = "macro",
 },
 [56] = {
 ["type"] = "macro",
 },
-[29] = {
-["name"] = "SC_FrostArmor",
+[57] = {
 ["type"] = "macro",
 },
 [59] = {
