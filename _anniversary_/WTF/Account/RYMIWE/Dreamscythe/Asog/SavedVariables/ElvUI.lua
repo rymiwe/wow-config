@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p cheers",
 "/p gtg",
 "/p nope",
 "/p i'm good to go",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/tsm destroy",
 "/rl",
 "/p just markin towers for the moment",
+"/amr",
 },
 ["ChatHistoryLog"] = {
 },
