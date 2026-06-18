@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p i just need [Jammal'an the Prophet (1446)][The God Hakkar (3528)]",
 "/p cheers",
 "/p gtg",
 "/p nope",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/setupbars",
 "/tsm destroy",
 "/rl",
+"/p just markin towers for the moment",
 },
 ["ChatHistoryLog"] = {
 },
