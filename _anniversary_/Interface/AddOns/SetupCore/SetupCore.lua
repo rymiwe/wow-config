@@ -706,19 +706,25 @@ function SetupCore:NormalizeDispelType(auraType)
     return auraType
 end
 
--- Modern Anniversary client: dispel type is aura.dispelName (UnitDebuff pos 4).
+-- Modern Anniversary client: dispel type is aura.dispelName / dispelType.
 -- Legacy: debuffType at UnitDebuff pos 5. filter = "HARMFUL" (debuffs) or "HELPFUL" (purge).
 function SetupCore:GetAuraDispelType(unit, index, filter)
     filter = filter or "HARMFUL"
-    if UnitAura then
-        local name, _, _, dispelName = UnitAura(unit, index, filter)
-        if not name then return nil end
-        return name, self:NormalizeDispelType(dispelName)
-    end
     if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
         local data = C_UnitAuras.GetAuraDataByIndex(unit, index, filter)
         if not data or not data.name then return nil end
         return data.name, self:NormalizeDispelType(data.dispelName)
+    end
+    if UnitAura then
+        local name, _, countOrType, maybeType, debuffType = UnitAura(unit, index, filter)
+        if not name then return nil end
+        local dispelName = maybeType
+        if type(countOrType) == "string" and countOrType ~= "" then
+            dispelName = countOrType
+        elseif type(debuffType) == "string" and debuffType ~= "" then
+            dispelName = debuffType
+        end
+        return name, self:NormalizeDispelType(dispelName)
     end
     if filter == "HELPFUL" then
         local name, _, _, _, buffType = UnitBuff(unit, index)
@@ -827,9 +833,11 @@ function SetupCore:PickDispelSpell(unit)
         return nil
     end
     local bestSpell, bestRank = nil, 999
+    local sawDebuff, sawUnknownType = false, false
     for i = 1, 40 do
         local name, debuffType = self:GetAuraDispelType(unit, i)
         if not name then break end
+        sawDebuff = true
         local spell = self:ResolveDispelSpellForDebuff(debuffType, class, map)
         if spell then
             local rank = i
@@ -840,9 +848,27 @@ function SetupCore:PickDispelSpell(unit)
                 bestRank = rank
                 bestSpell = spell
             end
+        elseif not debuffType then
+            sawUnknownType = true
         end
     end
-    return bestSpell
+    if bestSpell then return bestSpell end
+    -- Combat API gaps: debuff visible but dispel type missing — try class priority.
+    if sawDebuff and sawUnknownType then
+        if class == "SHAMAN" then
+            for _, dtype in ipairs(SHAMAN_DISPEL_PRIORITY) do
+                local spell = map[dtype]
+                if spell and self:IsSpellKnown(spell) then
+                    return spell
+                end
+            end
+        end
+        local fallback = DISPEL_FALLBACK_SPELL[class]
+        if fallback and self:IsSpellKnown(fallback) then
+            return fallback
+        end
+    end
+    return nil
 end
 
 function SetupCore:UnitHasDispellableDebuff(unit)
@@ -900,9 +926,9 @@ function SetupCore:EnsureDecurseButton()
     btn:SetAttribute("type", "macro")
     self.decurseBtn = btn
 
-    -- PreClick runs in the secure click path: only SetAttribute here (no frame/macro IO).
+    -- PreClick runs in the secure click path: refresh spell/unit or macrotext every M3 press.
     btn:SetScript("PreClick", function()
-        SetupCore:ApplyDecurseMacroText()
+        SetupCore:ApplyDecurseClickAttributes()
     end)
 
     local frame = CreateFrame("Frame")
@@ -926,15 +952,53 @@ function SetupCore:EnsureDecurseButton()
     return btn
 end
 
--- Set secure-button macrotext from current auras. Safe inside PreClick (combat OK).
-function SetupCore:ApplyDecurseMacroText()
+function SetupCore:ClearDecurseClickAttributes(btn)
+    btn:SetAttribute("spell", nil)
+    btn:SetAttribute("unit", nil)
+    btn:SetAttribute("macrotext", nil)
+end
+
+-- Prefer direct spell+unit secure attributes (Decursive-style); macro only for harm cascades.
+function SetupCore:ApplyDecurseClickAttributes()
     local btn = self.decurseBtn
     local spec = self:GetDecurseSpec()
     if not btn or not spec then return nil end
     local unit, spell = self:ResolveDispelTarget()
+    local _, class = UnitClass("player")
+    local map = class and CLASS_DISPEL[class]
+    local isHarm = map and map.harm and spell == map.harm
+
+    self:ClearDecurseClickAttributes(btn)
+
+    if spell and isHarm then
+        if UnitExists("mouseover") and UnitCanAttack("player", "mouseover") then
+            btn:SetAttribute("type", "spell")
+            btn:SetAttribute("spell", spell)
+            btn:SetAttribute("unit", "mouseover")
+            return "mouseover", spell, "spell"
+        end
+        if UnitExists("target") and UnitCanAttack("player", "target") then
+            btn:SetAttribute("type", "spell")
+            btn:SetAttribute("spell", spell)
+            btn:SetAttribute("unit", "target")
+            return "target", spell, "spell"
+        end
+    elseif spell and unit then
+        btn:SetAttribute("type", "spell")
+        btn:SetAttribute("spell", spell)
+        btn:SetAttribute("unit", unit)
+        return unit, spell, "spell"
+    end
+
     local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
+    btn:SetAttribute("type", "macro")
     btn:SetAttribute("macrotext", body)
     return unit, spell, body
+end
+
+-- Back-compat alias for /decursefix and OOC refresh paths.
+function SetupCore:ApplyDecurseMacroText()
+    return self:ApplyDecurseClickAttributes()
 end
 
 -- fromSecureClick: true when invoked from PreClick right before the cast fires.
@@ -2191,6 +2255,10 @@ f:SetScript("OnEvent", function(_, event, ...)
 
     -- Restore Z bar bind + mount macro keybind (after ElvUI buttons exist).
     C_Timer.After(1, function()
+        if SetupCore:GetDecurseSpec() then
+            SetupCore:EnsureDecurseButton()
+            SetupCore:UpdateDecurseButton()
+        end
         SetupCore:ApplyBindings()
         SetupCore:RefreshDecurseBinding()
     end)
