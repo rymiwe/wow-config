@@ -58,3 +58,4 @@ Blizzard_CombatText: enabled
 GuildMotdCycler: enabled
 QuestJunkHelper: enabled
 TotemTimers: enabled
+AskMrRobotClassic: enabled
