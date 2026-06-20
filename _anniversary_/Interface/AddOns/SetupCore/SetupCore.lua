@@ -85,6 +85,7 @@ local DECURSE_BY_CLASS = {
 -- Middle mouse: class dispel/decurse (secure button + SC_Decurse mirror). M4/M5 stay OPie.
 SetupCore.DECURSE_MOUSE = "BUTTON3"
 local DECURSE_BUTTON = "SetupCoreDecurseButton"
+local DECURSE_HEADER = "SetupCoreDecurseHeader"
 -- One spell per click — wrong-type dispels trigger GCD and block the next line.
 local CLASS_DISPEL = {
     SHAMAN  = { harm = "Purge",  Disease = "Cure Disease", Poison = "Cure Poison" },
@@ -972,6 +973,61 @@ function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
     return string.format("#showtooltip %s\n%s", spell, self:BuildDispelCastLine(spell, castUnit))
 end
 
+function SetupCore:EnsureDecurseSecureHeader(btn)
+    local header = self.decurseHeader
+    if header then return header end
+    if not btn then return nil end
+
+    header = CreateFrame("Frame", DECURSE_HEADER, btn, "SecureHandlerBaseTemplate")
+    if SecureHandlerSetFrameRef then
+        SecureHandlerSetFrameRef(header, "dispelBtn", btn)
+    else
+        header:SetFrameRef("dispelBtn", btn)
+    end
+    self.decurseHeader = header
+    return header
+end
+
+-- Push macrotext through SecureHandler:Execute so combat lockdown does not block or taint M3.
+function SetupCore:ApplyDecurseMacroToButton(body)
+    local btn = self.decurseBtn
+    if not btn or not body then return false end
+    local header = self:EnsureDecurseSecureHeader(btn)
+    if header and header.Execute then
+        local cmd = "local b=self:GetFrameRef('dispelBtn');b:SetAttribute('type','macro');b:SetAttribute('spell',nil);b:SetAttribute('unit',nil);b:SetAttribute('macrotext',"
+            .. string.format("%q", body) .. ")"
+        header:Execute(cmd)
+        return true
+    end
+    if not InCombatLockdown() then
+        btn:SetAttribute("type", "macro")
+        btn:SetAttribute("spell", nil)
+        btn:SetAttribute("unit", nil)
+        btn:SetAttribute("macrotext", body)
+        return true
+    end
+    return false
+end
+
+function SetupCore:EnsureDecurseCombatTicker()
+    if self.decurseCombatTicker then return end
+    local ticker = CreateFrame("Frame")
+    ticker:Hide()
+    ticker:SetScript("OnUpdate", function(self, elapsed)
+        if not InCombatLockdown() then
+            self:Hide()
+            return
+        end
+        self.elapsed = (self.elapsed or 0) + elapsed
+        if self.elapsed < 0.12 then return end
+        self.elapsed = 0
+        if SetupCore:GetDecurseSpec() then
+            SetupCore:PushDecurseMacro(true)
+        end
+    end)
+    self.decurseCombatTicker = ticker
+end
+
 function SetupCore:EnsureDecurseButton()
     if self.decurseBtn then return self.decurseBtn end
 
@@ -979,16 +1035,13 @@ function SetupCore:EnsureDecurseButton()
     btn:RegisterForClicks("AnyUp", "AnyDown")
     btn:SetAttribute("type", "macro")
     self.decurseBtn = btn
-
-    -- PreClick runs in the secure click path: refresh spell/unit or macrotext every M3 press.
-    btn:SetScript("PreClick", function()
-        SetupCore:ApplyDecurseClickAttributes()
-    end)
+    self:EnsureDecurseSecureHeader(btn)
 
     local frame = CreateFrame("Frame")
     frame:RegisterEvent("UNIT_AURA")
     frame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
     frame:RegisterEvent("PLAYER_TARGET_CHANGED")
+    frame:RegisterEvent("PLAYER_REGEN_DISABLED")
     frame:RegisterEvent("PLAYER_REGEN_ENABLED")
     frame:SetScript("OnEvent", function(_, event, unit)
         if event == "UNIT_AURA" then
@@ -997,60 +1050,57 @@ function SetupCore:EnsureDecurseButton()
                 return
             end
         end
-        if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
-            SetupCore.decurseStale = nil
+        if event == "PLAYER_REGEN_DISABLED" then
+            SetupCore:EnsureDecurseCombatTicker()
+            SetupCore.decurseCombatTicker:Show()
+            SetupCore:PushDecurseMacro(true)
+            return
         end
-        if not InCombatLockdown() then
-            SetupCore:UpdateDecurseButton()
+        if event == "PLAYER_REGEN_ENABLED" then
+            if SetupCore.decurseCombatTicker then
+                SetupCore.decurseCombatTicker:Hide()
+            end
         end
+        SetupCore:PushDecurseMacro()
     end)
     self.decurseEventFrame = frame
     return btn
 end
 
--- TBC Anniversary: type=spell + unit on secure buttons is unreliable (click, no cast).
--- Always drive the secure button via inline macrotext refreshed on each M3 PreClick.
-function SetupCore:ApplyDecurseClickAttributes()
-    local btn = self.decurseBtn
+function SetupCore:PushDecurseMacro(force)
     local spec = self:GetDecurseSpec()
-    if not btn or not spec then return nil end
+    if not spec then return nil end
+    if not self.decurseBtn and InCombatLockdown() then return nil end
+    self:EnsureDecurseButton()
+
     local unit, spell = self:ResolveDispelTarget()
     local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
-    btn:SetAttribute("type", "macro")
-    btn:SetAttribute("spell", nil)
-    btn:SetAttribute("unit", nil)
-    btn:SetAttribute("macrotext", body)
-    return unit, spell, body
-end
-
--- Back-compat alias for /decursefix and OOC refresh paths.
-function SetupCore:ApplyDecurseMacroText()
-    return self:ApplyDecurseClickAttributes()
-end
-
--- fromSecureClick: true when invoked from PreClick right before the cast fires.
-function SetupCore:UpdateDecurseButton(fromSecureClick)
-    local spec = self:GetDecurseSpec()
-    if not spec then return false end
-    if not self.decurseBtn then
-        if InCombatLockdown() then return false end
-        self:EnsureDecurseButton()
+    if not force and body == self.lastDispelBody then
+        return unit, spell, body
     end
-    if not self.decurseBtn then return false end
+    self.lastDispelBody = body
 
-    local inCombat = InCombatLockdown()
-    if inCombat and not fromSecureClick then
-        self.decurseStale = true
-        return false
-    end
-
-    local unit, spell = self:ApplyDecurseMacroText()
-    if not inCombat then
-        local body = self:BuildDecurseMacroBody(unit, spell, spec.icon)
+    self:ApplyDecurseMacroToButton(body)
+    if not InCombatLockdown() then
         local _, _, icon = GetSpellInfo(spell or spec.icon)
         self:EnsureRawMacro(spec.macroName, body, icon or "INV_Misc_QuestionMark")
     end
-    self.decurseStale = false
+    return unit, spell, body
+end
+
+function SetupCore:ApplyDecurseClickAttributes()
+    return self:PushDecurseMacro(true)
+end
+
+function SetupCore:ApplyDecurseMacroText()
+    return self:PushDecurseMacro(true)
+end
+
+function SetupCore:UpdateDecurseButton()
+    local spec = self:GetDecurseSpec()
+    if not spec then return false end
+    local unit, spell = self:PushDecurseMacro(true)
+    if not unit and not spell then return false end
     return true, spell, unit
 end
 
@@ -2045,7 +2095,7 @@ SlashCmdList["SETUPDECURSE"] = function()
         print("|cff999999  macro:|r " .. (body:gsub("\n", " / ")))
     end
     if inCombat then
-        print("|cff999999SetupCore|r in combat: M3 re-scans auras on every click (party/raid included)")
+        print("|cff999999SetupCore|r in combat: macro pushed via secure handler (refreshes on UNIT_AURA)")
     end
 end
 
