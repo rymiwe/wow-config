@@ -695,8 +695,19 @@ function SetupCore:IsSpellKnown(spellName)
     return false
 end
 
+local DISPEL_TYPE_BY_ID = {
+    [1] = "Magic",
+    [2] = "Curse",
+    [3] = "Disease",
+    [4] = "Poison",
+}
+
 function SetupCore:NormalizeDispelType(auraType)
-    if not auraType or auraType == "" then return nil end
+    if auraType == nil or auraType == "" then return nil end
+    if type(auraType) == "number" then
+        return DISPEL_TYPE_BY_ID[auraType]
+    end
+    if type(auraType) ~= "string" then return nil end
     local lower = auraType:lower()
     if lower == "poison" then return "Poison"
     elseif lower == "disease" then return "Disease"
@@ -706,20 +717,20 @@ function SetupCore:NormalizeDispelType(auraType)
     return auraType
 end
 
--- Prefer classic UnitDebuff in combat — C_UnitAuras often omits dispel types mid-fight.
+-- Anniversary UnitDebuff uses modern returns: name, icon, count, dispelType (4th).
 function SetupCore:GetAuraDispelType(unit, index, filter)
     filter = filter or "HARMFUL"
     if filter == "HARMFUL" then
-        local name, _, _, _, debuffType = UnitDebuff(unit, index)
+        local name, _, _, dispelType = UnitDebuff(unit, index)
         if name then
-            return name, self:NormalizeDispelType(debuffType)
+            return name, self:NormalizeDispelType(dispelType)
         end
         return nil
     end
     if filter == "HELPFUL" then
-        local name, _, _, _, buffType = UnitBuff(unit, index)
+        local name, _, _, dispelType = UnitBuff(unit, index)
         if not name then return nil end
-        return name, self:NormalizeDispelType(buffType)
+        return name, self:NormalizeDispelType(dispelType)
     end
     if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
         local data = C_UnitAuras.GetAuraDataByIndex(unit, index, filter)
