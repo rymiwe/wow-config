@@ -8,7 +8,7 @@ VER 3 0100000000000010 "SC_ChainHeal" "136042"
 END
 VER 3 010000000000000F "SC_Decurse" "136067"
 #showtooltip Cure Poison
-/cast [@player][@mouseover,help,nodead][help,nodead] Cure Poison
+/cast [@player] Cure Poison
 END
 VER 3 0100000000000006 "SC_FlameShock" "135813"
 #showtooltip

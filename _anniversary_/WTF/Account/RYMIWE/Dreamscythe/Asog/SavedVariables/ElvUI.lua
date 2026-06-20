@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p [The God Hakkar (3528)]",
 "/p have the quest",
 "/p no egg yet?",
 "/p wait",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/ginvite Nyrann",
 "/setupbars",
 "/rl",
+"/decursefix",
 },
 ["ChatHistoryLog"] = {
 },
