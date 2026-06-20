@@ -706,10 +706,21 @@ function SetupCore:NormalizeDispelType(auraType)
     return auraType
 end
 
--- Modern Anniversary client: dispel type is aura.dispelName / dispelType.
--- Legacy: debuffType at UnitDebuff pos 5. filter = "HARMFUL" (debuffs) or "HELPFUL" (purge).
+-- Prefer classic UnitDebuff in combat — C_UnitAuras often omits dispel types mid-fight.
 function SetupCore:GetAuraDispelType(unit, index, filter)
     filter = filter or "HARMFUL"
+    if filter == "HARMFUL" then
+        local name, _, _, _, debuffType = UnitDebuff(unit, index)
+        if name then
+            return name, self:NormalizeDispelType(debuffType)
+        end
+        return nil
+    end
+    if filter == "HELPFUL" then
+        local name, _, _, _, buffType = UnitBuff(unit, index)
+        if not name then return nil end
+        return name, self:NormalizeDispelType(buffType)
+    end
     if C_UnitAuras and C_UnitAuras.GetAuraDataByIndex then
         local data = C_UnitAuras.GetAuraDataByIndex(unit, index, filter)
         if not data or not data.name then return nil end
@@ -727,14 +738,7 @@ function SetupCore:GetAuraDispelType(unit, index, filter)
         end
         return name, self:NormalizeDispelType(dispelName)
     end
-    if filter == "HELPFUL" then
-        local name, _, _, _, buffType = UnitBuff(unit, index)
-        if not name then return nil end
-        return name, self:NormalizeDispelType(buffType)
-    end
-    local name, _, _, _, debuffType = UnitDebuff(unit, index)
-    if not name then return nil end
-    return name, self:NormalizeDispelType(debuffType)
+    return nil
 end
 
 function SetupCore:ResolveDispelUnit()
@@ -764,11 +768,34 @@ function SetupCore:AppendGroupDispelUnits(order)
     end
 end
 
+function SetupCore:ResolvePlayerDispelSpell()
+    local _, class = UnitClass("player")
+    if not class then return nil end
+    local spell = self:PickDispelSpell("player")
+    if spell then return spell end
+    if self:UnitHasAnyDebuff("player") then
+        spell = DISPEL_FALLBACK_SPELL[class]
+        if spell and self:IsSpellKnown(spell) then
+            return spell
+        end
+    end
+    return nil
+end
+
 -- Friendly dispels first (mouseover -> target -> player -> group), then hostile purge.
 function SetupCore:ResolveDispelTarget()
     local _, class = UnitClass("player")
     local map = class and CLASS_DISPEL[class]
     local harmSpell = map and map.harm
+    local inCombat = InCombatLockdown()
+
+    -- In combat, self-poison while targeting a mob is the common failure: cure self first.
+    if inCombat then
+        local selfSpell = self:ResolvePlayerDispelSpell()
+        if selfSpell then
+            return "player", selfSpell
+        end
+    end
 
     local friendlyOrder = {}
     if UnitExists("mouseover") and not UnitCanAttack("player", "mouseover") then
@@ -793,14 +820,14 @@ function SetupCore:ResolveDispelTarget()
     end
 
     -- Debuff typedetection can miss; still cure self before Purge on a mob target.
-    if class and self:UnitHasAnyDebuff("player") then
-        local fallback = DISPEL_FALLBACK_SPELL[class]
-        if fallback and self:IsSpellKnown(fallback) then
-            return "player", self:PickDispelSpell("player") or fallback
+    if class then
+        local selfSpell = self:ResolvePlayerDispelSpell()
+        if selfSpell then
+            return "player", selfSpell
         end
     end
 
-    if harmSpell and self:IsSpellKnown(harmSpell) then
+    if harmSpell and self:IsSpellKnown(harmSpell) and not self:UnitHasAnyDebuff("player") then
         if UnitExists("mouseover") and UnitCanAttack("player", "mouseover") then
             return "mouseover", harmSpell
         end
@@ -888,8 +915,9 @@ function SetupCore:UnitHasDispellableDebuff(unit)
 end
 
 function SetupCore:UnitHasAnyDebuff(unit)
+    if not UnitExists(unit) then return false end
     for i = 1, 40 do
-        local name = self:GetAuraDispelType(unit, i)
+        local name = UnitDebuff(unit, i)
         if not name then break end
         return true
     end
@@ -961,7 +989,9 @@ function SetupCore:EnsureDecurseButton()
         if event == "PLAYER_REGEN_ENABLED" and SetupCore.decurseStale then
             SetupCore.decurseStale = nil
         end
-        SetupCore:UpdateDecurseButton()
+        if not InCombatLockdown() then
+            SetupCore:UpdateDecurseButton()
+        end
     end)
     self.decurseEventFrame = frame
     return btn
