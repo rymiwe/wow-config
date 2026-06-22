@@ -1,7 +1,7 @@
 
 GuildMotdCyclerDB = {
-["saltDate"] = "2026-06-20",
+["saltDate"] = "2026-06-21",
 ["lastSalt"] = 0,
-["lastMotdDate"] = "2026-06-20",
-["lastMotdText"] = "Today's element: Fire. Today's mood: Immolate. (Ragnaros is restless.)",
+["lastMotdDate"] = "2026-06-21",
+["lastMotdText"] = "Today's element: Air. Today's mood: Chain Lightning. (Al'Akir rides the gale.)",
 }

@@ -20,8 +20,8 @@ ElvCharacterDB = {
 "my main and alt are already healer/tank",
 "/ginvite Nyrann",
 "/setupbars",
-"/rl",
 "/decursefix",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
