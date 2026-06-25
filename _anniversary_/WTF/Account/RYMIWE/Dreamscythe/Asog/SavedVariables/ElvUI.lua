@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p have the quest",
 "/p no egg yet?",
 "/p wait",
 "/p we didn't get the \"filled egg\" from that",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/setupbars",
 "/decursefix",
 "/rl",
+"/ty",
 },
 ["ChatHistoryLog"] = {
 },

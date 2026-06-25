@@ -1,4 +1,11 @@
 Version: 1
+Frame: ZygorGuidesViewer_ActionBar
+FrameLevel: 10
+Anchor: RIGHT
+X: -5
+Y: -209
+W: 100
+H: 40
 Frame: TotemTimersFrame
 FrameLevel: 0
 Anchor: BOTTOMLEFT
