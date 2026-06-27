@@ -18,10 +18,10 @@ ElvCharacterDB = {
 "/ginvite Nyrann",
 "/setupbars",
 "/decursefix",
-"/rl",
 "/ty",
 "/p cheers",
 "/s nope",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
