@@ -4,7 +4,7 @@ OPie_SavedData = {
 },
 ["_OPieVersion"] = "8.3.3 (4.141)",
 ["_StoreVersion"] = 122,
-["_GameVersion"] = "2.5.5",
+["_GameLocale"] = "enUS",
 ["_StoreVersion2"] = 122,
 ["ProfileStorage"] = {
 ["default"] = {
@@ -17,10 +17,11 @@ OPie_SavedData = {
 ["AutoQuestWhitelist"] = {
 [3729] = true,
 [3737] = true,
+[23361] = true,
 [23818] = true,
-[4623] = true,
-[4624] = true,
 [8544] = true,
+[4624] = true,
+[4623] = true,
 },
 ["RingKeeper"] = {
 ["OPieFlagStore"] = {
@@ -28,5 +29,5 @@ OPie_SavedData = {
 },
 },
 },
-["_GameLocale"] = "enUS",
+["_GameVersion"] = "2.5.5",
 }
