@@ -6,7 +6,7 @@ echo === wow-config installer ===
 echo.
 echo This will:
 echo   1. Find your WoW Anniversary install
-echo   2. Copy custom addons (SetupCore, ChatAnchor, ShamanSetup, DruidSetup)
+echo   2. Copy custom addons (SetupCore, ElvUIFixes, ShamanSetup, DruidSetup)
 echo   3. Install bindings + recommended CVar defaults
 echo   4. Set up auto-config-on-first-login
 echo.

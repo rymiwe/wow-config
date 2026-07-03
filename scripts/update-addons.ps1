@@ -71,7 +71,6 @@ try {
 Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
 Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
 Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
-
 $opieDir = Join-Path $addonsDir "OPie"
 try {
     $opieMain = Invoke-WebRequest -Uri "https://www.townlong-yak.com/addons/opie" -UseBasicParsing

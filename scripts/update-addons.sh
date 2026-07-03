@@ -62,7 +62,6 @@ fetch_addon_zip "ElvUI"     "$elvui_url"
 fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
 fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
 fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"
-
 opie_main="$(curl -fsSL https://www.townlong-yak.com/addons/opie 2>/dev/null || true)"
 opie_ver_path="$(echo "$opie_main" | grep -oE 'href="/addons/opie/release/[0-9.]+"' | head -1 | sed -E 's|^href="||; s|"$||')"
 if [[ -n "$opie_ver_path" ]]; then

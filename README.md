@@ -35,7 +35,7 @@ curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh | b
 ```
 
 The installer:
-1. Copies our custom addons (`SetupCore`, `ChatAnchor`, `ShamanSetup`, `DruidSetup`, `HunterSetup`, `PaladinSetup`, `WarriorSetup`)
+1. Copies our custom addons (`SetupCore`, `ElvUIFixes`, `ShamanSetup`, `DruidSetup`, `HunterSetup`, `PaladinSetup`, `WarriorSetup`)
 2. Seeds bindings + ElvUI layout + Config.wtf CVar defaults
 3. Flips an auto-setup flag so `/setupbars` runs on first login
 4. **Direct-downloads companion addons** from canonical sources (no addon manager required):
@@ -89,7 +89,7 @@ If you use TSM: open `/tsm` → Groups → Import / Export → paste each `.txt`
 | addon | purpose |
 |---|---|
 | **SetupCore** | Shared plumbing: `ApplyLayout`, `EnsureMacro` (mouseover/startattack/etc. templates), `/setupbars` slash command, auto-leave noisy channels on first login per character. Class addons depend on it. |
-| **ChatAnchor** | Re-anchors `ChatFrame1` to ElvUI's left chat panel — fixes a chat-text drift bug at 4K. |
+| **ElvUIFixes** | ElvUI/Anniversary workarounds: chat dock drift, chat settings crash, Esc-menu logout. |
 | **ShamanSetup** | `/setupbars` Shaman layout. Pre-loaded with full TBC roster. Heals/dispels use mouseover macros automatically. Totems on OPie M4, Weapon Enchants on M5. |
 | **DruidSetup** | `/setupbars` Druid layout. Feral + Balance generalist defaults; Resto-friendly heals. Form-toggle keys on the ZXCVB row; Moonkin Form on F. Bear/Cat form-specific abilities placed manually on Bar 1 form pages. Buffs (MotW/Thorns/GotW) on OPie M4, Travel forms on M5. |
 | **HunterSetup** | `/setupbars` Hunter layout. Ranged generalist; Marks/Survival/BM-friendly. Auto Shot on `` ` ``, traps on QERT row. Pet bar is Blizzard's PetActionBar (not managed here). Aspects on OPie M4, Pet OOC commands on M5. |

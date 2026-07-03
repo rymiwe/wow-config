@@ -302,7 +302,6 @@ try {
     Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
     Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
     Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
-
     # OPie from townlong-yak. Two-step fetch: main page links to the current
     # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
     # a /addons/gate/<hash>/ anti-hotlink prefix.

@@ -12,12 +12,14 @@
 # Custom addons (each flavor has its own AddOns dir)
 !_*/Interface/
 !_*/Interface/AddOns/
-!_*/Interface/AddOns/ChatAnchor/
-!_*/Interface/AddOns/ChatAnchor/**
+!_*/Interface/AddOns/ElvUIFixes/
+!_*/Interface/AddOns/ElvUIFixes/**
 !_*/Interface/AddOns/ChatPanelThemes/
 !_*/Interface/AddOns/ChatPanelThemes/**
 !_*/Interface/AddOns/ZygorSetup/
 !_*/Interface/AddOns/ZygorSetup/**
+!_*/Interface/AddOns/TSMSetup/
+!_*/Interface/AddOns/TSMSetup/**
 !_*/Interface/AddOns/SetupCore/
 !_*/Interface/AddOns/SetupCore/**
 !_*/Interface/AddOns/ShamanSetup/

@@ -320,7 +320,6 @@ q_data="$(github_latest_release Questie/Questie)"
 maybe_install_addon "Questie" "$ADDONS_DIR/Questie" "${q_data%%|*}" "${q_data##*|}"
 bb_data="$(github_latest_release funkydude/BadBoy)"
 maybe_install_addon "BadBoy" "$ADDONS_DIR/BadBoy" "${bb_data%%|*}" "${bb_data##*|}"
-
 # OPie from townlong-yak. Two-step fetch: main page links to the current
 # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
 # a /addons/gate/<hash>/ anti-hotlink prefix.

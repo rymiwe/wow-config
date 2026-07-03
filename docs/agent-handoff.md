@@ -39,7 +39,7 @@ overwrites local tweaks.
 E:\Program Files\World of Warcraft\
 ├── _anniversary_\Interface\AddOns\
 │   ├── SetupCore\           ← shared plumbing (the heart of everything)
-│   ├── ChatAnchor\          ← fixes ElvUI chat dock + consolidates panels
+│   ├── ElvUIFixes\          ← ElvUI/Anniversary runtime fixes (chat, game menu, etc.)
 │   ├── ZygorSetup\          ← per-character Zygor preset injector
 │   ├── ShamanSetup\ DruidSetup\ PaladinSetup\ WarriorSetup\
 │   ├── HunterSetup\ MageSetup\ PriestSetup\ RogueSetup\ WarlockSetup\
@@ -84,7 +84,7 @@ E:\Program Files\World of Warcraft\
   level-tier resolver, form-aware `ApplyFormLayout` helper, ElvUI tooltip /
   AFK / minimap-icon initial-state pokes on `PLAYER_LOGIN`, channel-leave-on-
   first-login, Shift-paging for Druid/Warrior/Rogue.
-- **ChatAnchor**: hooks ChatFrame1 SetPoint to keep it docked in LeftChatPanel
+- **ElvUIFixes**: chat dock/settings fixes + Esc-menu logout secure overlays
   (works around an ElvUI Anniversary bug — see below). Also consolidates all
   chat tabs into the left dock and hides RightChatPanel.
 - **ZygorSetup**: writes opinionated Zygor settings per-character on PLAYER_LOGIN
@@ -444,7 +444,7 @@ These bit us; don't rediscover them.
 1. **ElvUI ChatFrame1 docker race on Anniversary**: `Chat.lua:1375` guards
    `[chat.isDocked and chat == docker]` where docker may be nil at PLAYER_LOGIN.
    ChatFrame1 fails the guard, FindChatWindows returns nil, PositionChat
-   silently skips the LeftChatPanel SetPoint branch. ChatAnchor addon works
+   silently skips the LeftChatPanel SetPoint branch. ElvUIFixes addon works
    around it by:
    1. Force-setting `_G.GeneralDockManager.primary = ChatFrame1`
    2. Calling `CH:PositionChats()`
@@ -524,7 +524,7 @@ Read `TODO.md` at repo root for the canonical, always-current list. Categories:
 - **Form-aware bar follow-ups**: Druid Prowl sub-bar (when kid trains it)
 - **Polish / smaller items**: install.ps1 wcu function port, smart-merge for
   ElvUI.lua/Config.wtf, wcu --rollback, socat auto-install prompt, Hyprland
-  multi-game support, ChatAnchor diag for second mover, Pally tertiary OPie
+  multi-game support, ElvUIFixes diag for second mover, Pally tertiary OPie
   ring for OOC utility
 
 ---
@@ -597,7 +597,7 @@ When in doubt:
 
 Custom addons are auto-bumped on commit. Latest versions visible via:
 ```
-grep -h "## Version" _anniversary_/Interface/AddOns/{SetupCore,ChatAnchor,ZygorSetup,DruidSetup,PaladinSetup,ShamanSetup,WarriorSetup,HunterSetup,MageSetup,PriestSetup,RogueSetup,WarlockSetup}/*.toc
+grep -h "## Version" _anniversary_/Interface/AddOns/{SetupCore,ElvUIFixes,ZygorSetup,DruidSetup,PaladinSetup,ShamanSetup,WarriorSetup,HunterSetup,MageSetup,PriestSetup,RogueSetup,WarlockSetup}/*.toc
 ```
 
 Community addons (auto-fetched, can drift):
