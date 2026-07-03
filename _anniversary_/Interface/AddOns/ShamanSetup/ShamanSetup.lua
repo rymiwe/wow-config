@@ -23,15 +23,9 @@ local LAYOUT = {
     {"Shamanistic Rage",       1, 12},                    -- T   Enh CD (skipped until talented)
 
     -- MAIN BOTTOM (Bar 3) ==========================================
-<<<<<<< HEAD
     -- F = TT Cast (post-layout); G = Totemic Call recall
     {"Totemic Call",           3, 6},                     -- G
     {"Ghost Wolf",             3, 8},                     -- Z (also forced by SetupCore travel slots)
-=======
-    -- F free after Lightning Shield moved to E; G = racial on Draenei
-    {"Ghost Wolf",             3, 8},                     -- Z (also forced by SetupCore travel slots)
-    {"Totemic Call",           3, 9},                     -- X
->>>>>>> origin/main
 
     -- ALT TOP (Bar 4) — heals on numrow, damage on Q/E/R home row ========
     {"Healing Wave",           4, 2, "mouseover-help"},   -- Alt-1
@@ -168,11 +162,7 @@ local function Run()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
     print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")
-<<<<<<< HEAD
     print("|cff999999  F totem drop | M3 decurse | M4 totems (OPie) | M5 enchants. Bar 6=travel/rez, bar 7=consumables.|r")
-=======
-    print("|cff999999  TotemTimers = click grid | M4/Alt+M4 OPie | M5 enchants | M3 decurse. Bar 6/7 = utility/consumables.|r")
->>>>>>> origin/main
 end
 
 SetupCore:RegisterReservedSlots("SHAMAN", {{3, 5}})
