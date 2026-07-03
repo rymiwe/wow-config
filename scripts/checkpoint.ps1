@@ -41,6 +41,22 @@ if (-not (Test-Path ".git")) {
     exit 1
 }
 
+# Refuse to touch anything mid-merge/rebase/cherry-pick. `git add` stages a
+# conflicted file's literal <<<<<<< markers as if they were resolved content,
+# so an auto-checkpoint firing here (e.g. WoW exits while a Claude session is
+# mid-conflict-resolution) can commit-and-push broken Lua straight to main.
+$gitDir = git rev-parse --git-dir 2>$null
+if ($gitDir) {
+    $mergeInProgress = (Test-Path (Join-Path $gitDir "MERGE_HEAD")) -or
+                        (Test-Path (Join-Path $gitDir "rebase-merge")) -or
+                        (Test-Path (Join-Path $gitDir "rebase-apply")) -or
+                        (Test-Path (Join-Path $gitDir "CHERRY_PICK_HEAD"))
+    if ($mergeInProgress) {
+        Write-Warning "Merge/rebase/cherry-pick in progress - skipping checkpoint (not staging, committing, or pushing). Resolve it first."
+        exit 0
+    }
+}
+
 # Stage tracked-content paths only - never `git add .` (could pull in random junk).
 # .gitignore enforces the deny-by-default whitelist; we just narrow further to the
 # directories that actually change in normal play.
@@ -66,6 +82,21 @@ $diff = git diff --cached --shortstat
 if (-not $diff) {
     if (-not $Quiet) { Write-Host "No changes to commit." }
     exit 0
+}
+
+# Belt-and-suspenders: never commit literal conflict markers, even if they
+# somehow got staged outside the MERGE_HEAD check above.
+$stagedFiles = git diff --cached --name-only
+$markerHits = @()
+foreach ($f in $stagedFiles) {
+    if (-not (Test-Path $f)) { continue }
+    $hit = Select-String -Path $f -Pattern '^(<{7}|={7}|>{7})' -SimpleMatch:$false -ErrorAction SilentlyContinue
+    if ($hit) { $markerHits += $f }
+}
+if ($markerHits.Count -gt 0) {
+    Write-Error "Unresolved conflict markers staged in: $($markerHits -join ', '). Aborting checkpoint - resolve manually."
+    git reset | Out-Null
+    exit 1
 }
 
 # Auto commit message
