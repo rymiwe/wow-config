@@ -105,7 +105,7 @@ try {
     if (-not (Test-Path $dstSV))     { New-Item -ItemType Directory -Force -Path $dstSV     | Out-Null }
 
     # Addon code is canonical — always overwrite.
-    $addons = @("SetupCore", "ElvUIFixes", "ZygorSetup", "TSMSetup", "HeyDaddy", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
+    $addons = @("SetupCore", "ElvUIFixes", "ZygorSetup", "TSMSetup", "HeyDaddy", "GuildMotdCycler", "ShamanSetup", "DruidSetup", "HunterSetup", "PaladinSetup", "WarriorSetup", "MageSetup", "PriestSetup", "RogueSetup", "WarlockSetup")
     foreach ($a in $addons) {
         $src = Join-Path $srcAddons $a
         $dst = Join-Path $dstAddons $a
@@ -287,8 +287,20 @@ try {
         }
     }
 
+    function Get-AmrTbcZipUrl {
+        try {
+            $page = Invoke-WebRequest -Uri "https://www.askmrrobot.com/addon" -UseBasicParsing
+            if ($page.Content -match '<h6>\s*TBC\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-\d+\.zip)"') {
+                return $matches[1]
+            }
+        } catch {
+            Write-Warning "AskMrRobotClassic page fetch failed: $_"
+        }
+        return $null
+    }
+
     Write-Host ""
-    Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie)..."
+    Write-Host "Installing companion addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers, AskMrRobotClassic)..."
 
     # ElvUI from Tukui's JSON API.
     try {
@@ -302,6 +314,8 @@ try {
     Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
     Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
     Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
+    Install-AddonZip "TotemTimers" (Get-GitHubLatestZipUrl "taubut/TotemTimers_Fork") $addonsDir
+
     # OPie from townlong-yak. Two-step fetch: main page links to the current
     # /addons/opie/release/<major.minor>/ which contains the actual zip URL with
     # a /addons/gate/<hash>/ anti-hotlink prefix.
@@ -324,6 +338,13 @@ try {
         Write-Warning "OPie download failed: $_. Install manually from https://www.townlong-yak.com/addons/opie"
     }
 
+    $amrUrl = Get-AmrTbcZipUrl
+    if ($amrUrl) {
+        Install-AddonZip "AskMrRobotClassic" $amrUrl $addonsDir
+    } else {
+        Write-Warning "AskMrRobotClassic TBC download not found; install from https://www.askmrrobot.com/addon"
+    }
+
     Write-Host ""
     Write-Host "Note: TSM (TradeSkillMaster) is not on free addon sources we can auto-install."
     Write-Host "      Install via https://www.curseforge.com/wow/addons/trade-skill-master if you want it."
@@ -343,8 +364,11 @@ try {
     Write-Host "  1. Launch WoW, log in - SetupCore runs /setupbars automatically on first login"
     Write-Host "  2. OPie rings auto-bind to M4 (primary) and M5 (secondary) on first login."
     Write-Host "     If a ring isn't bound, /opie -> Ring Bindings to set manually (overrides persist)."
-    Write-Host "  3. (Optional) Install TSM from CurseForge if you use the Auction House"
-    Write-Host "  4. (Optional) Import TSM groups via /tsm UI from templates/tsm-groups/"
+    Write-Host "  3. (Optional) Install TSM + TSM App Helper from CurseForge if you use the AH"
+    Write-Host "     Enable TSMSetup in the addon list (installed with wow-config)"
+    Write-Host "  4. (Optional) TSM one-time setup: templates/tsm-groups/README.md"
+    Write-Host "     (import MonChiSub groups, then /tsmsetup after TSM is installed)"
+    Write-Host "  5. Ask Mr. Robot: /amr show - export gear to askmrrobot.com, import BiS results back"
 
     # Offer a `wcu` PowerShell function for one-command refreshes (PowerShell
     # doesn't have shell-style aliases for arbitrary commands, so we use a

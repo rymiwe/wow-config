@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie) to latest
+# Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers,
+# AskMrRobotClassic) to latest upstream versions.
 # upstream versions. Doesn't touch our custom addons, bindings, or SavedVariables.
 #
 # Usage:
@@ -56,12 +57,29 @@ github_latest_zip() {
         | sed -E 's|^.*"(https[^"]+)"|\1|'
 }
 
+amr_tbc_zip() {
+    local page; page="$(curl -fsSL "https://www.askmrrobot.com/addon" 2>/dev/null || true)"
+    python3 - <<'PY' "$page"
+import re, sys
+html = sys.argv[1] if len(sys.argv) > 1 else ""
+m = re.search(
+    r'<h6>\s*TBC\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-(\d+)\.zip)"',
+    html,
+    re.I | re.S,
+)
+if m:
+    print(m.group(1))
+PY
+}
+
 elvui_url="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null \
     | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
 fetch_addon_zip "ElvUI"     "$elvui_url"
 fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
 fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
 fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"
+fetch_addon_zip "TotemTimers" "$(github_latest_zip taubut/TotemTimers_Fork)"
+
 opie_main="$(curl -fsSL https://www.townlong-yak.com/addons/opie 2>/dev/null || true)"
 opie_ver_path="$(echo "$opie_main" | grep -oE 'href="/addons/opie/release/[0-9.]+"' | head -1 | sed -E 's|^href="||; s|"$||')"
 if [[ -n "$opie_ver_path" ]]; then
@@ -71,6 +89,13 @@ if [[ -n "$opie_ver_path" ]]; then
         rm -rf "$ADDONS_DIR/OPie"
         fetch_addon_zip "OPie" "https://www.townlong-yak.com${opie_zip_path}"
     fi
+fi
+
+amr_url="$(amr_tbc_zip)"
+if [[ -n "$amr_url" ]]; then
+    fetch_addon_zip "AskMrRobotClassic" "$amr_url"
+else
+    echo "WARN: AskMrRobotClassic TBC download not found" >&2
 fi
 
 echo "Done. /reload in-game to load new versions."

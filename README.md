@@ -9,7 +9,7 @@ Opinionated UI setup for WoW Anniversary (TBC Classic 2.5.5). Built for casual p
 - **Mouseover heals + dispels** — hover a party member, hit your heal key, no target-switching needed
 - **Smart defaults** — Trade/General chat auto-left per character, enemy nameplates always on, friendly off
 - **Auto-place on training** — newly-trained spells go on their reserved bar slot automatically, no `/setupbars` needed; `/restorebars` undoes any layout change
-- **One-shot bulk-install** for recommended companion addons (ElvUI, WeakAuras, BadBoy, OPie, TSM, Questie)
+- **One-shot bulk-install** for recommended companion addons (ElvUI, WeakAuras, BadBoy, OPie, Ask Mr. Robot, TSM, Questie)
 - **Per-class layouts** — Shaman, Druid (Feral+Balance), Hunter, Paladin, Warrior ship now; new classes generated via the [`wow-class-setup` skill](.claude/skills/wow-class-setup.md)
 
 Designed for the audience: kids, spouses, friends who want to log in and play. Optimized for "discoverability over efficiency" — every key bind is intuitive even if it costs 0.1s of theoretical optimization. PvP-grade speed is explicitly NOT the goal.
@@ -42,8 +42,9 @@ The installer:
    - **ElvUI** from Tukui's JSON API
    - **WeakAuras / Questie / BadBoy** from GitHub Releases
    - **OPie** from townlong-yak (Foxlit's official site)
+   - **Ask Mr. Robot Classic** (TBC build) from [askmrrobot.com/addon](https://www.askmrrobot.com/addon)
 
-To refresh addon versions later: re-run `install.sh` / `install.ps1` (full reinstall), or use the lighter `scripts/update-addons.sh` / `scripts/update-addons.ps1` which only re-fetches the 5 community addons.
+To refresh addon versions later: re-run `install.sh` / `install.ps1` (full reinstall), or use the lighter `scripts/update-addons.sh` / `scripts/update-addons.ps1` which only re-fetches the community addons.
 
 > **TSM caveat**: TradeSkillMaster isn't on a free public source we can script-fetch (distributed via their own desktop app + CurseForge auth-walled API). Install [TSM manually from CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you want it; otherwise skip.
 
@@ -67,9 +68,13 @@ OPie ring bindings auto-apply on first login: **M4 = primary class utility ring*
 
 If a ring doesn't bind for some reason (existing OPie overrides from a prior install can stick), open `/opie` → **Ring Bindings**, find the ring, click the binding cell, press the desired key. Manual overrides persist.
 
-### Step 4 — (Optional) Install TSM + import TSM groups
+### Step 4 — (Optional) TradeSkillMaster
 
-If you use TSM: open `/tsm` → Groups → Import / Export → paste each `.txt` file from <https://github.com/rymiwe/wow-config/tree/main/templates/tsm-groups>. See that folder's README for click-by-click steps.
+If you use the auction house:
+
+1. Install **TradeSkillMaster** + **TSM App Helper** from [CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) (not auto-installed by our script).
+2. Enable **TSMSetup** on the character-select addon screen (shipped with wow-config; enforces sane mat/craft/DE pricing every login).
+3. One-time per TSM profile: follow [`templates/tsm-groups/README.md`](templates/tsm-groups/README.md) — import MonChiSub groups, attach operations, `/tsmsetup` + `/reload`.
 
 ### Day-to-day after install
 
@@ -90,6 +95,7 @@ If you use TSM: open `/tsm` → Groups → Import / Export → paste each `.txt`
 |---|---|
 | **SetupCore** | Shared plumbing: `ApplyLayout`, `EnsureMacro` (mouseover/startattack/etc. templates), `/setupbars` slash command, auto-leave noisy channels on first login per character. Class addons depend on it. |
 | **ElvUIFixes** | ElvUI/Anniversary workarounds: chat dock drift, chat settings crash, Esc-menu logout. |
+| **TSMSetup** | TradeSkillMaster pricing defaults on login: `min(dbminbuyout, dbmarket)` mats, `0.8 * dbmarket` craft price, vendor auction floors, `deprofit` shopping column. Requires TSM. `/tsmsetup` to re-apply. |
 | **ShamanSetup** | `/setupbars` Shaman layout. Pre-loaded with full TBC roster. Heals/dispels use mouseover macros automatically. Totems on OPie M4, Weapon Enchants on M5. |
 | **DruidSetup** | `/setupbars` Druid layout. Feral + Balance generalist defaults; Resto-friendly heals. Form-toggle keys on the ZXCVB row; Moonkin Form on F. Bear/Cat form-specific abilities placed manually on Bar 1 form pages. Buffs (MotW/Thorns/GotW) on OPie M4, Travel forms on M5. |
 | **HunterSetup** | `/setupbars` Hunter layout. Ranged generalist; Marks/Survival/BM-friendly. Auto Shot on `` ` ``, traps on QERT row. Pet bar is Blizzard's PetActionBar (not managed here). Aspects on OPie M4, Pet OOC commands on M5. |
@@ -120,9 +126,10 @@ The installer auto-installs these via [CurseBreaker](https://github.com/AcidWeb/
 - **BadBoy** — kills 80% of in-game spam (gold sellers, RMT, boost spam). Single biggest signal-to-noise win. (WoWInterface)
 - **OPie** — radial menu addon. We use it for class-specific utility rings (totems, blessings, aspects, shouts, etc.). (WoWInterface)
 - **Questie** — quest tracker on minimap and world map. (GitHub releases)
+- **TotemTimers** — shaman totem grid (click-to-drop, timers, loadouts). (GitHub: taubut/TotemTimers_Fork)
 
 **Manual install** (CurseBreaker doesn't support free):
-- **TradeSkillMaster** — auction house replacement. Install from [CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you use the AH. Then import groups via [`templates/tsm-groups/`](templates/tsm-groups/).
+- **TradeSkillMaster** — auction house replacement. Install from [CurseForge](https://www.curseforge.com/wow/addons/trade-skill-master) if you use the AH. **TSMSetup** (our addon) installs with wow-config; see [`templates/tsm-groups/README.md`](templates/tsm-groups/README.md) for groups + operations.
 
 **Optional alternative — WoWUp-CF (GUI manager)**: if you prefer a GUI for browsing/managing addons over CurseBreaker's CLI, install [WoWUp-CF](https://github.com/WowUp/WowUp.CF/releases) and bulk-import [`templates/wowup-addons.txt`](templates/wowup-addons.txt). The two managers can coexist but watching for double-updates is annoying — pick one.
 
@@ -141,11 +148,13 @@ Import strings for useful WAs live in [`templates/weakauras/`](templates/weakaur
 
 See [`templates/weakauras/README.md`](templates/weakauras/README.md) for install instructions and a "build-your-own WA" walkthrough.
 
-## TSM groups (TradeSkillMaster)
+## TSM (TradeSkillMaster)
 
-Pre-categorized auction-house groups for TBC Anniversary live in [`templates/tsm-groups/`](templates/tsm-groups/). Mirrored from MonChiSub's community-published TBC TSM4 setup (also used by streamer StudenAlbatroz). Six import strings covering Consumables, Gems, Materials, Patterns & Plans, Miscellaneous, and Gear (looted + crafted).
+**TSMSetup** (custom addon) applies conservative pricing defaults every login — mat cost, craft price, destroy/shopping sources, vendor auction floors, and a `deprofit` column for DE shopping.
 
-These give you sensible categorization for shopping scans, posting, and crafting workflows without authoring groups by hand. There's no automated install — TSM's SavedVariables format is too complex to safely write to from outside the addon, so you import each file via TSM's in-game UI. See [`templates/tsm-groups/README.md`](templates/tsm-groups/README.md) for the click-by-click steps.
+**Groups** — MonChiSub TBC import strings in [`templates/tsm-groups/`](templates/tsm-groups/) (Materials, Consumables, Gems, etc.). Paste into `/tsm` once per profile.
+
+Full stack (groups + operations + verify): [`templates/tsm-groups/README.md`](templates/tsm-groups/README.md).
 
 ## Maintainer scripts
 

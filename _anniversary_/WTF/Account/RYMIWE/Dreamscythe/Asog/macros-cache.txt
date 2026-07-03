@@ -48,5 +48,5 @@ VER 3 0100000000000018 "SC_TotemDrop" "136023"
 END
 VER 3 010000000000001A "TT Cast" "INV_MISC_QUESTIONMARK"
 #showtooltips
-/castsequence reset=combat/15 Searing Totem(Rank 6), Stoneskin Totem(Rank 6), Mana Spring Totem(Rank 4), Grace of Air Totem(Rank 3)
+/castsequence reset=combat/15 Searing Totem(Rank 6), Stoneskin Totem(Rank 6), Healing Stream Totem, Grace of Air Totem(Rank 3)
 END
