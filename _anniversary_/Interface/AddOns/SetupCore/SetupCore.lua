@@ -799,14 +799,14 @@ function SetupCore:ResolveDispelTarget()
     local _, class = UnitClass("player")
     local map = class and CLASS_DISPEL[class]
     local harmSpell = map and map.harm
-    local inCombat = InCombatLockdown()
 
-    -- In combat, self-poison while targeting a mob is the common failure: cure self first.
-    if inCombat then
-        local selfSpell = self:ResolvePlayerDispelSpell()
-        if selfSpell then
-            return "player", selfSpell
-        end
+    -- Self-poison/disease must never wait on target/mouseover state: cure self first,
+    -- in or out of combat. (Previously this only ran in combat, so out of combat the
+    -- mouseover/target scan below ran first and self-cure was unreliable unless you
+    -- had yourself targeted.)
+    local selfSpell = self:ResolvePlayerDispelSpell()
+    if selfSpell then
+        return "player", selfSpell
     end
 
     local friendlyOrder = {}
@@ -828,14 +828,6 @@ function SetupCore:ResolveDispelTarget()
             if spell then
                 return unit, spell
             end
-        end
-    end
-
-    -- Debuff typedetection can miss; still cure self before Purge on a mob target.
-    if class then
-        local selfSpell = self:ResolvePlayerDispelSpell()
-        if selfSpell then
-            return "player", selfSpell
         end
     end
 
