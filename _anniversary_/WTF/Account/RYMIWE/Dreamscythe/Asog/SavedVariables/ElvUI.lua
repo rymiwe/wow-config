@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p oops",
 "/p didn't count",
 "/p |cffffffff|Hitem:10465::::::::56::::::::::|h[Egg of Hakkar]|h|r",
 "/p |cff1eff00|Hitem:10454::::::::56::::::::::|h[Essence of Eranikus]|h|r",
@@ -21,6 +20,7 @@ ElvCharacterDB = {
 "/p cheers",
 "/s nope",
 "/cheer",
+"/p yeah i'm in guild voice",
 "/rl",
 },
 ["ChatHistoryLog"] = {

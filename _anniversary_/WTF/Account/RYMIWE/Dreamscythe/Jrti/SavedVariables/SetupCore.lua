@@ -68,7 +68,7 @@ nil,
 ["name"] = "Seal of Righteousness",
 },
 {
-["id"] = 20162,
+["id"] = 20305,
 ["type"] = "spell",
 ["name"] = "Seal of the Crusader",
 },
@@ -179,6 +179,14 @@ nil,
 },
 nil,
 {
+["id"] = 2862,
+["type"] = "item",
+},
+{
+["id"] = 3239,
+["type"] = "item",
+},
+{
 ["id"] = 23986,
 ["type"] = "item",
 },
@@ -187,32 +195,27 @@ nil,
 ["type"] = "item",
 },
 {
-["id"] = 3239,
-["type"] = "item",
-},
-{
-["id"] = 2862,
-["type"] = "item",
-},
-{
 ["id"] = 2454,
 ["type"] = "item",
 },
-nil,
+{
+["id"] = 2458,
+["type"] = "item",
+},
+{
+["id"] = 5997,
+["type"] = "item",
+},
 {
 ["id"] = 2581,
 ["type"] = "item",
 },
 {
-["id"] = 4537,
-["type"] = "item",
-},
-{
-["id"] = 858,
+["id"] = 1710,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-06-06 19:54:12",
+["timestamp"] = "2026-07-03 21:14:43",
 },
 ["channelsLeft"] = true,
 }

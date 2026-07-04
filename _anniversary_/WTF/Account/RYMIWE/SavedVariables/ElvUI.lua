@@ -58,9 +58,9 @@ ElvDB = {
 ["general"] = {
 ["bottomPanel"] = false,
 ["valuecolor"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.73,
+["g"] = 0.55,
+["r"] = 0.96,
 },
 ["fontStyle"] = "SHADOW",
 ["loginmessage"] = false,
@@ -233,10 +233,10 @@ ElvDB = {
 ["ElvUF_Raid2Mover"] = "TOPLEFT,ElvUIParent,TOPLEFT,192,-295",
 ["ReputationBarMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,4",
 ["MinimapClusterMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,254",
-["PlayerPowerBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,209",
+["ElvUF_PlayerMover"] = "BOTTOM,ElvUIParent,BOTTOM,-136,187",
 ["AddonCompartmentMover"] = "RIGHT,ElvUI_MinimapHolder,RIGHT,-5,10",
 ["ObjectiveFrameMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-79,-293",
-["MirrorTimer2Mover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-310,-247",
+["BNETMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,279",
 ["ShiftAB"] = "BOTTOM,ElvUIParent,BOTTOM,0,68",
 ["TotemBarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,560,31",
 ["AutoButtonBar5Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-279,328",
@@ -244,7 +244,7 @@ ElvDB = {
 ["PvPMover"] = "TOP,ElvUIParent,TOP,0,-28",
 ["TooltipMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,255",
 ["tokenHolderMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-3,-164",
-["ElvUF_PlayerMover"] = "BOTTOM,ElvUIParent,BOTTOM,-136,187",
+["PlayerPowerBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,209",
 ["ElvAB_7"] = "BOTTOM,ElvUIParent,BOTTOM,0,290",
 ["RightChatMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-233,26",
 ["AutoButtonBar1Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-127,211",
@@ -274,8 +274,8 @@ ElvDB = {
 ["PrivateRaidWarningMover"] = "TOP,ElvUIParent,TOP,0,-240",
 ["ElvUF_FocusMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-572,369",
 ["ElvUF_BodyGuardMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,444",
-["EventToastMover"] = "TOP,ElvUIParent,TOP,0,-150",
-["MicrobarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,18",
+["ClassBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,80",
+["PrivateAurasMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-4,-177",
 ["UIErrorsFrameMover"] = "TOP,ElvUIParent,TOP,0,-195",
 ["DTPanelCoordsMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-76,49",
 ["SalvageCrateMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,2,-483",
@@ -291,8 +291,8 @@ ElvDB = {
 ["ElvAB_9"] = "BOTTOM,ElvUIParent,BOTTOM,-523,108",
 ["BelowMinimapContainerMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-43,17",
 ["AutoButtonBar4Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-279,286",
-["PrivateAurasMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-4,-177",
-["ClassBarMover"] = "BOTTOM,ElvUIParent,BOTTOM,0,80",
+["MicrobarMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,18",
+["EventToastMover"] = "TOP,ElvUIParent,TOP,0,-150",
 ["ElvUF_PlayerCastbarMover"] = "BOTTOM,ElvUIParent,BOTTOM,-136,176",
 ["ElvAB_3"] = "BOTTOM,ElvUIParent,BOTTOM,-460,50",
 ["ElvAB_5"] = "BOTTOM,ElvUIParent,BOTTOM,460,50",
@@ -309,7 +309,7 @@ ElvDB = {
 ["ElvUF_TankMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,4,-186",
 ["BossHeaderMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-365,-252",
 ["ElvUF_PetMover"] = "BOTTOM,ElvUIParent,BOTTOM,-187,123",
-["BNETMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-4,279",
+["MirrorTimer2Mover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-310,-247",
 ["ElvUF_PartyMover"] = "BOTTOMLEFT,ElvUIParent,BOTTOMLEFT,4,279",
 ["AlertFrameMover"] = "TOP,ElvUIParent,TOP,0,-95",
 ["DebuffsMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,4,-4",
@@ -423,38 +423,19 @@ ElvDB = {
 ["raid2"] = {
 ["enable"] = false,
 },
-["pet"] = {
-["debuffs"] = {
-["attachTo"] = "BUFFS",
-["enable"] = true,
-["priority"] = "Blacklist,Friendly:Dispellable,Personal,CCDebuffs",
-},
-["threatStyle"] = "NONE",
-["castbar"] = {
-["yOffsetTime"] = -10,
-["xOffsetTime"] = -2,
-["height"] = 8,
-["yOffsetText"] = -10,
-["xOffsetText"] = 2,
-["iconSize"] = 26,
-["iconAttached"] = false,
-["width"] = 130,
-},
-["infoPanel"] = {
-["enable"] = true,
-["height"] = 14,
-["transparent"] = true,
-},
+["targettarget"] = {
 ["name"] = {
 ["attachTextTo"] = "InfoPanel",
 },
-["height"] = 25,
-["buffs"] = {
-["priority"] = "Blacklist,Personal,Dispellable",
-},
-["healPrediction"] = {
+["power"] = {
 ["enable"] = false,
 },
+["disableMouseoverGlow"] = true,
+["infoPanel"] = {
+["enable"] = true,
+["transparent"] = true,
+},
+["height"] = 25,
 },
 ["player"] = {
 ["portrait"] = {
@@ -529,19 +510,38 @@ ElvDB = {
 ["text_format"] = "[healthcolor][health:deficit-percent-absorbs]",
 },
 },
-["targettarget"] = {
+["pet"] = {
+["debuffs"] = {
+["attachTo"] = "BUFFS",
+["enable"] = true,
+["priority"] = "Blacklist,Friendly:Dispellable,Personal,CCDebuffs",
+},
+["threatStyle"] = "NONE",
+["castbar"] = {
+["yOffsetTime"] = -10,
+["xOffsetTime"] = -2,
+["height"] = 8,
+["yOffsetText"] = -10,
+["xOffsetText"] = 2,
+["iconSize"] = 26,
+["iconAttached"] = false,
+["width"] = 130,
+},
+["infoPanel"] = {
+["enable"] = true,
+["height"] = 14,
+["transparent"] = true,
+},
 ["name"] = {
 ["attachTextTo"] = "InfoPanel",
 },
-["power"] = {
+["height"] = 25,
+["buffs"] = {
+["priority"] = "Blacklist,Personal,Dispellable",
+},
+["healPrediction"] = {
 ["enable"] = false,
 },
-["disableMouseoverGlow"] = true,
-["infoPanel"] = {
-["enable"] = true,
-["transparent"] = true,
-},
-["height"] = 25,
 },
 ["boss"] = {
 ["name"] = {
@@ -722,9 +722,9 @@ ElvDB = {
 ["font"] = "Expressway",
 ["colors"] = {
 ["auraBarBuff"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.73,
+["g"] = 0.55,
+["r"] = 0.96,
 },
 ["healthclass"] = true,
 ["castClassColor"] = true,
@@ -949,10 +949,6 @@ ElvDB = {
 ["yOffset"] = -9,
 ["format"] = "[name]",
 },
-["title"] = {
-["format"] = "[npctitle]",
-},
-["markHealers"] = false,
 ["health"] = {
 ["height"] = 6,
 ["text"] = {
@@ -972,6 +968,10 @@ ElvDB = {
 ["numAuras"] = 4,
 ["maxDuration"] = 0,
 },
+["title"] = {
+["format"] = "[npctitle]",
+},
+["markHealers"] = false,
 },
 ["FRIENDLY_PLAYER"] = {
 ["debuffs"] = {
@@ -1017,10 +1017,6 @@ ElvDB = {
 ["yOffset"] = -9,
 ["format"] = "[name]",
 },
-["title"] = {
-["format"] = "[npctitle]",
-},
-["markHealers"] = false,
 ["health"] = {
 ["height"] = 6,
 ["text"] = {
@@ -1039,6 +1035,10 @@ ElvDB = {
 ["priority"] = "Blacklist,Whitelist,Dispellable,blockNoDuration,RaidBuffsElvUI",
 ["size"] = 36,
 },
+["title"] = {
+["format"] = "[npctitle]",
+},
+["markHealers"] = false,
 },
 },
 ["colors"] = {
@@ -1077,9 +1077,9 @@ nil,
 ["chat"] = {
 ["tabFontOutline"] = "OUTLINE",
 ["tabSelectorColor"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.73,
+["g"] = 0.55,
+["r"] = 0.96,
 },
 ["chatHistory"] = false,
 ["tabSelector"] = "BOX1",
