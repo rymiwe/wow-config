@@ -168,6 +168,10 @@ local BINDINGS = {
     {"SHIFT-MOUSEWHEELUP", nil}, {"SHIFT-MOUSEWHEELDOWN", nil},
     -- Mouse buttons: M3 = decurse macro (RegisterDecurseMacro). M4/M5 = OPie rings.
     -- Do not bind M4/M5 here — /setupbars would clobber /opie ring bindings.
+    -- Shift+M3 = ElvUI's built-in raid-marker radial (marks current target;
+    -- see Interface/AddOns/ElvUI/Bindings.xml). Action name has a literal
+    -- space — that's the real binding token ElvUI registers, not a typo.
+    {"SHIFT-BUTTON3", "Raid Marker"},
     -- NumLock can interfere with movement on some keyboards
     {"NUMLOCK", nil},
     -- Questie convenience

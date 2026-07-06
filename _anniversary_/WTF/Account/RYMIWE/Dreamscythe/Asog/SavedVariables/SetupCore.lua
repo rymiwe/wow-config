@@ -1,12 +1,12 @@
 
 SetupCoreCharDB = {
-["channelsLeft"] = true,
 ["mountItemId"] = 29744,
+["channelsLeft"] = true,
 ["totemProfile"] = "melee_group",
 ["lastBackup"] = {
 ["slots"] = {
 {
-["id"] = 10413,
+["id"] = 10414,
 ["type"] = "spell",
 ["name"] = "Earth Shock",
 },
@@ -15,7 +15,7 @@ SetupCoreCharDB = {
 ["type"] = "macro",
 },
 {
-["id"] = 10472,
+["id"] = 10473,
 ["type"] = "spell",
 ["name"] = "Frost Shock",
 },
@@ -133,8 +133,9 @@ nil,
 ["name"] = "Chain Lightning",
 },
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 24398,
+["type"] = "spell",
+["name"] = "Water Shield",
 },
 {
 ["name"] = " ",
@@ -174,11 +175,11 @@ nil,
 ["type"] = "macro",
 },
 {
-["id"] = 6149,
+["id"] = 13443,
 ["type"] = "item",
 },
 {
-["id"] = 8766,
+["id"] = 28399,
 ["type"] = "item",
 },
 {
@@ -220,14 +221,14 @@ nil,
 ["type"] = "item",
 },
 {
-["id"] = 8545,
+["id"] = 27854,
 ["type"] = "item",
 },
 {
-["id"] = 3928,
+["id"] = 13446,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-06-19 17:12:49",
+["timestamp"] = "2026-07-06 14:40:33",
 },
 }

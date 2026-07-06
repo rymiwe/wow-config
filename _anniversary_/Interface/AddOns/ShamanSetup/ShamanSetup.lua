@@ -11,6 +11,9 @@
 --   Bar 7 = CONSUMABLES (click): food/pots/bandages — user fills, never wiped
 --
 -- Totems: TotemTimers + OPie M4 individual casts. Weapon enchants: OPie M5.
+-- Shields: E = Water Shield (default). Lightning Shield = right-click the
+-- TotemTimers Shield Tracker icon (left=Lightning, right=Water, per its
+-- built-in ShieldButtons click-cast — no separate keybind needed).
 
 local LAYOUT = {
     -- MAIN TOP (Bar 1) ============================================
@@ -19,7 +22,7 @@ local LAYOUT = {
     {"Frost Shock",            1, 3},                     -- L12   2
     -- 3/4 = keybound placeholders only (travel spells on utility bar 6)
     {"Stormstrike",            1, 8, "startattack"},     -- Q   Enh nuke (skipped until trained)
-    {"Lightning Shield",       1, 10},                    -- E   instant self-buff refresh
+    {"Water Shield",           1, 10},                    -- E   instant self-buff refresh
     {"Shamanistic Rage",       1, 12},                    -- T   Enh CD (skipped until talented)
 
     -- MAIN BOTTOM (Bar 3) ==========================================
@@ -34,8 +37,7 @@ local LAYOUT = {
     -- Alt-4 = racial CD (Orc/Troll via RACIALS); Alt-5 = placeholder
     {"Lightning Bolt",         4, 8, "nuke-mouseover"},   -- Alt-Q
     {"Chain Lightning",        4, 10},                     -- Alt-E
-    {"Water Shield",           4, 11},                     -- Alt-R
-    -- Alt-T = placeholder
+    -- Alt-R/Alt-T = placeholder
 }
 
 -- Click-only bar 6: travel, scouting, recall, rez. Only fills empty slots.
@@ -161,8 +163,8 @@ local function Run()
     SetupCore:RefreshDecurseBinding()
 
     SetupCore:PrintResults("ShamanSetup", placed, skipped, orphans)
-    print("|cffffd700ShamanSetup tip:|r Alt-1/2/3 = heals. Alt-Q/E/R = LB / Chain Lightning / Water Shield.")
-    print("|cff999999  F totem drop | M3 decurse | M4 totems (OPie) | M5 enchants. Bar 6=travel/rez, bar 7=consumables.|r")
+    print("|cffffd700ShamanSetup tip:|r E = Water Shield. Alt-Q/E = Lightning Bolt / Chain Lightning.")
+    print("|cff999999  F totem drop | M3 decurse | M4 totems (OPie) | M5 enchants | Shield Tracker click = Lightning(L)/Water(R). Bar 6=travel/rez, bar 7=consumables.|r")
 end
 
 SetupCore:RegisterReservedSlots("SHAMAN", {{3, 5}})
