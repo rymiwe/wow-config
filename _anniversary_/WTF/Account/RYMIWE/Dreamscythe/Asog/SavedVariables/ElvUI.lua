@@ -19,9 +19,9 @@ ElvCharacterDB = {
 "/p yeah i'm in guild voice",
 "/setupbars",
 "/qj",
-"/rl",
 "/qj destroy",
 "depends on perrin",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
