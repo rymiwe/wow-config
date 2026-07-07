@@ -2,8 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p |cffffffff|Hitem:10465::::::::56::::::::::|h[Egg of Hakkar]|h|r",
-"/p |cff1eff00|Hitem:10454::::::::56::::::::::|h[Essence of Eranikus]|h|r",
 "/tsm destroy",
 "/p just markin towers for the moment",
 "/amr",
@@ -20,8 +18,10 @@ ElvCharacterDB = {
 "/cheer",
 "/p yeah i'm in guild voice",
 "/setupbars",
-"/rl",
 "/qj",
+"/rl",
+"/qj destroy",
+"depends on perrin",
 },
 ["ChatHistoryLog"] = {
 },
