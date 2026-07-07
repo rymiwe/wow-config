@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -217,5 +218,4 @@ nil,
 },
 ["timestamp"] = "2026-07-06 19:49:05",
 },
-["channelsLeft"] = true,
 }
