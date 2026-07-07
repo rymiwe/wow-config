@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/blow",
-"/plead",
-"/p i have 14 quests",
 "/p fresh as a daisy",
 "/grats",
 "/lie",
@@ -21,6 +18,9 @@ ElvCharacterDB = {
 "yo",
 "/zygor show",
 "/beckon",
+"/p already am",
+"/p voice?",
+"/p i am",
 "/setupbars",
 },
 ["ChatHistoryLog"] = {

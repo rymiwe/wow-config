@@ -3,7 +3,7 @@ SetupCoreCharDB = {
 ["lastBackup"] = {
 ["slots"] = {
 {
-["id"] = 853,
+["id"] = 5588,
 ["type"] = "spell",
 ["name"] = "Hammer of Justice",
 },
@@ -34,10 +34,7 @@ nil,
 ["type"] = "macro",
 },
 nil,
-{
-["name"] = " ",
-["type"] = "macro",
-},
+nil,
 {
 ["name"] = "SC_Purify",
 ["type"] = "macro",
@@ -177,7 +174,10 @@ nil,
 ["id"] = 1179,
 ["type"] = "item",
 },
-nil,
+{
+["id"] = 1205,
+["type"] = "item",
+},
 {
 ["id"] = 2862,
 ["type"] = "item",
@@ -215,7 +215,7 @@ nil,
 ["type"] = "item",
 },
 },
-["timestamp"] = "2026-07-03 21:14:43",
+["timestamp"] = "2026-07-06 19:49:05",
 },
 ["channelsLeft"] = true,
 }
