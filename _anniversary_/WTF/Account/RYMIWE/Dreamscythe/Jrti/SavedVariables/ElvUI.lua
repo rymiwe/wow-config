@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p in guild chat",
 "/cw Starrgazzer excuse me may i please have an invite to the partay?",
 "/p partay!",
 "/p almost at the stone",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/fart",
 "/kiss",
 "/setupbars",
+"/rl",
 },
 ["ChatHistoryLog"] = {
 },
