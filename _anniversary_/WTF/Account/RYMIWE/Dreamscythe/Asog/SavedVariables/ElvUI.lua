@@ -2,7 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/tsm destroy",
 "/p just markin towers for the moment",
 "/amr",
 "cool",
@@ -22,6 +21,7 @@ ElvCharacterDB = {
 "/qj destroy",
 "depends on perrin",
 "/rl",
+"/cw Nyrann yoyo",
 },
 ["ChatHistoryLog"] = {
 },
