@@ -1,5 +1,6 @@
 
 SetupCoreCharDB = {
+["channelsLeft"] = true,
 ["lastBackup"] = {
 ["slots"] = {
 {
@@ -112,18 +113,17 @@ nil,
 ["name"] = " ",
 ["type"] = "macro",
 },
-[72] = {
-["id"] = 1710,
-["type"] = "item",
+[66] = {
+["name"] = "SC_Redemption",
+["type"] = "macro",
 },
 [44] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-[29] = {
-["id"] = 20288,
-["type"] = "spell",
-["name"] = "Seal of Righteousness",
+[57] = {
+["name"] = " ",
+["type"] = "macro",
 },
 [46] = {
 ["name"] = "SC_LayonHands",
@@ -169,16 +169,16 @@ nil,
 ["name"] = "SC_Mount",
 ["type"] = "macro",
 },
-[57] = {
-["name"] = " ",
-["type"] = "macro",
+[29] = {
+["id"] = 20288,
+["type"] = "spell",
+["name"] = "Seal of Righteousness",
 },
-[66] = {
-["name"] = "SC_Redemption",
-["type"] = "macro",
+[72] = {
+["id"] = 1710,
+["type"] = "item",
 },
 },
 ["timestamp"] = "2026-07-11 18:18:09",
 },
-["channelsLeft"] = true,
 }

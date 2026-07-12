@@ -27,6 +27,13 @@ X: 0
 Y: 0
 W: 365
 H: 239
+Frame: ScriptErrorsFrame
+FrameLevel: 1
+Anchor: TOP
+X: -36
+Y: -27
+W: 784
+H: 260
 Frame: TotemTimersFrame
 FrameLevel: 0
 Anchor: BOTTOMLEFT
@@ -55,10 +62,3 @@ X: 522
 Y: 207
 W: 36
 H: 36
-Frame: ScriptErrorsFrame
-FrameLevel: 1
-Anchor: TOP
-X: -36
-Y: -27
-W: 500
-H: 300
