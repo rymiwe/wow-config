@@ -16,9 +16,8 @@ SetupCoreCharDB = {
 ["type"] = "macro",
 },
 {
-["id"] = 26573,
-["type"] = "spell",
-["name"] = "Consecration",
+["name"] = " ",
+["type"] = "macro",
 },
 {
 ["name"] = " ",
@@ -35,8 +34,9 @@ nil,
 },
 nil,
 {
-["name"] = " ",
-["type"] = "macro",
+["id"] = 26573,
+["type"] = "spell",
+["name"] = "Consecration",
 },
 {
 ["name"] = "SC_Purify",
@@ -46,179 +46,139 @@ nil,
 ["name"] = "SC_RighteousDefe",
 ["type"] = "macro",
 },
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-nil,
-{
-["id"] = 20288,
-["type"] = "spell",
-["name"] = "Seal of Righteousness",
+[58] = {
+["name"] = " ",
+["type"] = "macro",
 },
-{
+[30] = {
 ["id"] = 20305,
 ["type"] = "spell",
 ["name"] = "Seal of the Crusader",
 },
-nil,
-{
-["name"] = "SC_BlessingofFre",
-["type"] = "macro",
-},
-{
-["name"] = "SC_BlessingofPro",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
+[60] = {
 ["name"] = "SC_DivineProtect",
 ["type"] = "macro",
 },
-{
+[61] = {
+["id"] = 3827,
+["type"] = "item",
+},
+[62] = {
+["id"] = 1708,
+["type"] = "item",
+},
+[32] = {
+["name"] = "SC_BlessingofFre",
+["type"] = "macro",
+},
+[33] = {
+["name"] = "SC_BlessingofPro",
+["type"] = "macro",
+},
+[34] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-{
+[35] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[36] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[37] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[38] = {
 ["name"] = "SC_HolyLight",
 ["type"] = "macro",
 },
-{
+[39] = {
 ["name"] = "SC_FlashofLight",
 ["type"] = "macro",
 },
-{
+[40] = {
 ["id"] = 879,
 ["type"] = "spell",
 ["name"] = "Exorcism",
 },
-{
+[41] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-{
+[42] = {
 ["name"] = " ",
 ["type"] = "macro",
 },
-nil,
-{
-["name"] = "SC_GiftoftheNaar",
-["type"] = "macro",
-},
-nil,
-{
-["name"] = "SC_LayonHands",
-["type"] = "macro",
-},
-{
-["name"] = "SC_Redemption",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-nil,
-nil,
-nil,
-nil,
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-nil,
-{
-["name"] = "SC_Mount",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = " ",
-["type"] = "macro",
-},
-{
-["name"] = "SC_RighteousFury",
-["type"] = "macro",
-},
-{
-["id"] = 3385,
-["type"] = "item",
-},
-{
-["id"] = 1205,
-["type"] = "item",
-},
-{
-["id"] = 1708,
-["type"] = "item",
-},
-{
-["id"] = 2862,
-["type"] = "item",
-},
-{
-["id"] = 3239,
-["type"] = "item",
-},
-{
-["id"] = 23986,
-["type"] = "item",
-},
-{
-["id"] = 23989,
-["type"] = "item",
-},
-{
-["id"] = 2454,
-["type"] = "item",
-},
-{
-["id"] = 2458,
-["type"] = "item",
-},
-{
-["id"] = 5997,
-["type"] = "item",
-},
-{
-["id"] = 2581,
-["type"] = "item",
-},
-{
+[72] = {
 ["id"] = 1710,
 ["type"] = "item",
 },
+[44] = {
+["name"] = " ",
+["type"] = "macro",
 },
-["timestamp"] = "2026-07-10 22:14:10",
+[29] = {
+["id"] = 20288,
+["type"] = "spell",
+["name"] = "Seal of Righteousness",
+},
+[46] = {
+["name"] = "SC_LayonHands",
+["type"] = "macro",
+},
+[47] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[48] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[65] = {
+["name"] = "SC_RighteousFury",
+["type"] = "macro",
+},
+[70] = {
+["id"] = 2458,
+["type"] = "item",
+},
+[69] = {
+["id"] = 23989,
+["type"] = "item",
+},
+[71] = {
+["id"] = 2581,
+["type"] = "item",
+},
+[53] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[54] = {
+["name"] = "SC_GiftoftheNaar",
+["type"] = "macro",
+},
+[59] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[56] = {
+["name"] = "SC_Mount",
+["type"] = "macro",
+},
+[57] = {
+["name"] = " ",
+["type"] = "macro",
+},
+[66] = {
+["name"] = "SC_Redemption",
+["type"] = "macro",
+},
+},
+["timestamp"] = "2026-07-11 18:18:09",
 },
 ["channelsLeft"] = true,
 }

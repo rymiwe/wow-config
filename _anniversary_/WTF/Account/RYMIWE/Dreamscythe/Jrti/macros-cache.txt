@@ -51,7 +51,7 @@ VER 3 0100000000000009 "SC_Redemption" "135955"
 END
 VER 3 010000000000000A "SC_RighteousDefe" "135068"
 #showtooltip
-/cast [@mouseover,help,nodead][help,nodead][@player] Righteous Defense
+/cast [@mouseovertarget,help,nodead][@mouseover,help,nodead][help,nodead] Righteous Defense
 END
 VER 3 010000000000000B "SC_RighteousFury" "135962"
 #showtooltip

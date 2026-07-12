@@ -12,10 +12,27 @@
 --   Bar 10 = CONSUMABLES (preserved across /setupbars)
 --
 -- Paladin-specific notes:
---   * Judgement on `` ` `` — single spell that judges the active seal; always-ready.
+--   * Hammer of Justice on `` ` `` for cross-class interrupt convention (stun-interrupt).
+--   * Judgement on Q — most-pressed Ret/tank button, judges the active seal.
+--   * Consecration on E — signature AoE-threat tool; moved off numrow "3" for
+--     the easier WASD-adjacent reach. Still not a true spam-key (mana cost),
+--     but it's the most decision-critical per-pull button, so fast/reliable
+--     access matters even at moderate frequency.
 --   * Crusader Strike on key 1 with `startattack` — Ret melee filler that engages auto-attack.
---   * Seals on F/G — Righteousness primary, Crusader/Wisdom situational.
+--   * Seals on F/G/V — Righteousness primary, Crusader opener, Wisdom mana-sustain (L38+).
 --   * Hands (BoF/BoP/BoS/Cleanse/DI) on Alt-cluster — tactical in-combat use.
+--   * Divine Shield/Divine Protection moved behind Alt (Alt-R/Alt-B) — both
+--     are long-CD "oh crap" buttons that were too easy to fat-finger on the
+--     open ZXCVB row; a modifier press is a deliberate decision, same logic
+--     already used for Lay on Hands.
+--   * Righteous Fury and Redemption are NOT in LAYOUT - user manually placed
+--     both on Bar 10 (the protected utility bar, never touched by
+--     /setupbars) to keep the keybound Bar 1/3/4/5 grid at its standard
+--     shape. Both are IGNORE'd so /setupbars doesn't nag about them.
+--   * Righteous Defense uses the "redirect-taunt" template (mouseovertarget-
+--     first) so you point at the MOB, not the ally it's attacking - closer
+--     to how a normal taunt feels. Also bound to Ctrl+M3 (M3 alone = dispel,
+--     Shift+M3 = ElvUI raid-marker radial).
 --   * No Attack slot (per auto_attack_no_slot.md memory).
 --
 -- OPie rings (M4, M5):
@@ -37,48 +54,46 @@ local LAYOUT = {
     {"Hammer of Justice",      1, 1},                     -- L8    `   (interrupt-by-stun; NO startattack - HoJ may be used on a CC'd target to chain-stun, /startattack would break the upstream CC)
     {"Crusader Strike",        1, 2, "startattack"},      -- L20   1   (Ret melee + engages auto-attack)
     {"Hammer of Wrath",        1, 3},                     -- L44   2   (instant execute sub-20%)
-    {"Consecration",           1, 4},                     -- L20   3   (instant ground AOE)
+    {"Holy Shield",            1, 4, "self-cast"},        -- L40 Prot 3 (block chance + Holy block damage - core tank cooldown; slot freed by moving Consecration to E)
     {"Avenger's Shield",       1, 5},                     -- L40 Prot 4 (instant ranged taunt - moved from alt)
     {"Avenging Wrath",         1, 6, "self-cast"},        -- L40 Ret 5 (instant CD)
-    -- QERT row: rotation builder + heals + dispel + heal-CD
+    -- QERT row: rotation builder + AOE threat + dispel + heal-CD
     {"Judgement",              1, 8, "startattack"},      -- L4    Q   (most-pressed Ret combat - judges active seal)
-    -- E left empty - prime slot, but no Prot/Ret rotation ability obviously
-    -- belongs here. Lay on Hands moved to Alt-E (60-min CD doesn't earn prime
-    -- real estate). User can fill manually if something useful emerges.
+    {"Consecration",           1, 10},                    -- L20   E   (signature AoE-threat tool - moved off numrow "3"; see header notes on the mana-cost tradeoff)
     {"Purify",                 1, 11, "pally-dispel"},    -- L8    R   (Cleanse-or-Purify cascade, works any spec)
-    {"Righteous Defense",      1, 12, "mouseover-help"},  -- TBC L66 T (friend-redirect taunt - reactive tank tool, plain key for instant access)
+    {"Righteous Defense",      1, 12, "redirect-taunt"},  -- TBC L66 T (point at the mob, not the ally - see redirect-taunt template)
 
-    -- MAIN BOTTOM (Bar 3) - F/G seals; ZXCVB Hand spells + defensives
+    -- MAIN BOTTOM (Bar 3) - F/G/V seals; ZXC hand spells; keyless click slot
     {"Seal of Righteousness",  3, 5},                     -- L1    F   (default melee proc)
     {"Seal of the Crusader",   3, 6},                     -- L12   G   (judge for armor debuff opener)
-    -- ZXCVB: Hand spells (mouseover-help instants) + self-defensives
+    -- ZXC: Hand spells (mouseover-help instants) that keep fast access
     {"Blessing of Freedom",    3, 8, "mouseover-help"},   -- L18   Z   (instant snare break)
     {"Blessing of Protection", 3, 9, "mouseover-help"},   -- L10   X   (instant physical immunity)
     {"Blessing of Sacrifice",  3, 10, "mouseover-help"},  -- L30   C   (instant damage redirect)
-    {"Divine Shield",          3, 11, "self-cast"},       -- L18   V   (instant 8s full immunity)
-    {"Divine Protection",      3, 12, "self-cast"},       -- L6    B   (instant 50% damage reduction)
+    {"Seal of Wisdom",         3, 11},                    -- L38   V   (mana-return seal; slot freed by moving Divine Shield to Alt-R)
+    -- B left empty (was Divine Protection - moved to Alt-B, see ALT BOTTOM below)
 
-    -- ALT TOP (Bar 4) - CAST-TIME spells only (heal casts + damage casts + CC)
+    -- ALT TOP (Bar 4) - CAST-TIME spells + demoted instants
     {"Holy Light",             4, 2, "mouseover-help"},   -- L1    Alt-1 (primary cast heal)
     {"Flash of Light",         4, 3, "mouseover-help"},   -- L20   Alt-2 (fast cast heal)
     {"Exorcism",               4, 4},                     -- L20   Alt-3 (cast vs Undead/Demon)
     {"Holy Wrath",             4, 5},                     -- L30   Alt-4 (TBC cast AOE vs Undead/Demon)
     {"Repentance",             4, 6, "focus-mouseover-harm"}, -- L40 Ret Alt-5 (cast CC; focus-first)
     -- Alt-QERT: rez + niche cast utility + tank taunt
-    -- Alt-Q reserved for Draenei Gift of the Naaru (cast heal racial) via RACIALS.
     {"Lay on Hands",           4, 10, "mouseover-help"},  -- L10   Alt-E (60-min CD emergency 100% heal - decision-time button, modifier OK)
-    {"Redemption",             4, 11, "mouseover-help"},  -- L12   Alt-R (OOC cast rez)
+    {"Divine Shield",          4, 11, "self-cast"},       -- L18   Alt-R (full immunity - demoted behind modifier so it can't be bumped mid-combat; slot freed by moving Redemption to the utility bar)
     {"Holy Shock",             4, 12, "mouseover-help"},  -- L40 Holy Alt-T (instant heal CD - Holy talent only, demoted from main T to free that for Righteous Defense)
 
     -- ALT BOTTOM (Bar 5) - rare instants that don't fit on main + niche
     -- These violate "casts only on alt" by necessity (low-pri instants exceed main bar capacity).
     {"Divine Intervention",    5, 5, "mouseover-help"},   -- L30   Alt-F (rare friend invuln rez setup - instant)
-    -- Alt-G left empty (or for racial)
-    {"Divine Favor",           5, 7, "self-cast"},        -- L20 Holy (instant crit-heal CD - Holy talent; Alt-Z = mount)
+    -- Alt-G: Draenei Gift of the Naaru (cast heal racial) via RACIALS - matches
+    -- the Alt-G convention already used on Asog (Shaman) and PriestSetup.
+    {"Divine Favor",           5, 7, "self-cast"},        -- L20 Holy (instant crit-heal CD - Holy talent; NOTE: no key is bound to this slot in SetupCore's BINDINGS - click-only)
     -- Alt-X reserved via RACIALS for Draenei (was previous Naaru slot - now Naaru moved to Alt-Q)
-    {"Divine Plea",            5, 10, "self-cast"},       -- TBC L66 Alt-C (instant mana CD)
+    {"Divine Plea",            5, 10, "self-cast"},       -- Alt-C (instant mana CD - VERIFY this trains in TBC; may be Wrath-only, double check via trainer given this ruleset's non-standard spell levels)
     -- Alt-V left empty (placeholder for racial)
-    {"Righteous Fury",         5, 12, "self-cast"},       -- L16   Alt-B (tank-mode threat toggle - set-and-forget when tanking)
+    {"Divine Protection",      5, 12, "self-cast"},       -- L6    Alt-B (50% damage reduction - demoted behind modifier so it can't be bumped mid-combat; slot freed by moving Righteous Fury to the utility bar)
 }
 
 local IGNORE = {
@@ -92,17 +107,20 @@ local IGNORE = {
     ["Divine Strength"]=true, ["Divine Intellect"]=true, ["Healing Light"]=true,
     ["Improved Lay on Hands"]=true, ["Improved Blessing of Wisdom"]=true,
     ["Spell Warding"]=true, ["Anticipation"]=true,
-    ["Improved Righteous Fury"]=true, ["Toughness"]=true,  -- "Improved" is the talent passive; Righteous Fury itself is in LAYOUT
+    ["Improved Righteous Fury"]=true, ["Toughness"]=true,  -- "Improved" is the talent passive
+    -- Righteous Fury and Redemption: user manually placed both on the
+    -- protected utility bar (outside /setupbars management) to keep the
+    -- keybound Bar 1/3/4/5 grid at its standard shape. Not in LAYOUT anymore -
+    -- ignored here so /setupbars doesn't nag about them being unmapped.
+    ["Righteous Fury"]=true, ["Redemption"]=true,
     ["Reckoning"]=true, ["Improved Hammer of Justice"]=true,
     ["Pursuit of Justice"]=true, ["Vindication"]=true,
     ["Improved Seal of the Crusader"]=true, ["Conviction"]=true,
     ["Two-Handed Weapon Specialization"]=true, ["Vengeance"]=true,
     ["Sanctified Judgement"]=true, ["Crusade"]=true, ["Precision"]=true,
-    ["Holy Shield"]=true, ["Improved Devotion Aura"]=true,
+    ["Improved Devotion Aura"]=true,
     ["Improved Concentration Aura"]=true, ["Improved Retribution Aura"]=true,
     ["Sanctity Aura"]=true, ["Improved Sanctity Aura"]=true,
-    -- Righteous Fury: now placed on Alt-B (was IGNORE'd as set-and-forget; user
-    -- requested visibility for tank-mode toggling). Removed from IGNORE.
     -- Blessings — handled by OPie ring (M4)
     ["Blessing of Might"]=true, ["Blessing of Wisdom"]=true,
     ["Blessing of Kings"]=true, ["Blessing of Sanctuary"]=true,
@@ -115,8 +133,8 @@ local IGNORE = {
     ["Concentration Aura"]=true, ["Shadow Resistance Aura"]=true,
     ["Frost Resistance Aura"]=true, ["Crusader Aura"]=true,
     ["Fire Resistance Aura"]=true,
-    -- Other seals (only Righteousness + Crusader on bar; rest left for /castsequence)
-    ["Seal of Command"]=true, ["Seal of Light"]=true, ["Seal of Wisdom"]=true,
+    -- Other seals (Righteousness + Crusader + Wisdom on bar; rest left for /castsequence)
+    ["Seal of Command"]=true, ["Seal of Light"]=true,
     ["Seal of Justice"]=true, ["Seal of Blood"]=true, ["Seal of Vengeance"]=true,
     -- Race passives (Human / Dwarf / Draenei / Blood Elf — TBC Paladin races)
     ["The Human Spirit"]=true, ["Sword Specialization"]=true,
@@ -126,8 +144,8 @@ local IGNORE = {
     ["Heroic Presence"]=true, ["Inspiring Presence"]=true,
     ["Shadow Resistance"]=true, ["Magic Resistance"]=true,
     -- Race actives — Stoneform/Arcane Torrent auto-placed via RACIALS table.
-    -- Gift of the Naaru handled via RACIALS table (Draenei -> Alt-Z, since Pally
-    -- Alt-QERT is full of Hand spells). NOT in IGNORE.
+    -- Gift of the Naaru handled via RACIALS table (Draenei -> Alt-G, matching
+    -- the Shaman/Priest convention). NOT in IGNORE.
     ["Perception"]=true,
     ["Mana Tap"]=true,
     -- Cleanse upgrades Purify (Holy talent L42) — Holy spec drags it to Alt-Q manually
@@ -149,7 +167,7 @@ local RACIALS = {
         {"Stoneform", 5, 7, "self-cast"},     -- defensive break (Alt-Z = mount)
     },
     Draenei = {
-        {"Gift of the Naaru", 4, 8, "mouseover-help"},  -- Alt-Q: Naaru is a 1.5s cast - fits the alt-bar "casts only" rule cleanly now
+        {"Gift of the Naaru", 5, 6, "mouseover-help"},  -- Alt-G: matches the convention already used on Asog (Shaman) and PriestSetup
     },
     BloodElf = {
         {"Arcane Torrent", 3, 10},            -- C: combat CC + mana burst
@@ -161,15 +179,23 @@ local function Run()
     SetupCore:RefreshDecurseBinding()
     SetupCore:PrintResults("PaladinSetup", placed, skipped, orphans)
     print("|cffffd700PaladinSetup tip:|r Movement-optimal - instants on main, casts on Alt-bar.")
-    print("|cff999999  Middle-click (M3) = dispel mouseover (Cleanse / Purify).|r")
-    print("|cff999999  ` = Hammer of Justice (interrupt-by-stun, matches Shaman/Mage/Rogue convention).|r")
-    print("|cff999999  Q = Judgement (most-pressed Ret combat). T = Holy Shock (Holy heal CD).|r")
+    print("|cff999999  Middle-click (M3) = dispel mouseover. Ctrl+M3 = taunt-redirect (point at the mob).|r")
+    print("|cff999999  ` = Hammer of Justice (interrupt). Q = Judgement. E = Consecration (AoE threat).|r")
+    print("|cff999999  T = Righteous Defense (taunt-redirect). Alt-T = Holy Shock (Holy heal CD).|r")
     print("|cff999999  Hand spells (BoF/BoP/BoS) on Z/X/C - mouseover any party member.|r")
-    print("|cff999999  Blessings: hold M4 (OPie ring). Auras: hold M5.|r")
+    print("|cff999999  Divine Shield/Protection moved to Alt-R/Alt-B (too easy to bump on the open row).|r")
+    print("|cff999999  Righteous Fury and Redemption live on Bar 10 (utility) - not managed by /setupbars.|r")
+    print("|cff999999  Blessings: hold M4 (OPie ring). Auras: hold M5. Raid markers: hold Shift+M3 (ElvUI).|r")
 end
 
 SetupCore:RegisterClass("PALADIN", Run, LAYOUT)
 SetupCore:RegisterDecurseMacro("SC_Purify", "PALADIN")
+-- Ctrl+M3 = taunt-redirect (Righteous Defense's existing mouseover macro,
+-- also bound to T). M3 alone is dispel, Shift+M3 is ElvUI's raid-marker
+-- radial - Ctrl is the next free modifier on that button.
+-- Macro name is SetupCore's truncated-to-16-char "SC_"+spellname convention
+-- (confirmed via this character's own macros-cache.txt: "SC_RighteousDefe").
+SetupCore:RegisterMacroBinding("CTRL-BUTTON3", "SC_RighteousDefe", "PALADIN")
 
 -- ===========================================================================
 -- OPie ring registration — only fires if OPie is installed (graceful no-op).

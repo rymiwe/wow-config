@@ -102,7 +102,6 @@ local DISPEL_FALLBACK_SPELL = {
     PALADIN = "Purify",
 }
 -- Shaman: disease before poison when both present (lower rank = higher priority).
-local SHAMAN_DISPEL_PRIORITY = { "Disease", "Poison" }
 local SHAMAN_DISPEL_RANK = { Disease = 1, Poison = 2 }
 
 -- Bars skipped by ClearAllBars / RestoreBars clear pass. User-curated click-only
@@ -241,6 +240,15 @@ local MACRO_TEMPLATES = {
     -- Mage, Kick for Rogue, etc.). Class addons pass the right spell name.
     ["interrupt"] = function(spell)
         return "#showtooltip\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell
+    end,
+    -- Redirect-taunt (Paladin Righteous Defense, and any future ability with
+    -- the same shape): the spell must be cast on the FRIENDLY unit under
+    -- attack, not the enemy. mouseovertarget lets you point at the THREAT
+    -- instead of the victim - hover the mob, and it resolves to whoever that
+    -- mob is currently attacking, closer to how a normal taunt feels to use.
+    -- Falls back to mouseover/target in case you point at the ally directly.
+    ["redirect-taunt"] = function(spell)
+        return "#showtooltip\n/cast [@mouseovertarget,help,nodead][@mouseover,help,nodead][help,nodead] " .. spell
     end,
     -- Paladin dispel cascade: Cleanse (L42 Holy talent, dispels Magic too) tried
     -- first; falls through to Purify (L8 base, Disease/Poison only) if Cleanse
@@ -785,17 +793,13 @@ function SetupCore:AppendGroupDispelUnits(order)
 end
 
 function SetupCore:ResolvePlayerDispelSpell()
-    local _, class = UnitClass("player")
-    if not class then return nil end
-    local spell = self:PickDispelSpell("player")
-    if spell then return spell end
-    if self:UnitHasAnyDebuff("player") then
-        spell = DISPEL_FALLBACK_SPELL[class]
-        if spell and self:IsSpellKnown(spell) then
-            return spell
-        end
-    end
-    return nil
+    -- Only self-cure when the player has a debuff whose REPORTED type this
+    -- class can actually dispel. The old UnitHasAnyDebuff fallback treated
+    -- any debuff as curable - but physical debuffs (Sunder, Demo Shout,
+    -- bleeds) have no dispel type by design, so a tank almost always
+    -- tripped it, hard-locking the macro to a useless self-cast that
+    -- preempted mouseover dispels entirely.
+    return self:PickDispelSpell("player")
 end
 
 -- Friendly dispels first (mouseover -> target -> player -> group), then hostile purge.
@@ -835,7 +839,11 @@ function SetupCore:ResolveDispelTarget()
         end
     end
 
-    if harmSpell and self:IsSpellKnown(harmSpell) and not self:UnitHasAnyDebuff("player") then
+    -- Hostile purge fallback. No UnitHasAnyDebuff("player") gate here: a
+    -- self-CURABLE debuff already returned from the self-cure branch above,
+    -- and an uncurable one (physical - Sunder, Rend, etc.) is no reason to
+    -- refuse to purge the enemy under the cursor.
+    if harmSpell and self:IsSpellKnown(harmSpell) then
         if UnitExists("mouseover") and UnitCanAttack("player", "mouseover") then
             return "mouseover", harmSpell
         end
@@ -874,11 +882,9 @@ function SetupCore:PickDispelSpell(unit)
         return nil
     end
     local bestSpell, bestRank = nil, 999
-    local sawDebuff, sawUnknownType = false, false
     for i = 1, 40 do
         local name, debuffType = self:GetAuraDispelType(unit, i)
         if not name then break end
-        sawDebuff = true
         local spell = self:ResolveDispelSpellForDebuff(debuffType, class, map)
         if spell then
             local rank = i
@@ -889,28 +895,17 @@ function SetupCore:PickDispelSpell(unit)
                 bestRank = rank
                 bestSpell = spell
             end
-        elseif not debuffType then
-            sawUnknownType = true
         end
     end
-    if bestSpell then return bestSpell end
-    -- Type missing on a visible debuff (Anniversary API gap) — guess; do not guess when
-    -- the debuff type is known but undispellable (e.g. Curse on a Shaman).
-    if sawDebuff and sawUnknownType then
-        if class == "SHAMAN" then
-            for _, dtype in ipairs(SHAMAN_DISPEL_PRIORITY) do
-                local spell = map[dtype]
-                if spell and self:IsSpellKnown(spell) then
-                    return spell
-                end
-            end
-        end
-        local fallback = DISPEL_FALLBACK_SPELL[class]
-        if fallback and self:IsSpellKnown(fallback) then
-            return fallback
-        end
-    end
-    return nil
+    -- No guessing on nil dispel type. The old "Anniversary API gap" branch
+    -- assumed a debuff with no reported type meant the API dropped it - but
+    -- nil is the NORMAL value for physical effects (Sunder Armor, Demo
+    -- Shout, Rend...), which melee/tanks carry near-constantly. The guess
+    -- made the macro resolve to a pointless fallback cast on whoever had a
+    -- physical debuff, shadowing real dispels further down the priority
+    -- list. A debuff either reports a type this class can cure, or it is
+    -- not our problem.
+    return bestSpell
 end
 
 function SetupCore:UnitHasDispellableDebuff(unit)
@@ -961,9 +956,16 @@ function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
     local show = spell or iconSpell or fallback
     local castUnit = unit or "player"
     if not spell then
+        -- Nothing dispellable resolved right now. Bake the GENERIC
+        -- mouseover-first chain rather than pinning the fallback to
+        -- whatever unit happened to be primary: the SC_ macro mirror of
+        -- this body cannot be edited during combat, so if a fight starts
+        -- while idle, a pinned "[@player]" body would stay self-only for
+        -- the entire fight. The generic chain still dispels a mouseover
+        -- correctly even when frozen.
         return table.concat({
             "#showtooltip " .. show,
-            self:BuildDispelCastLine(fallback, castUnit),
+            string.format("/cast [@mouseover,help,nodead][help,nodead][@player] %s", fallback),
         }, "\n")
     end
     return string.format("#showtooltip %s\n%s", spell, self:BuildDispelCastLine(spell, castUnit))
