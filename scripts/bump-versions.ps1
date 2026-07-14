@@ -5,8 +5,9 @@
   the same commit.
 
 .DESCRIPTION
-  Scans `git diff --cached` for files under `_anniversary_/Interface/AddOns/
-  <addon>/`. For each affected addon, reads the .toc, increments the last
+  Scans `git diff --cached` for files under `_<flavor>_/Interface/AddOns/
+  <addon>/` (any flavor: _anniversary_, _classic_era_, etc.). For each
+  affected addon, reads the .toc, increments the last
   numeric component of the Version line (e.g., 1.0 -> 1.0.1, 1.0.1 -> 1.0.2),
   writes back, and re-stages.
 
@@ -27,17 +28,19 @@ try {
     $stagedFiles = git diff --cached --name-only 2>$null
     if (-not $stagedFiles) { exit 0 }
 
-    # Group by addon dir
+    # Group by addon dir, keyed on the full flavor/AddOns/<addon> prefix so the
+    # .toc path resolves per flavor (_anniversary_, _classic_era_, etc.).
     $addons = @{}
     foreach ($f in $stagedFiles) {
-        if ($f -match '^_anniversary_/Interface/AddOns/([^/]+)/') {
-            $addons[$matches[1]] = $true
+        if ($f -match '^(_[^/]+/Interface/AddOns/([^/]+))/') {
+            $addons[$matches[1]] = $matches[2]
         }
     }
     if ($addons.Count -eq 0) { exit 0 }
 
-    foreach ($addon in $addons.Keys) {
-        $tocPath = "_anniversary_/Interface/AddOns/$addon/$addon.toc"
+    foreach ($dir in $addons.Keys) {
+        $addon = $addons[$dir]
+        $tocPath = "$dir/$addon.toc"
         if (-not (Test-Path $tocPath)) { continue }
 
         $lines = Get-Content $tocPath

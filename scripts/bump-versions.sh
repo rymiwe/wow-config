@@ -10,17 +10,19 @@ set -e
 REPO_ROOT="${1:-$(cd "$(dirname "$0")/.." && pwd)}"
 cd "$REPO_ROOT"
 
-# Find unique addon dirs with staged changes.
-addons=$(git diff --cached --name-only 2>/dev/null \
-    | grep -oE '^_anniversary_/Interface/AddOns/[^/]+/' \
-    | sort -u \
-    | sed -E 's|^_anniversary_/Interface/AddOns/([^/]+)/$|\1|')
+# Find unique addon dirs with staged changes. Matches any flavor (_anniversary_,
+# _classic_era_, etc.), keeping the full flavor/Interface/AddOns/<addon>/ prefix
+# so the .toc path resolves correctly per flavor.
+dirs=$(git diff --cached --name-only 2>/dev/null \
+    | grep -oE '^_[^/]+/Interface/AddOns/[^/]+/' \
+    | sort -u)
 
-[[ -z "$addons" ]] && exit 0
+[[ -z "$dirs" ]] && exit 0
 
-while IFS= read -r addon; do
-    [[ -z "$addon" ]] && continue
-    toc="_anniversary_/Interface/AddOns/$addon/$addon.toc"
+while IFS= read -r dir; do
+    [[ -z "$dir" ]] && continue
+    addon="$(basename "$dir")"
+    toc="${dir}${addon}.toc"
     [[ -f "$toc" ]] || continue
 
     # Extract current version
@@ -43,6 +45,6 @@ while IFS= read -r addon; do
         awk -v new="## Version: $new_ver" '/^## Version:/ && !done { print new; done=1; next } { print }' "$toc" > "$tmp"
         mv "$tmp" "$toc"
         git add "$toc" 2>/dev/null
-        echo "Bumped ${addon}: $old_ver -> $new_ver"
+        echo "Bumped ${dir}${addon}.toc: $old_ver -> $new_ver"
     fi
-done <<< "$addons"
+done <<< "$dirs"
