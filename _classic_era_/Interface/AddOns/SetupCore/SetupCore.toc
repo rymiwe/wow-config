@@ -1,0 +1,8 @@
+## Interface: 11508
+## Title: Setup Core
+## Notes: Shared plumbing for class setup addons (ShamanSetup, DruidSetup, etc.)
+## Version: 1.57
+## SavedVariables: SetupCoreDB
+## SavedVariablesPerCharacter: SetupCoreCharDB
+
+SetupCore.lua

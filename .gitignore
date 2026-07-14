@@ -42,6 +42,12 @@
 !_*/Interface/AddOns/RogueSetup/**
 !_*/Interface/AddOns/WarlockSetup/
 !_*/Interface/AddOns/WarlockSetup/**
+!_*/Interface/AddOns/QuestJunkHelper/
+!_*/Interface/AddOns/QuestJunkHelper/**
+!_*/Interface/AddOns/HeyDaddy/
+!_*/Interface/AddOns/HeyDaddy/**
+!_*/Interface/AddOns/WeakAurasSetup/
+!_*/Interface/AddOns/WeakAurasSetup/**
 
 # Distribution (templates and install scripts at repo root)
 !templates/

@@ -1,0 +1,8 @@
+## Interface: 20505, 20506
+## Title: Quest Junk Helper
+## Notes: Flags quest items safe to destroy when you open bags. /qj /questjunk
+## Version: 1.0
+## SavedVariables: QuestJunkHelperDB
+
+QuestJunkData.lua
+QuestJunkHelper.lua

@@ -1,0 +1,7 @@
+## Interface: 11508
+## Title: ElvUI Fixes
+## Notes: ElvUI/Anniversary workarounds: chat dock, chat settings crash, game-menu logout, guild rank arrows, quest watch login error
+## Version: 1.12
+## OptionalDeps: ElvUI
+
+ElvUIFixes.lua
