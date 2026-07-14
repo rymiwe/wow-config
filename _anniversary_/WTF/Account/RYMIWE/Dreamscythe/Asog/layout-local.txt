@@ -62,10 +62,3 @@ X: -220
 Y: 81
 W: 32
 H: 32
-Frame: ZGV_PointerMapFrame
-FrameLevel: 1
-Anchor: TOPLEFT
-X: 0
-Y: 0
-W: 772
-H: 539
