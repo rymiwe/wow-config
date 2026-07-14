@@ -1,7 +1,7 @@
 # SoD bootstrap prompt
 
 Season of Discovery runs on the `_classic_era_` client. To kick off the port,
-launch a session there (`wowsodc`) and paste everything below the line as the
+launch a session there (`wowec`) and paste everything below the line as the
 first message.
 
 ---
