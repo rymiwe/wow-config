@@ -2,17 +2,29 @@
 .SYNOPSIS
   Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers,
   AskMrRobotClassic) to latest upstream versions.
-  upstream versions. Doesn't touch our custom addons, bindings, or SavedVariables.
+  Doesn't touch our custom addons, bindings, or SavedVariables.
+
+.DESCRIPTION
+  Flavor-aware: defaults to _anniversary_ (unchanged behavior). Pass
+  -Flavor _classic_era_ to refresh the Classic Era / SoD client instead.
+  The Era set skips TotemTimers (Anniversary-only patched fork) and scrapes
+  the "Classic" AskMrRobot section instead of "TBC".
 
 .PARAMETER WowDir
   Path to your World of Warcraft install. Auto-detected if omitted.
 
+.PARAMETER Flavor
+  Client folder to update (default _anniversary_; use _classic_era_ for SoD).
+
 .EXAMPLE
   .\scripts\update-addons.ps1
+.EXAMPLE
+  .\scripts\update-addons.ps1 -Flavor _classic_era_
 #>
 [CmdletBinding()]
 param(
-    [string]$WowDir
+    [string]$WowDir,
+    [string]$Flavor = "_anniversary_"
 )
 
 $ErrorActionPreference = "Continue"
@@ -26,15 +38,15 @@ if (-not $WowDir) {
         "E:\Program Files\World of Warcraft",
         "E:\Program Files (x86)\World of Warcraft"
     )) {
-        if (Test-Path (Join-Path $candidate "_anniversary_")) { $WowDir = $candidate; break }
+        if (Test-Path (Join-Path $candidate $Flavor)) { $WowDir = $candidate; break }
     }
 }
-if (-not $WowDir -or -not (Test-Path (Join-Path $WowDir "_anniversary_"))) {
-    Write-Error "Could not find WoW install. Pass -WowDir 'C:\path\to\World of Warcraft'."
+if (-not $WowDir -or -not (Test-Path (Join-Path $WowDir $Flavor))) {
+    Write-Error "Could not find WoW install with a '$Flavor' folder. Pass -WowDir 'C:\path\to\World of Warcraft'."
     exit 1
 }
 
-$addonsDir = Join-Path $WowDir "_anniversary_\Interface\AddOns"
+$addonsDir = Join-Path $WowDir "$Flavor\Interface\AddOns"
 Write-Host "Updating addons in: $addonsDir"
 
 function Install-AddonZip {
@@ -64,10 +76,14 @@ function Get-GitHubLatestZipUrl {
     }
 }
 
-function Get-AmrTbcZipUrl {
+function Get-AmrSectionZipUrl {
+    # Scrape a versioned AskMrRobot Classic zip from the section under the given
+    # <h6> heading ("TBC" for Anniversary, "Classic" for Classic Era).
+    param([string]$Section)
     try {
         $page = Invoke-WebRequest -Uri "https://www.askmrrobot.com/addon" -UseBasicParsing
-        if ($page.Content -match '<h6>\s*TBC\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-\d+\.zip)"') {
+        $pattern = '(?s)<h6>\s*' + [regex]::Escape($Section) + '\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-\d+\.zip)"'
+        if ($page.Content -match $pattern) {
             return $matches[1]
         }
     } catch {
@@ -84,7 +100,11 @@ try {
 Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
 Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
 Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
-Install-AddonZip "TotemTimers" (Get-GitHubLatestZipUrl "taubut/TotemTimers_Fork") $addonsDir
+
+# TotemTimers here is a patched TBC fork; Anniversary only.
+if ($Flavor -eq "_anniversary_") {
+    Install-AddonZip "TotemTimers" (Get-GitHubLatestZipUrl "taubut/TotemTimers_Fork") $addonsDir
+}
 
 $opieDir = Join-Path $addonsDir "OPie"
 try {
@@ -105,11 +125,20 @@ try {
     Write-Warning "OPie download failed: $_"
 }
 
-$amrUrl = Get-AmrTbcZipUrl
-if ($amrUrl) {
-    Install-AddonZip "AskMrRobotClassic" $amrUrl $addonsDir
-} else {
-    Write-Warning "AskMrRobotClassic TBC download not found"
+# AskMrRobot: scrape the section matching this flavor. Both TBC and Classic Era
+# builds ship as AskMrRobotClassic; the version differs per game version.
+$amrSection = switch ($Flavor) {
+    "_anniversary_" { "TBC" }
+    "_classic_era_" { "Classic" }
+    default         { $null }
+}
+if ($amrSection) {
+    $amrUrl = Get-AmrSectionZipUrl $amrSection
+    if ($amrUrl) {
+        Install-AddonZip "AskMrRobotClassic" $amrUrl $addonsDir
+    } else {
+        Write-Warning "AskMrRobotClassic '$amrSection' download not found"
+    }
 }
 
 Write-Host ""

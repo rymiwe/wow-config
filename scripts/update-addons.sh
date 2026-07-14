@@ -1,17 +1,32 @@
 #!/usr/bin/env bash
 # Refresh community addons (ElvUI, WeakAuras, BadBoy, Questie, OPie, TotemTimers,
 # AskMrRobotClassic) to latest upstream versions.
-# upstream versions. Doesn't touch our custom addons, bindings, or SavedVariables.
+# Doesn't touch our custom addons, bindings, or SavedVariables.
+#
+# Flavor-aware: defaults to _anniversary_ (unchanged behavior). Pass
+# --flavor _classic_era_ to refresh the Classic Era / SoD client instead.
+# The Era set skips TotemTimers (Anniversary-only patched fork) and scrapes
+# the "Classic" AskMrRobot section instead of "TBC".
 #
 # Usage:
-#   ./scripts/update-addons.sh                           # auto-detect WoW dir
+#   ./scripts/update-addons.sh                              # _anniversary_ (default)
+#   ./scripts/update-addons.sh --flavor _classic_era_       # Classic Era / SoD
 #   WOWDIR=/path/to/World\ of\ Warcraft ./scripts/update-addons.sh
 
 set -e
 
+FLAVOR="${FLAVOR:-_anniversary_}"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --flavor)   FLAVOR="$2"; shift 2 ;;
+        --flavor=*) FLAVOR="${1#*=}"; shift ;;
+        *) echo "Unknown argument: $1" >&2; exit 1 ;;
+    esac
+done
+
 WOWDIR="${WOWDIR:-}"
 find_wow_dir() {
-    if [[ -n "$WOWDIR" && -d "$WOWDIR/_anniversary_" ]]; then
+    if [[ -n "$WOWDIR" && -d "$WOWDIR/$FLAVOR" ]]; then
         echo "$WOWDIR"; return
     fi
     for d in "$HOME"/.steam/steam/steamapps/compatdata/*/pfx/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
@@ -23,14 +38,14 @@ find_wow_dir() {
              "$HOME"/Games/World\ of\ Warcraft \
              "$HOME"/Games/world-of-warcraft \
              "$HOME"/World\ of\ Warcraft; do
-        if [[ -d "$d/_anniversary_" ]]; then echo "$d"; return; fi
+        if [[ -d "$d/$FLAVOR" ]]; then echo "$d"; return; fi
     done
-    echo "ERROR: Could not find WoW install. Set WOWDIR=/path." >&2
+    echo "ERROR: Could not find WoW install with a '$FLAVOR' folder. Set WOWDIR=/path." >&2
     exit 1
 }
 
 WOW="$(find_wow_dir)"
-ADDONS_DIR="$WOW/_anniversary_/Interface/AddOns"
+ADDONS_DIR="$WOW/$FLAVOR/Interface/AddOns"
 echo "Updating addons in: $ADDONS_DIR"
 
 fetch_addon_zip() {
@@ -57,13 +72,17 @@ github_latest_zip() {
         | sed -E 's|^.*"(https[^"]+)"|\1|'
 }
 
-amr_tbc_zip() {
+# Scrape a versioned AskMrRobot Classic zip from the section under the given
+# <h6> heading (e.g. "TBC" for Anniversary, "Classic" for Classic Era).
+amr_section_zip() {
+    local section="$1"
     local page; page="$(curl -fsSL "https://www.askmrrobot.com/addon" 2>/dev/null || true)"
-    python3 - <<'PY' "$page"
+    python3 - "$page" "$section" <<'PY'
 import re, sys
 html = sys.argv[1] if len(sys.argv) > 1 else ""
+section = sys.argv[2] if len(sys.argv) > 2 else ""
 m = re.search(
-    r'<h6>\s*TBC\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-(\d+)\.zip)"',
+    r'<h6>\s*' + re.escape(section) + r'\s*</h6>.*?href="(https://static3\.askmrrobot\.com/wowaddonclassic/askmrrobot-(\d+)\.zip)"',
     html,
     re.I | re.S,
 )
@@ -78,7 +97,11 @@ fetch_addon_zip "ElvUI"     "$elvui_url"
 fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
 fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
 fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"
-fetch_addon_zip "TotemTimers" "$(github_latest_zip taubut/TotemTimers_Fork)"
+
+# TotemTimers here is a patched TBC fork; Anniversary only.
+if [[ "$FLAVOR" == "_anniversary_" ]]; then
+    fetch_addon_zip "TotemTimers" "$(github_latest_zip taubut/TotemTimers_Fork)"
+fi
 
 opie_main="$(curl -fsSL https://www.townlong-yak.com/addons/opie 2>/dev/null || true)"
 opie_ver_path="$(echo "$opie_main" | grep -oE 'href="/addons/opie/release/[0-9.]+"' | head -1 | sed -E 's|^href="||; s|"$||')"
@@ -91,11 +114,20 @@ if [[ -n "$opie_ver_path" ]]; then
     fi
 fi
 
-amr_url="$(amr_tbc_zip)"
-if [[ -n "$amr_url" ]]; then
-    fetch_addon_zip "AskMrRobotClassic" "$amr_url"
-else
-    echo "WARN: AskMrRobotClassic TBC download not found" >&2
+# AskMrRobot: scrape the section matching this flavor. Both TBC and Classic Era
+# builds ship as AskMrRobotClassic; the version differs per game version.
+case "$FLAVOR" in
+    _anniversary_) amr_section="TBC" ;;
+    _classic_era_) amr_section="Classic" ;;
+    *)             amr_section="" ;;
+esac
+if [[ -n "$amr_section" ]]; then
+    amr_url="$(amr_section_zip "$amr_section")"
+    if [[ -n "$amr_url" ]]; then
+        fetch_addon_zip "AskMrRobotClassic" "$amr_url"
+    else
+        echo "WARN: AskMrRobotClassic '$amr_section' download not found" >&2
+    fi
 fi
 
 echo "Done. /reload in-game to load new versions."
