@@ -11,8 +11,12 @@
   stays in sync automatically. If you launch WoW via Battle.net or directly, the
   auto-checkpoint won't run - use checkpoint.ps1 manually in that case.
 
+.PARAMETER Flavor
+  Client folder to launch (default _anniversary_; use _classic_era_ for SoD).
+  Ignored if -WowExe is given explicitly.
+
 .PARAMETER WowExe
-  Path to WowClassic.exe. Defaults to ../_anniversary_/WowClassic.exe.
+  Path to WowClassic.exe. Defaults to ../<Flavor>/WowClassic.exe.
 
 .PARAMETER NoSync
   Skip the pre-launch git fetch.
@@ -29,10 +33,15 @@
 .EXAMPLE
   # Offline: launch but don't push when done
   .\scripts\play.ps1 -NoPush
+
+.EXAMPLE
+  # Launch the Classic Era / SoD client instead
+  .\scripts\play.ps1 -Flavor _classic_era_
 #>
 [CmdletBinding()]
 param(
-    [string]$WowExe = "$PSScriptRoot/../_anniversary_/WowClassic.exe",
+    [string]$Flavor = "_anniversary_",
+    [string]$WowExe = "$PSScriptRoot/../$Flavor/WowClassic.exe",
     [switch]$NoSync,
     [switch]$NoCheckpoint,
     [switch]$NoPush
