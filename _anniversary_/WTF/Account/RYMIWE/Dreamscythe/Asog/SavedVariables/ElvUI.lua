@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/ty",
-"/p cheers",
-"/s nope",
 "/p yeah i'm in guild voice",
 "/setupbars",
 "/qj",
@@ -17,11 +14,14 @@ ElvCharacterDB = {
 "/p at 2nd khan",
 "/p anyone need?",
 "/p drop here if you want",
-"/rl",
 "/cheer",
 "/cw Smvsh-Dreamscythe solid... and no longer killing my mana pool =P",
 "/p took the liberty of cleaning house a bit =P",
 "/p ty",
+"/rl",
+"/p checking",
+"/p yeah 2 said ineligible",
+"/ty",
 },
 ["ChatHistoryLog"] = {
 },

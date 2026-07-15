@@ -85,7 +85,6 @@ local DECURSE_BY_CLASS = {
 -- Middle mouse: class dispel/decurse (secure button + SC_Decurse mirror). M4/M5 stay OPie.
 SetupCore.DECURSE_MOUSE = "BUTTON3"
 local DECURSE_BUTTON = "SetupCoreDecurseButton"
-local DECURSE_HEADER = "SetupCoreDecurseHeader"
 -- One spell per click — wrong-type dispels trigger GCD and block the next line.
 local CLASS_DISPEL = {
     SHAMAN  = { harm = "Purge",  Disease = "Cure Disease", Poison = "Cure Poison" },
@@ -971,32 +970,20 @@ function SetupCore:BuildDecurseMacroBody(unit, spell, iconSpell)
     return string.format("#showtooltip %s\n%s", spell, self:BuildDispelCastLine(spell, castUnit))
 end
 
-function SetupCore:EnsureDecurseSecureHeader(btn)
-    local header = self.decurseHeader
-    if header then return header end
-    if not btn then return nil end
-
-    header = CreateFrame("Frame", DECURSE_HEADER, btn, "SecureHandlerBaseTemplate")
-    if SecureHandlerSetFrameRef then
-        SecureHandlerSetFrameRef(header, "dispelBtn", btn)
-    else
-        header:SetFrameRef("dispelBtn", btn)
-    end
-    self.decurseHeader = header
-    return header
-end
-
--- Push macrotext through SecureHandler:Execute so combat lockdown does not block or taint M3.
+-- Push macrotext into the secure button.
+-- Out of combat: plain SetAttribute - fastest path, no restricted env at all.
+-- In combat: insecure SetAttribute on a protected button is blocked, so run
+-- a snippet via SecureHandlerExecute against the BUTTON ITSELF. We used to
+-- Execute against a separate SecureHandlerBaseTemplate header frame, but the
+-- 20506 client's restricted-environment refactor stopped accepting that
+-- header ("Header frame must be explicitly protected" from
+-- Blizzard_RestrictedAddOnEnvironment/SecureHandlers.lua) - and the old code
+-- preferred the header even out of combat, so it errored at login. The
+-- action button inherits SecureActionButtonTemplate and cannot lose explicit
+-- protection (combat clicking depends on it), so it is the safe Execute host.
 function SetupCore:ApplyDecurseMacroToButton(body)
     local btn = self.decurseBtn
     if not btn or not body then return false end
-    local header = self:EnsureDecurseSecureHeader(btn)
-    if header and header.Execute then
-        local cmd = "local b=self:GetFrameRef('dispelBtn');b:SetAttribute('type','macro');b:SetAttribute('spell',nil);b:SetAttribute('unit',nil);b:SetAttribute('macrotext',"
-            .. string.format("%q", body) .. ")"
-        header:Execute(cmd)
-        return true
-    end
     if not InCombatLockdown() then
         btn:SetAttribute("type", "macro")
         btn:SetAttribute("spell", nil)
@@ -1004,6 +991,16 @@ function SetupCore:ApplyDecurseMacroToButton(body)
         btn:SetAttribute("macrotext", body)
         return true
     end
+    if SecureHandlerExecute then
+        local cmd = "self:SetAttribute('type','macro');self:SetAttribute('spell',nil);self:SetAttribute('unit',nil);self:SetAttribute('macrotext',"
+            .. string.format("%q", body) .. ")"
+        if pcall(SecureHandlerExecute, btn, cmd) then
+            return true
+        end
+    end
+    -- In combat and Execute refused: leave the current body in place; the
+    -- PLAYER_REGEN_ENABLED push re-applies a fresh one the moment combat
+    -- ends (same degradation the SC_ macro mirror already lives with).
     return false
 end
 
@@ -1033,7 +1030,6 @@ function SetupCore:EnsureDecurseButton()
     btn:RegisterForClicks("AnyUp", "AnyDown")
     btn:SetAttribute("type", "macro")
     self.decurseBtn = btn
-    self:EnsureDecurseSecureHeader(btn)
 
     local frame = CreateFrame("Frame")
     frame:RegisterEvent("UNIT_AURA")
