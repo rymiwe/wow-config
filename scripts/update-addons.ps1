@@ -29,6 +29,9 @@ param(
 
 $ErrorActionPreference = "Continue"
 
+# A real install has WowClassic.exe inside the flavor folder; testing only for
+# the folder can latch onto a stray/dead <flavor> dir (e.g. an orphaned
+# Program Files (x86) shell) and install addons where the game never reads them.
 if (-not $WowDir) {
     foreach ($candidate in @(
         "C:\Program Files (x86)\World of Warcraft",
@@ -38,11 +41,11 @@ if (-not $WowDir) {
         "E:\Program Files\World of Warcraft",
         "E:\Program Files (x86)\World of Warcraft"
     )) {
-        if (Test-Path (Join-Path $candidate $Flavor)) { $WowDir = $candidate; break }
+        if (Test-Path (Join-Path $candidate "$Flavor\WowClassic.exe")) { $WowDir = $candidate; break }
     }
 }
-if (-not $WowDir -or -not (Test-Path (Join-Path $WowDir $Flavor))) {
-    Write-Error "Could not find WoW install with a '$Flavor' folder. Pass -WowDir 'C:\path\to\World of Warcraft'."
+if (-not $WowDir -or -not (Test-Path (Join-Path $WowDir "$Flavor\WowClassic.exe"))) {
+    Write-Error "Could not find WoW install with '$Flavor\WowClassic.exe'. Pass -WowDir 'C:\path\to\World of Warcraft'."
     exit 1
 }
 

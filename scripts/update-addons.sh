@@ -25,8 +25,11 @@ while [[ $# -gt 0 ]]; do
 done
 
 WOWDIR="${WOWDIR:-}"
+# A real install has WowClassic.exe inside the flavor folder; testing only for
+# the folder can latch onto a stray/dead <flavor> dir (e.g. an orphaned
+# Program Files (x86) shell) and install addons where the game never reads them.
 find_wow_dir() {
-    if [[ -n "$WOWDIR" && -d "$WOWDIR/$FLAVOR" ]]; then
+    if [[ -n "$WOWDIR" && -f "$WOWDIR/$FLAVOR/WowClassic.exe" ]]; then
         echo "$WOWDIR"; return
     fi
     for d in "$HOME"/.steam/steam/steamapps/compatdata/*/pfx/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
@@ -38,9 +41,9 @@ find_wow_dir() {
              "$HOME"/Games/World\ of\ Warcraft \
              "$HOME"/Games/world-of-warcraft \
              "$HOME"/World\ of\ Warcraft; do
-        if [[ -d "$d/$FLAVOR" ]]; then echo "$d"; return; fi
+        if [[ -f "$d/$FLAVOR/WowClassic.exe" ]]; then echo "$d"; return; fi
     done
-    echo "ERROR: Could not find WoW install with a '$FLAVOR' folder. Set WOWDIR=/path." >&2
+    echo "ERROR: Could not find WoW install with '$FLAVOR/WowClassic.exe'. Set WOWDIR=/path." >&2
     exit 1
 }
 
