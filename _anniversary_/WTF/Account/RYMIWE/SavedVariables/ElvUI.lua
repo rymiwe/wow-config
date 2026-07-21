@@ -58,9 +58,9 @@ ElvDB = {
 ["general"] = {
 ["bottomPanel"] = false,
 ["valuecolor"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.73,
+["g"] = 0.55,
+["r"] = 0.96,
 },
 ["fontStyle"] = "SHADOW",
 ["loginmessage"] = false,
@@ -147,20 +147,23 @@ ElvDB = {
 ["junkDesaturate"] = true,
 ["bankSize"] = 36,
 ["itemLevelFontOutline"] = "OUTLINE",
+["shownBags"] = {
+["bag-2"] = false,
+},
 ["countFontSize"] = 11,
 ["split"] = {
 ["bag5"] = true,
 ["player"] = true,
 },
-["scrapIcon"] = true,
 ["countFont"] = "Expressway",
-["itemLevelFont"] = "Expressway",
 ["vendorGrays"] = {
 ["enable"] = true,
 },
+["itemLevelFont"] = "Expressway",
+["clearSearchOnClose"] = true,
 ["bagSize"] = 36,
 ["transparent"] = true,
-["clearSearchOnClose"] = true,
+["scrapIcon"] = true,
 },
 ["auras"] = {
 ["colorDebuffs"] = false,
@@ -610,11 +613,11 @@ ElvDB = {
 ["height"] = 20,
 ["sizeOverride"] = 33,
 },
-["portrait"] = {
-["width"] = 25,
-["style"] = "Class",
-},
 ["pvpSpecIcon"] = false,
+["pvpTrinket"] = {
+["xOffset"] = 7,
+["size"] = 32,
+},
 ["spacing"] = 15,
 ["pvpclassificationindicator"] = {
 ["size"] = 32,
@@ -640,9 +643,9 @@ ElvDB = {
 ["position"] = "LEFT",
 ["xOffset"] = 2,
 },
-["pvpTrinket"] = {
-["xOffset"] = 7,
-["size"] = 32,
+["portrait"] = {
+["width"] = 25,
+["style"] = "Class",
 },
 ["height"] = 27,
 ["buffs"] = {
@@ -722,9 +725,9 @@ ElvDB = {
 ["font"] = "Expressway",
 ["colors"] = {
 ["auraBarBuff"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.73,
+["g"] = 0.55,
+["r"] = 0.96,
 },
 ["healthclass"] = true,
 ["castClassColor"] = true,
@@ -1077,9 +1080,9 @@ nil,
 ["chat"] = {
 ["tabFontOutline"] = "OUTLINE",
 ["tabSelectorColor"] = {
-["b"] = 0.87,
-["g"] = 0.44,
-["r"] = 0,
+["b"] = 0.73,
+["g"] = 0.55,
+["r"] = 0.96,
 },
 ["chatHistory"] = false,
 ["tabSelector"] = "BOX1",
