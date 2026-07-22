@@ -14,11 +14,12 @@ ElvCharacterDB = {
 "/cw Perrmauhmi your unit frame",
 "/cw Perrmauhmi leave group",
 "/cw Perrmauhmi or /leave i think",
-"/setupbars",
 "/p you have to join voice chat agaion",
 "/p click the spekaer",
 "/p and then the icon next to party again please",
 "/p did you join",
+"/setupbars",
+"/lie",
 },
 ["ChatHistoryLog"] = {
 },

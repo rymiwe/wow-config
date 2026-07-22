@@ -5,7 +5,7 @@ VER 3 0100000000000006 "SC_ArcaneMissile" "136096"
 END
 VER 3 0100000000000008 "SC_Decurse" "INV_Misc_QuestionMark"
 #showtooltip Remove Lesser Curse
-/cast [@player][@mouseover,help,nodead][help,nodead] Remove Lesser Curse
+/cast [@mouseover,help,nodead][help,nodead][@player] Remove Lesser Curse
 END
 VER 3 0100000000000001 "SC_Fireball" "135812"
 #showtooltip

@@ -2,9 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/p yeah i'm in guild voice",
-"/setupbars",
-"/qj",
 "/qj destroy",
 "depends on perrin",
 "/cw Nyrann yoyo",
@@ -22,6 +19,9 @@ ElvCharacterDB = {
 "/p checking",
 "/p yeah 2 said ineligible",
 "/ty",
+"i have a 12 mage and a 14 druid",
+"maybe we carry him through a dungeon or i just play his char and you can carry to just... rice him up a bit more for leveling",
+"seeing what i can do",
 },
 ["ChatHistoryLog"] = {
 },
