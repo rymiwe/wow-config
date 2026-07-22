@@ -39,80 +39,55 @@ QuestieConfig = {
 8157,
 20092,
 },
-["Poisons"] = {
-5139,
-18907,
-19042,
-19679,
-15175,
-1286,
-22479,
-15179,
-3954,
-3542,
-3955,
-2622,
+["Bags"] = {
+16709,
+1321,
+12959,
+151,
+12960,
+2808,
+4182,
+491,
+19053,
+4230,
+791,
+1448,
+1452,
+17421,
+12021,
+18810,
+16732,
+17489,
+4170,
+15174,
+1685,
+12246,
 19197,
-25043,
-20092,
-4897,
-7947,
-12022,
-6301,
-3135,
-16826,
-19497,
-19372,
-5163,
-19017,
-5169,
-18009,
-18019,
-1325,
-3969,
-20194,
-3779,
-23373,
-12958,
-20081,
-19194,
-4229,
-11189,
-23145,
-3561,
-22099,
-21113,
-20891,
-3499,
-19533,
-19573,
-20121,
-20250,
-12957,
-12096,
-6779,
-16829,
-1457,
-24780,
-777,
-19049,
-19239,
-18802,
-3090,
-19244,
-17486,
-19014,
-20915,
-1326,
-5135,
-26304,
-8934,
-16768,
-18006,
-12941,
-2810,
-12245,
-20986,
+4896,
+2803,
+227,
+5134,
+18906,
+1682,
+11555,
+11038,
+3608,
+8139,
+3498,
+5101,
+3962,
+3541,
+2084,
+18811,
+1285,
+734,
+7942,
+4241,
+4084,
+17446,
+1250,
+1691,
+5132,
 },
 ["Drink"] = {
 6790,
@@ -357,6 +332,81 @@ QuestieConfig = {
 6091,
 4255,
 },
+["Poisons"] = {
+5139,
+18907,
+19042,
+19679,
+15175,
+1286,
+22479,
+15179,
+3954,
+3542,
+3955,
+2622,
+19197,
+25043,
+20092,
+4897,
+7947,
+12022,
+6301,
+3135,
+16826,
+19497,
+19372,
+5163,
+19017,
+5169,
+18009,
+18019,
+1325,
+3969,
+20194,
+3779,
+23373,
+12958,
+20081,
+19194,
+4229,
+11189,
+23145,
+3561,
+22099,
+21113,
+20891,
+3499,
+19533,
+19573,
+20121,
+20250,
+12957,
+12096,
+6779,
+16829,
+1457,
+24780,
+777,
+19049,
+19239,
+18802,
+3090,
+19244,
+17486,
+19014,
+20915,
+1326,
+5135,
+26304,
+8934,
+16768,
+18006,
+12941,
+2810,
+12245,
+20986,
+},
 ["Ammo"] = {
 12246,
 1285,
@@ -432,56 +482,6 @@ QuestieConfig = {
 2839,
 1685,
 1452,
-},
-["Bags"] = {
-16709,
-1321,
-12959,
-151,
-12960,
-2808,
-4182,
-491,
-19053,
-4230,
-791,
-1448,
-1452,
-17421,
-12021,
-18810,
-16732,
-17489,
-4170,
-15174,
-1685,
-12246,
-19197,
-4896,
-2803,
-227,
-5134,
-18906,
-1682,
-11555,
-11038,
-3608,
-8139,
-3498,
-5101,
-3962,
-3541,
-2084,
-18811,
-1285,
-734,
-7942,
-4241,
-4084,
-17446,
-1250,
-1691,
-5132,
 },
 ["Trade Goods"] = {
 19497,
@@ -803,7 +803,108 @@ QuestieConfig = {
 16829,
 },
 },
-["guid"] = "Player-6064-056FF7C7",
+["townsfolk"] = {
+["Spirit Healer"] = {
+6491,
+},
+["Class Trainer"] = {
+925,
+926,
+927,
+928,
+1232,
+4988,
+5147,
+5148,
+5149,
+5491,
+5492,
+8140,
+15280,
+16275,
+16501,
+16679,
+16680,
+16681,
+16761,
+17121,
+17483,
+17509,
+17844,
+20406,
+23128,
+},
+["Mailbox"] = {
+32349,
+142075,
+142089,
+142093,
+142094,
+142095,
+142102,
+142109,
+142110,
+142111,
+142117,
+143987,
+144011,
+144112,
+144125,
+144126,
+144127,
+144128,
+144129,
+144131,
+144179,
+153716,
+164618,
+171556,
+171699,
+171752,
+176404,
+180451,
+181236,
+181380,
+182939,
+182948,
+182949,
+182950,
+182955,
+183038,
+183039,
+183040,
+183042,
+183047,
+183856,
+183857,
+183858,
+184085,
+184133,
+184134,
+184135,
+184136,
+184137,
+184138,
+184139,
+184140,
+184147,
+184490,
+184652,
+184944,
+185102,
+185477,
+142103,
+176319,
+142119,
+181639,
+185965,
+186230,
+188132,
+187260,
+187113,
+188123,
+},
+},
 ["AutoUntrackedQuests"] = {
 },
 ["complete"] = {
@@ -992,32 +1093,32 @@ QuestieConfig = {
 },
 ["journey"] = {
 {
-["Level"] = 1,
-["Quest"] = 9279,
 ["Timestamp"] = 1778451586,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 1,
 ["Quest"] = 9279,
+["Level"] = 1,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778451607,
+["Quest"] = 9279,
+["Level"] = 1,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 1,
-["Quest"] = 9280,
 ["Timestamp"] = 1778451608,
-["SubType"] = "Accept",
+["Quest"] = 9280,
+["Level"] = 1,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 1,
-["Quest"] = 10302,
 ["Timestamp"] = 1778451617,
-["SubType"] = "Accept",
+["Quest"] = 10302,
+["Level"] = 1,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778451761,
@@ -1025,25 +1126,25 @@ QuestieConfig = {
 ["NewLevel"] = 2,
 },
 {
-["Level"] = 2,
-["Quest"] = 10302,
 ["Timestamp"] = 1778451897,
+["Quest"] = 10302,
+["Level"] = 2,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 2,
-["Quest"] = 9293,
 ["Timestamp"] = 1778451898,
-["SubType"] = "Accept",
+["Quest"] = 9293,
+["Level"] = 2,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 2,
-["Quest"] = 9799,
 ["Timestamp"] = 1778451915,
-["SubType"] = "Accept",
+["Quest"] = 9799,
+["Level"] = 2,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778452219,
@@ -1051,25 +1152,25 @@ QuestieConfig = {
 ["NewLevel"] = 3,
 },
 {
-["Level"] = 3,
-["Quest"] = 9799,
 ["Timestamp"] = 1778453026,
-["SubType"] = "Complete",
+["Quest"] = 9799,
+["Level"] = 3,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 3,
-["Quest"] = 9293,
 ["Timestamp"] = 1778453028,
-["SubType"] = "Complete",
+["Quest"] = 9293,
+["Level"] = 3,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 3,
-["Quest"] = 9294,
 ["Timestamp"] = 1778453029,
-["SubType"] = "Accept",
+["Quest"] = 9294,
+["Level"] = 3,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778453053,
@@ -1077,74 +1178,74 @@ QuestieConfig = {
 ["NewLevel"] = 4,
 },
 {
-["Level"] = 4,
-["Quest"] = 9280,
 ["Timestamp"] = 1778453053,
-["SubType"] = "Complete",
+["Quest"] = 9280,
+["Level"] = 4,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 4,
-["Quest"] = 9409,
 ["Timestamp"] = 1778453054,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
 ["Quest"] = 9409,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778453069,
-["SubType"] = "Complete",
+["Quest"] = 9409,
+["Level"] = 4,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 4,
-["Quest"] = 9283,
 ["Timestamp"] = 1778453070,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 9287,
-["Timestamp"] = 1778453076,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 9305,
-["Timestamp"] = 1778453118,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 9303,
-["Timestamp"] = 1778453124,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 9294,
-["Timestamp"] = 1778454455,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
 ["Quest"] = 9283,
-["Timestamp"] = 1778454490,
-["SubType"] = "Complete",
+["Level"] = 4,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
+["Timestamp"] = 1778453076,
+["Quest"] = 9287,
 ["Level"] = 4,
-["Quest"] = 9305,
-["Timestamp"] = 1778454526,
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778453118,
+["Quest"] = 9305,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778453124,
+["Quest"] = 9303,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778454455,
+["Quest"] = 9294,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778454490,
+["Quest"] = 9283,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778454526,
+["Quest"] = 9305,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1778454534,
@@ -1152,60 +1253,60 @@ QuestieConfig = {
 ["NewLevel"] = 5,
 },
 {
-["Level"] = 5,
+["Timestamp"] = 1778454534,
 ["Quest"] = 9303,
-["Timestamp"] = 1778454534,
+["Level"] = 5,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 5,
-["Quest"] = 9309,
 ["Timestamp"] = 1778454534,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 5,
 ["Quest"] = 9309,
-["Timestamp"] = 1778454595,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 5,
-["Quest"] = 10303,
-["Timestamp"] = 1778454595,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1778454595,
+["Quest"] = 9309,
 ["Level"] = 5,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778454595,
 ["Quest"] = 10303,
+["Level"] = 5,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778454759,
-["SubType"] = "Complete",
+["Quest"] = 10303,
+["Level"] = 5,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 5,
-["Quest"] = 9311,
 ["Timestamp"] = 1778454760,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 5,
-["Quest"] = 9798,
-["Timestamp"] = 1778454816,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 5,
 ["Quest"] = 9311,
-["Timestamp"] = 1778455371,
-["SubType"] = "Complete",
+["Level"] = 5,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778454816,
+["Quest"] = 9798,
+["Level"] = 5,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778455371,
+["Quest"] = 9311,
+["Level"] = 5,
+["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1778455372,
@@ -1213,116 +1314,116 @@ QuestieConfig = {
 ["NewLevel"] = 6,
 },
 {
-["Level"] = 6,
-["Quest"] = 9798,
 ["Timestamp"] = 1778455372,
-["SubType"] = "Complete",
+["Quest"] = 9798,
+["Level"] = 6,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 6,
-["Quest"] = 9312,
 ["Timestamp"] = 1778455373,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
 ["Quest"] = 9312,
-["Timestamp"] = 1778455390,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 6,
-["Quest"] = 9313,
-["Timestamp"] = 1778455390,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1778455390,
+["Quest"] = 9312,
 ["Level"] = 6,
-["Quest"] = 9314,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778455390,
+["Quest"] = 9313,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778455565,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9452,
-["Timestamp"] = 1778455590,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9452,
-["Timestamp"] = 1778455889,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9453,
-["Timestamp"] = 1778455890,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9455,
-["Timestamp"] = 1778456047,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9463,
-["Timestamp"] = 1778456114,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9455,
-["Timestamp"] = 1778456143,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9456,
-["Timestamp"] = 1778456144,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9313,
-["Timestamp"] = 1778456156,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 6,
 ["Quest"] = 9314,
-["Timestamp"] = 1778456166,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 6,
-["Quest"] = 9453,
-["Timestamp"] = 1778456256,
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-},
-{
-["Level"] = 6,
-["Quest"] = 9454,
-["Timestamp"] = 1778456265,
 ["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778455590,
+["Quest"] = 9452,
+["Level"] = 6,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778455889,
+["Quest"] = 9452,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778455890,
+["Quest"] = 9453,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778456047,
+["Quest"] = 9455,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778456114,
+["Quest"] = 9463,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778456143,
+["Quest"] = 9455,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778456144,
+["Quest"] = 9456,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778456156,
+["Quest"] = 9313,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778456166,
+["Quest"] = 9314,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778456256,
+["Quest"] = 9453,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778456265,
+["Quest"] = 9454,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778457085,
@@ -1330,81 +1431,81 @@ QuestieConfig = {
 ["NewLevel"] = 7,
 },
 {
-["Level"] = 7,
-["Quest"] = 9506,
 ["Timestamp"] = 1778457621,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 7,
-["Quest"] = 9512,
-["Timestamp"] = 1778457625,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 7,
-["Quest"] = 9512,
-["Timestamp"] = 1778458336,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 7,
 ["Quest"] = 9506,
+["Level"] = 7,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778457625,
+["Quest"] = 9512,
+["Level"] = 7,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778458336,
+["Quest"] = 9512,
+["Level"] = 7,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1778458341,
-["SubType"] = "Complete",
+["Quest"] = 9506,
+["Level"] = 7,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 7,
-["Quest"] = 9530,
 ["Timestamp"] = 1778458342,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 7,
-["Quest"] = 9513,
-["Timestamp"] = 1778458344,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 7,
-["Quest"] = 9523,
-["Timestamp"] = 1778458348,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 7,
 ["Quest"] = 9530,
+["Level"] = 7,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778458344,
+["Quest"] = 9513,
+["Level"] = 7,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778458348,
+["Quest"] = 9523,
+["Level"] = 7,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778459708,
-["SubType"] = "Complete",
+["Quest"] = 9530,
+["Level"] = 7,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 7,
-["Quest"] = 9531,
 ["Timestamp"] = 1778459709,
-["SubType"] = "Accept",
+["Quest"] = 9531,
+["Level"] = 7,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 7,
-["Quest"] = 9463,
 ["Timestamp"] = 1778459803,
-["SubType"] = "Complete",
+["Quest"] = 9463,
+["Level"] = 7,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 7,
-["Quest"] = 9473,
 ["Timestamp"] = 1778459812,
-["SubType"] = "Accept",
+["Quest"] = 9473,
+["Level"] = 7,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778459823,
@@ -1412,130 +1513,130 @@ QuestieConfig = {
 ["NewLevel"] = 8,
 },
 {
-["Level"] = 8,
-["Quest"] = 9454,
 ["Timestamp"] = 1778459823,
-["SubType"] = "Complete",
+["Quest"] = 9454,
+["Level"] = 8,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 8,
-["Quest"] = 10324,
 ["Timestamp"] = 1778459824,
-["SubType"] = "Accept",
+["Quest"] = 10324,
+["Level"] = 8,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 8,
-["Quest"] = 9538,
 ["Timestamp"] = 1778459833,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 8,
 ["Quest"] = 9538,
+["Level"] = 8,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778459859,
-["SubType"] = "Complete",
+["Quest"] = 9538,
+["Level"] = 8,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 8,
-["Quest"] = 9539,
 ["Timestamp"] = 1778459865,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 8,
-["Quest"] = 10428,
-["Timestamp"] = 1778459871,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 8,
 ["Quest"] = 9539,
-["Timestamp"] = 1778461146,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 8,
-["Quest"] = 9540,
-["Timestamp"] = 1778461146,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
-["Level"] = 8,
-["Quest"] = 9540,
-["Timestamp"] = 1778461224,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 8,
-["Quest"] = 9541,
-["Timestamp"] = 1778461227,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778461365,
-["Quest"] = 9541,
-["Level"] = 8,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778461365,
-["Quest"] = 9542,
-["Level"] = 8,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778461573,
-["Quest"] = 9542,
-["Level"] = 8,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778461573,
-["Quest"] = 9544,
-["Level"] = 8,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778462033,
-["Quest"] = 9514,
-["Level"] = 8,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778462686,
+["Timestamp"] = 1778459871,
 ["Quest"] = 10428,
 ["Level"] = 8,
-},
-{
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778462686,
-["Quest"] = 9527,
-["Level"] = 8,
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778462835,
-["Quest"] = 9527,
+["Timestamp"] = 1778461146,
+["Quest"] = 9539,
 ["Level"] = 8,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778461146,
+["Quest"] = 9540,
+["Level"] = 8,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778461224,
+["Quest"] = 9540,
+["Level"] = 8,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778461227,
+["Quest"] = 9541,
+["Level"] = 8,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 8,
+["Quest"] = 9541,
+["Timestamp"] = 1778461365,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 8,
+["Quest"] = 9542,
+["Timestamp"] = 1778461365,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 8,
+["Quest"] = 9542,
+["Timestamp"] = 1778461573,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 8,
+["Quest"] = 9544,
+["Timestamp"] = 1778461573,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 8,
+["Quest"] = 9514,
+["Timestamp"] = 1778462033,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 8,
+["Quest"] = 10428,
+["Timestamp"] = 1778462686,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 8,
+["Quest"] = 9527,
+["Timestamp"] = 1778462686,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 8,
+["Quest"] = 9527,
+["Timestamp"] = 1778462835,
 },
 {
 ["Timestamp"] = 1778463119,
@@ -1543,95 +1644,95 @@ QuestieConfig = {
 ["NewLevel"] = 9,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778463119,
+["SubType"] = "Complete",
+["Level"] = 9,
 ["Quest"] = 9523,
-["Level"] = 9,
+["Timestamp"] = 1778463119,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778463127,
+["SubType"] = "Complete",
+["Level"] = 9,
 ["Quest"] = 9531,
-["Level"] = 9,
+["Timestamp"] = 1778463127,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 9,
+["Quest"] = 9537,
 ["Timestamp"] = 1778463129,
-["Quest"] = 9537,
-["Level"] = 9,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778463135,
+["SubType"] = "Complete",
+["Level"] = 9,
 ["Quest"] = 9513,
-["Level"] = 9,
+["Timestamp"] = 1778463135,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778463136,
+["SubType"] = "Complete",
+["Level"] = 9,
 ["Quest"] = 9514,
-["Level"] = 9,
+["Timestamp"] = 1778463136,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 9,
+["Quest"] = 9515,
 ["Timestamp"] = 1778463374,
-["Quest"] = 9515,
-["Level"] = 9,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778463376,
+["SubType"] = "Complete",
+["Level"] = 9,
 ["Quest"] = 9537,
-["Level"] = 9,
+["Timestamp"] = 1778463376,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778463377,
+["SubType"] = "Accept",
+["Level"] = 9,
 ["Quest"] = 9602,
-["Level"] = 9,
+["Timestamp"] = 1778463377,
 },
 {
-["Timestamp"] = 1778463850,
+["Level"] = 9,
 ["Quest"] = 9515,
-["Level"] = 9,
-["Event"] = "Quest",
+["Timestamp"] = 1778463850,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778464034,
+["Level"] = 9,
 ["Quest"] = 10324,
-["Level"] = 9,
-["Event"] = "Quest",
+["Timestamp"] = 1778464034,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778464040,
+["Level"] = 9,
 ["Quest"] = 9544,
-["Level"] = 9,
-["Event"] = "Quest",
+["Timestamp"] = 1778464040,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778464041,
+["Level"] = 9,
 ["Quest"] = 9559,
-["Level"] = 9,
-["Event"] = "Quest",
+["Timestamp"] = 1778464041,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778464055,
-["Quest"] = 9473,
 ["Level"] = 9,
-["Event"] = "Quest",
+["Quest"] = 9473,
+["Timestamp"] = 1778464055,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1778465278,
@@ -1639,102 +1740,102 @@ QuestieConfig = {
 ["NewLevel"] = 10,
 },
 {
-["Timestamp"] = 1778465278,
+["Level"] = 10,
 ["Quest"] = 9456,
-["Level"] = 10,
-["Event"] = "Quest",
+["Timestamp"] = 1778465278,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778465279,
+["Level"] = 10,
 ["Quest"] = 9602,
-["Level"] = 10,
-["Event"] = "Quest",
+["Timestamp"] = 1778465279,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 10,
+["Quest"] = 9623,
 ["Timestamp"] = 1778465280,
-["Quest"] = 9623,
-["Level"] = 10,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 10,
+["Quest"] = 9623,
 ["Timestamp"] = 1778627754,
-["Quest"] = 9623,
-["Level"] = 10,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 10,
+["Quest"] = 9560,
 ["Timestamp"] = 1778627885,
-["Quest"] = 9560,
-["Level"] = 10,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778627890,
+["SubType"] = "Accept",
+["Level"] = 10,
 ["Quest"] = 9562,
-["Level"] = 10,
+["Timestamp"] = 1778627890,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778627917,
+["SubType"] = "Complete",
+["Level"] = 10,
 ["Quest"] = 9559,
-["Level"] = 10,
+["Timestamp"] = 1778627917,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 10,
-["Quest"] = 9560,
+["Event"] = "Quest",
 ["Timestamp"] = 1778629944,
+["Quest"] = 9560,
+["Level"] = 10,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 10,
-["Quest"] = 9573,
+["Event"] = "Quest",
 ["Timestamp"] = 1778630028,
+["Quest"] = 9573,
+["Level"] = 10,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 10,
-["Quest"] = 9565,
+["Event"] = "Quest",
 ["Timestamp"] = 1778630032,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 10,
 ["Quest"] = 9565,
-["Timestamp"] = 1778630373,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
 ["Level"] = 10,
-["Quest"] = 9566,
-["Timestamp"] = 1778630373,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778630373,
+["Quest"] = 9565,
 ["Level"] = 10,
-["Quest"] = 9566,
-["Timestamp"] = 1778630482,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778630373,
+["Quest"] = 9566,
 ["Level"] = 10,
-["Quest"] = 9570,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778630482,
+["Quest"] = 9566,
+["Level"] = 10,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
 ["Timestamp"] = 1778630504,
+["Quest"] = 9570,
+["Level"] = 10,
 },
 {
 ["Timestamp"] = 1778632259,
@@ -1742,116 +1843,116 @@ QuestieConfig = {
 ["NewLevel"] = 11,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778632260,
+["SubType"] = "Complete",
+["Level"] = 11,
 ["Quest"] = 9573,
-["Level"] = 11,
+["Timestamp"] = 1778632260,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778632266,
+["SubType"] = "Complete",
+["Level"] = 11,
 ["Quest"] = 9570,
-["Level"] = 11,
+["Timestamp"] = 1778632266,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 11,
+["Quest"] = 9571,
 ["Timestamp"] = 1778632268,
-["Quest"] = 9571,
-["Level"] = 11,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 11,
+["Quest"] = 9622,
 ["Timestamp"] = 1778632291,
-["Quest"] = 9622,
-["Level"] = 11,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778632312,
+["SubType"] = "Complete",
+["Level"] = 11,
 ["Quest"] = 9571,
-["Level"] = 11,
+["Timestamp"] = 1778632312,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 11,
+["Quest"] = 9564,
 ["Timestamp"] = 1778632781,
-["Quest"] = 9564,
-["Level"] = 11,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 11,
+["Quest"] = 9564,
 ["Timestamp"] = 1778632862,
-["Quest"] = 9564,
-["Level"] = 11,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778632863,
+["SubType"] = "Complete",
+["Level"] = 11,
 ["Quest"] = 9562,
-["Level"] = 11,
+["Timestamp"] = 1778632863,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778632908,
+["SubType"] = "Complete",
+["Level"] = 11,
 ["Quest"] = 9622,
-["Level"] = 11,
+["Timestamp"] = 1778632908,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 11,
+["Quest"] = 983,
 ["Timestamp"] = 1778634689,
-["Quest"] = 983,
-["Level"] = 11,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778634712,
+["SubType"] = "Accept",
+["Level"] = 11,
 ["Quest"] = 2118,
-["Level"] = 11,
+["Timestamp"] = 1778634712,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778634720,
+["SubType"] = "Accept",
+["Level"] = 11,
 ["Quest"] = 984,
-["Level"] = 11,
+["Timestamp"] = 1778634720,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 11,
+["Quest"] = 3524,
 ["Timestamp"] = 1778634762,
-["Quest"] = 3524,
-["Level"] = 11,
 },
 {
-["Timestamp"] = 1778635984,
+["Level"] = 11,
 ["Quest"] = 983,
-["Level"] = 11,
-["Event"] = "Quest",
+["Timestamp"] = 1778635984,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778635998,
+["Level"] = 11,
 ["Quest"] = 3524,
-["Level"] = 11,
-["Event"] = "Quest",
+["Timestamp"] = 1778635998,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778636000,
-["Quest"] = 4681,
 ["Level"] = 11,
-["Event"] = "Quest",
+["Quest"] = 4681,
+["Timestamp"] = 1778636000,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1778638232,
@@ -1859,137 +1960,137 @@ QuestieConfig = {
 ["NewLevel"] = 12,
 },
 {
-["Level"] = 12,
-["Quest"] = 963,
 ["Timestamp"] = 1778638700,
-["SubType"] = "Accept",
+["Quest"] = 963,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
-["Quest"] = 4681,
 ["Timestamp"] = 1778638881,
-["SubType"] = "Complete",
+["Quest"] = 4681,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 12,
-["Quest"] = 2118,
 ["Timestamp"] = 1778638965,
-["SubType"] = "Complete",
+["Quest"] = 2118,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 12,
-["Quest"] = 2138,
 ["Timestamp"] = 1778638966,
-["SubType"] = "Accept",
+["Quest"] = 2138,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
+["Timestamp"] = 1778638985,
 ["Quest"] = 984,
-["Timestamp"] = 1778638985,
-["SubType"] = "Complete",
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 12,
+["Timestamp"] = 1778638985,
 ["Quest"] = 985,
-["Timestamp"] = 1778638985,
-["SubType"] = "Accept",
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
-["Quest"] = 4761,
 ["Timestamp"] = 1778638986,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
 ["Quest"] = 4761,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778639071,
+["Quest"] = 4761,
+["Level"] = 12,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 12,
-["Quest"] = 954,
 ["Timestamp"] = 1778639072,
-["SubType"] = "Accept",
+["Quest"] = 954,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
+["Timestamp"] = 1778639072,
 ["Quest"] = 4762,
-["Timestamp"] = 1778639072,
-["SubType"] = "Accept",
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
-["Quest"] = 958,
 ["Timestamp"] = 1778639073,
-["SubType"] = "Accept",
+["Quest"] = 958,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
-["Quest"] = 4811,
 ["Timestamp"] = 1778639119,
-["SubType"] = "Accept",
+["Quest"] = 4811,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
-["Quest"] = 9598,
 ["Timestamp"] = 1778640571,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
 ["Quest"] = 9598,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778640589,
-["SubType"] = "Complete",
+["Quest"] = 9598,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 12,
-["Quest"] = 9600,
 ["Timestamp"] = 1778640590,
-["SubType"] = "Accept",
+["Quest"] = 9600,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 12,
-["Quest"] = 954,
 ["Timestamp"] = 1778641045,
-["SubType"] = "Complete",
+["Quest"] = 954,
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 12,
-["Quest"] = 955,
 ["Timestamp"] = 1778641046,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
 ["Quest"] = 955,
-["Timestamp"] = 1778642323,
-["SubType"] = "Complete",
+["Level"] = 12,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
+["Timestamp"] = 1778642323,
+["Quest"] = 955,
 ["Level"] = 12,
-["Quest"] = 956,
-["Timestamp"] = 1778642324,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778642324,
+["Quest"] = 956,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778642463,
@@ -1997,74 +2098,74 @@ QuestieConfig = {
 ["NewLevel"] = 13,
 },
 {
-["Level"] = 13,
-["Quest"] = 956,
 ["Timestamp"] = 1778642463,
-["SubType"] = "Complete",
+["Quest"] = 956,
+["Level"] = 13,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 13,
-["Quest"] = 957,
 ["Timestamp"] = 1778642464,
-["SubType"] = "Accept",
+["Quest"] = 957,
+["Level"] = 13,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1778644347,
+["Level"] = 13,
 ["Quest"] = 4811,
-["Level"] = 13,
-["Event"] = "Quest",
+["Timestamp"] = 1778644347,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 13,
+["Quest"] = 4812,
 ["Timestamp"] = 1778644348,
-["Quest"] = 4812,
-["Level"] = 13,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 13,
+["Quest"] = 2178,
 ["Timestamp"] = 1778644603,
-["Quest"] = 2178,
-["Level"] = 13,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 13,
+["Quest"] = 2178,
 ["Timestamp"] = 1778644605,
-["Quest"] = 2178,
-["Level"] = 13,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778644616,
+["Level"] = 13,
 ["Quest"] = 4762,
-["Level"] = 13,
-["Event"] = "Quest",
+["Timestamp"] = 1778644616,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778644644,
+["Level"] = 13,
 ["Quest"] = 2138,
-["Level"] = 13,
-["Event"] = "Quest",
+["Timestamp"] = 1778644644,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 13,
+["Event"] = "Quest",
+["Timestamp"] = 1778644785,
 ["Quest"] = 4812,
-["Timestamp"] = 1778644785,
+["Level"] = 13,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 13,
-["Quest"] = 4813,
+["Event"] = "Quest",
 ["Timestamp"] = 1778644785,
+["Quest"] = 4813,
+["Level"] = 13,
 },
 {
 ["Timestamp"] = 1778722972,
@@ -2072,200 +2173,200 @@ QuestieConfig = {
 ["NewLevel"] = 14,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 14,
+["Quest"] = 4722,
 ["Timestamp"] = 1778723737,
-["Quest"] = 4722,
-["Level"] = 14,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 14,
+["Quest"] = 953,
 ["Timestamp"] = 1778723802,
-["Quest"] = 953,
-["Level"] = 14,
 },
 {
+["Level"] = 14,
+["Quest"] = 953,
 ["Timestamp"] = 1778724091,
-["Quest"] = 953,
-["Level"] = 14,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778724306,
+["Level"] = 14,
 ["Quest"] = 957,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778724306,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778724395,
+["Level"] = 14,
 ["Quest"] = 985,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778724395,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778724450,
+["Level"] = 14,
 ["Quest"] = 958,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778724450,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778724532,
+["Level"] = 14,
 ["Quest"] = 4813,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778724532,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778724564,
+["Level"] = 14,
 ["Quest"] = 4722,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778724564,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778724598,
+["Level"] = 14,
 ["Quest"] = 963,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778724598,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 14,
+["Quest"] = 9625,
 ["Timestamp"] = 1778726494,
-["Quest"] = 9625,
-["Level"] = 14,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778726774,
+["Level"] = 14,
 ["Quest"] = 9624,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778726774,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778726782,
+["Level"] = 14,
 ["Quest"] = 9625,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778726782,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778726785,
+["Level"] = 14,
 ["Quest"] = 9634,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778726785,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 14,
+["Quest"] = 9663,
 ["Timestamp"] = 1778726901,
-["Quest"] = 9663,
-["Level"] = 14,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778726960,
+["Level"] = 14,
 ["Quest"] = 9646,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778726960,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778726983,
+["Level"] = 14,
 ["Quest"] = 9663,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778726983,
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778726997,
+["Level"] = 14,
 ["Quest"] = 9567,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778726997,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727018,
+["Level"] = 14,
 ["Quest"] = 9643,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727018,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727019,
+["Level"] = 14,
 ["Quest"] = 9580,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727019,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727030,
+["Level"] = 14,
 ["Quest"] = 9648,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727030,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727055,
+["Level"] = 14,
 ["Quest"] = 10063,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727055,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727064,
+["Level"] = 14,
 ["Quest"] = 9641,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727064,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 14,
+["Quest"] = 9693,
 ["Timestamp"] = 1778727082,
-["Quest"] = 9693,
-["Level"] = 14,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727094,
+["Level"] = 14,
 ["Quest"] = 9581,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727094,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727110,
+["Level"] = 14,
 ["Quest"] = 9693,
-["Level"] = 14,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1778727110,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 14,
 ["Quest"] = 9694,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727110,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778727129,
+["Level"] = 14,
 ["Quest"] = 9629,
-["Level"] = 14,
-["Event"] = "Quest",
+["Timestamp"] = 1778727129,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778728205,
-["Quest"] = 9594,
 ["Level"] = 14,
-["Event"] = "Quest",
+["Quest"] = 9594,
+["Timestamp"] = 1778728205,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1778729275,
@@ -2273,137 +2374,137 @@ QuestieConfig = {
 ["NewLevel"] = 15,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 15,
-["Quest"] = 9576,
+["Event"] = "Quest",
 ["Timestamp"] = 1778729281,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 15,
-["Quest"] = 9663,
-["Timestamp"] = 1778729906,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 15,
-["Quest"] = 9663,
-["Timestamp"] = 1778730013,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 15,
-["Quest"] = 9663,
-["Timestamp"] = 1778730069,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 15,
-["Quest"] = 9624,
-["Timestamp"] = 1778730618,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 15,
-["Quest"] = 9634,
-["Timestamp"] = 1778730753,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 15,
-["Quest"] = 9663,
-["Timestamp"] = 1778730767,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 15,
-["Quest"] = 9663,
-["Timestamp"] = 1778730785,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 15,
-["Quest"] = 9567,
-["Timestamp"] = 1778730847,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 15,
-["Quest"] = 9663,
-["Timestamp"] = 1778730874,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 15,
-["Quest"] = 9594,
-["Timestamp"] = 1778730932,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 15,
-["Quest"] = 9569,
-["Timestamp"] = 1778730933,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 15,
-["Quest"] = 9641,
-["Timestamp"] = 1778730954,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 15,
-["Quest"] = 9581,
-["Timestamp"] = 1778731012,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 15,
-["Quest"] = 9620,
-["Timestamp"] = 1778731013,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 15,
 ["Quest"] = 9576,
-["Timestamp"] = 1778731036,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
 ["Level"] = 15,
-["Quest"] = 9629,
-["Timestamp"] = 1778731037,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 15,
-["Quest"] = 9574,
-["Timestamp"] = 1778731038,
-},
-{
 ["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 15,
+["Timestamp"] = 1778729906,
 ["Quest"] = 9663,
+["Level"] = 15,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1778730013,
+["Quest"] = 9663,
+["Level"] = 15,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778730069,
+["Quest"] = 9663,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778730618,
+["Quest"] = 9624,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778730753,
+["Quest"] = 9634,
+["Level"] = 15,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1778730767,
+["Quest"] = 9663,
+["Level"] = 15,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778730785,
+["Quest"] = 9663,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778730847,
+["Quest"] = 9567,
+["Level"] = 15,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1778730874,
+["Quest"] = 9663,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778730932,
+["Quest"] = 9594,
+["Level"] = 15,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778730933,
+["Quest"] = 9569,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778730954,
+["Quest"] = 9641,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778731012,
+["Quest"] = 9581,
+["Level"] = 15,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778731013,
+["Quest"] = 9620,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778731036,
+["Quest"] = 9576,
+["Level"] = 15,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778731037,
+["Quest"] = 9629,
+["Level"] = 15,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778731038,
+["Quest"] = 9574,
+["Level"] = 15,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
 ["Timestamp"] = 1778800714,
+["Quest"] = 9663,
+["Level"] = 15,
 },
 {
 ["Timestamp"] = 1778800802,
@@ -2411,151 +2512,151 @@ QuestieConfig = {
 ["NewLevel"] = 16,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 16,
-["Quest"] = 9574,
+["Event"] = "Quest",
 ["Timestamp"] = 1778800802,
+["Quest"] = 9574,
+["Level"] = 16,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 16,
-["Quest"] = 9578,
+["Event"] = "Quest",
 ["Timestamp"] = 1778800803,
+["Quest"] = 9578,
+["Level"] = 16,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 16,
-["Quest"] = 9694,
+["Event"] = "Quest",
 ["Timestamp"] = 1778800821,
+["Quest"] = 9694,
+["Level"] = 16,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 16,
-["Quest"] = 9779,
+["Event"] = "Quest",
 ["Timestamp"] = 1778800822,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 16,
-["Quest"] = 9642,
-["Timestamp"] = 1778800836,
-},
-{
-["Level"] = 16,
-["Quest"] = 9620,
-["Timestamp"] = 1778801242,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 16,
-["Quest"] = 9628,
-["Timestamp"] = 1778801243,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 16,
-["Quest"] = 9687,
-["Timestamp"] = 1778801722,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778801954,
 ["Quest"] = 9779,
 ["Level"] = 16,
 },
 {
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778801955,
-["Quest"] = 9696,
-["Level"] = 16,
-},
-{
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778801961,
-["Quest"] = 9696,
+["Timestamp"] = 1778800836,
+["Quest"] = 9642,
 ["Level"] = 16,
 },
 {
-["SubType"] = "Accept",
+["Timestamp"] = 1778801242,
+["Quest"] = 9620,
+["Level"] = 16,
 ["Event"] = "Quest",
-["Timestamp"] = 1778801962,
-["Quest"] = 9698,
-["Level"] = 16,
-},
-{
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778801983,
+},
+{
+["Timestamp"] = 1778801243,
 ["Quest"] = 9628,
 ["Level"] = 16,
-},
-{
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778801984,
-["Quest"] = 9584,
-["Level"] = 16,
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778802012,
-["Quest"] = 9648,
+["Timestamp"] = 1778801722,
+["Quest"] = 9687,
 ["Level"] = 16,
-},
-{
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778802013,
-["Quest"] = 9649,
-["Level"] = 16,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778804553,
-["Quest"] = 9600,
+["SubType"] = "Complete",
 ["Level"] = 16,
+["Quest"] = 9779,
+["Timestamp"] = 1778801954,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778806629,
+["SubType"] = "Accept",
+["Level"] = 16,
+["Quest"] = 9696,
+["Timestamp"] = 1778801955,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 16,
+["Quest"] = 9696,
+["Timestamp"] = 1778801961,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 16,
 ["Quest"] = 9698,
-["Level"] = 16,
+["Timestamp"] = 1778801962,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 16,
+["Quest"] = 9628,
+["Timestamp"] = 1778801983,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 16,
+["Quest"] = 9584,
+["Timestamp"] = 1778801984,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 16,
+["Quest"] = 9648,
+["Timestamp"] = 1778802012,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 16,
+["Quest"] = 9649,
+["Timestamp"] = 1778802013,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 16,
+["Quest"] = 9600,
+["Timestamp"] = 1778804553,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 16,
+["Quest"] = 9698,
 ["Timestamp"] = 1778806629,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 16,
 ["Quest"] = 9699,
-["Level"] = 16,
+["Timestamp"] = 1778806629,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778812639,
+["SubType"] = "Accept",
+["Level"] = 16,
 ["Quest"] = 1486,
-["Level"] = 16,
+["Timestamp"] = 1778812639,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778812642,
-["Quest"] = 1487,
+["SubType"] = "Accept",
 ["Level"] = 16,
+["Quest"] = 1487,
+["Timestamp"] = 1778812642,
 },
 {
 ["Timestamp"] = 1778815736,
@@ -2563,39 +2664,39 @@ QuestieConfig = {
 ["NewLevel"] = 17,
 },
 {
-["Level"] = 17,
-["Quest"] = 9663,
 ["Timestamp"] = 1778827395,
+["Quest"] = 9663,
+["Level"] = 17,
+["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Event"] = "Quest",
 },
 {
-["Level"] = 17,
-["Quest"] = 9699,
 ["Timestamp"] = 1778827419,
-["SubType"] = "Complete",
+["Quest"] = 9699,
+["Level"] = 17,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 17,
-["Quest"] = 9700,
 ["Timestamp"] = 1778827420,
+["Quest"] = 9700,
+["Level"] = 17,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 17,
+["Quest"] = 9642,
 ["Timestamp"] = 1778831672,
-["Quest"] = 9642,
-["Level"] = 17,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778831678,
-["Quest"] = 9642,
+["SubType"] = "Complete",
 ["Level"] = 17,
+["Quest"] = 9642,
+["Timestamp"] = 1778831678,
 },
 {
 ["Timestamp"] = 1778833518,
@@ -2603,60 +2704,60 @@ QuestieConfig = {
 ["NewLevel"] = 18,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778971608,
+["SubType"] = "Complete",
+["Level"] = 18,
 ["Quest"] = 9584,
-["Level"] = 18,
+["Timestamp"] = 1778971608,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778971609,
+["SubType"] = "Accept",
+["Level"] = 18,
 ["Quest"] = 9585,
-["Level"] = 18,
+["Timestamp"] = 1778971609,
 },
 {
-["Timestamp"] = 1778972541,
+["Level"] = 18,
 ["Quest"] = 10063,
-["Level"] = 18,
-["Event"] = "Quest",
+["Timestamp"] = 1778972541,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778972543,
+["Level"] = 18,
 ["Quest"] = 9548,
-["Level"] = 18,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1778972543,
-["Quest"] = 9549,
-["Level"] = 18,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 18,
+["Quest"] = 9549,
+["Timestamp"] = 1778972543,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 18,
+["Quest"] = 9548,
 ["Timestamp"] = 1778974343,
-["Quest"] = 9548,
-["Level"] = 18,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778974344,
+["Level"] = 18,
 ["Quest"] = 9549,
-["Level"] = 18,
-["Event"] = "Quest",
+["Timestamp"] = 1778974344,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778974361,
-["Quest"] = 9550,
 ["Level"] = 18,
-["Event"] = "Quest",
+["Quest"] = 9550,
+["Timestamp"] = 1778974361,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1779160929,
@@ -2664,109 +2765,109 @@ QuestieConfig = {
 ["NewLevel"] = 19,
 },
 {
-["Level"] = 19,
-["Quest"] = 9550,
 ["Timestamp"] = 1779163123,
-["SubType"] = "Complete",
+["Quest"] = 9550,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9557,
 ["Timestamp"] = 1779163124,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 19,
 ["Quest"] = 9557,
+["Level"] = 19,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779163253,
-["SubType"] = "Complete",
+["Quest"] = 9557,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9646,
 ["Timestamp"] = 1779163304,
-["SubType"] = "Complete",
+["Quest"] = 9646,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9585,
 ["Timestamp"] = 1779163305,
-["SubType"] = "Complete",
+["Quest"] = 9585,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 10064,
 ["Timestamp"] = 1779163306,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 19,
-["Quest"] = 9561,
-["Timestamp"] = 1779163344,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 19,
-["Quest"] = 9632,
-["Timestamp"] = 1779163345,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 19,
-["Quest"] = 9700,
-["Timestamp"] = 1779163381,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 19,
-["Quest"] = 9703,
-["Timestamp"] = 1779163396,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 19,
-["Quest"] = 9580,
-["Timestamp"] = 1779760670,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 19,
-["Quest"] = 9643,
-["Timestamp"] = 1779760672,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 19,
-["Quest"] = 9647,
-["Timestamp"] = 1779760672,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 19,
-["Quest"] = 9561,
-["Timestamp"] = 1779760758,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 19,
 ["Quest"] = 10064,
+["Level"] = 19,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779163344,
+["Quest"] = 9561,
+["Level"] = 19,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779163345,
+["Quest"] = 9632,
+["Level"] = 19,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779163381,
+["Quest"] = 9700,
+["Level"] = 19,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779163396,
+["Quest"] = 9703,
+["Level"] = 19,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779760670,
+["Quest"] = 9580,
+["Level"] = 19,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779760672,
+["Quest"] = 9643,
+["Level"] = 19,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779760672,
+["Quest"] = 9647,
+["Level"] = 19,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779760758,
+["Quest"] = 9561,
+["Level"] = 19,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1779762739,
+["Quest"] = 10064,
+["Level"] = 19,
 },
 {
 ["Timestamp"] = 1779762962,
@@ -2774,221 +2875,221 @@ QuestieConfig = {
 ["NewLevel"] = 20,
 },
 {
-["Level"] = 20,
-["Quest"] = 9569,
 ["Timestamp"] = 1779764914,
-["SubType"] = "Complete",
+["Quest"] = 9569,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 20,
-["Quest"] = 9669,
 ["Timestamp"] = 1779764949,
-["SubType"] = "Accept",
+["Quest"] = 9669,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 20,
-["Quest"] = 9647,
 ["Timestamp"] = 1779765008,
-["SubType"] = "Complete",
+["Quest"] = 9647,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 20,
-["Quest"] = 9649,
 ["Timestamp"] = 1779765018,
-["SubType"] = "Complete",
+["Quest"] = 9649,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765652,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765657,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765662,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765667,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765672,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765676,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765681,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765685,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765755,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 20,
+["Quest"] = 9642,
 ["Timestamp"] = 1779765760,
-["Quest"] = 9642,
-["Level"] = 20,
 },
 {
-["Level"] = 20,
+["Timestamp"] = 1780279439,
 ["Quest"] = 9578,
-["Timestamp"] = 1780279439,
+["Level"] = 20,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 20,
-["Quest"] = 9579,
 ["Timestamp"] = 1780279439,
-["SubType"] = "Accept",
+["Quest"] = 9579,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 20,
-["Quest"] = 9706,
 ["Timestamp"] = 1780279441,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 20,
-["Quest"] = 9579,
-["Timestamp"] = 1780279904,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 20,
 ["Quest"] = 9706,
+["Level"] = 20,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1780279904,
+["Quest"] = 9579,
+["Level"] = 20,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1780279920,
-["SubType"] = "Complete",
+["Quest"] = 9706,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 20,
-["Quest"] = 9703,
 ["Timestamp"] = 1780279921,
-["SubType"] = "Complete",
+["Quest"] = 9703,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 20,
-["Quest"] = 9711,
 ["Timestamp"] = 1780279922,
-["SubType"] = "Accept",
+["Quest"] = 9711,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 20,
-["Quest"] = 9753,
 ["Timestamp"] = 1780279925,
-["SubType"] = "Accept",
+["Quest"] = 9753,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 20,
+["Timestamp"] = 1780279925,
 ["Quest"] = 9748,
-["Timestamp"] = 1780279925,
-["SubType"] = "Accept",
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 20,
+["Timestamp"] = 1780279951,
 ["Quest"] = 9753,
-["Timestamp"] = 1780279951,
+["Level"] = 20,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 20,
-["Quest"] = 9756,
 ["Timestamp"] = 1780279951,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 20,
 ["Quest"] = 9756,
-["Timestamp"] = 1780279999,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 20,
-["Quest"] = 9760,
-["Timestamp"] = 1780279999,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1780279999,
+["Quest"] = 9756,
 ["Level"] = 20,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1780279999,
 ["Quest"] = 9760,
+["Level"] = 20,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1780282402,
+["Quest"] = 9760,
+["Level"] = 20,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 20,
-["Quest"] = 10067,
 ["Timestamp"] = 1780282408,
-["SubType"] = "Accept",
+["Quest"] = 10067,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 20,
-["Quest"] = 10066,
 ["Timestamp"] = 1780282409,
-["SubType"] = "Accept",
+["Quest"] = 10066,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 20,
-["Quest"] = 10065,
 ["Timestamp"] = 1780282414,
-["SubType"] = "Accept",
+["Quest"] = 10065,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1780282622,
@@ -2996,165 +3097,165 @@ QuestieConfig = {
 ["NewLevel"] = 21,
 },
 {
-["Level"] = 21,
-["Quest"] = 9741,
 ["Timestamp"] = 1780282928,
-["SubType"] = "Accept",
+["Quest"] = 9741,
+["Level"] = 21,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 21,
-["Quest"] = 9711,
 ["Timestamp"] = 1780283095,
-["SubType"] = "Complete",
+["Quest"] = 9711,
+["Level"] = 21,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 21,
-["Quest"] = 9663,
 ["Timestamp"] = 1780283226,
-["SubType"] = "Accept",
+["Quest"] = 9663,
+["Level"] = 21,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 21,
-["Quest"] = 9632,
 ["Timestamp"] = 1780284135,
-["SubType"] = "Complete",
+["Quest"] = 9632,
+["Level"] = 21,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 21,
-["Quest"] = 9633,
 ["Timestamp"] = 1780284139,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 21,
 ["Quest"] = 9633,
+["Level"] = 21,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1780799775,
-["SubType"] = "Complete",
+["Quest"] = 9633,
+["Level"] = 21,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Timestamp"] = 1780802487,
+["Level"] = 21,
 ["Quest"] = 167,
-["Level"] = 21,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1780802487,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 21,
 ["Quest"] = 168,
-["Level"] = 21,
-["Event"] = "Quest",
+["Timestamp"] = 1780802487,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780802688,
+["Level"] = 21,
 ["Quest"] = 2040,
-["Level"] = 21,
-["Event"] = "Quest",
+["Timestamp"] = 1780802688,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 65,
 ["Timestamp"] = 1780803203,
-["Quest"] = 65,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 65,
 ["Timestamp"] = 1780803988,
-["Quest"] = 65,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 132,
 ["Timestamp"] = 1780803989,
-["Quest"] = 132,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 132,
 ["Timestamp"] = 1780804511,
-["Quest"] = 132,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 135,
 ["Timestamp"] = 1780804512,
-["Quest"] = 135,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 135,
 ["Timestamp"] = 1780804777,
-["Quest"] = 135,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 141,
 ["Timestamp"] = 1780804778,
-["Quest"] = 141,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780805090,
-["Quest"] = 141,
 ["Level"] = 21,
-["Event"] = "Quest",
+["Quest"] = 141,
+["Timestamp"] = 1780805090,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1780805090,
-["Quest"] = 142,
-["Level"] = 21,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 21,
+["Quest"] = 142,
+["Timestamp"] = 1780805090,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 21,
+["Quest"] = 142,
 ["Timestamp"] = 1780805527,
-["Quest"] = 142,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 155,
 ["Timestamp"] = 1780805557,
-["Quest"] = 155,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 155,
 ["Timestamp"] = 1780805937,
-["Quest"] = 155,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780805938,
+["Level"] = 21,
 ["Quest"] = 166,
-["Level"] = 21,
-["Event"] = "Quest",
+["Timestamp"] = 1780805938,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780805982,
-["Quest"] = 214,
 ["Level"] = 21,
-["Event"] = "Quest",
+["Quest"] = 214,
+["Timestamp"] = 1780805982,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1780886725,
@@ -3162,11 +3263,11 @@ QuestieConfig = {
 ["NewLevel"] = 22,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 22,
-["Quest"] = 373,
+["Event"] = "Quest",
 ["Timestamp"] = 1780889984,
+["Quest"] = 373,
+["Level"] = 22,
 },
 {
 ["Timestamp"] = 1780895545,
@@ -3174,60 +3275,60 @@ QuestieConfig = {
 ["NewLevel"] = 23,
 },
 {
-["Level"] = 23,
-["Quest"] = 214,
 ["Timestamp"] = 1780896296,
-["SubType"] = "Complete",
+["Quest"] = 214,
+["Level"] = 23,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 23,
-["Quest"] = 166,
 ["Timestamp"] = 1780896328,
-["SubType"] = "Complete",
+["Quest"] = 166,
+["Level"] = 23,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 373,
+["Event"] = "Quest",
 ["Timestamp"] = 1781321584,
+["Quest"] = 373,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 2040,
+["Event"] = "Quest",
 ["Timestamp"] = 1781321666,
+["Quest"] = 2040,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 167,
+["Event"] = "Quest",
 ["Timestamp"] = 1781321708,
+["Quest"] = 167,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 168,
+["Event"] = "Quest",
 ["Timestamp"] = 1781321709,
+["Quest"] = 168,
+["Level"] = 23,
 },
 {
-["Timestamp"] = 1783133575,
+["Level"] = 23,
 ["Quest"] = 11828,
-["Level"] = 23,
-["Event"] = "Quest",
+["Timestamp"] = 1783133575,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783133585,
-["Quest"] = 11882,
 ["Level"] = 23,
-["Event"] = "Quest",
+["Quest"] = 11882,
+["Timestamp"] = 1783133585,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1783136031,
@@ -3235,53 +3336,53 @@ QuestieConfig = {
 ["NewLevel"] = 24,
 },
 {
-["Timestamp"] = 1783138572,
+["Level"] = 24,
 ["Quest"] = 11882,
-["Level"] = 24,
-["Event"] = "Quest",
+["Timestamp"] = 1783138572,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783138575,
+["Level"] = 24,
 ["Quest"] = 11731,
-["Level"] = 24,
-["Event"] = "Quest",
+["Timestamp"] = 1783138575,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 1793,
+["Event"] = "Quest",
 ["Timestamp"] = 1783390451,
+["Quest"] = 1793,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 1649,
+["Event"] = "Quest",
 ["Timestamp"] = 1783390455,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
 ["Quest"] = 1649,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1783390457,
+["Quest"] = 1649,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 1650,
+["Event"] = "Quest",
 ["Timestamp"] = 1783390458,
+["Quest"] = 1650,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 387,
+["Event"] = "Quest",
 ["Timestamp"] = 1783391278,
+["Quest"] = 387,
+["Level"] = 24,
 },
 {
 ["Timestamp"] = 1783393423,
@@ -3289,130 +3390,130 @@ QuestieConfig = {
 ["NewLevel"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 25,
-["Quest"] = 387,
+["Event"] = "Quest",
 ["Timestamp"] = 1783394987,
+["Quest"] = 387,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 389,
+["Event"] = "Quest",
 ["Timestamp"] = 1783395114,
+["Quest"] = 389,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 399,
+["Event"] = "Quest",
 ["Timestamp"] = 1783395116,
+["Quest"] = 399,
+["Level"] = 25,
 },
 {
-["Level"] = 25,
-["Quest"] = 11731,
 ["Timestamp"] = 1783402325,
+["Quest"] = 11731,
+["Level"] = 25,
+["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Event"] = "Quest",
 },
 {
-["Level"] = 25,
+["Timestamp"] = 1783402387,
 ["Quest"] = 1650,
-["Timestamp"] = 1783402387,
+["Level"] = 25,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 25,
-["Quest"] = 1651,
 ["Timestamp"] = 1783402387,
-["SubType"] = "Accept",
+["Quest"] = 1651,
+["Level"] = 25,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 25,
-["Quest"] = 1651,
 ["Timestamp"] = 1783402599,
-["SubType"] = "Complete",
+["Quest"] = 1651,
+["Level"] = 25,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 25,
-["Quest"] = 1652,
 ["Timestamp"] = 1783402600,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 25,
 ["Quest"] = 1652,
+["Level"] = 25,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1783402951,
-["SubType"] = "Complete",
+["Quest"] = 1652,
+["Level"] = 25,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 25,
-["Quest"] = 1653,
 ["Timestamp"] = 1783402952,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 25,
 ["Quest"] = 1653,
+["Level"] = 25,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1783403752,
-["SubType"] = "Complete",
+["Quest"] = 1653,
+["Level"] = 25,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 25,
-["Quest"] = 1654,
 ["Timestamp"] = 1783403753,
-["SubType"] = "Accept",
+["Quest"] = 1654,
+["Level"] = 25,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
+["Level"] = 25,
+["Quest"] = 3765,
 ["Timestamp"] = 1783737260,
-["Quest"] = 3765,
-["Level"] = 25,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783737605,
+["Level"] = 25,
 ["Quest"] = 971,
-["Level"] = 25,
-["Event"] = "Quest",
+["Timestamp"] = 1783737605,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783738095,
+["Level"] = 25,
 ["Quest"] = 3765,
-["Level"] = 25,
-["Event"] = "Quest",
+["Timestamp"] = 1783738095,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783738096,
+["Level"] = 25,
 ["Quest"] = 1275,
-["Level"] = 25,
-["Event"] = "Quest",
+["Timestamp"] = 1783738096,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783738629,
+["Level"] = 25,
 ["Quest"] = 1199,
-["Level"] = 25,
-["Event"] = "Quest",
+["Timestamp"] = 1783738629,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783738644,
-["Quest"] = 1198,
 ["Level"] = 25,
-["Event"] = "Quest",
+["Quest"] = 1198,
+["Timestamp"] = 1783738644,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1783740293,
@@ -3420,18 +3521,18 @@ QuestieConfig = {
 ["NewLevel"] = 26,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 26,
-["Quest"] = 1198,
+["Event"] = "Quest",
 ["Timestamp"] = 1783740910,
+["Quest"] = 1198,
+["Level"] = 26,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 26,
-["Quest"] = 1200,
+["Event"] = "Quest",
 ["Timestamp"] = 1783740910,
+["Quest"] = 1200,
+["Level"] = 26,
 },
 {
 ["Timestamp"] = 1783746056,
@@ -3439,172 +3540,172 @@ QuestieConfig = {
 ["NewLevel"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 1199,
+["Event"] = "Quest",
 ["Timestamp"] = 1783746057,
+["Quest"] = 1199,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 1200,
+["Event"] = "Quest",
 ["Timestamp"] = 1783746067,
+["Quest"] = 1200,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 971,
+["Event"] = "Quest",
 ["Timestamp"] = 1783746865,
+["Quest"] = 971,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 9663,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747950,
+["Quest"] = 9663,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 10065,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747953,
+["Quest"] = 10065,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 9741,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747956,
+["Quest"] = 9741,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 9748,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747958,
+["Quest"] = 9748,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 10066,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747962,
+["Quest"] = 10066,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 9687,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747967,
+["Quest"] = 9687,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 10067,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747969,
+["Quest"] = 10067,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 9669,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747976,
+["Quest"] = 9669,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 399,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747989,
+["Quest"] = 399,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 389,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747994,
+["Quest"] = 389,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 1486,
+["Event"] = "Quest",
 ["Timestamp"] = 1783747999,
+["Quest"] = 1486,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 1487,
+["Event"] = "Quest",
 ["Timestamp"] = 1783748004,
+["Quest"] = 1487,
+["Level"] = 27,
 },
 {
-["Timestamp"] = 1783808035,
+["Level"] = 27,
 ["Quest"] = 128,
-["Level"] = 27,
-["Event"] = "Quest",
+["Timestamp"] = 1783808035,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 27,
+["Quest"] = 91,
 ["Timestamp"] = 1783808097,
-["Quest"] = 91,
-["Level"] = 27,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 27,
+["Quest"] = 180,
 ["Timestamp"] = 1783808120,
-["Quest"] = 180,
-["Level"] = 27,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 219,
+["Event"] = "Quest",
 ["Timestamp"] = 1783813078,
+["Quest"] = 219,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 27,
-["Quest"] = 219,
+["Event"] = "Quest",
 ["Timestamp"] = 1783813654,
+["Quest"] = 219,
+["Level"] = 27,
 },
 {
-["Level"] = 27,
-["Quest"] = 219,
 ["Timestamp"] = 1783817696,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
 ["Quest"] = 219,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1783818393,
-["SubType"] = "Complete",
+["Quest"] = 219,
+["Level"] = 27,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 27,
-["Quest"] = 91,
 ["Timestamp"] = 1783818554,
-["SubType"] = "Complete",
+["Quest"] = 91,
+["Level"] = 27,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 27,
-["Quest"] = 180,
 ["Timestamp"] = 1783818557,
-["SubType"] = "Complete",
+["Quest"] = 180,
+["Level"] = 27,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1783818625,
@@ -3612,95 +3713,95 @@ QuestieConfig = {
 ["NewLevel"] = 28,
 },
 {
-["Level"] = 28,
-["Quest"] = 128,
 ["Timestamp"] = 1783818625,
-["SubType"] = "Complete",
+["Quest"] = 128,
+["Level"] = 28,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 28,
-["Quest"] = 2923,
 ["Timestamp"] = 1783819067,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 28,
 ["Quest"] = 2923,
+["Level"] = 28,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1783819297,
-["SubType"] = "Complete",
+["Quest"] = 2923,
+["Level"] = 28,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 28,
-["Quest"] = 1275,
+["Event"] = "Quest",
 ["Timestamp"] = 1783827886,
+["Quest"] = 1275,
+["Level"] = 28,
 },
 {
+["Level"] = 28,
+["Quest"] = 472,
 ["Timestamp"] = 1783844937,
-["Quest"] = 472,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 299,
 ["Timestamp"] = 1783845231,
-["Quest"] = 299,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 299,
 ["Timestamp"] = 1783846059,
-["Quest"] = 299,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783846477,
+["Level"] = 28,
 ["Quest"] = 631,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1783846477,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783846479,
+["Level"] = 28,
 ["Quest"] = 472,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1783846479,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 304,
 ["Timestamp"] = 1783846480,
-["Quest"] = 304,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 303,
 ["Timestamp"] = 1783846482,
-["Quest"] = 303,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Level"] = 28,
-["Quest"] = 304,
 ["Timestamp"] = 1783964357,
-["SubType"] = "Complete",
+["Quest"] = 304,
+["Level"] = 28,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 28,
-["Quest"] = 303,
 ["Timestamp"] = 1783964360,
-["SubType"] = "Complete",
+["Quest"] = 303,
+["Level"] = 28,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1783964360,
@@ -3708,172 +3809,172 @@ QuestieConfig = {
 ["NewLevel"] = 29,
 },
 {
-["Level"] = 29,
+["Timestamp"] = 1783964495,
 ["Quest"] = 631,
-["Timestamp"] = 1783964495,
+["Level"] = 29,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 29,
-["Quest"] = 632,
 ["Timestamp"] = 1783964495,
-["SubType"] = "Accept",
+["Quest"] = 632,
+["Level"] = 29,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 29,
-["Quest"] = 632,
 ["Timestamp"] = 1783964555,
-["SubType"] = "Complete",
+["Quest"] = 632,
+["Level"] = 29,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 29,
-["Quest"] = 633,
 ["Timestamp"] = 1783964556,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 29,
-["Quest"] = 637,
-["Timestamp"] = 1783964844,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 29,
 ["Quest"] = 633,
-["Timestamp"] = 1783966067,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 29,
-["Quest"] = 634,
-["Timestamp"] = 1783966067,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 29,
+["Timestamp"] = 1783964844,
 ["Quest"] = 637,
+["Level"] = 29,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1783966067,
+["Quest"] = 633,
+["Level"] = 29,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1783966067,
+["Quest"] = 634,
+["Level"] = 29,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1784598434,
+["Quest"] = 637,
+["Level"] = 29,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 29,
+["Quest"] = 2925,
 ["Timestamp"] = 1784600161,
-["Quest"] = 2925,
-["Level"] = 29,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784600420,
+["SubType"] = "Accept",
+["Level"] = 29,
 ["Quest"] = 2928,
-["Level"] = 29,
+["Timestamp"] = 1784600420,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784600709,
+["SubType"] = "Complete",
+["Level"] = 29,
 ["Quest"] = 2925,
-["Level"] = 29,
+["Timestamp"] = 1784600709,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784600710,
+["SubType"] = "Accept",
+["Level"] = 29,
 ["Quest"] = 2924,
-["Level"] = 29,
+["Timestamp"] = 1784600710,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784600733,
+["SubType"] = "Accept",
+["Level"] = 29,
 ["Quest"] = 2922,
-["Level"] = 29,
+["Timestamp"] = 1784600733,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 29,
+["Quest"] = 2927,
 ["Timestamp"] = 1784600735,
-["Quest"] = 2927,
-["Level"] = 29,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784600749,
+["SubType"] = "Accept",
+["Level"] = 29,
 ["Quest"] = 2930,
-["Level"] = 29,
+["Timestamp"] = 1784600749,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784600811,
+["SubType"] = "Accept",
+["Level"] = 29,
 ["Quest"] = 2929,
-["Level"] = 29,
+["Timestamp"] = 1784600811,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784601017,
+["SubType"] = "Complete",
+["Level"] = 29,
 ["Quest"] = 2927,
-["Level"] = 29,
+["Timestamp"] = 1784601017,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 29,
+["Quest"] = 2926,
 ["Timestamp"] = 1784601032,
-["Quest"] = 2926,
-["Level"] = 29,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 29,
+["Quest"] = 2926,
 ["Timestamp"] = 1784602248,
-["Quest"] = 2926,
-["Level"] = 29,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784602249,
+["SubType"] = "Accept",
+["Level"] = 29,
 ["Quest"] = 2962,
-["Level"] = 29,
+["Timestamp"] = 1784602249,
 },
 {
+["Level"] = 29,
+["Quest"] = 4602,
 ["Timestamp"] = 1784603632,
-["Quest"] = 4602,
-["Level"] = 29,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1784603636,
+["Level"] = 29,
 ["Quest"] = 4602,
-["Level"] = 29,
-["Event"] = "Quest",
+["Timestamp"] = 1784603636,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1784603637,
+["Level"] = 29,
 ["Quest"] = 4606,
-["Level"] = 29,
-["Event"] = "Quest",
+["Timestamp"] = 1784603637,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1784603641,
-["Quest"] = 4604,
 ["Level"] = 29,
-["Event"] = "Quest",
+["Quest"] = 4604,
+["Timestamp"] = 1784603641,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1784604080,
@@ -3881,129 +3982,40 @@ QuestieConfig = {
 ["NewLevel"] = 30,
 },
 {
-["Timestamp"] = 1784604243,
-["Quest"] = 2904,
 ["Level"] = 30,
-["Event"] = "Quest",
+["Quest"] = 2904,
+["Timestamp"] = 1784604243,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1784605684,
-["Quest"] = 2904,
 ["Level"] = 30,
-["Event"] = "Quest",
+["Quest"] = 2904,
+["Timestamp"] = 1784605684,
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1784692526,
+["Event"] = "Level",
+["NewLevel"] = 31,
+},
+{
+["Timestamp"] = 1784693582,
+["Quest"] = 2945,
+["Level"] = 31,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 },
 ["TrackerHiddenObjectives"] = {
 },
-["collapsedZones"] = {
-},
+["guid"] = "Player-6064-056FF7C7",
 ["TrackedQuests"] = {
 },
 ["collapsedQuests"] = {
 },
-["townsfolk"] = {
-["Spirit Healer"] = {
-6491,
-},
-["Class Trainer"] = {
-925,
-926,
-927,
-928,
-1232,
-4988,
-5147,
-5148,
-5149,
-5491,
-5492,
-8140,
-15280,
-16275,
-16501,
-16679,
-16680,
-16681,
-16761,
-17121,
-17483,
-17509,
-17844,
-20406,
-23128,
-},
-["Mailbox"] = {
-32349,
-142075,
-142089,
-142093,
-142094,
-142095,
-142102,
-142109,
-142110,
-142111,
-142117,
-143987,
-144011,
-144112,
-144125,
-144126,
-144127,
-144128,
-144129,
-144131,
-144179,
-153716,
-164618,
-171556,
-171699,
-171752,
-176404,
-180451,
-181236,
-181380,
-182939,
-182948,
-182949,
-182950,
-182955,
-183038,
-183039,
-183040,
-183042,
-183047,
-183856,
-183857,
-183858,
-184085,
-184133,
-184134,
-184135,
-184136,
-184137,
-184138,
-184139,
-184140,
-184147,
-184490,
-184652,
-184944,
-185102,
-185477,
-142103,
-176319,
-142119,
-181639,
-185965,
-186230,
-188132,
-187260,
-187113,
-188123,
-},
+["collapsedZones"] = {
 },
 },
 ["Asog - Dreamscythe"] = {
@@ -4044,76 +4056,80 @@ QuestieConfig = {
 8157,
 20092,
 },
-["Ammo"] = {
-12246,
-1285,
+["Poisons"] = {
+5139,
 18907,
-734,
+19042,
 19679,
-3541,
-4892,
-19314,
-22491,
-20080,
-7942,
-1462,
-4896,
-14301,
-16919,
-2084,
-20231,
-8139,
-20249,
-16826,
-20892,
-19243,
-19374,
-5101,
-21172,
-228,
-19021,
-11038,
-11555,
-22099,
-19053,
-23373,
-19694,
-12960,
-13216,
-13217,
-19452,
-21488,
-21111,
-19718,
-5122,
-4170,
-22270,
-19351,
-4173,
-11184,
-1298,
-8131,
-19625,
-2803,
-4241,
-2685,
-25035,
+15175,
+1286,
+22479,
+15179,
+3954,
+3542,
+3955,
+2622,
 19197,
-23143,
+25043,
 20092,
-2839,
-12959,
-5134,
-2808,
-19649,
-12021,
+4897,
+7947,
+12022,
+6301,
+3135,
+16826,
+19497,
+19372,
+5163,
+19017,
+5169,
+18009,
+18019,
+1325,
+3969,
 20194,
-789,
-15174,
-21183,
-19534,
-19498,
-19574,
+3779,
+23373,
+12958,
+20081,
+19194,
+4229,
+11189,
+23145,
+3561,
+22099,
+21113,
+20891,
+3499,
+19533,
+19573,
+20121,
+20250,
+12957,
+12096,
+6779,
+16829,
+1457,
+24780,
+777,
+19049,
+19239,
+18802,
+3090,
+19244,
+17486,
+19014,
+20915,
+1326,
+5135,
+26304,
+8934,
+16768,
+18006,
+12941,
+2810,
+12245,
+20986,
 },
 ["Drink"] = {
 6790,
@@ -4405,6 +4421,77 @@ QuestieConfig = {
 4169,
 894,
 },
+["Ammo"] = {
+12246,
+1285,
+18907,
+734,
+19679,
+3541,
+4892,
+19314,
+22491,
+20080,
+7942,
+1462,
+4896,
+14301,
+16919,
+2084,
+20231,
+8139,
+20249,
+16826,
+20892,
+19243,
+19374,
+5101,
+21172,
+228,
+19021,
+11038,
+11555,
+22099,
+19053,
+23373,
+19694,
+12960,
+13216,
+13217,
+19452,
+21488,
+21111,
+19718,
+5122,
+4170,
+22270,
+19351,
+4173,
+11184,
+1298,
+8131,
+19625,
+2803,
+4241,
+2685,
+25035,
+19197,
+23143,
+20092,
+2839,
+12959,
+5134,
+2808,
+19649,
+12021,
+20194,
+789,
+15174,
+21183,
+19534,
+19498,
+19574,
+},
 ["Bags"] = {
 16709,
 1321,
@@ -4454,81 +4541,6 @@ QuestieConfig = {
 1250,
 1691,
 5132,
-},
-["Poisons"] = {
-5139,
-18907,
-19042,
-19679,
-15175,
-1286,
-22479,
-15179,
-3954,
-3542,
-3955,
-2622,
-19197,
-25043,
-20092,
-4897,
-7947,
-12022,
-6301,
-3135,
-16826,
-19497,
-19372,
-5163,
-19017,
-5169,
-18009,
-18019,
-1325,
-3969,
-20194,
-3779,
-23373,
-12958,
-20081,
-19194,
-4229,
-11189,
-23145,
-3561,
-22099,
-21113,
-20891,
-3499,
-19533,
-19573,
-20121,
-20250,
-12957,
-12096,
-6779,
-16829,
-1457,
-24780,
-777,
-19049,
-19239,
-18802,
-3090,
-19244,
-17486,
-19014,
-20915,
-1326,
-5135,
-26304,
-8934,
-16768,
-18006,
-12941,
-2810,
-12245,
-20986,
 },
 ["Trade Goods"] = {
 19497,
@@ -4852,6 +4864,1020 @@ QuestieConfig = {
 },
 ["townsfolkClass"] = "SHAMAN",
 ["isTrackerExpanded"] = false,
+["collapsedZones"] = {
+},
+["AutoUntrackedQuests"] = {
+},
+["TrackerHiddenObjectives"] = {
+},
+["minAllQuestsInZone"] = {
+},
+["complete"] = {
+[510] = true,
+[1020] = true,
+[5083] = true,
+[5087] = true,
+[511] = true,
+[11205] = true,
+[1023] = true,
+[512] = true,
+[10214] = true,
+[514] = true,
+[10254] = true,
+[1033] = true,
+[1034] = true,
+[5155] = true,
+[5159] = true,
+[6186] = true,
+[8280] = true,
+[9311] = true,
+[2078] = true,
+[8304] = true,
+[261] = true,
+[9351] = true,
+[10382] = true,
+[262] = true,
+[4184] = true,
+[525] = true,
+[2098] = true,
+[5219] = true,
+[66] = true,
+[9423] = true,
+[1054] = true,
+[9455] = true,
+[265] = true,
+[9471] = true,
+[2118] = true,
+[133] = true,
+[266] = true,
+[4244] = true,
+[7321] = true,
+[9527] = true,
+[67] = true,
+[134] = true,
+[2138] = true,
+[536] = true,
+[537] = true,
+[269] = true,
+[538] = true,
+[4296] = true,
+[270] = true,
+[540] = true,
+[3181] = true,
+[9647] = true,
+[34] = true,
+[68] = true,
+[543] = true,
+[9687] = true,
+[9703] = true,
+[9711] = true,
+[2178] = true,
+[9743] = true,
+[275] = true,
+[9791] = true,
+[69] = true,
+[551] = true,
+[276] = true,
+[1104] = true,
+[1105] = true,
+[1106] = true,
+[1107] = true,
+[1108] = true,
+[555] = true,
+[1110] = true,
+[1111] = true,
+[1112] = true,
+[1114] = true,
+[1115] = true,
+[70] = true,
+[559] = true,
+[560] = true,
+[11181] = true,
+[561] = true,
+[281] = true,
+[562] = true,
+[9911] = true,
+[563] = true,
+[4496] = true,
+[564] = true,
+[4504] = true,
+[11158] = true,
+[4512] = true,
+[10047] = true,
+[5543] = true,
+[10063] = true,
+[284] = true,
+[10079] = true,
+[10087] = true,
+[1137] = true,
+[1138] = true,
+[11134] = true,
+[10119] = true,
+[11150] = true,
+[286] = true,
+[10143] = true,
+[11198] = true,
+[10159] = true,
+[11214] = true,
+[574] = true,
+[72] = true,
+[575] = true,
+[288] = true,
+[576] = true,
+[1182] = true,
+[577] = true,
+[289] = true,
+[578] = true,
+[606] = true,
+[611] = true,
+[290] = true,
+[580] = true,
+[7701] = true,
+[306] = true,
+[127] = true,
+[9280] = true,
+[1100] = true,
+[583] = true,
+[292] = true,
+[7729] = true,
+[1180] = true,
+[1242] = true,
+[293] = true,
+[10367] = true,
+[1244] = true,
+[587] = true,
+[294] = true,
+[1175] = true,
+[1176] = true,
+[1177] = true,
+[295] = true,
+[1179] = true,
+[74] = true,
+[1181] = true,
+[296] = true,
+[1183] = true,
+[1245] = true,
+[9456] = true,
+[1186] = true,
+[4740] = true,
+[1188] = true,
+[149] = true,
+[1190] = true,
+[9504] = true,
+[9512] = true,
+[597] = true,
+[299] = true,
+[3527] = true,
+[75] = true,
+[599] = true,
+[9560] = true,
+[600] = true,
+[9576] = true,
+[601] = true,
+[253] = true,
+[602] = true,
+[1204] = true,
+[4812] = true,
+[1206] = true,
+[604] = true,
+[10630] = true,
+[605] = true,
+[303] = true,
+[3443] = true,
+[3445] = true,
+[607] = true,
+[304] = true,
+[3451] = true,
+[3453] = true,
+[609] = true,
+[305] = true,
+[1219] = true,
+[1220] = true,
+[3463] = true,
+[1222] = true,
+[9760] = true,
+[10454] = true,
+[613] = true,
+[505] = true,
+[614] = true,
+[595] = true,
+[154] = true,
+[3481] = true,
+[616] = true,
+[10120] = true,
+[617] = true,
+[9848] = true,
+[1008] = true,
+[11207] = true,
+[10895] = true,
+[10903] = true,
+[1007] = true,
+[9896] = true,
+[621] = true,
+[9912] = true,
+[1243] = true,
+[78] = true,
+[623] = true,
+[1246] = true,
+[1247] = true,
+[1248] = true,
+[625] = true,
+[1250] = true,
+[626] = true,
+[1252] = true,
+[627] = true,
+[11215] = true,
+[628] = true,
+[10399] = true,
+[7066] = true,
+[7070] = true,
+[1259] = true,
+[79] = true,
+[158] = true,
+[1194] = true,
+[632] = true,
+[1264] = true,
+[633] = true,
+[1266] = true,
+[1267] = true,
+[11143] = true,
+[159] = true,
+[11159] = true,
+[10144] = true,
+[5] = true,
+[637] = true,
+[11191] = true,
+[5092] = true,
+[80] = true,
+[160] = true,
+[10390] = true,
+[10208] = true,
+[12494] = true,
+[2989] = true,
+[1282] = true,
+[4101] = true,
+[1284] = true,
+[1285] = true,
+[1286] = true,
+[1287] = true,
+[10392] = true,
+[10288] = true,
+[323] = true,
+[5156] = true,
+[6183] = true,
+[4141] = true,
+[324] = true,
+[9313] = true,
+[10344] = true,
+[10352] = true,
+[325] = true,
+[10368] = true,
+[10302] = true,
+[1301] = true,
+[1302] = true,
+[652] = true,
+[4185] = true,
+[653] = true,
+[5216] = true,
+[5220] = true,
+[82] = true,
+[164] = true,
+[328] = true,
+[10303] = true,
+[9449] = true,
+[657] = true,
+[329] = true,
+[658] = true,
+[9513] = true,
+[165] = true,
+[10520] = true,
+[4245] = true,
+[1320] = true,
+[661] = true,
+[331] = true,
+[662] = true,
+[1324] = true,
+[9553] = true,
+[9561] = true,
+[664] = true,
+[10238] = true,
+[665] = true,
+[4289] = true,
+[666] = true,
+[2662] = true,
+[4301] = true,
+[9625] = true,
+[668] = true,
+[9641] = true,
+[669] = true,
+[335] = true,
+[10207] = true,
+[3701] = true,
+[148] = true,
+[336] = true,
+[9697] = true,
+[10160] = true,
+[685] = true,
+[337] = true,
+[10752] = true,
+[10129] = true,
+[3763] = true,
+[338] = true,
+[10142] = true,
+[3371] = true,
+[9777] = true,
+[339] = true,
+[691] = true,
+[554] = true,
+[11152] = true,
+[340] = true,
+[622] = true,
+[9833] = true,
+[681] = true,
+[341] = true,
+[4421] = true,
+[11184] = true,
+[683] = true,
+[342] = true,
+[684] = true,
+[4441] = true,
+[9905] = true,
+[10936] = true,
+[686] = true,
+[3367] = true,
+[687] = true,
+[344] = true,
+[994] = true,
+[10057] = true,
+[689] = true,
+[993] = true,
+[690] = true,
+[3823] = true,
+[173] = true,
+[992] = true,
+[4501] = true,
+[3789] = true,
+[2768] = true,
+[95481] = true,
+[694] = true,
+[5544] = true,
+[10065] = true,
+[348] = true,
+[156] = true,
+[248] = true,
+[542] = true,
+[11128] = true,
+[1395] = true,
+[10121] = true,
+[175] = true,
+[11160] = true,
+[700] = true,
+[10064] = true,
+[10161] = true,
+[11192] = true,
+[10369] = true,
+[11208] = true,
+[703] = true,
+[268] = true,
+[177] = true,
+[1448] = true,
+[705] = true,
+[279] = true,
+[10055] = true,
+[3845] = true,
+[707] = true,
+[10393] = true,
+[986] = true,
+[4725] = true,
+[285] = true,
+[1475] = true,
+[710] = true,
+[984] = true,
+[711] = true,
+[4787] = true,
+[712] = true,
+[2846] = true,
+[713] = true,
+[983] = true,
+[714] = true,
+[4681] = true,
+[715] = true,
+[3881] = true,
+[716] = true,
+[2606] = true,
+[2864] = true,
+[982] = true,
+[718] = true,
+[90] = true,
+[719] = true,
+[2874] = true,
+[720] = true,
+[9450] = true,
+[2880] = true,
+[977] = true,
+[9474] = true,
+[93] = true,
+[181] = true,
+[1446] = true,
+[1447] = true,
+[4761] = true,
+[1449] = true,
+[1450] = true,
+[1451] = true,
+[1452] = true,
+[9554] = true,
+[9562] = true,
+[9570] = true,
+[9578] = true,
+[729] = true,
+[9594] = true,
+[9602] = true,
+[4809] = true,
+[731] = true,
+[2872] = true,
+[9634] = true,
+[634] = true,
+[733] = true,
+[185] = true,
+[734] = true,
+[651] = true,
+[1469] = true,
+[163] = true,
+[9698] = true,
+[9706] = true,
+[4861] = true,
+[3161] = true,
+[738] = true,
+[5762] = true,
+[1477] = true,
+[5904] = true,
+[7804] = true,
+[3783] = true,
+[741] = true,
+[9786] = true,
+[2877] = true,
+[9802] = true,
+[186] = true,
+[1486] = true,
+[2875] = true,
+[9834] = true,
+[244] = true,
+[373] = true,
+[4288] = true,
+[5152] = true,
+[187] = true,
+[10066] = true,
+[2988] = true,
+[973] = true,
+[9424] = true,
+[9753] = true,
+[3882] = true,
+[94] = true,
+[188] = true,
+[5165] = true,
+[6004] = true,
+[4985] = true,
+[11209] = true,
+[970] = true,
+[162] = true,
+[4292] = true,
+[189] = true,
+[322] = true,
+[10] = true,
+[3022] = true,
+[5021] = true,
+[484] = true,
+[10050] = true,
+[10058] = true,
+[190] = true,
+[967] = true,
+[1519] = true,
+[321] = true,
+[11185] = true,
+[642] = true,
+[9648] = true,
+[11145] = true,
+[191] = true,
+[11161] = true,
+[11169] = true,
+[11177] = true,
+[10162] = true,
+[11193] = true,
+[11201] = true,
+[5097] = true,
+[11217] = true,
+[4142] = true,
+[4449] = true,
+[4492] = true,
+[277] = true,
+[5121] = true,
+[4493] = true,
+[9649] = true,
+[193] = true,
+[9435] = true,
+[6164] = true,
+[3377] = true,
+[5149] = true,
+[5153] = true,
+[5157] = true,
+[97] = true,
+[194] = true,
+[8284] = true,
+[10490] = true,
+[9632] = true,
+[10354] = true,
+[389] = true,
+[778] = true,
+[9355] = true,
+[10386] = true,
+[10394] = true,
+[4182] = true,
+[4186] = true,
+[5503] = true,
+[5217] = true,
+[9563] = true,
+[98] = true,
+[9427] = true,
+[8412] = true,
+[9616] = true,
+[5241] = true,
+[10482] = true,
+[9467] = true,
+[9475] = true,
+[8460] = true,
+[197] = true,
+[1265] = true,
+[195] = true,
+[9515] = true,
+[9523] = true,
+[5281] = true,
+[9539] = true,
+[9547] = true,
+[198] = true,
+[2139] = true,
+[9571] = true,
+[9579] = true,
+[2801] = true,
+[4290] = true,
+[9643] = true,
+[3201] = true,
+[660] = true,
+[955] = true,
+[10125] = true,
+[3182] = true,
+[954] = true,
+[9785] = true,
+[953] = true,
+[2783] = true,
+[200] = true,
+[9584] = true,
+[9699] = true,
+[9569] = true,
+[10146] = true,
+[401] = true,
+[9731] = true,
+[9739] = true,
+[201] = true,
+[9779] = true,
+[950] = true,
+[5401] = true,
+[5405] = true,
+[9787] = true,
+[5085] = true,
+[101] = true,
+[202] = true,
+[1516] = true,
+[9827] = true,
+[9835] = true,
+[631] = true,
+[4503] = true,
+[9552] = true,
+[4808] = true,
+[203] = true,
+[4284] = true,
+[5903] = true,
+[4442] = true,
+[9473] = true,
+[9551] = true,
+[9544] = true,
+[192] = true,
+[204] = true,
+[9538] = true,
+[9545] = true,
+[9537] = true,
+[3764] = true,
+[4451] = true,
+[9531] = true,
+[9514] = true,
+[4863] = true,
+[4864] = true,
+[9530] = true,
+[150] = true,
+[5533] = true,
+[5537] = true,
+[4972] = true,
+[9503] = true,
+[10067] = true,
+[4984] = true,
+[5048] = true,
+[11186] = true,
+[10099] = true,
+[624] = true,
+[10115] = true,
+[11146] = true,
+[6604] = true,
+[11162] = true,
+[5060] = true,
+[3883] = true,
+[10163] = true,
+[5601] = true,
+[5084] = true,
+[11210] = true,
+[208] = true,
+[5091] = true,
+[5223] = true,
+[9465] = true,
+[9464] = true,
+[9463] = true,
+[9919] = true,
+[10387] = true,
+[209] = true,
+[10395] = true,
+[10403] = true,
+[1690] = true,
+[7799] = true,
+[6389] = true,
+[464] = true,
+[5244] = true,
+[210] = true,
+[7727] = true,
+[10491] = true,
+[58] = true,
+[10355] = true,
+[3362] = true,
+[9407] = true,
+[3366] = true,
+[3368] = true,
+[3370] = true,
+[3372] = true,
+[8365] = true,
+[5742] = true,
+[3378] = true,
+[1691] = true,
+[9420] = true,
+[9385] = true,
+[4722] = true,
+[4726] = true,
+[9452] = true,
+[7803] = true,
+[7807] = true,
+[9476] = true,
+[8461] = true,
+[213] = true,
+[9500] = true,
+[9508] = true,
+[4762] = true,
+[9383] = true,
+[4224] = true,
+[1707] = true,
+[9548] = true,
+[9361] = true,
+[9564] = true,
+[9356] = true,
+[9580] = true,
+[9620] = true,
+[6023] = true,
+[7722] = true,
+[4842] = true,
+[215] = true,
+[9628] = true,
+[3452] = true,
+[9708] = true,
+[230] = true,
+[3442] = true,
+[3444] = true,
+[3446] = true,
+[3448] = true,
+[3450] = true,
+[9700] = true,
+[3454] = true,
+[9716] = true,
+[9724] = true,
+[9732] = true,
+[3462] = true,
+[9748] = true,
+[9756] = true,
+[6028] = true,
+[9303] = true,
+[9780] = true,
+[9788] = true,
+[6182] = true,
+[4906] = true,
+[9283] = true,
+[4223] = true,
+[9279] = true,
+[4243] = true,
+[6624] = true,
+[8464] = true,
+[10935] = true,
+[5250] = true,
+[9461] = true,
+[8465] = true,
+[6184] = true,
+[6021] = true,
+[5202] = true,
+[5226] = true,
+[55] = true,
+[110] = true,
+[5222] = true,
+[221] = true,
+[7028] = true,
+[7046] = true,
+[3520] = true,
+[5210] = true,
+[3524] = true,
+[2605] = true,
+[3528] = true,
+[9373] = true,
+[8281] = true,
+[7064] = true,
+[5022] = true,
+[7067] = true,
+[11123] = true,
+[453] = true,
+[222] = true,
+[11147] = true,
+[8277] = true,
+[10324] = true,
+[5054] = true,
+[5058] = true,
+[10116] = true,
+[5066] = true,
+[223] = true,
+[10140] = true,
+[9293] = true,
+[3566] = true,
+[5086] = true,
+[5090] = true,
+[56] = true,
+[11211] = true,
+[8278] = true,
+[6185] = true,
+[8275] = true,
+[7808] = true,
+[6141] = true,
+[10236] = true,
+[7723] = true,
+[7724] = true,
+[225] = true,
+[7728] = true,
+[5142] = true,
+[7791] = true,
+[7802] = true,
+[5154] = true,
+[5158] = true,
+[113] = true,
+[226] = true,
+[9309] = true,
+[10340] = true,
+[5082] = true,
+[10124] = true,
+[8318] = true,
+[9349] = true,
+[4143] = true,
+[227] = true,
+[10396] = true,
+[4183] = true,
+[8366] = true,
+[7068] = true,
+[10428] = true,
+[57] = true,
+[9421] = true,
+[7044] = true,
+[8413] = true,
+[8410] = true,
+[9453] = true,
+[10484] = true,
+[9469] = true,
+[8551] = true,
+[8462] = true,
+[1187] = true,
+[9501] = true,
+[9509] = true,
+[9305] = true,
+[2641] = true,
+[9312] = true,
+[9541] = true,
+[9549] = true,
+[9557] = true,
+[9565] = true,
+[9573] = true,
+[9581] = true,
+[4287] = true,
+[4291] = true,
+[2661] = true,
+[9314] = true,
+[608] = true,
+[9629] = true,
+[5245] = true,
+[9540] = true,
+[9369] = true,
+[463] = true,
+[9669] = true,
+[3702] = true,
+[10483] = true,
+[9693] = true,
+[9701] = true,
+[9709] = true,
+[9418] = true,
+[465] = true,
+[9733] = true,
+[9741] = true,
+[9749] = true,
+[9399] = true,
+[8285] = true,
+[5225] = true,
+[9781] = true,
+[9451] = true,
+[5215] = true,
+[5181] = true,
+[9468] = true,
+[9409] = true,
+[5123] = true,
+[11194] = true,
+[9506] = true,
+[469] = true,
+[10123] = true,
+[663] = true,
+[939] = true,
+[470] = true,
+[10916] = true,
+[9901] = true,
+[4813] = true,
+[471] = true,
+[942] = true,
+[9543] = true,
+[943] = true,
+[472] = true,
+[944] = true,
+[739] = true,
+[945] = true,
+[630] = true,
+[9555] = true,
+[4491] = true,
+[947] = true,
+[474] = true,
+[948] = true,
+[3790] = true,
+[949] = true,
+[5863] = true,
+[5542] = true,
+[10061] = true,
+[9559] = true,
+[9747] = true,
+[2781] = true,
+[10093] = true,
+[11124] = true,
+[9585] = true,
+[10117] = true,
+[11148] = true,
+[11156] = true,
+[10141] = true,
+[956] = true,
+[11180] = true,
+[957] = true,
+[1218] = true,
+[958] = true,
+[11212] = true,
+[240] = true,
+[9633] = true,
+[5249] = true,
+[9623] = true,
+[196] = true,
+[9624] = true,
+[3844] = true,
+[777] = true,
+[963] = true,
+[9688] = true,
+[682] = true,
+[9696] = true,
+[965] = true,
+[9430] = true,
+[966] = true,
+[9294] = true,
+[8279] = true,
+[8287] = true,
+[20] = true,
+[5211] = true,
+[4321] = true,
+[95] = true,
+[10373] = true,
+[5128] = true,
+[9752] = true,
+[10397] = true,
+[3884] = true,
+[9390] = true,
+[9398] = true,
+[9776] = true,
+[974] = true,
+[9426] = true,
+[2873] = true,
+[4723] = true,
+[4727] = true,
+[9454] = true,
+[10485] = true,
+[9470] = true,
+[3908] = true,
+[9783] = true,
+[4285] = true,
+[9502] = true,
+[980] = true,
+[4763] = true,
+[9799] = true,
+[9417] = true,
+[9542] = true,
+[9550] = true,
+[9558] = true,
+[9566] = true,
+[9574] = true,
+[1052] = true,
+[985] = true,
+[9839] = true,
+[10629] = true,
+[4811] = true,
+[9622] = true,
+[693] = true,
+[659] = true,
+[9646] = true,
+[174] = true,
+[1274] = true,
+[9670] = true,
+[1319] = true,
+[991] = true,
+[9694] = true,
+[9702] = true,
+[5882] = true,
+[9718] = true,
+[9726] = true,
+[9734] = true,
+[11144] = true,
+[10088] = true,
+[3441] = true,
+[695] = true,
+[692] = true,
+[9782] = true,
+[9790] = true,
+[9798] = true,
+[9806] = true,
+[343] = true,
+[500] = true,
+[9830] = true,
+[10096] = true,
+[9567] = true,
+[610] = true,
+[6981] = true,
+[330] = true,
+[251] = true,
+[10909] = true,
+[9894] = true,
+[9902] = true,
+[2500] = true,
+[157] = true,
+[1178] = true,
+[4971] = true,
+[252] = true,
+[504] = true,
+[7029] = true,
+[11183] = true,
+[11151] = true,
+[7041] = true,
+[1010] = true,
+[594] = true,
+[6030] = true,
+[1253] = true,
+[1249] = true,
+[7065] = true,
+[7069] = true,
+[1241] = true,
+[11126] = true,
+[10062] = true,
+[1203] = true,
+[10078] = true,
+[10086] = true,
+[603] = true,
+[5055] = true,
+[11133] = true,
+[10118] = true,
+[11149] = true,
+[11173] = true,
+},
+["TrackerHiddenQuests"] = {
+},
+["TrackedQuests"] = {
+},
+["guid"] = "Player-6064-056FF813",
+["collapsedQuests"] = {
+},
 ["townsfolk"] = {
 ["Spirit Healer"] = {
 6491,
@@ -4949,1069 +5975,62 @@ QuestieConfig = {
 188123,
 },
 },
-["AutoUntrackedQuests"] = {
-},
-["TrackerHiddenObjectives"] = {
-},
-["minAllQuestsInZone"] = {
-},
-["complete"] = {
-[510] = true,
-[1020] = true,
-[5083] = true,
-[5087] = true,
-[511] = true,
-[11205] = true,
-[1023] = true,
-[512] = true,
-[10214] = true,
-[514] = true,
-[10254] = true,
-[1033] = true,
-[1034] = true,
-[5155] = true,
-[5159] = true,
-[6186] = true,
-[8280] = true,
-[9311] = true,
-[2078] = true,
-[8304] = true,
-[261] = true,
-[9351] = true,
-[10382] = true,
-[262] = true,
-[4184] = true,
-[525] = true,
-[2098] = true,
-[5219] = true,
-[66] = true,
-[9423] = true,
-[1054] = true,
-[9455] = true,
-[265] = true,
-[9471] = true,
-[2118] = true,
-[133] = true,
-[266] = true,
-[4244] = true,
-[7321] = true,
-[9527] = true,
-[67] = true,
-[134] = true,
-[2138] = true,
-[536] = true,
-[537] = true,
-[269] = true,
-[538] = true,
-[4296] = true,
-[270] = true,
-[540] = true,
-[3181] = true,
-[9647] = true,
-[34] = true,
-[68] = true,
-[543] = true,
-[9687] = true,
-[9703] = true,
-[9711] = true,
-[2178] = true,
-[9743] = true,
-[275] = true,
-[9791] = true,
-[69] = true,
-[551] = true,
-[276] = true,
-[1104] = true,
-[1105] = true,
-[1106] = true,
-[1107] = true,
-[1108] = true,
-[555] = true,
-[1110] = true,
-[1111] = true,
-[1112] = true,
-[1114] = true,
-[1115] = true,
-[70] = true,
-[559] = true,
-[560] = true,
-[1253] = true,
-[561] = true,
-[281] = true,
-[562] = true,
-[11198] = true,
-[563] = true,
-[4496] = true,
-[564] = true,
-[4504] = true,
-[11181] = true,
-[4512] = true,
-[10047] = true,
-[5543] = true,
-[10063] = true,
-[284] = true,
-[10079] = true,
-[10087] = true,
-[1137] = true,
-[1138] = true,
-[11134] = true,
-[10119] = true,
-[11150] = true,
-[286] = true,
-[10143] = true,
-[296] = true,
-[10159] = true,
-[11173] = true,
-[574] = true,
-[72] = true,
-[11214] = true,
-[288] = true,
-[576] = true,
-[623] = true,
-[577] = true,
-[289] = true,
-[578] = true,
-[1244] = true,
-[9911] = true,
-[290] = true,
-[580] = true,
-[7701] = true,
-[1222] = true,
-[127] = true,
-[9280] = true,
-[611] = true,
-[583] = true,
-[292] = true,
-[7729] = true,
-[185] = true,
-[11158] = true,
-[293] = true,
-[10367] = true,
-[11151] = true,
-[587] = true,
-[294] = true,
-[1175] = true,
-[1176] = true,
-[1177] = true,
-[295] = true,
-[1179] = true,
-[74] = true,
-[1181] = true,
-[1182] = true,
-[1183] = true,
-[248] = true,
-[9456] = true,
-[1186] = true,
-[4740] = true,
-[1188] = true,
-[149] = true,
-[1190] = true,
-[9504] = true,
-[9512] = true,
-[597] = true,
-[299] = true,
-[1007] = true,
-[75] = true,
-[599] = true,
-[9560] = true,
-[600] = true,
-[9576] = true,
-[601] = true,
-[253] = true,
-[602] = true,
-[1204] = true,
-[603] = true,
-[1206] = true,
-[604] = true,
-[606] = true,
-[605] = true,
-[303] = true,
-[3443] = true,
-[3445] = true,
-[607] = true,
-[304] = true,
-[3451] = true,
-[3453] = true,
-[609] = true,
-[305] = true,
-[1219] = true,
-[1220] = true,
-[3463] = true,
-[306] = true,
-[9760] = true,
-[11143] = true,
-[613] = true,
-[505] = true,
-[614] = true,
-[1100] = true,
-[154] = true,
-[3481] = true,
-[616] = true,
-[1180] = true,
-[617] = true,
-[9848] = true,
-[1008] = true,
-[4812] = true,
-[10895] = true,
-[10903] = true,
-[343] = true,
-[9896] = true,
-[1241] = true,
-[1242] = true,
-[1243] = true,
-[78] = true,
-[1245] = true,
-[1246] = true,
-[1247] = true,
-[1248] = true,
-[1249] = true,
-[1250] = true,
-[626] = true,
-[1252] = true,
-[3527] = true,
-[10630] = true,
-[628] = true,
-[1203] = true,
-[7066] = true,
-[7070] = true,
-[1259] = true,
-[79] = true,
-[158] = true,
-[595] = true,
-[632] = true,
-[1264] = true,
-[633] = true,
-[1266] = true,
-[1267] = true,
-[10120] = true,
-[159] = true,
-[11159] = true,
-[10144] = true,
-[5] = true,
-[11183] = true,
-[11191] = true,
-[5092] = true,
-[11207] = true,
-[11215] = true,
-[594] = true,
-[10208] = true,
-[175] = true,
-[2989] = true,
-[1282] = true,
-[4101] = true,
-[1284] = true,
-[1285] = true,
-[1286] = true,
-[1287] = true,
-[10399] = true,
-[10288] = true,
-[323] = true,
-[5156] = true,
-[6183] = true,
-[4141] = true,
-[324] = true,
-[9313] = true,
-[10344] = true,
-[10352] = true,
-[325] = true,
-[10368] = true,
-[3823] = true,
-[1301] = true,
-[1302] = true,
-[652] = true,
-[4185] = true,
-[653] = true,
-[5216] = true,
-[5220] = true,
-[82] = true,
-[12494] = true,
-[328] = true,
-[1194] = true,
-[9449] = true,
-[657] = true,
-[329] = true,
-[658] = true,
-[10390] = true,
-[165] = true,
-[330] = true,
-[4245] = true,
-[1320] = true,
-[661] = true,
-[331] = true,
-[662] = true,
-[1324] = true,
-[9553] = true,
-[9561] = true,
-[664] = true,
-[1178] = true,
-[665] = true,
-[4289] = true,
-[666] = true,
-[2662] = true,
-[4301] = true,
-[9625] = true,
-[668] = true,
-[9641] = true,
-[669] = true,
-[335] = true,
-[157] = true,
-[3701] = true,
-[2500] = true,
-[336] = true,
-[9697] = true,
-[10303] = true,
-[714] = true,
-[337] = true,
-[10752] = true,
-[2801] = true,
-[10302] = true,
-[338] = true,
-[10238] = true,
-[7804] = true,
-[9777] = true,
-[339] = true,
-[10207] = true,
-[692] = true,
-[691] = true,
-[340] = true,
-[738] = true,
-[9833] = true,
-[681] = true,
-[341] = true,
-[4421] = true,
-[148] = true,
-[683] = true,
-[342] = true,
-[684] = true,
-[4441] = true,
-[685] = true,
-[10936] = true,
-[3763] = true,
-[686] = true,
-[687] = true,
-[344] = true,
-[994] = true,
-[10129] = true,
-[689] = true,
-[993] = true,
-[690] = true,
-[10124] = true,
-[173] = true,
-[992] = true,
-[4501] = true,
-[3789] = true,
-[2768] = true,
-[95481] = true,
-[694] = true,
-[5544] = true,
-[695] = true,
-[348] = true,
-[9567] = true,
-[10096] = true,
-[554] = true,
-[11128] = true,
-[1395] = true,
-[11144] = true,
-[11152] = true,
-[11160] = true,
-[700] = true,
-[622] = true,
-[11184] = true,
-[11192] = true,
-[3367] = true,
-[11208] = true,
-[703] = true,
-[3371] = true,
-[10065] = true,
-[3378] = true,
-[705] = true,
-[3441] = true,
-[190] = true,
-[3845] = true,
-[177] = true,
-[4761] = true,
-[986] = true,
-[542] = true,
-[10057] = true,
-[3764] = true,
-[710] = true,
-[984] = true,
-[711] = true,
-[4787] = true,
-[712] = true,
-[2846] = true,
-[713] = true,
-[983] = true,
-[10369] = true,
-[4681] = true,
-[715] = true,
-[10393] = true,
-[716] = true,
-[5097] = true,
-[2864] = true,
-[982] = true,
-[718] = true,
-[90] = true,
-[719] = true,
-[2874] = true,
-[720] = true,
-[9450] = true,
-[2880] = true,
-[268] = true,
-[9474] = true,
-[1319] = true,
-[181] = true,
-[1446] = true,
-[1447] = true,
-[1448] = true,
-[1449] = true,
-[1450] = true,
-[1451] = true,
-[1452] = true,
-[9554] = true,
-[9562] = true,
-[9570] = true,
-[9578] = true,
-[729] = true,
-[9594] = true,
-[9602] = true,
-[4809] = true,
-[731] = true,
-[279] = true,
-[9634] = true,
-[174] = true,
-[733] = true,
-[9802] = true,
-[734] = true,
-[659] = true,
-[1469] = true,
-[4725] = true,
-[9698] = true,
-[9706] = true,
-[4861] = true,
-[693] = true,
-[1475] = true,
-[5762] = true,
-[1477] = true,
-[5904] = true,
-[977] = true,
-[777] = true,
-[741] = true,
-[9786] = true,
-[2877] = true,
-[93] = true,
-[186] = true,
-[1486] = true,
-[2875] = true,
-[9834] = true,
-[244] = true,
-[373] = true,
-[1052] = true,
-[8412] = true,
-[187] = true,
-[2606] = true,
-[2988] = true,
-[973] = true,
-[5249] = true,
-[9417] = true,
-[3882] = true,
-[94] = true,
-[188] = true,
-[651] = true,
-[6004] = true,
-[4985] = true,
-[163] = true,
-[970] = true,
-[634] = true,
-[4285] = true,
-[189] = true,
-[4288] = true,
-[3161] = true,
-[3022] = true,
-[5021] = true,
-[484] = true,
-[10050] = true,
-[95] = true,
-[10066] = true,
-[967] = true,
-[1519] = true,
-[9426] = true,
-[5152] = true,
-[194] = true,
-[5165] = true,
-[11145] = true,
-[191] = true,
-[11161] = true,
-[11169] = true,
-[11177] = true,
-[11185] = true,
-[11193] = true,
-[11201] = true,
-[11209] = true,
-[11217] = true,
-[162] = true,
-[4292] = true,
-[322] = true,
-[10] = true,
-[5121] = true,
-[4321] = true,
-[5211] = true,
-[193] = true,
-[642] = true,
-[6164] = true,
-[321] = true,
-[5149] = true,
-[5153] = true,
-[5157] = true,
-[97] = true,
-[4142] = true,
-[8284] = true,
-[4449] = true,
-[4492] = true,
-[10354] = true,
-[389] = true,
-[778] = true,
-[9355] = true,
-[10386] = true,
-[10394] = true,
-[4182] = true,
-[4186] = true,
-[4493] = true,
-[5217] = true,
-[9648] = true,
-[98] = true,
-[196] = true,
-[9435] = true,
-[3377] = true,
-[5241] = true,
-[10482] = true,
-[10490] = true,
-[9475] = true,
-[8460] = true,
-[197] = true,
-[9643] = true,
-[4503] = true,
-[9515] = true,
-[9523] = true,
-[5281] = true,
-[9539] = true,
-[9547] = true,
-[198] = true,
-[9563] = true,
-[9571] = true,
-[9579] = true,
-[9632] = true,
-[4290] = true,
-[5503] = true,
-[9624] = true,
-[9623] = true,
-[955] = true,
-[10125] = true,
-[3182] = true,
-[954] = true,
-[195] = true,
-[953] = true,
-[2783] = true,
-[200] = true,
-[9616] = true,
-[9699] = true,
-[1265] = true,
-[1218] = true,
-[401] = true,
-[9731] = true,
-[9739] = true,
-[9747] = true,
-[9785] = true,
-[950] = true,
-[5401] = true,
-[9779] = true,
-[9787] = true,
-[660] = true,
-[101] = true,
-[202] = true,
-[9569] = true,
-[9827] = true,
-[9835] = true,
-[10146] = true,
-[10123] = true,
-[9559] = true,
-[5085] = true,
-[203] = true,
-[10163] = true,
-[1516] = true,
-[4442] = true,
-[631] = true,
-[9552] = true,
-[4808] = true,
-[4284] = true,
-[204] = true,
-[5903] = true,
-[9473] = true,
-[630] = true,
-[9544] = true,
-[4451] = true,
-[739] = true,
-[192] = true,
-[9538] = true,
-[9537] = true,
-[9531] = true,
-[4813] = true,
-[5533] = true,
-[5537] = true,
-[4842] = true,
-[9514] = true,
-[10067] = true,
-[4863] = true,
-[4864] = true,
-[150] = true,
-[10099] = true,
-[4972] = true,
-[10115] = true,
-[11146] = true,
-[6604] = true,
-[11162] = true,
-[4984] = true,
-[5048] = true,
-[11186] = true,
-[11194] = true,
-[624] = true,
-[11210] = true,
-[208] = true,
-[5060] = true,
-[3883] = true,
-[5084] = true,
-[5091] = true,
-[5123] = true,
-[9465] = true,
-[9464] = true,
-[209] = true,
-[9463] = true,
-[9461] = true,
-[5181] = true,
-[5215] = true,
-[6389] = true,
-[464] = true,
-[5222] = true,
-[210] = true,
-[8285] = true,
-[9451] = true,
-[58] = true,
-[10355] = true,
-[3362] = true,
-[3452] = true,
-[3366] = true,
-[10387] = true,
-[10395] = true,
-[10403] = true,
-[8365] = true,
-[5223] = true,
-[1690] = true,
-[1691] = true,
-[9420] = true,
-[5225] = true,
-[4722] = true,
-[4726] = true,
-[7799] = true,
-[10483] = true,
-[10491] = true,
-[9476] = true,
-[8461] = true,
-[213] = true,
-[9500] = true,
-[9508] = true,
-[4762] = true,
-[5244] = true,
-[9399] = true,
-[9540] = true,
-[9548] = true,
-[9919] = true,
-[9564] = true,
-[5742] = true,
-[9580] = true,
-[9385] = true,
-[9383] = true,
-[9373] = true,
-[9369] = true,
-[9620] = true,
-[9628] = true,
-[9361] = true,
-[9356] = true,
-[230] = true,
-[3442] = true,
-[3444] = true,
-[3446] = true,
-[3448] = true,
-[3450] = true,
-[9700] = true,
-[9708] = true,
-[9716] = true,
-[9724] = true,
-[9732] = true,
-[3462] = true,
-[9748] = true,
-[9756] = true,
-[608] = true,
-[9314] = true,
-[9780] = true,
-[9788] = true,
-[6023] = true,
-[4906] = true,
-[7722] = true,
-[6028] = true,
-[9303] = true,
-[4243] = true,
-[6182] = true,
-[9283] = true,
-[6185] = true,
-[5250] = true,
-[4223] = true,
-[9279] = true,
-[6624] = true,
-[1187] = true,
-[10935] = true,
-[5226] = true,
-[55] = true,
-[110] = true,
-[8464] = true,
-[6184] = true,
-[7028] = true,
-[7044] = true,
-[3520] = true,
-[5210] = true,
-[6021] = true,
-[2605] = true,
-[221] = true,
-[5202] = true,
-[8410] = true,
-[7064] = true,
-[5022] = true,
-[7046] = true,
-[5066] = true,
-[453] = true,
-[222] = true,
-[7067] = true,
-[7068] = true,
-[8278] = true,
-[11123] = true,
-[5058] = true,
-[10116] = true,
-[11147] = true,
-[223] = true,
-[10140] = true,
-[8277] = true,
-[5082] = true,
-[5086] = true,
-[5090] = true,
-[56] = true,
-[11211] = true,
-[4143] = true,
-[113] = true,
-[8275] = true,
-[7808] = true,
-[6141] = true,
-[10236] = true,
-[7723] = true,
-[7724] = true,
-[225] = true,
-[7728] = true,
-[5142] = true,
-[7791] = true,
-[7802] = true,
-[5154] = true,
-[5158] = true,
-[9293] = true,
-[10324] = true,
-[9309] = true,
-[10340] = true,
-[3566] = true,
-[8281] = true,
-[8318] = true,
-[9349] = true,
-[5054] = true,
-[227] = true,
-[10396] = true,
-[4183] = true,
-[8366] = true,
-[8413] = true,
-[10428] = true,
-[57] = true,
-[9421] = true,
-[8465] = true,
-[8551] = true,
-[3528] = true,
-[9453] = true,
-[10484] = true,
-[9469] = true,
-[3524] = true,
-[8462] = true,
-[226] = true,
-[9501] = true,
-[9509] = true,
-[9305] = true,
-[2641] = true,
-[9312] = true,
-[9541] = true,
-[9549] = true,
-[9557] = true,
-[9565] = true,
-[9573] = true,
-[9581] = true,
-[4287] = true,
-[4291] = true,
-[2661] = true,
-[4224] = true,
-[5245] = true,
-[9629] = true,
-[9407] = true,
-[9418] = true,
-[3454] = true,
-[463] = true,
-[9669] = true,
-[3702] = true,
-[9452] = true,
-[9693] = true,
-[9701] = true,
-[9709] = true,
-[215] = true,
-[465] = true,
-[9733] = true,
-[9741] = true,
-[9749] = true,
-[9468] = true,
-[9409] = true,
-[1707] = true,
-[9781] = true,
-[7807] = true,
-[7803] = true,
-[9506] = true,
-[9503] = true,
-[3372] = true,
-[3370] = true,
-[3368] = true,
-[663] = true,
-[469] = true,
-[9530] = true,
-[7727] = true,
-[939] = true,
-[470] = true,
-[10916] = true,
-[9901] = true,
-[9543] = true,
-[471] = true,
-[942] = true,
-[9545] = true,
-[943] = true,
-[472] = true,
-[944] = true,
-[9551] = true,
-[945] = true,
-[9555] = true,
-[5601] = true,
-[4491] = true,
-[947] = true,
-[474] = true,
-[948] = true,
-[3790] = true,
-[949] = true,
-[5863] = true,
-[5542] = true,
-[10061] = true,
-[9584] = true,
-[9585] = true,
-[2781] = true,
-[10093] = true,
-[11124] = true,
-[3201] = true,
-[10117] = true,
-[11148] = true,
-[11156] = true,
-[10141] = true,
-[956] = true,
-[11180] = true,
-[957] = true,
-[9633] = true,
-[958] = true,
-[11212] = true,
-[240] = true,
-[9649] = true,
-[277] = true,
-[9688] = true,
-[682] = true,
-[9696] = true,
-[3844] = true,
-[5405] = true,
-[963] = true,
-[9430] = true,
-[201] = true,
-[9427] = true,
-[965] = true,
-[20] = true,
-[966] = true,
-[9294] = true,
-[8279] = true,
-[8287] = true,
-[5128] = true,
-[9752] = true,
-[9753] = true,
-[9424] = true,
-[10373] = true,
-[9776] = true,
-[2139] = true,
-[10397] = true,
-[3884] = true,
-[9390] = true,
-[9398] = true,
-[3783] = true,
-[974] = true,
-[9783] = true,
-[2873] = true,
-[4723] = true,
-[4727] = true,
-[9454] = true,
-[10485] = true,
-[9470] = true,
-[3908] = true,
-[2872] = true,
-[9799] = true,
-[9502] = true,
-[980] = true,
-[4763] = true,
-[285] = true,
-[9839] = true,
-[9542] = true,
-[9550] = true,
-[9558] = true,
-[9566] = true,
-[9574] = true,
-[10055] = true,
-[985] = true,
-[10058] = true,
-[10629] = true,
-[4811] = true,
-[9622] = true,
-[1274] = true,
-[10064] = true,
-[9646] = true,
-[9467] = true,
-[156] = true,
-[9670] = true,
-[10088] = true,
-[991] = true,
-[9694] = true,
-[9702] = true,
-[5882] = true,
-[9718] = true,
-[9726] = true,
-[9734] = true,
-[10142] = true,
-[9905] = true,
-[10160] = true,
-[10161] = true,
-[10162] = true,
-[9782] = true,
-[9790] = true,
-[9798] = true,
-[9806] = true,
-[3881] = true,
-[500] = true,
-[9830] = true,
-[610] = true,
-[9513] = true,
-[707] = true,
-[6981] = true,
-[10392] = true,
-[251] = true,
-[10909] = true,
-[9894] = true,
-[9902] = true,
-[10121] = true,
-[10454] = true,
-[10520] = true,
-[4971] = true,
-[252] = true,
-[504] = true,
-[7029] = true,
-[11126] = true,
-[625] = true,
-[7041] = true,
-[1010] = true,
-[9912] = true,
-[6030] = true,
-[627] = true,
-[164] = true,
-[7065] = true,
-[7069] = true,
-[160] = true,
-[80] = true,
-[10062] = true,
-[637] = true,
-[10078] = true,
-[10086] = true,
-[621] = true,
-[5055] = true,
-[11133] = true,
-[10118] = true,
-[11149] = true,
-[575] = true,
-},
-["TrackerHiddenQuests"] = {
-},
 ["journey"] = {
 {
-["Level"] = 19,
-["Quest"] = 9669,
 ["Timestamp"] = 1777864013,
-["SubType"] = "Complete",
+["Quest"] = 9669,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9741,
 ["Timestamp"] = 1777864028,
-["SubType"] = "Complete",
+["Quest"] = 9741,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9748,
 ["Timestamp"] = 1777864029,
-["SubType"] = "Complete",
+["Quest"] = 9748,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9711,
 ["Timestamp"] = 1777864033,
-["SubType"] = "Complete",
+["Quest"] = 9711,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9647,
 ["Timestamp"] = 1777864146,
-["SubType"] = "Complete",
+["Quest"] = 9647,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9561,
 ["Timestamp"] = 1777864446,
-["SubType"] = "Complete",
+["Quest"] = 9561,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9687,
 ["Timestamp"] = 1777864559,
-["SubType"] = "Complete",
+["Quest"] = 9687,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 19,
-["Quest"] = 9688,
 ["Timestamp"] = 1777864560,
-["SubType"] = "Accept",
+["Quest"] = 9688,
+["Level"] = 19,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1777864614,
@@ -6019,193 +6038,193 @@ QuestieConfig = {
 ["NewLevel"] = 20,
 },
 {
-["Level"] = 20,
-["Quest"] = 9688,
 ["Timestamp"] = 1777865158,
-["SubType"] = "Complete",
+["Quest"] = 9688,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 20,
-["Quest"] = 9649,
 ["Timestamp"] = 1777865802,
-["SubType"] = "Complete",
+["Quest"] = 9649,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 20,
-["Quest"] = 9502,
 ["Timestamp"] = 1777866140,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 20,
 ["Quest"] = 9502,
+["Level"] = 20,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1777866187,
-["SubType"] = "Complete",
+["Quest"] = 9502,
+["Level"] = 20,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 20,
-["Quest"] = 9501,
 ["Timestamp"] = 1777866188,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Timestamp"] = 1777874849,
 ["Quest"] = 9501,
 ["Level"] = 20,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
+["SubType"] = "Accept",
 },
 {
+["Level"] = 20,
+["Quest"] = 9501,
+["Timestamp"] = 1777874849,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 20,
+["Quest"] = 9503,
 ["Timestamp"] = 1777874850,
-["Quest"] = 9503,
-["Level"] = 20,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 20,
+["Quest"] = 9503,
 ["Timestamp"] = 1777875932,
-["Quest"] = 9503,
-["Level"] = 20,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 20,
+["Quest"] = 9504,
 ["Timestamp"] = 1777875934,
-["Quest"] = 9504,
-["Level"] = 20,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1777876169,
+["Level"] = 20,
 ["Quest"] = 9632,
-["Level"] = 20,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1777876169,
-["Quest"] = 9633,
-["Level"] = 20,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1777876569,
+["Level"] = 20,
+["Quest"] = 9633,
+["Timestamp"] = 1777876169,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 20,
 ["Quest"] = 9616,
-["Level"] = 20,
-["Event"] = "Quest",
+["Timestamp"] = 1777876569,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1777878150,
+["Level"] = 20,
 ["Quest"] = 9633,
-["Level"] = 20,
-["Event"] = "Quest",
+["Timestamp"] = 1777878150,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1777885015,
+["Level"] = 20,
 ["Quest"] = 9504,
-["Level"] = 20,
-["Event"] = "Quest",
+["Timestamp"] = 1777885015,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 20,
+["Quest"] = 9508,
 ["Timestamp"] = 1777885016,
-["Quest"] = 9508,
-["Level"] = 20,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 20,
+["Quest"] = 9508,
 ["Timestamp"] = 1777885489,
-["Quest"] = 9508,
-["Level"] = 20,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 20,
+["Quest"] = 9509,
 ["Timestamp"] = 1777885490,
-["Quest"] = 9509,
-["Level"] = 20,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 20,
+["Quest"] = 9509,
 ["Timestamp"] = 1777886040,
-["Quest"] = 9509,
-["Level"] = 20,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478310,
+["SubType"] = "Accept",
+["Level"] = 20,
 ["Quest"] = 1138,
-["Level"] = 20,
+["Timestamp"] = 1778478310,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478324,
+["SubType"] = "Accept",
+["Level"] = 20,
 ["Quest"] = 947,
-["Level"] = 20,
+["Timestamp"] = 1778478324,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478336,
+["SubType"] = "Accept",
+["Level"] = 20,
 ["Quest"] = 2139,
-["Level"] = 20,
+["Timestamp"] = 1778478336,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478345,
+["SubType"] = "Accept",
+["Level"] = 20,
 ["Quest"] = 986,
-["Level"] = 20,
+["Timestamp"] = 1778478345,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478357,
+["SubType"] = "Accept",
+["Level"] = 20,
 ["Quest"] = 965,
-["Level"] = 20,
+["Timestamp"] = 1778478357,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478375,
+["SubType"] = "Accept",
+["Level"] = 20,
 ["Quest"] = 982,
-["Level"] = 20,
+["Timestamp"] = 1778478375,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478389,
+["SubType"] = "Accept",
+["Level"] = 20,
 ["Quest"] = 10752,
-["Level"] = 20,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1778478389,
-["Quest"] = 4763,
-["Level"] = 20,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778478406,
-["Quest"] = 729,
+["SubType"] = "Accept",
 ["Level"] = 20,
+["Quest"] = 4763,
+["Timestamp"] = 1778478389,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 20,
+["Quest"] = 729,
+["Timestamp"] = 1778478406,
 },
 {
 ["Timestamp"] = 1778478683,
@@ -6213,74 +6232,74 @@ QuestieConfig = {
 ["NewLevel"] = 21,
 },
 {
-["Timestamp"] = 1778903519,
+["Level"] = 21,
 ["Quest"] = 4725,
-["Level"] = 21,
-["Event"] = "Quest",
+["Timestamp"] = 1778903519,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778904074,
+["Level"] = 21,
 ["Quest"] = 4727,
-["Level"] = 21,
-["Event"] = "Quest",
+["Timestamp"] = 1778904074,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 21,
+["Quest"] = 2098,
 ["Timestamp"] = 1778904208,
-["Quest"] = 2098,
-["Level"] = 21,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 21,
-["Quest"] = 2098,
+["Event"] = "Quest",
 ["Timestamp"] = 1778905552,
+["Quest"] = 2098,
+["Level"] = 21,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 21,
-["Quest"] = 2078,
+["Event"] = "Quest",
 ["Timestamp"] = 1778905553,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 21,
 ["Quest"] = 2078,
+["Level"] = 21,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1778905678,
+["Quest"] = 2078,
+["Level"] = 21,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 21,
-["Quest"] = 965,
+["Event"] = "Quest",
 ["Timestamp"] = 1778905757,
+["Quest"] = 965,
+["Level"] = 21,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 21,
-["Quest"] = 966,
+["Event"] = "Quest",
 ["Timestamp"] = 1778905758,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 21,
 ["Quest"] = 966,
-["Timestamp"] = 1778906052,
+["Level"] = 21,
 },
 {
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
+["Timestamp"] = 1778906052,
+["Quest"] = 966,
 ["Level"] = 21,
-["Quest"] = 967,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
 ["Timestamp"] = 1778906053,
+["Quest"] = 967,
+["Level"] = 21,
 },
 {
 ["Timestamp"] = 1778906183,
@@ -6288,144 +6307,144 @@ QuestieConfig = {
 ["NewLevel"] = 22,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 982,
+["Event"] = "Quest",
 ["Timestamp"] = 1778907352,
+["Quest"] = 982,
+["Level"] = 22,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 4763,
+["Event"] = "Quest",
 ["Timestamp"] = 1778907368,
+["Quest"] = 4763,
+["Level"] = 22,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 947,
+["Event"] = "Quest",
 ["Timestamp"] = 1778907390,
+["Quest"] = 947,
+["Level"] = 22,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 22,
-["Quest"] = 948,
+["Event"] = "Quest",
 ["Timestamp"] = 1778907391,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 22,
-["Quest"] = 4740,
-["Timestamp"] = 1778907396,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 1138,
-["Timestamp"] = 1778907409,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 4725,
-["Timestamp"] = 1778907431,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 4727,
-["Timestamp"] = 1778907432,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 2139,
-["Timestamp"] = 1778907456,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 22,
-["Quest"] = 986,
-["Timestamp"] = 1778907463,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 22,
-["Quest"] = 993,
-["Timestamp"] = 1778907465,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 22,
 ["Quest"] = 948,
-["Timestamp"] = 1778907624,
+["Level"] = 22,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778907396,
+["Quest"] = 4740,
 ["Level"] = 22,
-["Quest"] = 944,
-["Timestamp"] = 1778907624,
 },
 {
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778907409,
+["Quest"] = 1138,
 ["Level"] = 22,
-["Quest"] = 729,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778907431,
+["Quest"] = 4725,
+["Level"] = 22,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778907432,
+["Quest"] = 4727,
+["Level"] = 22,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778907456,
+["Quest"] = 2139,
+["Level"] = 22,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778907463,
+["Quest"] = 986,
+["Level"] = 22,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778907465,
+["Quest"] = 993,
+["Level"] = 22,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778907624,
+["Quest"] = 948,
+["Level"] = 22,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778907624,
+["Quest"] = 944,
+["Level"] = 22,
+},
+{
 ["Timestamp"] = 1778957757,
-["SubType"] = "Complete",
+["Quest"] = 729,
+["Level"] = 22,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 22,
-["Quest"] = 731,
 ["Timestamp"] = 1778957770,
-["SubType"] = "Accept",
+["Quest"] = 731,
+["Level"] = 22,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778959561,
+["SubType"] = "Complete",
+["Level"] = 22,
 ["Quest"] = 944,
-["Level"] = 22,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1778959561,
-["Quest"] = 949,
-["Level"] = 22,
 },
 {
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 22,
+["Quest"] = 949,
+["Timestamp"] = 1778959561,
+},
+{
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778959584,
+["Level"] = 22,
 ["Quest"] = 949,
-["Level"] = 22,
+["Timestamp"] = 1778959584,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778959585,
+["SubType"] = "Accept",
+["Level"] = 22,
 ["Quest"] = 950,
-["Level"] = 22,
+["Timestamp"] = 1778959585,
 },
 {
-["Timestamp"] = 1778959675,
-["Quest"] = 945,
 ["Level"] = 22,
-["Event"] = "Quest",
+["Quest"] = 945,
+["Timestamp"] = 1778959675,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1778959939,
@@ -6433,165 +6452,165 @@ QuestieConfig = {
 ["NewLevel"] = 23,
 },
 {
-["Timestamp"] = 1778959939,
+["Level"] = 23,
 ["Quest"] = 950,
-["Level"] = 23,
-["Event"] = "Quest",
+["Timestamp"] = 1778959939,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 993,
+["Event"] = "Quest",
 ["Timestamp"] = 1778961033,
+["Quest"] = 993,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 994,
+["Event"] = "Quest",
 ["Timestamp"] = 1778961041,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 731,
-["Timestamp"] = 1778961376,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 741,
-["Timestamp"] = 1778961393,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
 ["Quest"] = 994,
-["Timestamp"] = 1778961423,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778961376,
+["Quest"] = 731,
 ["Level"] = 23,
-["Quest"] = 2178,
-["Timestamp"] = 1778961460,
 },
 {
+["SubType"] = "Accept",
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 4740,
-["Timestamp"] = 1778961481,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
+["Timestamp"] = 1778961393,
 ["Quest"] = 741,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778961423,
+["Quest"] = 994,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778961460,
+["Quest"] = 2178,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778961481,
+["Quest"] = 4740,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1778962133,
+["Quest"] = 741,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 23,
+["Event"] = "Quest",
+["Timestamp"] = 1778966089,
 ["Quest"] = 967,
-["Timestamp"] = 1778966089,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 23,
+["Event"] = "Quest",
+["Timestamp"] = 1778966089,
 ["Quest"] = 970,
-["Timestamp"] = 1778966089,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 1010,
+["Event"] = "Quest",
 ["Timestamp"] = 1778966092,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
 ["Quest"] = 1010,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1778967350,
+["Quest"] = 1010,
+["Level"] = 23,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 1020,
+["Event"] = "Quest",
 ["Timestamp"] = 1778967351,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 970,
-["Timestamp"] = 1778967375,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 973,
-["Timestamp"] = 1778967376,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 945,
-["Timestamp"] = 1778967501,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 1008,
-["Timestamp"] = 1778967617,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
-["Quest"] = 10752,
-["Timestamp"] = 1778967631,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 991,
-["Timestamp"] = 1778967631,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 23,
-["Quest"] = 1054,
-["Timestamp"] = 1778967632,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 23,
 ["Quest"] = 1020,
-["Timestamp"] = 1778967653,
+["Level"] = 23,
 },
 {
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
+["Timestamp"] = 1778967375,
+["Quest"] = 970,
 ["Level"] = 23,
-["Quest"] = 1033,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778967376,
+["Quest"] = 973,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778967501,
+["Quest"] = 945,
+["Level"] = 23,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778967617,
+["Quest"] = 1008,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778967631,
+["Quest"] = 10752,
+["Level"] = 23,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778967631,
+["Quest"] = 991,
+["Level"] = 23,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778967632,
+["Quest"] = 1054,
+["Level"] = 23,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778967653,
+["Quest"] = 1020,
+["Level"] = 23,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
 ["Timestamp"] = 1778967681,
+["Quest"] = 1033,
+["Level"] = 23,
 },
 {
 ["Timestamp"] = 1778968196,
@@ -6599,179 +6618,179 @@ QuestieConfig = {
 ["NewLevel"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 1054,
+["Event"] = "Quest",
 ["Timestamp"] = 1778968196,
+["Quest"] = 1054,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 1033,
+["Event"] = "Quest",
 ["Timestamp"] = 1778968221,
+["Quest"] = 1033,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 1034,
+["Event"] = "Quest",
 ["Timestamp"] = 1778968238,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 973,
-["Timestamp"] = 1778969011,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 991,
-["Timestamp"] = 1778969115,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 1023,
-["Timestamp"] = 1778969115,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 1007,
-["Timestamp"] = 1778969942,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 1007,
-["Timestamp"] = 1778970308,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 1009,
-["Timestamp"] = 1778970328,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 1023,
-["Timestamp"] = 1778970670,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
 ["Quest"] = 1034,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778969011,
+["Quest"] = 973,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778969115,
+["Quest"] = 991,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778969115,
+["Quest"] = 1023,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778969942,
+["Quest"] = 1007,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778970308,
+["Quest"] = 1007,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778970328,
+["Quest"] = 1009,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778970670,
+["Quest"] = 1023,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1778978098,
+["Quest"] = 1034,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 24,
-["Quest"] = 1008,
+["Event"] = "Quest",
 ["Timestamp"] = 1778978128,
+["Quest"] = 1008,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 942,
+["Event"] = "Quest",
 ["Timestamp"] = 1778978641,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 484,
-["Timestamp"] = 1778980424,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 279,
-["Timestamp"] = 1778980433,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
 ["Quest"] = 942,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778980424,
+["Quest"] = 484,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778980433,
+["Quest"] = 279,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1778980503,
+["Quest"] = 942,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 943,
+["Event"] = "Quest",
 ["Timestamp"] = 1778980506,
+["Quest"] = 943,
+["Level"] = 24,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 288,
+["Event"] = "Quest",
 ["Timestamp"] = 1778980600,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 463,
-["Timestamp"] = 1778980601,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 24,
 ["Quest"] = 288,
-["Timestamp"] = 1778980643,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
 ["Level"] = 24,
-["Quest"] = 470,
-["Timestamp"] = 1778980651,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778980601,
+["Quest"] = 463,
 ["Level"] = 24,
-["Quest"] = 464,
-["Timestamp"] = 1778980738,
 },
 {
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 305,
-["Timestamp"] = 1778980777,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 24,
-["Quest"] = 294,
-["Timestamp"] = 1778982218,
-},
-{
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778980643,
+["Quest"] = 288,
 ["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778980651,
+["Quest"] = 470,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778980738,
+["Quest"] = 464,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778980777,
 ["Quest"] = 305,
+["Level"] = 24,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778982218,
+["Quest"] = 294,
+["Level"] = 24,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1778982227,
+["Quest"] = 305,
+["Level"] = 24,
 },
 {
 ["Timestamp"] = 1778982227,
@@ -6779,116 +6798,116 @@ QuestieConfig = {
 ["NewLevel"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 306,
+["Event"] = "Quest",
 ["Timestamp"] = 1778982227,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 25,
-["Quest"] = 279,
-["Timestamp"] = 1778996641,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 281,
-["Timestamp"] = 1778996644,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 25,
 ["Quest"] = 306,
-["Timestamp"] = 1778997342,
+["Level"] = 25,
 },
 {
-["Level"] = 25,
-["Quest"] = 294,
-["Timestamp"] = 1779039949,
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
+["Timestamp"] = 1778996641,
+["Quest"] = 279,
+["Level"] = 25,
 },
 {
+["SubType"] = "Accept",
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 25,
+["Timestamp"] = 1778996644,
 ["Quest"] = 281,
+["Level"] = 25,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778997342,
+["Quest"] = 306,
+["Level"] = 25,
+},
+{
+["Timestamp"] = 1779039949,
+["Quest"] = 294,
+["Level"] = 25,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1779070180,
+["Quest"] = 281,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 284,
+["Event"] = "Quest",
 ["Timestamp"] = 1779070181,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 25,
 ["Quest"] = 284,
+["Level"] = 25,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1779070300,
+["Quest"] = 284,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 285,
+["Event"] = "Quest",
 ["Timestamp"] = 1779070302,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 25,
 ["Quest"] = 285,
+["Level"] = 25,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1779070323,
+["Quest"] = 285,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 286,
+["Event"] = "Quest",
 ["Timestamp"] = 1779070324,
+["Quest"] = 286,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 469,
+["Event"] = "Quest",
 ["Timestamp"] = 1779070897,
+["Quest"] = 469,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 25,
-["Quest"] = 463,
+["Event"] = "Quest",
 ["Timestamp"] = 1779070931,
+["Quest"] = 463,
+["Level"] = 25,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 25,
-["Quest"] = 276,
+["Event"] = "Quest",
 ["Timestamp"] = 1779070932,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 25,
 ["Quest"] = 276,
-["Timestamp"] = 1779072493,
+["Level"] = 25,
 },
 {
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
+["Timestamp"] = 1779072493,
+["Quest"] = 276,
 ["Level"] = 25,
-["Quest"] = 277,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
 ["Timestamp"] = 1779072494,
+["Quest"] = 277,
+["Level"] = 25,
 },
 {
 ["Timestamp"] = 1779072721,
@@ -6896,228 +6915,228 @@ QuestieConfig = {
 ["NewLevel"] = 26,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 26,
-["Quest"] = 943,
+["Event"] = "Quest",
 ["Timestamp"] = 1779072721,
+["Quest"] = 943,
+["Level"] = 26,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 26,
-["Quest"] = 470,
+["Event"] = "Quest",
 ["Timestamp"] = 1779072742,
+["Quest"] = 470,
+["Level"] = 26,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 26,
-["Quest"] = 484,
+["Event"] = "Quest",
 ["Timestamp"] = 1779072803,
+["Quest"] = 484,
+["Level"] = 26,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 26,
-["Quest"] = 469,
+["Event"] = "Quest",
 ["Timestamp"] = 1779072810,
+["Quest"] = 469,
+["Level"] = 26,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 26,
-["Quest"] = 464,
+["Event"] = "Quest",
 ["Timestamp"] = 1779072963,
+["Quest"] = 464,
+["Level"] = 26,
 },
 {
-["Timestamp"] = 1779085251,
+["Level"] = 26,
 ["Quest"] = 387,
-["Level"] = 26,
-["Event"] = "Quest",
+["Timestamp"] = 1779085251,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 26,
-["Quest"] = 94,
+["Event"] = "Quest",
 ["Timestamp"] = 1779087586,
+["Quest"] = 94,
+["Level"] = 26,
 },
 {
-["Level"] = 26,
-["Quest"] = 244,
 ["Timestamp"] = 1779087831,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
 ["Quest"] = 244,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779088347,
-["SubType"] = "Complete",
+["Quest"] = 244,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 26,
-["Quest"] = 20,
 ["Timestamp"] = 1779088376,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
-["Quest"] = 150,
-["Timestamp"] = 1779088393,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
-["Quest"] = 127,
-["Timestamp"] = 1779088393,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
-["Quest"] = 34,
-["Timestamp"] = 1779088409,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
-["Quest"] = 34,
-["Timestamp"] = 1779088464,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
 ["Quest"] = 20,
-["Timestamp"] = 1779090712,
-["SubType"] = "Complete",
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
-["Quest"] = 127,
-["Timestamp"] = 1779090731,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
+["Timestamp"] = 1779088393,
 ["Quest"] = 150,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779088393,
+["Quest"] = 127,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779088409,
+["Quest"] = 34,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779088464,
+["Quest"] = 34,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779090712,
+["Quest"] = 20,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779090731,
+["Quest"] = 127,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1779090732,
-["SubType"] = "Complete",
+["Quest"] = 150,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 26,
-["Quest"] = 373,
 ["Timestamp"] = 1779090843,
-["SubType"] = "Accept",
+["Quest"] = 373,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
-["Quest"] = 286,
 ["Timestamp"] = 1779090905,
-["SubType"] = "Complete",
+["Quest"] = 286,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 26,
-["Quest"] = 66,
 ["Timestamp"] = 1779152474,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
-["Quest"] = 101,
-["Timestamp"] = 1779152475,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
-["Quest"] = 56,
-["Timestamp"] = 1779152569,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
 ["Quest"] = 66,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779152475,
+["Quest"] = 101,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779152569,
+["Quest"] = 56,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779152573,
-["SubType"] = "Complete",
+["Quest"] = 66,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 26,
-["Quest"] = 67,
 ["Timestamp"] = 1779152574,
-["SubType"] = "Accept",
+["Quest"] = 67,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
-["Quest"] = 163,
 ["Timestamp"] = 1779152586,
-["SubType"] = "Accept",
+["Quest"] = 163,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
+["Timestamp"] = 1779152587,
 ["Quest"] = 165,
-["Timestamp"] = 1779152587,
-["SubType"] = "Accept",
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
+["Timestamp"] = 1779152587,
 ["Quest"] = 164,
-["Timestamp"] = 1779152587,
-["SubType"] = "Accept",
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
-["Quest"] = 174,
 ["Timestamp"] = 1779152616,
-["SubType"] = "Accept",
+["Quest"] = 174,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
-["Quest"] = 174,
 ["Timestamp"] = 1779152616,
+["Quest"] = 174,
+["Level"] = 26,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 26,
-["Quest"] = 175,
 ["Timestamp"] = 1779152617,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 26,
 ["Quest"] = 175,
-["Timestamp"] = 1779152663,
-["SubType"] = "Complete",
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 26,
-["Quest"] = 177,
 ["Timestamp"] = 1779152663,
-["SubType"] = "Accept",
+["Quest"] = 175,
+["Level"] = 26,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779152663,
+["Quest"] = 177,
+["Level"] = 26,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1779153068,
@@ -7125,389 +7144,389 @@ QuestieConfig = {
 ["NewLevel"] = 27,
 },
 {
-["Timestamp"] = 1779153739,
+["Level"] = 27,
 ["Quest"] = 163,
-["Level"] = 27,
-["Event"] = "Quest",
+["Timestamp"] = 1779153739,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 27,
+["Quest"] = 5,
 ["Timestamp"] = 1779153745,
-["Quest"] = 5,
-["Level"] = 27,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779153799,
+["Level"] = 27,
 ["Quest"] = 164,
-["Level"] = 27,
-["Event"] = "Quest",
+["Timestamp"] = 1779153799,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 27,
+["Quest"] = 95,
 ["Timestamp"] = 1779153802,
-["Quest"] = 95,
-["Level"] = 27,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 27,
+["Quest"] = 226,
 ["Timestamp"] = 1779153805,
-["Quest"] = 226,
-["Level"] = 27,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 27,
+["Quest"] = 225,
 ["Timestamp"] = 1779153836,
-["Quest"] = 225,
-["Level"] = 27,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779154625,
+["Level"] = 27,
 ["Quest"] = 165,
-["Level"] = 27,
-["Event"] = "Quest",
+["Timestamp"] = 1779154625,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 27,
+["Quest"] = 148,
 ["Timestamp"] = 1779154628,
-["Quest"] = 148,
-["Level"] = 27,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779156054,
+["Level"] = 27,
 ["Quest"] = 226,
-["Level"] = 27,
-["Event"] = "Quest",
+["Timestamp"] = 1779156054,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 27,
+["Event"] = "Quest",
+["Timestamp"] = 1779156379,
 ["Quest"] = 67,
-["Timestamp"] = 1779156379,
+["Level"] = 27,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 68,
+["Event"] = "Quest",
 ["Timestamp"] = 1779156379,
+["Quest"] = 68,
+["Level"] = 27,
 },
 {
-["Level"] = 27,
-["Quest"] = 5,
 ["Timestamp"] = 1779156461,
-["SubType"] = "Complete",
+["Quest"] = 5,
+["Level"] = 27,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 27,
-["Quest"] = 93,
 ["Timestamp"] = 1779156462,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
 ["Quest"] = 93,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779156467,
-["SubType"] = "Complete",
+["Quest"] = 93,
+["Level"] = 27,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 27,
-["Quest"] = 240,
 ["Timestamp"] = 1779156468,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 90,
-["Timestamp"] = 1779156476,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 56,
-["Timestamp"] = 1779156502,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 57,
-["Timestamp"] = 1779156502,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 68,
-["Timestamp"] = 1779156507,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 69,
-["Timestamp"] = 1779156508,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 225,
-["Timestamp"] = 1779156511,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 227,
-["Timestamp"] = 1779156511,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 227,
-["Timestamp"] = 1779156518,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 101,
-["Timestamp"] = 1779156539,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 148,
-["Timestamp"] = 1779156539,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 149,
-["Timestamp"] = 1779156540,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 27,
-["Quest"] = 177,
-["Timestamp"] = 1779156566,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779156729,
-["Quest"] = 149,
-["Level"] = 27,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779156729,
-["Quest"] = 154,
-["Level"] = 27,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779156774,
-["Quest"] = 154,
-["Level"] = 27,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779156774,
-["Quest"] = 157,
-["Level"] = 27,
-},
-{
-["Timestamp"] = 1779156920,
-["Quest"] = 95,
-["Level"] = 27,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1779156921,
-["Quest"] = 230,
-["Level"] = 27,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1779157127,
-["Quest"] = 157,
-["Level"] = 27,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1779157127,
-["Quest"] = 158,
-["Level"] = 27,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 230,
-["Timestamp"] = 1779157933,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 262,
-["Timestamp"] = 1779157933,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 69,
-["Timestamp"] = 1779158327,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 70,
-["Timestamp"] = 1779158327,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 70,
-["Timestamp"] = 1779158919,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 72,
-["Timestamp"] = 1779158920,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 72,
-["Timestamp"] = 1779158922,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 74,
-["Timestamp"] = 1779158923,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 335,
-["Timestamp"] = 1779158971,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 262,
-["Timestamp"] = 1779159321,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 265,
-["Timestamp"] = 1779159322,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 265,
-["Timestamp"] = 1779159335,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 266,
-["Timestamp"] = 1779159336,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 158,
-["Timestamp"] = 1779159347,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 156,
-["Timestamp"] = 1779159348,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 27,
-["Quest"] = 266,
-["Timestamp"] = 1779159348,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 27,
-["Quest"] = 453,
-["Timestamp"] = 1779159349,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779169385,
 ["Quest"] = 240,
 ["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779156476,
+["Quest"] = 90,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779156502,
+["Quest"] = 56,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779156502,
+["Quest"] = 57,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779156507,
+["Quest"] = 68,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779156508,
+["Quest"] = 69,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779156511,
+["Quest"] = 225,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779156511,
+["Quest"] = 227,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779156518,
+["Quest"] = 227,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779156539,
+["Quest"] = 101,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779156539,
+["Quest"] = 148,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779156540,
+["Quest"] = 149,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779156566,
+["Quest"] = 177,
+["Level"] = 27,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 27,
+["Quest"] = 149,
+["Timestamp"] = 1779156729,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 27,
+["Quest"] = 154,
+["Timestamp"] = 1779156729,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 27,
+["Quest"] = 154,
+["Timestamp"] = 1779156774,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 27,
+["Quest"] = 157,
+["Timestamp"] = 1779156774,
+},
+{
+["Level"] = 27,
+["Quest"] = 95,
+["Timestamp"] = 1779156920,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 27,
+["Quest"] = 230,
+["Timestamp"] = 1779156921,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 27,
+["Quest"] = 157,
+["Timestamp"] = 1779157127,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 27,
+["Quest"] = 158,
+["Timestamp"] = 1779157127,
+["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779169386,
-["Quest"] = 453,
+["Timestamp"] = 1779157933,
+["Quest"] = 230,
 ["Level"] = 27,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779169387,
-["Quest"] = 268,
+["Timestamp"] = 1779157933,
+["Quest"] = 262,
 ["Level"] = 27,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779158327,
+["Quest"] = 69,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779158327,
+["Quest"] = 70,
+["Level"] = 27,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779158919,
+["Quest"] = 70,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779158920,
+["Quest"] = 72,
+["Level"] = 27,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779158922,
+["Quest"] = 72,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779158923,
+["Quest"] = 74,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779158971,
+["Quest"] = 335,
+["Level"] = 27,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779159321,
+["Quest"] = 262,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779159322,
+["Quest"] = 265,
+["Level"] = 27,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779159335,
+["Quest"] = 265,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779159336,
+["Quest"] = 266,
+["Level"] = 27,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779159347,
+["Quest"] = 158,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779159348,
+["Quest"] = 156,
+["Level"] = 27,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779159348,
+["Quest"] = 266,
+["Level"] = 27,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779159349,
+["Quest"] = 453,
+["Level"] = 27,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 27,
+["Quest"] = 240,
+["Timestamp"] = 1779169385,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 27,
+["Quest"] = 453,
+["Timestamp"] = 1779169386,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 27,
+["Quest"] = 268,
+["Timestamp"] = 1779169387,
 },
 {
 ["Timestamp"] = 1779169992,
@@ -7515,382 +7534,382 @@ QuestieConfig = {
 ["NewLevel"] = 28,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779170436,
+["SubType"] = "Complete",
+["Level"] = 28,
 ["Quest"] = 268,
-["Level"] = 28,
+["Timestamp"] = 1779170436,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 28,
+["Quest"] = 323,
 ["Timestamp"] = 1779170437,
-["Quest"] = 323,
-["Level"] = 28,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779171597,
+["Level"] = 28,
 ["Quest"] = 323,
-["Level"] = 28,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779171597,
-["Quest"] = 269,
-["Level"] = 28,
 },
 {
-["Timestamp"] = 1779171742,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 28,
+["Quest"] = 269,
+["Timestamp"] = 1779171597,
+},
+{
+["Level"] = 28,
 ["Quest"] = 156,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779171742,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 159,
 ["Timestamp"] = 1779171743,
-["Quest"] = 159,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779171752,
+["Level"] = 28,
 ["Quest"] = 57,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779171752,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779171973,
+["Level"] = 28,
 ["Quest"] = 373,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779171973,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 389,
 ["Timestamp"] = 1779171977,
-["Quest"] = 389,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779171988,
+["Level"] = 28,
 ["Quest"] = 399,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779171988,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779172023,
+["Level"] = 28,
 ["Quest"] = 269,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779172023,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 270,
 ["Timestamp"] = 1779172024,
-["Quest"] = 270,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 1274,
 ["Timestamp"] = 1779172035,
-["Quest"] = 1274,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 343,
 ["Timestamp"] = 1779172058,
-["Quest"] = 343,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779172105,
+["Level"] = 28,
 ["Quest"] = 389,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779172105,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779172108,
+["Level"] = 28,
 ["Quest"] = 391,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779172108,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779172241,
+["Level"] = 28,
 ["Quest"] = 388,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779172241,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779172308,
+["Level"] = 28,
 ["Quest"] = 1274,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779172308,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 1241,
 ["Timestamp"] = 1779172312,
-["Quest"] = 1241,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779172362,
+["Level"] = 28,
 ["Quest"] = 343,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779172362,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 344,
 ["Timestamp"] = 1779172363,
-["Quest"] = 344,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779172549,
+["Level"] = 28,
 ["Quest"] = 1241,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779172549,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 1242,
 ["Timestamp"] = 1779172555,
-["Quest"] = 1242,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 1242,
 ["Timestamp"] = 1779172655,
-["Quest"] = 1242,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 1243,
 ["Timestamp"] = 1779172658,
-["Quest"] = 1243,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779173023,
+["Level"] = 28,
 ["Quest"] = 74,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779173023,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 75,
 ["Timestamp"] = 1779173030,
-["Quest"] = 75,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 75,
 ["Timestamp"] = 1779173114,
-["Quest"] = 75,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 78,
 ["Timestamp"] = 1779173116,
-["Quest"] = 78,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779173390,
+["Level"] = 28,
 ["Quest"] = 94,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779173390,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 248,
 ["Timestamp"] = 1779173395,
-["Quest"] = 248,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 248,
 ["Timestamp"] = 1779173500,
-["Quest"] = 248,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779173843,
+["Level"] = 28,
 ["Quest"] = 1243,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779173843,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779173846,
+["Level"] = 28,
 ["Quest"] = 1244,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779173846,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779173868,
+["Level"] = 28,
 ["Quest"] = 78,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779173868,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 79,
 ["Timestamp"] = 1779173870,
-["Quest"] = 79,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779173881,
+["Level"] = 28,
 ["Quest"] = 90,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779173881,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779173947,
+["Level"] = 28,
 ["Quest"] = 79,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779173947,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 80,
 ["Timestamp"] = 1779173949,
-["Quest"] = 80,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 80,
 ["Timestamp"] = 1779173965,
-["Quest"] = 80,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 97,
 ["Timestamp"] = 1779173966,
-["Quest"] = 97,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 97,
 ["Timestamp"] = 1779173982,
-["Quest"] = 97,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779174016,
+["Level"] = 28,
 ["Quest"] = 98,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779174016,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779174324,
+["Level"] = 28,
 ["Quest"] = 159,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779174324,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 133,
 ["Timestamp"] = 1779174329,
-["Quest"] = 133,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 28,
+["Quest"] = 133,
 ["Timestamp"] = 1779174973,
-["Quest"] = 133,
-["Level"] = 28,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779174977,
+["Level"] = 28,
 ["Quest"] = 134,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779174977,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779175264,
+["Level"] = 28,
 ["Quest"] = 344,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779175264,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779175268,
+["Level"] = 28,
 ["Quest"] = 345,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779175268,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779176377,
+["Level"] = 28,
 ["Quest"] = 471,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779176377,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779176395,
+["Level"] = 28,
 ["Quest"] = 289,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779176395,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779176401,
+["Level"] = 28,
 ["Quest"] = 270,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779176401,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779176433,
+["Level"] = 28,
 ["Quest"] = 472,
-["Level"] = 28,
-["Event"] = "Quest",
+["Timestamp"] = 1779176433,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779176525,
-["Quest"] = 465,
 ["Level"] = 28,
-["Event"] = "Quest",
+["Quest"] = 465,
+["Timestamp"] = 1779176525,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1779177390,
@@ -7898,179 +7917,179 @@ QuestieConfig = {
 ["NewLevel"] = 29,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 29,
-["Quest"] = 289,
+["Event"] = "Quest",
 ["Timestamp"] = 1779218078,
+["Quest"] = 289,
+["Level"] = 29,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 29,
-["Quest"] = 290,
+["Event"] = "Quest",
 ["Timestamp"] = 1779218084,
-},
-{
-["Level"] = 29,
-["Quest"] = 471,
-["Timestamp"] = 1779222571,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 29,
-["Quest"] = 295,
-["Timestamp"] = 1779224953,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 29,
-["Quest"] = 299,
-["Timestamp"] = 1779224962,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779228148,
-["Quest"] = 295,
-["Level"] = 29,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779228149,
-["Quest"] = 296,
-["Level"] = 29,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779228157,
-["Quest"] = 299,
-["Level"] = 29,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779228516,
-["Quest"] = 296,
-["Level"] = 29,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779228674,
-["Quest"] = 277,
-["Level"] = 29,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779228675,
-["Quest"] = 275,
-["Level"] = 29,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779228836,
-["Quest"] = 321,
-["Level"] = 29,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779229079,
-["Quest"] = 321,
-["Level"] = 29,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779229079,
-["Quest"] = 324,
-["Level"] = 29,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 29,
-["Quest"] = 324,
-["Timestamp"] = 1779233074,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 29,
-["Quest"] = 322,
-["Timestamp"] = 1779233076,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 29,
 ["Quest"] = 290,
-["Timestamp"] = 1779233463,
+["Level"] = 29,
 },
 {
+["Timestamp"] = 1779222571,
+["Quest"] = 471,
+["Level"] = 29,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779224953,
+["Quest"] = 295,
+["Level"] = 29,
 ["Event"] = "Quest",
 ["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779224962,
+["Quest"] = 299,
 ["Level"] = 29,
-["Quest"] = 292,
-["Timestamp"] = 1779233463,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Event"] = "Quest",
 ["SubType"] = "Complete",
 ["Level"] = 29,
-["Quest"] = 465,
-["Timestamp"] = 1779233895,
+["Quest"] = 295,
+["Timestamp"] = 1779228148,
 },
 {
 ["Event"] = "Quest",
 ["SubType"] = "Accept",
 ["Level"] = 29,
-["Quest"] = 474,
-["Timestamp"] = 1779233895,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 29,
-["Quest"] = 304,
-["Timestamp"] = 1779234373,
+["Quest"] = 296,
+["Timestamp"] = 1779228149,
 },
 {
 ["Event"] = "Quest",
 ["SubType"] = "Complete",
 ["Level"] = 29,
-["Quest"] = 472,
-["Timestamp"] = 1779234375,
+["Quest"] = 299,
+["Timestamp"] = 1779228157,
 },
 {
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 29,
+["Quest"] = 296,
+["Timestamp"] = 1779228516,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 29,
+["Quest"] = 277,
+["Timestamp"] = 1779228674,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
 ["Level"] = 29,
 ["Quest"] = 275,
-["Timestamp"] = 1779235440,
+["Timestamp"] = 1779228675,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 29,
+["Quest"] = 321,
+["Timestamp"] = 1779228836,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 29,
+["Quest"] = 321,
+["Timestamp"] = 1779229079,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 29,
+["Quest"] = 324,
+["Timestamp"] = 1779229079,
+},
+{
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
+["Timestamp"] = 1779233074,
+["Quest"] = 324,
+["Level"] = 29,
 },
 {
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779233076,
+["Quest"] = 322,
 ["Level"] = 29,
-["Quest"] = 631,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779233463,
+["Quest"] = 290,
+["Level"] = 29,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779233463,
+["Quest"] = 292,
+["Level"] = 29,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779233895,
+["Quest"] = 465,
+["Level"] = 29,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779233895,
+["Quest"] = 474,
+["Level"] = 29,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779234373,
+["Quest"] = 304,
+["Level"] = 29,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779234375,
+["Quest"] = 472,
+["Level"] = 29,
+},
+{
+["Timestamp"] = 1779235440,
+["Quest"] = 275,
+["Level"] = 29,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1779235524,
-["SubType"] = "Accept",
+["Quest"] = 631,
+["Level"] = 29,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 29,
-["Quest"] = 303,
 ["Timestamp"] = 1779235528,
-["SubType"] = "Accept",
+["Quest"] = 303,
+["Level"] = 29,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1779235563,
@@ -8078,214 +8097,214 @@ QuestieConfig = {
 ["NewLevel"] = 30,
 },
 {
-["Level"] = 30,
-["Quest"] = 304,
 ["Timestamp"] = 1779236957,
-["SubType"] = "Complete",
+["Quest"] = 304,
+["Level"] = 30,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 30,
-["Quest"] = 303,
 ["Timestamp"] = 1779236958,
-["SubType"] = "Complete",
+["Quest"] = 303,
+["Level"] = 30,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 30,
-["Quest"] = 631,
 ["Timestamp"] = 1779237270,
-["SubType"] = "Complete",
+["Quest"] = 631,
+["Level"] = 30,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 30,
-["Quest"] = 632,
 ["Timestamp"] = 1779237271,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
 ["Quest"] = 632,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779237359,
-["SubType"] = "Complete",
+["Quest"] = 632,
+["Level"] = 30,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 30,
-["Quest"] = 633,
 ["Timestamp"] = 1779237360,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
-["Quest"] = 637,
-["Timestamp"] = 1779237486,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
 ["Quest"] = 633,
-["Timestamp"] = 1779238941,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 30,
-["Quest"] = 634,
-["Timestamp"] = 1779238941,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
-["Level"] = 30,
-["Quest"] = 292,
-["Timestamp"] = 1779238962,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
-["Quest"] = 293,
-["Timestamp"] = 1779238965,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
-["Quest"] = 474,
-["Timestamp"] = 1779239062,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
+["Timestamp"] = 1779237486,
 ["Quest"] = 637,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779238941,
+["Quest"] = 633,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779238941,
+["Quest"] = 634,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779238962,
+["Quest"] = 292,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779238965,
+["Quest"] = 293,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779239062,
+["Quest"] = 474,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1779239323,
-["SubType"] = "Complete",
+["Quest"] = 637,
+["Level"] = 30,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 30,
-["Quest"] = 683,
 ["Timestamp"] = 1779239349,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
 ["Quest"] = 683,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779239409,
-["SubType"] = "Complete",
+["Quest"] = 683,
+["Level"] = 30,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 30,
-["Quest"] = 686,
 ["Timestamp"] = 1779239412,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
-["Quest"] = 9551,
-["Timestamp"] = 1779239450,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 30,
 ["Quest"] = 686,
-["Timestamp"] = 1779240719,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 30,
-["Quest"] = 689,
-["Timestamp"] = 1779240737,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779240772,
-["Quest"] = 337,
-["Level"] = 30,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779241944,
+["Timestamp"] = 1779239450,
 ["Quest"] = 9551,
 ["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Accept",
+["Timestamp"] = 1779240719,
+["Quest"] = 686,
+["Level"] = 30,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779240737,
+["Quest"] = 689,
+["Level"] = 30,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 30,
+["Quest"] = 337,
+["Timestamp"] = 1779240772,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 30,
+["Quest"] = 9551,
+["Timestamp"] = 1779241944,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 30,
+["Quest"] = 9552,
 ["Timestamp"] = 1779241945,
-["Quest"] = 9552,
-["Level"] = 30,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779242553,
-["Quest"] = 9552,
+["SubType"] = "Complete",
 ["Level"] = 30,
+["Quest"] = 9552,
+["Timestamp"] = 1779242553,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779242553,
-["Quest"] = 9553,
 ["Level"] = 30,
+["Quest"] = 9553,
+["Timestamp"] = 1779242553,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 30,
+["Quest"] = 9553,
 ["Timestamp"] = 1779242572,
-["Quest"] = 9553,
-["Level"] = 30,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 30,
+["Quest"] = 9554,
 ["Timestamp"] = 1779242573,
-["Quest"] = 9554,
-["Level"] = 30,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779242791,
+["Level"] = 30,
 ["Quest"] = 9554,
-["Level"] = 30,
+["Timestamp"] = 1779242791,
 },
 {
-["Timestamp"] = 1779248997,
+["Level"] = 30,
 ["Quest"] = 6981,
-["Level"] = 30,
-["Event"] = "Quest",
+["Timestamp"] = 1779248997,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 30,
-["Quest"] = 1487,
+["Event"] = "Quest",
 ["Timestamp"] = 1779255579,
+["Quest"] = 1487,
+["Level"] = 30,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 30,
-["Quest"] = 1486,
+["Event"] = "Quest",
 ["Timestamp"] = 1779255582,
+["Quest"] = 1486,
+["Level"] = 30,
 },
 {
 ["Timestamp"] = 1779258484,
@@ -8293,207 +8312,207 @@ QuestieConfig = {
 ["NewLevel"] = 31,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 31,
-["Quest"] = 6981,
+["Event"] = "Quest",
 ["Timestamp"] = 1779258484,
+["Quest"] = 6981,
+["Level"] = 31,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 31,
-["Quest"] = 3370,
+["Event"] = "Quest",
 ["Timestamp"] = 1779258490,
+["Quest"] = 3370,
+["Level"] = 31,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 31,
-["Quest"] = 1486,
+["Event"] = "Quest",
 ["Timestamp"] = 1779258578,
+["Quest"] = 1486,
+["Level"] = 31,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779260862,
+["SubType"] = "Complete",
+["Level"] = 31,
 ["Quest"] = 634,
-["Level"] = 31,
+["Timestamp"] = 1779260862,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779262827,
+["SubType"] = "Accept",
+["Level"] = 31,
 ["Quest"] = 1179,
-["Level"] = 31,
+["Timestamp"] = 1779262827,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 31,
+["Quest"] = 215,
 ["Timestamp"] = 1779265765,
-["Quest"] = 215,
-["Level"] = 31,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 31,
+["Quest"] = 583,
 ["Timestamp"] = 1779265813,
-["Quest"] = 583,
-["Level"] = 31,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 31,
+["Quest"] = 583,
 ["Timestamp"] = 1779265818,
-["Quest"] = 583,
-["Level"] = 31,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 31,
+["Quest"] = 185,
 ["Timestamp"] = 1779265822,
-["Quest"] = 185,
-["Level"] = 31,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 31,
+["Quest"] = 190,
 ["Timestamp"] = 1779265828,
-["Quest"] = 190,
-["Level"] = 31,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779266936,
+["SubType"] = "Complete",
+["Level"] = 31,
 ["Quest"] = 185,
-["Level"] = 31,
+["Timestamp"] = 1779266936,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779266939,
+["SubType"] = "Complete",
+["Level"] = 31,
 ["Quest"] = 190,
-["Level"] = 31,
+["Timestamp"] = 1779266939,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779267090,
+["SubType"] = "Complete",
+["Level"] = 31,
 ["Quest"] = 215,
-["Level"] = 31,
+["Timestamp"] = 1779267090,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 31,
-["Quest"] = 173,
+["Event"] = "Quest",
 ["Timestamp"] = 1779267293,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 31,
-["Quest"] = 690,
-["Timestamp"] = 1779267809,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 31,
-["Quest"] = 1301,
-["Timestamp"] = 1779267844,
-},
-{
-["Level"] = 31,
-["Quest"] = 337,
-["Timestamp"] = 1779292607,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 31,
-["Quest"] = 538,
-["Timestamp"] = 1779292607,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 31,
-["Quest"] = 293,
-["Timestamp"] = 1779292871,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 31,
-["Quest"] = 322,
-["Timestamp"] = 1779292953,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 31,
-["Quest"] = 325,
-["Timestamp"] = 1779292954,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 31,
-["Quest"] = 181,
-["Timestamp"] = 1779293284,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 31,
-["Quest"] = 58,
-["Timestamp"] = 1779293306,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779326717,
 ["Quest"] = 173,
 ["Level"] = 31,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779326718,
-["Quest"] = 221,
-["Level"] = 31,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779328940,
-["Quest"] = 134,
+["Timestamp"] = 1779267809,
+["Quest"] = 690,
 ["Level"] = 31,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779328940,
-["Quest"] = 160,
+["Timestamp"] = 1779267844,
+["Quest"] = 1301,
 ["Level"] = 31,
 },
 {
-["SubType"] = "Complete",
+["Timestamp"] = 1779292607,
+["Quest"] = 337,
+["Level"] = 31,
 ["Event"] = "Quest",
-["Timestamp"] = 1779328991,
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779292607,
+["Quest"] = 538,
+["Level"] = 31,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779292871,
+["Quest"] = 293,
+["Level"] = 31,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779292953,
+["Quest"] = 322,
+["Level"] = 31,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779292954,
 ["Quest"] = 325,
 ["Level"] = 31,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779328991,
-["Quest"] = 55,
+["Timestamp"] = 1779293284,
+["Quest"] = 181,
 ["Level"] = 31,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779293306,
+["Quest"] = 58,
+["Level"] = 31,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 31,
+["Quest"] = 173,
+["Timestamp"] = 1779326717,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 31,
+["Quest"] = 221,
+["Timestamp"] = 1779326718,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 31,
+["Quest"] = 134,
+["Timestamp"] = 1779328940,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 31,
+["Quest"] = 160,
+["Timestamp"] = 1779328940,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 31,
+["Quest"] = 325,
+["Timestamp"] = 1779328991,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 31,
+["Quest"] = 55,
+["Timestamp"] = 1779328991,
 },
 {
 ["Timestamp"] = 1779329296,
@@ -8501,312 +8520,312 @@ QuestieConfig = {
 ["NewLevel"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329296,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 55,
-["Level"] = 32,
+["Timestamp"] = 1779329296,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329396,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 58,
-["Level"] = 32,
+["Timestamp"] = 1779329396,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329412,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 160,
-["Level"] = 32,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779329412,
-["Quest"] = 251,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329419,
-["Quest"] = 251,
-["Level"] = 32,
-},
-{
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779329419,
-["Quest"] = 401,
 ["Level"] = 32,
+["Quest"] = 251,
+["Timestamp"] = 1779329412,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779329419,
-["Quest"] = 401,
 ["Level"] = 32,
+["Quest"] = 251,
+["Timestamp"] = 1779329419,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 401,
+["Timestamp"] = 1779329419,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 32,
+["Quest"] = 401,
+["Timestamp"] = 1779329419,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 252,
 ["Timestamp"] = 1779329420,
-["Quest"] = 252,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 32,
+["Quest"] = 252,
 ["Timestamp"] = 1779329457,
-["Quest"] = 252,
-["Level"] = 32,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 253,
 ["Timestamp"] = 1779329458,
-["Quest"] = 253,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329506,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 221,
-["Level"] = 32,
+["Timestamp"] = 1779329506,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 222,
 ["Timestamp"] = 1779329507,
-["Quest"] = 222,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329525,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 181,
-["Level"] = 32,
+["Timestamp"] = 1779329525,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329549,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 1244,
-["Level"] = 32,
+["Timestamp"] = 1779329549,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 1245,
 ["Timestamp"] = 1779329550,
-["Quest"] = 1245,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779329717,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 98,
-["Level"] = 32,
+["Timestamp"] = 1779329717,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779330639,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 254,
-["Level"] = 32,
+["Timestamp"] = 1779330639,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779331843,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 253,
-["Level"] = 32,
+["Timestamp"] = 1779331843,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779331867,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 222,
-["Level"] = 32,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779331867,
-["Quest"] = 223,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 223,
+["Timestamp"] = 1779331867,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 32,
+["Quest"] = 223,
 ["Timestamp"] = 1779331871,
-["Quest"] = 223,
-["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 32,
+["Event"] = "Quest",
+["Timestamp"] = 1779341154,
 ["Quest"] = 1245,
-["Timestamp"] = 1779341154,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 32,
-["Quest"] = 1246,
+["Event"] = "Quest",
 ["Timestamp"] = 1779341154,
+["Quest"] = 1246,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 32,
+["Event"] = "Quest",
+["Timestamp"] = 1779341272,
 ["Quest"] = 335,
-["Timestamp"] = 1779341272,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 32,
-["Quest"] = 336,
+["Event"] = "Quest",
 ["Timestamp"] = 1779341272,
+["Quest"] = 336,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 32,
+["Event"] = "Quest",
+["Timestamp"] = 1779341448,
 ["Quest"] = 1246,
-["Timestamp"] = 1779341448,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 32,
-["Quest"] = 1447,
+["Event"] = "Quest",
 ["Timestamp"] = 1779341448,
+["Quest"] = 1447,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 32,
-["Quest"] = 1447,
+["Event"] = "Quest",
 ["Timestamp"] = 1779341502,
+["Quest"] = 1447,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 32,
-["Quest"] = 1247,
+["Event"] = "Quest",
 ["Timestamp"] = 1779341503,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 32,
 ["Quest"] = 1247,
+["Level"] = 32,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1779341561,
+["Quest"] = 1247,
+["Level"] = 32,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 32,
-["Quest"] = 1248,
+["Event"] = "Quest",
 ["Timestamp"] = 1779341562,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 32,
-["Quest"] = 336,
-["Timestamp"] = 1779341633,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779382458,
 ["Quest"] = 1248,
 ["Level"] = 32,
 },
 {
-["SubType"] = "Accept",
+["SubType"] = "Complete",
 ["Event"] = "Quest",
+["Timestamp"] = 1779341633,
+["Quest"] = 336,
+["Level"] = 32,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 32,
+["Quest"] = 1248,
 ["Timestamp"] = 1779382458,
-["Quest"] = 1249,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 1249,
+["Timestamp"] = 1779382458,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 32,
+["Quest"] = 1249,
 ["Timestamp"] = 1779382520,
-["Quest"] = 1249,
-["Level"] = 32,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 1250,
 ["Timestamp"] = 1779382524,
-["Quest"] = 1250,
-["Level"] = 32,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779382528,
-["Quest"] = 1250,
 ["Level"] = 32,
+["Quest"] = 1250,
+["Timestamp"] = 1779382528,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779382528,
+["SubType"] = "Accept",
+["Level"] = 32,
 ["Quest"] = 1264,
-["Level"] = 32,
+["Timestamp"] = 1779382528,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779382554,
+["SubType"] = "Complete",
+["Level"] = 32,
 ["Quest"] = 1301,
-["Level"] = 32,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779382554,
-["Quest"] = 1302,
-["Level"] = 32,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 1302,
+["Timestamp"] = 1779382554,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 32,
+["Quest"] = 11126,
 ["Timestamp"] = 1779382775,
-["Quest"] = 11126,
-["Level"] = 32,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 32,
+["Quest"] = 11126,
 ["Timestamp"] = 1779383401,
-["Quest"] = 11126,
-["Level"] = 32,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779383431,
-["Quest"] = 1282,
 ["Level"] = 32,
+["Quest"] = 1282,
+["Timestamp"] = 1779383431,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779383463,
-["Quest"] = 1302,
+["SubType"] = "Complete",
 ["Level"] = 32,
+["Quest"] = 1302,
+["Timestamp"] = 1779383463,
 },
 {
 ["Timestamp"] = 1779383467,
@@ -8814,277 +8833,277 @@ QuestieConfig = {
 ["NewLevel"] = 33,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779383467,
+["SubType"] = "Complete",
+["Level"] = 33,
 ["Quest"] = 1264,
-["Level"] = 33,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779383467,
-["Quest"] = 1265,
-["Level"] = 33,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779383470,
+["SubType"] = "Accept",
+["Level"] = 33,
+["Quest"] = 1265,
+["Timestamp"] = 1779383467,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 33,
 ["Quest"] = 1282,
-["Level"] = 33,
+["Timestamp"] = 1779383470,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 33,
+["Quest"] = 11123,
 ["Timestamp"] = 1779383471,
-["Quest"] = 11123,
-["Level"] = 33,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779383638,
+["SubType"] = "Complete",
+["Level"] = 33,
 ["Quest"] = 1265,
-["Level"] = 33,
+["Timestamp"] = 1779383638,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 33,
+["Quest"] = 1266,
 ["Timestamp"] = 1779383639,
-["Quest"] = 1266,
-["Level"] = 33,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779383754,
+["SubType"] = "Accept",
+["Level"] = 33,
 ["Quest"] = 1219,
-["Level"] = 33,
+["Timestamp"] = 1779383754,
 },
 {
-["Timestamp"] = 1779388799,
+["Level"] = 33,
 ["Quest"] = 1266,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779388799,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1324,
 ["Timestamp"] = 1779388808,
-["Quest"] = 1324,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1324,
 ["Timestamp"] = 1779388843,
-["Quest"] = 1324,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779388848,
+["Level"] = 33,
 ["Quest"] = 1267,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779388848,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779389054,
+["Level"] = 33,
 ["Quest"] = 1177,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779389054,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779389096,
+["Level"] = 33,
 ["Quest"] = 11123,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779389096,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779389136,
+["Level"] = 33,
 ["Quest"] = 1284,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779389136,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779389143,
+["Level"] = 33,
 ["Quest"] = 1252,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779389143,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779389146,
+["Level"] = 33,
 ["Quest"] = 1253,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779389146,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1100,
 ["Timestamp"] = 1779389446,
-["Quest"] = 1100,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1100,
 ["Timestamp"] = 1779389676,
-["Quest"] = 1100,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779389683,
+["Level"] = 33,
 ["Quest"] = 1101,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779389683,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1110,
 ["Timestamp"] = 1779390381,
-["Quest"] = 1110,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1104,
 ["Timestamp"] = 1779390384,
-["Quest"] = 1104,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779390388,
+["Level"] = 33,
 ["Quest"] = 1179,
-["Level"] = 33,
-["Event"] = "Quest",
+["Timestamp"] = 1779390388,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1105,
 ["Timestamp"] = 1779390460,
-["Quest"] = 1105,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1176,
 ["Timestamp"] = 1779390472,
-["Quest"] = 1176,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 33,
+["Quest"] = 1175,
 ["Timestamp"] = 1779390597,
-["Quest"] = 1175,
-["Level"] = 33,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 33,
-["Quest"] = 1110,
+["Event"] = "Quest",
 ["Timestamp"] = 1779404598,
+["Quest"] = 1110,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 33,
+["Event"] = "Quest",
+["Timestamp"] = 1779404599,
 ["Quest"] = 1111,
-["Timestamp"] = 1779404599,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 33,
+["Event"] = "Quest",
+["Timestamp"] = 1779404599,
 ["Quest"] = 5762,
-["Timestamp"] = 1779404599,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 33,
-["Quest"] = 1104,
+["Event"] = "Quest",
 ["Timestamp"] = 1779404677,
+["Quest"] = 1104,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 33,
+["Event"] = "Quest",
+["Timestamp"] = 1779404679,
 ["Quest"] = 1105,
-["Timestamp"] = 1779404679,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 33,
+["Event"] = "Quest",
+["Timestamp"] = 1779404679,
 ["Quest"] = 1107,
-["Timestamp"] = 1779404679,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 33,
+["Event"] = "Quest",
+["Timestamp"] = 1779404912,
 ["Quest"] = 1176,
-["Timestamp"] = 1779404912,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 33,
+["Event"] = "Quest",
+["Timestamp"] = 1779404912,
 ["Quest"] = 1178,
-["Timestamp"] = 1779404912,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 33,
-["Quest"] = 1175,
+["Event"] = "Quest",
 ["Timestamp"] = 1779404923,
+["Quest"] = 1175,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 33,
-["Quest"] = 564,
+["Event"] = "Quest",
 ["Timestamp"] = 1779405637,
+["Quest"] = 564,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 33,
-["Quest"] = 538,
+["Event"] = "Quest",
 ["Timestamp"] = 1779405780,
+["Quest"] = 538,
+["Level"] = 33,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 33,
-["Quest"] = 9435,
+["Event"] = "Quest",
 ["Timestamp"] = 1779405831,
+["Quest"] = 9435,
+["Level"] = 33,
 },
 {
-["Level"] = 33,
-["Quest"] = 536,
 ["Timestamp"] = 1779409841,
-["SubType"] = "Accept",
+["Quest"] = 536,
+["Level"] = 33,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 33,
-["Quest"] = 555,
 ["Timestamp"] = 1779409845,
-["SubType"] = "Accept",
+["Quest"] = 555,
+["Level"] = 33,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1779409846,
@@ -9092,172 +9111,172 @@ QuestieConfig = {
 ["NewLevel"] = 34,
 },
 {
-["Level"] = 34,
-["Quest"] = 555,
 ["Timestamp"] = 1779409846,
-["SubType"] = "Complete",
+["Quest"] = 555,
+["Level"] = 34,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 34,
-["Quest"] = 536,
 ["Timestamp"] = 1779412469,
-["SubType"] = "Complete",
+["Quest"] = 536,
+["Level"] = 34,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 34,
-["Quest"] = 559,
 ["Timestamp"] = 1779412470,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 34,
 ["Quest"] = 559,
+["Level"] = 34,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779413549,
-["SubType"] = "Complete",
+["Quest"] = 559,
+["Level"] = 34,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 34,
-["Quest"] = 560,
 ["Timestamp"] = 1779413550,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 34,
 ["Quest"] = 560,
-["Timestamp"] = 1779413562,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 34,
-["Quest"] = 561,
-["Timestamp"] = 1779413562,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1779413562,
+["Quest"] = 560,
 ["Level"] = 34,
-["Quest"] = 561,
-["Timestamp"] = 1779413572,
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
+["Timestamp"] = 1779413562,
+["Quest"] = 561,
+["Level"] = 34,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779413572,
+["Quest"] = 561,
+["Level"] = 34,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779413572,
+["Quest"] = 562,
+["Level"] = 34,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
 ["Level"] = 34,
 ["Quest"] = 562,
-["Timestamp"] = 1779413572,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
 ["Timestamp"] = 1779415758,
-["Quest"] = 562,
-["Level"] = 34,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 34,
+["Quest"] = 659,
 ["Timestamp"] = 1779415767,
-["Quest"] = 659,
-["Level"] = 34,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779415772,
+["SubType"] = "Accept",
+["Level"] = 34,
 ["Quest"] = 500,
-["Level"] = 34,
+["Timestamp"] = 1779415772,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779415782,
+["SubType"] = "Accept",
+["Level"] = 34,
 ["Quest"] = 505,
-["Level"] = 34,
+["Timestamp"] = 1779415782,
 },
 {
-["SubType"] = "Abandon",
 ["Event"] = "Quest",
-["Timestamp"] = 1779415867,
+["SubType"] = "Abandon",
+["Level"] = 34,
 ["Quest"] = 1009,
-["Level"] = 34,
+["Timestamp"] = 1779415867,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779415868,
+["SubType"] = "Accept",
+["Level"] = 34,
 ["Quest"] = 540,
-["Level"] = 34,
+["Timestamp"] = 1779415868,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 34,
-["Quest"] = 690,
+["Event"] = "Quest",
 ["Timestamp"] = 1779416922,
+["Quest"] = 690,
+["Level"] = 34,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 34,
-["Quest"] = 681,
+["Event"] = "Quest",
 ["Timestamp"] = 1779416927,
+["Quest"] = 681,
+["Level"] = 34,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 34,
-["Quest"] = 659,
+["Event"] = "Quest",
 ["Timestamp"] = 1779417409,
+["Quest"] = 659,
+["Level"] = 34,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 34,
-["Quest"] = 658,
+["Event"] = "Quest",
 ["Timestamp"] = 1779417410,
+["Quest"] = 658,
+["Level"] = 34,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 34,
-["Quest"] = 345,
+["Event"] = "Quest",
 ["Timestamp"] = 1779421675,
+["Quest"] = 345,
+["Level"] = 34,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 34,
-["Quest"] = 510,
+["Event"] = "Quest",
 ["Timestamp"] = 1779421677,
+["Quest"] = 510,
+["Level"] = 34,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 34,
-["Quest"] = 399,
+["Event"] = "Quest",
 ["Timestamp"] = 1779421720,
+["Quest"] = 399,
+["Level"] = 34,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 34,
-["Quest"] = 511,
+["Event"] = "Quest",
 ["Timestamp"] = 1779421722,
+["Quest"] = 511,
+["Level"] = 34,
 },
 {
-["Level"] = 34,
-["Quest"] = 564,
 ["Timestamp"] = 1779431719,
-["SubType"] = "Complete",
+["Quest"] = 564,
+["Level"] = 34,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1779431731,
@@ -9265,193 +9284,193 @@ QuestieConfig = {
 ["NewLevel"] = 35,
 },
 {
-["Level"] = 35,
+["Timestamp"] = 1779431731,
 ["Quest"] = 511,
-["Timestamp"] = 1779431731,
+["Level"] = 35,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 35,
-["Quest"] = 514,
 ["Timestamp"] = 1779431731,
-["SubType"] = "Accept",
+["Quest"] = 514,
+["Level"] = 35,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 35,
-["Quest"] = 9435,
 ["Timestamp"] = 1779431744,
-["SubType"] = "Complete",
+["Quest"] = 9435,
+["Level"] = 35,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 35,
-["Quest"] = 563,
 ["Timestamp"] = 1779431753,
-["SubType"] = "Accept",
+["Quest"] = 563,
+["Level"] = 35,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 35,
-["Quest"] = 500,
 ["Timestamp"] = 1779431781,
-["SubType"] = "Complete",
+["Quest"] = 500,
+["Level"] = 35,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 35,
-["Quest"] = 510,
 ["Timestamp"] = 1779431793,
-["SubType"] = "Complete",
+["Quest"] = 510,
+["Level"] = 35,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 35,
-["Quest"] = 505,
 ["Timestamp"] = 1779431798,
-["SubType"] = "Complete",
+["Quest"] = 505,
+["Level"] = 35,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779432826,
+["SubType"] = "Complete",
+["Level"] = 35,
 ["Quest"] = 681,
-["Level"] = 35,
+["Timestamp"] = 1779432826,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 35,
+["Quest"] = 691,
 ["Timestamp"] = 1779432835,
-["Quest"] = 691,
-["Level"] = 35,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779433044,
+["SubType"] = "Complete",
+["Level"] = 35,
 ["Quest"] = 658,
-["Level"] = 35,
+["Timestamp"] = 1779433044,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 35,
+["Quest"] = 657,
 ["Timestamp"] = 1779433046,
-["Quest"] = 657,
-["Level"] = 35,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 35,
+["Quest"] = 657,
 ["Timestamp"] = 1779433051,
-["Quest"] = 657,
-["Level"] = 35,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 35,
+["Quest"] = 660,
 ["Timestamp"] = 1779433056,
-["Quest"] = 660,
-["Level"] = 35,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 35,
+["Quest"] = 660,
 ["Timestamp"] = 1779433565,
-["Quest"] = 660,
-["Level"] = 35,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 35,
+["Quest"] = 661,
 ["Timestamp"] = 1779433571,
-["Quest"] = 661,
-["Level"] = 35,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 35,
+["Quest"] = 661,
 ["Timestamp"] = 1779435770,
-["Quest"] = 661,
-["Level"] = 35,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779436146,
+["SubType"] = "Complete",
+["Level"] = 35,
 ["Quest"] = 691,
-["Level"] = 35,
+["Timestamp"] = 1779436146,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779436786,
+["SubType"] = "Complete",
+["Level"] = 35,
 ["Quest"] = 514,
-["Level"] = 35,
+["Timestamp"] = 1779436786,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779436920,
+["SubType"] = "Complete",
+["Level"] = 35,
 ["Quest"] = 689,
-["Level"] = 35,
+["Timestamp"] = 1779436920,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 35,
+["Quest"] = 700,
 ["Timestamp"] = 1779437000,
-["Quest"] = 700,
-["Level"] = 35,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 35,
+["Quest"] = 700,
 ["Timestamp"] = 1779437497,
-["Quest"] = 700,
-["Level"] = 35,
 },
 {
+["Level"] = 35,
+["Quest"] = 11128,
 ["Timestamp"] = 1779472530,
-["Quest"] = 11128,
-["Level"] = 35,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 35,
+["Quest"] = 11128,
 ["Timestamp"] = 1779472861,
-["Quest"] = 11128,
-["Level"] = 35,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779472884,
+["Level"] = 35,
 ["Quest"] = 11133,
-["Level"] = 35,
-["Event"] = "Quest",
+["Timestamp"] = 1779472884,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779473079,
+["Level"] = 35,
 ["Quest"] = 1219,
-["Level"] = 35,
-["Event"] = "Quest",
+["Timestamp"] = 1779473079,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779473080,
+["Level"] = 35,
 ["Quest"] = 1220,
-["Level"] = 35,
-["Event"] = "Quest",
+["Timestamp"] = 1779473080,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779473274,
-["Quest"] = 1204,
 ["Level"] = 35,
-["Event"] = "Quest",
+["Quest"] = 1204,
+["Timestamp"] = 1779473274,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1779473466,
@@ -9459,326 +9478,326 @@ QuestieConfig = {
 ["NewLevel"] = 36,
 },
 {
-["Timestamp"] = 1779473466,
+["Level"] = 36,
 ["Quest"] = 1220,
-["Level"] = 36,
-["Event"] = "Quest",
+["Timestamp"] = 1779473466,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779473467,
+["Level"] = 36,
 ["Quest"] = 1252,
-["Level"] = 36,
-["Event"] = "Quest",
+["Timestamp"] = 1779473467,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1779473468,
-["Quest"] = 1259,
-["Level"] = 36,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 36,
+["Quest"] = 1259,
 ["Timestamp"] = 1779473468,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 36,
 ["Quest"] = 1253,
-["Level"] = 36,
-["Event"] = "Quest",
+["Timestamp"] = 1779473468,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1779473469,
-["Quest"] = 1319,
-["Level"] = 36,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 36,
+["Quest"] = 1319,
 ["Timestamp"] = 1779473469,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 36,
 ["Quest"] = 1284,
-["Level"] = 36,
-["Event"] = "Quest",
+["Timestamp"] = 1779473469,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779473473,
+["Level"] = 36,
 ["Quest"] = 1259,
-["Level"] = 36,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1779473473,
-["Quest"] = 1285,
-["Level"] = 36,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1779473553,
+["Level"] = 36,
+["Quest"] = 1285,
+["Timestamp"] = 1779473473,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 36,
 ["Quest"] = 11133,
-["Level"] = 36,
-["Event"] = "Quest",
+["Timestamp"] = 1779473553,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779473668,
+["Level"] = 36,
 ["Quest"] = 1285,
-["Level"] = 36,
-["Event"] = "Quest",
+["Timestamp"] = 1779473668,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779473726,
+["Level"] = 36,
 ["Quest"] = 1319,
-["Level"] = 36,
-["Event"] = "Quest",
+["Timestamp"] = 1779473726,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 36,
+["Quest"] = 1320,
 ["Timestamp"] = 1779473727,
-["Quest"] = 1320,
-["Level"] = 36,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 36,
+["Quest"] = 1320,
 ["Timestamp"] = 1779473799,
-["Quest"] = 1320,
-["Level"] = 36,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Level"] = 36,
-["Quest"] = 1204,
 ["Timestamp"] = 1779493619,
-["SubType"] = "Complete",
+["Quest"] = 1204,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 36,
-["Quest"] = 1178,
 ["Timestamp"] = 1779493788,
-["SubType"] = "Complete",
+["Quest"] = 1178,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 36,
-["Quest"] = 1180,
 ["Timestamp"] = 1779493789,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 1111,
-["Timestamp"] = 1779493815,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 1112,
-["Timestamp"] = 1779493815,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
 ["Quest"] = 1180,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779493815,
+["Quest"] = 1111,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779493815,
+["Quest"] = 1112,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779494318,
-["SubType"] = "Complete",
+["Quest"] = 1180,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 36,
-["Quest"] = 1181,
 ["Timestamp"] = 1779494321,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 8551,
-["Timestamp"] = 1779494331,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
 ["Quest"] = 1181,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779494331,
+["Quest"] = 8551,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779494393,
-["SubType"] = "Complete",
+["Quest"] = 1181,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 36,
-["Quest"] = 605,
 ["Timestamp"] = 1779494432,
-["SubType"] = "Accept",
+["Quest"] = 605,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
+["Timestamp"] = 1779494534,
 ["Quest"] = 201,
-["Timestamp"] = 1779494534,
-["SubType"] = "Accept",
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
+["Timestamp"] = 1779494534,
 ["Quest"] = 198,
-["Timestamp"] = 1779494534,
-["SubType"] = "Accept",
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
-["Quest"] = 616,
 ["Timestamp"] = 1779494535,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 189,
-["Timestamp"] = 1779494537,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 213,
-["Timestamp"] = 1779494537,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 1182,
-["Timestamp"] = 1779494543,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
 ["Quest"] = 616,
-["Timestamp"] = 1779494543,
-["SubType"] = "Complete",
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
+["Timestamp"] = 1779494537,
+["Quest"] = 189,
 ["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779494537,
+["Quest"] = 213,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779494543,
+["Quest"] = 1182,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779494543,
+["Quest"] = 616,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779494543,
 ["Quest"] = 578,
-["Timestamp"] = 1779494543,
-["SubType"] = "Accept",
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
-["Quest"] = 575,
 ["Timestamp"] = 1779494797,
-["SubType"] = "Accept",
+["Quest"] = 575,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
-["Quest"] = 198,
 ["Timestamp"] = 1779494990,
-["SubType"] = "Complete",
+["Quest"] = 198,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 36,
-["Quest"] = 203,
 ["Timestamp"] = 1779494993,
-["SubType"] = "Accept",
+["Quest"] = 203,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
-["Quest"] = 204,
 ["Timestamp"] = 1779494994,
-["SubType"] = "Accept",
+["Quest"] = 204,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
-["Quest"] = 210,
 ["Timestamp"] = 1779494997,
-["SubType"] = "Accept",
+["Quest"] = 210,
+["Level"] = 36,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 36,
-["Quest"] = 200,
 ["Timestamp"] = 1779495001,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 5762,
-["Timestamp"] = 1779495064,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 186,
-["Timestamp"] = 1779495067,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
-["Quest"] = 191,
-["Timestamp"] = 1779495069,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 36,
 ["Quest"] = 200,
-["Timestamp"] = 1779496490,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 36,
-["Quest"] = 328,
-["Timestamp"] = 1779496490,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
+["Timestamp"] = 1779495064,
+["Quest"] = 5762,
+["Level"] = 36,
 ["Event"] = "Quest",
-["Timestamp"] = 1779502972,
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779495067,
 ["Quest"] = 186,
 ["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Accept",
+["Timestamp"] = 1779495069,
+["Quest"] = 191,
+["Level"] = 36,
 ["Event"] = "Quest",
-["Timestamp"] = 1779502973,
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779496490,
+["Quest"] = 200,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779496490,
+["Quest"] = 328,
+["Level"] = 36,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 36,
+["Quest"] = 186,
+["Timestamp"] = 1779502972,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 36,
 ["Quest"] = 187,
-["Level"] = 36,
+["Timestamp"] = 1779502973,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Event"] = "Quest",
-["Timestamp"] = 1779503033,
-["Quest"] = 540,
 ["Level"] = 36,
+["Quest"] = 540,
+["Timestamp"] = 1779503033,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779503045,
-["Quest"] = 194,
+["SubType"] = "Accept",
 ["Level"] = 36,
+["Quest"] = 194,
+["Timestamp"] = 1779503045,
 },
 {
 ["Timestamp"] = 1779504892,
@@ -9786,151 +9805,151 @@ QuestieConfig = {
 ["NewLevel"] = 37,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505579,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 605,
-["Level"] = 37,
+["Timestamp"] = 1779505579,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505609,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 201,
-["Level"] = 37,
+["Timestamp"] = 1779505609,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505610,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 210,
-["Level"] = 37,
+["Timestamp"] = 1779505610,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505611,
+["SubType"] = "Accept",
+["Level"] = 37,
 ["Quest"] = 627,
-["Level"] = 37,
+["Timestamp"] = 1779505611,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505614,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 213,
-["Level"] = 37,
+["Timestamp"] = 1779505614,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505620,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 578,
-["Level"] = 37,
+["Timestamp"] = 1779505620,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505621,
+["SubType"] = "Accept",
+["Level"] = 37,
 ["Quest"] = 601,
-["Level"] = 37,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
 ["Timestamp"] = 1779505621,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 1182,
-["Level"] = 37,
+["Timestamp"] = 1779505621,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779505622,
+["SubType"] = "Accept",
+["Level"] = 37,
 ["Quest"] = 1183,
-["Level"] = 37,
+["Timestamp"] = 1779505622,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779506026,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 575,
-["Level"] = 37,
+["Timestamp"] = 1779506026,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779506027,
+["SubType"] = "Accept",
+["Level"] = 37,
 ["Quest"] = 577,
-["Level"] = 37,
+["Timestamp"] = 1779506027,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779506289,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 203,
-["Level"] = 37,
+["Timestamp"] = 1779506289,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779506566,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 194,
-["Level"] = 37,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779506566,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 37,
 ["Quest"] = 195,
-["Level"] = 37,
+["Timestamp"] = 1779506566,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779506568,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 187,
-["Level"] = 37,
+["Timestamp"] = 1779506568,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779506569,
+["SubType"] = "Accept",
+["Level"] = 37,
 ["Quest"] = 188,
-["Level"] = 37,
+["Timestamp"] = 1779506569,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779506570,
+["SubType"] = "Complete",
+["Level"] = 37,
 ["Quest"] = 191,
-["Level"] = 37,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779506570,
-["Quest"] = 192,
-["Level"] = 37,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 37,
-["Quest"] = 328,
-["Timestamp"] = 1779551672,
 },
 {
 ["Event"] = "Quest",
 ["SubType"] = "Accept",
 ["Level"] = 37,
-["Quest"] = 329,
-["Timestamp"] = 1779551673,
+["Quest"] = 192,
+["Timestamp"] = 1779506570,
 },
 {
-["Level"] = 37,
-["Quest"] = 189,
-["Timestamp"] = 1779573761,
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
+["Timestamp"] = 1779551672,
+["Quest"] = 328,
+["Level"] = 37,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779551673,
+["Quest"] = 329,
+["Level"] = 37,
+},
+{
+["Timestamp"] = 1779573761,
+["Quest"] = 189,
+["Level"] = 37,
+["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1779573793,
@@ -9938,375 +9957,375 @@ QuestieConfig = {
 ["NewLevel"] = 38,
 },
 {
-["Level"] = 38,
-["Quest"] = 601,
 ["Timestamp"] = 1779573793,
-["SubType"] = "Complete",
+["Quest"] = 601,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 38,
-["Quest"] = 329,
 ["Timestamp"] = 1779574013,
-["SubType"] = "Complete",
+["Quest"] = 329,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 38,
-["Quest"] = 330,
 ["Timestamp"] = 1779574016,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779590683,
-["Quest"] = 195,
-["Level"] = 38,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779590683,
-["Quest"] = 196,
-["Level"] = 38,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779590686,
-["Quest"] = 188,
-["Level"] = 38,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779590687,
-["Quest"] = 192,
-["Level"] = 38,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1779590688,
-["Quest"] = 193,
-["Level"] = 38,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779590823,
 ["Quest"] = 330,
 ["Level"] = 38,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 195,
+["Timestamp"] = 1779590683,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 196,
+["Timestamp"] = 1779590683,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 188,
+["Timestamp"] = 1779590686,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 192,
+["Timestamp"] = 1779590687,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 193,
+["Timestamp"] = 1779590688,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 330,
+["Timestamp"] = 1779590823,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 331,
 ["Timestamp"] = 1779590824,
-["Quest"] = 331,
-["Level"] = 38,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 331,
 ["Timestamp"] = 1779590830,
-["Quest"] = 331,
-["Level"] = 38,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779592541,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 563,
-["Level"] = 38,
+["Timestamp"] = 1779592541,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779592676,
+["SubType"] = "Accept",
+["Level"] = 38,
 ["Quest"] = 11338,
-["Level"] = 38,
+["Timestamp"] = 1779592676,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779592796,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 627,
-["Level"] = 38,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779592796,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
 ["Quest"] = 622,
-["Level"] = 38,
+["Timestamp"] = 1779592796,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779592816,
+["SubType"] = "Accept",
+["Level"] = 38,
 ["Quest"] = 602,
-["Level"] = 38,
+["Timestamp"] = 1779592816,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779593052,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 577,
-["Level"] = 38,
+["Timestamp"] = 1779593052,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 11134,
 ["Timestamp"] = 1779593839,
-["Quest"] = 11134,
-["Level"] = 38,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 1286,
 ["Timestamp"] = 1779593924,
-["Quest"] = 1286,
-["Level"] = 38,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 11212,
 ["Timestamp"] = 1779593971,
-["Quest"] = 11212,
-["Level"] = 38,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779594621,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 1286,
-["Level"] = 38,
+["Timestamp"] = 1779594621,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 1287,
 ["Timestamp"] = 1779594623,
-["Quest"] = 1287,
-["Level"] = 38,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779594783,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 11212,
-["Level"] = 38,
+["Timestamp"] = 1779594783,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779595037,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 1287,
-["Level"] = 38,
+["Timestamp"] = 1779595037,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779595398,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 1112,
-["Level"] = 38,
+["Timestamp"] = 1779595398,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779595402,
+["SubType"] = "Accept",
+["Level"] = 38,
 ["Quest"] = 1106,
-["Level"] = 38,
+["Timestamp"] = 1779595402,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779595403,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 1107,
-["Level"] = 38,
+["Timestamp"] = 1779595403,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779595414,
+["SubType"] = "Complete",
+["Level"] = 38,
 ["Quest"] = 1183,
-["Level"] = 38,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779595414,
-["Quest"] = 1186,
-["Level"] = 38,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 1186,
+["Timestamp"] = 1779595414,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 1186,
 ["Timestamp"] = 1779595419,
-["Quest"] = 1186,
-["Level"] = 38,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779595420,
+["SubType"] = "Accept",
+["Level"] = 38,
 ["Quest"] = 1187,
-["Level"] = 38,
+["Timestamp"] = 1779595420,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 1114,
 ["Timestamp"] = 1779595433,
-["Quest"] = 1114,
-["Level"] = 38,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 1114,
 ["Timestamp"] = 1779595436,
-["Quest"] = 1114,
-["Level"] = 38,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779595439,
+["SubType"] = "Accept",
+["Level"] = 38,
 ["Quest"] = 1115,
-["Level"] = 38,
+["Timestamp"] = 1779595439,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 11191,
 ["Timestamp"] = 1779595982,
-["Quest"] = 11191,
-["Level"] = 38,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 38,
+["Quest"] = 11191,
 ["Timestamp"] = 1779596023,
-["Quest"] = 11191,
-["Level"] = 38,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 38,
+["Quest"] = 11192,
 ["Timestamp"] = 1779596024,
-["Quest"] = 11192,
-["Level"] = 38,
 },
 {
-["Level"] = 38,
-["Quest"] = 11192,
 ["Timestamp"] = 1779597122,
-["SubType"] = "Complete",
+["Quest"] = 11192,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 38,
-["Quest"] = 11193,
 ["Timestamp"] = 1779597123,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 38,
 ["Quest"] = 11193,
+["Level"] = 38,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779597174,
-["SubType"] = "Complete",
+["Quest"] = 11193,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 38,
-["Quest"] = 11194,
 ["Timestamp"] = 1779597175,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 38,
-["Quest"] = 11134,
-["Timestamp"] = 1779597183,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 38,
-["Quest"] = 11177,
-["Timestamp"] = 1779597190,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 38,
 ["Quest"] = 11194,
-["Timestamp"] = 1779597383,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 38,
-["Quest"] = 11209,
-["Timestamp"] = 1779597383,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1779597183,
+["Quest"] = 11134,
 ["Level"] = 38,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779597190,
+["Quest"] = 11177,
+["Level"] = 38,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779597383,
+["Quest"] = 11194,
+["Level"] = 38,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779597383,
 ["Quest"] = 11209,
+["Level"] = 38,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779597970,
-["SubType"] = "Complete",
+["Quest"] = 11209,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 38,
-["Quest"] = 11210,
 ["Timestamp"] = 1779597971,
-["SubType"] = "Accept",
+["Quest"] = 11210,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 38,
-["Quest"] = 11207,
 ["Timestamp"] = 1779598014,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 38,
 ["Quest"] = 11207,
+["Level"] = 38,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1779598545,
+["Quest"] = 11207,
+["Level"] = 38,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 38,
-["Quest"] = 11208,
 ["Timestamp"] = 1779598545,
-["SubType"] = "Accept",
+["Quest"] = 11208,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 38,
-["Quest"] = 11211,
 ["Timestamp"] = 1779598642,
-["SubType"] = "Accept",
+["Quest"] = 11211,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 38,
-["Quest"] = 11169,
 ["Timestamp"] = 1779598645,
-["SubType"] = "Accept",
+["Quest"] = 11169,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 38,
-["Quest"] = 11173,
 ["Timestamp"] = 1779598646,
-["SubType"] = "Accept",
+["Quest"] = 11173,
+["Level"] = 38,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1779598953,
@@ -10314,249 +10333,249 @@ QuestieConfig = {
 ["NewLevel"] = 39,
 },
 {
-["Level"] = 39,
-["Quest"] = 11169,
 ["Timestamp"] = 1779599377,
-["SubType"] = "Complete",
+["Quest"] = 11169,
+["Level"] = 39,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 39,
-["Quest"] = 11173,
 ["Timestamp"] = 1779599379,
-["SubType"] = "Complete",
+["Quest"] = 11173,
+["Level"] = 39,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 39,
+["Timestamp"] = 1779599687,
 ["Quest"] = 11211,
-["Timestamp"] = 1779599687,
-["SubType"] = "Complete",
+["Level"] = 39,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 39,
+["Timestamp"] = 1779599687,
 ["Quest"] = 11208,
-["Timestamp"] = 1779599687,
-["SubType"] = "Complete",
+["Level"] = 39,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 39,
-["Quest"] = 11184,
 ["Timestamp"] = 1779599693,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 11158,
-["Timestamp"] = 1779599700,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Timestamp"] = 1779602510,
 ["Quest"] = 11184,
 ["Level"] = 39,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
+["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1779602520,
+["Timestamp"] = 1779599700,
 ["Quest"] = 11158,
 ["Level"] = 39,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
+["SubType"] = "Accept",
 },
 {
-["Event"] = "Quest",
-["SubType"] = "Complete",
 ["Level"] = 39,
+["Quest"] = 11184,
+["Timestamp"] = 1779602510,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 39,
+["Quest"] = 11158,
+["Timestamp"] = 1779602520,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779644941,
 ["Quest"] = 11210,
-["Timestamp"] = 1779644941,
+["Level"] = 39,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 39,
-["Quest"] = 11198,
+["Event"] = "Quest",
 ["Timestamp"] = 1779644941,
+["Quest"] = 11198,
+["Level"] = 39,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 39,
-["Quest"] = 11198,
+["Event"] = "Quest",
 ["Timestamp"] = 1779645097,
+["Quest"] = 11198,
+["Level"] = 39,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 39,
-["Quest"] = 11143,
+["Event"] = "Quest",
 ["Timestamp"] = 1779645154,
-},
-{
-["Level"] = 39,
-["Quest"] = 11177,
-["Timestamp"] = 1779645446,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 1218,
-["Timestamp"] = 1779645451,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 11180,
-["Timestamp"] = 1779645455,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 11180,
-["Timestamp"] = 1779646068,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 11181,
-["Timestamp"] = 1779646070,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 1218,
-["Timestamp"] = 1779646187,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 1206,
-["Timestamp"] = 1779646187,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 11181,
-["Timestamp"] = 1779646357,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 11146,
-["Timestamp"] = 1779646411,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 39,
 ["Quest"] = 11143,
-["Timestamp"] = 1779646423,
+["Level"] = 39,
+},
+{
+["Timestamp"] = 1779645446,
+["Quest"] = 11177,
+["Level"] = 39,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1779645451,
+["Quest"] = 1218,
 ["Level"] = 39,
-["Quest"] = 11144,
-["Timestamp"] = 1779646424,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1779645455,
+["Quest"] = 11180,
 ["Level"] = 39,
-["Quest"] = 11148,
-["Timestamp"] = 1779646425,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1779646068,
+["Quest"] = 11180,
 ["Level"] = 39,
-["Quest"] = 1222,
-["Timestamp"] = 1779646672,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 11146,
-["Timestamp"] = 1779646946,
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1779646070,
+["Quest"] = 11181,
 ["Level"] = 39,
-["Quest"] = 11145,
-["Timestamp"] = 1779646947,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1779646187,
+["Quest"] = 1218,
 ["Level"] = 39,
-["Quest"] = 11147,
-["Timestamp"] = 1779646947,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-},
-{
-["Level"] = 39,
-["Quest"] = 1222,
-["Timestamp"] = 1779648266,
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779651521,
+["Timestamp"] = 1779646187,
 ["Quest"] = 1206,
 ["Level"] = 39,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779646357,
+["Quest"] = 11181,
+["Level"] = 39,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
 },
 {
-["Timestamp"] = 1779651522,
-["Quest"] = 1203,
+["Timestamp"] = 1779646411,
+["Quest"] = 11146,
 ["Level"] = 39,
 ["Event"] = "Quest",
 ["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1779651540,
-["Quest"] = 11183,
+["Timestamp"] = 1779646423,
+["Quest"] = 11143,
+["Level"] = 39,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1779646424,
+["Quest"] = 11144,
 ["Level"] = 39,
 ["Event"] = "Quest",
 ["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1779651665,
-["Quest"] = 11183,
+["Timestamp"] = 1779646425,
+["Quest"] = 11148,
+["Level"] = 39,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779646672,
+["Quest"] = 1222,
+["Level"] = 39,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779646946,
+["Quest"] = 11146,
 ["Level"] = 39,
 ["Event"] = "Quest",
 ["SubType"] = "Complete",
 },
 {
-["Timestamp"] = 1779651752,
-["Quest"] = 1203,
-["Level"] = 39,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1779651806,
+["Timestamp"] = 1779646947,
 ["Quest"] = 11145,
 ["Level"] = 39,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779646947,
+["Quest"] = 11147,
+["Level"] = 39,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1779648266,
+["Quest"] = 1222,
+["Level"] = 39,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
+},
+{
+["Level"] = 39,
+["Quest"] = 1206,
+["Timestamp"] = 1779651521,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 39,
+["Quest"] = 1203,
+["Timestamp"] = 1779651522,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 39,
+["Quest"] = 11183,
+["Timestamp"] = 1779651540,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 39,
+["Quest"] = 11183,
+["Timestamp"] = 1779651665,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 39,
+["Quest"] = 1203,
+["Timestamp"] = 1779651752,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 39,
+["Quest"] = 11145,
+["Timestamp"] = 1779651806,
+["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1779651806,
@@ -10564,151 +10583,151 @@ QuestieConfig = {
 ["NewLevel"] = 40,
 },
 {
-["Timestamp"] = 1779651808,
+["Level"] = 40,
 ["Quest"] = 11147,
-["Level"] = 40,
-["Event"] = "Quest",
+["Timestamp"] = 1779651808,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779651863,
+["Level"] = 40,
 ["Quest"] = 11144,
-["Level"] = 40,
-["Event"] = "Quest",
+["Timestamp"] = 1779651863,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1779651864,
+["Level"] = 40,
 ["Quest"] = 11148,
-["Level"] = 40,
-["Event"] = "Quest",
+["Timestamp"] = 1779651864,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 40,
+["Quest"] = 11149,
 ["Timestamp"] = 1779651865,
-["Quest"] = 11149,
-["Level"] = 40,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779652435,
+["SubType"] = "Complete",
+["Level"] = 40,
 ["Quest"] = 1177,
-["Level"] = 40,
+["Timestamp"] = 1779652435,
 },
 {
-["Level"] = 40,
-["Quest"] = 11149,
 ["Timestamp"] = 1779752850,
-["SubType"] = "Complete",
+["Quest"] = 11149,
+["Level"] = 40,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779753822,
+["SubType"] = "Complete",
+["Level"] = 40,
 ["Quest"] = 1115,
-["Level"] = 40,
+["Timestamp"] = 1779753822,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779754145,
+["SubType"] = "Accept",
+["Level"] = 40,
 ["Quest"] = 543,
-["Level"] = 40,
+["Timestamp"] = 1779754145,
 },
 {
-["Timestamp"] = 1779760490,
+["Level"] = 40,
 ["Quest"] = 525,
-["Level"] = 40,
-["Event"] = "Quest",
+["Timestamp"] = 1779760490,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 40,
-["Quest"] = 682,
+["Event"] = "Quest",
 ["Timestamp"] = 1779862141,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 40,
-["Quest"] = 684,
-["Timestamp"] = 1779862144,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 40,
-["Quest"] = 685,
-["Timestamp"] = 1779862144,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 40,
-["Quest"] = 693,
-["Timestamp"] = 1779862149,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 40,
-["Quest"] = 642,
-["Timestamp"] = 1779863464,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 40,
-["Quest"] = 642,
-["Timestamp"] = 1779864643,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 40,
-["Quest"] = 651,
-["Timestamp"] = 1779864644,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 40,
-["Quest"] = 693,
-["Timestamp"] = 1779865786,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 40,
-["Quest"] = 694,
-["Timestamp"] = 1779865787,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1779905547,
 ["Quest"] = 682,
 ["Level"] = 40,
 },
 {
-["SubType"] = "Complete",
+["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779905550,
+["Timestamp"] = 1779862144,
 ["Quest"] = 684,
+["Level"] = 40,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779862144,
+["Quest"] = 685,
+["Level"] = 40,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779862149,
+["Quest"] = 693,
+["Level"] = 40,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779863464,
+["Quest"] = 642,
 ["Level"] = 40,
 },
 {
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779905552,
-["Quest"] = 685,
+["Timestamp"] = 1779864643,
+["Quest"] = 642,
 ["Level"] = 40,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779864644,
+["Quest"] = 651,
+["Level"] = 40,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1779865786,
+["Quest"] = 693,
+["Level"] = 40,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1779865787,
+["Quest"] = 694,
+["Level"] = 40,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 40,
+["Quest"] = 682,
+["Timestamp"] = 1779905547,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 40,
+["Quest"] = 684,
+["Timestamp"] = 1779905550,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 40,
+["Quest"] = 685,
+["Timestamp"] = 1779905552,
 },
 {
 ["Timestamp"] = 1779905558,
@@ -10716,284 +10735,284 @@ QuestieConfig = {
 ["NewLevel"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779905558,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 694,
-["Level"] = 41,
+["Timestamp"] = 1779905558,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779905722,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 525,
-["Level"] = 41,
+["Timestamp"] = 1779905722,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779905892,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 651,
-["Level"] = 41,
+["Timestamp"] = 1779905892,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 504,
 ["Timestamp"] = 1779905920,
-["Quest"] = 504,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779905932,
+["SubType"] = "Accept",
+["Level"] = 41,
 ["Quest"] = 537,
-["Level"] = 41,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779905932,
-["Quest"] = 512,
-["Level"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779906074,
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 512,
+["Timestamp"] = 1779905932,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 602,
-["Level"] = 41,
+["Timestamp"] = 1779906074,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779906082,
+["SubType"] = "Accept",
+["Level"] = 41,
 ["Quest"] = 603,
-["Level"] = 41,
+["Timestamp"] = 1779906082,
 },
 {
+["Level"] = 41,
+["Quest"] = 551,
 ["Timestamp"] = 1779920445,
-["Quest"] = 551,
-["Level"] = 41,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779928414,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 504,
-["Level"] = 41,
+["Timestamp"] = 1779928414,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779928426,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 537,
-["Level"] = 41,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
 ["Timestamp"] = 1779928426,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 512,
-["Level"] = 41,
+["Timestamp"] = 1779928426,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779928443,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 551,
-["Level"] = 41,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1779928443,
-["Quest"] = 554,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 554,
+["Timestamp"] = 1779928443,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 695,
 ["Timestamp"] = 1779929073,
-["Quest"] = 695,
-["Level"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 41,
+["Quest"] = 695,
 ["Timestamp"] = 1779929077,
-["Quest"] = 695,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 652,
 ["Timestamp"] = 1779929318,
-["Quest"] = 652,
-["Level"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 41,
+["Quest"] = 652,
 ["Timestamp"] = 1779929748,
-["Quest"] = 652,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 653,
 ["Timestamp"] = 1779929749,
-["Quest"] = 653,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 663,
 ["Timestamp"] = 1779929974,
-["Quest"] = 663,
-["Level"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 41,
+["Quest"] = 663,
 ["Timestamp"] = 1779929979,
-["Quest"] = 663,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 662,
 ["Timestamp"] = 1779929982,
-["Quest"] = 662,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 664,
 ["Timestamp"] = 1779929987,
-["Quest"] = 664,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 665,
 ["Timestamp"] = 1779929994,
-["Quest"] = 665,
-["Level"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 41,
+["Quest"] = 665,
 ["Timestamp"] = 1779930116,
-["Quest"] = 665,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 666,
 ["Timestamp"] = 1779930117,
-["Quest"] = 666,
-["Level"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779931613,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 662,
-["Level"] = 41,
+["Timestamp"] = 1779931613,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779931621,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 664,
-["Level"] = 41,
+["Timestamp"] = 1779931621,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779931623,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 666,
-["Level"] = 41,
+["Timestamp"] = 1779931623,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 41,
+["Quest"] = 668,
 ["Timestamp"] = 1779931624,
-["Quest"] = 668,
-["Level"] = 41,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 41,
+["Quest"] = 668,
 ["Timestamp"] = 1779931634,
-["Quest"] = 668,
-["Level"] = 41,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779931635,
+["SubType"] = "Accept",
+["Level"] = 41,
 ["Quest"] = 669,
-["Level"] = 41,
+["Timestamp"] = 1779931635,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779933623,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 554,
-["Level"] = 41,
+["Timestamp"] = 1779933623,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779933624,
+["SubType"] = "Accept",
+["Level"] = 41,
 ["Quest"] = 707,
-["Level"] = 41,
+["Timestamp"] = 1779933624,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1779933657,
+["SubType"] = "Complete",
+["Level"] = 41,
 ["Quest"] = 653,
-["Level"] = 41,
+["Timestamp"] = 1779933657,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1779933658,
+["SubType"] = "Accept",
+["Level"] = 41,
 ["Quest"] = 687,
-["Level"] = 41,
+["Timestamp"] = 1779933658,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 41,
-["Quest"] = 6624,
+["Event"] = "Quest",
 ["Timestamp"] = 1780033728,
+["Quest"] = 6624,
+["Level"] = 41,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Level"] = 41,
-["Quest"] = 6624,
+["Event"] = "Quest",
 ["Timestamp"] = 1780033902,
+["Quest"] = 6624,
+["Level"] = 41,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 41,
-["Quest"] = 6624,
+["Event"] = "Quest",
 ["Timestamp"] = 1780033905,
+["Quest"] = 6624,
+["Level"] = 41,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 41,
-["Quest"] = 6624,
+["Event"] = "Quest",
 ["Timestamp"] = 1780034032,
+["Quest"] = 6624,
+["Level"] = 41,
 },
 {
 ["Timestamp"] = 1780034032,
@@ -11001,214 +11020,214 @@ QuestieConfig = {
 ["NewLevel"] = 42,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 42,
-["Quest"] = 3370,
+["Event"] = "Quest",
 ["Timestamp"] = 1780554981,
+["Quest"] = 3370,
+["Level"] = 42,
 },
 {
-["Level"] = 42,
-["Quest"] = 11338,
 ["Timestamp"] = 1780621564,
+["Quest"] = 11338,
+["Level"] = 42,
+["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Event"] = "Quest",
 },
 {
-["Level"] = 42,
-["Quest"] = 204,
 ["Timestamp"] = 1780622864,
-["SubType"] = "Complete",
+["Quest"] = 204,
+["Level"] = 42,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 42,
-["Quest"] = 574,
 ["Timestamp"] = 1780622865,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 42,
-["Quest"] = 622,
-["Timestamp"] = 1780622882,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780629540,
 ["Quest"] = 574,
 ["Level"] = 42,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
+["Timestamp"] = 1780622882,
+["Quest"] = 622,
+["Level"] = 42,
 ["Event"] = "Quest",
-["Timestamp"] = 1780631768,
+["SubType"] = "Complete",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 42,
+["Quest"] = 574,
+["Timestamp"] = 1780629540,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 42,
 ["Quest"] = 543,
-["Level"] = 42,
+["Timestamp"] = 1780631768,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780631812,
+["SubType"] = "Accept",
+["Level"] = 42,
 ["Quest"] = 1448,
-["Level"] = 42,
+["Timestamp"] = 1780631812,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780631881,
+["SubType"] = "Accept",
+["Level"] = 42,
 ["Quest"] = 3636,
-["Level"] = 42,
+["Timestamp"] = 1780631881,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780631922,
+["SubType"] = "Accept",
+["Level"] = 42,
 ["Quest"] = 6141,
-["Level"] = 42,
+["Timestamp"] = 1780631922,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 42,
-["Quest"] = 2500,
+["Event"] = "Quest",
 ["Timestamp"] = 1780633097,
+["Quest"] = 2500,
+["Level"] = 42,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 42,
-["Quest"] = 707,
+["Event"] = "Quest",
 ["Timestamp"] = 1780633200,
+["Quest"] = 707,
+["Level"] = 42,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 42,
-["Quest"] = 738,
+["Event"] = "Quest",
 ["Timestamp"] = 1780633201,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 42,
-["Quest"] = 719,
-["Timestamp"] = 1780633390,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 42,
-["Quest"] = 718,
-["Timestamp"] = 1780633392,
-},
-{
-["Level"] = 42,
-["Quest"] = 720,
-["Timestamp"] = 1780637269,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 42,
-["Quest"] = 719,
-["Timestamp"] = 1780637706,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 42,
-["Quest"] = 720,
-["Timestamp"] = 1780637706,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 42,
-["Quest"] = 718,
-["Timestamp"] = 1780637709,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 42,
-["Quest"] = 733,
-["Timestamp"] = 1780637710,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1780637847,
-["Quest"] = 705,
-["Level"] = 42,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1780637848,
-["Quest"] = 703,
-["Level"] = 42,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780638034,
-["Quest"] = 705,
-["Level"] = 42,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780638036,
-["Quest"] = 1106,
-["Level"] = 42,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1780638037,
-["Quest"] = 1108,
-["Level"] = 42,
-},
-{
-["Timestamp"] = 1780638142,
 ["Quest"] = 738,
 ["Level"] = 42,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780633390,
+["Quest"] = 719,
+["Level"] = 42,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780633392,
+["Quest"] = 718,
+["Level"] = 42,
+},
+{
+["Timestamp"] = 1780637269,
+["Quest"] = 720,
+["Level"] = 42,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1780637706,
+["Quest"] = 719,
+["Level"] = 42,
 ["Event"] = "Quest",
 ["SubType"] = "Complete",
 },
 {
-["Timestamp"] = 1780638143,
+["Timestamp"] = 1780637706,
+["Quest"] = 720,
+["Level"] = 42,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1780637709,
+["Quest"] = 718,
+["Level"] = 42,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1780637710,
+["Quest"] = 733,
+["Level"] = 42,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 42,
+["Quest"] = 705,
+["Timestamp"] = 1780637847,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 42,
+["Quest"] = 703,
+["Timestamp"] = 1780637848,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 42,
+["Quest"] = 705,
+["Timestamp"] = 1780638034,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 42,
+["Quest"] = 1106,
+["Timestamp"] = 1780638036,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 42,
+["Quest"] = 1108,
+["Timestamp"] = 1780638037,
+},
+{
+["Level"] = 42,
+["Quest"] = 738,
+["Timestamp"] = 1780638142,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 42,
 ["Quest"] = 739,
-["Level"] = 42,
-["Event"] = "Quest",
+["Timestamp"] = 1780638143,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Level"] = 42,
+["Timestamp"] = 1780639043,
 ["Quest"] = 687,
-["Timestamp"] = 1780639043,
-["SubType"] = "Complete",
+["Level"] = 42,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 42,
-["Quest"] = 692,
 ["Timestamp"] = 1780639043,
+["Quest"] = 692,
+["Level"] = 42,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780675856,
-["Quest"] = 692,
+["SubType"] = "Complete",
 ["Level"] = 42,
+["Quest"] = 692,
+["Timestamp"] = 1780675856,
 },
 {
 ["Timestamp"] = 1780676145,
@@ -11216,172 +11235,172 @@ QuestieConfig = {
 ["NewLevel"] = 43,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780676145,
+["SubType"] = "Complete",
+["Level"] = 43,
 ["Quest"] = 1108,
-["Level"] = 43,
+["Timestamp"] = 1780676145,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780676166,
+["SubType"] = "Accept",
+["Level"] = 43,
 ["Quest"] = 1137,
-["Level"] = 43,
+["Timestamp"] = 1780676166,
 },
 {
-["Timestamp"] = 1780677839,
+["Level"] = 43,
 ["Quest"] = 713,
-["Level"] = 43,
-["Event"] = "Quest",
+["Timestamp"] = 1780677839,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780677839,
+["Level"] = 43,
 ["Quest"] = 710,
-["Level"] = 43,
-["Event"] = "Quest",
+["Timestamp"] = 1780677839,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780677846,
+["Level"] = 43,
 ["Quest"] = 713,
-["Level"] = 43,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780677846,
-["Quest"] = 714,
-["Level"] = 43,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 43,
+["Quest"] = 714,
+["Timestamp"] = 1780677846,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 43,
+["Quest"] = 714,
 ["Timestamp"] = 1780677847,
-["Quest"] = 714,
-["Level"] = 43,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780677876,
-["Quest"] = 715,
 ["Level"] = 43,
-["Event"] = "Quest",
+["Quest"] = 715,
+["Timestamp"] = 1780677876,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780677876,
+["Level"] = 43,
 ["Quest"] = 715,
-["Level"] = 43,
-["Event"] = "Quest",
+["Timestamp"] = 1780677876,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 43,
-["Quest"] = 710,
+["Event"] = "Quest",
 ["Timestamp"] = 1780684750,
+["Quest"] = 710,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 43,
-["Quest"] = 711,
+["Event"] = "Quest",
 ["Timestamp"] = 1780684751,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 43,
 ["Quest"] = 711,
-["Timestamp"] = 1780685686,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
 ["Level"] = 43,
-["Quest"] = 712,
-["Timestamp"] = 1780685686,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1780685686,
+["Quest"] = 711,
 ["Level"] = 43,
-["Quest"] = 712,
-["Timestamp"] = 1780688594,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780685686,
+["Quest"] = 712,
 ["Level"] = 43,
-["Quest"] = 734,
-["Timestamp"] = 1780688594,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1780688594,
+["Quest"] = 712,
 ["Level"] = 43,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780688594,
 ["Quest"] = 734,
+["Level"] = 43,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1780688598,
+["Quest"] = 734,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 43,
+["Event"] = "Quest",
+["Timestamp"] = 1780688598,
 ["Quest"] = 777,
-["Timestamp"] = 1780688598,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 43,
-["Quest"] = 716,
+["Event"] = "Quest",
 ["Timestamp"] = 1780688598,
+["Quest"] = 716,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 43,
-["Quest"] = 716,
+["Event"] = "Quest",
 ["Timestamp"] = 1780688599,
+["Quest"] = 716,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 43,
-["Quest"] = 777,
+["Event"] = "Quest",
 ["Timestamp"] = 1780688601,
+["Quest"] = 777,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 43,
-["Quest"] = 778,
+["Event"] = "Quest",
 ["Timestamp"] = 1780688602,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 43,
 ["Quest"] = 778,
+["Level"] = 43,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1780688639,
+["Quest"] = 778,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 43,
-["Quest"] = 703,
+["Event"] = "Quest",
 ["Timestamp"] = 1780688716,
+["Quest"] = 703,
+["Level"] = 43,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 43,
-["Quest"] = 733,
+["Event"] = "Quest",
 ["Timestamp"] = 1780688770,
+["Quest"] = 733,
+["Level"] = 43,
 },
 {
 ["Timestamp"] = 1780689713,
@@ -11389,214 +11408,214 @@ QuestieConfig = {
 ["NewLevel"] = 44,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 44,
-["Quest"] = 739,
+["Event"] = "Quest",
 ["Timestamp"] = 1780689713,
+["Quest"] = 739,
+["Level"] = 44,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 44,
-["Quest"] = 2500,
+["Event"] = "Quest",
 ["Timestamp"] = 1780689801,
+["Quest"] = 2500,
+["Level"] = 44,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 44,
-["Quest"] = 17,
+["Event"] = "Quest",
 ["Timestamp"] = 1780689812,
+["Quest"] = 17,
+["Level"] = 44,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780698427,
+["SubType"] = "Accept",
+["Level"] = 44,
 ["Quest"] = 202,
-["Level"] = 44,
+["Timestamp"] = 1780698427,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 44,
+["Quest"] = 540,
 ["Timestamp"] = 1780699178,
-["Quest"] = 540,
-["Level"] = 44,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780701273,
-["Quest"] = 540,
+["SubType"] = "Complete",
 ["Level"] = 44,
+["Quest"] = 540,
+["Timestamp"] = 1780701273,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1780701273,
-["Quest"] = 542,
 ["Level"] = 44,
+["Quest"] = 542,
+["Timestamp"] = 1780701273,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 44,
+["Quest"] = 542,
 ["Timestamp"] = 1780703607,
-["Quest"] = 542,
-["Level"] = 44,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780703946,
+["SubType"] = "Accept",
+["Level"] = 44,
 ["Quest"] = 209,
-["Level"] = 44,
+["Timestamp"] = 1780703946,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780703971,
+["SubType"] = "Complete",
+["Level"] = 44,
 ["Quest"] = 669,
-["Level"] = 44,
+["Timestamp"] = 1780703971,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780703982,
+["SubType"] = "Complete",
+["Level"] = 44,
 ["Quest"] = 603,
-["Level"] = 44,
+["Timestamp"] = 1780703982,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 44,
+["Quest"] = 610,
 ["Timestamp"] = 1780703983,
-["Quest"] = 610,
-["Level"] = 44,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780703999,
+["SubType"] = "Accept",
+["Level"] = 44,
 ["Quest"] = 600,
-["Level"] = 44,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1780703999,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 44,
 ["Quest"] = 621,
-["Level"] = 44,
+["Timestamp"] = 1780703999,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 44,
+["Quest"] = 606,
 ["Timestamp"] = 1780704014,
-["Quest"] = 606,
-["Level"] = 44,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 44,
+["Quest"] = 595,
 ["Timestamp"] = 1780704025,
-["Quest"] = 595,
-["Level"] = 44,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780704044,
+["SubType"] = "Accept",
+["Level"] = 44,
 ["Quest"] = 628,
-["Level"] = 44,
+["Timestamp"] = 1780704044,
 },
 {
-["Timestamp"] = 1780704856,
+["Level"] = 44,
 ["Quest"] = 595,
-["Level"] = 44,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780704856,
-["Quest"] = 597,
-["Level"] = 44,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1780705111,
+["Level"] = 44,
+["Quest"] = 597,
+["Timestamp"] = 1780704856,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 44,
 ["Quest"] = 606,
-["Level"] = 44,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780705111,
-["Quest"] = 607,
-["Level"] = 44,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1780705135,
+["Level"] = 44,
+["Quest"] = 607,
+["Timestamp"] = 1780705111,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 44,
 ["Quest"] = 597,
-["Level"] = 44,
-["Event"] = "Quest",
+["Timestamp"] = 1780705135,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 44,
+["Quest"] = 599,
 ["Timestamp"] = 1780705136,
-["Quest"] = 599,
-["Level"] = 44,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780705146,
+["Level"] = 44,
 ["Quest"] = 607,
-["Level"] = 44,
-["Event"] = "Quest",
+["Timestamp"] = 1780705146,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780705147,
+["Level"] = 44,
 ["Quest"] = 609,
-["Level"] = 44,
-["Event"] = "Quest",
+["Timestamp"] = 1780705147,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780705167,
+["Level"] = 44,
 ["Quest"] = 610,
-["Level"] = 44,
-["Event"] = "Quest",
+["Timestamp"] = 1780705167,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780705169,
+["Level"] = 44,
 ["Quest"] = 611,
-["Level"] = 44,
-["Event"] = "Quest",
+["Timestamp"] = 1780705169,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780705178,
+["Level"] = 44,
 ["Quest"] = 599,
-["Level"] = 44,
-["Event"] = "Quest",
+["Timestamp"] = 1780705178,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 44,
+["Quest"] = 617,
 ["Timestamp"] = 1780705201,
-["Quest"] = 617,
-["Level"] = 44,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780712370,
-["Quest"] = 617,
 ["Level"] = 44,
-["Event"] = "Quest",
+["Quest"] = 617,
+["Timestamp"] = 1780712370,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1780712669,
@@ -11604,165 +11623,165 @@ QuestieConfig = {
 ["NewLevel"] = 45,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 45,
-["Quest"] = 600,
+["Event"] = "Quest",
 ["Timestamp"] = 1780712669,
+["Quest"] = 600,
+["Level"] = 45,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 45,
-["Quest"] = 621,
+["Event"] = "Quest",
 ["Timestamp"] = 1780712674,
+["Quest"] = 621,
+["Level"] = 45,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 45,
-["Quest"] = 2988,
+["Event"] = "Quest",
 ["Timestamp"] = 1780713872,
+["Quest"] = 2988,
+["Level"] = 45,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 45,
-["Quest"] = 2768,
+["Event"] = "Quest",
 ["Timestamp"] = 1780714145,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 45,
-["Quest"] = 2846,
-["Timestamp"] = 1780714147,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 45,
-["Quest"] = 2770,
-["Timestamp"] = 1780714150,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 45,
-["Quest"] = 1690,
-["Timestamp"] = 1780717142,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 45,
 ["Quest"] = 2768,
-["Timestamp"] = 1780717167,
+["Level"] = 45,
 },
 {
+["SubType"] = "Accept",
 ["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 45,
-["Quest"] = 1690,
-["Timestamp"] = 1780717177,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 45,
-["Quest"] = 1487,
-["Timestamp"] = 1780717222,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 45,
-["Quest"] = 387,
-["Timestamp"] = 1780717231,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 45,
-["Quest"] = 388,
-["Timestamp"] = 1780717234,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 45,
-["Quest"] = 391,
-["Timestamp"] = 1780717237,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 45,
-["Quest"] = 1137,
-["Timestamp"] = 1780717305,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 45,
+["Timestamp"] = 1780714147,
 ["Quest"] = 2846,
+["Level"] = 45,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780714150,
+["Quest"] = 2770,
+["Level"] = 45,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780717142,
+["Quest"] = 1690,
+["Level"] = 45,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1780717167,
+["Quest"] = 2768,
+["Level"] = 45,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1780717177,
+["Quest"] = 1690,
+["Level"] = 45,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1780717222,
+["Quest"] = 1487,
+["Level"] = 45,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1780717231,
+["Quest"] = 387,
+["Level"] = 45,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1780717234,
+["Quest"] = 388,
+["Level"] = 45,
+},
+{
+["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1780717237,
+["Quest"] = 391,
+["Level"] = 45,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1780717305,
+["Quest"] = 1137,
+["Level"] = 45,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1780718904,
+["Quest"] = 2846,
+["Level"] = 45,
 },
 {
-["Level"] = 45,
-["Quest"] = 609,
 ["Timestamp"] = 1780725366,
-["SubType"] = "Complete",
+["Quest"] = 609,
+["Level"] = 45,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 45,
-["Quest"] = 351,
 ["Timestamp"] = 1780725785,
-["SubType"] = "Accept",
+["Quest"] = 351,
+["Level"] = 45,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 45,
-["Quest"] = 6141,
 ["Timestamp"] = 1780726512,
-["SubType"] = "Complete",
+["Quest"] = 6141,
+["Level"] = 45,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 45,
-["Quest"] = 261,
 ["Timestamp"] = 1780726513,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780727697,
 ["Quest"] = 261,
 ["Level"] = 45,
-},
-{
+["Event"] = "Quest",
 ["SubType"] = "Accept",
+},
+{
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 45,
+["Quest"] = 261,
 ["Timestamp"] = 1780727697,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 45,
 ["Quest"] = 1052,
-["Level"] = 45,
+["Timestamp"] = 1780727697,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780729116,
+["SubType"] = "Complete",
+["Level"] = 45,
 ["Quest"] = 209,
-["Level"] = 45,
+["Timestamp"] = 1780729116,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780730246,
-["Quest"] = 202,
+["SubType"] = "Complete",
 ["Level"] = 45,
+["Quest"] = 202,
+["Timestamp"] = 1780730246,
 },
 {
 ["Timestamp"] = 1780730303,
@@ -11770,172 +11789,172 @@ QuestieConfig = {
 ["NewLevel"] = 46,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780730303,
+["SubType"] = "Complete",
+["Level"] = 46,
 ["Quest"] = 193,
-["Level"] = 46,
+["Timestamp"] = 1780730303,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780730311,
+["SubType"] = "Complete",
+["Level"] = 46,
 ["Quest"] = 196,
-["Level"] = 46,
+["Timestamp"] = 1780730311,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780730312,
+["SubType"] = "Accept",
+["Level"] = 46,
 ["Quest"] = 197,
-["Level"] = 46,
+["Timestamp"] = 1780730312,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 2864,
+["Event"] = "Quest",
 ["Timestamp"] = 1780797835,
+["Quest"] = 2864,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 46,
-["Quest"] = 611,
+["Event"] = "Quest",
 ["Timestamp"] = 1780797841,
+["Quest"] = 611,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 623,
+["Event"] = "Quest",
 ["Timestamp"] = 1780797859,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 2872,
-["Timestamp"] = 1780798069,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 46,
-["Quest"] = 628,
-["Timestamp"] = 1780798087,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 46,
 ["Quest"] = 623,
+["Level"] = 46,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780798069,
+["Quest"] = 2872,
+["Level"] = 46,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1780798087,
+["Quest"] = 628,
+["Level"] = 46,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1780798539,
+["Quest"] = 623,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
+["Event"] = "Quest",
+["Timestamp"] = 1780798633,
 ["Quest"] = 11160,
-["Timestamp"] = 1780798633,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
+["Event"] = "Quest",
+["Timestamp"] = 1780798633,
 ["Quest"] = 11161,
-["Timestamp"] = 1780798633,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 11217,
+["Event"] = "Quest",
 ["Timestamp"] = 1780798648,
+["Quest"] = 11217,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 46,
-["Quest"] = 11160,
+["Event"] = "Quest",
 ["Timestamp"] = 1780799328,
+["Quest"] = 11160,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 46,
+["Event"] = "Quest",
+["Timestamp"] = 1780799329,
 ["Quest"] = 11161,
-["Timestamp"] = 1780799329,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
+["Event"] = "Quest",
+["Timestamp"] = 1780799329,
 ["Quest"] = 11159,
-["Timestamp"] = 1780799329,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 7070,
+["Event"] = "Quest",
 ["Timestamp"] = 1780811881,
+["Quest"] = 7070,
+["Level"] = 46,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 7041,
+["Event"] = "Quest",
 ["Timestamp"] = 1780813033,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 7065,
-["Timestamp"] = 1780813074,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 7028,
-["Timestamp"] = 1780813178,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 7067,
-["Timestamp"] = 1780813387,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 7044,
-["Timestamp"] = 1780813954,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 46,
-["Quest"] = 7066,
-["Timestamp"] = 1780815677,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780822260,
-["Quest"] = 7028,
-["Level"] = 46,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780822389,
 ["Quest"] = 7041,
 ["Level"] = 46,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780813074,
+["Quest"] = 7065,
+["Level"] = 46,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780813178,
+["Quest"] = 7028,
+["Level"] = 46,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780813387,
+["Quest"] = 7067,
+["Level"] = 46,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780813954,
+["Quest"] = 7044,
+["Level"] = 46,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1780815677,
+["Quest"] = 7066,
+["Level"] = 46,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 46,
+["Quest"] = 7028,
+["Timestamp"] = 1780822260,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 46,
+["Quest"] = 7041,
+["Timestamp"] = 1780822389,
 },
 {
 ["Timestamp"] = 1780822451,
@@ -11943,431 +11962,431 @@ QuestieConfig = {
 ["NewLevel"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780822451,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 7065,
-["Level"] = 47,
+["Timestamp"] = 1780822451,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 11156,
 ["Timestamp"] = 1780823312,
-["Quest"] = 11156,
-["Level"] = 47,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 11150,
 ["Timestamp"] = 1780823318,
-["Quest"] = 11150,
-["Level"] = 47,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 11185,
 ["Timestamp"] = 1780823493,
-["Quest"] = 11185,
-["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780823689,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 11156,
-["Level"] = 47,
+["Timestamp"] = 1780823689,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780823698,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 11150,
-["Level"] = 47,
+["Timestamp"] = 1780823698,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 11151,
 ["Timestamp"] = 1780823699,
-["Quest"] = 11151,
-["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780823704,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 11185,
-["Level"] = 47,
+["Timestamp"] = 1780823704,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780823774,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 11159,
-["Level"] = 47,
+["Timestamp"] = 1780823774,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 11162,
 ["Timestamp"] = 1780823775,
-["Quest"] = 11162,
-["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 47,
+["Quest"] = 11162,
 ["Timestamp"] = 1780824166,
-["Quest"] = 11162,
-["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780824175,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 11217,
-["Level"] = 47,
+["Timestamp"] = 1780824175,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780824680,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 11151,
-["Level"] = 47,
+["Timestamp"] = 1780824680,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 11152,
 ["Timestamp"] = 1780824681,
-["Quest"] = 11152,
-["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 47,
+["Quest"] = 11152,
 ["Timestamp"] = 1780824854,
-["Quest"] = 11152,
-["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780861535,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 2864,
-["Level"] = 47,
+["Timestamp"] = 1780861535,
 },
 {
+["Level"] = 47,
+["Quest"] = 1190,
 ["Timestamp"] = 1780861735,
-["Quest"] = 1190,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780861741,
+["Level"] = 47,
 ["Quest"] = 1187,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780861741,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 47,
+["Quest"] = 1188,
 ["Timestamp"] = 1780861742,
-["Quest"] = 1188,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 47,
-["Quest"] = 1191,
+["Event"] = "Quest",
 ["Timestamp"] = 1780861836,
+["Quest"] = 1191,
+["Level"] = 47,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 47,
-["Quest"] = 1190,
+["Event"] = "Quest",
 ["Timestamp"] = 1780861870,
+["Quest"] = 1190,
+["Level"] = 47,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 47,
-["Quest"] = 1194,
+["Event"] = "Quest",
 ["Timestamp"] = 1780861871,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 47,
 ["Quest"] = 1194,
+["Level"] = 47,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1780861889,
+["Quest"] = 1194,
+["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780879687,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 1188,
-["Level"] = 47,
+["Timestamp"] = 1780879687,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 1707,
 ["Timestamp"] = 1780879705,
-["Quest"] = 1707,
-["Level"] = 47,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 1690,
 ["Timestamp"] = 1780879710,
-["Quest"] = 1690,
-["Level"] = 47,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780879825,
+["SubType"] = "Accept",
+["Level"] = 47,
 ["Quest"] = 8365,
-["Level"] = 47,
+["Timestamp"] = 1780879825,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780879839,
+["SubType"] = "Accept",
+["Level"] = 47,
 ["Quest"] = 8366,
-["Level"] = 47,
+["Timestamp"] = 1780879839,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780879840,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 2872,
-["Level"] = 47,
+["Timestamp"] = 1780879840,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780879841,
+["SubType"] = "Accept",
+["Level"] = 47,
 ["Quest"] = 2873,
-["Level"] = 47,
+["Timestamp"] = 1780879841,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780881353,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 1690,
-["Level"] = 47,
+["Timestamp"] = 1780881353,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780881356,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 1707,
-["Level"] = 47,
+["Timestamp"] = 1780881356,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 4449,
 ["Timestamp"] = 1780882730,
-["Quest"] = 4449,
-["Level"] = 47,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 47,
+["Quest"] = 3181,
 ["Timestamp"] = 1780883286,
-["Quest"] = 3181,
-["Level"] = 47,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780883290,
+["SubType"] = "Complete",
+["Level"] = 47,
 ["Quest"] = 4449,
-["Level"] = 47,
+["Timestamp"] = 1780883290,
 },
 {
+["Level"] = 47,
+["Quest"] = 3367,
 ["Timestamp"] = 1780883382,
-["Quest"] = 3367,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780883792,
-["Quest"] = 3367,
 ["Level"] = 47,
-["Event"] = "Quest",
+["Quest"] = 3367,
+["Timestamp"] = 1780883792,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1780883792,
-["Quest"] = 3368,
-["Level"] = 47,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1780884207,
+["Level"] = 47,
+["Quest"] = 3368,
+["Timestamp"] = 1780883792,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 47,
 ["Quest"] = 3181,
-["Level"] = 47,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780884207,
-["Quest"] = 3182,
-["Level"] = 47,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 47,
+["Quest"] = 3182,
+["Timestamp"] = 1780884207,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 47,
+["Quest"] = 3182,
 ["Timestamp"] = 1780884289,
-["Quest"] = 3182,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780884290,
+["Level"] = 47,
 ["Quest"] = 3201,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780884290,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780884291,
+["Level"] = 47,
 ["Quest"] = 3368,
-["Level"] = 47,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780884291,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 47,
 ["Quest"] = 3371,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780884291,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 47,
+["Quest"] = 3448,
 ["Timestamp"] = 1780884301,
-["Quest"] = 3448,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 47,
+["Quest"] = 3448,
 ["Timestamp"] = 1780884359,
-["Quest"] = 3448,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780884360,
+["Level"] = 47,
 ["Quest"] = 3450,
-["Level"] = 47,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1780884360,
-["Quest"] = 3449,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 47,
+["Quest"] = 3449,
+["Timestamp"] = 1780884360,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 47,
+["Quest"] = 3449,
 ["Timestamp"] = 1780884372,
-["Quest"] = 3449,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780884480,
+["Level"] = 47,
 ["Quest"] = 3450,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780884480,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780884481,
-["Quest"] = 3451,
 ["Level"] = 47,
-["Event"] = "Quest",
+["Quest"] = 3451,
+["Timestamp"] = 1780884481,
 ["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1780884481,
-["Quest"] = 3451,
-["Level"] = 47,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
 },
 {
-["Timestamp"] = 1780902908,
+["Level"] = 47,
+["Quest"] = 3451,
+["Timestamp"] = 1780884481,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 47,
 ["Quest"] = 1477,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780902908,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 47,
+["Quest"] = 587,
 ["Timestamp"] = 1780903555,
-["Quest"] = 587,
-["Level"] = 47,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780903560,
+["Level"] = 47,
 ["Quest"] = 604,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780903560,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780903588,
+["Level"] = 47,
 ["Quest"] = 613,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780903588,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780903597,
+["Level"] = 47,
 ["Quest"] = 348,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780903597,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780903609,
+["Level"] = 47,
 ["Quest"] = 576,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780903609,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780904764,
+["Level"] = 47,
 ["Quest"] = 351,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780904764,
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780904769,
+["Level"] = 47,
 ["Quest"] = 594,
-["Level"] = 47,
-["Event"] = "Quest",
+["Timestamp"] = 1780904769,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780905459,
-["Quest"] = 587,
 ["Level"] = 47,
-["Event"] = "Quest",
+["Quest"] = 587,
+["Timestamp"] = 1780905459,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1780905465,
@@ -12375,305 +12394,305 @@ QuestieConfig = {
 ["NewLevel"] = 48,
 },
 {
-["Timestamp"] = 1780905465,
+["Level"] = 48,
 ["Quest"] = 604,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780905465,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 608,
 ["Timestamp"] = 1780905466,
-["Quest"] = 608,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780905576,
+["Level"] = 48,
 ["Quest"] = 576,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780905576,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 624,
 ["Timestamp"] = 1780905864,
-["Quest"] = 624,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780906433,
+["Level"] = 48,
 ["Quest"] = 594,
-["Level"] = 48,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780906433,
-["Quest"] = 630,
-["Level"] = 48,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 48,
+["Quest"] = 630,
+["Timestamp"] = 1780906433,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 48,
+["Quest"] = 630,
 ["Timestamp"] = 1780906529,
-["Quest"] = 630,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780907645,
+["Level"] = 48,
 ["Quest"] = 197,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780907645,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 208,
 ["Timestamp"] = 1780907646,
-["Quest"] = 208,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 338,
 ["Timestamp"] = 1780907650,
-["Quest"] = 338,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 339,
 ["Timestamp"] = 1780907652,
-["Quest"] = 339,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 339,
 ["Timestamp"] = 1780907654,
-["Quest"] = 339,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 340,
 ["Timestamp"] = 1780907655,
-["Quest"] = 340,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 340,
 ["Timestamp"] = 1780907656,
-["Quest"] = 340,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 341,
 ["Timestamp"] = 1780907658,
-["Quest"] = 341,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 341,
 ["Timestamp"] = 1780907660,
-["Quest"] = 341,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 342,
 ["Timestamp"] = 1780907662,
-["Quest"] = 342,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 342,
 ["Timestamp"] = 1780907664,
-["Quest"] = 342,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780907669,
+["Level"] = 48,
 ["Quest"] = 338,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780907669,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780908359,
+["Level"] = 48,
 ["Quest"] = 208,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780908359,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780908400,
+["Level"] = 48,
 ["Quest"] = 608,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780908400,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780908418,
+["Level"] = 48,
 ["Quest"] = 613,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780908418,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780908424,
+["Level"] = 48,
 ["Quest"] = 348,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780908424,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780908685,
+["Level"] = 48,
 ["Quest"] = 1477,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780908685,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 48,
+["Quest"] = 1395,
 ["Timestamp"] = 1780908686,
-["Quest"] = 1395,
-["Level"] = 48,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780908863,
+["Level"] = 48,
 ["Quest"] = 624,
-["Level"] = 48,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780908863,
-["Quest"] = 625,
-["Level"] = 48,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1780909218,
+["Level"] = 48,
+["Quest"] = 625,
+["Timestamp"] = 1780908863,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 48,
 ["Quest"] = 1395,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780909218,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780909327,
+["Level"] = 48,
 ["Quest"] = 8551,
-["Level"] = 48,
-["Event"] = "Quest",
+["Timestamp"] = 1780909327,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Level"] = 48,
+["Timestamp"] = 1780947738,
 ["Quest"] = 1448,
-["Timestamp"] = 1780947738,
-["SubType"] = "Complete",
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 48,
+["Timestamp"] = 1780947738,
 ["Quest"] = 1449,
-["Timestamp"] = 1780947738,
-["SubType"] = "Accept",
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
+["Timestamp"] = 1780951912,
 ["Quest"] = 625,
-["Timestamp"] = 1780951912,
-["SubType"] = "Complete",
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 48,
+["Timestamp"] = 1780951912,
 ["Quest"] = 626,
-["Timestamp"] = 1780951912,
-["SubType"] = "Accept",
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
-["Quest"] = 2605,
 ["Timestamp"] = 1780952386,
-["SubType"] = "Accept",
+["Quest"] = 2605,
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
-["Quest"] = 1691,
 ["Timestamp"] = 1780952612,
-["SubType"] = "Accept",
+["Quest"] = 1691,
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
-["Quest"] = 5863,
 ["Timestamp"] = 1780952669,
-["SubType"] = "Accept",
+["Quest"] = 5863,
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
+["Timestamp"] = 1780952678,
 ["Quest"] = 2781,
-["Timestamp"] = 1780952678,
-["SubType"] = "Accept",
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
+["Timestamp"] = 1780952678,
 ["Quest"] = 2875,
-["Timestamp"] = 1780952678,
-["SubType"] = "Accept",
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
-["Quest"] = 3362,
 ["Timestamp"] = 1780952681,
-["SubType"] = "Accept",
+["Quest"] = 3362,
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
-["Quest"] = 992,
 ["Timestamp"] = 1780952694,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 48,
 ["Quest"] = 992,
+["Level"] = 48,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1780953449,
+["Quest"] = 992,
+["Level"] = 48,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 48,
-["Quest"] = 82,
 ["Timestamp"] = 1780953450,
-["SubType"] = "Accept",
+["Quest"] = 82,
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 48,
-["Quest"] = 3161,
 ["Timestamp"] = 1780956437,
-["SubType"] = "Accept",
+["Quest"] = 3161,
+["Level"] = 48,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1780961537,
@@ -12681,165 +12700,165 @@ QuestieConfig = {
 ["NewLevel"] = 49,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968837,
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 2875,
-["Level"] = 49,
+["Timestamp"] = 1780968837,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968838,
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 8366,
-["Level"] = 49,
+["Timestamp"] = 1780968838,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968842,
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 2873,
-["Level"] = 49,
+["Timestamp"] = 1780968842,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968843,
+["SubType"] = "Accept",
+["Level"] = 49,
 ["Quest"] = 2874,
-["Level"] = 49,
+["Timestamp"] = 1780968843,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968858,
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 8365,
-["Level"] = 49,
+["Timestamp"] = 1780968858,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968898,
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 2781,
-["Level"] = 49,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
 ["Timestamp"] = 1780968898,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 1691,
-["Level"] = 49,
+["Timestamp"] = 1780968898,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968908,
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 5863,
-["Level"] = 49,
+["Timestamp"] = 1780968908,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968927,
+["SubType"] = "Complete",
+["Level"] = 49,
 ["Quest"] = 82,
-["Level"] = 49,
+["Timestamp"] = 1780968927,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780968979,
+["SubType"] = "Accept",
+["Level"] = 49,
 ["Quest"] = 10,
-["Level"] = 49,
+["Timestamp"] = 1780968979,
 },
 {
-["Timestamp"] = 1780974663,
+["Level"] = 49,
 ["Quest"] = 4289,
-["Level"] = 49,
-["Event"] = "Quest",
+["Timestamp"] = 1780974663,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 49,
+["Quest"] = 4290,
 ["Timestamp"] = 1780974664,
-["Quest"] = 4290,
-["Level"] = 49,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 49,
+["Quest"] = 3844,
 ["Timestamp"] = 1780974712,
-["Quest"] = 3844,
-["Level"] = 49,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 49,
+["Quest"] = 3844,
 ["Timestamp"] = 1780974728,
-["Quest"] = 3844,
-["Level"] = 49,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 49,
+["Quest"] = 3845,
 ["Timestamp"] = 1780974730,
-["Quest"] = 3845,
-["Level"] = 49,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780974914,
+["Level"] = 49,
 ["Quest"] = 4290,
-["Level"] = 49,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780974914,
-["Quest"] = 4291,
-["Level"] = 49,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 49,
+["Quest"] = 4291,
+["Timestamp"] = 1780974914,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 49,
+["Quest"] = 3884,
 ["Timestamp"] = 1780975161,
-["Quest"] = 3884,
-["Level"] = 49,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780975273,
+["Level"] = 49,
 ["Quest"] = 4291,
-["Level"] = 49,
-["Event"] = "Quest",
+["Timestamp"] = 1780975273,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780975274,
+["Level"] = 49,
 ["Quest"] = 4292,
-["Level"] = 49,
-["Event"] = "Quest",
+["Timestamp"] = 1780975274,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976503,
+["Level"] = 49,
 ["Quest"] = 3845,
-["Level"] = 49,
-["Event"] = "Quest",
+["Timestamp"] = 1780976503,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976514,
+["Level"] = 49,
 ["Quest"] = 3884,
-["Level"] = 49,
-["Event"] = "Quest",
+["Timestamp"] = 1780976514,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976558,
-["Quest"] = 4284,
 ["Level"] = 49,
-["Event"] = "Quest",
+["Quest"] = 4284,
+["Timestamp"] = 1780976558,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1780976560,
@@ -12847,291 +12866,291 @@ QuestieConfig = {
 ["NewLevel"] = 50,
 },
 {
-["Timestamp"] = 1780976560,
+["Level"] = 50,
 ["Quest"] = 4284,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976560,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976801,
+["Level"] = 50,
 ["Quest"] = 3161,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976801,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976834,
+["Level"] = 50,
 ["Quest"] = 2605,
-["Level"] = 50,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1780976834,
-["Quest"] = 2606,
-["Level"] = 50,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1780976845,
+["Level"] = 50,
+["Quest"] = 2606,
+["Timestamp"] = 1780976834,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 50,
 ["Quest"] = 3022,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976845,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976853,
+["Level"] = 50,
 ["Quest"] = 3362,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976853,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976858,
+["Level"] = 50,
 ["Quest"] = 2606,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976858,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976859,
+["Level"] = 50,
 ["Quest"] = 2641,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976859,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780976869,
+["Level"] = 50,
 ["Quest"] = 10,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976869,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 50,
+["Quest"] = 110,
 ["Timestamp"] = 1780976870,
-["Quest"] = 110,
-["Level"] = 50,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 50,
+["Quest"] = 110,
 ["Timestamp"] = 1780976880,
-["Quest"] = 110,
-["Level"] = 50,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 50,
+["Quest"] = 113,
 ["Timestamp"] = 1780976881,
-["Quest"] = 113,
-["Level"] = 50,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1780976894,
-["Quest"] = 113,
-["Level"] = 50,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
 },
 {
+["Level"] = 50,
+["Quest"] = 113,
 ["Timestamp"] = 1780976894,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 50,
 ["Quest"] = 162,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780976894,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780977503,
+["Level"] = 50,
 ["Quest"] = 2874,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780977503,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1780977529,
+["Level"] = 50,
 ["Quest"] = 580,
-["Level"] = 50,
-["Event"] = "Quest",
+["Timestamp"] = 1780977529,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 50,
+["Quest"] = 8410,
 ["Timestamp"] = 1780978294,
-["Quest"] = 8410,
-["Level"] = 50,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 50,
+["Quest"] = 8410,
 ["Timestamp"] = 1780978898,
-["Quest"] = 8410,
-["Level"] = 50,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 50,
+["Quest"] = 8412,
 ["Timestamp"] = 1780978899,
-["Quest"] = 8412,
-["Level"] = 50,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Level"] = 50,
-["Quest"] = 8412,
 ["Timestamp"] = 1780986383,
-["SubType"] = "Complete",
+["Quest"] = 8412,
+["Level"] = 50,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 50,
-["Quest"] = 8413,
 ["Timestamp"] = 1780986385,
-["SubType"] = "Accept",
+["Quest"] = 8413,
+["Level"] = 50,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780987052,
+["SubType"] = "Complete",
+["Level"] = 50,
 ["Quest"] = 3201,
-["Level"] = 50,
+["Timestamp"] = 1780987052,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780987456,
+["SubType"] = "Complete",
+["Level"] = 50,
 ["Quest"] = 1449,
-["Level"] = 50,
+["Timestamp"] = 1780987456,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 50,
+["Quest"] = 1450,
 ["Timestamp"] = 1780987457,
-["Quest"] = 1450,
-["Level"] = 50,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780987476,
+["Level"] = 50,
 ["Quest"] = 1450,
-["Level"] = 50,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1780987476,
-["Quest"] = 1451,
-["Level"] = 50,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 50,
+["Quest"] = 1451,
+["Timestamp"] = 1780987476,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 50,
+["Quest"] = 2880,
 ["Timestamp"] = 1780987519,
-["Quest"] = 2880,
-["Level"] = 50,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 50,
+["Quest"] = 9469,
 ["Timestamp"] = 1780987537,
-["Quest"] = 9469,
-["Level"] = 50,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780987538,
+["SubType"] = "Accept",
+["Level"] = 50,
 ["Quest"] = 9471,
-["Level"] = 50,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1780987538,
-["Quest"] = 9470,
-["Level"] = 50,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 50,
+["Quest"] = 9470,
+["Timestamp"] = 1780987538,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 50,
+["Quest"] = 9469,
 ["Timestamp"] = 1780987572,
-["Quest"] = 9469,
-["Level"] = 50,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 50,
+["Quest"] = 9476,
 ["Timestamp"] = 1780987573,
-["Quest"] = 9476,
-["Level"] = 50,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780987946,
+["SubType"] = "Complete",
+["Level"] = 50,
 ["Quest"] = 1451,
-["Level"] = 50,
+["Timestamp"] = 1780987946,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780988689,
+["SubType"] = "Complete",
+["Level"] = 50,
 ["Quest"] = 9476,
-["Level"] = 50,
+["Timestamp"] = 1780988689,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 50,
+["Quest"] = 9475,
 ["Timestamp"] = 1780988690,
-["Quest"] = 9475,
-["Level"] = 50,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780988945,
+["SubType"] = "Accept",
+["Level"] = 50,
 ["Quest"] = 1446,
-["Level"] = 50,
+["Timestamp"] = 1780988945,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780989264,
+["SubType"] = "Complete",
+["Level"] = 50,
 ["Quest"] = 9475,
-["Level"] = 50,
+["Timestamp"] = 1780989264,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780989265,
+["SubType"] = "Complete",
+["Level"] = 50,
 ["Quest"] = 9470,
-["Level"] = 50,
+["Timestamp"] = 1780989265,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780989266,
+["SubType"] = "Complete",
+["Level"] = 50,
 ["Quest"] = 9471,
-["Level"] = 50,
+["Timestamp"] = 1780989266,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1780989289,
-["Quest"] = 2880,
 ["Level"] = 50,
+["Quest"] = 2880,
+["Timestamp"] = 1780989289,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1780989290,
-["Quest"] = 2877,
+["SubType"] = "Accept",
 ["Level"] = 50,
+["Quest"] = 2877,
+["Timestamp"] = 1780989290,
 },
 {
 ["Timestamp"] = 1780989432,
@@ -13139,305 +13158,305 @@ QuestieConfig = {
 ["NewLevel"] = 51,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1780989432,
+["SubType"] = "Complete",
+["Level"] = 51,
 ["Quest"] = 2988,
-["Level"] = 51,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1780989432,
-["Quest"] = 2989,
-["Level"] = 51,
 },
 {
-["Timestamp"] = 1781022308,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 51,
+["Quest"] = 2989,
+["Timestamp"] = 1780989432,
+},
+{
+["Level"] = 51,
 ["Quest"] = 626,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781022308,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781022347,
+["Level"] = 51,
 ["Quest"] = 2877,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781022347,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781022410,
+["Level"] = 51,
 ["Quest"] = 2989,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781022410,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 51,
+["Quest"] = 3702,
 ["Timestamp"] = 1781023037,
-["Quest"] = 3702,
-["Level"] = 51,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1781023065,
-["Quest"] = 3702,
-["Level"] = 51,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
 },
 {
+["Level"] = 51,
+["Quest"] = 3702,
 ["Timestamp"] = 1781023065,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
 ["Quest"] = 3701,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023065,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781023402,
+["Level"] = 51,
 ["Quest"] = 7722,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023402,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781023407,
+["Level"] = 51,
 ["Quest"] = 7723,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1781023407,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
 ["Quest"] = 7724,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023407,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781023408,
+["Level"] = 51,
 ["Quest"] = 7727,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023408,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781023417,
+["Level"] = 51,
 ["Quest"] = 7701,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023417,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781023418,
+["Level"] = 51,
 ["Quest"] = 7728,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023418,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781023581,
+["Level"] = 51,
 ["Quest"] = 17,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023581,
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781023583,
+["Level"] = 51,
 ["Quest"] = 7729,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781023583,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781024489,
+["Level"] = 51,
 ["Quest"] = 1101,
-["Level"] = 51,
-["Event"] = "Quest",
+["Timestamp"] = 1781024489,
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
 },
 {
+["Level"] = 51,
+["Quest"] = 3441,
 ["Timestamp"] = 1781024491,
-["Quest"] = 3441,
-["Level"] = 51,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 51,
+["Quest"] = 3441,
 ["Timestamp"] = 1781024602,
-["Quest"] = 3441,
-["Level"] = 51,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 51,
+["Quest"] = 3442,
 ["Timestamp"] = 1781024603,
-["Quest"] = 3442,
-["Level"] = 51,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Level"] = 51,
-["Quest"] = 3442,
 ["Timestamp"] = 1781031404,
-["SubType"] = "Complete",
+["Quest"] = 3442,
+["Level"] = 51,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 51,
-["Quest"] = 3443,
 ["Timestamp"] = 1781031405,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 51,
-["Quest"] = 3371,
-["Timestamp"] = 1781061484,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 51,
-["Quest"] = 3372,
-["Timestamp"] = 1781061485,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Abandon",
-["Level"] = 51,
-["Quest"] = 3636,
-["Timestamp"] = 1781061600,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 51,
-["Quest"] = 4451,
-["Timestamp"] = 1781061604,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 51,
 ["Quest"] = 3443,
-["Timestamp"] = 1781062124,
-},
-{
+["Level"] = 51,
 ["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 51,
-["Quest"] = 3452,
-["Timestamp"] = 1781062125,
 },
 {
+["SubType"] = "Complete",
 ["Event"] = "Quest",
+["Timestamp"] = 1781061484,
+["Quest"] = 3371,
+["Level"] = 51,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1781061485,
+["Quest"] = 3372,
+["Level"] = 51,
+},
+{
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1781061600,
+["Quest"] = 3636,
 ["Level"] = 51,
-["Quest"] = 2770,
-["Timestamp"] = 1781062578,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 51,
-["Quest"] = 3377,
-["Timestamp"] = 1781062578,
-},
-{
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 51,
-["Quest"] = 3377,
-["Timestamp"] = 1781062674,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 51,
-["Quest"] = 3378,
-["Timestamp"] = 1781062674,
-},
-{
-["Timestamp"] = 1781069551,
-["Quest"] = 3452,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1781069551,
-["Quest"] = 3453,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1781069646,
-["Quest"] = 3453,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1781069646,
-["Quest"] = 3454,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1781069654,
-["Quest"] = 3454,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1781069658,
-["Quest"] = 3462,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1781069661,
-["Quest"] = 3462,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1781069662,
-["Quest"] = 3463,
-["Level"] = 51,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1781070283,
+["Timestamp"] = 1781061604,
 ["Quest"] = 4451,
 ["Level"] = 51,
-["Event"] = "Quest",
+},
+{
 ["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1781062124,
+["Quest"] = 3443,
+["Level"] = 51,
 },
 {
-["Timestamp"] = 1781070298,
-["Quest"] = 4450,
-["Level"] = 51,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1781062125,
+["Quest"] = 3452,
+["Level"] = 51,
 },
 {
-["Timestamp"] = 1781070629,
-["Quest"] = 4450,
-["Level"] = 51,
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
+["Timestamp"] = 1781062578,
+["Quest"] = 2770,
+["Level"] = 51,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1781062578,
+["Quest"] = 3377,
+["Level"] = 51,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1781062674,
+["Quest"] = 3377,
+["Level"] = 51,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1781062674,
+["Quest"] = 3378,
+["Level"] = 51,
+},
+{
+["Level"] = 51,
+["Quest"] = 3452,
+["Timestamp"] = 1781069551,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 3453,
+["Timestamp"] = 1781069551,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 3453,
+["Timestamp"] = 1781069646,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 3454,
+["Timestamp"] = 1781069646,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 3454,
+["Timestamp"] = 1781069654,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 3462,
+["Timestamp"] = 1781069658,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 3462,
+["Timestamp"] = 1781069661,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 3463,
+["Timestamp"] = 1781069662,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 4451,
+["Timestamp"] = 1781070283,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 4450,
+["Timestamp"] = 1781070298,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 51,
+["Quest"] = 4450,
+["Timestamp"] = 1781070629,
+["SubType"] = "Abandon",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1781070752,
@@ -13445,207 +13464,207 @@ QuestieConfig = {
 ["NewLevel"] = 52,
 },
 {
-["Timestamp"] = 1781070752,
+["Level"] = 52,
 ["Quest"] = 3463,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781070752,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781070775,
-["Quest"] = 3481,
 ["Level"] = 52,
-["Event"] = "Quest",
+["Quest"] = 3481,
+["Timestamp"] = 1781070775,
 ["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1781070775,
-["Quest"] = 3481,
-["Level"] = 52,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
 },
 {
-["Timestamp"] = 1781071029,
+["Level"] = 52,
+["Quest"] = 3481,
+["Timestamp"] = 1781070775,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 52,
 ["Quest"] = 3372,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071029,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071034,
+["Level"] = 52,
 ["Quest"] = 3566,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071034,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071726,
+["Level"] = 52,
 ["Quest"] = 7701,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071726,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071745,
+["Level"] = 52,
 ["Quest"] = 7723,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071745,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071746,
+["Level"] = 52,
 ["Quest"] = 7724,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071746,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071747,
+["Level"] = 52,
 ["Quest"] = 7727,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071747,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071752,
+["Level"] = 52,
 ["Quest"] = 7728,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071752,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071753,
+["Level"] = 52,
 ["Quest"] = 7729,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071753,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781071757,
+["Level"] = 52,
 ["Quest"] = 7722,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781071757,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 52,
+["Quest"] = 2882,
 ["Timestamp"] = 1781123808,
-["Quest"] = 2882,
-["Level"] = 52,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 52,
+["Quest"] = 3823,
 ["Timestamp"] = 1781132899,
-["Quest"] = 3823,
-["Level"] = 52,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 52,
+["Quest"] = 4182,
 ["Timestamp"] = 1781132905,
-["Quest"] = 4182,
-["Level"] = 52,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 52,
-["Quest"] = 4726,
+["Event"] = "Quest",
 ["Timestamp"] = 1781135805,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 52,
-["Quest"] = 4296,
-["Timestamp"] = 1781135807,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781142709,
 ["Quest"] = 4726,
 ["Level"] = 52,
 },
 {
-["SubType"] = "Complete",
+["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781142715,
+["Timestamp"] = 1781135807,
 ["Quest"] = 4296,
 ["Level"] = 52,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781142829,
+["SubType"] = "Complete",
+["Level"] = 52,
+["Quest"] = 4726,
+["Timestamp"] = 1781142709,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 52,
+["Quest"] = 4296,
+["Timestamp"] = 1781142715,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 52,
 ["Quest"] = 3823,
-["Level"] = 52,
+["Timestamp"] = 1781142829,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781142875,
+["SubType"] = "Complete",
+["Level"] = 52,
 ["Quest"] = 4182,
-["Level"] = 52,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1781142875,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 52,
 ["Quest"] = 4183,
-["Level"] = 52,
+["Timestamp"] = 1781142875,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781143188,
+["SubType"] = "Complete",
+["Level"] = 52,
 ["Quest"] = 3701,
-["Level"] = 52,
+["Timestamp"] = 1781143188,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 52,
+["Quest"] = 1452,
 ["Timestamp"] = 1781143622,
-["Quest"] = 1452,
-["Level"] = 52,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781146301,
+["SubType"] = "Complete",
+["Level"] = 52,
 ["Quest"] = 2882,
-["Level"] = 52,
+["Timestamp"] = 1781146301,
 },
 {
-["Timestamp"] = 1781193124,
+["Level"] = 52,
 ["Quest"] = 3445,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781193124,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781199980,
+["Level"] = 52,
 ["Quest"] = 1452,
-["Level"] = 52,
-["Event"] = "Quest",
+["Timestamp"] = 1781199980,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 52,
+["Quest"] = 1469,
 ["Timestamp"] = 1781199981,
-["Quest"] = 1469,
-["Level"] = 52,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781200348,
-["Quest"] = 1469,
 ["Level"] = 52,
-["Event"] = "Quest",
+["Quest"] = 1469,
+["Timestamp"] = 1781200348,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1781200348,
@@ -13653,270 +13672,270 @@ QuestieConfig = {
 ["NewLevel"] = 53,
 },
 {
-["Timestamp"] = 1781200349,
+["Level"] = 53,
 ["Quest"] = 1475,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781200349,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781202053,
+["Level"] = 53,
 ["Quest"] = 3445,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781202053,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 53,
+["Quest"] = 3444,
 ["Timestamp"] = 1781202054,
-["Quest"] = 3444,
-["Level"] = 53,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 53,
+["Quest"] = 3444,
 ["Timestamp"] = 1781202834,
-["Quest"] = 3444,
-["Level"] = 53,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781202835,
+["Level"] = 53,
 ["Quest"] = 3446,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781202835,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 53,
+["Quest"] = 3520,
 ["Timestamp"] = 1781203033,
-["Quest"] = 3520,
-["Level"] = 53,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Level"] = 53,
-["Quest"] = 3520,
 ["Timestamp"] = 1781210245,
-["SubType"] = "Complete",
+["Quest"] = 3520,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 3527,
 ["Timestamp"] = 1781210246,
-["SubType"] = "Accept",
+["Quest"] = 3527,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 53,
+["Timestamp"] = 1781210775,
 ["Quest"] = 4183,
-["Timestamp"] = 1781210775,
+["Level"] = 53,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 53,
-["Quest"] = 4184,
 ["Timestamp"] = 1781210775,
-["SubType"] = "Accept",
+["Quest"] = 4184,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 53,
-["Quest"] = 4184,
 ["Timestamp"] = 1781211807,
-["SubType"] = "Complete",
+["Quest"] = 4184,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 4185,
 ["Timestamp"] = 1781211808,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 53,
 ["Quest"] = 4185,
-["Timestamp"] = 1781211817,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 53,
-["Quest"] = 4186,
-["Timestamp"] = 1781211817,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1781211817,
+["Quest"] = 4185,
 ["Level"] = 53,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781211817,
 ["Quest"] = 4186,
+["Level"] = 53,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1781212171,
-["SubType"] = "Complete",
+["Quest"] = 4186,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 4223,
 ["Timestamp"] = 1781212172,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 53,
 ["Quest"] = 4223,
+["Level"] = 53,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1781213250,
-["SubType"] = "Complete",
+["Quest"] = 4223,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 4224,
 ["Timestamp"] = 1781213251,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 53,
-["Quest"] = 4808,
-["Timestamp"] = 1781213707,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 53,
 ["Quest"] = 4224,
+["Level"] = 53,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781213707,
+["Quest"] = 4808,
+["Level"] = 53,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1781214565,
-["SubType"] = "Complete",
+["Quest"] = 4224,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 580,
 ["Timestamp"] = 1781214947,
-["SubType"] = "Complete",
+["Quest"] = 580,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 4512,
 ["Timestamp"] = 1781215038,
-["SubType"] = "Accept",
+["Quest"] = 4512,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 53,
-["Quest"] = 3566,
 ["Timestamp"] = 1781215046,
-["SubType"] = "Complete",
+["Quest"] = 3566,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 3022,
 ["Timestamp"] = 1781216580,
-["SubType"] = "Complete",
+["Quest"] = 3022,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 3378,
 ["Timestamp"] = 1781216694,
-["SubType"] = "Complete",
+["Quest"] = 3378,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 53,
-["Quest"] = 162,
 ["Timestamp"] = 1781216719,
-["SubType"] = "Complete",
+["Quest"] = 162,
+["Level"] = 53,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781220030,
+["SubType"] = "Accept",
+["Level"] = 53,
 ["Quest"] = 4101,
-["Level"] = 53,
+["Timestamp"] = 1781220030,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 53,
+["Quest"] = 5155,
 ["Timestamp"] = 1781220057,
-["Quest"] = 5155,
-["Level"] = 53,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 53,
+["Quest"] = 4421,
 ["Timestamp"] = 1781220110,
-["Quest"] = 4421,
-["Level"] = 53,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 53,
+["Quest"] = 8460,
 ["Timestamp"] = 1781220129,
-["Quest"] = 8460,
-["Level"] = 53,
 },
 {
+["Level"] = 53,
+["Quest"] = 8460,
 ["Timestamp"] = 1781225362,
-["Quest"] = 8460,
-["Level"] = 53,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781225363,
+["Level"] = 53,
 ["Quest"] = 8462,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781225363,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781243185,
+["Level"] = 53,
 ["Quest"] = 5155,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781243185,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781243186,
+["Level"] = 53,
 ["Quest"] = 5157,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781243186,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781243191,
+["Level"] = 53,
 ["Quest"] = 4421,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781243191,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781243193,
+["Level"] = 53,
 ["Quest"] = 4906,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781243193,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781243200,
+["Level"] = 53,
 ["Quest"] = 5156,
-["Level"] = 53,
-["Event"] = "Quest",
+["Timestamp"] = 1781243200,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781244333,
-["Quest"] = 939,
 ["Level"] = 53,
-["Event"] = "Quest",
+["Quest"] = 939,
+["Timestamp"] = 1781244333,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1781246025,
@@ -13924,235 +13943,235 @@ QuestieConfig = {
 ["NewLevel"] = 54,
 },
 {
-["Timestamp"] = 1781246025,
+["Level"] = 54,
 ["Quest"] = 5157,
-["Level"] = 54,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1781246025,
-["Quest"] = 5158,
-["Level"] = 54,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1781246033,
+["Level"] = 54,
+["Quest"] = 5158,
+["Timestamp"] = 1781246025,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 54,
 ["Quest"] = 939,
-["Level"] = 54,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1781246033,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 54,
 ["Quest"] = 4906,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781246033,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781246034,
+["Level"] = 54,
 ["Quest"] = 4441,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781246034,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781246041,
+["Level"] = 54,
 ["Quest"] = 5156,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781246041,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781246138,
+["Level"] = 54,
 ["Quest"] = 4101,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781246138,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781247166,
+["Level"] = 54,
 ["Quest"] = 5158,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781247166,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781247213,
+["Level"] = 54,
 ["Quest"] = 5159,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781247213,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781247743,
+["Level"] = 54,
 ["Quest"] = 4504,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781247743,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781247749,
+["Level"] = 54,
 ["Quest"] = 2641,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781247749,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 2661,
 ["Timestamp"] = 1781247753,
-["Quest"] = 2661,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 2661,
 ["Timestamp"] = 1781247765,
-["Quest"] = 2661,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 2662,
 ["Timestamp"] = 1781247766,
-["Quest"] = 2662,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 2662,
 ["Timestamp"] = 1781247772,
-["Quest"] = 2662,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 3881,
 ["Timestamp"] = 1781248196,
-["Quest"] = 3881,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 3883,
 ["Timestamp"] = 1781248201,
-["Quest"] = 3883,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 3882,
 ["Timestamp"] = 1781248205,
-["Quest"] = 3882,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781248243,
+["Level"] = 54,
 ["Quest"] = 4285,
-["Level"] = 54,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1781248243,
-["Quest"] = 4287,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781248244,
+["Level"] = 54,
+["Quest"] = 4287,
+["Timestamp"] = 1781248243,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 54,
 ["Quest"] = 4288,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781248244,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781248286,
+["Level"] = 54,
 ["Quest"] = 4501,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781248286,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781249956,
+["Level"] = 54,
 ["Quest"] = 4289,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781249956,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781249957,
+["Level"] = 54,
 ["Quest"] = 4292,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781249957,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781249959,
+["Level"] = 54,
 ["Quest"] = 4301,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781249959,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 974,
 ["Timestamp"] = 1781251514,
-["Quest"] = 974,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 54,
+["Quest"] = 974,
 ["Timestamp"] = 1781252432,
-["Quest"] = 974,
-["Level"] = 54,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781252433,
+["Level"] = 54,
 ["Quest"] = 980,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781252433,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781253929,
+["Level"] = 54,
 ["Quest"] = 3882,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781253929,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781253934,
+["Level"] = 54,
 ["Quest"] = 3883,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781253934,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781253940,
+["Level"] = 54,
 ["Quest"] = 3881,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781253940,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781254023,
+["Level"] = 54,
 ["Quest"] = 4285,
-["Level"] = 54,
-["Event"] = "Quest",
+["Timestamp"] = 1781254023,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781254026,
-["Quest"] = 4287,
 ["Level"] = 54,
-["Event"] = "Quest",
+["Quest"] = 4287,
+["Timestamp"] = 1781254026,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1781254027,
@@ -14160,424 +14179,424 @@ QuestieConfig = {
 ["NewLevel"] = 55,
 },
 {
-["Timestamp"] = 1781254027,
+["Level"] = 55,
 ["Quest"] = 4288,
-["Level"] = 55,
-["Event"] = "Quest",
+["Timestamp"] = 1781254027,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 55,
+["Quest"] = 4321,
 ["Timestamp"] = 1781254029,
-["Quest"] = 4321,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 55,
+["Quest"] = 4321,
 ["Timestamp"] = 1781254032,
-["Quest"] = 4321,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 55,
+["Quest"] = 4492,
 ["Timestamp"] = 1781254075,
-["Quest"] = 4492,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781254082,
+["Level"] = 55,
 ["Quest"] = 4501,
-["Level"] = 55,
-["Event"] = "Quest",
+["Timestamp"] = 1781254082,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 55,
+["Quest"] = 4141,
 ["Timestamp"] = 1781254090,
-["Quest"] = 4141,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 55,
+["Quest"] = 4503,
 ["Timestamp"] = 1781254100,
-["Quest"] = 4503,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Level"] = 55,
-["Quest"] = 4492,
 ["Timestamp"] = 1781303277,
-["SubType"] = "Complete",
+["Quest"] = 4492,
+["Level"] = 55,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 55,
+["Quest"] = 4491,
 ["Timestamp"] = 1781307395,
-["Quest"] = 4491,
-["Level"] = 55,
 },
 {
-["SubType"] = "Abandon",
 ["Event"] = "Quest",
+["SubType"] = "Abandon",
+["Level"] = 55,
+["Quest"] = 4491,
 ["Timestamp"] = 1781307524,
-["Quest"] = 4491,
-["Level"] = 55,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 55,
+["Quest"] = 4491,
 ["Timestamp"] = 1781307544,
-["Quest"] = 4491,
-["Level"] = 55,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 55,
+["Quest"] = 4491,
 ["Timestamp"] = 1781307890,
-["Quest"] = 4491,
-["Level"] = 55,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781308167,
+["SubType"] = "Complete",
+["Level"] = 55,
 ["Quest"] = 4141,
-["Level"] = 55,
+["Timestamp"] = 1781308167,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 55,
+["Quest"] = 4142,
 ["Timestamp"] = 1781308168,
-["Quest"] = 4142,
-["Level"] = 55,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Abandon",
-["Event"] = "Quest",
+["Level"] = 55,
+["Quest"] = 4142,
 ["Timestamp"] = 1781308178,
-["Quest"] = 4142,
-["Level"] = 55,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781308198,
+["SubType"] = "Complete",
+["Level"] = 55,
 ["Quest"] = 4503,
-["Level"] = 55,
+["Timestamp"] = 1781308198,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 55,
+["Quest"] = 4243,
 ["Timestamp"] = 1781308318,
-["Quest"] = 4243,
-["Level"] = 55,
 },
 {
-["Timestamp"] = 1781314609,
-["Quest"] = 4243,
 ["Level"] = 55,
-["Event"] = "Quest",
+["Quest"] = 4243,
+["Timestamp"] = 1781314609,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1781314609,
-["Quest"] = 4244,
-["Level"] = 55,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 55,
+["Quest"] = 4244,
+["Timestamp"] = 1781314609,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 55,
+["Quest"] = 4244,
 ["Timestamp"] = 1781314610,
-["Quest"] = 4244,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 55,
+["Quest"] = 4245,
 ["Timestamp"] = 1781314650,
-["Quest"] = 4245,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 55,
+["Quest"] = 4245,
 ["Timestamp"] = 1781314888,
-["Quest"] = 4245,
-["Level"] = 55,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781315973,
+["Level"] = 55,
 ["Quest"] = 4301,
-["Level"] = 55,
-["Event"] = "Quest",
+["Timestamp"] = 1781315973,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781316254,
+["Level"] = 55,
 ["Quest"] = 3908,
-["Level"] = 55,
-["Event"] = "Quest",
+["Timestamp"] = 1781316254,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781316536,
+["Level"] = 55,
 ["Quest"] = 4504,
-["Level"] = 55,
-["Event"] = "Quest",
+["Timestamp"] = 1781316536,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Level"] = 55,
-["Quest"] = 3763,
 ["Timestamp"] = 1781329662,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 55,
 ["Quest"] = 3763,
+["Level"] = 55,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1781329746,
-["SubType"] = "Complete",
+["Quest"] = 3763,
+["Level"] = 55,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 55,
-["Quest"] = 3764,
 ["Timestamp"] = 1781329747,
-["SubType"] = "Accept",
+["Quest"] = 3764,
+["Level"] = 55,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781330588,
+["SubType"] = "Complete",
+["Level"] = 55,
 ["Quest"] = 10352,
-["Level"] = 55,
+["Timestamp"] = 1781330588,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781330590,
+["SubType"] = "Complete",
+["Level"] = 55,
 ["Quest"] = 10354,
-["Level"] = 55,
+["Timestamp"] = 1781330590,
 },
 {
-["Level"] = 56,
-["Quest"] = 8471,
 ["Timestamp"] = 1781406610,
-["SubType"] = "Accept",
+["Quest"] = 8471,
+["Level"] = 56,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 56,
-["Quest"] = 5083,
 ["Timestamp"] = 1781408391,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 56,
-["Quest"] = 5082,
-["Timestamp"] = 1781408449,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 56,
 ["Quest"] = 5083,
+["Level"] = 56,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781408449,
+["Quest"] = 5082,
+["Level"] = 56,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1781408450,
-["SubType"] = "Complete",
+["Quest"] = 5083,
+["Level"] = 56,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 56,
-["Quest"] = 5084,
 ["Timestamp"] = 1781408451,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 56,
-["Quest"] = 8461,
-["Timestamp"] = 1781408631,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 56,
-["Quest"] = 8470,
-["Timestamp"] = 1781408780,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 56,
-["Quest"] = 3527,
-["Timestamp"] = 1781411831,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 56,
-["Quest"] = 4787,
-["Timestamp"] = 1781411832,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781419507,
-["Quest"] = 4787,
-["Level"] = 56,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781419507,
-["Quest"] = 3528,
-["Level"] = 56,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781420013,
-["Quest"] = 4142,
-["Level"] = 56,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781420575,
-["Quest"] = 4142,
-["Level"] = 56,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781420576,
-["Quest"] = 4143,
-["Level"] = 56,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781423990,
-["Quest"] = 3446,
-["Level"] = 56,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781427346,
-["Quest"] = 3373,
-["Level"] = 56,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781433530,
 ["Quest"] = 5084,
 ["Level"] = 56,
-},
-{
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781433531,
-["Quest"] = 5085,
-["Level"] = 56,
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781433691,
+["Timestamp"] = 1781408631,
 ["Quest"] = 8461,
 ["Level"] = 56,
-},
-{
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781433692,
-["Quest"] = 8465,
-["Level"] = 56,
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781433863,
-["Quest"] = 8465,
+["Timestamp"] = 1781408780,
+["Quest"] = 8470,
 ["Level"] = 56,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
+["Timestamp"] = 1781411831,
+["Quest"] = 3527,
+["Level"] = 56,
 ["Event"] = "Quest",
-["Timestamp"] = 1781433988,
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781411832,
+["Quest"] = 4787,
+["Level"] = 56,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 4787,
+["Timestamp"] = 1781419507,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
+["Quest"] = 3528,
+["Timestamp"] = 1781419507,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
+["Quest"] = 4142,
+["Timestamp"] = 1781420013,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 4142,
+["Timestamp"] = 1781420575,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
+["Quest"] = 4143,
+["Timestamp"] = 1781420576,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 3446,
+["Timestamp"] = 1781423990,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
+["Quest"] = 3373,
+["Timestamp"] = 1781427346,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 5084,
+["Timestamp"] = 1781433530,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
 ["Quest"] = 5085,
-["Level"] = 56,
+["Timestamp"] = 1781433531,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781433989,
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 8461,
+["Timestamp"] = 1781433691,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
+["Quest"] = 8465,
+["Timestamp"] = 1781433692,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 8465,
+["Timestamp"] = 1781433863,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 5085,
+["Timestamp"] = 1781433988,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
 ["Quest"] = 5086,
-["Level"] = 56,
+["Timestamp"] = 1781433989,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781434379,
+["SubType"] = "Complete",
+["Level"] = 56,
 ["Quest"] = 5159,
-["Level"] = 56,
+["Timestamp"] = 1781434379,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781434380,
+["SubType"] = "Accept",
+["Level"] = 56,
 ["Quest"] = 5165,
-["Level"] = 56,
+["Timestamp"] = 1781434380,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781434388,
+["SubType"] = "Complete",
+["Level"] = 56,
 ["Quest"] = 4441,
-["Level"] = 56,
+["Timestamp"] = 1781434388,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 56,
+["Quest"] = 4442,
 ["Timestamp"] = 1781434405,
-["Quest"] = 4442,
-["Level"] = 56,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 56,
+["Quest"] = 4442,
 ["Timestamp"] = 1781434406,
-["Quest"] = 4442,
-["Level"] = 56,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781434412,
-["Quest"] = 5249,
 ["Level"] = 56,
+["Quest"] = 5249,
+["Timestamp"] = 1781434412,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781434472,
-["Quest"] = 5882,
+["SubType"] = "Complete",
 ["Level"] = 56,
+["Quest"] = 5882,
+["Timestamp"] = 1781434472,
 },
 {
 ["Timestamp"] = 1781502838,
@@ -14585,235 +14604,235 @@ QuestieConfig = {
 ["NewLevel"] = 57,
 },
 {
+["Level"] = 57,
+["Quest"] = 5202,
 ["Timestamp"] = 1781503636,
-["Quest"] = 5202,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 5202,
 ["Timestamp"] = 1781503649,
-["Quest"] = 5202,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781505056,
+["Level"] = 57,
 ["Quest"] = 8464,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781505056,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781505113,
+["Level"] = 57,
 ["Quest"] = 5086,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781505113,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1781505114,
-["Quest"] = 5087,
-["Level"] = 57,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 57,
+["Quest"] = 5087,
 ["Timestamp"] = 1781505114,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 57,
 ["Quest"] = 4842,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781505114,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 6604,
 ["Timestamp"] = 1781505544,
-["Quest"] = 6604,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781505580,
+["Level"] = 57,
 ["Quest"] = 4808,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781505580,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 4809,
 ["Timestamp"] = 1781505581,
-["Quest"] = 4809,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 5054,
 ["Timestamp"] = 1781505587,
-["Quest"] = 5054,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 3783,
 ["Timestamp"] = 1781505621,
-["Quest"] = 3783,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 3783,
 ["Timestamp"] = 1781508693,
-["Quest"] = 3783,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 977,
 ["Timestamp"] = 1781508694,
-["Quest"] = 977,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781508702,
+["Level"] = 57,
 ["Quest"] = 5054,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781508702,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 5055,
 ["Timestamp"] = 1781508703,
-["Quest"] = 5055,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781508865,
+["Level"] = 57,
 ["Quest"] = 5249,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781508865,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 5244,
 ["Timestamp"] = 1781508866,
-["Quest"] = 5244,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 5244,
 ["Timestamp"] = 1781508869,
-["Quest"] = 5244,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781508870,
+["Level"] = 57,
 ["Quest"] = 6604,
-["Level"] = 57,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1781508870,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 57,
 ["Quest"] = 5245,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781508870,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 57,
+["Quest"] = 4861,
 ["Timestamp"] = 1781508873,
-["Quest"] = 4861,
-["Level"] = 57,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781509074,
+["Level"] = 57,
 ["Quest"] = 5087,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781509074,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781509103,
+["Level"] = 57,
 ["Quest"] = 5121,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781509103,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781573379,
+["Level"] = 57,
 ["Quest"] = 5123,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781573379,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781573810,
+["Level"] = 57,
 ["Quest"] = 977,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781573810,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781573834,
+["Level"] = 57,
 ["Quest"] = 4809,
-["Level"] = 57,
-["Event"] = "Quest",
+["Timestamp"] = 1781573834,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Level"] = 57,
+["Timestamp"] = 1781730504,
 ["Quest"] = 4861,
-["Timestamp"] = 1781730504,
+["Level"] = 57,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
-["Level"] = 57,
-["Quest"] = 4863,
 ["Timestamp"] = 1781730504,
-["SubType"] = "Accept",
+["Quest"] = 4863,
+["Level"] = 57,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 57,
-["Quest"] = 4863,
 ["Timestamp"] = 1781730530,
-["SubType"] = "Complete",
+["Quest"] = 4863,
+["Level"] = 57,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 57,
-["Quest"] = 4864,
 ["Timestamp"] = 1781730531,
-["SubType"] = "Accept",
+["Quest"] = 4864,
+["Level"] = 57,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 57,
-["Quest"] = 6028,
 ["Timestamp"] = 1781732207,
-["SubType"] = "Accept",
+["Quest"] = 6028,
+["Level"] = 57,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 57,
-["Quest"] = 6030,
 ["Timestamp"] = 1781732208,
-["SubType"] = "Accept",
+["Quest"] = 6030,
+["Level"] = 57,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 57,
-["Quest"] = 5055,
 ["Timestamp"] = 1781732217,
-["SubType"] = "Complete",
+["Quest"] = 5055,
+["Level"] = 57,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1781732749,
@@ -14821,284 +14840,284 @@ QuestieConfig = {
 ["NewLevel"] = 58,
 },
 {
-["Level"] = 58,
-["Quest"] = 4864,
 ["Timestamp"] = 1781732749,
-["SubType"] = "Complete",
+["Quest"] = 4864,
+["Level"] = 58,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 58,
-["Quest"] = 4842,
 ["Timestamp"] = 1781732972,
-["SubType"] = "Complete",
+["Quest"] = 4842,
+["Level"] = 58,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 58,
-["Quest"] = 5121,
 ["Timestamp"] = 1781732974,
-["SubType"] = "Complete",
+["Quest"] = 5121,
+["Level"] = 58,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 58,
-["Quest"] = 5123,
 ["Timestamp"] = 1781732975,
-["SubType"] = "Complete",
+["Quest"] = 5123,
+["Level"] = 58,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 58,
-["Quest"] = 5128,
 ["Timestamp"] = 1781732976,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 58,
-["Quest"] = 8464,
-["Timestamp"] = 1781733045,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 58,
-["Quest"] = 5165,
-["Timestamp"] = 1781733741,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 58,
 ["Quest"] = 5128,
+["Level"] = 58,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781733045,
+["Quest"] = 8464,
+["Level"] = 58,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781733741,
+["Quest"] = 5165,
+["Level"] = 58,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1781733748,
-["SubType"] = "Complete",
+["Quest"] = 5128,
+["Level"] = 58,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 58,
-["Quest"] = 4512,
 ["Timestamp"] = 1781734454,
-["SubType"] = "Complete",
+["Quest"] = 4512,
+["Level"] = 58,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781761304,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 7807,
-["Level"] = 58,
+["Timestamp"] = 1781761304,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781761305,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 7808,
-["Level"] = 58,
+["Timestamp"] = 1781761305,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781761351,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 7802,
-["Level"] = 58,
+["Timestamp"] = 1781761351,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781761352,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 7803,
-["Level"] = 58,
+["Timestamp"] = 1781761352,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781761353,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 7804,
-["Level"] = 58,
+["Timestamp"] = 1781761353,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 58,
+["Quest"] = 5090,
 ["Timestamp"] = 1781761390,
-["Quest"] = 5090,
-["Level"] = 58,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781762301,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 7791,
-["Level"] = 58,
+["Timestamp"] = 1781762301,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 58,
+["Quest"] = 6182,
 ["Timestamp"] = 1781762403,
-["Quest"] = 6182,
-["Level"] = 58,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781762609,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 1475,
-["Level"] = 58,
+["Timestamp"] = 1781762609,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781762682,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 6182,
-["Level"] = 58,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1781762682,
-["Quest"] = 6183,
-["Level"] = 58,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 58,
+["Quest"] = 6183,
+["Timestamp"] = 1781762682,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 58,
+["Quest"] = 6183,
 ["Timestamp"] = 1781762684,
-["Quest"] = 6183,
-["Level"] = 58,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 58,
+["Quest"] = 6184,
 ["Timestamp"] = 1781762685,
-["Quest"] = 6184,
-["Level"] = 58,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781763361,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 1052,
-["Level"] = 58,
+["Timestamp"] = 1781763361,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781763716,
+["SubType"] = "Accept",
+["Level"] = 58,
 ["Quest"] = 9474,
-["Level"] = 58,
+["Timestamp"] = 1781763716,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781763720,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 5090,
-["Level"] = 58,
+["Timestamp"] = 1781763720,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 58,
+["Quest"] = 5092,
 ["Timestamp"] = 1781763721,
-["Quest"] = 5092,
-["Level"] = 58,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781763725,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 6028,
-["Level"] = 58,
+["Timestamp"] = 1781763725,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781763726,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 5401,
-["Level"] = 58,
+["Timestamp"] = 1781763726,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781763960,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 6184,
-["Level"] = 58,
+["Timestamp"] = 1781763960,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781763961,
+["SubType"] = "Accept",
+["Level"] = 58,
 ["Quest"] = 6185,
-["Level"] = 58,
+["Timestamp"] = 1781763961,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781764327,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 1446,
-["Level"] = 58,
+["Timestamp"] = 1781764327,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781765289,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 4143,
-["Level"] = 58,
+["Timestamp"] = 1781765289,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781765633,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 3528,
-["Level"] = 58,
+["Timestamp"] = 1781765633,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781766174,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 8413,
-["Level"] = 58,
+["Timestamp"] = 1781766174,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781766485,
+["SubType"] = "Accept",
+["Level"] = 58,
 ["Quest"] = 5142,
-["Level"] = 58,
+["Timestamp"] = 1781766485,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781767053,
+["SubType"] = "Complete",
+["Level"] = 58,
 ["Quest"] = 5092,
-["Level"] = 58,
+["Timestamp"] = 1781767053,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 58,
+["Quest"] = 5215,
 ["Timestamp"] = 1781767054,
-["Quest"] = 5215,
-["Level"] = 58,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781767055,
+["SubType"] = "Accept",
+["Level"] = 58,
 ["Quest"] = 5097,
-["Level"] = 58,
+["Timestamp"] = 1781767055,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1781767059,
-["Quest"] = 5215,
 ["Level"] = 58,
+["Quest"] = 5215,
+["Timestamp"] = 1781767059,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781767060,
-["Quest"] = 5216,
+["SubType"] = "Accept",
 ["Level"] = 58,
+["Quest"] = 5216,
+["Timestamp"] = 1781767060,
 },
 {
 ["Timestamp"] = 1781767847,
@@ -15106,291 +15125,291 @@ QuestieConfig = {
 ["NewLevel"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781767847,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5216,
-["Level"] = 59,
+["Timestamp"] = 1781767847,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5217,
 ["Timestamp"] = 1781767848,
-["Quest"] = 5217,
-["Level"] = 59,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5021,
 ["Timestamp"] = 1781767946,
-["Quest"] = 5021,
-["Level"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 59,
+["Quest"] = 5021,
 ["Timestamp"] = 1781767991,
-["Quest"] = 5021,
-["Level"] = 59,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781767992,
+["SubType"] = "Accept",
+["Level"] = 59,
 ["Quest"] = 5022,
-["Level"] = 59,
+["Timestamp"] = 1781767992,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781768146,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5097,
-["Level"] = 59,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1781768146,
-["Quest"] = 5533,
-["Level"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781768164,
-["Quest"] = 5533,
-["Level"] = 59,
-},
-{
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1781768164,
-["Quest"] = 5537,
 ["Level"] = 59,
+["Quest"] = 5533,
+["Timestamp"] = 1781768146,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781768169,
+["SubType"] = "Complete",
+["Level"] = 59,
+["Quest"] = 5533,
+["Timestamp"] = 1781768164,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5537,
+["Timestamp"] = 1781768164,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5217,
-["Level"] = 59,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1781768169,
-["Quest"] = 5219,
-["Level"] = 59,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5219,
+["Timestamp"] = 1781768169,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 4984,
 ["Timestamp"] = 1781769023,
-["Quest"] = 4984,
-["Level"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781770101,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5058,
-["Level"] = 59,
+["Timestamp"] = 1781770101,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781770306,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5059,
-["Level"] = 59,
+["Timestamp"] = 1781770306,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781770618,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5060,
-["Level"] = 59,
+["Timestamp"] = 1781770618,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781770818,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5219,
-["Level"] = 59,
+["Timestamp"] = 1781770818,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5220,
 ["Timestamp"] = 1781770819,
-["Quest"] = 5220,
-["Level"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781771031,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 4984,
-["Level"] = 59,
+["Timestamp"] = 1781771031,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781771912,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5220,
-["Level"] = 59,
+["Timestamp"] = 1781771912,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5222,
 ["Timestamp"] = 1781771913,
-["Quest"] = 5222,
-["Level"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781771918,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5537,
-["Level"] = 59,
+["Timestamp"] = 1781771918,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781771929,
+["SubType"] = "Accept",
+["Level"] = 59,
 ["Quest"] = 5903,
-["Level"] = 59,
+["Timestamp"] = 1781771929,
 },
 {
-["Timestamp"] = 1781773945,
+["Level"] = 59,
 ["Quest"] = 5222,
-["Level"] = 59,
-["Event"] = "Quest",
+["Timestamp"] = 1781773945,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781773946,
+["Level"] = 59,
 ["Quest"] = 5223,
-["Level"] = 59,
-["Event"] = "Quest",
+["Timestamp"] = 1781773946,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781774174,
+["Level"] = 59,
 ["Quest"] = 4985,
-["Level"] = 59,
-["Event"] = "Quest",
+["Timestamp"] = 1781774174,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 59,
+["Event"] = "Quest",
+["Timestamp"] = 1781840895,
 ["Quest"] = 5543,
-["Timestamp"] = 1781840895,
+["Level"] = 59,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 59,
+["Event"] = "Quest",
+["Timestamp"] = 1781840895,
 ["Quest"] = 5542,
-["Timestamp"] = 1781840895,
+["Level"] = 59,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 59,
-["Quest"] = 5544,
+["Event"] = "Quest",
 ["Timestamp"] = 1781840896,
+["Quest"] = 5544,
+["Level"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1781842942,
+["SubType"] = "Complete",
+["Level"] = 59,
 ["Quest"] = 5142,
-["Level"] = 59,
+["Timestamp"] = 1781842942,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5149,
 ["Timestamp"] = 1781842943,
-["Quest"] = 5149,
-["Level"] = 59,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 59,
+["Quest"] = 5149,
 ["Timestamp"] = 1781843116,
-["Quest"] = 5149,
-["Level"] = 59,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1781843117,
+["SubType"] = "Accept",
+["Level"] = 59,
 ["Quest"] = 5152,
-["Level"] = 59,
+["Timestamp"] = 1781843117,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 59,
+["Quest"] = 5241,
 ["Timestamp"] = 1781843118,
-["Quest"] = 5241,
-["Level"] = 59,
 },
 {
-["Timestamp"] = 1781853614,
+["Level"] = 59,
 ["Quest"] = 5281,
-["Level"] = 59,
-["Event"] = "Quest",
+["Timestamp"] = 1781853614,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781853614,
+["Level"] = 59,
 ["Quest"] = 6021,
-["Level"] = 59,
-["Event"] = "Quest",
+["Timestamp"] = 1781853614,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781853658,
+["Level"] = 59,
 ["Quest"] = 6030,
-["Level"] = 59,
-["Event"] = "Quest",
+["Timestamp"] = 1781853658,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1781853688,
+["Level"] = 59,
 ["Quest"] = 5241,
-["Level"] = 59,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1781853688,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 59,
 ["Quest"] = 5211,
-["Level"] = 59,
-["Event"] = "Quest",
+["Timestamp"] = 1781853688,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 59,
-["Quest"] = 5245,
+["Event"] = "Quest",
 ["Timestamp"] = 1781891385,
+["Quest"] = 5245,
+["Level"] = 59,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 59,
-["Quest"] = 5281,
+["Event"] = "Quest",
 ["Timestamp"] = 1781892234,
+["Quest"] = 5281,
+["Level"] = 59,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 59,
-["Quest"] = 6164,
+["Event"] = "Quest",
 ["Timestamp"] = 1781892239,
+["Quest"] = 6164,
+["Level"] = 59,
 },
 {
 ["Timestamp"] = 1781892298,
@@ -15398,620 +15417,620 @@ QuestieConfig = {
 ["NewLevel"] = 60,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 6164,
+["Event"] = "Quest",
 ["Timestamp"] = 1781892971,
+["Quest"] = 6164,
+["Level"] = 60,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 5542,
+["Event"] = "Quest",
 ["Timestamp"] = 1781896113,
+["Quest"] = 5542,
+["Level"] = 60,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 5543,
+["Event"] = "Quest",
 ["Timestamp"] = 1781896114,
+["Quest"] = 5543,
+["Level"] = 60,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 5544,
+["Event"] = "Quest",
 ["Timestamp"] = 1781896115,
+["Quest"] = 5544,
+["Level"] = 60,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 5742,
+["Event"] = "Quest",
 ["Timestamp"] = 1781896116,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 60,
 ["Quest"] = 5742,
+["Level"] = 60,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1781896223,
+["Quest"] = 5742,
+["Level"] = 60,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 5223,
+["Event"] = "Quest",
 ["Timestamp"] = 1781896618,
+["Quest"] = 5223,
+["Level"] = 60,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 5225,
+["Event"] = "Quest",
 ["Timestamp"] = 1781896619,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 6185,
-["Timestamp"] = 1781896626,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 6186,
-["Timestamp"] = 1781896626,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 5903,
-["Timestamp"] = 1781896629,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 5904,
-["Timestamp"] = 1781896630,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 5152,
-["Timestamp"] = 1781896686,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 5153,
-["Timestamp"] = 1781896687,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 60,
-["Quest"] = 5153,
-["Timestamp"] = 1781897183,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 5154,
-["Timestamp"] = 1781897183,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 4971,
-["Timestamp"] = 1781897184,
-},
-{
-["Level"] = 60,
-["Quest"] = 5154,
-["Timestamp"] = 1781910310,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5210,
-["Timestamp"] = 1781910311,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 4971,
-["Timestamp"] = 1781910338,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 4972,
-["Timestamp"] = 1781910339,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 4972,
-["Timestamp"] = 1781910750,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5210,
-["Timestamp"] = 1781911052,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5181,
-["Timestamp"] = 1781911052,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5211,
-["Timestamp"] = 1781911053,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 6021,
-["Timestamp"] = 1781911148,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
 ["Quest"] = 5225,
-["Timestamp"] = 1781911869,
-["SubType"] = "Complete",
-["Event"] = "Quest",
+["Level"] = 60,
 },
 {
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1781896626,
+["Quest"] = 6185,
 ["Level"] = 60,
-["Quest"] = 5226,
-["Timestamp"] = 1781911869,
+},
+{
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 4985,
-["Timestamp"] = 1781911929,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5904,
-["Timestamp"] = 1781912162,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 6389,
-["Timestamp"] = 1781912162,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 6004,
-["Timestamp"] = 1781912201,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 6004,
-["Timestamp"] = 1781912592,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 6023,
-["Timestamp"] = 1781912593,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 6023,
-["Timestamp"] = 1781913234,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5181,
-["Timestamp"] = 1781913277,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 6389,
-["Timestamp"] = 1781913715,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5226,
-["Timestamp"] = 1781913721,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 9474,
-["Timestamp"] = 1781913723,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 8275,
-["Timestamp"] = 1781914079,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5022,
-["Timestamp"] = 1781914518,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5048,
-["Timestamp"] = 1781914518,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 5048,
-["Timestamp"] = 1781914561,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
+["Timestamp"] = 1781896626,
 ["Quest"] = 6186,
-["Timestamp"] = 1781914634,
+["Level"] = 60,
+},
+{
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
+["Timestamp"] = 1781896629,
+["Quest"] = 5903,
+["Level"] = 60,
 },
 {
-["Level"] = 60,
-["Quest"] = 8277,
-["Timestamp"] = 1781916137,
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
+["Timestamp"] = 1781896630,
+["Quest"] = 5904,
+["Level"] = 60,
 },
 {
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1781896686,
+["Quest"] = 5152,
 ["Level"] = 60,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1781896687,
+["Quest"] = 5153,
+["Level"] = 60,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1781897183,
+["Quest"] = 5153,
+["Level"] = 60,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1781897183,
+["Quest"] = 5154,
+["Level"] = 60,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1781897184,
+["Quest"] = 4971,
+["Level"] = 60,
+},
+{
+["Timestamp"] = 1781910310,
+["Quest"] = 5154,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781910311,
+["Quest"] = 5210,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781910338,
+["Quest"] = 4971,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781910339,
+["Quest"] = 4972,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781910750,
+["Quest"] = 4972,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781911052,
+["Quest"] = 5210,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781911052,
+["Quest"] = 5181,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781911053,
+["Quest"] = 5211,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781911148,
+["Quest"] = 6021,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781911869,
+["Quest"] = 5225,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781911869,
+["Quest"] = 5226,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781911929,
+["Quest"] = 4985,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781912162,
+["Quest"] = 5904,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781912162,
+["Quest"] = 6389,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781912201,
+["Quest"] = 6004,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781912592,
+["Quest"] = 6004,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781912593,
+["Quest"] = 6023,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781913234,
+["Quest"] = 6023,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781913277,
+["Quest"] = 5181,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781913715,
+["Quest"] = 6389,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781913721,
+["Quest"] = 5226,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781913723,
+["Quest"] = 9474,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781914079,
 ["Quest"] = 8275,
-["Timestamp"] = 1781916143,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781914518,
+["Quest"] = 5022,
+["Level"] = 60,
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1781914518,
+["Quest"] = 5048,
 ["Level"] = 60,
-["Quest"] = 8280,
-["Timestamp"] = 1781916144,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
+["Timestamp"] = 1781914561,
+["Quest"] = 5048,
 ["Level"] = 60,
-["Quest"] = 8284,
-["Timestamp"] = 1781916157,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
+["Timestamp"] = 1781914634,
+["Quest"] = 6186,
 ["Level"] = 60,
-["Quest"] = 8318,
-["Timestamp"] = 1781916166,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 60,
-["Quest"] = 8304,
-["Timestamp"] = 1781916184,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Timestamp"] = 1781981489,
+["Timestamp"] = 1781916137,
 ["Quest"] = 8277,
 ["Level"] = 60,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1781981490,
-["Quest"] = 8278,
-["Level"] = 60,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
 },
 {
+["Timestamp"] = 1781916143,
+["Quest"] = 8275,
+["Level"] = 60,
 ["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 60,
+},
+{
+["Timestamp"] = 1781916144,
 ["Quest"] = 8280,
-["Timestamp"] = 1781986785,
-},
-{
+["Level"] = 60,
 ["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 60,
-["Quest"] = 8281,
-["Timestamp"] = 1781986786,
 },
 {
-["Level"] = 60,
+["Timestamp"] = 1781916157,
 ["Quest"] = 8284,
-["Timestamp"] = 1781993590,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 60,
-["Quest"] = 8285,
-["Timestamp"] = 1781993591,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782092526,
-["Quest"] = 8285,
-["Level"] = 60,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1782092526,
-["Quest"] = 8279,
-["Level"] = 60,
-},
-{
-["Level"] = 60,
-["Quest"] = 8279,
-["Timestamp"] = 1782281711,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 60,
-["Quest"] = 8287,
-["Timestamp"] = 1782281711,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782324554,
-["Quest"] = 8281,
-["Level"] = 60,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782324571,
-["Quest"] = 8278,
-["Level"] = 60,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782324590,
-["Quest"] = 8287,
-["Level"] = 60,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782324591,
-["Quest"] = 8304,
-["Level"] = 60,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782324607,
+["Timestamp"] = 1781916166,
 ["Quest"] = 8318,
 ["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1781916184,
+["Quest"] = 8304,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Level"] = 60,
+["Quest"] = 8277,
+["Timestamp"] = 1781981489,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 60,
+["Quest"] = 8278,
+["Timestamp"] = 1781981490,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1781986785,
+["Quest"] = 8280,
+["Level"] = 60,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
+["Timestamp"] = 1781986786,
+["Quest"] = 8281,
+["Level"] = 60,
+},
+{
+["Timestamp"] = 1781993590,
+["Quest"] = 8284,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1781993591,
+["Quest"] = 8285,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 8285,
+["Timestamp"] = 1782092526,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 8279,
+["Timestamp"] = 1782092526,
+},
+{
+["Timestamp"] = 1782281711,
+["Quest"] = 8279,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1782281711,
+["Quest"] = 8287,
+["Level"] = 60,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 8281,
+["Timestamp"] = 1782324554,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 8278,
+["Timestamp"] = 1782324571,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 8287,
+["Timestamp"] = 1782324590,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 8304,
+["Timestamp"] = 1782324591,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 8318,
+["Timestamp"] = 1782324607,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 2783,
 ["Timestamp"] = 1782325181,
-["Quest"] = 2783,
-["Level"] = 60,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 2783,
 ["Timestamp"] = 1782330077,
-["Quest"] = 2783,
-["Level"] = 60,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 2801,
 ["Timestamp"] = 1782330078,
-["Quest"] = 2801,
-["Level"] = 60,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 2801,
 ["Timestamp"] = 1782330188,
-["Quest"] = 2801,
-["Level"] = 60,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 10119,
 ["Timestamp"] = 1782330316,
-["Quest"] = 10119,
-["Level"] = 60,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 10119,
 ["Timestamp"] = 1782330348,
-["Quest"] = 10119,
-["Level"] = 60,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 10288,
 ["Timestamp"] = 1782330349,
-["Quest"] = 10288,
-["Level"] = 60,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782330360,
+["Level"] = 60,
 ["Quest"] = 10288,
-["Level"] = 60,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1782330360,
-["Quest"] = 10140,
-["Level"] = 60,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782330487,
-["Quest"] = 10140,
-["Level"] = 60,
-},
-{
 ["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 10140,
+["Timestamp"] = 1782330360,
+},
+{
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 10140,
 ["Timestamp"] = 1782330487,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
 ["Quest"] = 10254,
-["Level"] = 60,
+["Timestamp"] = 1782330487,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 60,
+["Quest"] = 10254,
 ["Timestamp"] = 1782330640,
-["Quest"] = 10254,
-["Level"] = 60,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782330644,
+["SubType"] = "Accept",
+["Level"] = 60,
 ["Quest"] = 10141,
-["Level"] = 60,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1782330644,
-["Quest"] = 10160,
-["Level"] = 60,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 10160,
+["Timestamp"] = 1782330644,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 10055,
 ["Timestamp"] = 1782330741,
-["Quest"] = 10055,
-["Level"] = 60,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782330751,
+["SubType"] = "Complete",
+["Level"] = 60,
 ["Quest"] = 10160,
-["Level"] = 60,
+["Timestamp"] = 1782330751,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 60,
+["Quest"] = 10482,
 ["Timestamp"] = 1782330753,
-["Quest"] = 10482,
-["Level"] = 60,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782332223,
+["SubType"] = "Complete",
+["Level"] = 60,
 ["Quest"] = 10055,
-["Level"] = 60,
+["Timestamp"] = 1782332223,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782332224,
+["SubType"] = "Accept",
+["Level"] = 60,
 ["Quest"] = 10078,
-["Level"] = 60,
+["Timestamp"] = 1782332224,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782332233,
+["SubType"] = "Complete",
+["Level"] = 60,
 ["Quest"] = 10482,
-["Level"] = 60,
+["Timestamp"] = 1782332233,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782332234,
+["SubType"] = "Accept",
+["Level"] = 60,
 ["Quest"] = 10483,
-["Level"] = 60,
+["Timestamp"] = 1782332234,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782332289,
-["Quest"] = 10141,
 ["Level"] = 60,
+["Quest"] = 10141,
+["Timestamp"] = 1782332289,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782332290,
-["Quest"] = 10142,
+["SubType"] = "Accept",
 ["Level"] = 60,
+["Quest"] = 10142,
+["Timestamp"] = 1782332290,
 },
 {
 ["Timestamp"] = 1782333312,
@@ -16019,515 +16038,515 @@ QuestieConfig = {
 ["NewLevel"] = 61,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782333399,
+["SubType"] = "Complete",
+["Level"] = 61,
 ["Quest"] = 10142,
-["Level"] = 61,
+["Timestamp"] = 1782333399,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10143,
 ["Timestamp"] = 1782333400,
-["Quest"] = 10143,
-["Level"] = 61,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782333572,
+["SubType"] = "Complete",
+["Level"] = 61,
 ["Quest"] = 10483,
-["Level"] = 61,
+["Timestamp"] = 1782333572,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10484,
 ["Timestamp"] = 1782333573,
-["Quest"] = 10484,
-["Level"] = 61,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782333585,
+["SubType"] = "Complete",
+["Level"] = 61,
 ["Quest"] = 10143,
-["Level"] = 61,
+["Timestamp"] = 1782333585,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10144,
 ["Timestamp"] = 1782333586,
-["Quest"] = 10144,
-["Level"] = 61,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10895,
 ["Timestamp"] = 1782333602,
-["Quest"] = 10895,
-["Level"] = 61,
 },
 {
-["Timestamp"] = 1782369023,
+["Level"] = 61,
 ["Quest"] = 10144,
-["Level"] = 61,
-["Event"] = "Quest",
+["Timestamp"] = 1782369023,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10146,
 ["Timestamp"] = 1782369024,
-["Quest"] = 10146,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782369167,
-["Quest"] = 10146,
 ["Level"] = 61,
-["Event"] = "Quest",
+["Quest"] = 10146,
+["Timestamp"] = 1782369167,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1782369167,
-["Quest"] = 10340,
-["Level"] = 61,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 61,
+["Quest"] = 10340,
+["Timestamp"] = 1782369167,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 61,
+["Quest"] = 10895,
 ["Timestamp"] = 1782373926,
-["Quest"] = 10895,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Abandon",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10895,
 ["Timestamp"] = 1782373931,
-["Quest"] = 10895,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782374483,
+["Level"] = 61,
 ["Quest"] = 10484,
-["Level"] = 61,
-["Event"] = "Quest",
+["Timestamp"] = 1782374483,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10485,
 ["Timestamp"] = 1782374484,
-["Quest"] = 10485,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782374507,
+["Level"] = 61,
 ["Quest"] = 10895,
-["Level"] = 61,
-["Event"] = "Quest",
+["Timestamp"] = 1782374507,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782375148,
+["Level"] = 61,
 ["Quest"] = 10485,
-["Level"] = 61,
-["Event"] = "Quest",
+["Timestamp"] = 1782375148,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10903,
 ["Timestamp"] = 1782375149,
-["Quest"] = 10903,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782375217,
+["Level"] = 61,
 ["Quest"] = 10340,
-["Level"] = 61,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1782375217,
-["Quest"] = 10344,
-["Level"] = 61,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 61,
+["Quest"] = 10344,
+["Timestamp"] = 1782375217,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 61,
+["Quest"] = 10344,
 ["Timestamp"] = 1782375229,
-["Quest"] = 10344,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10163,
 ["Timestamp"] = 1782375232,
-["Quest"] = 10163,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10163,
 ["Timestamp"] = 1782375453,
-["Quest"] = 10163,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10382,
 ["Timestamp"] = 1782375454,
-["Quest"] = 10382,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10382,
 ["Timestamp"] = 1782375528,
-["Quest"] = 10382,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10394,
 ["Timestamp"] = 1782375529,
-["Quest"] = 10394,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782376336,
-["Quest"] = 10394,
 ["Level"] = 61,
-["Event"] = "Quest",
+["Quest"] = 10394,
+["Timestamp"] = 1782376336,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1782376336,
-["Quest"] = 10396,
-["Level"] = 61,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 61,
+["Quest"] = 10396,
+["Timestamp"] = 1782376336,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 61,
+["Quest"] = 10396,
 ["Timestamp"] = 1782376650,
-["Quest"] = 10396,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 61,
+["Quest"] = 10397,
 ["Timestamp"] = 1782376651,
-["Quest"] = 10397,
-["Level"] = 61,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 61,
-["Quest"] = 10395,
+["Event"] = "Quest",
 ["Timestamp"] = 1782434395,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 61,
-["Quest"] = 10397,
-["Timestamp"] = 1782434543,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 61,
-["Quest"] = 10058,
-["Timestamp"] = 1782434593,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 61,
-["Quest"] = 10903,
-["Timestamp"] = 1782434607,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 61,
-["Quest"] = 10909,
-["Timestamp"] = 1782434609,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 61,
-["Quest"] = 10916,
-["Timestamp"] = 1782434609,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 61,
 ["Quest"] = 10395,
-["Timestamp"] = 1782434742,
+["Level"] = 61,
 },
 {
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 61,
-["Quest"] = 10399,
-["Timestamp"] = 1782434743,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 61,
-["Quest"] = 10047,
-["Timestamp"] = 1782434743,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 61,
-["Quest"] = 9575,
-["Timestamp"] = 1782434755,
-},
-{
-["Level"] = 61,
-["Quest"] = 10050,
-["Timestamp"] = 1782441239,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 61,
-["Quest"] = 9355,
-["Timestamp"] = 1782441252,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 61,
-["Quest"] = 10079,
-["Timestamp"] = 1782441252,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 61,
-["Quest"] = 10079,
-["Timestamp"] = 1782442602,
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
+["Timestamp"] = 1782434543,
+["Quest"] = 10397,
+["Level"] = 61,
 },
 {
-["Level"] = 61,
-["Quest"] = 10099,
-["Timestamp"] = 1782442603,
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-},
-{
-["Level"] = 61,
-["Quest"] = 10099,
-["Timestamp"] = 1782443885,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 61,
-["Quest"] = 9373,
-["Timestamp"] = 1782444236,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 61,
-["Quest"] = 10161,
-["Timestamp"] = 1782444853,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 61,
-["Quest"] = 9349,
-["Timestamp"] = 1782444857,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 61,
+["Timestamp"] = 1782434593,
 ["Quest"] = 10058,
-["Timestamp"] = 1782446908,
-["SubType"] = "Complete",
-["Event"] = "Quest",
+["Level"] = 61,
 },
 {
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782451059,
-["Quest"] = 10050,
+["Timestamp"] = 1782434607,
+["Quest"] = 10903,
 ["Level"] = 61,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782451059,
-["Quest"] = 10057,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782451091,
-["Quest"] = 9355,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782452473,
-["Quest"] = 9349,
-["Level"] = 61,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1782452474,
-["Quest"] = 9361,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782453212,
-["Quest"] = 9361,
-["Level"] = 61,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1782453213,
-["Quest"] = 9356,
-["Level"] = 61,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1782454520,
-["Quest"] = 9558,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782454535,
-["Quest"] = 10916,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782454537,
+["Timestamp"] = 1782434609,
 ["Quest"] = 10909,
 ["Level"] = 61,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782454538,
-["Quest"] = 10935,
+["Timestamp"] = 1782434609,
+["Quest"] = 10916,
 ["Level"] = 61,
 },
 {
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782454658,
-["Quest"] = 10935,
+["Timestamp"] = 1782434742,
+["Quest"] = 10395,
 ["Level"] = 61,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782454658,
-["Quest"] = 10936,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782454730,
-["Quest"] = 10936,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782454840,
-["Quest"] = 10057,
+["Timestamp"] = 1782434743,
+["Quest"] = 10399,
 ["Level"] = 61,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782455225,
-["Quest"] = 10236,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782455661,
-["Quest"] = 10236,
-["Level"] = 61,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1782455661,
-["Quest"] = 10238,
-["Level"] = 61,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782455732,
+["Timestamp"] = 1782434743,
 ["Quest"] = 10047,
 ["Level"] = 61,
 },
 {
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1782455737,
-["Quest"] = 10093,
+["Timestamp"] = 1782434755,
+["Quest"] = 9575,
 ["Level"] = 61,
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782455888,
-["Quest"] = 10078,
+["Timestamp"] = 1782441239,
+["Quest"] = 10050,
 ["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1782455986,
-["Quest"] = 9356,
+["Timestamp"] = 1782441252,
+["Quest"] = 9355,
 ["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["SubType"] = "Complete",
+["Timestamp"] = 1782441252,
+["Quest"] = 10079,
+["Level"] = 61,
 ["Event"] = "Quest",
-["Timestamp"] = 1782456009,
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1782442602,
+["Quest"] = 10079,
+["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1782442603,
+["Quest"] = 10099,
+["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1782443885,
+["Quest"] = 10099,
+["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1782444236,
+["Quest"] = 9373,
+["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1782444853,
 ["Quest"] = 10161,
 ["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1782444857,
+["Quest"] = 9349,
+["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1782446908,
+["Quest"] = 10058,
+["Level"] = 61,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10050,
+["Timestamp"] = 1782451059,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10057,
+["Timestamp"] = 1782451059,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 9355,
+["Timestamp"] = 1782451091,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 9349,
+["Timestamp"] = 1782452473,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 9361,
+["Timestamp"] = 1782452474,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 9361,
+["Timestamp"] = 1782453212,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 9356,
+["Timestamp"] = 1782453213,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 9558,
+["Timestamp"] = 1782454520,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10916,
+["Timestamp"] = 1782454535,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10909,
+["Timestamp"] = 1782454537,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10935,
+["Timestamp"] = 1782454538,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10935,
+["Timestamp"] = 1782454658,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10936,
+["Timestamp"] = 1782454658,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10936,
+["Timestamp"] = 1782454730,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10057,
+["Timestamp"] = 1782454840,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10236,
+["Timestamp"] = 1782455225,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10236,
+["Timestamp"] = 1782455661,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10238,
+["Timestamp"] = 1782455661,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10047,
+["Timestamp"] = 1782455732,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 61,
+["Quest"] = 10093,
+["Timestamp"] = 1782455737,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10078,
+["Timestamp"] = 1782455888,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 9356,
+["Timestamp"] = 1782455986,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 61,
+["Quest"] = 10161,
+["Timestamp"] = 1782456009,
 },
 {
 ["Timestamp"] = 1782496611,
@@ -16535,529 +16554,529 @@ QuestieConfig = {
 ["NewLevel"] = 62,
 },
 {
-["Timestamp"] = 1782496611,
+["Level"] = 62,
 ["Quest"] = 10238,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1782496611,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10629,
 ["Timestamp"] = 1782496612,
-["Quest"] = 10629,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10629,
 ["Timestamp"] = 1782497376,
-["Quest"] = 10629,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10630,
 ["Timestamp"] = 1782497377,
-["Quest"] = 10630,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10630,
 ["Timestamp"] = 1782499263,
-["Quest"] = 10630,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9398,
 ["Timestamp"] = 1782499613,
-["Quest"] = 9398,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9390,
 ["Timestamp"] = 1782499630,
-["Quest"] = 9390,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9399,
 ["Timestamp"] = 1782499633,
-["Quest"] = 9399,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9426,
 ["Timestamp"] = 1782499648,
-["Quest"] = 9426,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782499659,
+["Level"] = 62,
 ["Quest"] = 10093,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1782499659,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1782499696,
+["Level"] = 62,
 ["Quest"] = 9390,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1782499696,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9423,
 ["Timestamp"] = 1782499697,
-["Quest"] = 9423,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9423,
 ["Timestamp"] = 1782499740,
-["Quest"] = 9423,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9424,
 ["Timestamp"] = 1782499744,
-["Quest"] = 9424,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782975676,
+["SubType"] = "Complete",
+["Level"] = 62,
 ["Quest"] = 9426,
-["Level"] = 62,
+["Timestamp"] = 1782975676,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 62,
+["Quest"] = 9427,
 ["Timestamp"] = 1782975677,
-["Quest"] = 9427,
-["Level"] = 62,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782975723,
+["SubType"] = "Complete",
+["Level"] = 62,
 ["Quest"] = 9424,
-["Level"] = 62,
+["Timestamp"] = 1782975723,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 62,
+["Quest"] = 9543,
 ["Timestamp"] = 1782975747,
-["Quest"] = 9543,
-["Level"] = 62,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 62,
+["Quest"] = 9543,
 ["Timestamp"] = 1782975764,
-["Quest"] = 9543,
-["Level"] = 62,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 62,
+["Quest"] = 9430,
 ["Timestamp"] = 1782975765,
-["Quest"] = 9430,
-["Level"] = 62,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1782976936,
+["SubType"] = "Complete",
+["Level"] = 62,
 ["Quest"] = 9558,
-["Level"] = 62,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1782976936,
-["Quest"] = 9417,
-["Level"] = 62,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 62,
+["Quest"] = 9417,
+["Timestamp"] = 1782976936,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 62,
+["Quest"] = 9385,
 ["Timestamp"] = 1782976937,
-["Quest"] = 9385,
-["Level"] = 62,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 62,
+["Quest"] = 9563,
 ["Timestamp"] = 1782976942,
-["Quest"] = 9563,
-["Level"] = 62,
 },
 {
+["Level"] = 62,
+["Quest"] = 9563,
 ["Timestamp"] = 1783034581,
-["Quest"] = 9563,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9420,
 ["Timestamp"] = 1783034582,
-["Quest"] = 9420,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9418,
 ["Timestamp"] = 1783035344,
-["Quest"] = 9418,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9418,
 ["Timestamp"] = 1783036053,
-["Quest"] = 9418,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783036230,
+["Level"] = 62,
 ["Quest"] = 9420,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783036230,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783036232,
+["Level"] = 62,
 ["Quest"] = 9417,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783036232,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783037198,
+["Level"] = 62,
 ["Quest"] = 9385,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783037198,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10403,
 ["Timestamp"] = 1783037320,
-["Quest"] = 10403,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10403,
 ["Timestamp"] = 1783037710,
-["Quest"] = 10403,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10367,
 ["Timestamp"] = 1783037711,
-["Quest"] = 10367,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10367,
 ["Timestamp"] = 1783037813,
-["Quest"] = 10367,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10368,
 ["Timestamp"] = 1783037814,
-["Quest"] = 10368,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783038152,
-["Quest"] = 10368,
 ["Level"] = 62,
-["Event"] = "Quest",
+["Quest"] = 10368,
+["Timestamp"] = 1783038152,
 ["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1783038152,
-["Quest"] = 10369,
-["Level"] = 62,
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 62,
+["Quest"] = 10369,
+["Timestamp"] = 1783038152,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 62,
+["Quest"] = 10369,
 ["Timestamp"] = 1783038351,
-["Quest"] = 10369,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783038411,
+["Level"] = 62,
 ["Quest"] = 9373,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783038411,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 10159,
 ["Timestamp"] = 1783038421,
-["Quest"] = 10159,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9912,
 ["Timestamp"] = 1783038424,
-["Quest"] = 9912,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783038481,
+["Level"] = 62,
 ["Quest"] = 9399,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783038481,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783038535,
+["Level"] = 62,
 ["Quest"] = 9398,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783038535,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783038586,
+["Level"] = 62,
 ["Quest"] = 9427,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783038586,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783038587,
+["Level"] = 62,
 ["Quest"] = 9430,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783038587,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9545,
 ["Timestamp"] = 1783038588,
-["Quest"] = 9545,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 62,
+["Quest"] = 9383,
 ["Timestamp"] = 1783038593,
-["Quest"] = 9383,
-["Level"] = 62,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783038756,
+["Level"] = 62,
 ["Quest"] = 10399,
-["Level"] = 62,
-["Event"] = "Quest",
+["Timestamp"] = 1783038756,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9351,
+["Event"] = "Quest",
 ["Timestamp"] = 1783044296,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 62,
 ["Quest"] = 9351,
+["Level"] = 62,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1783044793,
+["Quest"] = 9351,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 62,
-["Quest"] = 9383,
+["Event"] = "Quest",
 ["Timestamp"] = 1783044831,
+["Quest"] = 9383,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 62,
-["Quest"] = 9545,
+["Event"] = "Quest",
 ["Timestamp"] = 1783044961,
+["Quest"] = 9545,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 62,
-["Quest"] = 10159,
+["Event"] = "Quest",
 ["Timestamp"] = 1783045795,
+["Quest"] = 10159,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9747,
+["Event"] = "Quest",
 ["Timestamp"] = 1783045880,
+["Quest"] = 9747,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9802,
+["Event"] = "Quest",
 ["Timestamp"] = 1783045882,
+["Quest"] = 9802,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 62,
-["Quest"] = 9912,
+["Event"] = "Quest",
 ["Timestamp"] = 1783045920,
+["Quest"] = 9912,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9716,
+["Event"] = "Quest",
 ["Timestamp"] = 1783045921,
+["Quest"] = 9716,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9782,
+["Event"] = "Quest",
 ["Timestamp"] = 1783046162,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9786,
-["Timestamp"] = 1783046178,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9901,
-["Timestamp"] = 1783046181,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9777,
-["Timestamp"] = 1783046186,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9781,
-["Timestamp"] = 1783046195,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9791,
-["Timestamp"] = 1783046197,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9827,
-["Timestamp"] = 1783047931,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 62,
 ["Quest"] = 9782,
-["Timestamp"] = 1783048170,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1783046178,
+["Quest"] = 9786,
 ["Level"] = 62,
-["Quest"] = 9783,
-["Timestamp"] = 1783048170,
 },
 {
+["SubType"] = "Accept",
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 62,
+["Timestamp"] = 1783046181,
 ["Quest"] = 9901,
-["Timestamp"] = 1783048186,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9896,
-["Timestamp"] = 1783048187,
-},
-{
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 62,
+["Timestamp"] = 1783046186,
 ["Quest"] = 9777,
-["Timestamp"] = 1783048191,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
 ["Level"] = 62,
-["Quest"] = 9827,
-["Timestamp"] = 1783048192,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1783046195,
+["Quest"] = 9781,
 ["Level"] = 62,
-["Quest"] = 10355,
-["Timestamp"] = 1783048193,
 },
 {
+["SubType"] = "Accept",
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 62,
+["Timestamp"] = 1783046197,
 ["Quest"] = 9791,
+["Level"] = 62,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1783047931,
+["Quest"] = 9827,
+["Level"] = 62,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1783048170,
+["Quest"] = 9782,
+["Level"] = 62,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1783048170,
+["Quest"] = 9783,
+["Level"] = 62,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1783048186,
+["Quest"] = 9901,
+["Level"] = 62,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1783048187,
+["Quest"] = 9896,
+["Level"] = 62,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1783048191,
+["Quest"] = 9777,
+["Level"] = 62,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1783048192,
+["Quest"] = 9827,
+["Level"] = 62,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1783048193,
+["Quest"] = 10355,
+["Level"] = 62,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1783048206,
+["Quest"] = 9791,
+["Level"] = 62,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 62,
-["Quest"] = 9780,
+["Event"] = "Quest",
 ["Timestamp"] = 1783048207,
+["Quest"] = 9780,
+["Level"] = 62,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1783123437,
-["Quest"] = 9752,
+["SubType"] = "Accept",
 ["Level"] = 62,
+["Quest"] = 9752,
+["Timestamp"] = 1783123437,
 },
 {
 ["Timestamp"] = 1783124961,
@@ -17065,557 +17084,557 @@ QuestieConfig = {
 ["NewLevel"] = 63,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1783125287,
+["SubType"] = "Complete",
+["Level"] = 63,
 ["Quest"] = 9747,
-["Level"] = 63,
+["Timestamp"] = 1783125287,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9788,
 ["Timestamp"] = 1783125288,
-["Quest"] = 9788,
-["Level"] = 63,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1783125292,
+["SubType"] = "Complete",
+["Level"] = 63,
 ["Quest"] = 9802,
-["Level"] = 63,
+["Timestamp"] = 1783125292,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 10096,
 ["Timestamp"] = 1783125294,
-["Quest"] = 10096,
-["Level"] = 63,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9894,
 ["Timestamp"] = 1783125297,
-["Quest"] = 9894,
-["Level"] = 63,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1783125314,
+["SubType"] = "Complete",
+["Level"] = 63,
 ["Quest"] = 9716,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1783125314,
-["Quest"] = 9718,
-["Level"] = 63,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1783125327,
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9718,
+["Timestamp"] = 1783125314,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
 ["Quest"] = 9752,
-["Level"] = 63,
+["Timestamp"] = 1783125327,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1783125846,
+["SubType"] = "Complete",
+["Level"] = 63,
 ["Quest"] = 9718,
-["Level"] = 63,
+["Timestamp"] = 1783125846,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1783125847,
+["SubType"] = "Accept",
+["Level"] = 63,
 ["Quest"] = 9720,
-["Level"] = 63,
+["Timestamp"] = 1783125847,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9731,
 ["Timestamp"] = 1783127431,
-["Quest"] = 9731,
-["Level"] = 63,
 },
 {
-["Timestamp"] = 1783128039,
+["Level"] = 63,
 ["Quest"] = 9783,
-["Level"] = 63,
-["Event"] = "Quest",
+["Timestamp"] = 1783128039,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783128046,
+["Level"] = 63,
 ["Quest"] = 9786,
-["Level"] = 63,
-["Event"] = "Quest",
+["Timestamp"] = 1783128046,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783128047,
+["Level"] = 63,
 ["Quest"] = 9787,
-["Level"] = 63,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1783128047,
-["Quest"] = 9776,
-["Level"] = 63,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783128072,
+["Level"] = 63,
+["Quest"] = 9776,
+["Timestamp"] = 1783128047,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 63,
 ["Quest"] = 9896,
-["Level"] = 63,
-["Event"] = "Quest",
+["Timestamp"] = 1783128072,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783128078,
+["Level"] = 63,
 ["Quest"] = 10355,
-["Level"] = 63,
-["Event"] = "Quest",
+["Timestamp"] = 1783128078,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783128087,
+["Level"] = 63,
 ["Quest"] = 9781,
-["Level"] = 63,
-["Event"] = "Quest",
+["Timestamp"] = 1783128087,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783128088,
+["Level"] = 63,
 ["Quest"] = 9790,
-["Level"] = 63,
-["Event"] = "Quest",
+["Timestamp"] = 1783128088,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1783128090,
+["Level"] = 63,
 ["Quest"] = 9780,
-["Level"] = 63,
-["Event"] = "Quest",
+["Timestamp"] = 1783128090,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Level"] = 63,
-["Quest"] = 9731,
 ["Timestamp"] = 1783384064,
-["SubType"] = "Complete",
+["Quest"] = 9731,
+["Level"] = 63,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 63,
-["Quest"] = 9724,
 ["Timestamp"] = 1783384065,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 63,
-["Quest"] = 10096,
-["Timestamp"] = 1783384115,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 63,
-["Quest"] = 9788,
-["Timestamp"] = 1783384136,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 63,
-["Quest"] = 9894,
-["Timestamp"] = 1783384140,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783404790,
-["Quest"] = 9784,
-["Level"] = 63,
-},
-{
-["Timestamp"] = 1783406102,
-["Quest"] = 9784,
-["Level"] = 63,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1783406106,
-["Quest"] = 9785,
-["Level"] = 63,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1783406155,
-["Quest"] = 9785,
-["Level"] = 63,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1783406234,
-["Quest"] = 9697,
-["Level"] = 63,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1783406235,
-["Quest"] = 9957,
-["Level"] = 63,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783648210,
 ["Quest"] = 9724,
 ["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1783648210,
-["Quest"] = 9732,
-["Level"] = 63,
+["SubType"] = "Accept",
 },
 {
+["Timestamp"] = 1783384115,
+["Quest"] = 10096,
+["Level"] = 63,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1783384136,
+["Quest"] = 9788,
+["Level"] = 63,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1783384140,
+["Quest"] = 9894,
+["Level"] = 63,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9784,
+["Timestamp"] = 1783404790,
+},
+{
+["Level"] = 63,
+["Quest"] = 9784,
+["Timestamp"] = 1783406102,
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1783648790,
-["Quest"] = 9732,
-["Level"] = 63,
 },
 {
+["Level"] = 63,
+["Quest"] = 9785,
+["Timestamp"] = 1783406106,
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1783649020,
-["Quest"] = 9848,
-["Level"] = 63,
 },
 {
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783649026,
-["Quest"] = 10116,
 ["Level"] = 63,
-},
-{
+["Quest"] = 9785,
+["Timestamp"] = 1783406155,
 ["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1783649029,
-["Quest"] = 9776,
-["Level"] = 63,
 },
 {
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783649031,
-["Quest"] = 9835,
 ["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783649031,
-["Quest"] = 10115,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783829243,
-["Quest"] = 9848,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783829249,
-["Quest"] = 9835,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783829250,
-["Quest"] = 9839,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783829250,
-["Quest"] = 10116,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783829251,
-["Quest"] = 10115,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783829258,
-["Quest"] = 9834,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783829308,
-["Quest"] = 9830,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783829309,
-["Quest"] = 9833,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783829309,
-["Quest"] = 9902,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783835030,
-["Quest"] = 7044,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1783835033,
-["Quest"] = 7046,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783835103,
-["Quest"] = 7046,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783840818,
-["Quest"] = 7067,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783842705,
-["Quest"] = 7066,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1783843513,
-["Quest"] = 7070,
-["Level"] = 63,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784009684,
-["Quest"] = 9911,
-["Level"] = 63,
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1784011863,
 ["Quest"] = 9697,
-["Level"] = 63,
-},
-{
+["Timestamp"] = 1783406234,
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784011863,
-["Quest"] = 9701,
-["Level"] = 63,
 },
 {
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1784011864,
-["Quest"] = 9911,
 ["Level"] = 63,
-},
-{
+["Quest"] = 9957,
+["Timestamp"] = 1783406235,
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784012096,
-["Quest"] = 9743,
-["Level"] = 63,
 },
 {
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9724,
+["Timestamp"] = 1783648210,
+},
+{
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784012096,
-["Quest"] = 9739,
 ["Level"] = 63,
+["Quest"] = 9732,
+["Timestamp"] = 1783648210,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1784012097,
-["Quest"] = 9743,
 ["Level"] = 63,
+["Quest"] = 9732,
+["Timestamp"] = 1783648790,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784012580,
-["Quest"] = 9739,
-["Level"] = 63,
-},
-{
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784012581,
-["Quest"] = 9919,
 ["Level"] = 63,
+["Quest"] = 9848,
+["Timestamp"] = 1783649020,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784013417,
-["Quest"] = 9701,
-["Level"] = 63,
-},
-{
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784013417,
-["Quest"] = 9702,
 ["Level"] = 63,
+["Quest"] = 10116,
+["Timestamp"] = 1783649026,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1784014079,
-["Quest"] = 9702,
 ["Level"] = 63,
+["Quest"] = 9776,
+["Timestamp"] = 1783649029,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784014079,
-["Quest"] = 9708,
 ["Level"] = 63,
+["Quest"] = 9835,
+["Timestamp"] = 1783649031,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784014134,
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 10115,
+["Timestamp"] = 1783649031,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9848,
+["Timestamp"] = 1783829243,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9835,
+["Timestamp"] = 1783829249,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9839,
+["Timestamp"] = 1783829250,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 10116,
+["Timestamp"] = 1783829250,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 10115,
+["Timestamp"] = 1783829251,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
 ["Quest"] = 9834,
-["Level"] = 63,
+["Timestamp"] = 1783829258,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784014135,
-["Quest"] = 9905,
 ["Level"] = 63,
+["Quest"] = 9830,
+["Timestamp"] = 1783829308,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784014152,
+["SubType"] = "Accept",
+["Level"] = 63,
 ["Quest"] = 9833,
-["Level"] = 63,
+["Timestamp"] = 1783829309,
 },
 {
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9902,
+["Timestamp"] = 1783829309,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 7044,
+["Timestamp"] = 1783835030,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 7046,
+["Timestamp"] = 1783835033,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 7046,
+["Timestamp"] = 1783835103,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 7067,
+["Timestamp"] = 1783840818,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 7066,
+["Timestamp"] = 1783842705,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 7070,
+["Timestamp"] = 1783843513,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9911,
+["Timestamp"] = 1784009684,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9697,
+["Timestamp"] = 1784011863,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9701,
+["Timestamp"] = 1784011863,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9911,
+["Timestamp"] = 1784011864,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9743,
+["Timestamp"] = 1784012096,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9739,
+["Timestamp"] = 1784012096,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9743,
+["Timestamp"] = 1784012097,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9739,
+["Timestamp"] = 1784012580,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9919,
+["Timestamp"] = 1784012581,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9701,
+["Timestamp"] = 1784013417,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9702,
+["Timestamp"] = 1784013417,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9702,
+["Timestamp"] = 1784014079,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
 ["Level"] = 63,
 ["Quest"] = 9708,
+["Timestamp"] = 1784014079,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9834,
+["Timestamp"] = 1784014134,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 63,
+["Quest"] = 9905,
+["Timestamp"] = 1784014135,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9833,
+["Timestamp"] = 1784014152,
+},
+{
 ["Timestamp"] = 1784100222,
-["SubType"] = "Complete",
+["Quest"] = 9708,
+["Level"] = 63,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 63,
-["Quest"] = 9709,
 ["Timestamp"] = 1784100223,
-["SubType"] = "Accept",
+["Quest"] = 9709,
+["Level"] = 63,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 63,
-["Quest"] = 9742,
 ["Timestamp"] = 1784100758,
-["SubType"] = "Complete",
+["Quest"] = 9742,
+["Level"] = 63,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 63,
-["Quest"] = 9744,
 ["Timestamp"] = 1784100762,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1784100816,
 ["Quest"] = 9744,
 ["Level"] = 63,
+["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784100879,
+["SubType"] = "Complete",
+["Level"] = 63,
+["Quest"] = 9744,
+["Timestamp"] = 1784100816,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 63,
 ["Quest"] = 9919,
-["Level"] = 63,
+["Timestamp"] = 1784100879,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1784100889,
+["SubType"] = "Accept",
+["Level"] = 63,
 ["Quest"] = 9726,
-["Level"] = 63,
+["Timestamp"] = 1784100889,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784100899,
-["Quest"] = 9806,
 ["Level"] = 63,
+["Quest"] = 9806,
+["Timestamp"] = 1784100899,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784100900,
-["Quest"] = 9806,
+["SubType"] = "Complete",
 ["Level"] = 63,
+["Quest"] = 9806,
+["Timestamp"] = 1784100900,
 },
 {
 ["Timestamp"] = 1784102696,
@@ -17623,75 +17642,68 @@ QuestieConfig = {
 ["NewLevel"] = 64,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784107595,
+["SubType"] = "Complete",
+["Level"] = 64,
 ["Quest"] = 9726,
-["Level"] = 64,
+["Timestamp"] = 1784107595,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784107662,
+["SubType"] = "Complete",
+["Level"] = 64,
 ["Quest"] = 9709,
-["Level"] = 64,
+["Timestamp"] = 1784107662,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784107805,
+["SubType"] = "Complete",
+["Level"] = 64,
 ["Quest"] = 9839,
-["Level"] = 64,
+["Timestamp"] = 1784107805,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784107838,
+["SubType"] = "Complete",
+["Level"] = 64,
 ["Quest"] = 9905,
-["Level"] = 64,
+["Timestamp"] = 1784107838,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784107846,
+["SubType"] = "Complete",
+["Level"] = 64,
 ["Quest"] = 9830,
-["Level"] = 64,
+["Timestamp"] = 1784107846,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784107862,
+["SubType"] = "Complete",
+["Level"] = 64,
 ["Quest"] = 9902,
-["Level"] = 64,
+["Timestamp"] = 1784107862,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784108512,
+["SubType"] = "Complete",
+["Level"] = 64,
 ["Quest"] = 9787,
-["Level"] = 64,
+["Timestamp"] = 1784108512,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1784108513,
-["Quest"] = 9801,
 ["Level"] = 64,
+["Quest"] = 9801,
+["Timestamp"] = 1784108513,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1784108520,
-["Quest"] = 9790,
+["SubType"] = "Complete",
 ["Level"] = 64,
+["Quest"] = 9790,
+["Timestamp"] = 1784108520,
 },
-},
-["guid"] = "Player-6064-056FF813",
-["collapsedQuests"] = {
-},
-["collapsedZones"] = {
-},
-["TrackedQuests"] = {
 },
 ["townsfolkVersion"] = 7,
 ["trackedAchievementIds"] = {
@@ -17735,90 +17747,80 @@ QuestieConfig = {
 8157,
 20092,
 },
-["Ammo"] = {
-12246,
-1285,
-1682,
-734,
-15174,
-4889,
-3541,
-4892,
-8131,
-1287,
-7942,
-152,
-1462,
-17421,
-4896,
-14301,
-16919,
-4084,
-2084,
-791,
-12021,
-8139,
-4203,
-3610,
-1448,
-12029,
-1687,
-3962,
-1243,
-16715,
-5101,
-17489,
-228,
-19021,
-11038,
-1198,
-3587,
-11555,
-1691,
-1469,
-3589,
-12959,
-12960,
-18811,
-151,
-7976,
-16920,
-3053,
-5122,
-3498,
-5123,
-16735,
-1297,
-491,
-11184,
-4173,
-1461,
-1250,
-3088,
-2685,
-1298,
-1686,
-5510,
-2803,
-4241,
-17446,
-3608,
-829,
-3951,
-4170,
-1668,
-2808,
-5134,
-4182,
-17667,
-227,
-16732,
-789,
-1459,
-18810,
-2839,
-1685,
-1452,
+["Poisons"] = {
+5139,
+18907,
+19042,
+19679,
+15175,
+1286,
+22479,
+15179,
+3954,
+3542,
+3955,
+2622,
+19197,
+25043,
+20092,
+4897,
+7947,
+12022,
+6301,
+3135,
+16826,
+19497,
+19372,
+5163,
+19017,
+5169,
+18009,
+18019,
+1325,
+3969,
+20194,
+3779,
+23373,
+12958,
+20081,
+19194,
+4229,
+11189,
+23145,
+3561,
+22099,
+21113,
+20891,
+3499,
+19533,
+19573,
+20121,
+20250,
+12957,
+12096,
+6779,
+16829,
+1457,
+24780,
+777,
+19049,
+19239,
+18802,
+3090,
+19244,
+17486,
+19014,
+20915,
+1326,
+5135,
+26304,
+8934,
+16768,
+18006,
+12941,
+2810,
+12245,
+20986,
 },
 ["Drink"] = {
 12019,
@@ -18100,6 +18102,91 @@ QuestieConfig = {
 2834,
 4181,
 },
+["Ammo"] = {
+12246,
+1285,
+1682,
+734,
+15174,
+4889,
+3541,
+4892,
+8131,
+1287,
+7942,
+152,
+1462,
+17421,
+4896,
+14301,
+16919,
+4084,
+2084,
+791,
+12021,
+8139,
+4203,
+3610,
+1448,
+12029,
+1687,
+3962,
+1243,
+16715,
+5101,
+17489,
+228,
+19021,
+11038,
+1198,
+3587,
+11555,
+1691,
+1469,
+3589,
+12959,
+12960,
+18811,
+151,
+7976,
+16920,
+3053,
+5122,
+3498,
+5123,
+16735,
+1297,
+491,
+11184,
+4173,
+1461,
+1250,
+3088,
+2685,
+1298,
+1686,
+5510,
+2803,
+4241,
+17446,
+3608,
+829,
+3951,
+4170,
+1668,
+2808,
+5134,
+4182,
+17667,
+227,
+16732,
+789,
+1459,
+18810,
+2839,
+1685,
+1452,
+},
 ["Bags"] = {
 16709,
 1321,
@@ -18149,81 +18236,6 @@ QuestieConfig = {
 1250,
 1691,
 5132,
-},
-["Poisons"] = {
-5139,
-18907,
-19042,
-19679,
-15175,
-1286,
-22479,
-15179,
-3954,
-3542,
-3955,
-2622,
-19197,
-25043,
-20092,
-4897,
-7947,
-12022,
-6301,
-3135,
-16826,
-19497,
-19372,
-5163,
-19017,
-5169,
-18009,
-18019,
-1325,
-3969,
-20194,
-3779,
-23373,
-12958,
-20081,
-19194,
-4229,
-11189,
-23145,
-3561,
-22099,
-21113,
-20891,
-3499,
-19533,
-19573,
-20121,
-20250,
-12957,
-12096,
-6779,
-16829,
-1457,
-24780,
-777,
-19049,
-19239,
-18802,
-3090,
-19244,
-17486,
-19014,
-20915,
-1326,
-5135,
-26304,
-8934,
-16768,
-18006,
-12941,
-2810,
-12245,
-20986,
 },
 ["Trade Goods"] = {
 19497,
@@ -18604,7 +18616,7 @@ QuestieConfig = {
 [931] = true,
 [4495] = true,
 [2438] = true,
-[955] = true,
+[2518] = true,
 [3120] = true,
 [929] = true,
 [5931] = true,
@@ -18616,7 +18628,7 @@ QuestieConfig = {
 [6342] = true,
 [456] = true,
 [916] = true,
-[2518] = true,
+[955] = true,
 [932] = true,
 [940] = true,
 [476] = true,
@@ -18626,11 +18638,11 @@ QuestieConfig = {
 },
 ["journey"] = {
 {
-["Level"] = 1,
-["Quest"] = 456,
 ["Timestamp"] = 1778350953,
-["SubType"] = "Accept",
+["Quest"] = 456,
+["Level"] = 1,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778351127,
@@ -18638,60 +18650,60 @@ QuestieConfig = {
 ["NewLevel"] = 2,
 },
 {
-["Level"] = 2,
-["Quest"] = 4495,
 ["Timestamp"] = 1778351849,
-["SubType"] = "Accept",
+["Quest"] = 4495,
+["Level"] = 2,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 2,
-["Quest"] = 458,
 ["Timestamp"] = 1778351874,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 2,
-["Quest"] = 456,
-["Timestamp"] = 1778351901,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 2,
-["Quest"] = 457,
-["Timestamp"] = 1778351905,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 2,
-["Quest"] = 3120,
-["Timestamp"] = 1778351905,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 2,
-["Quest"] = 3120,
-["Timestamp"] = 1778351982,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 2,
 ["Quest"] = 458,
-["Timestamp"] = 1778352037,
-["SubType"] = "Complete",
+["Level"] = 2,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
+["Timestamp"] = 1778351901,
+["Quest"] = 456,
 ["Level"] = 2,
-["Quest"] = 459,
-["Timestamp"] = 1778352038,
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778351905,
+["Quest"] = 457,
+["Level"] = 2,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778351905,
+["Quest"] = 3120,
+["Level"] = 2,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778351982,
+["Quest"] = 3120,
+["Level"] = 2,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778352037,
+["Quest"] = 458,
+["Level"] = 2,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778352038,
+["Quest"] = 459,
+["Level"] = 2,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778352144,
@@ -18699,11 +18711,11 @@ QuestieConfig = {
 ["NewLevel"] = 3,
 },
 {
-["Level"] = 3,
-["Quest"] = 916,
 ["Timestamp"] = 1778352604,
-["SubType"] = "Accept",
+["Quest"] = 916,
+["Level"] = 3,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778353063,
@@ -18711,53 +18723,53 @@ QuestieConfig = {
 ["NewLevel"] = 4,
 },
 {
-["Level"] = 4,
-["Quest"] = 4495,
 ["Timestamp"] = 1778353334,
-["SubType"] = "Complete",
+["Quest"] = 4495,
+["Level"] = 4,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 4,
-["Quest"] = 3519,
 ["Timestamp"] = 1778353335,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 916,
-["Timestamp"] = 1778353643,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 917,
-["Timestamp"] = 1778353643,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 457,
-["Timestamp"] = 1778353662,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
-["Quest"] = 459,
-["Timestamp"] = 1778353672,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 4,
 ["Quest"] = 3519,
-["Timestamp"] = 1778353701,
-["SubType"] = "Complete",
+["Level"] = 4,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778353643,
+["Quest"] = 916,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778353643,
+["Quest"] = 917,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778353662,
+["Quest"] = 457,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778353672,
+["Quest"] = 459,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778353701,
+["Quest"] = 3519,
+["Level"] = 4,
+["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1778353701,
@@ -18765,60 +18777,60 @@ QuestieConfig = {
 ["NewLevel"] = 5,
 },
 {
-["Level"] = 5,
-["Quest"] = 3521,
 ["Timestamp"] = 1778353702,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778354645,
-["Quest"] = 917,
-["Level"] = 5,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778354646,
-["Quest"] = 920,
-["Level"] = 5,
-},
-{
-["Timestamp"] = 1778354878,
-["Quest"] = 920,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778354883,
-["Quest"] = 921,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778354909,
 ["Quest"] = 3521,
 ["Level"] = 5,
 ["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778354910,
-["Quest"] = 3522,
-["Level"] = 5,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
 },
 {
-["Timestamp"] = 1778355083,
-["Quest"] = 3522,
-["Level"] = 5,
 ["Event"] = "Quest",
 ["SubType"] = "Complete",
+["Level"] = 5,
+["Quest"] = 917,
+["Timestamp"] = 1778354645,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 5,
+["Quest"] = 920,
+["Timestamp"] = 1778354646,
+},
+{
+["Level"] = 5,
+["Quest"] = 920,
+["Timestamp"] = 1778354878,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 921,
+["Timestamp"] = 1778354883,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 3521,
+["Timestamp"] = 1778354909,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 3522,
+["Timestamp"] = 1778354910,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 3522,
+["Timestamp"] = 1778355083,
+["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1778355399,
@@ -18826,109 +18838,109 @@ QuestieConfig = {
 ["NewLevel"] = 6,
 },
 {
-["Timestamp"] = 1778355539,
+["Level"] = 6,
 ["Quest"] = 921,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
 ["Timestamp"] = 1778355539,
-["Quest"] = 928,
-["Level"] = 6,
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
 },
 {
+["Level"] = 6,
+["Quest"] = 928,
+["Timestamp"] = 1778355539,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 2159,
 ["Timestamp"] = 1778355734,
-["Quest"] = 2159,
-["Level"] = 6,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778355789,
+["Level"] = 6,
 ["Quest"] = 488,
-["Level"] = 6,
-["Event"] = "Quest",
+["Timestamp"] = 1778355789,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 6,
+["Quest"] = 997,
 ["Timestamp"] = 1778356301,
-["Quest"] = 997,
-["Level"] = 6,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778356304,
+["Level"] = 6,
 ["Quest"] = 475,
-["Level"] = 6,
-["Event"] = "Quest",
+["Timestamp"] = 1778356304,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778356475,
+["Level"] = 6,
 ["Quest"] = 932,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1778356475,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
 ["Quest"] = 2438,
-["Level"] = 6,
-["Event"] = "Quest",
+["Timestamp"] = 1778356475,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778356514,
+["Level"] = 6,
 ["Quest"] = 2159,
-["Level"] = 6,
-["Event"] = "Quest",
+["Timestamp"] = 1778356514,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778356535,
+["Level"] = 6,
 ["Quest"] = 928,
-["Level"] = 6,
-["Event"] = "Quest",
+["Timestamp"] = 1778356535,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778356536,
+["Level"] = 6,
 ["Quest"] = 929,
-["Level"] = 6,
-["Event"] = "Quest",
+["Timestamp"] = 1778356536,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778356690,
+["Level"] = 6,
 ["Quest"] = 997,
-["Level"] = 6,
-["Event"] = "Quest",
+["Timestamp"] = 1778356690,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778356712,
+["Level"] = 6,
 ["Quest"] = 919,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
 ["Timestamp"] = 1778356712,
-["Quest"] = 918,
-["Level"] = 6,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
 ["Level"] = 6,
 ["Quest"] = 918,
-["Timestamp"] = 1778361519,
-["SubType"] = "Complete",
+["Timestamp"] = 1778356712,
+["SubType"] = "Accept",
 ["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778361519,
+["Quest"] = 918,
+["Level"] = 6,
+["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
 ["Timestamp"] = 1778361519,
@@ -18936,53 +18948,53 @@ QuestieConfig = {
 ["NewLevel"] = 7,
 },
 {
-["Level"] = 7,
-["Quest"] = 922,
 ["Timestamp"] = 1778361519,
-["SubType"] = "Accept",
+["Quest"] = 922,
+["Level"] = 7,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 7,
-["Quest"] = 919,
 ["Timestamp"] = 1778361520,
-["SubType"] = "Complete",
+["Quest"] = 919,
+["Level"] = 7,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778361989,
+["SubType"] = "Complete",
+["Level"] = 7,
 ["Quest"] = 475,
-["Level"] = 7,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1778361989,
-["Quest"] = 476,
-["Level"] = 7,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778569922,
-["Quest"] = 488,
-["Level"] = 7,
-},
-{
 ["SubType"] = "Accept",
-["Event"] = "Quest",
-["Timestamp"] = 1778569961,
-["Quest"] = 489,
 ["Level"] = 7,
+["Quest"] = 476,
+["Timestamp"] = 1778361989,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778569965,
-["Quest"] = 476,
+["SubType"] = "Complete",
 ["Level"] = 7,
+["Quest"] = 488,
+["Timestamp"] = 1778569922,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 7,
+["Quest"] = 489,
+["Timestamp"] = 1778569961,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 7,
+["Quest"] = 476,
+["Timestamp"] = 1778569965,
 },
 {
 ["Timestamp"] = 1778569997,
@@ -18990,53 +19002,53 @@ QuestieConfig = {
 ["NewLevel"] = 8,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778569997,
+["SubType"] = "Complete",
+["Level"] = 8,
 ["Quest"] = 2438,
-["Level"] = 8,
+["Timestamp"] = 1778569997,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778569998,
+["SubType"] = "Accept",
+["Level"] = 8,
 ["Quest"] = 2459,
-["Level"] = 8,
+["Timestamp"] = 1778569998,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778570040,
+["SubType"] = "Complete",
+["Level"] = 8,
 ["Quest"] = 929,
-["Level"] = 8,
+["Timestamp"] = 1778570040,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778570041,
+["SubType"] = "Accept",
+["Level"] = 8,
 ["Quest"] = 933,
-["Level"] = 8,
+["Timestamp"] = 1778570041,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
+["Level"] = 8,
+["Quest"] = 4161,
 ["Timestamp"] = 1778570058,
-["Quest"] = 4161,
-["Level"] = 8,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
+["SubType"] = "Complete",
+["Level"] = 8,
+["Quest"] = 4161,
 ["Timestamp"] = 1778570059,
-["Quest"] = 4161,
-["Level"] = 8,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 8,
-["Quest"] = 489,
+["Event"] = "Quest",
 ["Timestamp"] = 1778571315,
+["Quest"] = 489,
+["Level"] = 8,
 },
 {
 ["Timestamp"] = 1778572696,
@@ -19044,88 +19056,88 @@ QuestieConfig = {
 ["NewLevel"] = 9,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 9,
-["Quest"] = 932,
+["Event"] = "Quest",
 ["Timestamp"] = 1778572696,
+["Quest"] = 932,
+["Level"] = 9,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 9,
-["Quest"] = 2459,
+["Event"] = "Quest",
 ["Timestamp"] = 1778572697,
+["Quest"] = 2459,
+["Level"] = 9,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 9,
-["Quest"] = 930,
+["Event"] = "Quest",
 ["Timestamp"] = 1778572932,
+["Quest"] = 930,
+["Level"] = 9,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 9,
-["Quest"] = 933,
+["Event"] = "Quest",
 ["Timestamp"] = 1778573061,
+["Quest"] = 933,
+["Level"] = 9,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 9,
-["Quest"] = 7383,
+["Event"] = "Quest",
 ["Timestamp"] = 1778573062,
+["Quest"] = 7383,
+["Level"] = 9,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 9,
-["Quest"] = 487,
+["Event"] = "Quest",
 ["Timestamp"] = 1778573165,
+["Quest"] = 487,
+["Level"] = 9,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 9,
-["Quest"] = 937,
+["Event"] = "Quest",
 ["Timestamp"] = 1778573843,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 9,
-["Quest"] = 931,
-["Timestamp"] = 1778573892,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Accept",
-["Level"] = 9,
-["Quest"] = 938,
-["Timestamp"] = 1778574673,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 9,
-["Quest"] = 938,
-["Timestamp"] = 1778574819,
-},
-{
-["Level"] = 9,
 ["Quest"] = 937,
-["Timestamp"] = 1778575359,
-["SubType"] = "Complete",
-["Event"] = "Quest",
+["Level"] = 9,
 },
 {
-["Level"] = 9,
-["Quest"] = 940,
-["Timestamp"] = 1778575364,
 ["SubType"] = "Accept",
 ["Event"] = "Quest",
+["Timestamp"] = 1778573892,
+["Quest"] = 931,
+["Level"] = 9,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778574673,
+["Quest"] = 938,
+["Level"] = 9,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
+["Timestamp"] = 1778574819,
+["Quest"] = 938,
+["Level"] = 9,
+},
+{
+["Timestamp"] = 1778575359,
+["Quest"] = 937,
+["Level"] = 9,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778575364,
+["Quest"] = 940,
+["Level"] = 9,
+["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
 ["Timestamp"] = 1778575592,
@@ -19133,130 +19145,130 @@ QuestieConfig = {
 ["NewLevel"] = 10,
 },
 {
-["Level"] = 10,
+["Timestamp"] = 1778575738,
 ["Quest"] = 922,
-["Timestamp"] = 1778575738,
-["SubType"] = "Complete",
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 10,
+["Timestamp"] = 1778575738,
 ["Quest"] = 923,
-["Timestamp"] = 1778575738,
-["SubType"] = "Accept",
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 10,
-["Quest"] = 5923,
 ["Timestamp"] = 1778575758,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 10,
 ["Quest"] = 5923,
+["Level"] = 10,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778575781,
-["SubType"] = "Complete",
+["Quest"] = 5923,
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 10,
-["Quest"] = 5921,
 ["Timestamp"] = 1778575782,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 10,
-["Quest"] = 940,
-["Timestamp"] = 1778575823,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 10,
-["Quest"] = 952,
-["Timestamp"] = 1778575824,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 10,
-["Quest"] = 2518,
-["Timestamp"] = 1778575948,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 10,
 ["Quest"] = 5921,
-["Timestamp"] = 1778575977,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
 ["Level"] = 10,
-["Quest"] = 5929,
-["Timestamp"] = 1778575977,
+["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Event"] = "Quest",
 },
 {
+["Timestamp"] = 1778575823,
+["Quest"] = 940,
 ["Level"] = 10,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778575824,
+["Quest"] = 952,
+["Level"] = 10,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778575948,
+["Quest"] = 2518,
+["Level"] = 10,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778575977,
+["Quest"] = 5921,
+["Level"] = 10,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778575977,
 ["Quest"] = 5929,
+["Level"] = 10,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
 ["Timestamp"] = 1778576074,
-["SubType"] = "Complete",
+["Quest"] = 5929,
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 10,
-["Quest"] = 5931,
 ["Timestamp"] = 1778576075,
-["SubType"] = "Accept",
+["Quest"] = 5931,
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 10,
+["Timestamp"] = 1778576121,
 ["Quest"] = 7383,
-["Timestamp"] = 1778576121,
-["SubType"] = "Complete",
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 10,
+["Timestamp"] = 1778576121,
 ["Quest"] = 935,
-["Timestamp"] = 1778576121,
-["SubType"] = "Accept",
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Accept",
 },
 {
-["Level"] = 10,
-["Quest"] = 931,
 ["Timestamp"] = 1778576176,
-["SubType"] = "Complete",
+["Quest"] = 931,
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 10,
-["Quest"] = 930,
 ["Timestamp"] = 1778576190,
-["SubType"] = "Complete",
+["Quest"] = 930,
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 10,
-["Quest"] = 487,
 ["Timestamp"] = 1778576284,
-["SubType"] = "Complete",
+["Quest"] = 487,
+["Level"] = 10,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778611892,
-["Quest"] = 6344,
+["SubType"] = "Accept",
 ["Level"] = 10,
+["Quest"] = 6344,
+["Timestamp"] = 1778611892,
 },
 {
 ["Timestamp"] = 1778623299,
@@ -19264,137 +19276,137 @@ QuestieConfig = {
 ["NewLevel"] = 11,
 },
 {
-["Level"] = 11,
-["Quest"] = 923,
 ["Timestamp"] = 1778623299,
-["SubType"] = "Complete",
+["Quest"] = 923,
+["Level"] = 11,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 11,
-["Quest"] = 5931,
 ["Timestamp"] = 1778623334,
-["SubType"] = "Complete",
+["Quest"] = 5931,
+["Level"] = 11,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Level"] = 11,
-["Quest"] = 6001,
 ["Timestamp"] = 1778623335,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 935,
-["Timestamp"] = 1778623353,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 2518,
-["Timestamp"] = 1778623481,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 2520,
-["Timestamp"] = 1778623482,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 2520,
-["Timestamp"] = 1778623636,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 6344,
-["Timestamp"] = 1778623712,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 6341,
-["Timestamp"] = 1778623712,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 6341,
-["Timestamp"] = 1778623735,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 6342,
-["Timestamp"] = 1778623735,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 6342,
-["Timestamp"] = 1778623841,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
 ["Quest"] = 6001,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778623353,
+["Quest"] = 935,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778623481,
+["Quest"] = 2518,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778623482,
+["Quest"] = 2520,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778623636,
+["Quest"] = 2520,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778623712,
+["Quest"] = 6344,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778623712,
+["Quest"] = 6341,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778623735,
+["Quest"] = 6341,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778623735,
+["Quest"] = 6342,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778623841,
+["Quest"] = 6342,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
 ["Timestamp"] = 1778626370,
-["SubType"] = "Complete",
+["Quest"] = 6001,
+["Level"] = 11,
 ["Event"] = "Quest",
+["SubType"] = "Complete",
 },
 {
-["Timestamp"] = 1778636979,
+["Level"] = 11,
 ["Quest"] = 983,
-["Level"] = 11,
-["Event"] = "Quest",
+["Timestamp"] = 1778636979,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778637021,
+["Level"] = 11,
 ["Quest"] = 2118,
-["Level"] = 11,
-["Event"] = "Quest",
+["Timestamp"] = 1778637021,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778637032,
+["Level"] = 11,
 ["Quest"] = 984,
-["Level"] = 11,
-["Event"] = "Quest",
+["Timestamp"] = 1778637032,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778637085,
+["Level"] = 11,
 ["Quest"] = 3524,
-["Level"] = 11,
-["Event"] = "Quest",
+["Timestamp"] = 1778637085,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 11,
+["Quest"] = 1141,
 ["Timestamp"] = 1778637112,
-["Quest"] = 1141,
-["Level"] = 11,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778637120,
-["Quest"] = 1141,
 ["Level"] = 11,
-["Event"] = "Quest",
+["Quest"] = 1141,
+["Timestamp"] = 1778637120,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1778676332,
@@ -19402,130 +19414,130 @@ QuestieConfig = {
 ["NewLevel"] = 12,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778677477,
+["SubType"] = "Complete",
+["Level"] = 12,
 ["Quest"] = 983,
-["Level"] = 12,
+["Timestamp"] = 1778677477,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778677490,
+["SubType"] = "Complete",
+["Level"] = 12,
 ["Quest"] = 3524,
-["Level"] = 12,
+["Timestamp"] = 1778677490,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 12,
+["Quest"] = 4681,
 ["Timestamp"] = 1778677491,
-["Quest"] = 4681,
-["Level"] = 12,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778677524,
+["SubType"] = "Accept",
+["Level"] = 12,
 ["Quest"] = 963,
-["Level"] = 12,
+["Timestamp"] = 1778677524,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778695666,
+["SubType"] = "Complete",
+["Level"] = 12,
 ["Quest"] = 4681,
-["Level"] = 12,
+["Timestamp"] = 1778695666,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778695700,
+["SubType"] = "Complete",
+["Level"] = 12,
 ["Quest"] = 2118,
-["Level"] = 12,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1778695700,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 12,
 ["Quest"] = 2138,
-["Level"] = 12,
+["Timestamp"] = 1778695700,
 },
 {
-["SubType"] = "Complete",
 ["Event"] = "Quest",
-["Timestamp"] = 1778695708,
+["SubType"] = "Complete",
+["Level"] = 12,
 ["Quest"] = 984,
-["Level"] = 12,
+["Timestamp"] = 1778695708,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778695709,
+["SubType"] = "Accept",
+["Level"] = 12,
 ["Quest"] = 985,
-["Level"] = 12,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1778695709,
-["Quest"] = 4761,
-["Level"] = 12,
 },
 {
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 12,
+["Quest"] = 4761,
+["Timestamp"] = 1778695709,
+},
+{
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778695746,
+["Level"] = 12,
 ["Quest"] = 4761,
-["Level"] = 12,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1778695746,
-["Quest"] = 954,
-["Level"] = 12,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778695747,
+["SubType"] = "Accept",
+["Level"] = 12,
+["Quest"] = 954,
+["Timestamp"] = 1778695746,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 12,
 ["Quest"] = 4762,
-["Level"] = 12,
-},
-{
-["SubType"] = "Accept",
-["Event"] = "Quest",
 ["Timestamp"] = 1778695747,
+},
+{
+["Event"] = "Quest",
+["SubType"] = "Accept",
+["Level"] = 12,
 ["Quest"] = 958,
-["Level"] = 12,
+["Timestamp"] = 1778695747,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778695770,
+["SubType"] = "Accept",
+["Level"] = 12,
 ["Quest"] = 4811,
-["Level"] = 12,
+["Timestamp"] = 1778695770,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778697442,
+["SubType"] = "Accept",
+["Level"] = 12,
 ["Quest"] = 4722,
-["Level"] = 12,
+["Timestamp"] = 1778697442,
 },
 {
+["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Event"] = "Quest",
-["Timestamp"] = 1778699594,
-["Quest"] = 954,
 ["Level"] = 12,
+["Quest"] = 954,
+["Timestamp"] = 1778699594,
 },
 {
-["SubType"] = "Accept",
 ["Event"] = "Quest",
-["Timestamp"] = 1778699595,
-["Quest"] = 955,
+["SubType"] = "Accept",
 ["Level"] = 12,
+["Quest"] = 955,
+["Timestamp"] = 1778699595,
 },
 {
 ["Timestamp"] = 1778700172,
@@ -19533,67 +19545,67 @@ QuestieConfig = {
 ["NewLevel"] = 13,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 13,
-["Quest"] = 955,
+["Event"] = "Quest",
 ["Timestamp"] = 1778713356,
+["Quest"] = 955,
+["Level"] = 13,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 13,
-["Quest"] = 956,
+["Event"] = "Quest",
 ["Timestamp"] = 1778713357,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 13,
 ["Quest"] = 956,
-["Timestamp"] = 1778714001,
+["Level"] = 13,
 },
 {
+["SubType"] = "Complete",
 ["Event"] = "Quest",
-["SubType"] = "Accept",
+["Timestamp"] = 1778714001,
+["Quest"] = 956,
 ["Level"] = 13,
+},
+{
+["SubType"] = "Accept",
+["Event"] = "Quest",
+["Timestamp"] = 1778714001,
 ["Quest"] = 957,
-["Timestamp"] = 1778714001,
+["Level"] = 13,
 },
 {
-["Timestamp"] = 1778788167,
+["Level"] = 13,
 ["Quest"] = 4811,
-["Level"] = 13,
-["Event"] = "Quest",
+["Timestamp"] = 1778788167,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778788168,
+["Level"] = 13,
 ["Quest"] = 4812,
-["Level"] = 13,
-["Event"] = "Quest",
+["Timestamp"] = 1778788168,
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
+["Level"] = 13,
+["Quest"] = 2178,
 ["Timestamp"] = 1778824355,
-["Quest"] = 2178,
-["Level"] = 13,
-["Event"] = "Quest",
 ["SubType"] = "Accept",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778824358,
+["Level"] = 13,
 ["Quest"] = 2178,
-["Level"] = 13,
-["Event"] = "Quest",
+["Timestamp"] = 1778824358,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
-["Timestamp"] = 1778824364,
-["Quest"] = 4762,
 ["Level"] = 13,
-["Event"] = "Quest",
+["Quest"] = 4762,
+["Timestamp"] = 1778824364,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 {
 ["Timestamp"] = 1778824391,
@@ -19601,16 +19613,16 @@ QuestieConfig = {
 ["NewLevel"] = 14,
 },
 {
-["Timestamp"] = 1778824391,
-["Quest"] = 2138,
 ["Level"] = 14,
-["Event"] = "Quest",
+["Quest"] = 2138,
+["Timestamp"] = 1778824391,
 ["SubType"] = "Complete",
+["Event"] = "Quest",
 },
 },
 ["TrackedQuests"] = {
 },
-["collapsedQuests"] = {
+["TrackerHiddenObjectives"] = {
 },
 ["townsfolk"] = {
 ["Spirit Healer"] = {
@@ -19708,7 +19720,7 @@ QuestieConfig = {
 188123,
 },
 },
-["TrackerHiddenObjectives"] = {
+["collapsedQuests"] = {
 },
 ["townsfolkVersion"] = 1,
 ["guid"] = "Player-6064-05956E25",
@@ -19751,80 +19763,55 @@ QuestieConfig = {
 8157,
 20092,
 },
-["Poisons"] = {
-5139,
-18907,
-19042,
-19679,
-15175,
-1286,
-22479,
-15179,
-3954,
-3542,
-3955,
-2622,
+["Bags"] = {
+16709,
+1321,
+12959,
+151,
+12960,
+2808,
+4182,
+491,
+19053,
+4230,
+791,
+1448,
+1452,
+17421,
+12021,
+18810,
+16732,
+17489,
+4170,
+15174,
+1685,
+12246,
 19197,
-25043,
-20092,
-4897,
-7947,
-12022,
-6301,
-3135,
-16826,
-19497,
-19372,
-5163,
-19017,
-5169,
-18009,
-18019,
-1325,
-3969,
-20194,
-3779,
-23373,
-12958,
-20081,
-19194,
-4229,
-11189,
-23145,
-3561,
-22099,
-21113,
-20891,
-3499,
-19533,
-19573,
-20121,
-20250,
-12957,
-12096,
-6779,
-16829,
-1457,
-24780,
-777,
-19049,
-19239,
-18802,
-3090,
-19244,
-17486,
-19014,
-20915,
-1326,
-5135,
-26304,
-8934,
-16768,
-18006,
-12941,
-2810,
-12245,
-20986,
+4896,
+2803,
+227,
+5134,
+18906,
+1682,
+11555,
+11038,
+3608,
+8139,
+3498,
+5101,
+3962,
+3541,
+2084,
+18811,
+1285,
+734,
+7942,
+4241,
+4084,
+17446,
+1250,
+1691,
+5132,
 },
 ["Drink"] = {
 12019,
@@ -20089,6 +20076,81 @@ QuestieConfig = {
 6091,
 4084,
 },
+["Poisons"] = {
+5139,
+18907,
+19042,
+19679,
+15175,
+1286,
+22479,
+15179,
+3954,
+3542,
+3955,
+2622,
+19197,
+25043,
+20092,
+4897,
+7947,
+12022,
+6301,
+3135,
+16826,
+19497,
+19372,
+5163,
+19017,
+5169,
+18009,
+18019,
+1325,
+3969,
+20194,
+3779,
+23373,
+12958,
+20081,
+19194,
+4229,
+11189,
+23145,
+3561,
+22099,
+21113,
+20891,
+3499,
+19533,
+19573,
+20121,
+20250,
+12957,
+12096,
+6779,
+16829,
+1457,
+24780,
+777,
+19049,
+19239,
+18802,
+3090,
+19244,
+17486,
+19014,
+20915,
+1326,
+5135,
+26304,
+8934,
+16768,
+18006,
+12941,
+2810,
+12245,
+20986,
+},
 ["Ammo"] = {
 3610,
 16735,
@@ -20154,56 +20216,6 @@ QuestieConfig = {
 1687,
 1691,
 3498,
-},
-["Bags"] = {
-16709,
-1321,
-12959,
-151,
-12960,
-2808,
-4182,
-491,
-19053,
-4230,
-791,
-1448,
-1452,
-17421,
-12021,
-18810,
-16732,
-17489,
-4170,
-15174,
-1685,
-12246,
-19197,
-4896,
-2803,
-227,
-5134,
-18906,
-1682,
-11555,
-11038,
-3608,
-8139,
-3498,
-5101,
-3962,
-3541,
-2084,
-18811,
-1285,
-734,
-7942,
-4241,
-4084,
-17446,
-1250,
-1691,
-5132,
 },
 ["Trade Goods"] = {
 19497,
@@ -20699,90 +20711,80 @@ QuestieConfig = {
 8157,
 20092,
 },
-["Ammo"] = {
-12246,
-1285,
-1682,
-734,
-15174,
-4889,
-3541,
-4892,
-8131,
-1287,
-7942,
-152,
-1462,
-17421,
-4896,
-14301,
-16919,
-4084,
-2084,
-791,
-12021,
-8139,
-4203,
-3610,
-1448,
-12029,
-1687,
-3962,
-1243,
-16715,
-5101,
-17489,
-228,
-19021,
-11038,
-1198,
-3587,
-11555,
-1691,
-1469,
-3589,
-12959,
-12960,
-18811,
-151,
-7976,
-16920,
-3053,
-5122,
-3498,
-5123,
-16735,
-1297,
-491,
-11184,
-4173,
-1461,
-1250,
-3088,
-2685,
-1298,
-1686,
-5510,
-2803,
-4241,
-17446,
-3608,
-829,
-3951,
-4170,
-1668,
-2808,
-5134,
-4182,
-17667,
-227,
-16732,
-789,
-1459,
-18810,
-2839,
-1685,
-1452,
+["Poisons"] = {
+5139,
+18907,
+19042,
+19679,
+15175,
+1286,
+22479,
+15179,
+3954,
+3542,
+3955,
+2622,
+19197,
+25043,
+20092,
+4897,
+7947,
+12022,
+6301,
+3135,
+16826,
+19497,
+19372,
+5163,
+19017,
+5169,
+18009,
+18019,
+1325,
+3969,
+20194,
+3779,
+23373,
+12958,
+20081,
+19194,
+4229,
+11189,
+23145,
+3561,
+22099,
+21113,
+20891,
+3499,
+19533,
+19573,
+20121,
+20250,
+12957,
+12096,
+6779,
+16829,
+1457,
+24780,
+777,
+19049,
+19239,
+18802,
+3090,
+19244,
+17486,
+19014,
+20915,
+1326,
+5135,
+26304,
+8934,
+16768,
+18006,
+12941,
+2810,
+12245,
+20986,
 },
 ["Drink"] = {
 12019,
@@ -21064,6 +21066,91 @@ QuestieConfig = {
 2834,
 4181,
 },
+["Ammo"] = {
+12246,
+1285,
+1682,
+734,
+15174,
+4889,
+3541,
+4892,
+8131,
+1287,
+7942,
+152,
+1462,
+17421,
+4896,
+14301,
+16919,
+4084,
+2084,
+791,
+12021,
+8139,
+4203,
+3610,
+1448,
+12029,
+1687,
+3962,
+1243,
+16715,
+5101,
+17489,
+228,
+19021,
+11038,
+1198,
+3587,
+11555,
+1691,
+1469,
+3589,
+12959,
+12960,
+18811,
+151,
+7976,
+16920,
+3053,
+5122,
+3498,
+5123,
+16735,
+1297,
+491,
+11184,
+4173,
+1461,
+1250,
+3088,
+2685,
+1298,
+1686,
+5510,
+2803,
+4241,
+17446,
+3608,
+829,
+3951,
+4170,
+1668,
+2808,
+5134,
+4182,
+17667,
+227,
+16732,
+789,
+1459,
+18810,
+2839,
+1685,
+1452,
+},
 ["Bags"] = {
 16709,
 1321,
@@ -21113,81 +21200,6 @@ QuestieConfig = {
 1250,
 1691,
 5132,
-},
-["Poisons"] = {
-5139,
-18907,
-19042,
-19679,
-15175,
-1286,
-22479,
-15179,
-3954,
-3542,
-3955,
-2622,
-19197,
-25043,
-20092,
-4897,
-7947,
-12022,
-6301,
-3135,
-16826,
-19497,
-19372,
-5163,
-19017,
-5169,
-18009,
-18019,
-1325,
-3969,
-20194,
-3779,
-23373,
-12958,
-20081,
-19194,
-4229,
-11189,
-23145,
-3561,
-22099,
-21113,
-20891,
-3499,
-19533,
-19573,
-20121,
-20250,
-12957,
-12096,
-6779,
-16829,
-1457,
-24780,
-777,
-19049,
-19239,
-18802,
-3090,
-19244,
-17486,
-19014,
-20915,
-1326,
-5135,
-26304,
-8934,
-16768,
-18006,
-12941,
-2810,
-12245,
-20986,
 },
 ["Trade Goods"] = {
 19497,
@@ -21645,972 +21657,7 @@ QuestieConfig = {
 },
 ["AutoUntrackedQuests"] = {
 },
-["journey"] = {
-{
-["Timestamp"] = 1778863614,
-["Quest"] = 9279,
-["Level"] = 1,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778863680,
-["Quest"] = 9279,
-["Level"] = 1,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778863681,
-["Quest"] = 9280,
-["Level"] = 1,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778863730,
-["Quest"] = 10302,
-["Level"] = 1,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778864294,
-["Event"] = "Level",
-["NewLevel"] = 2,
-},
-{
-["Timestamp"] = 1778864820,
-["Quest"] = 10302,
-["Level"] = 2,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778864821,
-["Quest"] = 9293,
-["Level"] = 2,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778864827,
-["Quest"] = 9799,
-["Level"] = 2,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778864981,
-["Event"] = "Level",
-["NewLevel"] = 3,
-},
-{
-["Timestamp"] = 1778867278,
-["Quest"] = 9799,
-["Level"] = 3,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778867280,
-["Quest"] = 9293,
-["Level"] = 3,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778867281,
-["Quest"] = 9294,
-["Level"] = 3,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778867302,
-["Event"] = "Level",
-["NewLevel"] = 4,
-},
-{
-["Timestamp"] = 1778867302,
-["Quest"] = 9280,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778867302,
-["Quest"] = 9409,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778867335,
-["Quest"] = 9409,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778867336,
-["Quest"] = 9283,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778867341,
-["Quest"] = 9290,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778867390,
-["Quest"] = 9305,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778867393,
-["Quest"] = 9303,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778868169,
-["Quest"] = 9294,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778868193,
-["Quest"] = 9283,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778868229,
-["Quest"] = 9305,
-["Level"] = 4,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778868235,
-["Event"] = "Level",
-["NewLevel"] = 5,
-},
-{
-["Timestamp"] = 1778868235,
-["Quest"] = 9303,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778868235,
-["Quest"] = 9309,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778868428,
-["Quest"] = 9309,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778868428,
-["Quest"] = 10303,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778868891,
-["Quest"] = 10303,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778868892,
-["Quest"] = 9311,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778869214,
-["Quest"] = 9798,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778869334,
-["Quest"] = 9311,
-["Level"] = 5,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778869335,
-["Event"] = "Level",
-["NewLevel"] = 6,
-},
-{
-["Timestamp"] = 1778869335,
-["Quest"] = 9798,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778869336,
-["Quest"] = 9312,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778869340,
-["Quest"] = 9312,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778869341,
-["Quest"] = 9313,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778869577,
-["Quest"] = 9314,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778869643,
-["Quest"] = 9452,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778870000,
-["Quest"] = 9452,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778870007,
-["Quest"] = 9453,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778870105,
-["Quest"] = 9455,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778870244,
-["Quest"] = 9463,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778870259,
-["Quest"] = 9455,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778870260,
-["Quest"] = 9456,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778870301,
-["Quest"] = 9313,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778870315,
-["Quest"] = 9314,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778870334,
-["Quest"] = 9453,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778870338,
-["Quest"] = 9454,
-["Level"] = 6,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778871783,
-["Event"] = "Level",
-["NewLevel"] = 7,
-},
-{
-["Timestamp"] = 1778874456,
-["Quest"] = 9506,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778874459,
-["Quest"] = 9512,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778875604,
-["Quest"] = 9512,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778875609,
-["Quest"] = 9506,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778875610,
-["Quest"] = 9530,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778875617,
-["Quest"] = 9513,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778875621,
-["Quest"] = 9523,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778876294,
-["Quest"] = 9530,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778876295,
-["Quest"] = 9531,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778877442,
-["Quest"] = 9463,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778877462,
-["Quest"] = 9473,
-["Level"] = 7,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778877471,
-["Event"] = "Level",
-["NewLevel"] = 8,
-},
-{
-["Timestamp"] = 1778877472,
-["Quest"] = 9454,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778877473,
-["Quest"] = 10324,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778877509,
-["Quest"] = 9538,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778877559,
-["Quest"] = 9538,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778877560,
-["Quest"] = 9539,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778877565,
-["Quest"] = 10428,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778880577,
-["Quest"] = 9539,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778880577,
-["Quest"] = 9540,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778880657,
-["Quest"] = 9540,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778880657,
-["Quest"] = 9541,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778880765,
-["Quest"] = 9541,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778880766,
-["Quest"] = 9542,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778880935,
-["Quest"] = 9542,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778880936,
-["Quest"] = 9544,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778882977,
-["Quest"] = 9514,
-["Level"] = 8,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778884004,
-["Event"] = "Level",
-["NewLevel"] = 9,
-},
-{
-["Timestamp"] = 1778886783,
-["Quest"] = 10428,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778886784,
-["Quest"] = 9527,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778887137,
-["Quest"] = 9527,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778887552,
-["Quest"] = 9523,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778887557,
-["Quest"] = 9531,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778887558,
-["Quest"] = 9537,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778887558,
-["Quest"] = 9513,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778887559,
-["Quest"] = 9514,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778887695,
-["Quest"] = 9515,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778887697,
-["Quest"] = 9537,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778887698,
-["Quest"] = 9602,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778888221,
-["Quest"] = 9515,
-["Level"] = 9,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778888325,
-["Event"] = "Level",
-["NewLevel"] = 10,
-},
-{
-["Timestamp"] = 1778888325,
-["Quest"] = 10324,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778888336,
-["Quest"] = 9595,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778888351,
-["Quest"] = 9544,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778888351,
-["Quest"] = 9559,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778888359,
-["Quest"] = 9473,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778888384,
-["Quest"] = 9456,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778888385,
-["Quest"] = 9602,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778888386,
-["Quest"] = 9623,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778888672,
-["Quest"] = 9623,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778890316,
-["Quest"] = 9560,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778890319,
-["Quest"] = 9562,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778890362,
-["Quest"] = 9559,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778891554,
-["Quest"] = 9560,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778891606,
-["Quest"] = 9573,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778891609,
-["Quest"] = 9565,
-["Level"] = 10,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778892183,
-["Event"] = "Level",
-["NewLevel"] = 11,
-},
-{
-["Timestamp"] = 1778892183,
-["Quest"] = 9565,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778892183,
-["Quest"] = 9566,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778892322,
-["Quest"] = 9566,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778892332,
-["Quest"] = 9570,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778892547,
-["Quest"] = 9573,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778892555,
-["Quest"] = 9570,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778892556,
-["Quest"] = 9571,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778892567,
-["Quest"] = 9622,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778892587,
-["Quest"] = 9571,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778892816,
-["Quest"] = 9564,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Accept",
-},
-{
-["Timestamp"] = 1778893442,
-["Quest"] = 9564,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778893443,
-["Quest"] = 9562,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Timestamp"] = 1778893488,
-["Quest"] = 9622,
-["Level"] = 11,
-["Event"] = "Quest",
-["SubType"] = "Complete",
-},
-{
-["Level"] = 11,
-["Quest"] = 9595,
-["Timestamp"] = 1778897043,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 983,
-["Timestamp"] = 1778898724,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 2118,
-["Timestamp"] = 1778898746,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 984,
-["Timestamp"] = 1778898752,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 11,
-["Quest"] = 3524,
-["Timestamp"] = 1778898877,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Timestamp"] = 1778899542,
-["Event"] = "Level",
-["NewLevel"] = 12,
-},
-{
-["Level"] = 12,
-["Quest"] = 983,
-["Timestamp"] = 1778900391,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 3524,
-["Timestamp"] = 1778900452,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 4681,
-["Timestamp"] = 1778900453,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 963,
-["Timestamp"] = 1778900485,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 4681,
-["Timestamp"] = 1778900974,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 2118,
-["Timestamp"] = 1778901005,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 2138,
-["Timestamp"] = 1778901006,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 984,
-["Timestamp"] = 1778901012,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 985,
-["Timestamp"] = 1778901013,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 4761,
-["Timestamp"] = 1778901013,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 4761,
-["Timestamp"] = 1778901050,
-["SubType"] = "Complete",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 954,
-["Timestamp"] = 1778901051,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 4762,
-["Timestamp"] = 1778901051,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 958,
-["Timestamp"] = 1778901052,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
-{
-["Level"] = 12,
-["Quest"] = 4811,
-["Timestamp"] = 1778901077,
-["SubType"] = "Accept",
-["Event"] = "Quest",
-},
+["TrackerHiddenQuests"] = {
 },
 ["minAllQuestsInZone"] = {
 },
@@ -22658,15 +21705,15 @@ QuestieConfig = {
 [9290] = true,
 [9537] = true,
 [9303] = true,
-[9562] = true,
+[10324] = true,
 [9559] = true,
 [9560] = true,
-[9566] = true,
-[10324] = true,
+[9312] = true,
+[9562] = true,
 [9309] = true,
 [9564] = true,
-[9311] = true,
-[9312] = true,
+[9565] = true,
+[9566] = true,
 [9313] = true,
 [9314] = true,
 [9798] = true,
@@ -22675,19 +21722,984 @@ QuestieConfig = {
 [9369] = true,
 [9573] = true,
 [9305] = true,
-[9565] = true,
+[9311] = true,
 [10302] = true,
 [9523] = true,
 [10303] = true,
 [10428] = true,
 },
-["TrackerHiddenQuests"] = {
+["journey"] = {
+{
+["Level"] = 1,
+["Quest"] = 9279,
+["Timestamp"] = 1778863614,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 1,
+["Quest"] = 9279,
+["Timestamp"] = 1778863680,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 1,
+["Quest"] = 9280,
+["Timestamp"] = 1778863681,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 1,
+["Quest"] = 10302,
+["Timestamp"] = 1778863730,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778864294,
+["Event"] = "Level",
+["NewLevel"] = 2,
+},
+{
+["Level"] = 2,
+["Quest"] = 10302,
+["Timestamp"] = 1778864820,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 2,
+["Quest"] = 9293,
+["Timestamp"] = 1778864821,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 2,
+["Quest"] = 9799,
+["Timestamp"] = 1778864827,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778864981,
+["Event"] = "Level",
+["NewLevel"] = 3,
+},
+{
+["Level"] = 3,
+["Quest"] = 9799,
+["Timestamp"] = 1778867278,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 3,
+["Quest"] = 9293,
+["Timestamp"] = 1778867280,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 3,
+["Quest"] = 9294,
+["Timestamp"] = 1778867281,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778867302,
+["Event"] = "Level",
+["NewLevel"] = 4,
+},
+{
+["Level"] = 4,
+["Quest"] = 9280,
+["Timestamp"] = 1778867302,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9409,
+["Timestamp"] = 1778867302,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9409,
+["Timestamp"] = 1778867335,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9283,
+["Timestamp"] = 1778867336,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9290,
+["Timestamp"] = 1778867341,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9305,
+["Timestamp"] = 1778867390,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9303,
+["Timestamp"] = 1778867393,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9294,
+["Timestamp"] = 1778868169,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9283,
+["Timestamp"] = 1778868193,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 4,
+["Quest"] = 9305,
+["Timestamp"] = 1778868229,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778868235,
+["Event"] = "Level",
+["NewLevel"] = 5,
+},
+{
+["Level"] = 5,
+["Quest"] = 9303,
+["Timestamp"] = 1778868235,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 9309,
+["Timestamp"] = 1778868235,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 9309,
+["Timestamp"] = 1778868428,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 10303,
+["Timestamp"] = 1778868428,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 10303,
+["Timestamp"] = 1778868891,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 9311,
+["Timestamp"] = 1778868892,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 9798,
+["Timestamp"] = 1778869214,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 5,
+["Quest"] = 9311,
+["Timestamp"] = 1778869334,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778869335,
+["Event"] = "Level",
+["NewLevel"] = 6,
+},
+{
+["Level"] = 6,
+["Quest"] = 9798,
+["Timestamp"] = 1778869335,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9312,
+["Timestamp"] = 1778869336,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9312,
+["Timestamp"] = 1778869340,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9313,
+["Timestamp"] = 1778869341,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9314,
+["Timestamp"] = 1778869577,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9452,
+["Timestamp"] = 1778869643,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9452,
+["Timestamp"] = 1778870000,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9453,
+["Timestamp"] = 1778870007,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9455,
+["Timestamp"] = 1778870105,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9463,
+["Timestamp"] = 1778870244,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9455,
+["Timestamp"] = 1778870259,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9456,
+["Timestamp"] = 1778870260,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9313,
+["Timestamp"] = 1778870301,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9314,
+["Timestamp"] = 1778870315,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9453,
+["Timestamp"] = 1778870334,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 6,
+["Quest"] = 9454,
+["Timestamp"] = 1778870338,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778871783,
+["Event"] = "Level",
+["NewLevel"] = 7,
+},
+{
+["Level"] = 7,
+["Quest"] = 9506,
+["Timestamp"] = 1778874456,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9512,
+["Timestamp"] = 1778874459,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9512,
+["Timestamp"] = 1778875604,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9506,
+["Timestamp"] = 1778875609,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9530,
+["Timestamp"] = 1778875610,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9513,
+["Timestamp"] = 1778875617,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9523,
+["Timestamp"] = 1778875621,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9530,
+["Timestamp"] = 1778876294,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9531,
+["Timestamp"] = 1778876295,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9463,
+["Timestamp"] = 1778877442,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 7,
+["Quest"] = 9473,
+["Timestamp"] = 1778877462,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778877471,
+["Event"] = "Level",
+["NewLevel"] = 8,
+},
+{
+["Level"] = 8,
+["Quest"] = 9454,
+["Timestamp"] = 1778877472,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 10324,
+["Timestamp"] = 1778877473,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9538,
+["Timestamp"] = 1778877509,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9538,
+["Timestamp"] = 1778877559,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9539,
+["Timestamp"] = 1778877560,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 10428,
+["Timestamp"] = 1778877565,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9539,
+["Timestamp"] = 1778880577,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9540,
+["Timestamp"] = 1778880577,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9540,
+["Timestamp"] = 1778880657,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9541,
+["Timestamp"] = 1778880657,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9541,
+["Timestamp"] = 1778880765,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9542,
+["Timestamp"] = 1778880766,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9542,
+["Timestamp"] = 1778880935,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9544,
+["Timestamp"] = 1778880936,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 8,
+["Quest"] = 9514,
+["Timestamp"] = 1778882977,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778884004,
+["Event"] = "Level",
+["NewLevel"] = 9,
+},
+{
+["Level"] = 9,
+["Quest"] = 10428,
+["Timestamp"] = 1778886783,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9527,
+["Timestamp"] = 1778886784,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9527,
+["Timestamp"] = 1778887137,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9523,
+["Timestamp"] = 1778887552,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9531,
+["Timestamp"] = 1778887557,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9537,
+["Timestamp"] = 1778887558,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9513,
+["Timestamp"] = 1778887558,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9514,
+["Timestamp"] = 1778887559,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9515,
+["Timestamp"] = 1778887695,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9537,
+["Timestamp"] = 1778887697,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9602,
+["Timestamp"] = 1778887698,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 9,
+["Quest"] = 9515,
+["Timestamp"] = 1778888221,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778888325,
+["Event"] = "Level",
+["NewLevel"] = 10,
+},
+{
+["Level"] = 10,
+["Quest"] = 10324,
+["Timestamp"] = 1778888325,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9595,
+["Timestamp"] = 1778888336,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9544,
+["Timestamp"] = 1778888351,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9559,
+["Timestamp"] = 1778888351,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9473,
+["Timestamp"] = 1778888359,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9456,
+["Timestamp"] = 1778888384,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9602,
+["Timestamp"] = 1778888385,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9623,
+["Timestamp"] = 1778888386,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9623,
+["Timestamp"] = 1778888672,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9560,
+["Timestamp"] = 1778890316,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9562,
+["Timestamp"] = 1778890319,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9559,
+["Timestamp"] = 1778890362,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9560,
+["Timestamp"] = 1778891554,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9573,
+["Timestamp"] = 1778891606,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 10,
+["Quest"] = 9565,
+["Timestamp"] = 1778891609,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778892183,
+["Event"] = "Level",
+["NewLevel"] = 11,
+},
+{
+["Level"] = 11,
+["Quest"] = 9565,
+["Timestamp"] = 1778892183,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9566,
+["Timestamp"] = 1778892183,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9566,
+["Timestamp"] = 1778892322,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9570,
+["Timestamp"] = 1778892332,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9573,
+["Timestamp"] = 1778892547,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9570,
+["Timestamp"] = 1778892555,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9571,
+["Timestamp"] = 1778892556,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9622,
+["Timestamp"] = 1778892567,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9571,
+["Timestamp"] = 1778892587,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9564,
+["Timestamp"] = 1778892816,
+["SubType"] = "Accept",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9564,
+["Timestamp"] = 1778893442,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9562,
+["Timestamp"] = 1778893443,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Level"] = 11,
+["Quest"] = 9622,
+["Timestamp"] = 1778893488,
+["SubType"] = "Complete",
+["Event"] = "Quest",
+},
+{
+["Timestamp"] = 1778897043,
+["Quest"] = 9595,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778898724,
+["Quest"] = 983,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778898746,
+["Quest"] = 2118,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778898752,
+["Quest"] = 984,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778898877,
+["Quest"] = 3524,
+["Level"] = 11,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778899542,
+["Event"] = "Level",
+["NewLevel"] = 12,
+},
+{
+["Timestamp"] = 1778900391,
+["Quest"] = 983,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778900452,
+["Quest"] = 3524,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778900453,
+["Quest"] = 4681,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778900485,
+["Quest"] = 963,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778900974,
+["Quest"] = 4681,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778901005,
+["Quest"] = 2118,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778901006,
+["Quest"] = 2138,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778901012,
+["Quest"] = 984,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778901013,
+["Quest"] = 985,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778901013,
+["Quest"] = 4761,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778901050,
+["Quest"] = 4761,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Complete",
+},
+{
+["Timestamp"] = 1778901051,
+["Quest"] = 954,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778901051,
+["Quest"] = 4762,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778901052,
+["Quest"] = 958,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
+{
+["Timestamp"] = 1778901077,
+["Quest"] = 4811,
+["Level"] = 12,
+["Event"] = "Quest",
+["SubType"] = "Accept",
+},
 },
 ["collapsedZones"] = {
 },
-["TrackerHiddenObjectives"] = {
-},
 ["collapsedQuests"] = {
+},
+["TrackerHiddenObjectives"] = {
 },
 ["guid"] = "Player-6064-05B5EDA5",
 ["TrackedQuests"] = {
@@ -22734,80 +22746,55 @@ QuestieConfig = {
 8157,
 20092,
 },
-["Poisons"] = {
-5139,
-18907,
-19042,
-19679,
-15175,
-1286,
-22479,
-15179,
-3954,
-3542,
-3955,
-2622,
+["Bags"] = {
+16709,
+1321,
+12959,
+151,
+12960,
+2808,
+4182,
+491,
+19053,
+4230,
+791,
+1448,
+1452,
+17421,
+12021,
+18810,
+16732,
+17489,
+4170,
+15174,
+1685,
+12246,
 19197,
-25043,
-20092,
-4897,
-7947,
-12022,
-6301,
-3135,
-16826,
-19497,
-19372,
-5163,
-19017,
-5169,
-18009,
-18019,
-1325,
-3969,
-20194,
-3779,
-23373,
-12958,
-20081,
-19194,
-4229,
-11189,
-23145,
-3561,
-22099,
-21113,
-20891,
-3499,
-19533,
-19573,
-20121,
-20250,
-12957,
-12096,
-6779,
-16829,
-1457,
-24780,
-777,
-19049,
-19239,
-18802,
-3090,
-19244,
-17486,
-19014,
-20915,
-1326,
-5135,
-26304,
-8934,
-16768,
-18006,
-12941,
-2810,
-12245,
-20986,
+4896,
+2803,
+227,
+5134,
+18906,
+1682,
+11555,
+11038,
+3608,
+8139,
+3498,
+5101,
+3962,
+3541,
+2084,
+18811,
+1285,
+734,
+7942,
+4241,
+4084,
+17446,
+1250,
+1691,
+5132,
 },
 ["Drink"] = {
 12019,
@@ -23072,6 +23059,81 @@ QuestieConfig = {
 6091,
 4084,
 },
+["Poisons"] = {
+5139,
+18907,
+19042,
+19679,
+15175,
+1286,
+22479,
+15179,
+3954,
+3542,
+3955,
+2622,
+19197,
+25043,
+20092,
+4897,
+7947,
+12022,
+6301,
+3135,
+16826,
+19497,
+19372,
+5163,
+19017,
+5169,
+18009,
+18019,
+1325,
+3969,
+20194,
+3779,
+23373,
+12958,
+20081,
+19194,
+4229,
+11189,
+23145,
+3561,
+22099,
+21113,
+20891,
+3499,
+19533,
+19573,
+20121,
+20250,
+12957,
+12096,
+6779,
+16829,
+1457,
+24780,
+777,
+19049,
+19239,
+18802,
+3090,
+19244,
+17486,
+19014,
+20915,
+1326,
+5135,
+26304,
+8934,
+16768,
+18006,
+12941,
+2810,
+12245,
+20986,
+},
 ["Ammo"] = {
 3610,
 16735,
@@ -23137,56 +23199,6 @@ QuestieConfig = {
 1687,
 1691,
 3498,
-},
-["Bags"] = {
-16709,
-1321,
-12959,
-151,
-12960,
-2808,
-4182,
-491,
-19053,
-4230,
-791,
-1448,
-1452,
-17421,
-12021,
-18810,
-16732,
-17489,
-4170,
-15174,
-1685,
-12246,
-19197,
-4896,
-2803,
-227,
-5134,
-18906,
-1682,
-11555,
-11038,
-3608,
-8139,
-3498,
-5101,
-3962,
-3541,
-2084,
-18811,
-1285,
-734,
-7942,
-4241,
-4084,
-17446,
-1250,
-1691,
-5132,
 },
 ["Trade Goods"] = {
 19497,
@@ -23632,41 +23644,41 @@ QuestieConfig = {
 ["minAllQuestsInZone"] = {
 },
 ["complete"] = {
-[5261] = true,
 [33] = true,
-[783] = true,
+[5261] = true,
 [7] = true,
+[783] = true,
 },
 ["TrackerHiddenQuests"] = {
 },
 ["journey"] = {
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 1,
-["Quest"] = 783,
+["Event"] = "Quest",
 ["Timestamp"] = 1779742734,
-},
-{
-["Event"] = "Quest",
-["SubType"] = "Complete",
-["Level"] = 1,
 ["Quest"] = 783,
+["Level"] = 1,
+},
+{
+["SubType"] = "Complete",
+["Event"] = "Quest",
 ["Timestamp"] = 1779742747,
+["Quest"] = 783,
+["Level"] = 1,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 1,
-["Quest"] = 7,
+["Event"] = "Quest",
 ["Timestamp"] = 1779742748,
+["Quest"] = 7,
+["Level"] = 1,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 1,
-["Quest"] = 5261,
+["Event"] = "Quest",
 ["Timestamp"] = 1779742832,
+["Quest"] = 5261,
+["Level"] = 1,
 },
 {
 ["Timestamp"] = 1779742844,
@@ -23674,18 +23686,18 @@ QuestieConfig = {
 ["NewLevel"] = 2,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 2,
-["Quest"] = 5261,
+["Event"] = "Quest",
 ["Timestamp"] = 1779742844,
+["Quest"] = 5261,
+["Level"] = 2,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 2,
-["Quest"] = 33,
+["Event"] = "Quest",
 ["Timestamp"] = 1779742845,
+["Quest"] = 33,
+["Level"] = 2,
 },
 {
 ["Timestamp"] = 1779743337,
@@ -23693,30 +23705,30 @@ QuestieConfig = {
 ["NewLevel"] = 3,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 3,
-["Quest"] = 33,
+["Event"] = "Quest",
 ["Timestamp"] = 1779743400,
+["Quest"] = 33,
+["Level"] = 3,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Complete",
-["Level"] = 3,
-["Quest"] = 7,
+["Event"] = "Quest",
 ["Timestamp"] = 1779743425,
+["Quest"] = 7,
+["Level"] = 3,
 },
 {
-["Event"] = "Quest",
 ["SubType"] = "Accept",
-["Level"] = 3,
-["Quest"] = 15,
+["Event"] = "Quest",
 ["Timestamp"] = 1779743426,
+["Quest"] = 15,
+["Level"] = 3,
 },
-},
-["collapsedQuests"] = {
 },
 ["TrackerHiddenObjectives"] = {
+},
+["collapsedQuests"] = {
 },
 ["guid"] = "Player-6064-05E3FB16",
 ["TrackedQuests"] = {
@@ -24749,9 +24761,9 @@ QuestieConfig = {
 ["petFoodVendorTypes"] = {
 ["Fish"] = {
 },
-["Meat"] = {
-},
 ["Cheese"] = {
+},
+["Meat"] = {
 },
 ["Bread"] = {
 },
@@ -25223,14 +25235,31 @@ QuestieConfig = {
 },
 },
 ["professionTrainers"] = {
-[755] = {
-15501,
-18751,
-18774,
-19063,
-19539,
-19775,
-19778,
+[171] = {
+1215,
+1386,
+1470,
+2132,
+2391,
+2837,
+3009,
+3184,
+3347,
+3603,
+3964,
+4160,
+4611,
+4900,
+5177,
+5499,
+7948,
+16161,
+16588,
+16642,
+16723,
+17215,
+18802,
+19052,
 },
 [185] = {
 1355,
@@ -25275,61 +25304,85 @@ QuestieConfig = {
 3955,
 12033,
 },
-[182] = {
-812,
-908,
-1218,
-1458,
-1473,
-2114,
-2390,
-2856,
-3013,
-3185,
-3404,
-3604,
-3965,
-4204,
-4614,
-4898,
-5137,
-5502,
-5566,
-8146,
-12025,
-16367,
-16644,
-16736,
-17434,
-17983,
-18748,
-18776,
+[197] = {
+1103,
+1103,
+1300,
+1346,
+1346,
+1703,
+2399,
+2399,
+2627,
+2627,
+2855,
+3004,
+3004,
+3363,
+3363,
+3484,
+3484,
+3523,
+3523,
+3704,
+3704,
+4159,
+4159,
+4193,
+4193,
+4576,
+4576,
+4578,
+5153,
+5153,
+9584,
+11048,
+11050,
+11051,
+11052,
+11052,
+16366,
+16366,
+16639,
+16640,
+16640,
+16729,
+16729,
+16746,
+17487,
+17487,
+18749,
+18749,
+18772,
+18772,
 },
-[171] = {
-1215,
-1386,
-1470,
-2132,
-2391,
-2837,
-3009,
-3184,
-3347,
-3603,
-3964,
-4160,
-4611,
-4900,
-5177,
-5499,
-7948,
-16161,
-16588,
-16642,
-16723,
-17215,
-18802,
-19052,
+[356] = {
+1651,
+1680,
+1683,
+1700,
+2367,
+2834,
+3028,
+3179,
+3332,
+3607,
+4156,
+4573,
+5161,
+5493,
+5690,
+5938,
+5941,
+7946,
+12032,
+12961,
+14740,
+16774,
+16780,
+17101,
+18018,
+10216,
 },
 [164] = {
 514,
@@ -25469,57 +25522,35 @@ QuestieConfig = {
 19187,
 21087,
 },
-[197] = {
-1103,
-1103,
-1300,
-1346,
-1346,
-1703,
-2399,
-2399,
-2627,
-2627,
-2855,
-3004,
-3004,
-3363,
-3363,
-3484,
-3484,
-3523,
-3523,
-3704,
-3704,
-4159,
-4159,
-4193,
-4193,
-4576,
-4576,
-4578,
-5153,
-5153,
-9584,
-11048,
-11050,
-11051,
-11052,
-11052,
-16366,
-16366,
-16639,
-16640,
-16640,
-16729,
-16729,
-16746,
-17487,
-17487,
-18749,
-18749,
-18772,
-18772,
+[182] = {
+812,
+908,
+1218,
+1458,
+1473,
+2114,
+2390,
+2856,
+3013,
+3185,
+3404,
+3604,
+3965,
+4204,
+4614,
+4898,
+5137,
+5502,
+5566,
+8146,
+12025,
+16367,
+16644,
+16736,
+17434,
+17983,
+18748,
+18776,
 },
 [333] = {
 1317,
@@ -25597,6 +25628,15 @@ QuestieConfig = {
 18777,
 19180,
 },
+[755] = {
+15501,
+18751,
+18774,
+19063,
+19539,
+19775,
+19778,
+},
 [186] = {
 1681,
 1701,
@@ -25616,34 +25656,6 @@ QuestieConfig = {
 17488,
 18747,
 18779,
-},
-[356] = {
-1651,
-1680,
-1683,
-1700,
-2367,
-2834,
-3028,
-3179,
-3332,
-3607,
-4156,
-4573,
-5161,
-5493,
-5690,
-5938,
-5941,
-7946,
-12032,
-12961,
-14740,
-16774,
-16780,
-17101,
-18018,
-10216,
 },
 },
 ["itemPtrs"] = "\000aø\000\000\000\000\000\000#\000\0003\000\000$\000\000W\000\000%\000\000z\000\000&\000\000ú\000\000'\000\000À\000\000(\000\000˜\000\000+\000#\000\000,\000N\000\000-\000y\000\000/\000ß\000\0000\000–\000\0001\000˘\000\0003\000\"\000\0004\000O\000\0005\000|\000\0007\000©\000\0008\000ÿ\000\0009\000\000\000;\0001\000\000<\000]\000\000=\000á\000\000O\000π\000\000P\000Ï\000\000U\000\000\000u\000U\000\000v\000k\000\000w\000Œ\000\000x\000ˇ\000\000y\000#\000\000\000G\000\000Ä\000p\000\000Å\000´\000\000ã\000€\000\000å\000\r\000\000è\000\r0\000\000ì\000\rk\000\000î\000\rõ\000\000ô\000\rÀ\000\000ö\000\rÛ\000\000ü\000\000\000∂\000Ω\000\000¡\000Ë\000\000¬\000\000\000√\000U\000\000»\000å\000\000…\000\000\000 \000õ\000\000À\000#\000\000—\000¨\000\000“\000Â\000\000Ï\000\000\000Ì\000u\000\000Ó\000Ã\000\000Ô\000#\000\000{\000\000Õ\000\000 \000û\000v\000¶\000\000\000\"\000+\000\"q\000,\000\"≠\000á\000#	\000∆\000#*\000«\000#f\000 \000#û\000Œ\000#ÿ\000œ\000$,\000–\000$^\000”\000$—\000‘\000%\000’\000%4\000◊\000%{\000ÿ\000%À\000Ÿ\000&\000\000⁄\000&C\000€\000&–\000‹\000&˛\000›\000'+\000ﬂ\000'U\000·\000'ï\000‚\000'√\000„\000'Ó\000‰\000(\000Ê\000(?\000Á\000(m\000Ë\000(ü\000È\000(‘\000Ï\000)	\000Ó\000)9\000Ô\000)n\000\000)à\000Ò\000)∑\000Ú\000)Â\000Û\000*\000Ù\000*O\000˚\000*t\000˝\000*°\000˛\0000è\000ˇ\0000æ\000\000\0000Ó\000\0001\000\0001á\000\0001\000\0002Q\000\0002É\000\0002≤\000\000:é\000	\000:‡\000\n\000;\n\000\000;=\000\000;™\000\r\000;Ÿ\000\000<\000\000<@\000\000<£\000\000>d\000\000?d\000\000?‰\000\000@]\000\000@µ\000\000A\000\000Af\000\000AΩ\000\000B\000\000Bk\000\000B√\000\000C\000$\000Cp\000%\000E\000)\000E6\000*\000EZ\000+\000Eè\000,\000Eæ\000.\000E\0000\000FF\0002\000Fs\0004\000Qà\0005\000QÆ\000:\000Q›\000;\000R\000<\000R5\000=\000Rh\000@\000R∂\000A\000RÂ\000C\000S\000E\000S9\000F\000Sö\000G\000S˚\000H\000T]\000I\000Tæ\000K\000TÚ\000L\000U\\\000M\000U«\000N\000V1\000O\000Vú\000P\000V˛\000Q\000W`\000R\000W¬\000S\000X%\000T\000XÇ\000U\000X‚\000V\000Y9\000X\000Y¢\000Y\000[I\000Z\000\\Ó\000[\000e*\000\\\000eW\000^\000eÑ\000_\000e®\000`\000eÏ\000a\000f9\000b\000fë\000c\000f€\000d\000g	\000e\000g3\000f\000g_\000g\000gÜ\000h\000g™\000i\000g—\000n\000g˙\000p\000ha\000t\000hã\000u\000hΩ\000v\000hÊ\000w\000i\000x\000iV\000y\000iÖ\000z\000i¥\000|\000j6\000}\000jd\000\000jí\000Ä\000j∏\000Å\000j›\000É\000k\000é\000k.\000è\000k`\000í\000kç\000ì\000kΩ\000î\000l\000ñ\000lA\000ò\000lo\000ô\000lõ\000ö\000lÃ\000õ\000m!\000ú\000mt\000ù\000m¬\000û\000n\000ü\000n_\000†\000n≠\000°\000o\000§\000wE\000•\000wv\000¶\000wû\000ß\000w„\000®\000x\000©\000xU\000™\000xû\000´\000xÀ\000¨\000y\000Æ\000y-\000Ø\000yT\000∞\000yz\000∫\000y®\000ª\000yÈ\000Ω\000z.\000¡\000zZ\000¬\000zÜ\000’\000zÆ\000◊\000z›\000Ó\000{\000\000{1\000Ò\000{]\000Ú\000{à\000Û\000{∏\000ı\000{ﬁ\000˜\000|\000˘\000|a\000˚\000|ë\0002\000|◊\0003\000}¡\0004\000~\0005\000~E\0008\000~r\0009\000~†\000:\000(\000;\000U\000Y\000}\000Z\000•\000\\\000À\000]\000˚\000a\000Ä1\000g\000Ä¨\000i\000Ä’\000j\000Å\000k\000ÅK\000l\000Å{\000Ç\000ÅØ\000É\000ÅË\000Ñ\000Ç\000Ü\000ÇM\000á\000Çz\000â\000Ç´\000ê\000Ç⁄\000ë\000É\000ì\000É0\000î\000É_\000ï\000Éã\000ó\000É∫\000ô\000É„\000ö\000Ñ\000õ\000Ñ;\000ú\000åK\000ù\000åë\000û\000å”\000ü\000ç\000£\000ç5\000¶\000ç\\\000ß\000çâ\000™\000ç¥\000´\000çˇ\000¨\000é0\000≠\000éÖ\000Æ\000éÎ\000∞\000èI\000±\000èÖ\000≤\000è∆\000≥\000ê	\000¥\000êD\000µ\000êm\000∂\000ô/\000∑\000ô˚\000∏\000ö6\000∫\000öe\000ª\000¶@\000º\000¶k\000Ω\000¶∞\000æ\000¶‚\000ø\000ß\n\000¡\000ß2\000¬\000ßZ\000√\000ßà\000ƒ\000ß≤\000≈\000ß÷\000„\000®\000‰\000®3\000Ê\000®e\000Ë\000®è\000È\000®¡\000Ï\000®Ó\000Ì\000©\000Ó\000©E\000Ô\000©}\000\000©£\000Ò\000© \000ˆ\000™\n\000˘\000™9\000˙\000™b\000˚\000™è\000¸\000™Ω\000\000\000™Ô\000\000´\000\000´A\000\000´h\000\000´ï\000\000´√\000\000¨%\000\r\000¨S\000\000¨É\000\000¨≥\000\000¨€\000\000≠\000\000≠@\000\000≠s\000\000≠¢\000\000≠‘\000\000≠˛\000\000Æ/\000\000Æi\000\000Æï\000\"\000Æ¬\000#\000ÆÈ\000%\000Ø\000&\000Ø@\000'\000Øê\000*\000Øæ\000-\000ØË\000.\000∞\000/\000∞>\000E\000∞d\000G\000∞ó\000I\000∞√\000K\000∞Í\000M\000±\000N\000±c\000O\000±ò\000P\000±»\000Q\000±˚\000R\000≤6\000T\000≤o\000V\000≤•\000W\000≤”\000X\000≥\000Y\000≥0\000Z\000≥f\000\\\000≥ñ\000^\000≥º\000`\000≥‚\000a\000¥\000b\000¥8\000d\000¥^\000e\000¥É\000f\000¥¥\000g\000¥›\000h\000µ\000k\000µ/\000l\000µR\000m\000µ|\000o\000µ≠\000r\000µ‹\000s\000∂\000t\000∂3\000w\000∂_\000y\000∂à\000|\000∂≥\000}\000∂ÿ\000~\000∑\000\000∑2\000Ä\000∑f\000Å\000∑°\000Ç\000∑÷\000É\000∏\000Ñ\000∏@\000Ö\000∏v\000Ü\000∏•\000á\000∏÷\000à\000π\000â\000π;\000ä\000πo\000ã\000π£\000å\000πÿ\000ç\000∫\000é\000∫\\\000è\000∫í\000ë\000∫«\000ì\000∫˚\000ï\000ªH\000ñ\000ªz\000ó\000ª∞\000ô\000ª‚\000ö\000º\000ú\000ºB\000û\000ºp\000†\000º£\000£\000ºœ\000•\000Ω\000¶\000Ω5\000ß\000Ω^\000®\000Ωá\000©\000Ω¥\000´\000ΩÊ\000≠\000æ\000Æ\000æ=\000Ø\000æö\000±\000æÃ\000≤\000æı\000≥\000ø\000¥\000øJ\000µ\000ø\000∂\000ø¨\000∏\000øÿ\000π\000¿5\000ª\000¿s\000º\000¿±\000Ω\000¡ \000æ\000¡J\000¡\000¡v\000√\000¡ü\000ƒ\000¬\000≈\000¬m\000∆\000¬≠\000«\000¬ˆ\000»\000√%\000…\000√^\000 \000√ø\000À\000√˛\000Ã\000ƒZ\000Õ\000ƒµ\000Œ\000ƒÿ\000œ\000≈P\000–\000≈\000—\000≈ﬁ\000“\000∆!\000”\000∆R\000’\000∆¬\000◊\000∆ˆ\000Ÿ\000«C\000⁄\000«ì\000€\000«·\000›\000».\000ﬁ\000»{\000ﬂ\000»œ\000‡\000…$\000·\000…~\000‚\000…»\000„\000 \000Â\000 v\000Ê\000  \000Á\000À\000Ë\000Àn\000È\000À¬\000Í\000Ã\000Î\000Ãd\000Ï\000Ã∑\000Ó\000Õ\000Ô\000Õ0\000\000Õy\000Ò\000Œ≤\000Ú\000Œﬁ\000Û\000œ	\000Ù\000œ2\000¯\000œÖ\000˘\000œ¥\000¸\000–w\000\000–°\000\000–÷\000\000—\000\000—6\000\000—f\000\000—ê\000\000—Ω\000<\000—ˆ\000>\000“!\000B\000“L\000D\000“s\000G\000“ú\000H\000“Ã\000M\000”\000X\000”V\000Y\000”Ç\000^\000”–\000e\000‘!\000g\000‘I\000h\000‘Ñ\000m\000‘–\000t\000‹F\000x\000‹u\000{\000‹†\000Ä\000‹Ã\000ç\000‹Ù\000é\000›\000è\000›J\000ê\000›l\000ï\000›ë\000ñ\000ﬂ*\000ó\000ﬂå\000ò\000ﬂ◊\000†\000‡8\000°\000‡â\000•\000‡’\000¶\000·9\000ß\000·û\000©\000·—\000™\000ÌS\000´\000ÌÄ\000¨\000Ò8\000Æ\000Û\000Ø\000˚u\000∞\000˚ \000±\000¸\000≤\000¸V\000≥\000¸°\000¥\000¸Î\000µ\000˝0\000∂\000˝Ø\000∏\000˝Ù\000π\000˛'\000∫\000˛]\000Ω\000˛¶\000æ\000ú\000ø\000Ê\000¿Y\000¡å\000¬≈\000√\000ƒd\000≈∂\000∆˛\000«O\000…¢\000 Ò\000ÀP\000ÃÀ\000Õ0\000ŒÖ\000œ„\000–C\000—≈\000“$\000”†\000‘\000’ú\000÷	\000◊	ó\000ÿ\n\000Ÿ\nò\000⁄\000€î\000‹\000›û\000ﬁ\r\000ﬂ\r™\000‡+\000·≥\000‰3\000Êí\000ÁÓ\000ËK\000È¬\000ÍC\000Ï°\000Ó\000Ôë\000\n\000ÒÇ\000Ú\000Ùx\000ˆˇ\000˜á\000¯\000˘Ü\000˙\000˚ä\000¸Ó\000˝S\000˛ÿ\000ˇ5\000\000û\000\000ç\000\000Ö\000˝\000w\000Ô\000h\000	‡\000\n_\000◊\000]\000\r€\000 [\000 —\000!P\000!◊\000\"\\\000\"⁄\000#>\000#¨\000$\000$~\000$„\000%G\000%≠\000&)\000&†\000'\000'ç\000(\000 (à\000!)\000\000\")y\000#)Ì\000$*d\000%*‹\000&+T\000'+—\000(,K\000+,v\000,,Æ\000/,È\0000-?\0003-ò\0004.\0005.m\0006.Œ\0009/2\000:/à\000</·\000=06\000S0à\000e0∫\000f0Ê\000g1\000h1Q\000i1á\000k1¿\000l1ı\000m2&\000n2b\000o2ü\000p2€\000q3\000r3C\000s3l\000t3ú\000u3Œ\000v4\000w40\000y4f\000}4ë\000Ç4π\000É4‰\000Ö5\000Ü5<\000á5b\000à5ç\000â5ª\000ä5Ò\000ã6\000ç6J\000é6v\000è6¶\000ê6Ù\000ë7#\000í7H\000ì7n\000ï7ü\000ñ7Õ\000ó8\000\000ò81\000ô8a\000ö8ê\000ü8¡\000£8Û\000§9%\000•9W\000¶9è\000ß9ª\000©9„\000™:\000≠:l\000∞:ó\000≤:¬\000≥:\000¥;\000µ;X\000∂;ã\000∑;Á\000∏<b\000∫<¬\000ª=6\000º=`\000Ω=â\000æ=±\000ø=’\000¿>\000¡>=\000¬>u\000√>ò\000ƒ>ƒ\000∆?\000«?Y\000»?Ü\000…?ﬁ\000 @\000Ã@@\000Õ@e\000Œ@ê\000–@≈\000‘@È\000’A!\000÷AT\000◊Aã\000ÿAæ\000€AÚ\000›Bd\000ﬁBç\000ﬂBΩ\000·BÍ\000‚C\000‰CG\000ÂCq\000ÁC†\000ËC–\000ÈD$\000ÍDv\000ÎDŒ\000ÏE#\000ÌEv\000ÓEƒ\000F$\000ÒFM\000ÚF|\000ÛF•\000ÙF’\000ıG\000˜G2\000¯Gú\000˘G—\000˙Gˇ\000˚H-\000¸Ha\000˛Hô\000ˇH¡\000\000HÔ\000I\000I[\000Iö\000I€\000J\000	J6\000\nJn\000Jî\000K\000K2\000K\\\000KÜ\000K±\000Kﬂ\000N<\000Nª\000O\000O5\000OÄ\000Oˆ\000PP\000 PÆ\000!Q\000\"Q:\000$Qj\000%Qõ\000'Q…\000(Q¯\000)R#\000+RP\000,RÉ\0002R®\0003S$\0004SQ\0005Sâ\0006S«\0009S˜\000<T\000=TN\000>T\000@T∞\000ATﬁ\000BU\000EU+\000GUg\000HU§\000IU‡\000JV\000KV\\\000LVù\000MV‡\000NW\"\000OWc\000QW£\000RW·\000SX#\000TXk\000UX¥\000VX⁄\000XY \000YYQ\000ZY}\000[Y∑\000\\Y˘\000]ZD\000^ZÇ\000_Z¿\000`[5\000a[v\000b[∂\000c[ı\000d\\(\000e\\\000f\\◊\000g]1\000h]ä\000i]Â\000j^<\000l^x\000n^È\000o_[\000p_Ã\000q`=\000r`l\000s`í\000t`∑\000u`€\000va\r\000wa9\000xac\000yaå\000|aµ\000}a›\000b\n\000Äb9\000Åbw\000Çb≥\000ÉbÈ\000Ñc#\000ÖcZ\000Ücñ\000ác”\000àd\000äd8\000ãdc\000ådè\000íd∆\000ìe?\000îej\000ïeö\000ñe…\000óe˛\000òf3\000ôfi\000öfù\000õf◊\000úg\000ùg0\000ügm\000†g \000°h\000¢hl\000£hñ\000§h¡\000•hÛ\000¶i'\000ßiy\000®i«\000©j(\000™jç\000´jº\000¨k9\000≠kÆ\000Æl%\000Ølú\000∞lŒ\000±l˘\000≤m)\000≥mQ\000∂m}\000∑m©\000∏m“\000πm˝\000∫n-\000ªnX\000ºn{\000ΩnÔ\000æo\000øoD\000¿ou\000¡où\000√o≈\000ƒoı\000≈p\000∆p?\000…pj\000 pñ\000Àp¿\000Ãq#\000ŒqZ\000–qÖ\000—q˝\000“r)\000”rZ\000‘rÖ\000÷r∑\000◊s\000ÿsC\000Ÿsß\000⁄s“\000€t\000\000‹t,\000ﬂt_\000‚t‡\000‰u	\000ÂuL\000Êuß\000Ëv\000Èv5\000Ívg\000Îvö\000Ïv¬\000ÔvÎ\000{Å\000Ò{Ø\000Ú{\000Û|G\000Ù|u\000˜|∞\000¯}\000˚}7\000¸}ê\000˛}ø\000ˇ}Û\000	\000~'\000	~S\000	~\000	~´\000	~€\000	\000	9\000		f\000	\nô\000	 \000	ˆ\000	\rÄ\"\000	ÄN\000	Äá\000	ÄÕ\000	Çz\000	Ñ\000	Ö\000	Ü`\000	Üé\000	9Ü¡\000	:ÜÏ\000	<á\000	>áN\000	?áÖ\000	Aáº\000	BáÙ\000	Cà>\000	DàÖ\000	EàÕ\000	Fâ\000	Gâ_\000	Hâ®\000	JâÈ\000	Kä'\000	Läd\000	Mä°\000	Nä‚\000	Oã\000	PãQ\000	Qãë\000	Rã–\000	Så\000	Tå>\000	Uåy\000	Vå±\000	WåÓ\000	Xç'\000	Yçu\000	Zç¬\000	[é\000	\\éa\000	]é¥\000	^è\000	_èI\000	`èã\000	aè—\000	bê\000	cêY\000	fêù\000	gë\000	hëi\000	ië“\000	kô*\000	nô_\000	qôë\000	rô‡\000	sö3\000	töÇ\000	uö€\000	võ-\000	wõ~\000	xõ—\000	yú$\000	zú{\000	{úÿ\000	|ù.\000	}ùÉ\000	ùﬁ\000	Äû:\000	Çûü\000	Éû¸\000	ÖüN\000	Üü†\000	àü˚\000	ç†N\000	é†ò\000	è†Í\000	ê°5\000	ë°à\000	í°Á\000	ì©÷\000	î™5\000	ï±3\000	ñ∏›\000	óπ\000	ò¿Î\000	ô¡!\000	ö¡U\000	õ¡é\000	ü¡ƒ\000	†¬\000	°¬U\000	¢¬ù\000	£¬—\000	§√\"\000	•√l\000	¶√µ\000	ßƒ\000	®ƒY\000	©ƒ¨\000	™≈\000	´≈]\000	¨≈±\000	≠≈Â\000	Ø∆\000	∞∆U\000	∏∆ù\000	π∆˙\000	∫«`\000	ª«¡\000	º»#\000	Ω»à\000	æ»Ù\000	ø…R\000	√…ª\000	ƒ…Ê\000	≈ \000	∆ 6\000	« ^\000	» â\000	… Œ\000	 À\000	ÀÀr\000	ÃÀÊ\000	ÕÃ\000	ŒÃn\000	œÃ´\000	–Ã˛\000	”Œ@\000	‘œù\000	◊–ú\000	ÿ—º\000	Ÿ“1\000	⁄“ü\000	€”\000	‹”p\000	›”…\000	ﬁ‘5\000	ﬂ‘Æ\000	‡’\"\000	·’ò\000	‚÷\n\000	„÷l\000	‰÷‡\000	Â◊B\000	Ê◊≤\000	Áÿ&\000	Ëÿù\000	Òÿ„\000	ÚŸ\000	ÛŸH\000	ÙŸx\000	ıŸÆ\000	ˆ⁄.\000	˜⁄\\\000	¯⁄à\000	˘⁄Ø\000	˚€\000	˝€q\000	˛€∞\000	ˇ€Ï\000\n\000‹+\000\n‹_\000\n‹ã\000\n‹√\000\n‹Ù\000\n›/\000\n›à\000\n›≥\000\nﬁ%\000\n	ﬁO\000\n\nﬁt\000\nﬁô\000\nﬁƒ\000\nﬁÏ\000\nﬂ\000\nﬂC\000\nﬂm\000\nﬂö\000\nﬂ≈\000\nﬂÙ\000\n‡!\000\n‡L\000\n‡r\000\n‡ó\000\n‡¡\000\n‡Ï\000\n·\000\n·W\000\n·â\000\n ·¿\000\n!‚#\000\n\"‚ò\000\n#‚¸\000\n$„r\000\n&„Ô\000\n)‰G\000\n,Í \000\n-Î¶\000\n.Ï≥\000\n/ÏÂ\000\n0Ì!\000\n1Ìv\000\n2Ì°\000\n3ÌÃ\000\n4Ó\000\n5ÓB\000\n6Óâ\000\n7Ó—\000\n8Ô\000\n9ÔX\000\n:Ôó\000\n;Ô€\000\n<\000\n=,\000\n>X\000\n?ä\000\n@Ø\000\nA’\000\nDÒ\000\nEÒ)\000\nHÒ\\\000\nIÒ™\000\nJÒ›\000\nKÚ\000\nLÚB\000\nMÚv\000\nOÚ™\000\nPÚ”\000\nRÚ¸\000\nSÛ0\000\nTÛÅ\000\nUÛµ\000\nVÛÍ\000\nXÙ\000\nYÙl\000\nZÙó\000\n[Ù√\000\n\\ÙÒ\000\n]ı&\000\n^ıS\000\n`ı\000\naı≥\000\nb˜\\\000\nc˜Ü\000\nd˜∞\000\ne˜⁄\000\nf¯\000\ng¯0\000\ni¯_\000\nj¯ï\000\nk¯ƒ\000\no¯˜\000\np˘,\000\nq˘ê\000\nr˘ª\000\ns˙\000\nt˙a\000\nu˙å\000\nv˙÷\000\nw¸	\000\nx¸:\000\ny¸j\000\nz¸ï\000\n{¸ø\000\n|¸‚\000\n}˝\000\n~˝5\000\n˝r\000\nÇ˝ô\000\nÉ˝¬\000\nÑ˝Ó\000\nÖˇ\000\nÜˇ5\000\náˇd\000\nàˇ¢\000\nâˇÕ\000\nä\000\000\nãè\000\nå«\000\nç\000\néK\000\nè{\000\nê≥\000\nëÍ\000\ní!\000\nìW\000\nîê\000\nï“\000\nñ	\000\nóB\000\nòs\000\nôß\000\nö‘\000\nõ\000\núG\000\nù\000\nû∑\000\nüÓ\000\n†\000\n°;\000\n¢ê\000\n£µ\000\n§4\000\n•[\000\n®	Ã\000\n™7\000\n¨•\000\nÆ\000\nØ|\000\n≤Î\000\n¥Z\000\n∂∆\000\n∏5\000\nπ°\000\nº\000\nΩ|\000\næË\000\nøW\000\n¬∆\000\nƒ˙\000\n≈?\000\n∆Ö\000\n«Ã\000\n»\000\nÀ@\000\nÃñ\000\nÕ˚\000\nŒ v\000\n“ Ó\000\n”*T\000\n‘2î\000\n’:´\000\n÷:·\000\n◊;\000\nÿA@\000\nŸD≠\000\n⁄D˝\000\n€EO\000\n‹Ez\000\n›E‰\000\nﬁFH\000\nﬂF…\000\n‡GF\000\n·Gp\000\n‚GÏ\000\n„Hh\000\n‰Hë\000\nÍHª\000\nÎIK\000\nÌI{\000\nÓI•\000\nÔI”\000\nJ#\000\nÒJö\000\nÚJ¬\000\nıK\000\nˆK0\000\n˜K_\000\n¯KÆ\000\n˘K€\000\n˙L\000\n¸LK\000\n˝Le\000\nˇLù\000\000LÂ\000M\000MF\000M}\000MÙ\000N \000NO\000N{\000N®\000	NÀ\000N˙\000O%\000\rOQ\000O~\000O¨\000OŸ\000P\000P@\000Pr\000Y.\000a%\000aR\000hŸ\000i\000i5\000iY\000i≠\000iÓ\000j\000j7\000jd\000 jè\000!j¥\000\"jÿ\000#k\000$k.\000%kZ\000&kÇ\000'k∞\000(k€\000)l\n\000*l5\000+lg\000.lò\000/l»\0000lˇ\0001m1\0002m`\0004mé\0005m¿\0006mı\0007n)\0008nY\000:nî\000;n¡\000<o\000=o:\000>oì\000?p\000@pâ\000Arâ\000ByÕ\000C™\000DÖå\000EÖΩ\000FÖÛ\000HÜ&\000IÜX\000LÜï\000MÜº\000NÜÊ\000Rá%\000SáX\000TáÄ\000Uá™\000Vâµ\000Wâ‰\000Xä\000YäF\000Zäq\000[ä•\000\\ä÷\000]ä˝\000^ã?\000_ãn\000`ãË\000aåG\000cåw\000då°\000eåŒ\000hå¯\000iç\000jçE\000lçk\000mç±\000nç˜\000pé(\000qè…\000rèÎ\000sêk\000të\000uë<\000vëf\000{ëû\000|ëÃ\000}í@\000~íi\000íì\000ÄíΩ\000ÇíÎ\000Éì*\000Öìb\000Üìå\000áì≥\000âì˙\000äî+\000ãî^\000åîÜ\000çî¿\000éï\000èï\\\000êïë\000ëï«\000íñ\000ìñk\000îñ°\000ïñÛ\000ñó=\000óóä\000òó◊\000ôò\n\000öòa\000õò¬\000úô\000ùô^\000ûô≤\000üö\000†öQ\000°öù\000¢öÙ\000£õ?\000§õá\000•õ–\000¶úF\000ßúÆ\000®ù\000©ù[\000™ùÏ\000´ûb\000¨û√\000≠ü\"\000Æü¢\000Ø†(\000∞†±\000¥°\000µ°Ü\000∂¢\000∑¢G\000∏¢s\000ª¢¢\000º¢Ã\000Ω¢˜\000¿£\000¬£J\000√£æ\000ƒ£Î\000≈§7\000∆§É\000»§Ã\000…§¸\000 •(\000À•O\000Ã•u\000Õ•À\000Œ¶@\000œ¶k\000–¶—\000—ß+\000“ßh\000”ßˆ\000÷®o\000Ÿ©u\000⁄™P\000€™}\000‹™ß\000›™Û\000ﬂ´Z\000‡´’\000·¨2\000‚¨í\000‰¨Û\000Â≠3\000Á≠Æ\000ËÆ*\000ÈÆ©\000ÌØ-\000ÔØ[\000Ø‹\000Ò∞X\000Ú∞‡\000˘±f\000˙±„\000˚≤a\000¸≤ÿ\000˝≥\000˛≥Ç\000ˇ≥´\000\000≥ÿ\000¥\000¥+\000¥V\000¥|\000¥¶\000¥‘\000¥˛\000	µ7\000\nµ^\000µâ\000µº\000\rµÌ\000∂\000∂M\000∂~\000#∂´\000$∂‚\000&∑\000'∑[\000-∑ë\000;∑Ω\000?∑˘\000A∏/\000L∏c\000O∏á\000P∏∂\000Q∏·\000Rπ\000Sπ9\000Tπf\000Uπí\000Vπø\000XπÓ\000Y∫\000Z∫K\000[∫v\000\\∫¢\000]∫›\000^ª\000_ª4\000aª}\000bªÎ\000cºW\000dºÆ\000eº˛\000fΩ9\000gΩ∂\000hΩˇ\000iæA\000kæv\000læµ\000mø\r\000nøG\000oøπ\000pø‡\000q¿J\000r¿¶\000s¡)\000t¡t\000u¡ú\000v¡À\000w¡˜\000x¬!\000y¬r\000z¬Í\000{√F\000|√†\000}√˝\000~ƒ[\000ƒ÷\000Ä≈Q\000Å≈â\000Ç∆\000É∆â\000Ñ«\000Ö«.\000Ü«é\000á»	\000à»V\000â»ç\000ä»ª\000ã…:\000å…í\000ç \000é _\000ê ì\000ë ¿\000í È\000îÀ7\000ñÀa\000óÀà\000òÀ≥\000ôÀ·\000õÃ\r\000úÃ6\000ùÃd\000ûÃë\000üÃ¿\000°ÃÌ\000¢Õ\000£Õ=\000§Õg\000•Õû\000¶Õƒ\000ßÕÚ\000®Œ\000©ŒL\000∞Œw\000≤Œ∑\000≥Œ‡\000¥œ\000µœ<\000∂œr\000∑œ•\000∏œ“\000π–\000∫–4\000º–n\000Ω–°\000æ– \000ø–˚\000¿—$\000¡—P\000¬—}\000√—Ø\000ƒ—ﬂ\000≈“\000∆“5\000»“[\000…“å\000 “π\000À“‡\000Ã”\000Õ”7\000œ”e\000–”î\000—”¬\000“”Ú\000”‘!\000‘‘P\000’‘y\000÷‘°\000◊‘À\000ÿ‘Ù\000Ÿ’\000⁄’H\000€’u\000‹’§\000›’–\000ﬁ’¸\000ﬂ÷%\000‡÷O\000·÷z\000„÷¢\000‰◊#\000Â◊â\000Ê◊˝\000Áÿ*\000ËÿY\000Èÿä\000Íÿ∑\000Îÿ‡\000ÏŸ\000ÌŸ@\000ÓŸl\000ÔŸô\000Ÿ—\000Ò⁄\000Ú⁄<\000Û⁄r\000ı⁄®\000ˆ⁄‹\000˜€\000˘€.\000˙€[\000˚€Ä\000¸€©\000˝€‘\000˛‹\000ˇ‹B\000\r\000‹t\000\r‹†\000\r‹–\000\r‹˙\000\r›&\000\r›R\000\r›{\000\r›¶\000\r	›Õ\000\rﬁ\000\rﬁ;\000\r\rﬁj\000\rﬁû\000\rﬁ—\000\rﬂ\000\rﬂ:\000\rﬂc\000\rﬂì\000\rﬂ∆\000\rﬂ˜\000\r‡$\000\r‡R\000\r‡á\000\r‡¥\000\r‡‰\000\r·\000\rÂè\000\rÂÈ\000\rÊM\000\r Î\000\r!ÎH\000\r\"Î~\000\r#Î≠\000\r$Î“\000\r%Ï\000\r&Ï4\000\r'Ïg\000\r(Ïö\000\r)ÏÀ\000\r*Ìv\000\r+Ìß\000\r,Ô`\000\r-˘\000\r.Ò-\000\r/Ò|\000\r0ÒŒ\000\r1Ú,\000\r2Úç\000\r3Û\000\r4Û~\000\r5Ù\000\r6ÙÜ\000\r7Ùº\000\r8ÙÊ\000\r9ı#\000\r:˛I\000\r;˛s\000\r<˛´\000\r=˛„\000\r>ˇ\000\r?ˇ@\000\r@ˇs\000\rAˇò\000\rBÁ\000\rC\n2\000\rDΩ\000\rE¯\000\rG)\000\rH_\000\rIå\000\rJƒ\000\rK=\000\rLá\000\rMÏ\000\rN\000\rOL\000\rPx\000\rQ§\000\rS‹\000\rT\000\rUK\000\rV≥\000\rW\000\rXÉ\000\rYÍ\000\rZP\000\r[u\000\r\\¶\000\r]”\000\r^\000\r_I\000\r`Ç\000\raª\000\rbﬂ\000\rc\r\000\rd=\000\reí\000\rf∫\000\rg\000\rh2\000\ril\000\rjù\000\rk∆\000\rmˆ\000\ro\000\rpM\000\rru\000\rs°\000\rt—\000\ru˚\000\rv (\000\rw S\000\rx Å\000\ry ™\000\rz ”\000\r{!\000\r|!2\000\r}![\000\r~!á\000\r!∏\000\rÄ!Ï\000\rÅ\"\000\rÇ\"A\000\rÑ\"p\000\rÖ\"£\000\rÜ\"‹\000\rá#\000\rà#0\000\râ#\\\000\rä#á\000\rã%G\000\rå%q\000\rç%ü\000\ré%À\000\rè%˘\000\rê&'\000\rë&W\000\rí&É\000\rì&¥\000\rî&›\000\rï'\000\rñ'F\000\rò'u\000\rô'•\000\rö'ÿ\000\rõ(\000\rú(:\000\rù(d\000\rû(í\000\rü(¿\000\r†(Ò\000\r°)\000\r¢)C\000\r£)r\000\r§)ù\000\r•)…\000\r¶)Ú\000\rß*\000\r®*G\000\r©*Ä\000\r™*®\000\r´*‘\000\rÆ+\000\r±+1\000\r≤+s\000\r¥+ü\000\rµ+Ã\000\r∂,\000\r∑,;\000\r∫,u\000\rª,£\000\rº,œ\000\rΩ,¯\000\ræ-,\000\r¿-V\000\r¡-{\000\r -Æ\000\rÀ-‘\000\r–.\000\000\rﬁ.0\000\rﬂ.X\000\r‡.Ñ\000\r·.Ø\000\r‚.€\000\r„/\000\r‰/1\000\rÊ/\\\000\rÁ/à\000\rË/∫\000\rÈ/Ê\000\rÍ0\000\rÎ0C\000\rÏ0r\000\rÌ0ü\000\rÓ0Œ\000\rÔ0˚\000\rÒ1,\000\rÚ1R\000\rÛ1Ç\000\rÙ1®\000\rı1◊\000\rˆ2\000\r˜20\000\r¯2R\000\r˘2s\000\r˙2—\000\r˝2ˇ\000\r˛3*\000\rˇ3V\0003Å\0003Ø\0003◊\0004(\0004|\0004‹\0005?\0005Ø\000	6\"\000\n6}\0006€\0007\000\r7J\0007—\0008[\0008ñ\0008‘\0009\0009^\0009∑\0009\000:&\000:\\\000:ï\000?ÿ\000@1\000@ê\000E„\000KC\000Ko\000Kò\000 K¬\000!KÈ\000\"L\000#LB\000%Lq\000&Lô\000'L \000)LÛ\000*M\000+MP\000,M{\000-M¨\000.Mﬂ\000/N\0000N8\0001Nb\0002Ní\0003Næ\0004NÎ\0005O\0006OJ\0007Ox\0008O§\0009O—\000:P\000;P3\000<PÅ\000=P¥\000?Q\n\000@QÜ\000AQ±\000BQ‹\000CR\000DRO\000ERô\000FR»\000GRˆ\000HS}\000ISˆ\000JT*\000KTg\000LTï\000MTø\000NTÍ\000OU\000PU?\000QUh\000RUò\000SU√\000TV\"\000UVR\000VW%\000WW \000XXÖ\000YXØ\000ZYP\000[YÙ\000\\Z \000^Zˇ\000_[6\000`[k\000a[¢\000b[Ÿ\000c\\\000d\\V\000e\\Ç\000h\\‚\000i]\000j]<\000k]i\000l]ñ\000m^\r\000n^B\000o^~\000p^ª\000q^\000r_-\000s_k\000u_ü\000v_ÿ\000w`\000x`T\000z`Ä\000|`≤\000~`Ê\000a\000ÄaH\000Åa≤\000ÇbÚ\000Éc+\000Ñc`\000Öcî\000Üc¬\000ácÏ\000àd\000âdI\000ädr\000ãdú\000åd∆\000çd\000ée\000èeB\000êej\000ëeó\000íeÕ\000ìf\000îfG\000ïfo\000ñfú\000óf’\000òg\000ôgC\000õgÅ\000úg®\000ùh%\000ûhP\000üh{\000†h¶\000°h“\000£h˛\000§i*\000•iT\000¶iÜ\000ßiµ\000®i‰\000©j\000™j9\000´jg\000¨jè\000≠jœ\000Æk\000Øk9\000∞kk\000±kù\000≤k \000≥k˜\000¥l!\000µlJ\000∂lz\000∑l≤\000πl„\000∫m\000ªq˚\000ºv¡\000æv\000øw#\000¿wM\000¡w}\000¬xC\000√x§\000ƒy\000≈ye\000∆y√\000«z!\000»zd\000…z§\000 z·\000À{ \000–{b\000—{¡\000“|!\000”|k\000‘|≥\000’}\000÷}Y\000◊}¿\000ÿ~\000Ÿ~T\000⁄~∑\000€\000‹e\000›±\000ﬁÄ\000ﬂÄi\000‡ÄÃ\000·Å,\000‚Åç\000„Åÿ\000‰Ç\"\000ÂÇi\000ÊÇ \000ÁÉ\000ËÉz\000ÈÉ√\000ÍÑ\"\000ÎàÖ\000Ïâv\000Ìâ±\000Óé·\000Ôè\r\000èD\000Òèh\000Úèõ\000Ûè–\000Ùê\000ıêZ\000ˆêÜ\000˜î√\000¯ô\000˘û\000˙û=\000˚ûo\000¸ûõ\000˝ûƒ\000˛ûÔ\000ˇü\000\000üO\000ü}\000ü≠\000ü⁄\000†	\000†5\000†c\000†ë\000†Ω\000	†Á\000\n°\000°D\000°m\000\r°ú\000° \000°ı\000¢\000¢L\000£ü\000´∞\000´”\000´¯\000¨'\000¨Z\000≠,\000±¸\000∂≤\000ªö\000¿…\000≈•\000 «z\000!Ã•\000\"—ê\000#÷´\000$◊>\000%◊m\000'◊ô\000(◊≈\000*◊Û\0001ÿ\"\0002ÿ\0003ÿ»\0004Ÿ\0005Ÿm\0006Ÿ¡\0009⁄\000:⁄c\000;⁄ä\000<⁄…\000=⁄¯\000>€B\000@€k\000A€ò\000B€ƒ\000C€Ò\000D‹\000E‹K\000F‹Ä\000G‹Ã\000H‹˚\000I›\000J›R\000K·&\000L·u\000M·√\000N·˝\000O‚;\000P‚h\000Q‚ï\000R‚¬\000S‚Î\000T„\000U„P\000V„Ü\000W„µ\000XÊA\000ZÌß\000[Ìﬁ\000\\Ó0\000_ÓZ\000`ÓÜ\000aÓ \000bÓ˝\000cÔD\000dÔw\000eÔ´\000fÔ\000g*\000hn\000iû\000j€\000kÒ\000lÒ?\000mÒn\000nÒ®\000oÒ›\000xÚ\n\000yÚB\000zÚâ\000{Ú¬\000|Û\000}Û:\000~Ût\000Ûº\000ÄÛ˘\000ÅÙA\000ÇÙz\000ÉÙ¥\000ÑÙÌ\000Öı\000ÜıT\000áıé\000àıœ\000ëˆ\000íˆ3\000ìˆg\000ïˆù\000ñˆ„\000ò˜!\000ô˜[\000ö˜ñ\000õ˜–\000ú¯\000ù¯A\000û¯y\000ü¯ª\000†¯ˆ\000°˘@\000¢˘|\000£˘Ω\000§˘ˆ\000•˙3\000¶˙Å\000ß˙”\000∞˚\000±˚`\000≤˚ñ\000≥˚ﬁ\000¥¸\000µ¸O\000∂¸\000∑¸≤\000∏¸˝\000π˝2\000∫˝{\000ª˝¬\000º˝Ó\000Ω˛\000¬˛F\000√˛u\000ƒ˛—\000≈ˇL\000∆ˇ–\000«\000\000»\000o\000…\000À\000 \000ÀV\000Ãú\000Õ‡\000Œ/\000œ|\000–…\000—!\000“û\000”˚\000‘\000’ÿ\000÷\000◊m\000ÿ»\000Ÿˆ\000⁄D\000€í\000‹Ÿ\000›$\000ﬁw\000ﬂ—\000‡&\000·©\000‚Ò\000„	N\000‰	í\000Â	Ê\000Ê\n$\000Á\nq\000Ë\n÷\000È`\000Íƒ\000Î\000Ïo\000ÌÕ\000Ó\r,\000Ô\r{\000\rŒ\000Ú!\000Ûf\000Ù≤\000ıÙ\000ˆ \000˜H\000¯è\000˘ø\000˙ˇ\000˚0\000¸`\000˝∂\000˛%\000\000Q\000ô\000—\000\000U\000\000ß\000Õ\000ı\000	(\000\nY\000Ö\000µ\000\rÈ\000\000B\000q\000ß\000‘\000˛\000+\000Q\000|\000´\000€\000\0008\000h\000ö\000≈\000Ó\000\000 I\000!r\000\"ü\000#Œ\000$˝\000%.\000&Z\000'è\000(∫\000)Ê\000*\000+?\000,p\000_û\000a \000d˝\000e'\000uU\000áÖ\000àØ\000â+\000äV\000ã°\000å%\000çO\000éÇ\000è•\000ê÷\000ë˙\000í$\000ìT\000îÄ\000ï∞\000ñŸ\000ó\000ò6\000ôc\000öé\000õ∂\000ú„\000ù\000ûE\000ün\000†õ\000°√\000¢Ô\000£ \000§ E\000• w\000¶ §\000ß ÷\000®!\000©!/\000∂!^\000¡!ê\000¬\"‘\000√\"˜\000ƒ$b\000≈+Ç\000∆2¿\000»8Ø\000…>\000 CI\000ÀE\000ÃJ\000ÕO\000ŒO¨\000œOﬁ\000–P\000—PC\000“P¿\000”Qb\000‘Qé\000’Qª\000÷Q\000◊R\000ÿRI\000ŸRy\000⁄R£\000€R›\000‹S\000›S>\000ﬁSe\000ﬂSì\000‡Sæ\000·SË\000‚T\000„T@\000‰Te\000ÂTé\000ÊTæ\000ÁTÈ\000ËU\000ÈU1\000ÍUT\000ÎU\000ÏUß\000ÌU‘\000ÓU˝\000ÔV)\000VY\000ÒVç\000ÚWD\000ÛW≤\000ÙX\r\000ıY^\000ˆZ±\000˜\\\000¯\\/\000˘\\Z\000˙cß\000˚k#\000¸q\000˝w#\000˛|ˇ\000ˇÇX\000\000Ñ\000àÚ\000é\000\000é√\000éı\000èl\000ê\000ê,\000ê±\000	ê‹\000\nëµ\000ëﬁ\000ì\r\000\rîN\000îw\000îù\000îÕ\000î˚\000ï'\000ïR\000ï»\000ï¸\000ñ$\000ñO\000ñç\000ñ∂\000óT\000ó\000óÆ\000ó◊\000ò\000ô\000 ô*\000!ôV\000\"ôÑ\000#ô´\000$ôﬁ\000%ö\000&öÄ\000'ö¶\000(ö⁄\000)õ	\000*õ6\000+õ`\000,õä\000-õπ\000.õÍ\000/ú\0000ù-\0001û?\0002ûp\0003û€\0004ü\0005üú\0006ü˜\0007†7\0008†_\0009†¡\000:®\000;Æ\000<ÆG\000=≥˙\000>¥5\000?πP\000@∫$\000Aø?\000Cƒá\000Eƒ‹\000F≈,\000H≈s\000I≈º\000J∆\000L∆u\000M∆ \000N∆ı\000P«#\000Q«R\000R«É\000S«Ø\000T«·\000U»\000V»:\000W»ö\000X»¿\000Y»Ù\000[…\"\000\\…M\000]…x\000^…û\000_…»\000`…\000a \000b @\000e q\000f ú\000g ∆\000h Û\000iÀ\000jÀP\000kÀ}\000lÀ∞\000mÃv\000nÃ‘\000oÃ˙\000pÕ(\000qÕQ\000rÕ}\000sÕ¨\000tÕ÷\000uŒ\000vŒ,\000wœ‡\000x—\000y—7\000z—e\000|—å\000}—∂\000~—·\000“\000Ä“G\000Å“}\000Ç“±\000É“ﬁ\000Ñ”\000Ö”/\000á”Z\000à”å\000â”ƒ\000ä”Û\000ã‘(\000å‘X\000ç‘~\000é‘¢\000è‘÷\000ê’\n\000ë’‡\000í÷Æ\000ì◊÷\000îÿ\000ñ·π\000ó·Ê\000ò‚$\000ô‚T\000ö‚É\000õ‚π\000ú‚Í\000ù„\000û„D\000ü„x\000†„ß\000°„⁄\000¢‰\000£‰/\000§‰X\000•‰Ä\000¶‰Ø\000ß‰‡\000®Â\000©ÂH\000™Ât\000≠Â™\000ÆÂ„\000ØÊ\000∞Ê8\000±Ê_\000≤Êà\000≥Êπ\000¥Ê„\000µÁ\000∂ÁN\000∑ÁÄ\000∏Á¥\000πÈˇ\000∫ÌF\000ªÒ•\000ºÙ¸\000Ω˜ì\000æ˚G\000øˇ∫\000¿ˇÍ\000¡q\000¬§\000√”\000ƒ˛\000≈5\000∆^\000«â\000»µ\000…¡\000 \000À¸\000Ãt\000ÕÌ\000ŒÅ\000–∂\000—Ê\000“	8\000”	Ç\000‘	Ø\000’	¯\000÷\n(\000◊\n|\000ÿ\n”\000ŸJ\000⁄ô\000€Î\000ﬂ;\000‡ê\000·\r\n\000‰\rZ\000Â\r≥\000Ê\000ÁX\000ËN\000È)\000Í\000Îk\000Ï⁄\000Ì0\000Óy\000Ôÿ\000\r\000ÒB\000Úl\000ÛÛ\000Ù\"\000ıX\000ˆñ\000˜∆\000¯N\000˘Ö\000˙G\000˚ –\000¸!¢\000˝#Õ\000˛' \000ˇ+E\000\000.ì\0000Ê\0001'\0001T\0001{\0001Æ\0001⁄\0005l\0005ù\000\r5÷\0006\0006F\0006ë\0006œ\0007\00075\0007b\0007ñ\0007ø\0007ˇ\0008-\0009Õ\000=ù\000A/\000A^\000E~\000I5\000M\000 MM\000!M{\000#M•\000$M–\000%M˝\000&N+\000'NW\000(NÄ\000)N≠\000*N÷\000,O\000\000-O*\000.OU\000/OÄ\0000Oª\0002P	\0003P;\0004Pn\0005Pï\0006Q\n\0007Q?\0009Qs\000:Q°\000<Q÷\000=R\000?R/\000@RX\000BRÄ\000CR¶\000DRÀ\000ER˜\000FS?\000HSã\000IS∏\000KSÊ\000LT2\000NT}\000OTÆ\000QTﬁ\000RU,\000TUs\000UU†\000VU‘\000WV[\000XV±\000YVÛ\000ZW_\000[W⁄\000\\X,\000]X∏\000^Y\000_YH\000aYq\000bY\000cZq\000dZÌ\000e[l\000f[Ú\000g\\r\000h\\Í\000i]h\000j]Ê\000k^`\000l^€\000m_1\000n_é\000o_Í\000p`B\000q`ú\000r`¯\000saP\000tay\000ua°\000vaı\000wbH\000ybì\000{b€\000|c&\000}ck\000~c±\000cˇ\000ÄdL\000Ådï\000ÇdÌ\000Ée@\000Ñen\000Öeü\000Üe◊\000áf\000àf@\000âfq\000äfü\000èfÃ\000êf˙\000ëg$\000ìgO\000ïg|\000ñg·\000óh\000ùhU\000ûhè\000üh√\000†hÔ\000°i\000¢iO\000£i\000§i©\000ßi–\000®jÜ\000©kE\000™k{\000´k∏\000¨k\000≠l.\000Ælf\000Ølú\000∞l«\000±mg\000≤mè\000≥m«\000¥n<\000µnm\000∂nü\000∑nœ\000∏o(\000πoW\000∫oÜ\000ªo∏\000ºoÍ\000Ωp\000æpL\000øpÉ\000¿pπ\000¡pÒ\000¬q\000√qD\000ƒqt\000≈q©\000∆q€\000«r\000»r@\000…rj\000 rê\000Õr∂\000Œs/\000–sé\000—s \000“t\000”tE\000‘ty\000’t©\000÷t’\000◊tˇ\000ÿu+\000Ÿu\\\000⁄uç\000€uø\000‹u¯\000›v2\000ﬁvl\000ﬂv£\000‡v⁄\000·w\000‚wK\000„wz\000‰w≤\000Âw‚\000Êx\000ËxD\000Èxm\000Îxõ\000Ïx–\000Ìy\000Óy5\000ÔyU\000yò\000Òy»\000Úy¯\000Ûz*\000ÙzW\000ˆz~\000˚zÆ\000¸z‚\000˝{\000˛{H\000ˇ{{\000\000{•\000{“\000|H\000|t\000|˝\000}'\000}c\000}ö\000	~\000\n~g\000~\000\000\rM\000\000ø\000ˆ\000Ä\"\000ÄL\000Äw\000Ä¨\000Ä„\000Å\000ÅQ\000Å|\000Å©\000Å◊\000Ç\000ÇN\000 Çá\000!ÇΩ\000\"ÇÚ\000'É\000(ÉP\000)ÉÖ\000*É∏\000+ÉÂ\000,Ñ\000-Ñ<\000.Ño\000/Ñ†\0001Ñœ\0002Ñ˛\0003Ö4\0004Ö`\0005Öã\0006Ö¡\0007ÖÓ\0008Ü\0009ÜE\000:Üw\000;Ü•\000<Ü”\000=Ü˛\000>á2\000@á_\000Aáí\000Bá¬\000Cá\000Dà\000EàL\000GàÅ\000HàØ\000Iàﬁ\000Jâ\000Kâ>\000Lâo\000Mâò\000Nâ«\000PâÙ\000Qä\000RäQ\000Sä\000Tä©\000Uä”\000Wä˚\000Xã'\000YãN\000Zãt\000]ãù\000^ã‰\000_å\000`å<\000aåe\000båî\000cå∆\000dåÙ\000gç\000hçS\000iç}\000jç¨\000kç·\000lé\000mé;\000néq\000oé§\000pé—\000qé¸\000rè,\000sèX\000tèë\000uèø\000vèÏ\000wê\000xêK\000zê\000{êΩ\000|êÔ\000}ë\000~ëH\000ëp\000Äëß\000Åë”\000Çí\000Éí1\000Üíd\000áíﬂ\000àìY\000âìÄ\000äìı\000ãî\000åîÈ\000çï\000éïD\000èïs\000êï‘\000ëï˛\000íñK\000ìñx\000îñƒ\000ïñÓ\000òó\000ôóC\000öóv\000õó•\000úóŸ\000ùò\000ûò=\000üòf\000†òè\000°ò≥\000¢ò›\000£ô\000§ô4\000•ôd\000¶ôó\000ÆôÍ\000∞ö\000≤öH\000≥ö›\000¥õ\000∏õ4\000∫õö\000ªõ√\000ºõÍ\000æú\000øú?\000¿út\000¡ú´\000¬ú◊\000√ù\000\000ƒù&\000≈ù¢\000∆ùÃ\000«û\000\000»û6\000…ûq\000 û£\000Àû÷\000Ãü\000\000Õü(\000œür\000–ü¡\000—üÈ\000“†\000”†9\000‘†ë\000’†ø\000÷†Î\000◊°#\000ÿ°N\000Ÿ°~\000⁄°•\000€°Ó\000‹¢!\000›¢T\000ﬁ¢ì\000ﬂ¢√\000‡¢˜\000·£4\000‰£\\\000Â£è\000Ê£ƒ\000Á£ı\000Ë§#\000È§M\000Í§Ä\000Î§≤\000Ï§‚\000Ì•\000Ó•=\000Ô•n\000•°\000Ò•–\000Ú•˘\000Û¶\"\000Ù¶X\000ı¶É\000ˆ¶Ÿ\000˜ß\000¯ß2\000˘ßX\000˙ß∑\000˚®/\000¸®≤\000˝©C\000˛©˜\000ˇ™$\000\000™t\000™œ\000´\000´O\000´~\000´¬\000´¯\000\r¨m\000¨“\000≠\"\000≠r\000≠–\000Æ\000ÆC\000Ø/\000,Øf\000-Øö\000.ØÕ\000/Ø˚\0000∞#\0001∞^\0002∞å\0005∞∫\0007±ã\0008±π\0009±„\000:≤\000;≤:\000<≤h\000=≤ï\000>≤¿\000?≤È\000@≥\000A≥O\000B≥y\000C≥≠\000D≥‹\000E¥\000F¥-\000G¥W\000H¥~\000I¥®\000J¥‹\000Kµ\000Lµ7\000Mµb\000Nµí\000Oµƒ\000PµÔ\000Q∂\000R∂I\000S∂y\000T∂´\000U∂Î\000V∑\000W∑?\000X∑©\000Y∑Á\000Z∏ \000[∏[\000\\∏ì\000]∏Ê\000^πA\000_πû\000`π„\000a∫5\000b∫\\\000c∫í\000d∫∫\000e∫‚\000mª\000pªB\000qªk\000rªû\000sªÕ\000tª˜\000uº6\000vºc\000wº†\000xº›\000yΩ	\000zΩ8\000{Ω`\000|Ωà\000}Ωµ\000~Ωﬁ\000æ	\000Äæ3\000ÅæZ\000ÇæÖ\000ÉæÆ\000Ñæﬁ\000Öø\000Üø3\000àø`\000âøâ\000äø≥\000ãø·\000å¿\000ç¿A\000é¿n\000è¿°\000í¿ˆ\000ì¡*\000î¡P\000ï¡û\000ñ¡‰\000ó¬\n\000ò¬3\000ô¬]\000ö¬è\000õ¬∑\000ú¬‚\000ù√ \000û√a\000ü√ò\000†√¬\000°√¯\000¢ƒ4\000£ƒo\000§ƒØ\000•ƒÁ\000¶≈#\000ß≈a\000®≈†\000©≈Ê\000´∆'\000¨∆]\000≠∆ú\000≥∆ﬂ\000¥«\000µ«W\000∂«ì\000∑«æ\000∏»\000π»?\000∫»Ä\000Ω»≠\000æ»⁄\000ø…\000¿…1\000¡…_\000¬…ç\000√…º\000ƒ…Ì\000≈ \000∆ D\000« k\000» ñ\000… »\000  ˜\000ÀÀ%\000ÃÀU\000ÕÀÉ\000ŒÀÆ\000œÀÿ\000–Ã\n\000—Ã3\000“Ãn\000‘Ãó\000’Ã»\000÷ÃÒ\000◊Õ\000ÿÕJ\000ŸÕw\000⁄Õ§\000€Õ◊\000‹Œ\000\000›Œ-\000ﬁŒ]\000ﬂŒÜ\000‡Œ¥\000·Œ‹\000‚œ	\000„œ7\000‰œt\000Âœü\000Êœ»\000Áœ\000Ë–!\000Í–W\000Î–Ç\000Ï–≥\000Ì–‹\000Ô—	\000—9\000Ò—k\000Ú—ö\000Û—º\000Ù—È\000ˆ“\000˜“L\000¯“y\000˘“Æ\000˙“Ÿ\000˚“˝\000˝”%\000˛”M\000ˇ‘T\000\000‘Ñ\000‘Æ\000‘’\000’\000\000’,\000	’a\000\n’ò\000’Õ\000÷\000\r÷5\000÷f\000÷ë\000÷µ\000÷‰\000◊\000◊F\000◊r\000◊£\000◊–\000◊¸\000ÿ'\000ÿW\000#ÿÄ\000$ÿ¥\000%ÿ‡\000&Ÿ\000'ŸD\000(Ÿy\000)Ÿ´\000*ŸÈ\000+⁄$\000,⁄N\000-⁄x\000.⁄¨\000/⁄⁄\0000€\000\0001€.\0002€X\0003€Ä\0004€Ø\0005€\0006‹\0007‹S\0008‹\0009‹´\000;‹–\000=‹¸\000?›'\000@›—\000A›ˇ\000Bﬁ_\000Cﬁä\000Dﬁ∫\000Eﬁ„\000Fﬂ\000GﬂJ\000HﬂÖ\000Kﬂø\000Oﬂ˙\000P‡%\000Q‡N\000R‡~\000S‡®\000T‡—\000U‡˘\000V·(\000W·c\000X·î\000Y·ª\000Z‚\000[‚S\000\\‚î\000]‚À\000^„\000_„K\000`„Ü\000a„∏\000b„‚\000c‰\r\000d‰7\000e‰a\000f‰ä\000g‰≥\000h‰ﬂ\000iÂ\000jÂ]\000kÂó\000lÂÃ\000mÊ\000nÊ7\000oÊk\000pÊú\000qÊ”\000rÁ\000sÁA\000uÁx\000vÁ°\000wÁ—\000zË\000|Ì\000~ÔÓ\0003\000Ä◊\000ÅÙW\000ÇÙÑ\000ÉÙπ\000ÑÙ‚\000Öı\000Üı4\000áıa\000àıç\000âı∏\000äı€\000åıˇ\000çˆL\000éˆu\000èˆú\000êˆƒ\000ëˆÚ\000í˜\000ì˜=\000î¯†\000ï˘J\000ñ˘p\000ó˘ñ\000ò˘ƒ\000ô˘¯\000ö˙-\000ú˙_\000ù˙ë\000û˙≈\000ü˙Ì\000†˚\"\000°˚V\000¢˚ã\000£˚Ω\000§˚Ì\000•¸\000¶¸F\000ß¸s\000®˝\000´/\000∫Z\000ªâ\000Ωπ\000æ≠\000øÚ\000¿/\000¡è\000¬Ï\000√\000ƒI\000≈}\000∆F\000«		\000»\nß\000 9\000ÀN\000Ã|\000Õß\000Œÿ\000œ\000–6\000—c\000“é\000”º\000‘Á\000’\000÷A\000◊j\000ÿò\000Ÿƒ\000⁄Ì\000€\000‹C\000›k\000ﬁ£\000ﬂ◊\000‡\000·:\000‚ñ\000„¯\000‰%\000ÂL\000Êv\000Ë£\000È»\000ÍÙ\000Î \000ÏJ\000Ìp\000Ó¢\000ÔŒ\000˘\000Ò3\000Úa\000Ûã\000Ù≤\000ıÂ\000ˆ\000˜:\000¯b\000˙ê\000˚π\000¸·\000˝\000˛5\000ˇa\000Ü\000±\000›\000 \000◊\000 Ã\000 Ú\000!#\000\n!\\\000!ô\000\r!“\000\"	\000\">\000\"x\000\"∞\000\"‰\000 #\000!#F\000$#x\000%#´\000+#Ÿ\0001$\0006$8\0007$b\0009$è\000:$π\000;$ﬁ\000<%\000=%8\000>%l\000?%û\000U%—\000V&\000c&;\000d&h\000e&Ü\000f&∞\000g&È\000h'\000i'G\000j'Ö\000k'Æ\000l'ÿ\000m(E\000n(Ä\000o(©\000p(“\000q(¯\000r)0\000s)c\000u)ñ\000v)∫\000w)Â\000x*\000y*6\000z*_\000{*ã\000|*∏\000}+\000~+?\0000r\000Ä7g\000Å=\000Ç=´\000É=“\000Ñ=˙\000Ö>#\000Ü>L\000á>z\000à>£\000â> \000ä>Ú\000ã?\000å?c\000ç?ª\000é?ˆ\000èDÁ\000êE\"\000ëEK\000íEs\000ìE™\000îE›\000ïF\000ñF:\000óFf\000òFî\000ôG8\000öGØ\000õGÚ\000úH<\000ùHÄ\000ûH√\000üHÔ\000†I%\000°IX\000¢Iá\000£IΩ\000§I˜\000•J2\000¶Jf\000ßJ¢\000®J–\000©J¯\000™K#\000´KO\000¨Kî\000≠Kæ\000ÆLE\000ØLn\000∞Lõ\000±L⁄\000≤M\000≥MF\000¥Mr\000µM°\000∂M \000∑Mˆ\000∏N \000πNK\000∫Ns\000ªNù\000ºO\000øOE\000¿Oq\000¡Oú\000¬P\000√PB\000≈Pu\000∆Pˆ\000«Q \000»QJ\000…Qt\000 Q–\000ÀQˇ\000ÃR-\000ÕR`\000ŒRå\000œR∂\000–Rﬂ\000—S\r\000“S:\000”Sq\000‘Sõ\000÷SÕ\000◊S˚\000ÿT3\000ŸTf\000⁄Tñ\000€T≈\000‹TÓ\000›U$\000ﬁUb\000ﬂUñ\000‡U \000‚U˙\000„V'\000‰VN\000ÂVÄ\000ÊVº\000ÁVÍ\000ËW\000ÈW6\000ÍWj\000ÎWö\000ÏW√\000ÌWˆ\000ÓX\000ÔXP\000XÜ\000ÒX¨\000ÚX“\000ÛX˛\000ÙY)\000ıYT\000ˆYê\000˜Yµ\000¯YÒ\000˘Z\000˙ZI\000˚Zy\000¸Z´\000	ZÈ\000[ \000[F\000[p\0000[ü\0002[Ã\0003\\\000\0004\\*\0005\\S\0006\\Å\0007\\º\0008\\Â\0009]!\000:]N\000;]}\000<]ß\000>]—\000?]˘\000@^(\000D^q\000E`X\000F`ã\000G`∑\000H`Ì\000Ia$\000JaP\000Kax\000La£\000Maœ\000Na˜\000Ob \000QbL\000Rbt\000Sbü\000Tb«\000Uh·\000Vi!\000Wn&\000XnL\000lnç\000mn√\000nn˜\000Äo$\000ïoR\000ñoâ\000óoµ\000òoÏ\000ôp\000öpF\000õpq\000úpù\000ùu˜\000ûzπ\000ü{I\000†{~\000°{∞\000¢{‡\000£|\000§|A\000•|s\000¶|¥\000ß|Ù\000®}2\000©}q\000™}∑\000´}Í\000¨~\000≠~<\000Æ~j\000Ø~ô\000∞~ \000±~¸\000≤M\000≥\000¥Ä\000µÄE\000∂Ät\000∑Ä°\000∏Ä—\000πÄ˛\000∫Å,\000ªÅq\000ºÅô\000ΩÅ√\000æÅˆ\000øÇ!\000¿Ç^\000¡Çè\000¬Çº\000√ÇÍ\000ƒÉ\000≈ÉH\000∆Ér\000«É°\000»É“\000…Ñ\000ÀÑ+\000ÃÑZ\000ÕÑà\000ŒÑ∞\000œÑŸ\000–Ö\000—Ö4\000“Ö`\000‰Öå\000ÂÖ∑\000ÊÖﬂ\000ÁÜ\000ËÜ0\000ÈÜY\000ÍÜÇ\000ÎÜ´\000ÏÜ“\000ÌÜ˙\000Óá%\000ÔáN\000Òáw\000Úáü\000Ûá»\000ˆáÒ\000˜à\000¯àC\000˘àg\000˙àã\000˚àØ\000¸à÷\000\000â\000â*\000âU\000âÑ\000â¨\000â◊\000êÓ\000ë\000ëI\000ëq\000ë£\000ë‹\000í\n\000í:\000íd\000íã\000 íæ\000!íÓ\000\"ì\000#ìO\000$ìy\000%ìú\000&î\000'î+\000(îU\000)îá\000*îÆ\000+î◊\000,ï\000-ï-\000.ïa\000/ïè\0001ï∏\0002ï\0003ñ\0004ñI\0005ñu\0006ñ¢\0007ñ–\0008ñ˙\0009ó%\000:óJ\000;óu\000<óû\000=ó»\000>óÚ\000Cò\000DùQ\000Fù\000Gù™\000Hùﬁ\000Iû\000Jü-\000KüW\000LüÅ\000Oü™\000PüŸ\000Q†\000R†K\000S†t\000T†™\000U†·\000V°\000W°G\000X°Ä\000Y°¡\000Z¢\000[¢D\000\\¢É\000]¢¬\000^£\000_£5\000`£]\000a£Ü\000b£∞\000e£Ÿ\000f§\000g§G\000h§É\000i§µ\000j§‡\000k•\000l•?\000m•r\000n•ü\000p•‘\000qß\000rß3\000sßc\000tßê\000u®∫\000w©û\000x©≈\000y©Û\000z™\000{™g\000|™µ\000}´\000~´W\000´ï\000Ä´\000Ç¨1\000É¨m\000à¨≥\000â¨⁄\000ä≠\000ã≠:\000å≠e\000ç≠ë\000é≠ø\000è≠‰\000êÆ\000ëÆ@\000íØ%\000ìØU\000îØÜ\000ïØ¥\000ñØÔ\000ó∞\000ò∞K\000ô∞à\000ö∞´\000õ∞⁄\000ú±\n\000ù±Ÿ\000û≤\000ü≤›\000†≥`\000°≥ó\000¢≥Ã\000£¥\000§¥/\000•µ	\000¶µ3\000ßµ]\000®µá\000©µ±\000™µ€\000´∂\000¨∂4\000≠∂a\000Æ∂ç\000Ø∂π\000∞∂\000±∑\000≤∑T\000≥∑Ö\000¥∑±\000µ∑›\000∂∏-\000∑∏r\000∏∏ò\000π∏Â\000∫π\000ªπk\000ºπí\000Ωπº\000æπÊ\000ø∫\000¿∫@\000¡∫í\000¬∫·\000√ª\000ƒª/\000≈ªX\000∆ªâ\000»º2\000…√n\000 √©\000À√Ì\000ÃÀ%\000Õ“á\000Œ“◊\000œ”\000–”)\000—”T\000“”y\000””•\000‘”“\000’”˙\000÷‘ \000◊‘L\000ÿ‘u\000Ÿ‘£\000⁄‘¸\000€’¥\000‹’ﬁ\000›÷\000ﬁ÷w\000ﬂ÷¶\000‡÷ÿ\000·◊,\000‚◊v\000„◊û\000‰◊¿\000Â◊Ó\000Êÿ\000ÁÿE\000Ëﬁ_\000Èﬁü\000ÍﬁÂ\000Îﬂ7\000Ïﬂî\000ÌﬂÏ\000Ó‡i\000Ô‡\000·o\000Ò·õ\000Ú·»\000Û‚R\000Ù‚—\000ı„^\000ˆ„º\000˜ÈŸ\000¯Ô–\000˘Ô˚\000˙w\000˚Ú\000¸Òp\000˝Òœ\000˛ÚH\000ˇÚø\000\000ÛG\000Û¢\000Û⁄\000Ù,\000Ùã\000ÙÌ\000ı9\000ıî\000ıÒ\000	ˆJ\000\nˆß\000˜\000˜Q\000\r˜û\000˜Û\000¯ \000¯f\000¯∞\000¯Ù\000˘:\000˘\000˘ \000˙\000˙U\000˙¢\000˙Ô\000˚>\000˚ã\000˚À\000¸\000¸h\000¸≥\000 ˝\000!˝M\000\"˝ù\000#˝”\000$˛\000&˛@\000'˛r\000(˛§\000)˛–\000*ˇ\000\000+ˇ+\000,ˇì\000-\000q\000.\000ª\000/\000Â\0000\0001A\0002w\0003ù\0004…\0005Ì\0006\0007Ç\0008™\0009”\000:\000;;\000<g\000=ì\000>ƒ\000?Ì\000@	\000A	L\000B	}\000C	™\000D	ÿ\000E\n\000F\n,\000G\nï\000H\000I1\000J_\000Kò\000L“\000M\n\000N5\000O[\000PÇ\000Qµ\000R„\000V\r\000W\r<\000X\rk\000f\rí\000g\r¡\000h\rÌ\000i\000j>\000ká\000l’\000m\000nQ\000o°\000pÌ\000q:\000rá\000s’\000u!\000vk\000w≥\000x\000\000y0\000zy\000{ü\000|Œ\000}\000~4\000b\000Ää\000Åÿ\000ÇØ\000É_\000Ñå\000Ö◊\000ÜS\000áÅ\000à≠\000â\000äX\000ã≠\000å\000çd\000éƒ\000è\000ëh\000íæ\000ì\000îw\000ï—\000ñ\000ón\000ò«\000ô\000ös\000õ \000ú\000ù`\000û∂\000üˇ\000† K\000° ¢\000¢! \000£!§\000§\"\000•\"ü\000¶#$\000ß#®\000®$,\000©$∂\000™%9\000´%∂\000¨&7\000≠&¥\000Æ'3\000Ø'¥\000∞($\000±(°\000≤)'\000≥)©\000¥*/\000µ*±\000∂+2\000∑+´\000∏,/\000π,±\000∫-$\000ª-ß\000º./\000æ.µ\000ø/1\000¿/≥\000¡0/\000¬0´\000√1(\000ƒ1®\000≈2+\000∆2∞\000«3*\000»3§\000…4\000 4ñ\000À5\000Ã5é\000Õ6\000œ6~\000–7\000—7v\000“7Ã\000”8!\000‘8î\000’9\000÷9Ñ\000◊9¯\000ÿ:m\000Ÿ:√\000⁄;A\000€;h\000ﬁ;ù\000‡;ƒ\000·;Ò\000‚<\000„<G\000‰<|\000Â<£\000Ê<À\000Á<˘\000Ë=!\000È=L\000Í=y\000Î=¢\000Ï=”\000Ì>\000\000>.\000Ò>Z\000Ú>Ö\000Û>Ø\000ı>⁄\000˜?\000˚?0\000¸?\\\000˝?Ü\000˛?∫\000ˇ?Ò\000\000@\000@A\000@q\000@ô\000@≈\000@˘\000B¢\000B“\000D]\000	Dá\000\nD±\000D⁄\000E\000\rE3\000E[\000EÖ\000Eµ\000EÍ\000F\000FE\000Fs\000F£\000FÕ\000G\000G)\000GY\000Gè\000G¿\000GË\000 H\000!HB\000\"Hp\000#Hú\000$H»\000%HÛ\000&I\"\000'IQ\000(IÅ\000)IÆ\0005IŸ\0006J\000\0008J3\0009Jf\000:Jè\000;Jπ\000<JÁ\000=R\000>R7\000?R^\000@Râ\000ARΩ\000BRÎ\000CS\000ESI\000FSx\000GS≥\000ISÁ\000KT\000LTI\000OT\000QT∏\000RT‚\000SU\000TU>\000UUe\000VUí\000WU¬\000XUÓ\000YV\000ZVI\000[Vt\000\\V£\000]VÀ\000^VÚ\000_W\000`WD\000aWm\000bWó\000cWø\000dWı\000eX#\000nXS\000oXÖ\000uX≤\000vX‰\000wY\000xY<\000|Yi\000}Yê\000~Y∏\000YÏ\000ÄZ\000ÅZG\000ÇZv\000ÉZú\000ÑZ»\000ÖZ˘\000Ü[0\000á[Y\000à[É\000â[≤\000ä[‹\000ã\\\000å\\@\000ç\\r\000é\\ó\000è\\ƒ\000ê\\Ó\000ë]\000í]?\000ì]i\000î]î\000ï]¡\000ñ]Ï\000ó^\000ò^@\000ô^h\000ö^ñ\000õ^¬\000ú^Ù\000™_\000´_¡\000¨_Ì\000≠`\000Æ`I\000Ø`o\000∞`ò\000±`ƒ\000≤`ˇ\000≥a4\000¥ao\000∂aî\000∑a»\000∏aÙ\000πb \000∫bO\000ªb}\000ºb¶\000Ωb‹\000æc\000øc/\000¿c\\\000¡cÜ\000√c¥\000“cÂ\000Êd\000ÁdE\000Ëd¬\000ÈdÍ\000Íe^\000Îeà\000Ïe∏\000Ìe\000Óf\000ÔfE\000Úfz\000Ùfß\000ıf‹\000ˆg\000˜g=\000¯gl\000˘gö\000˙gø\000˚gÁ\000¸h\000˝h?\000˛ho\000ˇhó\000\000hæ\000hË\000i\000i@\000iu\000i¢\000i…\000iÒ\000j\000jJ\000j{\000\"j¢\000#jœ\000$j˜\000%k\000&kG\000'ks\000(k£\000)k—\0006k¸\0007l$\0008lN\0009ly\000:l§\000;lŒ\000<l˝\000=m/\000>mb\000?mñ\000@m¿\000Am\000Bn\000CnC\000Dnm\000Enö\000Fnƒ\000GnÏ\000Ho\000IoB\000Jon\000Ko›\000Mp\000NpU\000Opä\000Pp∂\000QpË\000Rq%\000SqW\000Tqã\000Uq∫\000VqÍ\000Wr\000Xr>\000Yrk\000Zrù\000[rÀ\000\\rı\000]s\000^tW\000rtÉ\000stß\000Üt“\000át¸\000àu'\000âuP\000äuz\000ãu°\000åu«\000çu\000év\000èvA\000êvl\000ëvò\000ív»\000ìvÛ\000îw#\000ïwL\000ñww\000ów®\000òw”\000ôx\000\000õx*\000úx◊\000ùy}\000ûy›\000üzl\000†zë\000°zÎ\000¢{O\000£{∑\000§|M\000•|„\000¶}|\000ß~\000®~u\000©~€\000™-\000´p\000¨¶\000≠Ñ∞\000ÆâŒ\000ØéÙ\000∞è,\000±èc\000≤èú\000≥îã\000¥ö\"\000∂üx\000∑ü•\000∏üÀ\000π†*\000∫†Ç\000ª†Ω\000º†Î\000Ω°&\000¬°\\\000√°Ü\000ƒ°¥\000≈°˛\000∆¢0\000«¢ç\000»¢–\000…£\000 £R\000À£å\000Ã£µ\000Õ£·\000Œ§\r\000œ§8\000–§r\000÷§ù\000◊§Ÿ\000ÿ•\000Ÿ•W\000⁄•Ñ\000€•¨\000‹•Ì\000›¶\000ﬁ¶E\000ﬂ¶ä\000Í¶Ω\000Ï¶Ú\000˛ß \000ßG\000ßw\000ß§\000ß”\000®5\000&®l\000'®§\000(®œ\000)®˜\000:©#\000;©V\000<©Ö\000=©—\000>©˝\000?™/\000O™j\000Q™£\000b™–\000c´\n\000d´>\000e´q\000f´õ\000g´Œ\000h´˚\000i¨,\000j¨q\000l¨û\000m¨“\000n≠\000o≠6\000p≠h\000q≠ô\000r≠»\000s≠ı\000tÆ \000uÆJ\000vÆy\000wÆ§\000xÆÕ\000yØ4\000zØk\000{Ø°\000|Ø \000}∞\000\000~∞E\000∞q\000Ä∞ù\000Å±G\000Ç±o\000ä±´\000ã±÷\000å≤\000ç≤;\000û≤m\000ü≤ô\000†≤»\000°≤ı\000¢≥#\000£≥Ä\000§≥€\000•¥'\000¶¥S\000ß¥Å\000®¥´\000©¥÷\000™µ\000´µ-\000¨µf\000≠µ£\000Æ∂\000Ø∂{\000∞∂ß\000±∂◊\000≤∑\000¥∑4\000µ∑_\000∂∑ã\000∑∑€\000∏∏&\000π∏Y\000∫∏∑\000ªπ\000ºπj\000ΩπË\000æ∫=\000ø∫h\000¿∫ñ\000¡¿\000¬¿;\000√¿z\000ƒ≈ \000≈ÀY\000∆Àå\000«À‰\000»Ã<\000…Ãì\000 ÃÏ\000ÀÕB\000ÃÕz\000ÕÕ¨\000ŒÕ‹\000œŒ	\000–Œ4\000—Œg\000“Œî\000⁄Œª\000€ŒË\000›œ\000ﬁœ8\000ﬂœ]\000‡œÇ\000Óœ≠\000Ô–\000–h\000Ò– \000Ú—+\000Û—à\000Ù—Ê\000ı“B\000ˆ“û\000˜“¸\000¯”u\000˘”Œ\000˙‘(\000˚‘à\000¸’\000˝’d\000˛’¬\000ˇ÷\000\000÷w\000÷“\000÷˘\000◊$\000◊L\000◊ï\000◊‡\000ÿ,\000	ÿw\000\nÿƒ\000Ÿ\000Ÿ]\000\rŸ∫\000⁄	\000⁄W\000⁄©\000⁄ı\000€<\000€d\000€±\000€˙\000‹J\000‹ì\000‹·\000›.\000‚,\000Á\n\000ÁI\000Ë=\000Ì-\000Ìv\000 ÌΩ\000!Ó\000\"ÓK\000#Óé\000$Ó’\000%Ô-\000&Ôr\000'Ôπ\000(\000).\000,q\000-º\000.Ò\000/ÒY\0000Ò†\0001ÒÊ\0002Ú0\0003Ú|\0004Ú¬\0005Û\r\0006ÛZ\0007Ûß\0008ÛÌ\0009Ù5\000:Ù|\000;Ù«\000<ı\000=ıd\000>ı≠\000?ı˝\000@ˆJ\000Aˆô\000Bˆ‰\000C˜+\000D˜~\000E˜≈\000F¯\000G¯]\000H¯©\000J¯ˆ\000K˘&\000L˘q\000R˘ß\000S˘Ÿ\000T˙\000U˙0\000V˙^\000W˙ë\000X˙æ\000Y˙Î\000Z˚\000[˚>\000\\˚h\000]˚ò\000^˚ﬁ\000_¸\000`¸Z\000a¸û\000b¸‚\000c˝4\000d˝Å\000e˝œ\000f˛&\000g˛e\000h˛∞\000i˛Û\000jˇ5\000kˇy\000lˇπ\000m\000\000\000n\000O\000o\000†\000p\000ﬂ\000q\000r]\000sñ\000t“\000u\000vI\000wÑ\000xæ\000y\000zU\000{ï\000}∏\000~‰\000\r\000ÄC\000Åé\000ÇŸ\000ÉB\000Ñç\000Ö„\000Ü!\000á¢\000à∆\000â\000éQ\000èÇ\000ê±\000ë„\000¢\000£>\000∂p\000∑ú\000∏√\000π	H\000∫	´\000ª	˘\000º\n7\000Ω\nv\000 \n≤\000À\n⁄\000Ã\000Õ4\000ﬁ[\000Úä\000Û»\000Ùˇ\000ı-\000ˆa\000˜ô\000¯Œ\000˘\r\n\000˙\rC\000˚\rp\000¸\r®\000˛\r”\000ˇ\000\000\000)\000[\000â\000µ\000Á\000\000J\000v\000£\000	”\000\n˚\000!\000M\000è\000π\000Á\000\000 D\000!o\000\"õ\000#∆\000$Ì\000%\000&=\000'j\000(û\000)Œ\000*\000\000+*\000,W\000-â\000.¿\000/˚\0000Å\0001˜\0002n\0003Á\0005\0006E\0007{\0008¢\0009\000: \000;M\000<y\000=ß\000>’\000B\000CR\000D}\000E©\000Fœ\000G˘\000H$\000I†\000J\000K†\000L˝\000M-\000Nê\000O€\000P6\000QÑ\000V\000W\000XM\000Yz\000Z∞\000[Â\000j\000kô\000~\000O\000ÄÅ\000Å∫\000ÇÔ\000É \000Ñ V\000Ö í\000í ∫\000¶ ¸\000ß!2\000®!d\000∫!™\000ª!ﬂ\000æ\"\000ø\"N\000Œ\"|\000œ\"™\000–\"‹\000‚#\000„#d\000‰#ò\000Â#Œ\000Ê97\000Á:\000Ë>◊\000ÈFƒ\000ÍFı\000ÎG(\000ÏGT\000ÌGÅ\000ÓGØ\000ÔGﬂ\000H\000ÒH<\000ÚHi\000ÛHì\000ÙH¿\000ˆHÔ\000˜I\000¯IL\000˘I}\000˙I™\000˚I›\000¸J\000˝J4\000˛Ja\000ˇJç\000\000J¡\000JÔ\000K\000KJ\000Kz\000K•\000K“\000L\000\000	L1\000\nLY\000Lá\000L™\000\rLŒ\000LÛ\000M\000M>\000Mc\000Mä\000M≥\000M›\000N\000N3\000NS\000NÄ\000Nß\000N“\000O\000O-\000O[\000 Oâ\000!O∑\000\"Oﬁ\000#P\000$Pp\000%Q9\000&R{\000'Rß\000(W \000*Z*\000+Ze\000,Z¢\000-Zÿ\000.[\000/[G\0000[\0001[∏\0005[Û\0006b¢\0007i8\0008ju\0009oõ\000;v?\000<v{\000=v¶\000Fw/\000Gwo\000Hwï\000Iw∏\000Zx\000[x5\000\\xj\000]yø\000^ö\000n«\000oÚ\000pÄ$\000qÄU\000rÄÑ\000sÄ≤\000tÄ’\000uÅ\000ÇÅQ\000ÉÅ\000ÑÅ´\000ÖÅ◊\000ÜÇ\000áÇ+\000àÇT\000âÇÑ\000äÇ¬\000ãÇÓ\000åÉ\000çÉG\000éÉw\000èÉ©\000êÉŸ\000ëÑ\000íÑE\000ìÑy\000îÑ≤\000ïÑÁ\000ñÖ*\000óÖh\000òÖ§\000ôÖˆ\000öÜI\000õÜû\000úÜÚ\000ùáD\000ûáö\000üáÌ\000™à\000´àP\000¨àç\000≠àÃ\000Æâ	\000ØâM\000∞âà\000±âÀ\000≤ä\000≥äF\000¥ä\000µäª\000∂ä¯\000∑ã1\000∏ãÄ\000πãœ\000∫å\000ªåQ\000ºåé\000Ωå“\000æç\r\000øçO\000¿çá\000¡ç«\000¬ç˛\000√é<\000ƒéw\000≈é≥\000∆éÛ\000«è2\000»èm\000…èö\000 èË\000Àê*\000Ãêw\000Õêæ\000Œë	\000œëT\000–ëí\000“ë‚\000”ï:\000‘ïc\000’ïå\000÷ï≤\000◊ñ…\000ÿóõ\000Ÿò>\000⁄ôõ\000€ô¬\000‹ôÔ\000›ö<\000ﬁöã\000ﬂö÷\000‡õ\000·õm\000‚õ¥\000„õˇ\000‰úM\000Âúv\000Áú¨\000ËúÛ\000Èù'\000Íùo\000Îù†\000Ïù≈\000ÌùÔ\000Óû\000ÔûO\000ûy\000Òû¶\000Úû◊\000Ûü#\000ÙüQ\000ıüù\000ˆüÕ\000˜ü¸\000¯†q\000˘†‰\000˙°\000˚°Ñ\000¸°±\000˝°˝\000˛¢/\000ˇ¢`\000 \000¢ã\000 ¢π\000 ¢„\000 £/\000 £w\000 £°\000 £œ\000 §\000 	§9\000 \n§b\000 §å\000 §ø\000 \r§Ì\000 •\000 •L\000 •}\000 •©\000 •÷\000 ¶\000 ¶1\000 ¶`\000 ¶å\000 ¶π\000 ¶Â\000 ß\000 ß9\000 ßk\000  ßù\000 !ß∆\000 \"®-\000 4®©\000 5©b\000 6©©\000 7©ˆ\000 8™9\000 9™z\000 :™π\000 ;´\000 <´W\000 =´£\000 >´‡\000 ?¨#\000 @¨j\000 A¨ß\000 B¨Ï\000 C≠)\000 D≠l\000 E≠≠\000 F≠È\000 GÆ)\000 HÆj\000 IÆ™\000 JÆ‰\000 KØ\000 LØb\000 MØù\000 NØ◊\000 O∞\000 P∞d\000 Q∞•\000 R∞Ë\000 S±*\000 T±i\000 U±™\000 V±Ë\000 W≤$\000 X≤`\000 Y≤°\000 Z≤Ë\000 [≥)\000 \\≥R\000 ]≥ñ\000 ^≥⁄\000 _¥\000 `¥H\000 a¥Ç\000 b¥∑\000 c¥ﬂ\000 dµ\000 eµW\000 fµõ\000 gµ‡\000 h∂$\000 i∂R\000 j∂é\000 k∂‘\000 l∑\000 m∑c\000 n∑¨\000 o∑Ï\000 p∏\000 q∏L\000 r∏é\000 s∏À\000 tπ\000 uπ=\000 vπf\000 wπ´\000 xπ\000 y∫:\000 z∫e\000 {∫π\000 |ª\000 }ªM\000 ~ª°\000 ªÂ\000 Äº'\000 óºf\000 òΩ¬\000 ôΩÒ\000 öæ\000 õæG\000 úæv\000 ùæú\000 ûæÀ\000 ´æÔ\000 ¨ø\000 ≠ø¿\000 Æø\000 Ø¿\000 ∞¿H\000 ø¿p\000 ¿¿ñ\000 ¡¡-\000 ¬≈Ï\000 √À:\000 ≈–ë\000 ∆◊ñ\000 «ﬁ2\000 »ﬁe\000 …ﬁô\000  ﬁ«\000 Àﬁ¯\000 Ãﬂ7\000 Õﬂf\000 Œﬂ°\000 œﬂ€\000 –‡\000 —‡W\000 “‡ì\000 ”‡—\000 ‘·\000 ’·J\000 ÷·Ü\000 ◊·¡\000 ÿ·ˇ\000 Ÿ‚:\000 ⁄‚w\000 €‚°\000 ‹‚‘\000 Á„\000 Ë„@\000 È„k\000 Í„ï\000 Î„ƒ\000 Ï„Û\000 Ì‰\000 Ó‰O\000 Ô‰{\000 ‰Ω\000 ˚‰Î\000 ¸Â\000!ÂJ\000!#Âx\000!$Âæ\000!%Â˛\000!&Ê/\000!'Êe\000!(Êú\000!)Ê”\000!*Á\n\000!+Á?\000!,Á{\000!.Á∂\000!/Ë\000!0Ë9\000!1Ëm\000!2Ë°\000!3Ë‘\000!4È\r\000!5È:\000!<È_\000!KÈÖ\000!LÈπ\000!MÈÙ\000!NÍ$\000!OÍN\000!PÍÄ\000!QÍß\000!`Í⁄\000!aÎ\000!dÎ6\000!sÎc\000!tÎí\000!áÎΩ\000!àÎÒ\000!âÏ%\000!äÏZ\000!ãÏï\000!åÏ◊\000!çÌ\000!éÌJ\000!èÌÜ\000!êÌ¬\000!ëÌ˚\000!íÓ3\000!ìÓc\000!õÓì\000!ØÓΩ\000!∞ÔÈ\000!±\000!≤U\000!≥ã\000!¥Ω\000!µˆ\000!∂Ò2\000!∑Òe\000!∏Ò°\000!πÒ›\000!√Ú\000!ƒÚ9\000!≈Ú^\000!∆Úá\000!«Ú´\000!◊Ú‘\000!ÎÚ˛\000!ÏÛ.\000!ÌÛc\000!ÓÛì\000!ÔÛº\000!Û¸\000!ˇÙ/\000\"\000Ù_\000\"ı7\000\"ˆ`\000\"ˆõ\000\"ˆ»\000\"ˆˇ\000\"*˜(\000\"+˜á\000\",˜Ï\000\"-¯s\000\".¯≥\000\"/¯¸\000\"0˘=\000\"1˘z\000\"2˘≤\000\"3˘‡\000\">˙\000\"{	\000\"	5\000\"Ñ	m\000\"Ü	ö\000\"á	{\000\"à	M\000\"ç	u\000\"é	•\000\"€	Á\000\"‹	õ\000\"›	Q\000\"ﬁ	Â\000\"ﬂ	\000\"‡	:\000\"‰	e\000\"Ù	v\000\"ı	|\000\"ˆ	ß\000\"˜	Ë\000\"¯	 !\000\"˘	&Ì\000\"¸	*?\000\"˝	*\000\"ˇ	+3\000#\r	+¡\000#	+˘\000#	,$\000#F	,N\000#L	,ï\000#d	,ﬁ\000#e	-\000#Ä	-\\\000#∏	-Ñ\000#Ω	-º\000#¡	-È\000#¬	.\000#√	.W\000#‘	.ä\000#’	.∑\000#€	.Ê\000#‚	/3\000#„	/g\000#Â	/£\000#Ì	/À\000#ˆ	/˛\000#˙	0=\000#˛	0`\000$	0ê\000$	0€\000$	1\000$	19\000$	1a\000$	1ã\000$	1…\000$	1¸\000$	2*\000$	2T\000$	2æ\000$	3)\000$	3W\000$	3Ä\000$	3≠\000$ 	3ˆ\000$!	4#\000$\"	4Y\000$#	4É\000$$	4∏\000$%	4Í\000$&	5\000$'	5O\000$(	5{\000$)	5•\000$*	5œ\000$+	5˙\000$,	6Ä\000$-	6‹\000$.	7\000$/	7ã\000$0	7≤\000$1	7Ë\000$2	8\000$;	8K\000$<	8z\000$=	8∂\000$>	8Ë\000$?	9\000$@	9R\000$A	9}\000$B	9•\000$C	9Œ\000$D	:\000$E	:A\000$F	:î\000$G	:‡\000$H	;3\000$I	;Ä\000$J	;“\000$K	<\000$L	<t\000$M	<¡\000$N	B(\000$O	BÈ\000$P	I’\000$Q	J\000$R	K0\000$S	QÚ\000$T	R-\000$U	Rk\000$V	R©\000$W	R⁄\000$X	S\000$Y	SM\000$Z	Së\000$[	Sƒ\000$\\	SÚ\000$]	TU\000$_	TŒ\000$`	T˙\000$a	U6\000$b	Us\000$c	Uπ\000$d	U¸\000$e	V-\000$f	Vr\000$g	V≠\000$h	V€\000$i	W\000$j	W@\000$k	Wp\000$l	Wú\000$m	W«\000$n	WÓ\000$o	X\000$p	Xv\000$q	X†\000$r	X∆\000$s	X˚\000$t	Y'\000$u	Yo\000$v	Y¿\000$w	Z\000$x	ZS\000$ã	Zû\000$å	[\000\000$ç	[V\000$é	[Ω\000$è	\\\000$ê	\\P\000$ë	\\z\000$í	\\∑\000$ì	\\‰\000$î	](\000$ï	]_\000$ñ	]¢\000$ó	]“\000$ò	^\000$ô	^;\000$ö	^x\000$õ	^§\000$ú	^Õ\000$ü	^¸\000$¢	_/\000$£	_c\000$§	_ô\000$•	_Ã\000$¶	`$\000$ß	`T\000$®	`Æ\000$©	a\000$™	aa\000$´	a≈\000$¨	aÚ\000$≠	b#\000$Æ	bT\000$Ø	bÇ\000$∞	bﬁ\000$±	c?\000$≤	c¶\000$≥	c◊\000$¥	d.\000$µ	dù\000$∂	d¸\000$∑	e+\000$∏	eW\000$π	eÖ\000$∫	e≤\000$ª	e„\000$º	f\000$Ω	fL\000$æ	fÆ\000$ø	g\000$¿	gH\000$¡	gv\000$¬	g§\000$√	g \000$ƒ	g˙\000$≈	h,\000$∆	hX\000$«	hÖ\000$»	hº\000$…	hÈ\000$ 	i\000$À	i:\000$Ã	ik\000$Õ	i‚\000$Œ	j\r\000$œ	j[\000$–	jï\000$—	jÔ\000$“	k7\000$”	kÜ\000$‘	k›\000$’	lH\000$÷	ló\000$◊	l⁄\000$ÿ	m\000$Ÿ	mq\000$⁄	m©\000$€	mÔ\000$‹	n;\000$›	nf\000$ﬁ	n°\000$ﬂ	n◊\000$‡	o\000$·	oI\000$‚	o}\000$„	o∫\000$‰	oÁ\000$Â	p\000$Ê	p>\000$Á	pn\000$Ë	p°\000$È	pœ\000$Í	q\000$Î	q6\000$Ï	q|\000$Ì	q¢\000$Ó	qÕ\000$Ô	q¯\000$	r#\000$Ò	rM\000$Ú	rÇ\000$Û	rπ\000$Ù	rÏ\000$ı	s\000$ˆ	sF\000$˜	sx\000$˘	s§\000$˙	s€\000$˚	t\000$¸	t/\000$˝	t\\\000$˛	tè\000$ˇ	tπ\000%\000	tË\000%	u\000%	u>\000%	um\000%	uô\000%	u«\000%	u¯\000%	v\000%	vL\000%		vx\000%\n	v°\000%	v‡\000%	w\000%\r	wC\000%	wî\000%	x\000%	x^\000%	x…\000%	y\000%	y{\000%	y…\000%#	z\n\000%$	z<\000%%	zç\000%&	z‚\000%'	{*\000%(	{f\000%)	{§\000%*	{”\000%+	{ˇ\000%,	|-\000%-	|\\\000%.	|à\000%/	|≥\000%0	|·\000%1	}\000%2	}5\000%3	}h\000%7	}æ\000%8	}Î\000%:	~\000%;	~Q\000%=	~Ä\000%>	~≥\000%?	~Í\000%@	\000%B	G\000%C	w\000%D	¢\000%E	Ã\000%F	˜\000%G	Ä\000%H	ÄC\000%I	Än\000%J	Äî\000%K	Äª\000%L	Ä‡\000%N	Å	\000%O	Å1\000%P	ÅZ\000%Q	Åá\000%R	Å±\000%S	Å€\000%T	Ç\000%U	Ç,\000%V	ÇT\000%W	ÇÇ\000%X	Ç¨\000%Y	ÇŸ\000%Z	É\000%[	É1\000%\\	É[\000%]	ÉÇ\000%^	Éß\000%_	ÉÃ\000%`	ÉÚ\000%a	Ñ$\000%b	ÑM\000%c	Ñy\000%d	Ñ°\000%e	Ñ«\000%f	ÑÛ\000%g	Ö\000%h	ÖF\000%i	Ön\000%j	Öö\000%k	Ö¬\000%l	ÖÌ\000%m	Ü\000%s	Ü:\000%t	Üg\000%u	Üî\000%v	Ü’\000%w	á\000\000%x	áD\000%y	áö\000%z	á«\000%{	á˚\000%|	à5\000%}	àl\000%~	à™\000%	à’\000%Ä	â\000%Å	â*\000%Ç	âV\000%É	â\000%Ñ	â™\000%Ö	â‹\000%Ü	ä	\000%á	ä7\000%à	äh\000%â	äõ\000%í	äƒ\000%ì	äÛ\000%î	ã%\000%ï	ãZ\000%ñ	ãê\000%ó	ã∫\000%ò	ãÁ\000%ô	å\000%ö	åS\000%õ	å~\000%ú	åµ\000%ù	å·\000%û	ç\n\000%ü	ç@\000%†	çw\000%°	ç∞\000%¢	çË\000%£	é\000%§	éO\000%•	é}\000%¶	é™\000%ß	é÷\000%®	è\000%©	è.\000%™	è[\000%´	èí\000%¨	è¬\000%≠	èı\000%Æ	ê(\000%Ø	êa\000%∞	êñ\000%±	ê¬\000%≤	ê˜\000%≥	ë)\000%¥	ëa\000%µ	ëñ\000%∂	ëƒ\000%∑	ëÚ\000%∏	í\000%π	íF\000%∫	ír\000%ª	í•\000%º	í‹\000%Ω	ì\000%æ	ì7\000%ø	ìc\000%¿	ìñ\000%¡	ì√\000%¬	ì\000%Œ	î\000%œ	îR\000%–	îá\000%—	îº\000%“	îÚ\000%”	ï\"\000%‘	ïU\000%’	ïâ\000%÷	ïΩ\000%◊	ïı\000%‚	ñ!\000%„	ñO\000%‰	ñz\000%Â	ñ±\000%Ê	ñÁ\000%Á	ó\000%Ë	óI\000%È	ót\000%Í	ó°\000%ˆ	ó \000%˜	ó¸\000&\n	ò∂\000&	ò·\000&	ô\000&\r	ô8\000&	ôe\000&	ôÆ\000&	ôı\000&	ö<\000&	öÖ\000&	ö–\000&	õ#\000&	õo\000&	õΩ\000&	ú\000&	úM\000&	úñ\000&	úﬁ\000&	ù'\000&	ùt\000&	ù√\000&	û\000&	ûT\000& 	û†\000&!	ûË\000&\"	ü1\000&#	üÅ\000&$	ü–\000&%	†\000&&	†b\000&'	†ë\000&(	†∆\000&)	†¯\000&*	°#\000&+	°S\000&,	°á\000&-	°¥\000&.	°›\000&/	¢\000&0	¢\\\000&1	¢ \000&2	£\"\000&3	£ß\000&4	£˝\000&5	§l\000&6	§Ï\000&7	•j\000&8	•‹\000&9	¶1\000&:	¶ã\000&;	¶Ê\000&<	ß?\000&=	ßì\000&>	ßÏ\000&?	®Q\000&@	® \000&A	©O\000&B	©ÿ\000&C	™]\000&D	™⁄\000&E	´W\000&F	´–\000&G	¨E\000&H	¨Ω\000&I	≠,\000&J	≠≠\000&K	Æ&\000&L	Æ°\000&M	Ø\000&N	Øõ\000&O	∞\000&P	∞ï\000&Q	±\000&R	±ê\000&S	≤\000&T	≤õ\000&U	≥\000&V	≥•\000&W	¥'\000&X	¥™\000&Y	µ+\000&Z	µ©\000&[	∂,\000&\\	∂Ü\000&]	∂›\000&^	∑]\000&_	∑◊\000&`	∏2\000&a	∏ç\000&b	∏Á\000&c	πC\000&d	π«\000&e	∫%\000&f	∫£\000&g	∫˙\000&h	ªt\000&i	ª”\000&j	º4\000&k	ºñ\000&l	º˜\000&m	ΩS\000&n	Ω’\000&o	æL\000&p	æ©\000&q	ø\000&r	ø\\\000&s	ø∂\000&t	¿\r\000&u	¿Q\000&v	¿´\000&w	¡\000&x	¡a\000&y	¡ß\000&z	¡Ó\000&{	¬4\000&|	¬\000&}	¬√\000&~	√#\000&	√j\000&Ä	√¡\000&Å	ƒ\000&Ç	ƒd\000&É	ƒ¨\000&Ñ	ƒ\000&Ö	≈H\000&Ü	≈°\000&á	≈Í\000&à	∆4\000&â	∆Ä\000&ä	∆‡\000&ã	«.\000&å	«å\000&ç	«Ó\000&é	»K\000&è	»ñ\000&ê	»Â\000&ë	…5\000&í	…y\000&ì	…ø\000&î	 \000&ï	 Y\000&ñ	 ¢\000&ó	 È\000&ò	À9\000&ô	Àâ\000&ö	ÀŸ\000&õ	Ã \000&ú	Ãl\000&ù	Ã∫\000&û	Õ\000&ü	ÕJ\000&†	Õè\000&°	Õ∏\000&¢	Œ\000&£	ŒE\000&§	Œâ\000&•	Œ“\000&¶	œ\000&ß	œl\000&®	œ∂\000&©	–\000&™	–W\000&´	–°\000&¨	–¯\000&≠	—I\000&Æ	—í\000&Ø	—ﬁ\000&∞	“.\000&±	“|\000&≤	“¥\000&≥	“¸\000&¥	”E\000&µ	”ä\000&∂	”–\000&∑	‘\000&∏	‘Z\000&π	‘©\000&∫	‘‚\000&ª	’\000&º	’p\000&Ω	’∂\000&æ	÷\000&ø	÷T\000&¿	÷§\000&¡	÷Ô\000&¬	◊?\000&√	◊z\000&ƒ	◊Œ\000&≈	ÿ\000&∆	ÿV\000&«	ÿ°\000&»	ÿÎ\000&…	ŸE\000& 	Ÿê\000&À	Ÿ‚\000&Ã	⁄+\000&Õ	⁄u\000&Œ	⁄Ã\000&œ	€\000&–	€k\000&—	€£\000&“	€ÿ\000&”	‹\000&‘	‹I\000&’	‹â\000&÷	‹≈\000&◊	›\000&ÿ	›@\000&Ÿ	›â\000&⁄	›¿\000&€	›˚\000&‹	ﬁ4\000&›	ﬁn\000&ﬁ	ﬁ≠\000&ﬂ	ﬁ\000&‡	ﬂ-\000&·	ﬂn\000&‚	ﬂ≤\000&„	ﬂÚ\000&‰	‡6\000&Â	‡o\000&Ê	‡¥\000&Á	‡˘\000&Ë	·H\000&È	·â\000&Í	·≈\000&Î	‚\000&Ï	‚C\000&Ì	‚Ä\000&Ó	‚æ\000&Ô	„\000&	„l\000&Ò	„º\000&Ú	‰\000&Û	‰^\000&Ù	‰∑\000&ı	Â\000&ˆ	Â`\000&˙	Âù\000'	ÂÀ\000'	Â˘\000'	Ê+\000'	ÊU\000'	ÊÉ\000'	Ê≠\000'	Ê›\000'	Á\000'	Á6\000'	Áb\000'	Áç\000'\"	Á∫\000'#	ÁË\000'%	Ë\000'&	Ë<\000''	Ëc\000'(	Ëé\000')	Ë¿\000'*	ËÈ\000'+	È\000',	ÈN\000'-	È|\000'.	È≠\000'/	È‘\000'1	È˛\000'2	Í.\000'3	ÍT\000'4	Íz\000'8	Í°\000'9	ÍŒ\000':	Í˙\000';	Î$\000'<	ÎO\000'=	Îz\000'>	Î¶\000'?	Î“\000'@	Î˜\000'A	Ï\000'B	ÏI\000'C	Ïp\000'D	Ïõ\000'E	Ï…\000'F	Ïı\000'G	Ì'\000'H	ÌU\000'I	ÌÖ\000'J	Ì“\000'K	Ó\000'L	Ó[\000'M	Óû\000'N	Ó‡\000'O	Ô\000'P	ÔZ\000'Q	Ôõ\000'R	Ô’\000'S	\000'T	g\000'U	•\000'V	Ë\000'W	Ò8\000'X	Ò\000'Y	ÒÕ\000'Z	Ú\000'[	ÚS\000'\\	Úï\000']	Ú—\000'^	Û\000'_	ÛG\000'`	Û{\000'a	Û∑\000'b	ÛÛ\000'c	Ù.\000'd	Ùi\000'e	Ù•\000'f	Ù‰\000'g	ı+\000'h	ıv\000'i	ı \000'j	ˆ\000'k	ˆ_\000'l	ˆ¶\000'm	ˆÒ\000'n	˜,\000'o	˜É\000'p	˜Õ\000'q	¯\000'r	¯T\000's	¯ï\000't	¯‡\000'u	˘.\000'v	˘u\000'w	˘≠\000'x	˘Ì\000'y	˙4\000'z	˙s\000'{	˙µ\000'|	˙Û\000'}	˚,\000'~	˚d\000'	˚°\000'Ä	˚ﬁ\000'Å	¸,\000'Ü	¸u\000'á	¸π\000'à	˝\000'â	˝@\000'ä	˝ë\000'ã	˝ﬂ\000'å	˛+\000'ç	˛j\000'é	˛ª\000'è	ˇ\n\000'ê	ˇI\000'ë	ˇó\000'í	ˇﬁ\000'ì\n\000\"\000'î\n\000h\000'ï\n\000©\000'ñ\n\000Ô\000'ó\n<\000'ò\np\000'ô\n∏\000'ö\nÔ\000'õ\n5\000'ú\nk\000'ù\n†\000'û\n—\000'ü\n\000'†\n3\000'°\nÑ\000'¢\n√\000'£\nÔ\000'§\n/\000'•\ng\000'¶\nó\000'ß\nƒ\000'®\nÌ\000'©\n\000'™\nF\000'´\ny\000'¨\n™\000'≠\n˘\000'Æ\n+\000'Ø\nW\000'∞\nß\000'±\nÿ\000'≤\n\000'≥\n>\000'¥\nq\000'µ\n¡\000'∂\n\000'∑\nA\000'∏\nÉ\000'π\n—\000'∫\n	 \000'ª\n	f\000'º\n	§\000'Ω\n	Ë\000'æ\n\n*\000'ø\n\ni\000'¿\n\n∏\000'¡\n\000'¬\nN\000'√\nÑ\000'ƒ\nŸ\000'≈\n\000'∆\nU\000'«\nß\000'»\nÛ\000'…\n\r5\000' \n\rt\000'À\n\rµ\000'Ã\n\r¯\000'Õ\nM\000'Œ\n£\000'œ\nÎ\000'–\n+\000'—\nd\000'“\nù\000'”\nŸ\000'‘\n\000'’\nY\000'÷\n†\000'◊\n·\000'ÿ\n \000'Ÿ\ni\000'⁄\n§\000'€\n·\000'‹\n.\000'›\nÅ\000'ﬁ\næ\000'ﬂ\n¯\000'‡\n4\000'·\nw\000'‚\n∑\000'„\nÙ\000'‰\nB\000'Â\nê\000'Ê\n⁄\000'Á\n\000'Ë\nJ\000'È\nó\000'Í\n \000'Î\nÙ\000'Ï\nA\000'Ì\nq\000'Ó\n√\000'Ô\n\000'\nc\000'Ò\n±\000'Ú\n\000\000'Û\n1\000'Ù\nd\000'ı\n∂\000'ˆ\n\000'˜\nM\000'¯\nå\000'˘\nŸ\000'˙\n\000'˚\nf\000'¸\nÆ\000'˝\nÙ\000'˛\nD\000'ˇ\ná\000(\000\nŒ\000(\n%\000(\nj\000(\n¥\000(\n¯\000(\nA\000(\nã\000(\nµ\000(\n‡\000(	\n\r\000(\n\n>\000(\nd\000(\nê\000(\r\næ\000(\nÁ\000(\n\000(\n;\000(\nl\000(\nû\000(\nÍ\000(\n \000(\n E\000(\n s\000(\n ¶\000(\n ÷\000(\n!\000(\n!4\000(\n!j\000(\n!ô\000(\n! \000(\n!¯\000(\n\"%\000( \n\"S\000(!\n\"Ç\000(\"\n\"≥\000(#\n\"‰\000($\n#8\000(%\n#â\000(&\n#Ã\000('\n$\000((\n$Y\000()\n$®\000(*\n$Ù\000(+\n%F\000(-\n%u\000(.\n&-\000(/\n&Ò\000(0\n'\000(1\n't\000(2\n'…\000(:\n(´\000(;\n(Ï\000(<\n)2\000(=\n.»\000(>\n4Q\000(A\n9†\000(B\n:^\000(C\n;\000(D\n;Õ\000(E\n<~\000(F\n='\000(G\n=À\000(H\n>\000(J\nC[\000(K\nCú\000(L\nJW\000(M\nP9\000(N\nPv\000(P\nP©\000(Q\nWì\000(S\nW»\000(U\nW˝\000(V\nX9\000(W\nXo\000(X\nXù\000(Y\nY/\000(Z\nY[\000([\nYà\000(\\\nY∂\000(]\nZ\000(b\nZR\000(v\nZâ\000(w\nZµ\000(x\nZ‡\000(y\n[\000(z\n[4\000({\n[s\000(|\n[©\000(}\n[‡\000(~\n\\\000(\n\\?\000(Ä\n\\k\000(Å\n\\ö\000(Ç\n\\Ÿ\000(É\n]\000(Ñ\n]X\000(Ö\n]†\000(Ü\n]€\000(á\n^\000(à\n^h\000(â\n^®\000(ä\n^Ï\000(ã\n_\000(å\n_G\000(ç\n_Ö\000(é\n_√\000(è\n_Ù\000(ê\n`)\000(ë\n`T\000(í\n`Å\000(ì\n`≥\000(î\n`Ë\000(ï\na\000(ñ\naG\000(ó\nav\000(ò\na∫\000(ô\naÁ\000(ö\nb\000(û\nb@\000(ü\nbo\000(†\nb¢\000(°\nb€\000(¢\nc\000(£\ncE\000(§\ncw\000(•\nc˜\000(¶\ndx\000(ß\ndŸ\000(®\ne\\\000(©\ne±\000(™\nf\n\000(´\nf;\000(¨\nfl\000(≠\nfô\000(Æ\nf»\000(≤\nfˆ\000(¥\ng.\000(µ\ngc\000(∑\ngé\000(∏\ng¿\000(∆\nm9\000(«\nma\000(»\nmï\000(…\nmπ\000( \nm„\000(À\nn\000(Ã\nn:\000(Õ\nnu\000(Œ\nnö\000(œ\nn»\000(“\nnˇ\000(÷\no5\000(◊\noe\000(ÿ\noù\000(Ÿ\noŒ\000(⁄\no˝\000(€\np2\000(‹\npq\000(›\npõ\000(ﬁ\np«\000(ﬂ\np\000(‡\nq%\000(·\nqO\000(‚\nqv\000(„\nq§\000(Ô\nq—\000)\nr\000)\nr7\000)\nrc\000)\nrâ\000)\nr∏\000)\nrÎ\000)\ns\000)	\ns=\000)\n\nsÑ\000)\ns≠\000)\ns’\000)\r\nt\000)\nt3\000)\nte\000)\ntë\000)\nt¬\000)\ntÌ\000)\nu\000)\nuL\000)*\nuu\000)+\nu¶\000),\nu’\000)-\nv\000).\nv1\000)/\nv_\000)0\nvì\000)1\nv¿\000)2\nvÈ\000)3\nw\000)4\nw9\000)5\nw_\000)6\nwé\000)7\nw∏\000)8\nx\000)9\nx=\000):\nxc\000)<\nxä\000)>\nx≥\000)?\nx‹\000)@\ny\000)A\ny5\000)B\nyo\000)C\nyù\000)D\ny’\000)E\nz\000)F\nz?\000)G\nzu\000)H\nz¬\000)I\nzˆ\000)J\n{2\000)K\n{p\000)L\n{Œ\000)M\n|\000)N\n|o\000)O\n|∞\000)P\n|Á\000)Q\n}\000)R\n}E\000)U\n}ù\000)V\n}‰\000)W\n~<\000)X\n~Ö\000)Z\n~‰\000)[\n	\000)\\\n8\000)]\nf\000)^\n§\000)_\nŒ\000)`\nÄ\000)a\nÄC\000)c\nÄˇ\000)e\nÅ'\000)f\nÅY\000)g\nÅç\000)h\nÅø\000)i\nÅÚ\000)j\nÜ©\000)k\nÜ‡\000)l\nå$\000)m\nëe\000)n\nì°\000)o\nô	\000)p\nô@\000)q\nöë\000)r\nö÷\000)s\nöˇ\000)t\nõ7\000)u\nõo\000)v\nõ†\000)w\nõ‹\000)x\nú\000)y\núO\000)z\núç\000){\núƒ\000)|\nú˙\000)}\n°¸\000)~\n¢%\000)\n¢L\000)Ä\n¢µ\000)Å\n£ \000)Ç\n£\000)É\n£÷\000)Ñ\n§K\000)Ö\n§≠\000)Ü\n•\n\000)á\n•^\000)à\n•Õ\000)â\n¶8\000)ä\n¶ä\000)ã\n¶¯\000)å\nß+\000)ç\nßV\000)é\nßÇ\000)è\nß∞\000)ê\nß‰\000)ë\n®\000)í\n®9\000)ì\n®e\000)î\n®ñ\000)ï\n® \000)ñ\n®ı\000)ó\n©#\000)ò\n©√\000)ô\n™g\000)ú\n™ê\000)ù\n™«\000)û\n™ı\000)ü\n´\"\000)†\n´Q\000)°\n´{\000)¢\n´®\000)£\n´Ÿ\000)§\n¨\000)•\n¨7\000)¶\n¨j\000)ß\n¨ò\000)®\n¨∆\000)∂\n¨˜\000)∑\n≠\000)∏\n≠F\000)π\n≠p\000)∫\n≠ñ\000)ª\n≠«\000)º\n≠Ù\000)Ω\nÆ#\000)æ\nÆ[\000)ø\nÆá\000)¿\nÆπ\000)¡\nÆÎ\000)¬\nØ\000)√\nØO\000)ƒ\nØÖ\000)≈\nØª\000)∆\nØÒ\000)«\n∞'\000)»\n∞S\000)…\n∞ë\000) \n∞–\000)À\n±\000)Ã\n±;\000)Õ\n±g\000)Œ\n±î\000)œ\n±ƒ\000)–\n±Ó\000)—\n≤\000)“\n≤N\000)”\n≤|\000)‘\n≤´\000)’\n≤÷\000)÷\n≥\000\000)◊\n≥,\000)ÿ\n≥`\000)Ÿ\n≥à\000)⁄\n≥¿\000)€\n≥ˇ\000)‹\n¥,\000)›\n¥X\000)ﬁ\n¥á\000)‡\n¥ª\000)·\n¥Ú\000)‚\nµ(\000)‰\nµ_\000)Â\nµç\000)Ê\nµΩ\000)Á\nµÔ\000)Ë\n∂\000)Ú\n∂Z\000)Û\n∂Ü\000)Ù\n∂¥\000)ı\n∂‰\000)ˆ\n∑\000)˜\n∑A\000)¯\n∑q\000)˘\n∑£\000)˙\n∑—\000)˚\n∏\000)¸\n∏,\000)˝\n∏Y\000)˛\n∏Ñ\000)ˇ\n∏Ø\000*\000\n∏‹\000*\nπ\000*\nπ>\000*\nπk\000*\nπõ\000*\nπ‹\000*\n∫	\000*\n∫0\000*\n∫h\000*	\n∫ê\000*\n\n∫º\000*\n∫Í\000*\nª\000*\r\nªD\000*\nªl\000*\nªò\000*\nª»\000*\nª˘\000*\nº-\000*\nºc\000*\nºé\000*\nºº\000*\nº‰\000*\nΩ\000*\nΩG\000*\nΩu\000*\nΩ°\000*\nΩ”\000*\nΩ˝\000*\næR\000*\næ≤\000*\nø\r\000* \nø8\000*!\nøe\000*\"\nøè\000*#\nø∂\000*$\nøﬁ\000*%\n¿\000*&\n¿A\000*'\n¿Ö\000*(\n¿«\000*)\n¿˘\000**\n¡0\000*+\n¡h\000*,\n¡ê\000*-\n¡¥\000*.\n¡⁄\000*/\n¬\000*0\n¬5\000*1\n¬c\000*2\n¬í\000*3\n¬Ω\000*4\n¬Ô\000*5\n√\000*6\n√L\000*7\n√â\000*8\n√¡\000*B\n√˚\000*C\nƒ'\000*D\nƒS\000*E\nƒ}\000*F\nƒß\000*G\nƒ’\000*H\n≈\000*I\n≈9\000*J\n≈l\000*K\n≈ñ\000*L\n≈√\000*M\n≈Ê\000*N\n∆\000*O\n∆9\000*P\n∆]\000*Q\n∆î\000*R\n∆ø\000*S\n∆Ì\000*T\n«\000*U\n«C\000*V\n«n\000*W\n«ó\000*X\n«⁄\000*Y\n»\000*Z\n»D\000*[\n»n\000*\\\n»ò\000*]\n»¡\000*^\n»Ï\000*_\n…\000*j\n…>\000*~\n…z\000*í\n…∑\000*¶\n…˜\000*ß\n \000*®\n N\000*©\n w\000*™\n °\000*∫\n  \000*ª\nÀ.\000*º\nÀ]\000*Œ\nÀπ\000*œ\nÀÁ\000*‚\nÃ\000*ˆ\nÃC\000*˜\nÃr\000*¯\nÃñ\000+\n\nÃ¬\000+\nÃÓ\000+\nÕ,\000+\r\nÕ^\000+\nÕê\000+\nÕ◊\000+\nŒ\000+\nŒ1\000+\nŒe\000+\nŒè\000+\nŒπ\000+\n‘Ÿ\000+ \n⁄»\000+!\n€\000+\"\n€=\000+2\n€}\000+F\n€¨\000+G\n‹9\000+H\n‹m\000+I\n‹§\000+J\n‚w\000+K\n‚ß\000+L\n‚ \000+N\n‚˙\000+O\n„0\000+Z\n„s\000+]\nË„\000+^\nÈ,\000+_\nÈa\000+`\nÈá\000+a\nÈ±\000+b\nÈ‚\000+c\nÍ\000+d\nÍ4\000+e\nÍé\000+f\nÍø\000+h\nÍÌ\000+i\nÎ\000+j\nÎL\000+l\nÎé\000+n\nÏI\000+o\nÏu\000+p\nÏ°\000+q\nÏŒ\000+r\nÏ˚\000+s\nÌ)\000+t\nÌZ\000+u\nÌÑ\000+v\nÌ¨\000+w\nÌ⁄\000+x\nÓ\000+y\nÓ*\000+z\nÓ|\000+{\nÓ¶\000+|\nÓ÷\000+}\nÔ\000+~\nÔ5\000+\nÔd\000+Ä\nÔî\000+Å\nÔ≈\000+Ç\nÔÍ\000+É\n\000+Ñ\nD\000+Ö\np\000+Ü\në\000+á\nΩ\000+à\nÂ\000+â\nÒ\r\000+ä\nÒ;\000+ã\nÒt\000+å\nÒ©\000+ç\nÒ‡\000+é\nÚ\000+è\nÚX\000+ê\nÚ§\000+ö\nÚÓ\000+õ\nÛ\000+ú\nÛj\000+ù\n¯u\000+û\n˝O\000+ü\n˝ö\000+†∫\000+°ê\000+¢∫\000+§˘\000+•;\000+¶l\000+ßõ\000+®À\000+©Ô\000+™\000+´I\000+∞r\000+±§\000+≤◊\000+≥\000+¥5\000+µi\000+∂î\000+∑º\000+∏Á\000+π\000+∫I\000+ª{\000+ºØ\000+Ω‚\000+¬\000+√\rå\000+ƒ\r“\000+≈'\000+∆|\000+«∆\000+»	\000+÷Ÿ\000+◊\000+ÿG\000+Ÿñ\000+⁄#B\000+€$c\000+›$ö\000+ﬁ$…\000+ﬂ$˚\000+Í%4\000+Î%X\000+˛%Ö\000+ˇ%Ø\000,\000%›\000,&\000,&B\000,&~\000,&Æ\000,&‹\000,'\000,'E\000,'y\000,'¨\000,(Ò\000,*C\000,*m\000,*ò\000,*ƒ\000,*\000,+\000,&+v\000,'+Ø\000,(+Ë\000,),)\000,*,`\000,+,ó\000,,,…\000,--\000,.-7\000,/-d\000,0-ê\000,1-«\000,2-Ò\000,3. \000,4.∫\000,5.Í\000,6/*\000,7/Y\000,8/Ç\000,9/∞\000,:/Ó\000,;0&\000,<0_\000,=0è\000,N0’\000,O1\000,b1M\000,c2\000,d22\000,e2_\000,f2ö\000,g2œ\000,h3\000,i3*\000,j3e\000,k3è\000,v3∂\000,w4\000,x4R\000,y4ê\000,z4«\000,{57\000,|5É\000,}5Æ\000,~5„\000,6\000,Ä6M\000,Å6â\000,Ç6æ\000,É6Ì\000,ä7\000,ã7T\000,å7ù\000,ç7‰\000,é8\000,è8ã\000,ê8Œ\000,ë9\000,í9n\000,ì9≈\000,î9Ó\000,ï:\000,ñ:N\000,ó:x\000,ò:¢\000,ô:ˆ\000,ö;Ä\000,õ<\000,ú<c\000,û<¡\000,ü<˘\000,†=0\000,¥=t\000,µ=¥\000,∂=Ê\000,∆?\000,«?.\000,»?]\000,…?ú\000, ?€\000,À@\000,Ã@P\000,Õ@Í\000,ŒA\000,œAL\000,–A\000,“A¥\000,”A‚\000,‘B\000,’B:\000,÷B|\000,◊B≠\000,ÿBﬁ\000,⁄C\000,ÓCI\000,ÔCx\000,C¶\000,ÒCﬁ\000,ÚD\000,ÛDE\000,ÙDq\000,ıD†\000,ˆD’\000,˜E\000,¯E+\000,˘EZ\000,˙E≥\000,˚EÙ\000,¸F‹\000-GF\000-GÄ\000-*G∏\000-+G‰\000-,H\000--H7\000-.Ha\000-/Hå\000-0H∂\000-1H›\000-2I\000->IK\000-?In\000-@Ió\000-AI…\000-BJ\000-CJ9\000-DJq\000-EJ≠\000-FJÂ\000-GK\000-RKV\000-SKÄ\000-TK©\000-UK“\000-VKˇ\000-WL'\000-XLS\000-ZLÅ\000-[Lπ\000-\\LÚ\000-^M%\000-_Mo\000-aM–\000-fM˚\000-gN4\000-hNb\000-iNã\000-jNπ\000-kN‰\000-lO\000-mO@\000-nOp\000-oOû\000-pOÀ\000-qO˚\000-rP+\000-sPV\000-zPÉ\000-{Pæ\000-|Pı\000-}Q.\000-~Qe\000-Qú\000-ÄQ”\000-ÅR\n\000-éRA\000-ëRk\000-îRñ\000-ïR√\000-öRÈ\000-õS(\000-ùSU\000-ûS\000-üS≤\000-¢S·\000-§T\000-•T,\000-¶T]\000-∂Të\000-∑Tø\000- TÏ\000-ÀU\000-ÃUX\000-ÕUÑ\000-ŒU∏\000-œUÎ\000-–V\000-—VN\000-“VÄ\000-”V≥\000-‘VË\000-’Y,\000-÷[Z\000-◊]ê\000-ÿ]æ\000-Ÿ_Á\000-ﬁb/\000-ﬂb_\000-‡bÅ\000-·bß\000-‚b‘\000-„c\000-‰c0\000-Âc[\000-Êcç\000-Ác∏\000-Ëc‰\000-Èd\000-ÍdF\000-Îe9\000-Úed\000-Ûeô\000-ÙeÕ\000-ıeˇ\000-ˆf0\000-˜f]\000-¯fé\000.f∏\000.f‚\000.g\000.	g<\000.\ngk\000.gö\000.g∆\000.gı\000.h \000.hL\000.hx\000. hÆ\000.!h⁄\000.\"i\000.#i,\000.$ic\000.%iõ\000.&iﬁ\000.'j\000.(j3\000.)jg\000.*jò\000.+j⁄\000.,k\000.-k4\000..kc\000./ké\000.0k∏\000.1k„\000.2l	\000.3l-\000.4lb\000.5lô\000.6lÕ\000.7m\000.8mB\000.9mq\000.:mù\000.;m”\000.=n\000.>nB\000.?nz\000.@n∞\000.An„\000.Bo\000.CoO\000.Dou\000.Eo™\000.Fo€\000.Gp\000.Hp9\000.Ip_\000.Jpç\000.Kpº\000.LpË\000.Mq\000.NqA\000.Oqu\000.Pqù\000.Qq–\000.Rq˝\000.Sr)\000.TrR\000.UrÑ\000.Vr≥\000.Wrﬂ\000.Xs\000.Ys<\000.Zse\000.[sô\000.\\s…\000.]sÚ\000.^t\000._tH\000.`t{\000.at´\000.bt⁄\000.cu\000.du8\000.jug\000.kuï\000.luƒ\000.muÓ\000.nv\000.ovD\000.pv\000.qv¥\000.~v‰\000.Äw\000.ÅwK\000.Çwz\000.Éw£\000.ÑwÀ\000.Öx\000.Üx9\000.áxi\000.àxñ\000.âx–\000.äx˚\000.ãy0\000.åyf\000.çyì\000.éy∆\000.èyÚ\000.êz \000.ëzP\000.ízÄ\000.ìzØ\000.îzË\000.ï{\000.ñ{E\000.ó{Ö\000.ò{√\000.ô{˙\000.ö|6\000.õ|i\000.ú|õ\000.ù|œ\000.û|˙\000.ü}%\000.†}N\000.°}|\000.¢}≠\000.£}Ÿ\000.§~\000.•~F\000.¶~u\000.ß~™\000.®~€\000.©\000.™<\000.´n\000.¨§\000.≠⁄\000.ÆÄ\000.ØÄ>\000.∞Äj\000.±Äô\000.≤ÄÀ\000.≥Å\000.∫Å=\000.ªÅg\000.ºÅï\000.ΩÅ«\000.æÇ1\000.øÇg\000.¿ÇÈ\000.¡É^\000.¬É◊\000.√Ñ5\000.ƒÑÄ\000.≈Ñ“\000.∆Ö \000.«Öd\000.»Ö†\000.…Ö‚\000. Ü#\000.ÀÜZ\000.ÃÜã\000.ÕÜ∑\000.Œá\000.œá£\000.–à\000.—àï\000.“àı\000.”â@\000.‘âå\000.’âÃ\000.÷ä\000.◊äS\000.ÿä°\000.Ÿäœ\000.⁄ãL\000.€ãÕ\000.‹åB\000.›å†\000.ﬁåÔ\000.ﬂç;\000.‡ç~\000.·ç™\000.‚çÎ\000.„é*\000.‰éY\000.Âéí\000.Êéæ\000.Áè@\000.Ëè√\000.Èê>\000.Íêô\000.Îêﬂ\000.Ïë(\000.Ìë\000.Óëº\000.Ôë¸\000.í>\000.Òíi\000.Úíó\000.Ûíƒ\000.Ùì%\000.ıìu\000.ˆì¶\000.˜ìÙ\000.¯îJ\000.˘îê\000.˙î–\000.˚ï\000.¸ïM\000.˝ï¨\000.˛ñ\000.ˇñY\000/\000ñ¨\000/ñÔ\000/ó$\000/ó_\000/ó≠\000/ó›\000/ò…\000/ò˜\000/ôV\000/	ô¢\000/\nô—\000/ö\000/öV\000/\röê\000/ö’\000/õ\000/õ§\000/õ’\000/ú\000/ú/\000/ú\\\000/ú„\000/ùi\000/ùÍ\000/û2\000/ûq\000/ûº\000/ûÌ\000/ü\000/üI\000/üx\000/ü´\000/ üﬁ\000/!†\000/\"†8\000/2†c\000/3†í\000/F†Ω\000/G†\000/H°\000/J°I\000/K°z\000/L°®\000/M°÷\000/N¢\000/O¢0\000/P¢`\000/Q¢ì\000/R¢¿\000/S¢\000/Z£\000/n£N\000/p£à\000/Ç£≥\000/É£ı\000/Ñ§-\000/ñ§d\000/ó§ó\000/ò§–\000/ô•A\000/û•u\000/ü••\000/†•⁄\000/™¶\n\000/´¶g\000/¨ßB\000/≠ßt\000/Æßˇ\000/Ø®2\000/∞®¶\000/±©`\000/≤©â\000/¥©Ø\000/µ©‘\000/∂©˛\000/∑™$\000/∏™M\000/π™x\000/∫™§\000/ª™Ã\000/º´Ö\000/ø´º\000/¿´¸\000/¡¨%\000/¬¨[\000/√¨è\000/ƒ¨√\000/≈≠\000/∆≠>\000/«≠u\000/»≠´\000/…≠È\000/ Æ \000/ÀÆ[\000/ÃÆí\000/ÕÆ»\000/ŒÆ¯\000/œØ#\000/–Ø`\000/—Øö\000/“Ø»\000/”Ø˜\000/◊∞ \000/ÿ∞U\000/Ÿ∞Ü\000/⁄∞º\000/€∞Ò\000/‹± \000/›±S\000/ﬁ±Ü\000/ﬂ±π\000/‡±„\000/·≤\000/„≤C\000/‰≤r\000/Â≤†\000/Ê≥)\000/Á≥V\000/Ë≥~\000/˙≥ß\000/˚≥œ\000/¸≥˝\000/˝¥.\000/˛¥z\000/ˇ¥¨\0000\000¥Ÿ\0000µ\0000µ6\0000µu\0000µß\0000µ’\0000∂\0000∂D\0000∂Å\0000	∂ª\0000\n∂¯\0000∑0\0000∑Z\0000\r∑ç\0000∑∂\0000∑Á\0000∏\0000\"∏V\0000#∏ê\0000$∏«\0000(∏¸\0000)π@\0000*πx\0000+π¶\0000,πÊ\0000.∫\0000/∫U\00000∫ä\00001∫Ω\00002∫Ó\00003ª)\00005ªP\00006ªÉ\00007ª∂\00008ªÁ\00009º\0000:ºD\0000;ºr\0000<ºß\0000=ºÚ\0000>Ω*\0000?ΩZ\0000@Ωã\0000AΩ∫\0000BΩÈ\0000Cæ\0000DæE\0000Fæv\0000Gæ£\0000Hæ»\0000IæÓ\0000K¿;\0000L¿Å\0000M¿—\0000N≈^\0000O≈í\0000P≈ƒ\0000^≈Ó\0000_∆\0000`∆J\0000r∆w\0000s∆ü\0000t∆—\0000u«\0000v«+\0000x«Q\0000y«z\0000z«°\0000{««\0000|«˘\0000~»,\0000»V\0000Ä»É\0000Å»©\0000Ç»“\0000É»˙\0000Ñ…!\0000Ö…K\0000Ü…É\0000à…±\0000â…ﬁ\0000ä \0000ã <\0000å i\0000ç õ\0000é Ã\0000èÀ\0000êÀB\0000ëÀw\0000íÀ¨\0000ìÀ›\0000îÃ\0000ïÃA\0000ñÃl\0000úÃï\0000ùÃ–\0000ûÃ˙\0000üÕ#\0000†ÕL\0000°Õy\0000¢Õ†\0000£Õ»\0000§ÕÔ\0000•Œ*\0000¶Œh\0000ßŒ£\0000®Œ \0000©œ\0000™œ,\0000´œS\0000¨œ{\0000≠œ¢\0000Æœ„\0000Ø–\0000∞–C\0000±–m\0000≤–ñ\0000≥–æ\0000∂–‰\0000∑—\0000∏—F\0000¬—t\0000÷—≤\0000Í—¯\0000Î“+\0000Ï“a\0000Ì“ô\0000Ô“…\0000”E\0000Ò” \0000Ú”˘\0000Û‘)\0000Ù‘ü\0000ı‘¯\0000ˆ’#\0000˜’L\0000˛’ø\0000ˇ÷B\0001\000÷u\0001÷¢\0001÷œ\0001◊I\0001◊ü\0001◊»\0001ÿB\0001ÿ \0001Ÿ\0001	ŸÇ\0001\nŸ≥\0001ŸÓ\0001⁄c\0001\r⁄ó\0001⁄ \0001€\0001€>\0001€s\0001€¢\0001€“\0001€¸\0001&‹*\0001'‹Y\0001(‹á\0001*‹Ω\0001+‹Ô\0001,›\0001-›C\0001.›p\0001/›ó\00010›Ã\00011›˛\0001:ﬁ;\0001;ﬁk\0001<ﬁò\0001=ﬁ√\0001>ﬁÚ\0001?ﬂ\"\0001@ﬂ^\0001Aﬂä\0001Bﬂø\0001CﬂÓ\0001D‡\0001E‡C\0001F‡n\0001J‡ú\0001K‡”\0001L·\0001M·7\0001N·]\0001O·í\0001P·√\0001Q·Î\0001R‚\0001S‚D\0001T‚p\0001U‚¢\0001V‚€\0001W„\0001X„@\0001Y„i\0001Z„ë\0001[„¿\0001\\„Í\0001]‰\0001^‰M\0001_‰x\0001`‰¶\0001a‰Œ\0001b‰˘\0001cÂ+\0001dÂV\0001eÂÑ\0001fÂ≤\0001gÂŸ\0001hÂ˛\0001iÊ8\0001jÊr\0001kÊ¢\0001lÊ»\0001mÊˇ\0001nÁ#\0001oÁH\0001vÁw\0001wË-\0001äË[\0001ãÔé\0001å˜P\0001ç˛¶\0001è\000/\0001ê\000k\0001ë\000¢\0001í5\0001ìo\0001î‹\0001ïR\0001ñ∞\0001ó:\0001ò$Ω\0001ô$˘\0001ö+Å\0001õ+Ω\0001ú+ˆ\0001ù,.\0001û,e\0001ü-˜\0001†/∂\0001°6J\0001¢6Ç\0001£6ª\0001§6\0001•7&\0001¶7S\0001ß7é\0001®97\0001©9a\0001™>Í\0001´?\0001¨?Y\0001≠?≤\0001Æ?¸\0001Ø@4\0001∞@l\0001±@‘\0001≤A\0001≥A9\0001¥Ab\0001µAã\0001∂A≈\0001∑B\0001∏BD\0001∫Bµ\0001ªBﬁ\0001ºC\0001ΩC=\0001æC\0001øC¥\0001¿Cˆ\0001¡D1\0001¬DX\0001√Dà\0001ƒD∑\0001≈DÈ\0001∆E\0001«EQ\0001»Eè\0001…Eƒ\0001 F\0001ÀF5\0001ÃFq\0001ÕF©\0001ŒFÈ\0001œG-\0001–Gb\0001—Gò\0001“G’\0001”H\0001‘H`\0001’Hè\0001›H∆\0001ﬁHÒ\0001‡I\0001‚IG\0001„It\0001‰Iµ\0001ÂI‰\0001ÊJ\0001ÁJ9\0001ËJi\0001ÈJô\0001ÏJ¡\0001ÌJ˙\0001ÓK\0001ÔK@\0001Ke\0001ÒKé\0001ÚK∑\0001ÛKÒ\0001ÙL1\0001ˆLr\0001˜Lù\0001¯L»\0001˘LÒ\0001˙M \0001¸MP\0001˝M~\0001˛M¢\0001ˇM«\0002\000N\0002Nn\0002N•\0002OE\0002P\0002P@\0002Ph\0002	Qo\0002\nQö\0002Q»\0002R\0002\rRP\0002RÅ\0002RØ\0002R’\0002S\0002SU\0002SÑ\0002Sµ\0002SÔ\0002T,\0002T^\0002Tú\0002Tœ\0002T¸\0002!UK\0002\"UÉ\0002#U∏\0002$UÁ\0002%V\0002&VL\0002'V\0002(VÆ\0002)Wj\0002*Xá\0002+X∑\0002,YL\0002-Yò\0002.Y«\0002/Z\000\00020Z.\00021ZZ\00022Zà\00023ZΩ\00024Z˙\00025[.\00026[j\00027[ü\00028[‹\00029\\\0002:\\J\0002;\\\0002<\\º\0002=\\˘\0002>]E\0002?]Ç\0002@]«\0002A^	\0002B^S\0002C^ï\0002D^ﬂ\0002E_ \0002F_i\0002G_•\0002R_‘\0002S`\0002T`O\0002U`x\0002V`¢\0002W`”\0002Xa	\0002Ya@\0002Za\0002[aº\0002\\a‚\0002]b\0002^bV\0002_bà\0002`b»\0002ab˘\0002bc+\0002cc\\\0002dcé\0002ec¿\0002fcˇ\0002gd?\0002id}\0002jdß\0002kdÿ\0002ze\0002{e8\0002|e_\0002}eâ\0002~e∫\0002e„\0002Äf\0002ÅfC\0002Çfr\0002Éfù\0002ÑfÊ\0002Ög%\0002Ügd\0002ágö\0002àg \0002âg˚\0002äh/\0002ãh[\0002åhí\0002çh«\0002éi\0002èi,\0002êin\0002ëi§\0002íi‚\0002ìj\0002ïjD\0002ñjÄ\0002ójª\0002òj\0002ôk\0002ökD\0002õko\0002úkú\0002ùk»\0002ûk˛\0002ül5\0002†lq\0002£l°\0002§l“\0002•m\000\0002¶m2\0002ßmb\0002®mé\0002©mª\0002™mÊ\0002≠n\0002ÆnI\0002Øn£\0002∞nÀ\0002±nÙ\0002≤o\0002≥oH\0002¥o¡\0002µo˛\0002∂p9\0002∑pº\0002∏q2\0002πq¶\0002ªr \0002ºrù\0002Ωs\0002æsë\0002øt\0002¿tF\0002¡tæ\0002¬t¸\0002√uz\0002ƒuµ\0002≈v:\0002∆v∂\0002«w2\0002»w¨\0002…w‹\0002 x\0002ÀxC\0002Ãxç\0002Õxø\0002Œy1\0002œyZ\0002–yâ\0002—y√\0002“y¯\0002”zx\0002‘zÓ\0002’{a\0002÷{ô\0002◊{Ã\0002ÿ{Ó\0002Ÿ|^\0002⁄|®\0002€|‡\0002‹}=\0002›}}\0002ﬁ}Ø\0002ﬂ}¯\0002‡~$\0002·~õ\0002‚~ﬂ\0002„\"\0002‰Y\0002ÂÉ\0002Ê…\0002Á¸\0002ËÄu\0002ÈÄ\0002ÍÅF\0002ÎÅâ\0002ÏÅΩ\0002ÌÅÛ\0002ÓÇS\0002ÔÇë\0002ÇÃ\0002ÒÉ\0002ÚÉw\0002ÛÉ¿\0002ÙÉ˘\0002ıÑ'\0002ˆÑ\0002˜Ñº\0002¯Ñı\0002˘ÖO\0002˙Ö≈\0002˚Ü\n\0002¸ÜE\0002˝Üt\0002˛Ü•\0002ˇÜÂ\0003\000á\0003áK\0003áº\0003á˙\0003à*\0003àd\0003à£\0003â\0003âg\0003	âØ\0003\nâÊ\0003ä&\0003äa\0003\råP\0003åä\0003åƒ\0003ç\r\0003çF\0003çz\0003ç¥\0003çÊ\0003é\0003éQ\0003éè\0003è\0003è9\0003èÅ\0003èæ\0003èÏ\0003êK\0003êÇ\0003ê√\0003 ë\0003!ëf\0003\"ëõ\0003#ëŒ\0003$í\0003%í<\0003&íÑ\0003'ì\0003(ìD\0003)ì}\0003*ìÚ\0003+î\0003,îû\0003-î‡\0003.ï\0003/ïM\00030ïö\00031ï“\00032ñ\00033ñt\00034ñ†\00035ñ˘\00036ó1\00037óv\00038ó∑\00039óË\0003:ò\0003;ò†\0003<òÈ\0003=ô\0003>ô^\0003?ôê\0003@ô€\0003Aö\0003Böd\0003Cö™\0003Dö’\0003Eõ3\0003Fõp\0003Gõ¨\0003Hú\0003Iú<\0003JúÇ\0003Kúø\0003Lù=\0003MùÅ\0003Nù±\0003OùÏ\0003Pû\0003Qû†\0003RûÙ\0003Sü2\0003Tüb\0003Uüò\0003Vü√\0003WüÌ\0003X†!\0003Y†W\0003Z†ß\0003[†‡\0003\\°\0003^°1\0003c°k\0003d°ï\0003e°Ω\0003f°Â\0003g¢\0003h¢9\0003i¢u\0003j¢§\0003k¢Õ\0003l¢˚\0003m£'\0003n£l\0003o£õ\0003p£≈\0003q£˙\0003r§+\0003s§Z\0003t§á\0003u§ª\0003v§Ù\0003w•^\0003x•â\0003y•≤\0003z•‚\0003{¶\0003|¶>\0003}¶s\0003~¶†\0003¶»\0003Ä¶Ò\0003Åß!\0003ÇßO\0003ÉßÑ\0003Ñßπ\0003ÖßÓ\0003Ü®(\0003á®^\0003à®î\0003â® \0003ä©\0003ã©=\0003å©u\0003ç©≤\0003é©Í\0003è™\0003í™X\0003ì™ê\0003î™ª\0003ï™‚\0003ñ´\0003ó´A\0003ò´x\0003ô´´\0003ö´ÿ\0003õ¨\0003ú¨9\0003ù¨m\0003†¨ö\0003°¨Ã\0003¢¨˝\0003£≠4\0003§≠q\0003•≠¶\0003¶≠ı\0003∫ÆD\0003ªÆx\0003ºÆ§\0003ΩÆ—\0003æÆ˙\0003øØ%\0003¿Ø_\0003¡Øè\0003¬Øª\0003√ØÈ\0003ƒ∞\0003≈∞L\0003∆∞w\0003«∞†\0003…∞Œ\0003 ±\0003À±1\0003Ã±a\0003Õ±⁄\0003Œ≤\0003‚≤)\0003„≤Z\0003‰≤Å\0003Â≤≥\0003Ê≤‰\0003Á≥\0003Ë≥D\0003È≥z\0003Í≥¢\0003Î≥‹\0003Ï¥\0003Ì¥T\0003ˆ¥é\0003˜¥¡\0003¯¥˚\0003˘µ1\0003˙µh\0003˚µû\0003¸µ”\0003˝∂\0003˛∂M\0003ˇ∂É\0004\000∂¿\0004∂¸\0004∑2\0004∑_\0004∑ç\0004∑’\0004∏\n\0004∏C\0004∏x\0004	∏®\0004\n∏Ÿ\0004\rπ\0004πH\0004π|\0004π≥\0004π÷\0004π˘\0004∫(\0004∫X\0004∫â\0004∫Ω\0004∫Ó\0004ª(\0004ªa\0004ªú\0004ª◊\0004º\0004 ºH\0004!ºx\0004\"º¶\0004#º◊\0004$Ω\0004%Ω,\0004&Ω^\0004'Ωñ\0004(ΩŒ\0004)æ\0004*æ/\0004,æ|\0004-æ÷\0004.ø\0004/øO\00040ø|\00041øØ\00042ø›\00043¿\00044¿K\00045¿à\00046¿ª\00047¿Ë\00048¡\00049¡9\0004:¡c\0004;¡ç\0004<¡»\0004=¡˜\0004>¬!\0004?¬P\0004@¬Å\0004A¬≤\0004B¬Â\0004C√\0004D√I\0004E√Ä\0004F√≥\0004G√·\0004Hƒ\0004IƒJ\0004Jƒx\0004Kƒ£\0004Lƒ–\0004M≈\0004N≈9\0004O≈k\0004P≈ü\0004Q≈—\0004R≈˚\0004S∆+\0004T∆_\0004U∆ê\0004V∆ƒ\0004W∆ˆ\0004X«+\0004Y«_\0004Z«ì\0004[«¿\0004\\«Î\0004]»\0004^»V\0004_»é\0004`»–\0004a»˘\0004n…&\0004o…N\0004Ç…v\0004É…¢\0004ÑÕ$\0004Ö”y\0004Ü”≠\0004á›∂\0004à›Ï\0004äﬁ \0004ãﬁS\0004åﬁá\0004çﬁ¿\0004éﬁÔ\0004èﬂ!\0004êﬂU\0004ëﬂî\0004íﬂœ\0004ì‡\0004ï‡I\0004ñ‡Ü\0004ó‡≥\0004ò„ƒ\0004ôÁE\0004öÍ\000\0004õÎì\0004úÏà\0004ùÏø\0004ûÏ\0004üÌ \0004°ÌN\0004¢ÌÉ\0004£Ì∑\0004§ÌÓ\0004•Ó%\0004¶Ó^\0004ßÓ†\0004®Ó‰\0004©Ô\0004™ÔT\0004´Ôî\0004¨Ô–\0004≠\r\0004ÆH\0004ØÚ\0004∞Û´\0004±ım\0004≤ˆÁ\0004≥˝q\0004¥˝Ø\0004µ\r\0004∂\rÚ\0004∑\r8\0004∏\r|\0004π\rƒ\0004∫\r	\0004ª\rF\0004Ω\ré\0004æ\r«\0004ø\r\0004¿\r-\0004¡\ra\0004¬\rö\0004√\r \0004ƒ\r	\000\0004≈\r	-\0004∆\r	]\0004«\r	ä\0004»\r	Ω\0004…\r	\0004 \r\n'\0004À\r\nW\0004Õ\r\né\0004Œ\r\nƒ\0004œ\rà\0004–\r¿\0004—\r˛\0004“\r\r9\0004”\r\r{\0004‘\r\r∞\0004’\r\rÂ\0004÷\r\0004◊\rB\0004ÿ\rq\0004Ÿ\r£\0004⁄\r”\0004€\r\000\0004‹\r3\0004›\ra\0004ﬁ\rì\0004ﬂ\ræ\0004‡\rÚ\0004·\r \0004‚\rN\0004„\rÅ\0004Ê\r≠\0004Ë\r”\0004È\r\000\0004Í\r,\0004˙\r^\0005\rï\0005\r’\0005\r\0005\rQ\0005\"\rÖ\0005#\r±\0005$\r€\0005%\r\0005&\r`\0005'\r†\0005(\rÿ\0005)\r\0005*\rW\0005+\rô\0005,\r”\00056\r\00057\rS\00058\rñ\00059\r¬\0005:\r˚\0005;\r6\0005<\rr\0005=\rß\0005>\r‹\0005?\r\0005@\rF\0005Ç\r|\0005É\r \0005Ñ\rÌ\0005Ö\r\0005Ü\rA\0005á\rg\0005à\rê\0005â\rº\0005ä\r\n\0005ã\rK\0005å\rã\0005ç\r \0005ñ\r\0005ó\rC\0005ò\rë\0005ô\rﬁ\0005ö\r(\0005õ\ru\0005ú\r…\0005ù\r\0005∂\r9\0005∑\rv\0005∏\rµ\0005π\r·\0005∫\r\0005ª\rM\0005º\rs\0005Ω\rú\0005æ\r∆\0005ø\rÎ\0005¿\r\0005¡\rF\0005Ú\rk\0005Ù\rû\0005ı\r»\0005ˆ\r\0005˜\r;\0005¯\rj\0005˘\r™\0005˙\rﬂ\0005˚\r \0005¸\r ?\0005˝\r o\0005˛\r ú\0005ˇ\r œ\0006\000\r!\0006\r!:\0006\r!j\0006\r!ò\0006\r!ø\0006\r!¯\0006\r\"1\0006\r\"p\0006 \r\"Ø\0006!\r\"◊\0006\"\r#\000\0006#\r#(\0006$\r#h\0006%\r#ë\0006&\r#«\0006'\r$\0006(\r$/\0006)\r$X\0006*\r$Å\0006+\r$≠\0006,\r$⁄\0006-\r%\0006.\r%-\0006/\r%X\00060\r%Ç\00061\r%≠\00062\r%⁄\00063\r&\00064\r&2\00065\r&\\\00066\r&Ü\00067\r&∞\00068\r&⁄\00069\r'\0006:\r'-\0006;\r'W\0006<\r'Å\0006=\r'´\0006>\r'’\0006?\r'ˇ\0006@\r()\0006A\r(S\0006B\r(Ç\0006C\r(¨\0006D\r(‘\0006E\r(ˇ\0006F\r),\0006G\r)h\0006H\r)í\0006I\r)Œ\0006J\r*	\0006K\r*8\0006L\r*k\0006M\r*ú\0006N\r*≈\0006O\r*Ó\0006P\r+\0006Q\r+@\0006R\r+i\0006S\r+í\0006T\r+ª\0006U\r+‰\0006V\r,\0006W\r,8\0006X\r,b\0006Y\r,å\0006Z\r,∂\0006[\r,‚\0006\\\r-\0006]\r-:\0006^\r-g\0006`\r-ò\0006b\r-…\0006c\r.\0006d\r.A\0006e\r.î\0006f\r.œ\0006g\r/\r\0006h\r/>\0006i\r/e\0006j\r/é\0006k\r/∏\0006l\r/ﬂ\0006m\r0\0006n\r06\0006o\r0_\0006p\r0Ö\0006q\r0≥\0006r\r0„\0006s\r1\0006t\r1I\0006u\r1Ö\0006v\r1∫\0006w\r1Ï\0006x\r2 \0006y\r2R\0006z\r2Ñ\0006{\r2¿\0006|\r2Ù\0006}\r3+\0006~\r3_\0006\r3à\0006Ä\r3π\0006Å\r3‚\0006Ç\r4\n\0006É\r47\0006Ñ\r4g\0006Ö\r4î\0006Ü\r4¬\0006á\r4˜\0006à\r5/\0006â\r5^\0006ä\r5é\0006ã\r5¡\0006å\r5Û\0006ç\r6\0006é\r6M\0006è\r6|\0006ê\r6´\0006ë\r6€\0006û\r7\0006ü\r7?\0006†\r7n\0006¢\r7ñ\0006≤\r7«\0006∆\r7˚\0006«\r8,\0006»\r8]\0006…\r8Ñ\0006⁄\r8´\0006€\r8’\0006‹\r9\0006›\r9,\0006ﬁ\r9W\0006ﬂ\r9~\0006‡\r9™\0006Ó\r9ÿ\0007\r9¸\0007\r:7\0007\r:o\0007\r:°\0007\r:…\0007\r:Ô\0007	\r;\0007\n\r;<\0007\r;h\0007\r;ê\0007\r\r;€\0007\r<\000\0007\r<)\0007\r<R\0007\r<w\0007\r<†\0007\r<∆\0007\r<Ó\0007\r=\0007\r=D\0007\r=q\0007\r=ú\0007\r=«\0007\r=˝\0007\r>$\0007\r>L\0007\r>t\0007\r>ô\0007\r>ƒ\0007 \r>Î\0007!\r?\0007\"\r?C\0007#\r?q\0007$\r?õ\0007%\r?«\0007&\r?Ú\0007'\r@(\0007(\r@V\0007)\r@\0007*\r@´\0007+\r@—\0007,\r@ˆ\0007-\rA\0007.\rAF\0007/\rAl\00070\rAì\00071\rAΩ\00072\rAË\00073\rB\00074\rB9\00075\rBg\00076\rBç\00078\rB¥\00079\rB‚\0007:\rC\0007;\rC6\0007<\rCc\0007=\rCé\0007>\rC∑\0007?\rC‚\0007@\rD\0007A\rD5\0007B\rDa\0007C\rDï\0007D\rD≈\0007E\rDÛ\0007F\rE!\0007G\rEO\0007H\rEz\0007I\rE®\0007J\rE“\0007K\rEˇ\0007L\rF&\0007M\rFN\0007N\rFt\0007O\rFò\0007P\rFΩ\0007Q\rF‚\0007R\rG\0007S\rG+\0007T\rGP\0007U\rGt\0007V\rGú\0007W\rGˆ\0007X\rHM\0007Y\rHƒ\0007Z\rHˆ\0007[\rIv\0007\\\rIÚ\0007]\rJn\0007^\rJ⁄\0007_\rK2\0007`\rK≠\0007a\rK÷\0007b\rKˇ\0007c\rL)\0007d\rLQ\0007e\rLÅ\0007f\rLÆ\0007g\rLÿ\0007h\rM\n\0007i\rM3\0007j\rM\\\0007k\rMá\0007l\rM±\0007m\rM€\0007n\rN\0007o\rN/\0007p\rNY\0007q\rNÉ\0007r\rN≠\0007s\rN÷\0007t\rO\000\0007u\rO/\0007v\rO_\0007w\rOå\0007x\rO∫\0007y\rO‚\0007z\rP\0007{\rP;\0007|\rPe\0007}\rPé\0007~\rP∫\0007\rP„\0007Ä\rQ\0007Å\rQ3\0007Ç\rQZ\0007É\rQÅ\0007Ñ\rQ™\0007Ö\rQ”\0007Ü\rQ˙\0007á\rR\0007à\rRD\0007â\rRp\0007ä\rRö\0007ã\rR≈\0007å\rR\0007ç\rS\0007é\rSF\0007è\rSr\0007ê\rS°\0007ë\rSœ\0007í\rS˙\0007ì\rT'\0007î\rT±\0007ï\rT‹\0007ñ\rU\0007ó\rU.\0007ò\rUW\0007ô\rUÅ\0007ö\rU≠\0007õ\rU÷\0007ú\rU˛\0007ù\rV'\0007û\rVO\0007ü\rVw\0007†\rVû\0007°\rV∆\0007¢\rVÛ\0007£\rW\0007§\rWD\0007•\rWl\0007¶\rWï\0007ß\rW¬\0007®\rWË\0007©\rX\0007™\rX4\0007´\rX\\\0007¨\rXÅ\0007≠\rX®\0007Æ\rX—\0007Ø\rX¯\0007∞\rY\0007±\rY≈\0007≤\rYÌ\0007≥\rZ\0007¥\rZ@\0007µ\rZl\0007∂\rZñ\0007∑\rZ¿\0007∏\rZÈ\0007π\r[\0007∫\r[=\0007ª\r[f\0007º\r[ë\0007Ω\r[∑\0007æ\r[‡\0007ø\r\\\0007¿\r\\.\0007¡\r\\X\0007¬\r\\~\0007√\r\\ß\0007ƒ\r\\œ\0007≈\r\\Ù\0007∆\r]\0007«\r]B\0007»\r]k\0007…\r]ë\0007 \r]∏\0007À\r]‡\0007Ã\r^\n\0007Õ\r^1\0007Œ\r^X\0007œ\r^~\0007–\r^•\0007—\r^–\0007“\r^¸\0007”\r_*\0007‘\r_Y\0007’\r_É\0007÷\r_∞\0007◊\r_‹\0007ÿ\r`\0007Ÿ\r`:\0007⁄\r`e\0007€\r`ï\0007‹\r`¡\0007›\r`Ï\0007ﬁ\ra\0007ﬂ\raH\0007‡\rau\0007·\ra†\0007‚\raÕ\0007„\ra¯\0007‰\rb$\0007Â\rbM\0007Ê\rbu\0007Á\rb°\0007Ë\rbÕ\0007È\rbˆ\0007Í\rc\0007Î\rcK\0007Ï\rcs\0007Ì\rc†\0007Ó\rcŒ\0007Ô\rc˘\0007\rd$\0007Ò\rdS\0007Ú\rd~\0007Û\rd´\0007Ù\rd⁄\0007ı\re\0007ˆ\re4\0007˜\re_\0007¯\reâ\0007˘\reµ\0007˙\re‹\0007˚\rf\0007¸\rf-\0007˝\rfT\0007˛\rf|\0007ˇ\rf§\0008\000\rfœ\0008\rfˆ\0008\rg\0008\rgI\0008\rg|\0008\rg©\0008\riH\0008\rik\0008\riö\0008\ri…\0008\riÙ\0008\rj\0008\rjJ\0008 \rjs\0008!\rj£\0008\"\rj \0008#\rjÙ\0008$\rk\0008%\rkC\0008&\rkj\0008'\rkî\0008(\rkº\0008)\rk„\0008*\rl\0008+\rl8\0008,\rlc\0008-\rlä\0008;\rlµ\0008<\rlÂ\0008=\rm!\0008>\rmN\0008?\rmw\0008@\rm£\0008A\rmÀ\0008B\rmÚ\0008C\rn\0008D\rnK\0008E\rnw\0008F\rnü\0008G\rnÕ\0008H\rnˆ\0008I\ro \0008J\roI\0008K\rou\0008L\ro†\0008M\roÕ\0008N\roˆ\0008O\rp\0008P\rpL\0008Q\rpy\0008R\rp°\0008S\rp…\0008T\rpÛ\0008U\rq\0008V\rqD\0008W\rqm\0008X\rqù\0008Y\rq»\0008Z\rq\0008[\rr\0008\\\rrC\0008]\rrp\0008^\rrö\0008_\rrƒ\0008`\rrÛ\0008a\rs\0008b\rsI\0008c\rss\0008d\rsù\0008e\rs…\0008f\rsÛ\0008g\rt\0008h\rtM\0008i\rtw\0008j\rt°\0008k\rtÃ\0008l\rt¯\0008m\ru&\0008n\ruV\0008o\ruÄ\0008p\ru¨\0008q\ruŸ\0008r\rv\0008s\rv+\0008t\rvU\0008u\rvÇ\0008v\rv´\0008w\rv”\0008x\rw\0008y\rw+\0008z\rwT\0008{\rw}\0008|\rw¶\0008}\rw–\0008~\rw˝\0008\rx'\0008Ä\rxT\0008Å\rxÇ\0008Ç\rx™\0008É\rÄl\0008Ñ\ráÂ\0008Ö\rà\0008Ü\ràI\0008á\rè¯\0008à\rê.\0008â\rê`\0008ä\rêï\0008ã\ròU\0008å\ròé\0008ç\rò∆\0008é\rô\000\0008è\r†â\0008ê\r®5\0008ë\r®j\0008í\r®ù\0008ì\r®‘\0008î\r©\0008ï\r∞â\0008ñ\r∞√\0008ó\r∞ˆ\0008ò\r± \0008ô\r±R\0008ö\r∑≤\0008õ\r∑È\0008ú\ræê\0008ù\r≈3\0008û\r≈m\0008ü\rÃ+\0008†\rÃa\0008°\r“‚\0008¢\r‘–\0008£\r€w\0008§\r·Œ\0008•\r‚\0008¶\r„ö\0008ß\r„ƒ\0008®\r„Ï\0008©\rÈw\0008™\rÈØ\0008´\rÔm\0008¨\rÒ8\0008≠\r˜\0008Æ\r˜\\\0008Ø\r˜¥\0008∞\r¯\0008±\r¯?\0008≤\r¯y\0008∫\r¯Ø\0008ª\r¯€\0008º\r¯ˇ\0008Ω\r˘8\0008æ\r˘h\0008ø\r˘ó\0008¿\r˘ÿ\0008¡\r˙\0008¬\r˙2\0008√\r˙c\0008ƒ\r˙ë\0008≈\r˙À\0008∆\r˚\0008«\r˚A\0008»\r˚u\0008…\r˚÷\0008 \r¸\0008À\r¸4\0008Ã\r¸_\0008Õ\r¸ö\0008Œ\r¸Ã\0008œ\r¸Ù\0008–\r˝!\0008—\r˝V\0008“\r˝Ö\0008”\r˝Ø\0008‘\r˝◊\0008’\r˛\0008◊\r˛3\0008ÿ\r˛d\0008Ÿ\r˛ê\0008⁄\r˛∑\0008€\r˛Ê\0008›\rˇ\0008ﬁ\rˇâ\0008ﬂ\rˇÈ\0008‡\000\0008·\000@\0008‚\000l\0008„\000ù\0008‰\000…\0008Â\000ı\0008Ê#\0008ÁN\0008Ëx\0008È£\0008Í—\0008Î˝\0008Ï'\0008ÌS\0008Ó~\0008Ô¨\0008Á\0008Ò\0008ÚD\0008Ûi\0008Ùí\0008ı∫\0008ˆÂ\0008˜\n\0008¯1\0008˘U\0008˙~\0008˚∑\0008¸·\0008˝	\0008˛2\0008ˇ]\0009\000Ö\0009Æ\0009◊\0009\0009-\0009Y\0009Ö\0009∞\0009	›\0009\n\0009-\0009V\0009\rÉ\0009≠\0009÷\0009\0009)\0009S\0009~\0009´\0009◊\0009ˇ\0009	,\0009	U\0009	Ä\0009	 \0009\n\0009\n2\0009\n^\0009\nã\0009 \n∏\0009!\nÊ\0009\"\0009#?\0009$x\0009%´\0009&‘\0009'\n\0009(3\0009)_\0009*â\0009+∑\0009,ı\0009-\r\0009.\rH\0009/\ru\00090\r∑\00091\r‚\00092\00093M\00094á\00095≤\00096Ï\00097\00098T\00099Ö\0009:º\0009;Ô\0009< \0009=H\0009>t\0009?¢\0009@—\0009A˘\0009B#\0009CO\0009D{\0009E¨\0009F”\0009G¸\0009H'\0009IO\0009Jw\0009K†\0009L…\0009MÛ\0009N\0009OE\0009Pn\0009Qó\0009Rø\0009SÈ\0009T\0009U;\0009Vd\0009Wë\0009X¿\0009YÍ\0009Z\0009[D\0009\\o\0009]ô\0009^»\0009_˜\0009`%\0009rS\0009sò\0009Ç€\0009É	\0009Ñ5\0009Ö^\0009Üã\0009áµ\0009à‚\0009â\0009ä=\0009ñk\0009óí\0009òπ\0009ôÂ\0009ö\0009õ5\0009ú`\0009ùä\0009ûµ\0009ü›\0009†\0009°.\0009¢\\\0009£Ö\0009§¨\0009•◊\0009¶ˇ\0009ß3\0009®]\0009©ã\0009™≤\0009´⁄\0009¨\0009≠-\0009ÆW\0009ØÇ\0009∞Æ\0009±◊\0009≤\0009≥/\0009¥X\0009µÖ\0009∂≠\0009∑÷\0009∏\0009π+\0009∫U\0009ª~\0009º©\0009Ω—\0009æ˜\0009ø\0009¿C\0009¡k\0009¬í\0009√º\0009ƒ„\0009≈ \0009∆ ?\0009« j\0009» í\0009… ø\0009  Ï\0009À!\0009Ã!C\0009Õ!p\0009Œ!ò\0009œ!«\0009–!\0009—\"\0009“\"C\0009”\"p\0009‘\"ò\0009’\"¿\0009÷\"Ï\0009◊#\0009ÿ#E\0009Ÿ#m\0009⁄#ô\0009€#«\0009‹#ı\0009›$ \0009ﬁ$H\0009ﬂ$r\0009‡$ü\0009·$Ã\0009‚$˝\0009‰%:\0009Â%v\0009Ê%§\0009Á%Á\0009Ë&*\0009È&o\0009Í&ó\0009Î&√\0009Ï&Í\0009Ì'\0009Ó'@\0009Ô'l\0009'î\0009Ò'¿\0009Ú'Ï\0009Û(\0009Ù(E\0009ı(ç\0009ˆ(Â\0009˜)\0009¯)6\0009˘)b\0009˙)ç\0009˚)∂\0009¸)›\0009˝*\n\0009˛*_\0009ˇ*ã\000:\000*≤\000:*›\000:+\000:+2\000:+^\000:+á\000:+µ\000:+„\000:,\000:	,8\000:\n,c\000:,è\000:,ª\000:\r,Á\000:-\000:-D\000:-s\000:-ù\000:- \000:-ı\000:.#\000:.R\000:.\000:.ø\000:.˙\000:/!\000:/g\000:/ü\000:/ﬁ\000:0\000:0W\000:0í\000: 0 \000:!1\000:\"1>\000:-1y\000:.1∞\000:/1”\000:01˛\000:12*\000:22W\000:32Å\000:42©\000:52÷\000:63\000:731\000:83_\000:93å\000::3∑\000:;3›\000:<4\000:=40\000:>4[\000:?4Ü\000:@4≠\000:A4’\000:B4˚\000:C5!\000:D5K\000:E5s\000:F5õ\000:G5æ\000:H5‰\000:I6\000:J63\000:K6[\000:L6Ñ\000:M6Ø\000:N6”\000:O6¸\000:P7 \000:Q7I\000:R7v\000:S7ú\000:T7¬\000:U7Í\000:V8\000:W8;\000:X8d\000:Y8é\000:Z8∏\000:[8‡\000:\\9\000:]9A\000:^9r\000:_9¢\000:`9Õ\000:a9˘\000:b:)\000:c:Y\000:d:Ü\000:e:∂\000:f:Â\000:g;\000:h;=\000:i;i\000:j;ò\000:k;ƒ\000:l;˜\000:m<%\000:n<T\000:o<Ä\000:p<∞\000:q<€\000:r=\000:s=7\000:t=g\000:u=î\000:v=√\000:w=Ò\000:x>\000:y>D\000:z>p\000:{>ú\000:|>Ã\000:}>˜\000:~? \000:?K\000:Ä?t\000:Å?ü\000:Ç?«\000:É?Ò\000:Ñ@\000:Ö@D\000:Ü@n\000:á@ñ\000:ö@¬\000:õ@Í\000:úA\000:ùA5\000:ûA[\000:üAÉ\000:†A®\000:°AŒ\000:¢A˙\000:£B#\000:§BK\000:•Bt\000:¶Bù\000:ßB≈\000:®BÓ\000:©C\000:™CA\000:´Ci\000:¬Cê\000:√Cª\000:ƒCÎ\000:≈D\"\000:∆DY\000:«Dç\000:»D¬\000:…D¯\000: E,\000:ÀEc\000:ÃEò\000:ÕEÃ\000:ŒE˙\000:œF%\000:–FQ\000:—F|\000:“Fß\000:”F÷\000:‘G\000:’G+\000:÷GU\000:◊GÅ\000:ÿGÆ\000:ŸG◊\000:⁄H\000\000:€H1\000:‹H`\000:›Hä\000:ﬁH∑\000:ﬂH‚\000:‡I\000:·I7\000:‚I_\000:„Ià\000:‰IØ\000:ÂI€\000:ÊJ\n\000:ÁJ:\000:ËJj\000:ÈJñ\000:ÍJ«\000:ÎJÛ\000:ÏK%\000:ÌKU\000:ÓKÉ\000:ÔK¥\000:K‚\000:ÚL\000:ÛL<\000:ÙLm\000:ıLú\000:ˆL»\000:˜L¯\000:¯M%\000:˛MV\000:ˇMà\000;\000M∫\000;MÊ\000;N\000;NF\000;Nt\000;N¢\000;N—\000;N¯\000;O!\000;	OJ\000;\nOq\000;Oï\000;Oª\000;\rO‰\000;P\000;P1\000;PZ\000;PÅ\000;Pß\000;Pœ\000;P˜\000;Q\000;QD\000;Qm\000;Qó\000;QΩ\000;QÂ\000;R\000;R:\000;Ri\000;Rô\000;R¬\000; RÏ\000;!S\000;\"SD\000;#Sp\000;$Sõ\000;&S«\000;'SÚ\000;(T \000;)TJ\000;*Tw\000;+T¢\000;,TÕ\000;-T˙\000;.U&\000;/UP\000;0U\000;1U®\000;2U—\000;3U˘\000;4V#\000;5VJ\000;6Vv\000;7Vß\000;8V–\000;9V˛\000;:W%\000;;WM\000;<Ww\000;=Wû\000;>W≈\000;?WÓ\000;@X\000;AX@\000;BXl\000;CXí\000;DX∏\000;EXﬁ\000;FY\000;GY*\000;HYQ\000;IYw\000;JY°\000;KY∆\000;LY˜\000;MZ\"\000;NZL\000;OZ{\000;PZ•\000;QZ–\000;RZ˘\000;S[&\000;T[T\000;U[}\000;V[¢\000;W[«\000;X[Î\000;Y\\\000;Z\\9\000;[\\b\000;\\\\ç\000;]\\Ω\000;^\\Ë\000;_]\000;`]E\000;b]|\000;c]¨\000;d]‹\000;e^\000;f^2\000;g^_\000;h^ã\000;i^∂\000;j^ﬂ\000;k_7\000;l_∏\000;m`2\000;n`|\000;o`¿\000;pa\000;qaD\000;ra~\000;sa√\000;tb\000;ub9\000;vba\000;wb≥\000;xc,\000;ycß\000;zcˇ\000;{dA\000;|dÑ\000;}d¿\000;~e\000;eÄ\000;Äeﬁ\000;Åf=\000;Çf|\000;Éf¬\000;Ñf˚\000;Ög3\000;Ügo\000;ág±\000;àg›\000;âh\000;ähw\000;ãhˆ\000;åi<\000;çi\000;éi¡\000;èiÈ\000;êj\000;ëjÖ\000;ík\000\000;ìka\000;îk≠\000;ïkÂ\000;ñl\000;óla\000;òl≠\000;ôlÛ\000;öm\000;õmF\000;úm∆\000;ùn\000;ûnM\000;ünã\000;†n∆\000;°o\000;¢o@\000;£og\000;§oå\000;•oÂ\000;¶pe\000;ßp§\000;®pÎ\000;©q,\000;™qV\000;´q£\000;¨qÒ\000;≠r9\000;Ærb\000;Ør•\000;∞r€\000;±s\000;≤s[\000;≥sù\000;¥s¡\000;µt8\000;∂tí\000;∑tÏ\000;∏u<\000;πuc\000;∫ué\000;ªu∏\000;ºv\000\000;Ωv$\000;ævG\000;øvà\000;¿v–\000;¡v¯\000;¬w$\000;√wP\000;ƒwv\000;≈w°\000;∆wŒ\000;«w˜\000;»x$\000;…xL\000; xq\000;Àxô\000;Ãx¿\000;Õx‰\000;Œy	\000;œy/\000;–yV\000;—y~\000;“y´\000;⁄y’\000;€z\000;‹z\\\000;›z•\000;ﬁz\000;ﬂ{&\000;‡{]\000;·{É\000;‚{¨\000;„{÷\000;‰|\000;Â|1\000;Ê|[\000;Á|Ü\000;Ë|∏\000;È|Â\000;Í}\000;Î}:\000;Ï}b\000;Ì}å\000;Ó}º\000;Ô}Ê\000;~\000;Ò~;\000;Ú~m\000;Û~ô\000;Ù~¬\000;ı~Ó\000;ˆ\000;˜H\000;¯t\000;˘¢\000;˙“\000;˚Ä\000;¸Ä-\000;˝ÄY\000;˛Äâ\000;ˇÄ∑\000<\000Ä·\000<Å\000<Å9\000<Åd\000<Åì\000<Åæ\000<ÅÌ\000<Ç\000<ÇJ\000<	Çy\000<\nÇ§\000<Ç–\000<Ç¸\000<\rÉ)\000<ÉX\000<Éá\000<Éª\000<ÉÓ\000<Ñ\000<ÑF\000<Ñn\000<Ñò\000<Ñ≈\000<ÑÌ\000<Ö\000<Ö=\000<Öh\000<Öò\000<Öƒ\000<ÖÎ\000<Ü\000<ÜC\000< Üi\000<!Üë\000<\"Ü∫\000<#Ü‚\000<$á\r\000<%á:\000<&áf\000<'áì\000<(áº\000<)áÍ\000<*à\000<+àF\000<,àt\000<-à¢\000<.àŒ\000</à˚\000<0â&\000<1âS\000<2âÇ\000<3â´\000<4âÿ\000<5ä\000<6ä=\000<7äf\000<8äê\000<9ä˙\000<:ã%\000<;ã_\000<<ãà\000<=ãÊ\000<>å\000<?åB\000<@åk\000<Aåò\000<Bå¬\000<CåÍ\000<Dç\000<Eç9\000<Fçb\000<Gçç\000<Hç∏\000<Iç‰\000<Jé\000<Ké2\000<LéY\000<MéÇ\000<Né®\000<Oé–\000<Pé˜\000<Qè!\000<RèL\000<Sèy\000<Tèß\000<Uè÷\000<Wê\000<Xê?\000<Yêg\000<Zêî\000<[êƒ\000<\\êÚ\000<]ë\"\000<^ëO\000<_ëz\000<`ë•\000<aë‘\000<bí\000<cí*\000<dí[\000<eíã\000<fí∑\000<gíÂ\000<hì\000<iì=\000<jìh\000<kìë\000<lìƒ\000<mìÔ\000<nî\000<oîK\000<pîw\000<qîü\000<rî»\000<sîÙ\000<tï\000<uïJ\000<vïv\000<wï†\000<xïÃ\000<yï¯\000<zñ%\000<{ñP\000<|ñw\000<}ñ¶\000<~ñ‘\000<ó\000\000<Äó(\000<ÅóX\000<Çóâ\000<Éó∫\000<ÑóÏ\000<Öò\000<ÜòN\000<áò}\000<àò≥\000<âòÈ\000<äô\000<ãôD\000<åôo\000<çôü\000<éô \000<èôˆ\000<êö%\000<ëöQ\000<íöÄ\000<ìö¨\000<îö’\000<ïö˚\000<ñõ&\000<óõL\000<òõw\000<ôõü\000<öõ \000<õõˆ\000<úú!\000<ùúP\000<ûúÅ\000<üúπ\000<†úÂ\000<°ù\000<¢ùD\000<£ùq\000<§ù•\000<•ù“\000<¶ù˝\000<ßû$\000<®ûM\000<©ût\000<™ûü\000<´û»\000<¨ûˇ\000<≠ü,\000<ÆüX\000<Øüá\000<∞üµ\000<±üÊ\000<≤†\000<≥†B\000<¥†x\000<µ†•\000<∂†’\000<∑°	\000<∏°6\000<π°g\000<∫°ñ\000<ª°«\000<º°Ú\000<Ω¢!\000<æ¢N\000<ø¢y\000<¿¢®\000<¡¢‘\000<¬£\000<√£2\000<ƒ£\\\000<≈£à\000<∆£∑\000<«£·\000<»§\000<…§9\000< §f\000<À§î\000<Ã§ø\000<Õ§Ú\000<Œ•\000<œ•H\000<–•r\000<—•ü\000<“•…\000<”•˜\000<‘¶ \000<’¶L\000<÷¶y\000<◊¶´\000<ÿ¶÷\000<Ÿß\000<⁄ß3\000<€ße\000<‹ßë\000<›ß¿\000<ﬁß\000<ﬂ® \000<‡®T\000<·®Å\000<„®™\000<‰®÷\000<Â©\000<Ê©.\000<Á©[\000<Ë©ä\000<È©µ\000<Í©‡\000<Î™	\000<Ï™3\000<Ì™`\000<Ó™ç\000<Ô™∑\000<™‡\000<Ò´\000<Ú´7\000<Û´^\000<Ù´Ö\000<ı´Ø\000<ˆ´⁄\000<˜¨\000\000<¯¨+\000<˘¨V\000<˙¨~\000<˚¨®\000<¸¨œ\000<˝¨˚\000<˛≠\"\000<ˇ≠M\000=\000≠v\000=≠¢\000=≠Õ\000=≠˚\000=Æ&\000=ÆV\000=ÆÑ\000=Æ∂\000=Æ‚\000=	Ø	\000=\nØ9\000=Øg\000=Øó\000=\rØ«\000=ØÛ\000=∞ \000=∞O\000=∞x\000=∞¢\000=∞Œ\000=∞¸\000=±%\000=±S\000=±Ö\000=±Ø\000=±›\000=≤\000=≤.\000=≤V\000=≤Ç\000=≤´\000=≤◊\000= ≥\000=!≥,\000=\"≥W\000=#≥Ç\000=$≥´\000=%≥‘\000=&¥\000='¥)\000=(¥V\000=)¥Ç\000=*¥¨\000=+¥€\000=,µ\n\000=-µ<\000=.µh\000=/µò\000=0µ√\000=1µ\000=2∂ \000=3∂P\000=4∂{\000=5∂®\000=6∂Ÿ\000=7∑\000=8∑0\000=9∑_\000=:∑â\000=;∑∂\000=<∑·\000==∏\000=>∏>\000=?∏k\000=@∏ó\000=A∏∆\000=B∏\000=Cπ\000=DπI\000=Eπv\000=Fπ§\000=Gπ÷\000=I∫\000=J∫+\000=K∫Y\000=L∫à\000=M∫±\000=N∫⁄\000=Oª\000=Pª5\000=Qª]\000=Rªå\000=Sªº\000=VªÙ\000=Wº\000=XºK\000=Yº\000=Zº´\000=[º⁄\000=\\Ω\000=]Ω7\000=^Ωd\000=jΩê\000=kΩº\000=lΩÁ\000=mæ\"\000=næc\000=oæ¶\000=pæ·\000=qø\000=røR\000=søì\000=t«;\000=u«r\000=v«≤\000=w«Î\000=x»&\000=y»Y\000=zœÔ\000={–,\000=|–g\000=}–ù\000=~–◊\000=—\000=ÄÿX\000=Åÿï\000=ÇﬁÎ\000=ÉÂp\000=ÑÂ©\000=ÖÂÂ\000=ÜÊ\000=áÊL\000=àÊé\000=âÊ√\000=äÊ˙\000=ãÁA\000=åÌπ\000=çÌı\000=éÙÄ\000=èÙπ\000=êÙ¸\000=ëı9\000=íıp\000=ìı®\000=îıË\000=ïˆ#\000=ñ˚ÿ\000=ó¸\000=ò¸-\000=ô¸f\000=ö¸õ\000=õ¸‹\000=ú˝\000=ù˝U\000=û˝è\000=ü˝Ã\000=†˛\000=°˛=\000=¢˛z\000=£˛¶\000=•˛‹\000=¶ˇ\000=ßˇK\000=®ˇz\000=©ˇ¨\000=™ˇÿ\000=´\000\000=¨\0005\000=≠\000^\000=Æ\000ã\000=Ø\000ø\000=∞\000Í\000=±\000=≤M\000=≥à\000=¥ª\000=µË\000=∂\000=∑N\000=∏á\000=π∫\000=∫Ï\000=ª\000=ºF\000=Ωr\000=æû\000=ø«\000=¿\000=¡@\000=¬z\000=√•\000=ƒ–\000=≈˘\000=∆$\000=«P\000=Œ{\000=œ¨\000=–›\000=—\n\000=“9\000=”h\000=‚ù\000=„”\000=‰\000=ÂI\000=Êâ\000=ÁÆ\000=Ëﬂ\000=È\000=Í9\000=Îm\000=Ïñ\000=Ìø\000=ÓÏ\000=Ô	\000=	F\000=Ò	{\000=Ú	¶\000=Û	“\000=Ù	˝\000=ı\n2\000=ˆ\nb\000=˜\nã\000=¯\nµ\000=˘\n‡\000=˙\000=˚D\000=¸k\000=˝ß\000=˛‘\000=ˇ\000>\0002\000>a\000>õ\000>Ã\000>¯\000>\r!\000>\rK\000>\rÄ\000>\r∞\000>	\rË\000>\n/\000>p\000>Ø\000>\r‚\000>\000>E\000>k\000>î\000>º\000>Ë\000>\000>C\000>s\000>†\000> ⁄\000>!\000>\"Z\000>#ù\000>$÷\000>%˙\000>&2\000>'j\000>(é\000>)\000>*,\000>+P\000>,t\000>-ò\000>.º\000>/\000>0&\000>1J\000>2n\000>3í\000>4∂\000>5Ô\000>6?\000>7ï\000>8\r\000>9h\000>:¨\000>;˚\000><#\000>=n\000>>π\000>?\000>@j\000>A©\000>BÍ\000>C\000>DV\000>EÇ\000>Fµ\000>G€\000>H\000>I/\000>JW\000>KÄ\000>Zß\000>[Ã\000>\\˜\000>]\000>^F\000>_o\000>`ó\000>a¡\000>bË\000>c\000>d:\000>e`\000>fà\000>g´\000>h◊\000>i\000>j%\000>kN\000>lw\000>mù\000>n√\000>oÎ\000>p\000>q<\000>rh\000>sì\000>t∑\000>u‡\000>v\000>w.\000>xZ\000>yâ\000>z≤\000>{Ï\000>| \000>} E\000>~ m\000> í\000>Ä  \000>Å \000>Ç!\"\000>É!U\000>Ñ!à\000>Ö!±\000>Ü!Ÿ\000>á\"\000>à\"?\000>â\"r\000>ñ\"©\000>ó\"÷\000>ß#\000>®#6\000>©#[\000>™#í\000>´#»\000>¨+D\000>≠,‡\000>Æ-&\000>Ø-e\000>∞-ñ\000>±-Õ\000>≤.\000>≥.F\000>¥4y\000>µ4æ\000>∂4ˇ\000>∑5:\000>∏6Á\000>π7&\000>∫7S\000>ª7\000>º7“\000>»8%\000>”8T\000>‘8í\000>Ó8–\000>Ô9	\000>9E\000>Ò9\000>Ú9∏\000>Û9Â\000?%:\000?&:?\000?':É\000?(:Œ\000?);\000?*;]\000?+;•\000?=;◊\000?><	\000?@<@\000?J<m\000?K<ù\000?L<Œ\000?M<¯\000?N=\000?O=D\000?P=p\000?Q=û\000?R=Ã\000?V=˙\000?W>B\000?XE≥\000?YE˚\000?ZFD\000?[M»\000?\\N\000?]Uæ\000?^V\000\000?_VF\000?`VÜ\000?rVÃ\000?sW\000?tWD\000?uWã\000?v]µ\000?w]˝\000?x^F\000?y^Ü\000?z^œ\000?{_¬\000?|eî\000?}e÷\000?~f=\000?fÄ\000?Üf∆\000?áfÚ\000?ög\000?õgE\000?Ægt\000?Øgﬁ\000?∞h\n\000?±h7\000?≤he\000?≥hå\000?µh∂\000?∂hÊ\000?∑i\000?∏i4\000?πib\000?∫iå\000?ªi¿\000?ºiÔ\000?ΩjY\000?æj√\000?øk-\000?¿kó\000?¡l\000?¬lm\000?√lŸ\000?ƒmE\000?≈m±\000?∆n\000?«nä\000?»n˜\000?…od\000? o—\000?Àp>\000?Ãp¢\000?Õpœ\000?Œp¸\000?œq)\000?–q`\000?—qè\000?‘qæ\000?’qÓ\000?÷r\000?ŸrJ\000?⁄r{\000?€r’\000?‹s/\000?›sâ\000?ﬁs„\000?ﬂt=\000?‡tô\000?·tı\000?‚uQ\000?„u≠\000?‰v	\000?Âve\000?Êv«\000?Áw)\000?Ëwã\000?ÈwÌ\000?ÍxO\000?Îx±\000?Ïy\r\000?Ìyi\000?Óy≈\000?z!\000?Òzt\000?Ûz¨\000?Ùzˇ\000?ı{R\000?ˆ{•\000?˜{¯\000?¯|L\000?˘|†\000?˙|Ù\000?˚}H\000?¸}è\000?˝}‡\000?˛~3\000?ˇ~Ü\000@\000~Ÿ\000@-\000@Å\000@’\000@Ä)\000@Äz\000@ÄÀ\000@Å\000@ÅJ\000@	ÅÖ\000@Å«\000@\rÇ\000@ÇE\000@Ç~\000@Çª\000@ÇÙ\000@É1\000@Éb\000@É°\000@É·\000@Ñ\000@ÑP\000@ Ñè\000@!Ñ≈\000@\"Ñ˝\000@#Ö:\000@$Öv\000@%Ö∏\000@&ÖÛ\000@'Ü1\000@(Üu\000@)Ü∑\000@*ÜÔ\000@+á(\000@,áh\000@-á•\000@.á‡\000@/à\000@0àT\000@1àî\000@2à”\000@3â\000@4âR\000@5âï\000@8â \000@9â¸\000@:ä0\000@;äd\000@<äü\000@>ä⁄\000@@ã\000@AãN\000@Bãè\000@Cã \000@Då\000@EåK\000@Fåä\000@Gå¬\000@Hå˚\000@Iç2\000@Kço\000@Nç¶\000@Oçÿ\000@Qé\n\000@RéA\000@Sé\000@Téµ\000@WéÒ\000@Xè'\000@Yè\\\000@Zèú\000@[è€\000@\\ê\000@]êS\000@^êã\000@_ê¬\000@`ê¯\000@cë9\000@dëk\000@eë°\000@fë◊\000@gí\000@iíB\000@jíp\000@kí¢\000@lí‘\000@nì\n\000@pìB\000@qì~\000@rìΩ\000@sìÛ\000@uî(\000@vîa\000@wîú\000@xî–\000@yï\000@zïE\000@{ï{\000@|ïÆ\000@}ïÊ\000@~ñ\000@ÅñM\000@ÇñÄ\000@Éñ¥\000@ÑñÎ\000@Üó\000@áóS\000@âóÖ\000@äó≥\000@ãóÍ\000@åò\000@çòR\000@éòã\000@èòø\000@êòı\000@íô)\000@ìô`\000@îôì\000@ïô—\000@ñö\000@óö5\000@òöh\000@õöô\000@úö \000@ùõ\000\000@ûõ2\000@üõh\000@†õù\000@°õ”\000@§ú\000@•ú;\000@¶út\000@ßú¨\000@®úÊ\000@™ù \000@´ùW\000@Æùè\000@∞ùƒ\000@±ù¯\000@≤û+\000@≥ûc\000@¥ûù\000@µû’\000@∂ü\000@∑ü?\000@∏üu\000@πü´\000@ªü›\000@Ω†\000@æ†A\000@¡†v\000@¬†ß\000@√†◊\000@ƒ°\000@≈°@\000@∆°v\000@«°µ\000@⁄¢´\000@€¢”\000@‹£\000@›£7\000@ﬁ£q\000@ﬂ£ú\000@‡£‘\000@Ó§\000@Ô§*\000A§X\000A§ö\000A§‹\000A•\000A•Z\000A•ñ\000A•“\000A	¶\000A\n¶J\000A¶Ü\000A¶¬\000A\r¶˛\000Aß:\000Aßw\000Aß¥\000AßÒ\000A®\000A®G\000A®t\000A®°\000A®◊\000A©\000A©M\000A©z\000A©ß\000A©‘\000A™\000A™4\000A ™n\000A!™†\000A\"™ﬂ\000A#´\000A$´A\000A%´s\000A&´¢\000A'´”\000A(¨\000A)¨D\000A*¨Å\000A+¨Æ\000A,¨Í\000A-≠\000A.≠Y\000A/≠Ü\000A0≠∂\000A1≠„\000A2Æ\000A3Æ6\000A4Æa\000A5Æã\000A6Æ¥\000A7Æ›\000A8Ø\000A9Ø>\000A:Øu\000A;Ø†\000A<Øœ\000A=Ø˙\000A>∞'\000A?∞^\000A@∞û\000AA∞Ã\000AB∞˚\000AC±&\000AD±R\000AE±Ñ\000AF±≤\000AG±Ò\000AH≤\000AI≤N\000AJ≤ç\000AK≤ƒ\000AL≤\000AM≥0\000AN≥r\000AO≥¢\000AP≥Õ\000AQ≥¯\000AR¥&\000AS¥a\000AT¥ô\000AU¥ \000AV¥˜\000AWµ*\000AXµV\000AYµá\000AZµ∏\000A[µÈ\000A\\∂\000A]∂B\000A^∂q\000A_∂ú\000A`∂ÿ\000Aa∑\000Ab∑:\000Ac∑h\000Ad∑ì\000Ae∑…\000Af∑ˆ\000Ag∏(\000Ah∏r\000Ai∏ö\000Aj∏À\000Ak∏ˆ\000Alπ0\000Azπf\000A{πé\000A|π…\000A}∫\000A~∫@\000A∫p\000AÄ∫´\000AÅ∫ﬁ\000Aéª\000AèªA\000Aêªl\000Aëª¢\000AíªÀ\000Aìº$\000Aîº[\000Aïºê\000Añº∆\000AóºÏ\000AôΩ\000AöΩH\000AõΩz\000AúΩ¢\000AùΩÕ\000AûΩˆ\000Aüæ\000A†æv\000A°æû\000A¢æ«\000A£ø\000A§øF\000A•øù\000A¶ø∆\000Aß¿\000A®¿J\000A©¿r\000A™¿ö\000A´¿¬\000A¨¿Ì\000A≠¡\000AÆ¡F\000AØ¡q\000A∞¡ú\000A±¡»\000A≤¬!\000A≥¬J\000A¥¬¶\000Aµ¬÷\000A∂√\000A∑√,\000A∏√_\000Aπ√ä\000A∫√Ê\000Aªƒ\000Aºƒi\000AΩƒΩ\000AæƒÂ\000Aø≈<\000A¿≈e\000A¡≈í\000A¬≈æ\000A√≈Â\000Aƒ∆\000A≈∆<\000A∆∆e\000A«∆∫\000A»∆Á\000A…«?\000A «l\000AÀ«ñ\000AÃ«√\000AÕ«Ô\000AŒ»#\000Aœ»R\000A–»É\000A—»¥\000A“»‚\000A”…?\000A‘…ô\000A’…»\000A÷…˜\000A◊  \000Aÿ N\000AŸ |\000A⁄ ’\000A€À+\000A‹ÀU\000A›ÀÉ\000AﬁÀ⁄\000AﬂÃ\000A‡Ã1\000A·ÃÖ\000A‚Ã≥\000A„Ã⁄\000A‰Õ\000AÂÕ2\000AÊÕb\000AÁÕí\000AËÕ≈\000AÈÕı\000AÚŒ!\000AÛŒl\000AÙŒí\000AıŒ∫\000AˆŒÍ\000A˜œ\000A¯œD\000A˘œs\000A˙œ¶\000A˚œ’\000A¸–\000A˝–0\000A˛–S\000Aˇ–Å\000B\000–¨\000B–’\000B—\000B—,\000B—Z\000B—É\000B—∞\000B—›\000B“\000B	“0\000B\n“^\000B“á\000B“±\000B\r“Ÿ\000B”\000B”*\000B”U\000B”\000B”™\000B”‘\000B”˛\000B‘(\000B‘S\000B‘Ä\000B‘∞\000B‘Â\000B’\000B’G\000B’w\000B’´\000B’⁄\000B÷\r\000B ÷4\000B!÷\\\000B\"÷Ü\000B#÷∞\000B$÷◊\000B%◊\000B&◊(\000B'◊Q\000B(◊Ç\000B)◊∞\000B*◊„\000B+ÿ\000B,ÿD\000B-ÿw\000B.ÿ®\000B/ÿ›\000B0Ÿ\000B1Ÿ8\000B2Ÿh\000B3Ÿô\000B4Ÿ«\000B5Ÿ¯\000B6⁄'\000B7⁄Z\000B8⁄Ü\000B9⁄Æ\000B:⁄€\000B;€\000B<€1\000B=€^\000B>€ä\000B?€π\000B@€Â\000BA‹\000BB‹=\000BC‹i\000BD‹ê\000BE‹º\000BF‹Á\000BG›\000BH›@\000BI›r\000BJ›´\000BK›ﬂ\000BLﬁ\000BMﬁ7\000BNﬁi\000BOﬁñ\000BPﬁø\000BQﬁÌ\000BRﬂ\000BSﬂE\000BTﬂo\000BUﬂô\000BVﬂ∆\000BWﬂÔ\000BX‡\000BY‡E\000BZ‡r\000B[‡ü\000B\\‡ \000B]‡˘\000B^·%\000B_·Q\000B`·y\000Ba·±\000Bb·‚\000Bc‚\000Bd‚:\000Be‚f\000Bf‚ê\000Bg‚¿\000Bi‚Ó\000Bj„\000Bk„E\000Bl„s\000Bm„ù\000Bn„…\000Bo„ˆ\000Bp‰%\000Bq‰N\000Br‰É\000Bs‰∂\000Bt‰Ó\000BuÂ\000BvÂ@\000BwÂk\000BxÂï\000ByÂ¬\000BzÂ¯\000B{Ê.\000B|ÊS\000B}ÁF\000B~Ë5\000BËj\000BÄËõ\000BÅËæ\000BÇË˚\000BÉÈÏ\000BÑÍ\000BÖÎ\000BÜÎ¯\000BáÏÂ\000BàÌ›\000BâÓœ\000BäÔ \000BãÑ\000BåÒF\000BçÚ\000BéÚÔ\000BèÛ‹\000BêÙ\000BëÙ9\000BíÙu\000BìÙû\000BîÙ»\000BïÙ˜\000Bñı'\000BóıO\000Bòı}\000Bôı§\000Böı⁄\000Bõˆ\000BúˆA\000Bùˆw\000Bûˆ∞\000Büˆÿ\000B†˜\000B°¯¥\000B¢˚:\000B£¸Ó\000B§˝\"\000B•˝Y\000B¶˝∂\000Bß˛\000B®˛.\000B©˛]\000B™˛ì\000B´˛º\000B¨˛Ú\000B≠ˇ\000BÆˇC\000BØˇp\000B∞ˇò\000B±ˇ∆\000B≤ˇÎ\000B≥\000\000B¥\000E\000Bµ\000s\000B∂\000ú\000B∫\000≈\000BŒ\000Ù\000Bœ)\000B–V\000B—Ä\000B“™\000B”◊\000B’\000B÷5\000B◊d\000Bÿë\000BŸæ\000B⁄Ë\000B›\000BﬁI\000Bﬂy\000B„™\000B‰‡\000BÂ7\000BÊc\000Bˆƒ\000CÚ\000C&\000C ]\000C!ï\000C\"—\000C#\000C$Q\000C%ó\000C&Î\000C'C\000C(s\000C) \000C*Û\000C+3\000C,[\000C-ú\000C.»\000C0È\000C1	5\000C2	v\000C3	Œ\000C4	˘\000CF\n%\000CG\nM\000CH\nt\000CZ\nõ\000Cn\n…\000CÇ\nÌ\000CÉ)\000Cñc\000Cóó\000CòÂ\000Cô4\000Cöi\000Cõ\000Cúf\000Cùú\000Cû‘\000C™\000\000C´1\000C¨]\000C≠Ñ\000CÆ≠\000CØ\000C∞∞\000C±\000C≤J\000C≥t\000C¥°\000CµŒ\000C¿˙\000C¡9\000C¬b\000Cƒò\000C≈‹\000C«)\000C»j\000C…¥\000CÀÊ\000C“\000C”7\000C‘_\000CÊÜ\000CÁ¡\000CË\000\000C˙@\000C˚ä\000C¸÷\000C˝\000C˛^\000Cˇ¶\000D\000ı\000D6\000Dv\000Dß\000DÀ\000DE\000D ç\000D\"\"4\000D6\"f\000D7\"ü\000DJ\"›\000D^#\000D_$y\000D`&\000Da'ñ\000Db'ø\000Dc'Ë\000Dd(\000Dr(A\000Ds(o\000DÜ(ö\000Dö(…\000Dú)\000Dû)F\000Dü)Ä\000D†)æ\000D°)¯\000D¢*:\000D£*n\000D§*©\000D•*‡\000D®+\000D©+Q\000D™+ä\000D´+æ\000D¨+¯\000D≠,9\000DØ,u\000D∞,¨\000D≤,‰\000D¥-\000D∂-S\000D∑-ã\000D∏-¡\000Dπ-˜\000D∫..\000Dº.g\000Dæ.°\000Dø.ÿ\000D¿/\000D¡/G\000D¬/É\000D√/π\000Dƒ/Î\000D≈0$\000D«0`\000D»0î\000D 0«\000DÀ0ˆ\000DÃ1,\000DÕ1c\000D–1ö\000D—1Õ\000D“2\000D‘23\000D÷2f\000D◊2ô\000Dÿ2 \000DŸ2¸\000D⁄31\000DÍ3[\000DÎ3ã\000D˛3º\000E3Ê\000E5\000E7à\000E8\000E8O\000E8\000E8±\000E8⁄\000E9\r\000E9C\000E9y\000E9ü\000E9Õ\000E9˙\000E :&\000E&:]\000E':ä\000E(:∏\000E):‡\000E*;\000E+;D\000E,;l\000E-;õ\000E.;€\000E/<\000E0<9\000E1<k\000E2<î\000E3<À\000E4<ı\000E5=\000E6=I\000E7=Å\000E8=¥\000E9=Ó\000E:>!\000E;>f\000E<>ì\000E=>œ\000E>?\000E??V\000E@?í\000EB?≈\000ED?Ô\000EE@\000EF@A\000EG@r\000EH@§\000EI@”\000EJ@˚\000EKA(\000ELAX\000EMAã\000ENA∏\000EOAË\000EPB\000EQBF\000ERBu\000ESBß\000ETB“\000EUB˛\000EVC.\000EWC\\\000EXCç\000EYC∂\000EZCÍ\000E[D\"\000E\\DM\000E]DÅ\000E^DØ\000E_Dÿ\000E`E\n\000EaE0\000EbEb\000EcEï\000EdE«\000EeE˙\000EfF,\000EgFa\000EhFì\000EjF¿\000EkFÙ\000ElG\000EmGW\000EnGï\000EoGƒ\000EpGÌ\000EqH\000ErHG\000EsHw\000EtHß\000EuH⁄\000EvI\r\000EûI@\000EüIh\000EπIò\000E∫I≈\000EÏIÚ\000EÌJ(\000EÓJ^\000EÔJî\000EJ \000EÒK\000\000EÚK6\000EÛKl\000EÙK¢\000EıKÿ\000FL\000FL5\000FLi\000F*Lì\000F+Læ\000F,LÍ\000F-M\000F.MB\000F0Ms\000F1M§\000F>MŒ\000FRMı\000FfN:\000FzNk\000F{Nü\000F|NÃ\000F}N˘\000F~O*\000FOf\000FÄOê\000FéO¡\000F¢P\000F£P8\000F∂Pb\000F∑Pê\000F∏Pø\000F PÌ\000FÀQB\000FﬁQÇ\000FﬂQ≤\000F‡Rõ\000F·S¥\000F‚TÃ\000F„U€\000F‰W\000FÂWC\000FÊWq\000FÁWü\000FËW‘\000FÍWˇ\000FX,\000FˆXb\000F˜Xû\000F¯X‘\000F˘Y\000F˙Y9\000F˚Yq\000F¸Y™\000F˝Y„\000GZ\000GZa\000GZê\000GZ¿\000GZÍ\000G[\000G\\\000G ]\000G.]6\000G/]y\000G0]ø\000G1^\000G2^©\000G3_6\000G4_Á\000G5`É\000G6a3\000G7a€\000G8bë\000G9bø\000G:c†\000G<d{\000G=dß\000G>d”\000G?d˛\000G@e5\000GAe`\000GBeê\000GCe∆\000GDeÛ\000GEf\000GFfN\000GGfá\000GHfØ\000GIfﬁ\000GJg\000GKgQ\000GLgy\000GMg™\000GNg„\000GOh\000GPhÅ\000GQi€\000GRj\000GSjF\000GTjÖ\000GUj∆\000GVj˜\000GWk+\000GXkT\000GYkè\000GZk¡\000G[l\000G\\l=\000G]lo\000Gjl†\000GklÕ\000Glm\000Gmm9\000Gnmy\000Gomπ\000Gpmﬂ\000Gqn\000GrnL\000Gsnç\000Gtn≈\000Gun˝\000Gvo;\000Gwov\000Gxo†\000Gyo⁄\000GzpJ\000G{pà\000G|p∑\000G}pÏ\000G~q\000GÅqE\000GÇqv\000GÉq©\000GÑq”\000GÖq˙\000GÜr,\000GárY\000Gàrè\000Gâr¿\000GärÓ\000Gãs \000GçsT\000GésÅ\000GèsÆ\000Gës◊\000Gít\000Gìt.\000GîtV\000Gït}\000Gñt•\000Gót—\000Gòt˚\000Gôu'\000GöuW\000GõuÑ\000Gúu∂\000Gùvl\000Gûw\000Güw™\000G†zM\000G°zÇ\000G¢z™\000G£zÈ\000G§{\000Gß{F\000G®{n\000G©{§\000G™{œ\000G´{ˇ\000G¨|-\000G≠|U\000GÆ|á\000GØ|¥\000G∞|È\000G±}\000G≤}I\000G¥}u\000Gµ}ˆ\000G∂~_\000G∑~œ\000G∏E\000Gπ∞\000G∫Ä%\000GªÄ©\000GºÅ\000GΩÅ\000GæÅ˛\000GøÇ1\000G¿Çc\000G¡Çí\000G¬Çƒ\000G√Ç\000GƒÉ\000G≈ÉO\000G∆ÉÖ\000G«É∏\000G»ÉÎ\000G…Ñ\000G ÑB\000GÀÑr\000GÃÑù\000GÕÑ◊\000GŒÖ\000GœÖ2\000G–Öe\000G—Öó\000G“ÖÕ\000G”Ö˙\000G‘Ü)\000G’ÜR\000G÷ÜÇ\000G◊Ü≤\000GÿÜ‹\000GŸá\000G⁄á8\000G€ák\000G‹áö\000G›á¬\000GﬁáÚ\000Gﬂà\000G‡àD\000G·àu\000G‚àÛ\000G„â$\000G‰âY\000GÂâç\000GÊâª\000GÁâ\000GËä\000GÈäA\000GÍäk\000GÎäò\000GÏäø\000GÌäÈ\000GÓã\000GÔãS\000Gãã\000GÒã≈\000GÚã˛\000GÛå:\000GÙåw\000Gıå¢\000Gˆåœ\000G˜å˙\000G¯ç%\000G˘çP\000G˙çx\000G˚ç¶\000G¸ç”\000G˝é\n\000G˛éE\000H\000éÄ\000Héæ\000Hè\000\000Hè?\000HèÅ\000Hèπ\000H	èË\000H\nê\000HêQ\000Hêã\000H\rê≈\000Hë\000HëI\000Hëâ\000Hë…\000Hë¯\000Hí$\000Híg\000Hí™\000Hí\000Hì6\000Hìq\000Hì¨\000HìŸ\000Hî\000HîC\000Hîp\000Hîù\000H îÀ\000H!î¯\000H\"ï/\000H#ïf\000H$ïù\000H%ï‘\000H&ñ\000H'ñB\000H(ñy\000H)ñ∞\000H+ñÁ\000H,ó\000H-óA\000H.óm\000H/óò\000H0ó…\000H1óÙ\000H2ò \000H3òP\000H4òÅ\000H5òÆ\000H6ò‹\000H7ô\000H8ô8\000H9ôi\000H:ôò\000H;ôƒ\000H<ôÔ\000H=ö\000H>öL\000H?ö|\000H@ö£\000HAöÕ\000HBö˙\000HCõ\000HDõG\000HEõu\000HFõü\000HGõÃ\000HHõˇ\000HIú*\000HJúT\000HKú|\000HLúØ\000HMú›\000HNù\000HOù0\000HPùX\000HQùÜ\000HRùª\000HSùı\000HTû)\000HUûl\000HVû°\000HWû⁄\000HXü\000HYü:\000HZüh\000H[üö\000H\\üÕ\000H]†\000H^†3\000H_†f\000H`†ó\000Ha†≈\000Hb†ı\000Hc°%\000Hd°N\000He°v\000Hf°™\000Hg°ÿ\000Hh¢\000Hi¢/\000Hj¢`\000Hk¢á\000Hl¢¥\000Hm¢Ë\000Hn£\000Ho£0\000Hp£Y\000Hq£Ö\000Hr£ª\000Hs£Ê\000HÇ§\000HÉ§?\000HÑ§v\000HÖ§≠\000HÜ§„\000Há•\000Hñ•À\000Hó¶\000\000Hò¶7\000Hô¶m\000Hö¶ú\000Hõ¶ \000Hú¶˚\000Hûß4\000Hüßq\000H†ßò\000H¢ßÀ\000H§ß˛\000H•®6\000H¶®e\000H®®ì\000H©™˝\000H™´-\000H´´[\000H¨´ï\000H≠´Õ\000HÆ´˛\000HØ¨3\000H∞¨e\000H±¨ä\000H≤¨¨\000H≥¨“\000H¥¨˛\000Hæ≠*\000Hø≠f\000H¿≠•\000H¡≠Ê\000H¬Æ\000HƒÆ<\000H≈Æu\000H«Æ°\000H»ÆÊ\000H…Ø \000H Ø^\000HÀØê\000HÃØ…\000HÕØ˙\000HŒ∞(\000Hœ∞_\000H–∞ï\000H—∞Á\000H“±\000H”±=\000H‘±l\000H’±ø\000H÷±Ï\000H◊≤\000Hÿ≤P\000HŸ≤â\000H⁄≤¡\000H€≤¸\000H‹≥7\000H›≥w\000Hﬁ≥∂\000Hﬂ≥Ò\000H‡¥*\000H·¥k\000H‚¥∞\000H„¥Ù\000H‰µ'\000HÂµO\000HÊµÖ\000HÁµ¥\000HËµﬁ\000HÈ∂\000HÓ∂Z\000HÔ∂á\000H∂π\000HÒ∂Â\000HÚ∑\000HÛ∑G\000HÙ∑á\000Hı∑∫\000Hˆ∑„\000H˜∏\000H¯∏A\000H˘∏k\000H˙∏ë\000H˚∏æ\000H¸∏Ô\000H˛π\000HˇπO\000I\000π~\000Iπ§\000Iπ—\000I∫\000I∫5\000I∫g\000I∫í\000I∫¿\000I∫È\000I	ª\000I\nªÉ\000IªÙ\000IºV\000I\rºæ\000IΩ$\000IΩã\000IΩæ\000Iæ\000Iæ\\\000IæÖ\000Iæª\000Iæ„\000Iø\000Iø;\000Iøc\000Iøè\000Iø”\000I¿\000I¿M\000I¿{\000I¿¥\000I¿Ê\000I ¡\000I!¡J\000I\"¡u\000I#¡ù\000I$¡—\000I%¬\n\000I&¬1\000I'¬`\000I(¬ç\000I)¬ª\000I*¬Ê\000I+√\000I.√U\000I/√Å\000I0√∞\000I1ƒ\000I2ƒ?\000I3ƒs\000I4ƒ©\000I5ƒ”\000I6≈E\000I7≈Ÿ\000I8∆Z\000I9∆Â\000I:«q\000I=«Æ\000I@«ﬁ\000IA»\000IB»1\000IC»b\000ID»í\000IE»≈\000IF»Ò\000IG…\000IH…G\000II…t\000IJ…°\000IN…÷\000IO \000IQ U\000IR ä\000IS ø\000IT Ù\000IUÀ1\000IVÀn\000IWÀ¨\000IXÀ‚\000IYÃ\000IZÃY\000I[Ãñ\000I\\Ã‚\000I]Õ+\000I^Õx\000I_Õ¬\000I`Œ\000IaŒ[\000IbŒç\000IcŒø\000IdŒ\000Ieœ$\000IfœY\000Igœè\000Ihœƒ\000Iiœˇ\000Ij–5\000Ik–k\000Il–†\000Im–ﬂ\000In—\000Io—]\000Ir—é\000Is—π\000It—Î\000Iu“\000Iv“H\000Iw“x\000Ix“©\000Iy“‚\000Iz”\000I{”J\000I|”v\000I}”≠\000I~”÷\000I‘\000IÄ‘:\000IÅ‘e\000IÇ‘ì\000IÉ‘√\000IÑ‘Ù\000IÖ’)\000IÜ’T\000Iá’Ç\000Ià’¥\000Iâ’‚\000Iä÷\000Iã÷K\000Iå÷\000Iç÷≤\000Ié÷‡\000Iè◊\000Iê◊K\000Ië◊t\000Ií◊©\000Iì◊€\000Iîÿ\000IïÿC\000Iñÿw\000Ióÿ®\000Iòÿ›\000IôŸ\000IöŸ@\000IõŸl\000IúŸ©\000IùŸﬂ\000Iû⁄\000Iü⁄C\000I†⁄\000I°⁄¥\000I¢⁄Ê\000I£€\000I§€J\000I•€|\000I¶€Æ\000Iß€Ê\000I®‹\000I©‹V\000I™‹é\000I´‹∆\000I¨‹˛\000I≠›8\000IÆ›f\000IØ›û\000I∞›÷\000I±ﬁ\000I≤ﬁC\000I≥ﬁw\000I¥ﬁ±\000IµﬁÁ\000I∂ﬂ\000I∑ﬂI\000I∏ﬂÄ\000Iπﬂ¨\000I∫ﬂﬁ\000Iª‡\000Iº‡C\000IΩ‡x\000Iæ‡Æ\000Iø‡ÿ\000I¿·\000I÷·4\000Iÿ·t\000IÍ·•\000Iˇ·⁄\000J\000‚\000J‚5\000J„_\000J„ñ\000J„Ã\000J„ˆ\000J‰/\000J	‰\\\000J\n‰ã\000J‰π\000J‰Ë\000J\rÂ7\000JÂc\000JÂó\000JÂ√\000JÂÚ\000JÊ,\000JÊ]\000JÊí\000JÊ∆\000J'Ê˙\000J(ÁK\000J)ÁÇ\000J*ÁŸ\000J+Ë\000J:ËC\000J;Ëp\000J<Ëù\000J=Ë»\000J>ËÛ\000J?È\000J@ÈK\000JAÈp\000JBÈï\000JCÈ¬\000JDÈÔ\000JEÍ\000JFÍE\000JGÍÄ\000JHÍæ\000JIÍÔ\000JJÎ#\000JKÎY\000JLÎ¢\000JNÎÿ\000JOÏ\000JPÏF\000JQÏu\000JRÏü\000JSÏÕ\000JTÌ	\000JUÌ?\000JVÌ~\000JWÌ∂\000JXÌ\000JYÓ'\000JZÓY\000J[ÓÖ\000J\\Óæ\000J]Ó˜\000J^Ô*\000J_ÔW\000J`Ôê\000JaÔ¡\000JbÔ˜\000Jc/\000Jd]\000Jeç\000Jf∆\000JgÒ\000JhÒ3\000JiÒb\000JjÒé\000JkÒø\000JlÒÎ\000JmÚ\000JpÚJ\000JqÚp\000JrÚú\000JsÚœ\000JtÚ˘\000JuÛ<\000JvÛ{\000JxÛª\000JzÛ„\000J{Ù\"\000J|Ùa\000J}Ùõ\000J~Ù–\000Jı\000Jãı9\000Jåıy\000Jçı≤\000JéıÓ\000Jèˆ$\000Jêˆ[\000Jëˆë\000Jíˆ \000Jì˜\000Jî˜7\000Jï˜l\000Jñ˜§\000Jó˜⁄\000Jò¯\000Jô¯Z\000Jö¯ï\000Jõ¯Õ\000Jú¯˝\000Jù˘/\000Jû˘`\000Jü˘è\000J†˘ª\000J°˘Ì\000J¢˙\000J£˙R\000J§˙É\000J•˙º\000J¶˙Ï\000Jß˚\000J®˚I\000J©˚\000J™˚∞\000J´˚Ÿ\000J¨¸\n\000J≠¸:\000JÆ¸v\000JØ¸¢\000J∞¸”\000J±˝	\000J≥˝:\000J¥˝i\000Jµ˝ò\000J∂˝«\000J∑˝˜\000J∏˛)\000J∫˛V\000Jª˛y\000Jº˛¢\000JΩ˛—\000Jæ˛ˇ\000Jøˇ.\000J¿ˇY\000J¡ˇÖ\000J¬ˇØ\000J√ˇŸ\000Jƒ\000	\000J≈\0006\000J∆\000X\000J«\000Ö\000J»\000≥\000J…\000Ë\000J \000JÀJ\000JÃw\000JÕü\000JŒ¬\000Jœ˙\000J–5\000J—p\000J“´\000J”„\000J‘\000J’F\000J◊s\000Jÿ¢\000J⁄”\000J€˚\000J‹ \000J›M\000Jﬁy\000Jﬂ†\000J‡√\000J·Á\000J‚\n\000JÓ-\000JÔ∂\000KÍ\000K\"\000K^\000Kó\000K”\000K\000K<\000K	m\000K\nö\000K«\000Kı\000K\r\"\000KX\000K°\000Kﬁ\000K	\000K	R\000K	è\000K	√\000K	˚\000K\nQ\000K\n~\000K\nß\000K\n—\000K\000K+\000KP\000K\000K0\000K Ê\000K!Ú\000K\"6\000K#î\000K$Ò\000K% !\000K& Q\000K' Ä\000K( Ø\000K) ﬁ\000K*!\r\000K+!<\000K,!k\000K-!ö\000K.! \000K/!˙\000K0\"*\000K1\"Z\000K2\"ä\000K3\"∫\000K4\"Í\000K5#\000K6#J\000K7#z\000K8#™\000K9#Ÿ\000K:$\000\000K;$,\000K<(3\000K=,\000K>0\000K?2H\000K@4á\000KA6„\000KB9Q\000KC9Å\000KD9™\000KE9Á\000KF>\000KGB@\000KHFÄ\000KIH¯\000KJKN\000KKMó\000KLP\000KMP,\000KNPR\000KOTã\000KPXá\000KQ\\©\000KR^Ó\000KSaJ\000KTcì\000KWe”\000KXf\000KYf=\000KZfr\000K[f≠\000K\\fﬁ\000K]g\000K_g=\000K`gi\000Kagú\000KbgŒ\000Kcgˇ\000Kdh-\000Kehd\000Kfh¢\000KghÃ\000Khh˙\000Kii(\000KjiV\000Kki\000Kli«\000Kmj	\000KnjF\000KojÉ\000Kpj¿\000Ksj˝\000Ktk7\000Kukr\000KvkÆ\000KwkÛ\000Kxl-\000Kylj\000Kzlß\000K{l„\000K|m!\000K}mY\000K~mí\000KmŒ\000KÄn\000KÅn?\000KÇnÑ\000KÉn≥\000KÑnÏ\000KÖo \000KÜoQ\000Káo\000Kào®\000Kâo◊\000Käp\000Kãp/\000Kåp_\000Kçpë\000Képº\000KèpÁ\000Kêq\000KëqM\000Kíq|\000Kìq©\000Kîq’\000Kïr\000KñrB\000Kórk\000Kòr±\000KôrÁ\000Kös\000KõsA\000Kúsr\000Kùs•\000KûsÃ\000K†sˇ\000K°t-\000K¢tg\000K£tï\000K§t \000K•u\000K¶u<\000Kßuu\000K®uù\000K©uœ\000K™v\000K´v?\000K¨vx\000K≠v©\000KÆv€\000KØw\000K∞wS\000K±wã\000K≤wƒ\000K≥wı\000K¥x \000KµxJ\000K∂x}\000K∑x´\000K∏xÍ\000Kπy$\000K∫yP\000KªyÉ\000Kºy¨\000KΩy◊\000Kæz\r\000Køz=\000K¿zf\000K¡zù\000K¬z‘\000K√{\000Kƒ{-\000K≈{[\000K∆{Ü\000K«{∞\000K»{ÿ\000K…|\000K |8\000KÀ|r\000KÃ|®\000KÕ|Ê\000KŒ}\000Kœ}H\000Kﬁ}t\000Kﬂ}§\000K‡}‘\000K·~\000K‚~<\000KÊ~l\000KÁ~ú\000KË~œ\000KÈ\000\000KÍ-\000KÎe\000KÏò\000KÌ’\000KÓÄ\000KÔÄC\000KÄx\000KÒÄ•\000KÚÅN\000KÛÅç\000KÙÅΩ\000KıÅ¸\000KˆÇ:\000K˜Çà\000K¯ÇÃ\000K˘É\000K˙ÉW\000K˚ÉÜ\000K¸É∂\000K˝ÉÊ\000K˛Ñ\000LÑF\000LÑx\000LÑ¨\000LÑ„\000LÖ \000LÖ^\000L Öù\000L#Ö‹\000L1Ü\000L2ÜA\000L3Üv\000L4Ü•\000L5ÜŸ\000L6á\000L7á5\000L8ád\000L9áì\000L:á¬\000L;áÔ\000L<à\000L=àI\000L>àv\000L?à°\000L@àÃ\000LAà˜\000LBâ\"\000LCâP\000LDâ~\000LEâ¨\000LFâ⁄\000LGä\000LHä>\000LIäp\000LJä¢\000LKäœ\000LLä¸\000LMã)\000LNãV\000LOãÑ\000LPã≤\000LQã‡\000LRå\000LSå?\000LTåp\000LUå°\000LVå“\000LWå¸\000LXç&\000LYçP\000LZçz\000L[çß\000L\\ç‘\000L]é\000L^é.\000L_é^\000L`éé\000Laéæ\000LbéÓ\000Lcè\000LdèJ\000Leèx\000Lfè¶\000Lgè—\000Lhè¸\000Liê'\000LjêR\000Lkê~\000Llê™\000Lmê÷\000Lnë\000Loë6\000Lpëj\000Lqëû\000Lrë“\000Lsí\000Ltí0\000Luí_\000Lvíé\000Lwíæ\000LxíÓ\000Lyì\000LzìJ\000L{ì{\000L|ìß\000L}ìÿ\000L~î	\000LîA\000LÄîy\000LÅî±\000LÇî›\000LÉï	\000LÑïA\000LÖïj\000LÜï¢\000Láï⁄\000Làñ\n\000Lâñ:\000Läñj\000Lãñ•\000Låñ€\000Lçó\000LéóG\000Lèót\000Lêó°\000LëóŒ\000Líó˙\000Lìò$\000LîòN\000Lïòx\000LñòÆ\000Lóò›\000Lòô\000Lôô;\000Löôs\000Lõô©\000Lúôﬂ\000Lùö\000LûöT\000Lüöå\000L†öƒ\000L°ö¸\000L¢õ<\000L£õl\000L§õú\000L•õÃ\000Lßõ˙\000L∫ú:\000L‚úg\000L„úè\000L‰úª\000LÂú‰\000LÊù\000LÁùB\000LËùr\000LÈù£\000LÍù“\000LÎû\000LÏû.\000LÌû[\000LÓûâ\000LÔû¥\000Lû‡\000LÒü\000LÚü6\000LÛüØ\000LÙ†*\000Lı†§\000Lˆ°#\000L˜°†\000L¯¢\000L˘¢ò\000L˙£\000L˚£ï\000L¸§\000L˝§î\000L˛•\000Lˇ•ò\000M\000¶\000M¶õ\000Mß\000Mßü\000M®\000M®e\000M®¨\000M®Û\000M©7\000M	©y\000M\n©º\000M™\000\000M™E\000M\r™à\000M™∑\000M´1\000M2´ê\000M3´…\000M4¨\000M5¨K\000M6¨É\000M7¨∏\000M8¨Á\000M9≠\000M:≠S\000M;≠é\000M<≠ \000M=Æ\000M>ÆB\000M?Æô\000M@Æ∆\000MAÆˇ\000MBØ6\000MCØm\000MDØ•\000MEØ⁄\000MF∞\000MG∞>\000MH∞m\000MI∞ô\000MJ∞√\000MK∞˝\000ML±+\000MM±R\000MN±}\000MZ±™\000M[±÷\000M]≤\r\000M^≤9\000M_≤c\000M`≤è\000Md≤º\000Me≤È\000Mf≥E\000Mg≥™\000Mh¥'\000Mi¥Ü\000Mj¥÷\000Mkµ8\000Mlµö\000Mm∂\000Mn∂j\000Mo∂®\000Mp∂ﬂ\000Mq∑\000Mr∑Z\000Ms∑í\000Mt∑œ\000Mu∏\000Mv∏6\000Mw∏k\000Mx∏¢\000My∏◊\000Mzπ\000M{πC\000M|πx\000M~πÆ\000Mπ‰\000MÄ∫\000MÅ∫Q\000MÇ∫â\000MÉ∫√\000MÖ∫˙\000MÜª4\000Màªm\000Mâª£\000Mäª⁄\000Mãº\000Måº+\000Mçº^\000Méºë\000Mèº»\000Mêº˜\000MëΩ\"\000MíΩP\000MìΩä\000MïΩ∏\000MñΩ‡\000Móæ\000Mòæ:\000Môæ_\000Möæê\000Mõæ¡\000MùæÔ\000Mûø\000MüøG\000M†øz\000M°ø¨\000M¢ø›\000M£¿	\000M§¿4\000M•¿g\000M¶¿ì\000Mß¿¬\000M®¿ˆ\000M©¡)\000M™¡b\000M´¡ç\000M¨¡≤\000M≠¡ﬁ\000MÆ¬	\000MØ¬5\000M∞¬e\000M±¬ë\000M≤¬¡\000M≥¬Í\000M¥√\000Mµ√E\000M∂√l\000M∑√õ\000M∏√≈\000Mπ√\000M∫ƒ\000MªƒE\000Mºƒw\000MΩƒ§\000MæƒŒ\000Møƒ˝\000M¿≈)\000M¡≈`\000M¬≈ä\000M√≈Ω\000Mƒ≈\000M≈∆@\000M∆∆k\000M«∆ñ\000M»∆¡\000M…∆Ú\000M «\"\000MÀ«P\000MÃ«|\000MÕ«º\000MŒ«ı\000Mœ»\"\000M–»S\000M—»Ä\000M“»»\000M”»˙\000M‘…0\000M’…p\000M◊…ò\000Mÿ…√\000MŸ…Û\000M⁄ \000M€ H\000M› x\000Mﬁ »\000MﬂÀ\000M‡ÀV\000M·Àû\000M‚ÀÎ\000M„Ã.\000M‰ÃZ\000MÂÃá\000MÊÃ¥\000MÁÃÈ\000MËÕ'\000MÈÕ_\000MÍÕå\000MÎÕπ\000MÏÕÌ\000MÌŒ \000MÓŒW\000MÔŒä\000MŒº\000MÒŒÓ\000MÚœ\"\000MÛœX\000MÙœç\000Mıœ√\000Mˆœ˝\000M˜–3\000M¯–g\000M˘–í\000M˙–¿\000M˚–Ì\000M¸—\000M˝—R\000Mˇ—Ä\000N\000—¨\000N—Ÿ\000N“\000N“I\000N“Ö\000N“≥\000N“·\000N”\000N\n”7\000N”j\000N”†\000N\r”‚\000N‘:\000N‘d\000N‘£\000N‘…\000N’\000N’E\000N’v\000N’†\000N’Ã\000N’˚\000N÷%\000N÷N\000N÷w\000N÷•\000N÷Õ\000N ÷¯\000N!◊1\000N\"◊g\000N$◊ü\000N&◊”\000N'◊˛\000N(ÿ(\000N)ÿV\000N*ÿÅ\000N+ÿ¥\000N,ÿÈ\000N-Ÿ,\000N.Ÿe\000N/Ÿ§\000N0Ÿ˜\000N1⁄6\000N2⁄i\000N3⁄ô\000N5⁄∆\000N6⁄Û\000N7€\000N9€d\000N;€ë\000N<€√\000N=€Ú\000N>‹\000N?‹@\000N@‹j\000NA‹õ\000NB‹–\000NC›\000ND›2\000NE›X\000NF›ã\000NG›µ\000NH›ﬁ\000NIﬁ\000NJﬁG\000NKﬁÄ\000NLﬁ∂\000NMﬁÎ\000NNﬂ#\000NOﬂ^\000NPﬂî\000NQﬂÀ\000NR‡\000NS‡<\000NT‡r\000NU‡©\000NV‡„\000NW·\000NX·Q\000NY·â\000NZ·¬\000N[·˛\000N\\‚9\000N]‚w\000N^‚©\000N_‚Â\000N`„\000Na„V\000Nb„é\000Nc„œ\000Nd‰\000Ne‰1\000Nf‰\\\000Ng‰Å\000Nh‰±\000Ni‰‡\000NjÂ\000NkÂC\000NlÂ|\000NmÂ∞\000NnÂÂ\000NoÊ\000NpÊI\000NqÊt\000NrÊ£\000NsÊ»\000NuÊÚ\000NvÁ\000NwÁT\000NxÁä\000NyÁ¿\000NzÁˆ\000N{Ë-\000N|Ëd\000N}Ëõ\000N~Ë”\000NÈ\000NÄÈ=\000NÅÈr\000NÇÈ®\000NÉÈﬁ\000NÑÍ\000NÖÍN\000NÜÍà\000NáÍ¬\000NàÍ˝\000NâÎ8\000NäÎs\000NãÎ¨\000NåÎÂ\000NçÏ\000NéÏX\000NèÏí\000NêÏÃ\000NëÌ\000NíÌ:\000NìÌq\000NîÌ©\000NïÌ·\000NñÓ\000NóÓN\000NòÓÉ\000NôÓ∏\000NöÓÓ\000NõÔ$\000NúÔZ\000NùÔê\000NûÔ∆\000NüÔ˚\000N†2\000N°i\000N¢ü\000N£…\000N§Ò\000N¶Ò5\000N∂Òa\000N∑Òî\000N∏Ò«\000NπÒ˙\000N∫Ú-\000NªÚa\000NºÚï\000NΩÚ…\000NæÚ˝\000NøÛ3\000N¿Ûe\000N¡Ûó\000N¬Û…\000N√Û˚\000NƒÙ.\000N≈Ùa\000N∆Ùî\000N«Ù«\000N»Ù˛\000N…ı5\000N ıl\000NÀı£\000NÃı€\000NÕˆ\000NŒˆK\000NœˆÉ\000N–ˆæ\000N—ˆÌ\000N“˜#\000N”˜Y\000N‘˜è\000N’˜≈\000N÷˜¸\000N◊¯3\000Nÿ¯j\000NŸ¯£\000N⁄¯⁄\000N€˘\000N‹˘B\000N›˘v\000Nﬁ˘™\000Nﬂ˘ﬂ\000N‡˙\000N·˙I\000N‚˙~\000N„˙∂\000N‰˙Ë\000NÂ˚\000NÊ˚N\000NÁ˚Ä\000NË˚≥\000NÈ˚Ê\000NÍ¸\000NÎ¸L\000NÏ¸Å\000NÌ¸¥\000NÓ¸Á\000NÔ˝\000N˝L\000NÒ˝Ä\000NÚ˝¥\000NÛ˝Á\000NÙ˛\000Nı˛Q\000Nˆ˛Ñ\000N˜˛©\000N¯˛›\000N˘ˇ\000N˙ˇ@\000N˚ˇp\000N¸ˇ¢\000N˛ˇÕ\000Nˇ\000\000O\000\0006\000O\000h\000O\000°\000O\000◊\000O\000OH\000OÅ\000OΩ\000O˜\000O	/\000O\nf\000Oû\000O—\000O\r\000OF\000OÅ\000O∑\000OÔ\000O$\000O R\000O!ç\000O\"∏\000O#\n\000O$\\\000O%â\000O&‹\000O'\000O(O\000O)~\000O*¨\000OG›\000OH\000OVE\000Oëã\000Oìµ\000Oïﬁ\000Oñ\000OóI\000Oò~\000OôÆ\000Oö‹\000Oõ	\000Oú	A\000Où	q\000Oû	ï\000Oü	—\000O†\n\r\000O°\nw\000O£\nß\000O§\n‹\000O•\000O¶.\000OßW\000O®ç\000O©≈\000O™Ë\000O´!\000O¨Z\000O≠ì\000OÆ…\000OØ˛\000O∞\r9\000O±X\000O≤ä\000O≥µ\000O¥Ê\000Oµ8\000O∂n\000O∑∫\000O∏\000OπN\000O∫É\000Oª∂\000OºÓ\000OΩ*\000Oæ`\000Oøî\000O¿À\000O¡˝\000O¬B\000O√w\000Oƒ™\000O∆›\000O»\"\000O…O\000O É\000OÀÆ\000OÃ‡\000OÕ\r\000OŒ<\000Oœl\000O–ö\000O—Õ\000O“\000O”2\000O‘f\000O’ö\000O÷≈\000O◊Ò\000Oÿ\000OŸL\000O⁄v\000O€§\000O‹—\000Oﬂ\000O‡6\000O·m\000O‚¢\000O„◊\000O‰ !\000OÂ R\000OÊ â\000OÁ ∫\000OË Î\000OÈ!\000OÍ!d\000OÎ!•\000OÌ!Á\000OÔ\"S\000O\"Ç\000OÒ\"≠\000OÚ\"Â\000OÛ#\000OÙ#?\000Oı#x\000Oˆ#±\000O˜#‰\000O¯$\000O˙$G\000O˚$x\000O¸$®\000O˝$’\000O˛%\000Oˇ%5\000P\000%c\000P%è\000P%π\000P%Ï\000P&\000P&c\000P\n&´\000P&Ÿ\000P'\000P\r'7\000P'g\000P'ô\000P' \000P'¸\000P(2\000P([\000P(Õ\000P(˛\000P)/\000P)a\000P)è\000P)Ω\000P)Û\000P*+\000P*e\000P*û\000P*Ÿ\000P +\000P!+A\000P\"+t\000P#+®\000P$+›\000P%,\000P&,8\000P',y\000P(,ª\000P),\000P.-\000P/-U\000P0-ì\000P2-—\000P3.\000\000P4.B\000P5.á\000P6.∆\000P7.Ó\000P8/-\000P9/X\000P:/Ö\000P;/µ\000P</·\000P=0!\000P>0Y\000P?0ô\000P@0Ÿ\000PA1\000PB1Q\000PC1ê\000PD1…\000PE2\000PF2-\000PG2[\000PH2Ç\000PI2∑\000PJ2Ì\000PK3%\000PL3V\000PM3|\000PN3Ê\000PO4'\000PP4a\000PQ4ó\000PR4Õ\000PS5\000PT5@\000PU5y\000PV5±\000PW5Á\000PX6\000PY6U\000PZ6ã\000P[6ø\000P\\6¯\000P]7/\000P^7f\000P_7ü\000P`7 \000Pa8\000Pb8*\000Pc8V\000Pd8Ü\000Pe8∂\000Pf8Á\000Pw9\r\000Px9A\000Py9u\000Pz9£\000P{9“\000P|9ˇ\000P}:+\000P~:P\000P:Ñ\000PÄ:∑\000PÇ:Î\000PÉ;%\000PÑ;X\000PÖ;Ñ\000PÜ;≥\000Pá;‚\000Pà<\000Pâ<<\000Pä<o\000Pã<£\000På<”\000Pç<ˇ\000Pé=2\000Pè=`\000Pê=î\000Pë=¬\000Pí=\000Pì>\000Pî>I\000Pï>u\000Pñ>£\000Pó>€\000Pò?	\000Pô?0\000Pö?e\000Põ?é\000Pú?Ω\000Pù?Í\000Pû@\000Pü@S\000P†@à\000P°@π\000P¢@È\000P£A!\000P§AW\000P•Añ\000P¶A¿\000PßAÔ\000P®B \000P©BR\000P™B\000P¨B±\000P≠B‰\000PÆC\000PØCG\000P∞C{\000P±C≠\000P≤C·\000P≥D\000P¥DG\000PµDw\000P∂D™\000P∑D‹\000P∏E\000PπE7\000P∫El\000PªE°\000PºE“\000PΩF\000PæF4\000PøFd\000P¿Fò\000P¡FÀ\000P¬F¸\000P√G,\000PƒGS\000P≈GÖ\000P∆G∑\000P«GÏ\000P»H*\000P…H]\000P Hë\000PÀH¬\000PÃHı\000PÕI(\000PŒIW\000PœIá\000P–Iª\000P—IÂ\000P“J\000P”JP\000P‘J{\000P’J©\000P÷J‘\000P◊K\000PÿK0\000PŸK]\000P⁄Kì\000P€Kƒ\000P‹Kˇ\000P›L:\000PﬁLu\000PﬂL∞\000P‡LÍ\000P·M$\000P‚M[\000P„Mè\000P‰M∆\000PÂMÙ\000PÊN\000PÁNT\000PËNÜ\000PÈN∫\000PÍNÒ\000PÎO\000PÏOM\000PÌO~\000PÓOÆ\000PÔOˇ\000PPP\000PÒP|\000PÚP©\000PÛP÷\000PÙQ\000PıQ<\000PˆQc\000P˜Q†\000P¯Q‡\000P˘R\000P˙R]\000P˚Rû\000P¸R‚\000P˝S2\000P˛SÑ\000PˇSæ\000Q\000S¸\000QT4\000QT{\000QT≥\000QT˘\000QU+\000Q	UU\000Q\nU}\000QU®\000QU—\000Q\rV\000\000QV1\000QVU\000QVº\000QW&\000QW^\000QWë\000QWÀ\000QX\000QXl\000QXò\000QX–\000QY\r\000QYé\000QY∆\000QY˙\000QZ&\000Q Z}\000Q!Z»\000Q\"Z¯\000Q#[J\000Q$[z\000Q=[®\000Q?[”\000Q@\\\000\000QA\\q\000QB\\Ω\000QC]\000QD]C\000QE]l\000QF]µ\000QG]Î\000QH^!\000QI^R\000QJ^ë\000QL^…\000QM^ˆ\000QO_ \000QP_õ\000QQ_…\000QR_Ò\000QT`\000QU`I\000QW`x\000QX`ú\000QZa\000Q[aC\000Q\\aq\000Q^a£\000Q_aœ\000Q`b\000Qab0\000Qcb_\000Qdbå\000Qeb∫\000QfbÂ\000Qgc\000Qhc=\000Qici\000Qjcó\000Qkc…\000Qlcˆ\000Qmd\000QndK\000Qod{\000Qpd™\000Qqdÿ\000Qre\r\000Qse;\000Qtej\000Queô\000Qve \000Qwf\n\000QxfG\000Qyfî\000Qzf≈\000Q{g`\000Q|g˙\000Q}hñ\000Q~i2\000Qiœ\000QÄji\000QÅk\000QÇkû\000QÉl\000QÑl-\000QÖlõ\000QÜm\r\000Qámw\000QàmÏ\000Qânf\000Qän÷\000Qão>\000Qåoû\000Qço˚\000Qép[\000Qèp∫\000Qëq\000QíqÄ\000Qîq·\000Qïr$\000Qñr^\000Qòrñ\000Qôrÿ\000Qös\000QõsH\000Qúsq\000Qùsô\000Qûsƒ\000Qüs\000Q†t\000Q°tE\000Q¢tn\000Q£tó\000Q§tø\000Q•tÁ\000Q™u\000Q´u<\000Q≠ug\000QÆuï\000QØu¿\000Q∞uË\000Q≤v\000Q≥vB\000Q¥vt\000Qµv®\000Q∂v€\000Q∑w\000Q∏wA\000Qπwl\000Q∫wò\000Qªw∆\000QºwÛ\000QΩx\000QæxJ\000Qøx{\000Q¿x™\000Q¡x‰\000Q¬y\000Q√yE\000Qƒy|\000Q≈y∏\000Q∆yË\000Q«z\000Q zF\000QÀz|\000QÃz≥\000QÕzÎ\000QŒ{ \000Qœ{U\000Q–{ä\000Q—{¿\000Q”{ˆ\000Q‘|,\000Q’|a\000Q÷|â\000Q◊|æ\000Q⁄}5\000Q€}b\000Q›}é\000Qﬁ}≥\000Qﬂ}·\000Q‡~\000Q·~9\000Q„~p\000Q‰~ö\000QÊ~≈\000QÁ~˜\000QÈ2\000QÍe\000QÎ®\000QÌ„\000QÓÄ\000QÔÄq\000QÄ´\000QÚÉ:\000QÙÉb\000QıÉç\000QˆÉ∂\000Q˜É‹\000Q˘Ñ\000Q˙Ñ4\000Q˚Ñb\000Q¸Ñë\000Q˝Ñ¡\000Q˛ÑÓ\000QˇÖ\000R\000ÖG\000RÖs\000RÖü\000RÖÃ\000RÖ¸\000RÜ&\000RÜT\000RÜz\000RÜ¨\000R	ÜŸ\000R\ná\000Rá*\000RáS\000R\ráz\000Rá¢\000Rá…\000RáÔ\000Rà\000RàD\000Ràs\000Rà§\000Rà‘\000Râ\000Râ1\000Râ\\\000Râá\000Râ≥\000Râ‡\000Rä\000Rä:\000Räc\000Räì\000R äœ\000R!ã	\000R#ãM\000R$ã}\000R%ã®\000R&ãœ\000R'å\000R(åg\000R)åó\000R-åﬂ\000R.ç\000R/ç;\000R0çm\000R1çù\000R2ç≈\000ROçÛ\000RPé\000RkéB\000Rlé¨\000Roèl\000Rpèù\000Rqè‘\000Rrê\000Rsê9\000Rtêj\000Ruêõ\000RvêÃ\000Rwê˝\000Rxë6\000Ryëd\000Rzëé\000R{ë∑\000R|ëÊ\000R}í\000R~íE\000Ríu\000RÄí•\000RÅí‘\000RÇì\r\000RÉìI\000RÜìÅ\000Ràì®\000Râìﬁ\000Räî\000Rãî@\000Råît\000Rçî¥\000Réî˘\000Rêï(\000RëïO\000Ríï~\000Rìï¨\000RîïŸ\000Rññ\000RóñG\000Ròñ{\000Rôñ™\000Röñ‹\000Rõó%\000Rúón\000Rùó∑\000Rûó˙\000Rüò$\000R°òW\000R¢òÖ\000R£ò≠\000R§ò‚\000R•ô\000R¶ô<\000R®ôr\000R©ô©\000R™ôﬂ\000R¨ö\000R≠ö?\000RÆöu\000RØö¨\000R≥ö‰\000R∂õ\000R∑õA\000R∏õ|\000Rπõ∏\000R∫ú∞\000Rªú‰\000Rºù\000RΩù>\000Ræùi\000Røùõ\000R¿ù«\000R¡ùÙ\000R¬û\000R√ûK\000Rƒûx\000R≈û•\000R∆û”\000R«ü\000R»ü7\000RÃüq\000RÕü¥\000RŒü˜\000Rœ†:\000R–†}\000R—†∆\000R“°	\000R”°L\000R‘°è\000R’°“\000R÷¢\000R◊¢^\000Rÿ¢°\000RŸ¢‰\000R⁄£'\000R€£p\000R‹£≤\000R›£◊\000Rﬁ§\000Rﬂ§=\000R‡§z\000R·§π\000R‚§„\000R„•9\000R‰•§\000RÂ•ﬂ\000RÊ¶	\000RÁ¶ã\000RË¶≈\000RÈß\000RÍßm\000RÎßû\000RÏßœ\000RÌß¸\000RÓ®M\000R®Æ\000RÛ®ˇ\000Rı©0\000R˘©\000R˙©Æ\000R˚©·\000R¸™\000R˝™=\000S\000™u\000S™©\000S™‹\000S´\000S´E\000S´{\000S´Ø\000S´ﬁ\000S¨\000S	¨E\000S\n¨|\000S¨≥\000S¨È\000S\r≠ \000S≠W\000S≠ê\000S≠»\000SÆ\000\000SÆ7\000SÆw\000SÆ£\000SÆŸ\000SØ\000SØ;\000SØj\000SØú\000SØ’\000S∞\000S∞>\000S∞j\000S ∞ò\000S!∞Œ\000S\"±\000S#±4\000S$±h\000S%±ô\000S&±√\000S'≤\000S(≤>\000S)≤u\000S*≤¨\000S+≤€\000S,≥\r\000S-≥J\000S.≥Ñ\000S/≥∂\000S0≥‰\000S1¥\000S2¥I\000S3¥}\000S4¥´\000S5¥‹\000S6µ	\000S7µ>\000S8µk\000S9µò\000S:µ√\000S;µÙ\000S<∂+\000S=∂X\000S>∂Ä\000S?∂≤\000S@∂‚\000SB∑\000SC∑M\000SD∑x\000SE∑©\000SF∑‹\000SG∏\000SH∏C\000SI∏w\000SJ∏Ã\000SK∏˜\000SLπN\000SMπ¶\000SNπ’\000SO∫\000SP∫7\000SQ∫i\000SR∫ó\000SS∫…\000ST∫˝\000SUª/\000SVª_\000SWªé\000SXªæ\000SYª\000SZº!\000S\\ºT\000S]ºx\000S^ºû\000S_º…\000S`ºÚ\000SaΩ\000SbΩK\000ScΩw\000SdΩ¢\000SeΩ“\000Sfæ\000Sgæ7\000Shæk\000Siæû\000Sjæ«\000Skæ¯\000Slø\"\000SmøO\000Snøx\000Soø®\000Spøÿ\000Sq¿\000Sr¿;\000Ss¿n\000St¿ó\000Su¿∆\000Sv¿˜\000Sw¡$\000Sx¡T\000Sz¡É\000S{¡±\000S|¡Î\000S}¬\000S~¬Q\000S¬É\000SÄ¬∂\000SÅ¬Í\000SÇ√9\000SÉ√o\000SÑ√¶\000SÖ√ﬁ\000SÜƒ\000SáƒK\000Sàƒë\000Sâƒ \000Sä≈\000\000Sã≈F\000Så≈r\000Sç≈†\000Sé≈“\000Sè∆\000Sê∆2\000Së∆l\000Sí∆¶\000Sì∆ﬂ\000Sî«\000Sï«H\000Sñ«|\000Só«∂\000Sò«Ó\000Sô»'\000Sö»]\000Sõ»ì\000Sú»»\000Sù»˝\000Sû…0\000Sü…d\000S†…ñ\000S°…»\000S¢…˚\000S£ 0\000S§ d\000S• ö\000S¶ œ\000SßÀ\000S®À8\000S©Àk\000S™Àû\000SºÀ”\000SæÃc\000SÃÃ\000SÕÕ\000SŒÕL\000SœÕ{\000S–Õ¶\000S—Õœ\000S“Õ˝\000S”Œ,\000S‘Œ_\000S’Œã\000S÷Œ√\000S◊ŒÚ\000Sÿœ\000SŸœQ\000S⁄œÄ\000S€œØ\000S‹œÂ\000S›–\000Sﬁ–H\000Sﬂ–x\000S‡–≥\000S·–ﬂ\000S‚—\000S„—<\000S‰—s\000SÂ—®\000SÊ——\000SÁ—ˇ\000SË“9\000SÈ“o\000SÍ“©\000SÎ“ﬁ\000SÏ”\000SÌ”@\000SÓ”r\000SÔ”¢\000S”’\000SÒ‘\000SÚ‘9\000SÛ‘c\000SÙ‘ú\000Sı‘–\000Sˆ’\000S˜’0\000S¯’l\000S˘’¢\000S˙’⁄\000S˚÷\000S¸÷L\000S˝÷Ä\000S˛÷ª\000Sˇ÷Ô\000T\000◊#\000T◊[\000T◊î\000T◊Œ\000Tÿ\000Tÿ4\000Tÿï\000Tÿ\000TŸK\000T	Ÿ∏\000T\n⁄\000T⁄S\000T\r⁄\000T⁄ª\000T⁄ﬁ\000T€\000T€?\000T€o\000T€†\000T€„\000T‹+\000T‹Z\000T‹Ü\000T‹Ω\000T‹Ù\000T›'\000T›X\000T›Å\000T›≤\000T›„\000T ﬁ\000T!ﬁ:\000T\"ﬁi\000T#ﬁò\000T$ﬁ…\000T%ﬁı\000T&ﬂ)\000T'ﬂP\000T(ﬂÉ\000T)ﬂ∂\000T*ﬂ‚\000T+‡\000T,‡]\000T-‡ò\000T.‡œ\000T/·\000T0·<\000T1·¬\000T2·˚\000T3‚-\000T5‚e\000T6‚õ\000T7‚“\000T9„\n\000T:„?\000T;„u\000T<„≠\000T=„Î\000T>‰\000T?‰O\000T@‰{\000TA‰ß\000TB‰“\000TC‰¸\000TDÂ2\000TEÂj\000TFÂ§\000THÂ€\000TKÊ\000TLÊJ\000TMÊ\000TNÊ≤\000TOÊ‡\000TQÁ\n\000TRÁ8\000TSÁl\000TTÁ†\000TUÁ◊\000TVË\000TXË@\000TYËs\000T[Ë®\000T\\Ëﬁ\000T]È\r\000T^ÈB\000T_Èp\000T`È¨\000TaÈ⁄\000TbÍ\000TcÍC\000TdÍw\000TeÍ±\000TfÍÈ\000TgÎ \000ThÎX\000TiÎâ\000TjÎ≈\000TkÎÛ\000ToÏ \000TpÏU\000TqÏÉ\000TrÏ≤\000TsÏÁ\000TtÌ\000TuÌH\000TvÌ}\000TwÌ≤\000TxÌÚ\000TyÓ$\000TzÓN\000T{ÓÄ\000TÉÓ±\000TáÓ‚\000TàÔ\000TçÔp\000TèÔü\000TêÔ“\000TíÔ¸\000Tì+\000Tî`\000Tüñ\000T†À\000T°Ú\000T¢Ò$\000T£ÒM\000T§ÒÅ\000T•Òπ\000T¶ÒÂ\000TßÚ\000T®ÚH\000T©Úw\000T™Úû\000T´Ú‹\000T¨Û\000T≠ÛD\000TÆÛx\000TØÛ§\000T∞Û”\000T±Ù\000T≤Ù8\000T≥Ùk\000T¥Ù§\000TµÙ‹\000T∂ı	\000T∑ı=\000T∏ıq\000Tπı¶\000T∫ı—\000Tªıˇ\000Tºˆ1\000TΩˆ`\000Tæˆò\000Tøˆ…\000T¿ˆ˝\000T¡˜8\000T¬˜n\000T√˜ù\000Tƒ˜»\000T≈¯\000\000T∆¯6\000T«¯f\000T»¯ê\000T…¯»\000T ¯˝\000TÀ˘3\000TÃ˘e\000TÕ˘ò\000TŒ˘À\000Tœ˘ˇ\000T–˙5\000T—˙j\000T“˙ï\000T”˙»\000T‘˙ˆ\000T÷˚*\000TŸ˚\\\000T⁄˚Å\000T€˚µ\000T‹˚Ë\000T›¸!\000Tﬁ¸[\000Tﬂ¸ì\000T‡¸Ã\000T·˝\000T‚˝>\000T„˝y\000T‰˝µ\000TÂ˝Ô\000TÊ˛0\000TÁ˛r\000TÈ˛≤\000TÍ˛Í\000TÏˇ#\000TÌˇT\000TÓˇá\000TÔˇ∏\000TˇÒ\000TÒ\000%\000TÚ\000S\000TÛ\000\000TÙ\000∞\000Tı\000›\000Tˆ\000T˜D\000T¯{\000T˘§\000T˙Œ\000T˚˚\000T¸6\000T˝f\000T˛§\000U\000‹\000U\000U\\\000U≠\000U·\000U\000U@\000Uq\000Uõ\000U	ƒ\000U\nı\000U&\000Uf\000Uú\000Uƒ\000U\000U>\000Un\000Uú\000U«\000U˛\000U5\000Uk\000U•\000U ’\000U\"\000U#B\000U$v\000U(∂\000U)	\000U*	ã\000U+	Û\000U,\nO\000U-\n£\000U.\000U/V\000U0\000U1ß\000U2Ò\000U4=\000U5t\000U6ú\000U7—\000U8\rÇ\000U9\rß\000U:\rÃ\000U;\rÒ\000U<\000U=;\000U>`\000U?Ö\000UE™\000UF_\000UGâ\000UI±\000UKf\000ULë\000UM‡\000UN+\000UOz\000UP∞\000UQÊ\000UR\000USC\000UTs\000UUû\000UV»\000UW\000UX\000UYB\000UZo\000U[ô\000U\\≈\000U]\000U^\000U_E\000U`p\000Ub√\000UcÍ\000Ud\000UeN\000Uf\000Ug±\000Uh€\000Ui\000Uj0\000Uk]\000Ulà\000Um≤\000UnÁ\000Uo\000UpH\000Uqp\000Urü\000Us”\000Ut\000Uu0\000Uv$C\000Uy$n\000Uz$∏\000U|% \000U}%E\000U~%k\000U%ê\000UÄ%∆\000UÅ&\000UÇ&_\000UÉ&ï\000UÑ&Ÿ\000UÖ'\000UÜ'^\000Uá'û\000Uà'‘\000Uâ(\000Uä(M\000Uã(é\000Uå(œ\000Uç)\000Ué)J\000Uè)É\000Uê)º\000Uë)\000Uí*,\000Uì*f\000Uî*ü\000Uï*”\000Uñ+	\000Uó+=\000Uò+v\000Uô+∑\000Uö+Û\000Uõ,0\000Uú,d\000Uù,ü\000Uû,⁄\000Uü-\000U†-W\000U°-\000U•-Æ\000U¶-Ÿ\000Uß.\000U®.7\000U©.Ö\000U´.ª\000U¨.Ê\000U≠/\000UÆ/@\000UØ/s\000U∞/¨\000U±/‹\000U≤0\000U≥05\000U¥0c\000Uµ0•\000U∂0‡\000U∑1!\000U∏1X\000Uπ1§\000U∫1‚\000Uª2\000Uº2[\000UΩ2†\000U¿2⁄\000U¡3\000U¬3W\000U√3í\000Uƒ3…\000U≈3ˇ\000U»4A\000U◊4s\000U€4´\000U‹4·\000U›5\000Uﬁ5M\000Uﬂ5≥\000U‡5Ì\000U·6;\000U‚6k\000U„6ö\000U‰6œ\000UÂ6˛\000UÊ7,\000UÁ7Y\000UË7í\000UÈ7Õ\000UÍ8\000UÎ8=\000UÏ8m\000UÌ8ü\000UÓ8’\000UÔ9	\000U98\000UÒ9l\000UÚ9†\000UÛ9œ\000UÙ9ˇ\000Uı:1\000Uˆ:_\000U˜:ê\000U¯:¿\000U˘:Ù\000U˙;$\000U˚;V\000U¸;å\000U˝;“\000U˛<\000Uˇ<6\000V\000<j\000V<û\000V<—\000V=\000V=-\000V=S\000V=¢\000V =„\000V!>\000V\">B\000V#>p\000V$>û\000V%>Ã\000V&>ˆ\000V'?$\000V(?O\000V)?}\000V*?Ø\000V+?„\000V,@\000V-@D\000V.@w\000V/@¶\000V0@Ÿ\000V1A	\000V2A9\000V3Aj\000V4Aù\000V5AŒ\000V6A˛\000V7B,\000V8B]\000V9Bè\000V:Bø\000V;BÌ\000V<C\000V=CL\000V>C{\000V?C®\000V@Cÿ\000VAD\000VBD5\000VCDd\000VDDë\000VED¡\000VFDÔ\000VGE\000VHEL\000VIE}\000VJE≤\000VKEÂ\000VLF\000VMFF\000VNFy\000VOF±\000VPFÓ\000VQG(\000VRGa\000VSGö\000VTGÿ\000VUH\000VVHO\000VWHà\000VXH¥\000VYH‡\000VZI\000V[I;\000V\\Ik\000V]Iù\000V^IÃ\000V_I˝\000V`J,\000VaJ`\000VbJè\000VcJ∏\000VdJÚ\000VeK\000VgKX\000VhKî\000ViK–\000VjL\000VkLL\000VpLã\000VsLµ\000VtLË\000VuM\000VvMN\000VwMÅ\000VxM∏\000VyMÎ\000VzN\000V{N§\000V|NÃ\000V}N˚\000V~O1\000VO]\000VÄOì\000VÅO∆\000VÇO˚\000VÉP™\000VÑQ°\000VÖRÄ\000VÜRØ\000VâRﬂ\000VäSè\000VãS«\000VåSˇ\000VçT7\000VéTo\000VèT´\000VêT‰\000VëU\000VíUV\000VìUì\000VîUœ\000VïV\000VñV?\000VóVu\000VòV¨\000VôV„\000VöW\000VõWQ\000VúWå\000VùW√\000VûWÛ\000VüX \000V†XQ\000V°X\000V¢Xµ\000V£XÙ\000V§Y^\000V•Y \000V¶Z7\000VßZë\000V®ZÌ\000V©[O\000V™[´\000V´[˛\000V¨\\R\000V≠\\•\000VÆ\\¯\000VØ]L\000V∞]y\000V±]∫\000V≤]˛\000V≥^4\000V¥^a\000Vµ^ï\000V∂^¬\000V∑^Ú\000V∏_-\000Vπ_a\000V∫_ë\000Vª_‡\000Vº`&\000VΩ`X\000Væ`í\000Vø`œ\000V¿a\000V¡a/\000V¬af\000V√aö\000Vƒa÷\000V≈b	\000V∆bI\000V«bÄ\000V»b∑\000V…bÁ\000V c\000VÀcU\000VÃcè\000VÕcœ\000VŒd\000VœdD\000V–dy\000V—dæ\000V“dÍ\000V”e$\000V‘e\\\000V’eî\000V◊e◊\000Vÿf\000V⁄f=\000V€fm\000V‹fü\000V›fŒ\000Vﬁfˆ\000Vﬂg#\000V‡gN\000V·gá\000V‚gª\000V„gÂ\000V‰h\000VÂhA\000VÊhu\000VÁh®\000VËhŸ\000VÈi\n\000VÍi:\000VÎiv\000VÏi°\000VÌiŒ\000VÓi˚\000VÔj6\000Vjm\000VÒj©\000VÛj‘\000VÙk\000Vık9\000Vˆk\\\000V˜ké\000V¯kΩ\000V˘kÔ\000V˙l!\000V˚lH\000V¸ly\000V˝l≠\000V˛l‡\000Vˇm\000W\000mE\000Wmr\000Wmú\000Wm«\000WmÙ\000Wn \000WnN\000Wnz\000W	n™\000W\nn◊\000Wo\000Wo6\000W\ro_\000Woî\000Wo…\000WoÚ\000Wp\000WpD\000Wpy\000Wp§\000Wpœ\000Wp˘\000Wq.\000WqX\000WqÉ\000Wqº\000WqÏ\000Wr\000WrI\000Wrt\000Wrú\000W r»\000W!rı\000W\"s%\000W#sP\000W$s¬\000W%t\000W&t>\000W'tu\000W(t°\000W)t⁄\000W*u\000W+u7\000W-ul\000W.uß\000W/u€\000W0v\000W1v<\000W2vl\000W4vò\000W5v¬\000W6vÙ\000W7w\000W8wR\000W9wÖ\000W:wø\000W;w˜\000W<x.\000W=x^\000W>xë\000W?xΩ\000W@x¯\000WAy/\000WBy]\000WCyÜ\000WDyµ\000WEy‚\000WFz(\000WGzU\000WHzÖ\000WIz∆\000WJzÛ\000WK{0\000WL{h\000WM{ì\000WN{√\000WO{Ì\000WP|\000WQ|D\000WR|o\000WS|¶\000WT|€\000WU}\000WV}A\000WW}w\000WX}•\000WY}”\000WZ~\n\000W[~C\000W\\~w\000W]~¶\000W^~Ÿ\000W_\000W`2\000Wal\000Wb¢\000Wc‘\000Wdˇ\000WeÄ4\000WfÄ’\000WgÅq\000WhÇ\000WiÇØ\000WjÇ·\000WkÉ\000WlÉ?\000WmÉw\000WnÉµ\000WoÉÂ\000WpÑ\000WqÑ+\000WtÑU\000WuÑå\000WvÑ∂\000WwÑ‡\000WxÖ\000WyÖZ\000Wzá\000W{á≠\000W|á◊\000W}á˛\000W~à+\000Wà\\\000WÄàá\000WÅà≥\000WÇàﬁ\000WÉâ\000WÑâ:\000WÖân\000WÜâ®\000Wáâœ\000Wàä\000\000Wâä7\000Wään\000Wãä†\000Wåä‘\000Wçã\000\000Wéã0\000Wêãi\000Wëãù\000Wíãœ\000Wìã˛\000Wîå0\000Wïåa\000Wñåì\000Wóå∆\000Wòåˆ\000Wôç)\000WöçV\000Wõçà\000Wúçπ\000WùçÍ\000Wûé\000WüéH\000W†év\000W°éû\000W¢é‹\000W£è\000W§è=\000W•èl\000W¶èü\000Wßè“\000W®ê\000W©ê4\000W™êh\000W´êò\000W¨êÕ\000W≠êı\000WÆë\000WØëJ\000W∞ëy\000W±ë®\000W≤ë◊\000W≥ë˝\000W¥í!\000W∏íG\000Wπín\000W∫íì\000Wªí¿\000WºíÂ\000WΩì\000Wæì;\000Wøìi\000W¿ìï\000W¡ìƒ\000W¬ì˜\000W√î*\000Wƒî]\000W≈îå\000W∆î¿\000W«î\000W»ï%\000W…ïS\000WÃïá\000WÕï∫\000WŒïÎ\000Wœñ\000W–ñJ\000W—ñz\000W“ñ´\000W”ñ›\000W‘ó\000W◊óK\000Wÿóv\000WŸó§\000W⁄ó÷\000W€ò\000W‹ò:\000W›òh\000Wﬁòõ\000Wﬂò \000W‡ò˛\000W·ô)\000W‚ôX\000W„ôÜ\000W‰ôπ\000WÂôÁ\000WÊö\000WÁö?\000WËön\000WÈöõ\000WÍöÃ\000WÎö¸\000WÏõ1\000WÌõa\000WÓõê\000WÔõΩ\000WõÓ\000WÒú\000WÚúF\000WÛús\000WÙú•\000Wıú“\000Wˆú˛\000W˜ù(\000W¯ùV\000W˘ùè\000W˙ù∫\000W˚ùÁ\000W¸ûr\000W˝ü\000\000W˛üI\000Wˇü⁄\000X\000†g\000X¢J\000X¢µ\000X¢¸\000X£C\000X£â\000X£Ã\000X§\r\000X§J\000X	§â\000X\n§À\000X•\000X•E\000X\r•Ö\000X•√\000X•˛\000X¶@\000X¶Ç\000X¶¬\000Xß	\000XßL\000Xßä\000Xßø\000X®\000X®M\000X®à\000X®Õ\000X©\000X©a\000X©°\000X©ﬂ\000X ™\000X!™\\\000X\"™ú\000X#™Ÿ\000X%´\000X&´Y\000X'´ä\000X(´∏\000X*´Ô\000X+¨5\000X,¨_\000X-¨ú\000X.¨˘\000X/≠F\000X0Æ\000X1Æ¨\000X2∞9\000X3∞√\000X4∞˜\000X7±0\000X=±e\000X>±§\000X?±€\000X@≤\000XA≤V\000XB≤Ñ\000XC≤≠\000XD≤‡\000XE≥\000XF≥I\000XG≥t\000XH≥ü\000XI≥‡\000XJ¥$\000XK¥c\000XL¥©\000XM¥Ë\000XNµ/\000XOµo\000XPµ≤\000XQµı\000XR∂6\000XS∂u\000XT∂≤\000XU∂\000XV∑4\000XW∑s\000XX∑π\000XY∑ı\000XZ∏6\000X\\∏z\000X]∏ \000X^π\000X_πN\000X`πé\000XcπÀ\000Xdπ¯\000Xe∫1\000Xf∫b\000Xg∫°\000Xh∫‡\000Xiª\000XjªI\000XkªÄ\000XlªØ\000Xmª’\000Xnº\000Xoº1\000Xpºc\000Xqºõ\000Xrº»\000Xtº˘\000XuΩö\000XvΩŒ\000XwΩ˘\000Xxæ;\000Xyæi\000Xzæû\000X{æœ\000X|ø\000X}ø/\000X~ø[\000XøÜ\000XÄø±\000XÅø„\000XÇ¿\000XÉ¿E\000XÑ¿Ä\000XÖ¿®\000XÜ¿–\000Xá¿˘\000Xà¡#\000Xâ¡U\000Xä¡É\000Xã¡≥\000Xå¡Ë\000Xç¬#\000Xé¬S\000Xè¬Å\000Xê¬≠\000Xë¬‰\000Xí√\000Xì√J\000Xî√x\000Xï√≠\000Xñ√◊\000Xóƒ\000XòƒC\000Xôƒ{\000XöƒÆ\000Xõƒ÷\000X†≈\n\000X°≈G\000X¢≈Ñ\000X£≈«\000X•≈¯\000X´∆!\000X¨∆N\000X≠∆{\000XÆ∆¶\000X≤∆’\000X≥«\000X¥«3\000Xµ«µ\000X∂«ˆ\000X∑»\000X∏»h\000Xπ»£\000X∫»„\000Xª…!\000Xº…a\000XΩ…†\000Xæ…–\000Xø \000X¿ :\000X¡ s\000X¬ ≠\000X√ ı\000XƒÀ4\000X≈Ài\000X∆Àñ\000X«ÀÈ\000X»Ã\000X…ÃA\000X ÃÑ\000XÀÃ±\000XÃÃ‡\000XÕÕ\000XŒÕ9\000XœÕd\000X–Õå\000X—Õ√\000X“Õˇ\000X”Œ=\000X‘Œs\000X’Œ®\000X÷Œ‡\000X◊œ\000Xÿœ7\000XŸœc\000X⁄œè\000X€œø\000X‹œÙ\000X›–*\000Xﬁ–_\000X‡–ó\000X·–Ã\000X‚—\000X„—4\000X‰—[\000XÂ—Ä\000XÊ—¶\000XÁ—–\000XË—˙\000XÈ“%\000XÍ“O\000XÎ“}\000XÏ“¶\000XÓ“Õ\000XÔ”\000X”8\000XÒ”i\000XÚ”ü\000XÛ”÷\000XÙ‘\000Xı‘B\000Xˆ‘t\000X˜‘•\000X¯‘ﬂ\000X˘’\000X˙’F\000X˚’z\000Xˇ’≠\000Y\000’◊\000Y’ˇ\000Y÷/\000Y÷f\000Y÷ì\000Y÷π\000Y÷Í\000Y◊\000Y◊R\000Y	◊â\000Y\n◊ª\000Yÿ\000Yÿ3\000Y\rÿ`\000Yÿã\000Yÿπ\000Yÿ‡\000YŸ\000YŸ:\000YŸ`\000YŸä\000YŸµ\000YŸ·\000Y⁄\n\000Y⁄5\000Y⁄o\000Y⁄ö\000Y⁄¡\000Y⁄Ò\000Y€&\000Y €L\000Y\"€Å\000Y#€Ø\000Y$€‚\000Y%‹\000Y&‹3\000Y'‹`\000Y(‹ö\000Y)‹ÿ\000Y*›	\000Y+›2\000Y,›s\000Y-›£\000Y.‚\000Y/‚D\000Y0‚á\000Y1Êﬁ\000Y2Á\000Y3Á]\000Y4Á¢\000Y5Áÿ\000Y6Áˇ\000Y7Ë%\000Y8ËQ\000Y9Ëì\000Y:Ë…\000Y;È\000\000Y<È8\000Y=Èp\000Y>È´\000Y?ÈÊ\000Y@Í\000YAÍN\000YBÍy\000YCÍ¨\000YDÍﬂ\000YEÎ\000YFÎS\000YGÎã\000YHÎ»\000YIÏ\000YJÏ9\000YKÏq\000YLÏ©\000YMÏ‡\000YNÌ\000YOÌG\000YPÌÇ\000YQÌ∫\000YRÌ˘\000YSÓ&\000YTÓ[\000YUÓï\000YVÓœ\000YWÔ\000YXÔ2\000YYÔj\000YZÔ£\000Y[Ô€\000Y\\\000Y]L\000Y^å\000Y_ \000Y`Ò\000YaÒC\000YbÒÇ\000YcÒº\000YdÒı\000YeÚ0\000YfÚf\000YgÚõ\000YhÚ‘\000YiÛ\000YjÛ4\000YkÛw\000Ylıa\000Ymıô\000Ynı√\000YoıÒ\000Ypˆ!\000YqˆJ\000Ytˆ\000Yuˆƒ\000Yvˆ˚\000Yw˜>\000Yx˜v\000Yy˜≥\000Yz˜Ô\000Y{¯$\000Y|¯]\000Y}¯õ\000Y~¯⁄\000Y˘\000YÄ˘_\000YÅ˘é\000YÇ˘º\000YÉ˘\000YÑ˙1\000YÖ˙u\000YÜ˙∏\000Yá˙˙\000Yà˚5\000Yâ˚\000Yä˚ƒ\000Yã¸\000Yå¸J\000Yç¸ç\000Yé¸Œ\000Yè˝\000Yí˝>\000Yî˝o\000Yñ˝ñ\000Yó˝¿\000Yò˝Î\000Yô˛ \000Yö˛K\000Yõ˛}\000Yú˛¥\000Yù˛‚\000Yûˇ\000YüˇB\000Y†ˇs\000Y°ˇü\000Y¢ˇ»\000Y£ˇÔ\000Y§\000&\000Y•\000R\000Y¶\000Ñ\000Yß\000¥\000Y®\000Ë\000Y©\000Y™K\000Y´z\000Y¨¶\000Y≠Õ\000YÆˇ\000YØ,\000Y∞[\000Y±â\000Y≤π\000Y≥Ê\000Y¥\000YµC\000Y∂w\000Y∑£\000Y∏”\000Yπ˛\000Y∫*\000Yªg\000Yºè\000YΩƒ\000Yæ¸\000Yø/\000Y¿g\000Y¡î\000Y¬«\000Y√ˆ\000Yƒ \000Y≈M\000Y∆Ä\000Y«±\000Y»·\000Y…\000Y 4\000YÀb\000YÃí\000YŒ¿\000Yœ˙\000Y–'\000Y—S\000Y“É\000Y”∂\000Y‘Â\000Y’	\000Y÷	I\000Y◊	x\000Yÿ	±\000YŸ	Ë\000Y⁄\n\000Y€\n@\000Y‹\ni\000Y›\nó\000Yﬁ\n \000Yﬂ\nˆ\000Y‡%\000Y·U\000Y‚ç\000Y„Ω\000Y‰Ì\000YÂ\000YÊM\000YÁã\000YË≥\000YÈ„\000YÍ\r\000YÎ\rI\000YÏ\rt\000YÌ\rù\000YÓ\r◊\000YÔ\n\000Y6\000YÒj\000YÛô\000YÙÀ\000Yıˆ\000Yˆ&\000Y˜W\000Y¯ä\000Y˘∏\000Y˚„\000Y¸\000Y˝@\000Y˛u\000Yˇ™\000Z\000◊\000Z\000Z2\000Zc\000Zë\000Z\000ZE\000ZÖ\000Z±\000Z	„\000Z\n\000ZH\000Zx\000Z\r¨\000ZÈ\000Z\000Z∂\000Z\000Z%\000ZV\000Z\000Z¶\000ZŒ\000Z¯\000Z)\000Z]\000Zâ\000Zª\000ZÏ\000Zv\000Zß\000Z ⁄\000Z!\000Z#A\000Z%m\000Z&ü\000Z'⁄\000Z)\000Z*G\000Z+É\000Z,¥\000Z-Ó\000Z/#\000Z0]\000Z1ñ\000Z2 \000Z3\000Z4D\000Z5Ñ\000Z6√\000Z7ı\000Z8#\000Z9R\000Z:Ñ\000Z;ª\000Z<Ò\000Z='\000Z?[\000Z@å\000ZAº\000ZBÓ\000ZC \000ZDU\000ZEâ\000ZFª\000ZG\000ZH&\000ZI[\000ZJë\000ZK∆\000ZL¯\000ZM *\000ZN _\000ZO ë\000ZP «\000ZQ ˙\000ZR!/\000ZS!z\000ZT!ª\000ZU!Í\000ZV\"\000ZW\"L\000ZX\"|\000ZY\"´\000ZZ\"⁄\000Z[#\000Z\\#P\000Z]#É\000Z^#∫\000Z_#˜\000Z`$9\000Za$z\000Zb$ª\000Zc$˜\000Zd%,\000Ze%h\000Zf%£\000Zg%›\000Zh&\000Zi&V\000Zj&ê\000Zk&–\000Zl'\000Zm'R\000Zn'è\000Zo'Ã\000Zp(	\000Zq(F\000Zr(á\000Zs(ø\000Zt(ˇ\000Zx)-\000Zy)]\000Zz)ñ\000Z})‹\000Z~*\000Z*0\000ZÄ*^\000ZÅ*è\000ZÇ*æ\000ZÉ*Ï\000ZÖ+\000ZÜ+R\000Zâ+à\000Zä+Ω\000Zã+Ù\000Zå,#\000Zç,V\000Zé,â\000Zè,∏\000Zê,Á\000Zó-\000Zò-J\000Zö-Ñ\000Zõ-µ\000Zú-ﬂ\000Zù.\000Zû.;\000Zü.i\000Z†.ò\000Z°.≈\000Z£.Ò\000Z•/\000Z¶/J\000Zß/{\000Z´/¨\000ZÆ/˜\000ZØ0&\000Z±0^\000Z≤0â\000Z≥0≈\000Z¥0ˆ\000Zµ1&\000Zπ1≠\000Z∫1Ï\000Zº2p\000Z¡2§\000Z¬2‹\000Z√3\000Z≈3B\000Z∆3ÿ\000Z«4d\000Z»4ì\000Z…4–\000Z 5\r\000ZÀ5@\000ZÃ5w\000ZŒ5©\000Zœ5Ë\000Z–7Ò\000Z—8 \000Z“8Q\000Z”8}\000Z‘8Ø\000Z’8Ê\000Z÷9\"\000Z◊9^\000Zÿ9ï\000ZŸ9—\000Z⁄:\000Z€:>\000Z‹:t\000Z›:™\000Zﬁ:‹\000Zﬂ;\000Z‡;A\000Z·;t\000Z‚;ß\000Z„;—\000Z‰;ˇ\000ZÂ<-\000ZÊ<Y\000ZË<ì\000ZÈ<’\000ZÍ=\000ZÎ=W\000ZÏ=ô\000ZÌ=ﬂ\000ZÓ>%\000ZÔ>c\000Z>ü\000ZÒ>‡\000ZÚ?\"\000ZÛ?g\000ZÙ?™\000Zı?Ë\000Zˆ@(\000Z˜@h\000Z¯@¶\000Z˘@Ê\000Z˙A$\000Z˚Ac\000Z¸A†\000Z˝A€\000Z˛B\000ZˇB[\000[\000Bú\000[Bﬁ\000[C\000[C\\\000[Cõ\000[C÷\000[D\000[DO\000[Dà\000[	Dƒ\000[\nD¸\000[E:\000[E}\000[\rE≈\000[F\r\000[FP\000[Fò\000[Fÿ\000[G\000[G]\000[G†\000[Gﬁ\000[H\000[H[\000[Hö\000[Hœ\000[H˙\000[I\"\000[I\\\000[Iö\000[IÈ\000[ J7\000[!Jx\000[#JØ\000[$J›\000[%K\000[&KE\000['Kt\000[(KÆ\000[)K‚\000[*L\r\000[+L@\000[,Ln\000[-L†\000[.L“\000[/M\000[0M4\000[1M[\000[2MÇ\000[3MØ\000[4M€\000[8N\000[9N5\000[:Nd\000[;Nü\000[<NÀ\000[>O\000[AO(\000[DOP\000[FOÜ\000[GOª\000[IOÁ\000[JP%\000[KPT\000[LPà\000[MP∑\000[OPﬁ\000[PQ\r\000[QQD\000[SQq\000[TQú\000[UQ \000[VQ˘\000[WR9\000[XRj\000[YRõ\000[ZRÀ\000[[R˝\000[]S3\000[^Sj\000[_Sõ\000[`S≈\000[aSÌ\000[bT\000[cTB\000[dTs\000[eT¨\000[fT€\000[gU	\000[hU>\000[iUk\000[jUò\000[kU∆\000[lU˘\000[mV*\000[nVY\000[oVÑ\000[pVµ\000[qVÊ\000[rW\000[sWG\000[tWv\000[uW†\000[vW \000[wWÙ\000[xX\000[yXQ\000[X}\000[ÄXÆ\000[ÅXÈ\000[ÇY2\000[ÉYc\000[ÑZ.\000[ÖZ`\000[ÜZå\000[áZ∏\000[ãZÁ\000[å[3\000[ç[j\000[é[û\000[è[◊\000[ê\\\000[ë\\C\000[í\\x\000[î\\Ø\000[ï\\„\000[ñ]\000[ó]C\000[ò]r\000[ô]ò\000[ö]∆\000[õ]˘\000[ú^/\000[ù^i\000[û^©\000[ü^ﬂ\000[†_\000[¢_M\000[£_Ä\000[§_¥\000[•_·\000[¶`\000[®`P\000[©`á\000[™`º\000[´`Ú\000[¨a(\000[≠ag\000[±a¢\000[≤aÀ\000[≥aÙ\000[¥b\000[µbE\000[∂bm\000[∑bñ\000[∏bæ\000[πb·\000[∫c\000[ªcK\000[ºc~\000[Ωc´\000[æc”\000[ød\r\000[¿d;\000[¡di\000[¬dó\000[√d≈\000[ƒdÙ\000[≈e+\000[∆eX\000[«eà\000[…e∏\000[ e‚\000[Àf\000[Ãf8\000[Õfw\000[Œf¶\000[œfœ\000[–f˚\000[—g&\000[“gQ\000[”gÉ\000[‘g≥\000[’g‰\000[÷h\000[◊hQ\000[ÿhÖ\000[Ÿhº\000[⁄hÎ\000[€i\000[‹i@\000[›ih\000[ﬁië\000[ﬂiº\000[‡i„\000[·j\r\000[‚j5\000[„jd\000[‰jã\000[Âj±\000[Êjÿ\000[Ák\000[Ëk3\000[Èka\000[Íkñ\000[Îk≈\000[Ïk\000[Ìl%\000[ÓlR\000[Ôlv\000[l≠\000[Òlÿ\000[Úm\000[Ûm?\000[Ùmh\000[ımî\000[ˆmæ\000[˜mÎ\000[¯n\000[˘n:\000[˙nk\000[˚nñ\000[¸nÃ\000[˝n˝\000[˛o2\000[ˇo[\000\\\000oÉ\000\\o≤\000\\o‹\000\\p\n\000\\p)\000\\pS\000\\pà\000\\pπ\000\\pÈ\000\\	q\000\\\nqM\000\\q\000\\q´\000\\\rq‡\000\\r\000\\r=\000\\rf\000\\ró\000\\ræ\000\\r‰\000\\sV\000\\sá\000\\s»\000\\s˙\000\\t-\000\\t\\\000\\tÜ\000\\t∑\000\\tﬂ\000\\u\000\\ u=\000\\!ug\000\\\"uó\000\\#uƒ\000\\$uˆ\000\\%v*\000\\&va\000\\'vö\000\\(v÷\000\\)w\000\\*wL\000\\+wã\000\\,w…\000\\-x\000\\.xC\000\\/xÅ\000\\0x≈\000\\1y\000\\2y;\000\\3ym\000\\4y°\000\\5y⁄\000\\6z\000\\7zH\000\\8z|\000\\9z¨\000\\:z›\000\\;{\000\\<{B\000\\={t\000\\>{≥\000\\?{ﬁ\000\\A|\000\\B|S\000\\C|í\000\\D|À\000\\E|˝\000\\F}9\000\\G}m\000\\H}ò\000\\I}÷\000\\J~\000\\K~?\000\\L~}\000\\M~≠\000\\N~‡\000\\O\000\\PE\000\\Qu\000\\R¢\000\\S‘\000\\TÄ	\000\\UÄ/\000\\VÄ`\000\\WÄü\000\\ZÄ‹\000\\[Å\000\\\\Å3\000\\]Å^\000\\^ÅÑ\000\\fÅ∫\000\\iÅÁ\000\\jÇ\000\\kÇ@\000\\lÇm\000\\mÇö\000\\nÇœ\000\\oÇ¸\000\\pÉL\000\\qÉÆ\000\\rÑ\000\\sÑî\000\\tÖ	\000\\uÖÜ\000\\vÖª\000\\wÖ\000\\xÜ\000\\yÜE\000\\{Ü\000\\|ÜÆ\000\\}ÜÁ\000\\~á\000\\áK\000\\Äáx\000\\Åáü\000\\Çá \000\\ÖáÛ\000\\Üà!\000\\áàO\000\\àà~\000\\ãà™\000\\åàÊ\000\\çâ\000\\éâQ\000\\èây\000\\ëâ•\000\\ñâ…\000\\óâÌ\000\\ôä\000\\öä:\000\\õäf\000\\úäû\000\\ùäË\000\\üã\000\\°ãa\000\\¢ãè\000\\§ã¬\000\\•ãÏ\000\\®å\000\\´å@\000\\Æåw\000\\±åö\000\\≤å«\000\\≥ç\000\\¥çg\000\\µçä\000\\∂ç≥\000\\∑é\000\000\\∏é6\000\\πéf\000\\∫éï\000\\ªé¬\000\\ΩéÎ\000\\æè(\000\\øèQ\000\\¿èè\000\\¡è∏\000\\¬ê\000\\√ê/\000\\ƒê[\000\\≈êâ\000\\∆ê±\000\\«ê›\000\\»ë\000\\…ë:\000\\Àëf\000\\Ãë≥\000\\Õë‰\000\\Œí\000\\œíG\000\\–í}\000\\—í™\000\\“íﬂ\000\\”ì\000\\‘ìI\000\\’ìs\000\\÷ìù\000\\◊ì”\000\\ÿî\000\\Ÿî?\000\\€îk\000\\‹îô\000\\›î¬\000\\ﬁîÌ\000\\‡ï\000\\·ïE\000\\‚ïx\000\\„ï™\000\\‰ï‘\000\\Âï˛\000\\Êñ@\000\\Áñl\000\\ËñÆ\000\\Èñﬁ\000\\Íó\000\\ÎóB\000\\Ïór\000\\Ìóö\000\\Óó◊\000\\Ôò\000\\ò0\000\\Òò[\000\\ıòó\000\\ˆò \000\\˜òÙ\000\\¯ô2\000\\˘ôl\000\\˙ôû\000\\˚ô◊\000\\¸ö\000\\˝öT\000\\˛ö°\000\\ˇö›\000]\000õ\000]õM\000]õé\000]õÀ\000]ú\r\000]úF\000]úå\000]\nú \000]ù\000]\rù9\000]ùm\000]ùû\000]ùÃ\000]ù˘\000]û,\000]ûT\000]ûÅ\000]û∞\000]û‡\000]ü\000]ü@\000]üq\000]ü£\000]ü—\000]ü˛\000]†.\000]†d\000]†ò\000] †Õ\000]!†˚\000]#°)\000]$°O\000]%°|\000]&°•\000]'°Œ\000](°¯\000])¢*\000]*¢b\000]+¢ç\000],¢∑\000].¢‡\000]/£\n\000]0£3\000]1£}\000]2£¡\000]3£Ê\000]4§\000]6§H\000]7§â\000]8§∫\000]9§¯\000]:•4\000];•Y\000]<•~\000]=•£\000]>•—\000]?¶\000]A¶4\000]B¶`\000]C¶•\000]D¶“\000]E¶ˇ\000]Fß,\000]Gßc\000]Hßñ\000]Iß \000]Kß˙\000]L®6\000]N®o\000]O®ö\000]P®ÿ\000]Q©\000]R©O\000]S©z\000]T©¢\000]U©Õ\000]V©ı\000]X™E\000]Y™k\000]Z™ë\000][™∑\000]\\™Î\000]]´\000]^´K\000]_´r\000]b´û\000]c´⁄\000]d¨\000]e¨V\000]f¨à\000]o¨º\000]p¨È\000]q≠\000]r≠N\000]s≠w\000]t≠Ø\000]u≠ﬂ\000]vÆ	\000]wÆ3\000]xÆY\000]yÆÜ\000]zÆΩ\000]{Æ\000]|Ø\000]}ØQ\000]~Ø~\000]ÅØ®\000]ÇØÿ\000]É∞\000]à∞L\000]â∞Ä\000]ä∞∞\000]ã∞‡\000]å±\000]ç±R\000]ù±â\000]®±…\000]©±˛\000]™≤/\000]´≤`\000]≠≤§\000]∞≤ﬂ\000]±≥ï\000]≤≥»\000]≥≥˙\000]¥¥0\000]µ¥e\000]∫¥ò\000]ª¥Ã\000]º¥Û\000]Ωµ&\000]æµU\000]øµÜ\000]¿µ¥\000]¡µ˚\000]¬∂7\000]√∂p\000]ƒ∂∑\000]∆∂‰\000]«∑\000]»∑B\000]…∑u\000]À∑•\000]Ã∑‰\000]Õ∏ \000]Œ∏]\000]œ∏õ\000]–∏Ÿ\000]—π\000]“πT\000]”πë\000]‘πœ\000]’π˝\000]÷∫0\000]◊∫j\000]ÿ∫ñ\000]Ÿ∫»\000]⁄∫Ù\000]€ª'\000]‹ªT\000]›ªÖ\000]ﬁª∂\000]ﬂª‰\000]‡º\000]·ºB\000]‚ºr\000]„º±\000]‰ºÂ\000]ÂΩ\000]ÊΩI\000]ÁΩÇ\000]ËΩ≥\000]ÈΩﬁ\000]Íæ\000]Îæ=\000]Ïæi\000]Ìæç\000]Óæ∂\000]ÔæË\000]ø\000]ÒøE\000]Úøn\000]Ûøù\000]Ùø…\000]ıøÚ\000]ˆ¿\000]˜¿O\000]¯¿~\000]˘¿¨\000]˙¿ÿ\000]˚¡\n\000]¸¡9\000]˝¡j\000]˛¡õ\000]ˇ¡∆\000^\000¡˘\000^¬$\000^¬R\000^¬\000^¬´\000^¬÷\000^	√\000\000^\n√1\000^√^\000^√å\000^\r√∫\000^√Ì\000^ƒ\000^ƒM\000^ƒ|\000^ƒ´\000^ƒŸ\000^≈\000^≈-\000^≈]\000^≈ä\000^≈∑\000^≈Á\000^∆\000^∆N\000^∆z\000^∆´\000^∆◊\000^«\000^ «3\000^!«d\000^\"«ï\000^#««\000^%«¯\000^&»-\000^'»a\000^(»í\000^)»¬\000^*»˚\000^+…,\000^,…]\000^-…è\000^.…æ\000^/…Î\000^0 \000^1 B\000^2 z\000^4 ™\000^5 ‘\000^6À\000^7À0\000^8À]\000^9Àä\000^:ÀΩ\000^;ÀÔ\000^<Ã \000^=ÃR\000^>ÃÖ\000^?ÃΩ\000^@ÃÓ\000^AÕ$\000^BÕY\000^CÕÜ\000^DÕΩ\000^EÕÛ\000^FŒ$\000^GŒW\000^HŒâ\000^JŒ∂\000^KŒ‚\000^Lœ\000^Mœ:\000^Nœl\000^Oœõ\000^Pœ≈\000^Qœ¯\000^R–\"\000^V–L\000^W–|\000^X–™\000^Y–‹\000^Z—	\000^[—0\000^\\—V\000^]—ã\000^^—∂\000^_—Ú\000^`“/\000^a“k\000^b“£\000^c“€\000^d”\000^e”H\000^f”\000^g”∏\000^h”Ì\000^i‘%\000^j‘W\000^k‘å\000^l‘«\000^m’\000^n’F\000^o’Ç\000^p’π\000^q’Ú\000^r÷.\000^s÷n\000^t÷†\000^u÷”\000^v◊\000^w◊<\000^x◊r\000^y◊§\000^z◊Ã\000^|◊¸\000^}ÿ \000^~ÿR\000^Äÿw\000^Åÿ´\000^Çÿ›\000^ÉŸ\000^ÑŸI\000^ÖŸ|\000^ÜŸ∞\000^áŸÊ\000^à⁄\000^â⁄T\000^ä⁄å\000^ã⁄¬\000^å⁄˜\000^ç€)\000^é€Z\000^è€é\000^ê€ø\000^ë€˜\000^í‹,\000^ì‹`\000^î‹ì\000^ï‹ƒ\000^ñ‹˚\000^ó›/\000^ò›e\000^ô›õ\000^ö›Œ\000^õﬁ\000\000^úﬁ3\000^ùﬁd\000^ûﬁî\000^üﬁƒ\000^†ﬁ\000^°ﬂ(\000^¢ﬂZ\000^¶ﬂå\000^ßﬂ¥\000^®‡\r\000^©‡n\000^™‡°\000^´‡…\000^¨‡Ò\000^≠·!\000^Æ·K\000^Ø·Ä\000^∞·¨\000^±·Î\000^≤‚\000^≥‚A\000^¥‚l\000^µ‚ß\000^∂‚—\000^∑‚ˇ\000^∏„,\000^π„f\000^∫„í\000^ª„º\000^º„È\000^Ω‰\000^æ‰E\000^ø‰p\000^¿‰õ\000^¡‰»\000^¬‰˘\000^√Â#\000^ƒÂN\000^≈Âw\000^∆Â†\000^«ÂÀ\000^»Âı\000^ Ê\000^ÀÊG\000^ÃÊp\000^ÕÊô\000^ŒÊ¬\000^œÊÈ\000^–Á\r\000^—Á2\000^“Á^\000^”Áå\000^‘Á∏\000^’ÁÁ\000^÷Ë&\000^◊ËI\000^ÿË}\000^ŸË¬\000^⁄È\000^€ÈA\000^‹Èi\000^›Èõ\000^ﬁÈÕ\000^ﬂÈ¸\000^‡Í+\000^·ÍP\000^‚Íw\000^„Í§\000^‰Í›\000^ÂÎ\000^ÊÎM\000^ÁÎÑ\000^ËÎº\000^ÈÎÒ\000^ÍÏ$\000^ÎÏZ\000^ÏÏî\000^ÌÏ»\000^ÓÏ¸\000^ÔÌ0\000^Ìf\000^ÒÌ†\000^ÚÌ–\000^ÛÓ\000^ÙÓ3\000^ıÓk\000^ˆÓ•\000^˜Óﬁ\000^¯Ô\000^˘ÔN\000^˙ÔÜ\000^¸Ôº\000^˝ÔÏ\000^˛\000^ˇK\000_\000Ü\000_ƒ\000_Ò\000\000_Ò9\000_Òm\000_Ò´\000_ÒÎ\000_Ú(\000_Úh\000_\nÚ°\000_Ú⁄\000_Û\000_\rÛP\000_Ûç\000_Û¿\000_ÛÌ\000_Ù\000_ÙD\000_Ùs\000_Ùï\000_ÙŒ\000_Ùˇ\000_ı-\000_ıU\000_ıÑ\000_ı±\000_ıÁ\000_ˆ\000_ˆT\000_ˆà\000_ˆº\000_ ˆÈ\000_!˜\000_\"˜H\000_#˜v\000_$˜û\000_%˜»\000_'˜˙\000_(¯+\000_)¯S\000_*¯Ä\000_+¯≠\000_,¯‹\000_-˘\000_.˘1\000_/˘_\000_0˘π\000_4˙`\000_5˙ò\000_6˙œ\000_7˙ı\000_8˚,\000_:˚U\000_;˚â\000_<˚∑\000_=˚„\000_>¸\r\000_?¸5\000_@¸^\000_A¸è\000_B¸ø\000_C¸Ú\000_D˝\000_E˝Q\000_F˝}\000_G˝∞\000_H˝„\000_I˛\000_J˛;\000_K˛h\000_L˛î\000_M˛ø\000_N˛ı\000_Oˇ)\000_Pˇa\000_Qˇì\000_R\000U\000_S\000ë\000_T\000π\000_U\000Â\000_V\000_WE\000_Xv\000_Y†\000_[“\000_\\\000_]*\000_^\\\000__à\000_`ª\000_aË\000_b\000_cH\000_ev\000_f°\000_gÀ\000_h˝\000_i0\000_j\\\000_kè\000_l√\000_mÏ\000_n\000_oF\000_pÄ\000_qÆ\000_r‰\000_s\000_tG\000_uv\000_vß\000_w‘\000_x\000\000_y1\000_z]\000_|í\000_}æ\000_~\000_ \000_ÄM\000_Å}\000_Ç∑\000_É·\000_Ñ	\000_Ö	8\000_Ü	h\000_á	ù\000_à	–\000_â\n\000_ä\n;\000_ã\nm\000_å\nú\000_ç\n \000_é\nÔ\000_è#\000_êU\000_ëÇ\000_í≤\000_ì‚\000_î\000_ï5\000_ñb\000_óá\000_ò∫\000_ôÍ\000_ö\r\000_õ\rK\000_ú\rv\000_ùÇ\000_ûµ\000_ü·\000_†\r\000_°B\000_¢p\000_£ö\000_§»\000_•ˆ\000_¶.\000_ßZ\000_®ä\000_©π\000_™Ï\000_¨\000_≠B\000_Æx\000_Ø¶\000_∞Á\000_±\000_≤O\000_≥w\000_¥´\000_µ›\000_∂\000_∑;\000_∏l\000_πõ\000_ª«\000_ºˇ\000_æÂ\000_ø\000_¿\000_¡<\000_¬i\000_ƒò\000_≈◊\000_«\000_»J\000_…w\000_ ¶\000_À“\000_⁄ˇ\000_€\"\000_‹K\000_ﬁs\000_ﬂ≠\000_‡‰\000_·&\000_‚b\000_„£\000_Â‰\000_Ê%\000_Á^\000_Ëê\000_È—\000_Í\000_ÎU\000_Ïö\000_Ì›\000_Ó\000_ÔJ\000_\000_˝≠\000_ˇ·\000`\000\r\000`<\000`l\000`û\000`Õ\000`˚\000`)\000`T\000`\000`	´\000`\nŸ\000`\000`6\000`\rc\000`ç\000`∂\000`‰\000` \000` :\000` f\000` ñ\000` ¡\000` Ë\000`!\000`!9\000`!b\000`!å\000`!∑\000`!‡\000`\"\r\000`\"@\000`\"m\000` \"õ\000`!\" \000`\"\"ˆ\000`##$\000`$#Y\000`%#ã\000`&#¥\000`'#ﬁ\000`($\000`)$3\000`*$[\000`+$Ö\000`,$∂\000`-$‚\000`.%\r\000`/%<\000`0%i\000`1%ô\000`2%√\000`3%Ô\000`4&\000`5&M\000`6&t\000`7&û\000`8&«\000`9&Ó\000`:'\000`;'=\000`<'e\000`='ç\000`>'µ\000`?'›\000`@(\000`A(0\000`B(X\000`C(Å\000`D(±\000`E(€\000`F)\000`G),\000`H)T\000`I)~\000`J)´\000`K)‘\000`L*\000`M*.\000`N*W\000`O*Ä\000`P*©\000`Q*‘\000`R*˝\000`S+'\000`T+R\000`U+}\000`V+´\000`W+Ÿ\000`X,\000`Y,6\000`Z,c\000`[,ë\000`\\,¿\000`],Ô\000`^-\000`_-E\000``-r\000`a-ü\000`b- \000`c-ˆ\000`d.)\000`e.Y\000`f.Ä\000`g.´\000`h.“\000`i.˚\000`j/'\000`k/O\000`l/x\000`m/§\000`n/’\000`o0\000`p09\000`q0l\000`r0°\000`s0÷\000`t1	\000`u1?\000`v1o\000`w1û\000`x1Õ\000`y1˝\000`z2+\000`{2[\000`|2é\000`}2∏\000`~2‡\000`3	\000`Ä33\000`Å3]\000`Ç3Ñ\000`É3∞\000`Ñ3›\000`Ö4	\000`Ü41\000`á4Z\000`à4à\000`â4≤\000`ä4⁄\000`ã5\000`å54\000`ç5]\000`é5Ñ\000`è5¨\000`ê5Ÿ\000`ë6\000`í6)\000`ì6T\000`î6Ä\000`ï6®\000`ñ6œ\000`ó6˜\000`ò7\000`ô7G\000`ö7n\000`õ7ô\000`ú7 \000`ù7ˆ\000`û8 \000`ü8F\000`†8q\000`°8ò\000`¢8Ω\000`£8„\000`§9\000`•9<\000`¶9a\000`ß9á\000`®9Æ\000`©9’\000`™9˘\000`´:\000`¨:I\000`≠:s\000`Æ:õ\000`Ø:ƒ\000`∞:Ú\000`±;\000`≤;D\000`≥;s\000`¥;†\000`µ;Ã\000`∂;¯\000`∑< \000`∏<H\000`π<q\000`∫<ó\000`ª<¬\000`º<Û\000`Ω=\000`æ=F\000`ø=u\000`¿=£\000`¡=Õ\000`¬=ˆ\000`√>\"\000`ƒ>T\000`≈>\000`∆>™\000`«>÷\000`»?\000`…?0\000` ?_\000`À?é\000`Ã?√\000`Õ?ı\000`Œ@ \000`œ@Q\000`–@}\000`—@Æ\000`“@€\000`”A\000`‘A3\000`’Ah\000`÷Añ\000`◊A¡\000`ÿAÎ\000`ŸB\000`⁄B@\000`€Bi\000`‹Bì\000`›B∆\000`ﬁBÚ\000`ﬂC!\000`‡CQ\000`·CÅ\000`‚C≤\000`„C‡\000`‰D\000`ÂDI\000`ÊDy\000`ÁDß\000`ËD’\000`ÈE\000`ÍE.\000`ÎEW\000`ÏEÑ\000`ÌE≤\000`ÓEﬂ\000`ÔF\000`F5\000`ÒFb\000`ÚFé\000`ÛFµ\000`ÙF‡\000`ıG\000`ˆG7\000`˜Gc\000`¯Gí\000`˘Gø\000`˙GÌ\000`˚H\000`¸HL\000`˝Hz\000`˛H®\000`ˇH‘\000a\000I\000aI6\000aId\000aIí\000aI¬\000aI\000aJ\000aJJ\000aJt\000a	Jú\000a\nJ≈\000aJÓ\000aK\000a\rKC\000aKn\000aKô\000aKƒ\000aKÎ\000aL\000aL8\000aLc\000aLã\000aLµ\000aL‡\000aM\000aMA\000aMn\000aMô\000aM»\000aMı\000aN%\000aNR\000a N~\000a!N∞\000a\"N‡\000a#O\000a$O9\000a%Oi\000a&Oó\000a'Oø\000a(OÍ\000a)P\000a*PB\000a+Pj\000a,Pó\000a-P…\000a.Pˆ\000a/Q\000a0QE\000a1Qq\000a2Qò\000a3Qæ\000a4QÈ\000a5R\000a6R<\000a7Rb\000a8Rç\000a9Rπ\000a:R‰\000a;S\000a<S7\000a=Sb\000a>Sä\000a?Sπ\000a@SË\000aAT\000aBTG\000aCTs\000aDT¢\000aET—\000aFT˝\000aGU,\000aHUY\000aIUÖ\000aJU≥\000aKU€\000aLV\000aMV;\000aNVj\000aOVö\000aPVÕ\000aQW\000aRW8\000aSWh\000aTWù\000aUW◊\000aVX	\000aWX1\000aXX]\000aYXÜ\000aZX≥\000a[X€\000a\\Y\000a]Y5\000a^Yb\000a_Yä\000a`Y∂\000aaYÂ\000abZ\000acZ:\000adZg\000aeZî\000afZ¡\000agZÈ\000ah[\000ai[D\000aj[q\000ak[ô\000al[∆\000am[Û\000an\\\000ao\\G\000ap\\t\000aq\\§\000ar\\“\000as\\˚\000at])\000au]W\000av]É\000aw]´\000ax]◊\000ay^\000az^3\000a{^[\000a|^à\000a}^µ\000a~^‡\000a_\n\000aÄ_5\000aÅ_d\000aÇ_é\000aÉ_∏\000aÑ_Â\000aÖ`\000aÜ`<\000aá`g\000aà`ì\000aâ`Ω\000aä`Ë\000aãa\000aåaA\000açan\000aéaö\000aèa¡\000aêaÈ\000aëb\000aíb6\000aìb]\000aîbá\000aïb∞\000añbÿ\000aóc\000aòc/\000aôcZ\000aöcÜ\000aõc∞\000aúcﬂ\000aùd\r\000aûd:\000aüd`\000a†dâ\000a°d∂\000a¢dﬁ\000a£e\000a§e1\000a•e[\000a¶eÜ\000aße∞\000a®e€\000a©f\n\000a™f4\000a´f^\000a¨fã\000a≠f∑\000aÆf‰\000aØg\000a∞gC\000a±gw\000a≤g©\000a≥gÿ\000a¥h\n\000aµh;\000a∂hm\000a∑hö\000a∏hÀ\000aπhˇ\000a∫i1\000aªi`\000aºií\000aΩi√\000aæiı\000aøj*\000a¿j\\\000a¡jñ\000a¬jŒ\000a√k\000aƒk9\000a≈kp\000a∆k®\000a«k‘\000a»l\000a…l,\000a lW\000aÀlÉ\000aÃlØ\000aÕl⁄\000aŒm\000\000aœm'\000a–mN\000a—mv\000a“m£\000a”m…\000a‘mÛ\000a’n\000a÷nA\000a◊nf\000aÿnè\000aŸn∫\000a⁄n‚\000a€o\n\000a‹o3\000a›oX\000aﬁo}\000aﬂo§\000a‡o—\000a·o˘\000a‚p#\000a„pM\000a‰pw\000aÂp¢\000aÊpŒ\000aÁpı\000aËq\"\000aÈqL\000aÍqv\000aÎq¶\000aÏqŒ\000aÌq¯\000aÓr+\000aÔrP\000arÅ\000aÒr¨\000aÚr‘\000aÛr¸\000aÙs+\000aısU\000aˆsÄ\000a˜s®\000a¯s–\000a˘s˛\000a˙t&\000a˚tO\000a¸t~\000a˝tß\000a˛tŸ\000aˇu\000b\000u.\000buZ\000buÑ\000buÆ\000bu◊\000bv\000bv/\000bvZ\000bvÄ\000b	v´\000b\nv’\000bv˚\000bw.\000b\rwS\000bwÄ\000bw©\000bw÷\000bw¸\000bx%\000bxO\000bxx\000bx§\000bx»\000bxÛ\000by\000byC\000byq\000byõ\000by√\000byÒ\000bz\000bzC\000b zp\000b!zò\000b\"zæ\000b#zÔ\000b${\000b%{@\000b&{m\000b'{ñ\000b({…\000b){Ô\000b*|\000b+|B\000b,|l\000b-|ö\000b.|¬\000b/|Ô\000b0}\000b1}E\000b2}q\000b3}ú\000b4}Ã\000b5}˜\000b6~%\000b7~P\000b8~{\000b:~©\000b;~Ÿ\000b<\000b=2\000b>^\000b?à\000b@∏\000bAﬂ\000bBÄ\000bCÄ<\000bDÄl\000bEÄö\000bFÄ»\000bHÄı\000bIÅ\000bJÅI\000bKÅv\000bLÅü\000bMÅÕ\000bNÅ˚\000bOÇ(\000bPÇY\000bQÇÖ\000bRÇ∏\000bSÇ·\000bTÉ\000bVÉ>\000bWÉc\000bXÉè\000bYÉª\000bZÉ‡\000b[Ñ\000b\\Ñ)\000b]ÑY\000b^ÑÉ\000b_Ñ¥\000b`Ñ·\000baÖ\000bbÖ1\000bcÖ_\000bdÖà\000beÖ¥\000bfÖ›\000bgÜ\000bhÜ)\000biÜM\000bjÜw\000bkÜ†\000blÜ—\000bmÜ˝\000bná*\000boáY\000bpáÉ\000bqá¨\000brá’\000bsá˘\000btà&\000buàP\000bvàÅ\000bwà®\000bxà‘\000byâ\000bzâ,\000b{âW\000b|âá\000b}â±\000b~â⁄\000bä\000bÄä3\000bÅä_\000bÇä»\000bÉäÚ\000bÑã\000bÖãB\000bÜãn\000báãü\000bàãŒ\000bâã˜\000bäå)\000bãåM\000bååy\000bçå¢\000béåÃ\000bèåÚ\000bêç\000bëçC\000bíçj\000bìçì\000bîç√\000bïçË\000bñé\000bóé?\000bòén\000bôéö\000böé≈\000bõéÓ\000búè\000bùè9\000bûè`\000büèë\000b†è∑\000b°è„\000b¢ê\000b£ê=\000b§êe\000b•êê\000b¶êæ\000bßêÊ\000b®ë\000b©ë@\000b™ëj\000b´ëï\000b¨ë√\000b≠ëÓ\000bÆí\000bØíH\000b∞í|\000b±í•\000b≤í”\000b≥ì\000b¥ì0\000bµì[\000b∂ìÑ\000b∑ì≥\000b∏ì‡\000bπî\000b∫î2\000bªî_\000bºîå\000bΩîπ\000bæî·\000bøï\000b¿ï>\000b¡ïj\000b¬ïú\000b√ï√\000bƒïÙ\000b∆ñ\000b«ñ@\000b»ñi\000b…ñí\000b ñπ\000bÀñ·\000bÃó	\000bÕó/\000bŒó\\\000bœóÜ\000b–ó≥\000b—óﬁ\000b“ò\000b”ò/\000b‘òY\000b’òÉ\000b÷òÆ\000b◊òŸ\000bÿô\000bŸô,\000b⁄ôV\000b€ôÅ\000b‹ô´\000b›ô“\000bﬁô¸\000bﬂö%\000b‡öR\000b·ö|\000b‚öß\000b„ö“\000b‰ö¸\000bÂõ&\000bÊõQ\000bÁõ{\000bËõ•\000bÈõœ\000bÍõ˘\000bÎú!\000bÏúT\000bÌúx\000bÓú¢\000bÔúÕ\000búı\000bÒù \000bÚùK\000bÛùt\000bÙùù\000bıù«\000bˆùÛ\000b˜û$\000b¯ûQ\000b˘ûÅ\000b˙û≤\000b˚û‚\000b¸ü\000b˝üH\000b˛üx\000bˇü©\000c\000ü‹\000c†\000c†=\000c†n\000c†¶\000c†÷\000c°\000c°/\000c°_\000c	°é\000c\n°º\000c°Í\000c¢\000c\r¢K\000c¢{\000c¢™\000c¢⁄\000c£\000c£=\000c£n\000c£û\000c£’\000c§\000\000c§*\000c§U\000c§Ç\000c§Ø\000c§€\000c•\000c•8\000c•e\000c•ë\000c •æ\000c!•Ì\000c\"¶\000c#¶J\000c$¶w\000c%¶´\000c&¶Ÿ\000c'ß\000c(ß9\000c)ßm\000c*ßù\000c+ßÕ\000c,ß¸\000c-®2\000c.®d\000c/®ó\000c0®Ã\000c1©\000c2©8\000c3©l\000c4©ü\000c5©Ÿ\000c6©˝\000c7™#\000c8™P\000c9™|\000c:™£\000c;™–\000c<™¸\000c=´%\000c>´L\000c@´t\000cA´£\000cB´Ë\000cC¨\000cD¨O\000cE¨Ç\000cF¨æ\000cG¨Ì\000cH≠(\000cI≠a\000cJ≠°\000cKÆg\000cLÆò\000cMÆŸ\000cNØò\000cOØ…\000cPØ˘\000cQ∞*\000cR∞y\000cS∞È\000cT±6\000cU±°\000cV±Ë\000cW≤\000cX≤W\000cY≤Ä\000cZ≤œ\000c[≥m\000c\\≥»\000c]¥O\000c^¥†\000c_¥À\000c`¥Û\000caµ*\000cbµ^\000ccµë\000cdµ¿\000ceµÔ\000cf∂/\000cg∂\\\000ch∂ö\000ci∂À\000cj∂Ù\000ck∑?\000cl∑u\000cm∑¬\000cn∑˛\000co∏A\000cp∏r\000cq∏≤\000cr∏‚\000csπ\000ctπI\000cuπÇ\000cvπ∂\000cwπﬂ\000cx∫\000cy∫B\000cz∫l\000c{∫ó\000c|∫¬\000c}∫\000c~ª7\000cªb\000cÄªã\000cÅªµ\000cÇª‰\000cÉº\000cÑº;\000cÖºg\000cÜºó\000cáº»\000càº˝\000câΩ,\000cäΩ^\000cãΩã\000cåΩ±\000cçΩﬁ\000céæ	\000cèæ?\000cêæq\000cëæü\000cíæŒ\000cìæ˝\000cîø*\000cñøY\000cóøÉ\000còø≤\000cöø⁄\000cõ¿\000cú¿0\000cù¿_\000cû¿í\000cü¿∆\000c†¿¯\000c°¡#\000c¢¡V\000c£¡ä\000c§¡ª\000c•¡„\000c¶¬\000cß¬C\000c®¬u\000c©¬†\000c™¬–\000c´¬ˇ\000c¨√/\000c≠√Z\000cÆ√å\000cØ√º\000c∞√Ë\000c±ƒ\000c≤ƒO\000c≥ƒá\000c¥ƒΩ\000cµƒˆ\000c∂≈\"\000c∑≈]\000c∏≈ã\000cπ≈ª\000c∫≈Ï\000cª∆\000cº∆Q\000cΩ∆Ñ\000cæ∆∑\000cø∆Ï\000c¿«\000c¡«H\000c¬«|\000c√«ß\000cƒ«⁄\000c≈»\000c∆»C\000c«»x\000c»»£\000c…»÷\000cÃ»˛\000cÕ…-\000cŒ…]\000c–…ä\000c—…∑\000c“…‡\000c” \000c‘ <\000c’ o\000c÷ ®\000c◊ ﬂ\000cÿÀ\000cŸÀM\000c⁄À~\000c€À±\000c‹À„\000c›Ã\000cﬁÃH\000cﬂÃz\000c‡Ãß\000c·Ã‚\000c‚Õ \000cÂÕV\000cÊÕÖ\000cÁÕ∫\000cËÕÌ\000cÈŒ\000cÍŒL\000cÎŒx\000cÏŒ®\000cÌŒ÷\000cÔœ\000cœ8\000cÒœl\000cÚœ©\000cÛœﬂ\000cÙ–\000cı–Q\000cˆ–|\000c˜–®\000c¯–’\000c˘—\000c˙—3\000c˚—]\000c˝—à\000c˛—∑\000cˇ—Ë\000d\000“\000d“D\000d“v\000d“§\000d“’\000d”\n\000d”D\000d”{\000d”≤\000d	”„\000d\n‘\000d‘R\000d‘á\000d\r‘≤\000d‘Í\000d’%\000d’[\000d’ã\000d’ƒ\000d’˜\000d÷,\000d÷a\000d÷î\000d÷“\000d◊\000d◊<\000d◊d\000d◊î\000d◊«\000d◊˙\000d ÿ.\000d!ÿ\\\000d\"ÿÜ\000d#ÿ±\000d$ÿ‹\000d%Ÿ\000d&Ÿ.\000d'Ÿ\\\000d(Ÿä\000d)Ÿæ\000d*ŸÚ\000d+⁄\"\000d,⁄[\000d-⁄è\000d.⁄ø\000d/⁄˚\000d0€+\000d1€U\000d2€í\000d3€æ\000d4€Ó\000d5‹\000d6‹A\000d7‹j\000d8‹í\000d9‹∫\000d:‹Ë\000d;›\000d<›C\000d=›p\000d>›ü\000d?›Õ\000dBﬁ\000dDﬁ=\000dEﬁj\000dFﬁò\000dGﬁ≈\000dHﬁÒ\000dIﬂ\000dJﬂJ\000dKﬂx\000dLﬂ®\000dMﬂ‘\000dN‡\000dO‡1\000dP‡^\000dQ‡ä\000dR‡π\000dS‡Â\000dT·\000dU·>\000dV·j\000dW·ï\000dX·√\000dY‚\000dZ‚0\000d[‚b\000d\\‚ë\000d]‚æ\000d^‚Ë\000d_„\000d`„:\000da„j\000db„ñ\000dc„›\000dd‰\000de‰2\000df‰l\000dg‰§\000di‰’\000dj‰˛\000dkÂ'\000dlÂI\000dnÂ}\000doÂÆ\000dpÂ„\000dqÊ\000drÊK\000dsÊÖ\000dtÊª\000duÊÚ\000dvÁ!\000dwÁX\000dxÁ´\000dyÁÌ\000dzË)\000d{Ëc\000d|Ëè\000d}Ëø\000d~Ë\000dÈ,\000dÄÈS\000dÅÈé\000dÇÈÃ\000dÉÍ\000dÑÍU\000dÖÍê\000dÜÍ \000dáÎ\000dàÎA\000dâÎ\000däÎ∫\000dãÎÔ\000dåÏ'\000dçÏc\000déÏò\000dèÏ—\000dêÌ\000dëÌC\000díÌk\000dóÌë\000döÌÕ\000dõÌ˝\000dúÓ-\000dùÓ]\000dûÓç\000düÓ«\000d†Ó˙\000d°Ô*\000d¢ÔV\000d£ÔÄ\000d§Ôª\000d•ÔÎ\000d¶\000dßR\000d®{\000d©™\000d™”\000d´Ò\000d¨Ò5\000d≠Òg\000dÆÒú\000dØÒÃ\000d∞Ò˛\000d±Ú3\000d≤Úf\000d≥Úù\000d¥Ú“\000dµÛ\n\000d∂Û<\000d∑Ûm\000d∏Ûô\000dπÛ≈\000d∫ÛÒ\000dªÙ\"\000dºÙS\000dΩÙÑ\000dæÙ≥\000døÙÎ\000d¿ı\000d ıI\000dÀı|\000dÃı∫\000dÕıÁ\000dŒˆ\000dœˆR\000d–ˆÇ\000d—ˆ≤\000d“ˆ‡\000d”˜\n\000d‘˜7\000d’˜g\000d÷˜í\000d◊˜ø\000dÿ˜Ó\000dŸ¯*\000d⁄¯P\000d€¯Ç\000d‹¯º\000d›¯ˆ\000dﬁ˘/\000dﬂ˘[\000d‡˘Ü\000d·˘±\000d‚˘·\000d„˙	\000d‰˙8\000dÂ˙k\000dÊ˙†\000dÁ˙ﬁ\000dË˚\000dÈ˚`\000dÍ˚£\000dÎ˚„\000dÏ¸\000dÌ¸G\000dÓ¸r\000dÔ¸ü\000d¸‘\000dÒ˝\000dÚ˝1\000dÛ˝\\\000dÙ˝Ç\000dı˝™\000dˆ˝–\000d˜˛\000d¯˛5\000d˘˛r\000d˙˛™\000d¸˛”\000d˝ˇ\000d˛ˇ8\000dˇˇt\000e\000ˇØ\000eˇÌ\000e\000.\000e\000m\000e\000†\000e\000’\000eÖ\000e¨\000e‘\000e	˛\000e\n&\000e[\000eá\000e\r∞\000eÒ\000e/\000eÂ\000e´\000eﬂ\000eì\000e7\000el\000e§\000e—\000e˝\000e)\000eU\000eÅ\000e!∏\000e\"‰\000e#\000e%R\000e&á\000e'π\000e(Ô\000e)	'\000e*	^\000e+	ó\000e,	Õ\000e-\n\000e.\nS\000e/\nì\000e0\n“\000e1\000e2R\000e3ç\000e4 \000e5\000e6A\000e7\000e8¨\000e9‡\000e:\r\000e;\rB\000e<\rx\000e=\r§\000e>\r‡\000e?\000e@?\000eAi\000eBí\000eC¡\000eDÓ\000eE!\000eFS\000eGÑ\000eHæ\000eIÛ\000eJ-\000eKb\000eLö\000eM—\000eN\000eO2\000ePb\000eQò\000eR‘\000eS\000eT.\000eUX\000eVà\000eW∫\000eXﬂ\000eY\000eZ6\000e[a\000e\\í\000e]≈\000e^˘\000e_&\000e`X\000eaê\000ebª\000ecÂ\000ed\000eeH\000efÇ\000egª\000eh\000ei'\000ej_\000ekã\000elæ\000emÍ\000en%\000eo\\\000epì\000eqÕ\000er\000\000es9\000etj\000euô\000ev \000ew\000\000ex3\000eyg\000ezû\000e{◊\000e|\000e}C\000e~v\000e§\000eÄ÷\000eÅ\000eÇ;\000eÉh\000eÑö\000eÖ–\000eÜ\000eá8\000eàk\000eâõ\000eäœ\000eã¸\000eå,\000eçb\000eé†\000eè›\000eê\000eëa\000eí¢\000eì…\000eî\000eï/\000eñh\000eóö\000eòÀ\000eô¯\000eö -\000eõ i\000eú °\000eù —\000eû!\000e†!>\000e°!l\000e¢!ú\000e£!—\000e§\"	\000e•\"<\000e¶\"s\000eß\"£\000e®\"”\000e©#\000e™#=\000e´#n\000e¨#≠\000eÆ#Ê\000eØ$!\000e∞$P\000e±$Ü\000e≤$æ\000e≥$Ú\000e¥%!\000eµ%S\000e∂%Ü\000e∑%≥\000e∏%Ì\000e∫&(\000eª&Á\000eº'†\000eΩ'⁄\000e¿(\000e¡(0\000e¬([\000e√(Ö\000eƒ(∂\000e≈(Á\000e∆)\000e«)D\000f)v\000f)®\000f)⁄\000f*\r\000f*?\000f*q\000f*£\000f*Ÿ\000gë+\000gü+?\000g≠+q\000g…+ß\000hç+◊\000hõ,\000jµ,7\000j¸,`\000j˝,á\000j˛,π\000k,\000k-#\000k-R\000k	-Ñ\000k\n-¡\000k-Ò\000k.\000k\r.F\000k.ê\000k.‘\000k/\000k/8\000k/g\000k/í\000k/¿\000k/Û\000k0 \000k0O\000k0|\000k0™\000k0◊\000k1\000k1=\000k1h\000k 1ò\000k!1¡\000k\"1Ì\000k#2\000k$2N\000k%2|\000k&2¨\000k'2‡\000k(3\r\000k)3?\000k*3p\000k+3ù\000k,3Õ\000k-4\000k.4/\000k/4_\000k04ã\000k14¿\000k24Í\000k355\000k55c\000k65ê\000k75ª\000k85Ï\000k96\000k:6L\000k;6x\000k<6©\000k=6’\000k>7\000k?74\000k@7a\000kA7ñ\000kB7«\000kC7Ô\000kD8\000kE8C\000kF8v\000kG8®\000kH8’\000kI9\000kJ91\000kK9`\000kL9í\000kM9ø\000kN9˚\000kO:;\000kP:v\000kQ:µ\000kR:ı\000kS;$\000kT;S\000kU;Ñ\000kV;∏\000kW;Ô\000kX<\000kY<>\000k[<m\000k\\<ô\000k]<«\000k_<˛\000k`=+\000ka=a\000kb=î\000kc=¡\000kd=Î\000ke>\000kf>J\000kg>v\000kh>¢\000ki>·\000kj?\000kk?V\000kl?ù\000km?‚\000kn@&\000ko@k\000kq@¥\000kr@„\000ksA\000ktAD\000kuAo\000kvA£\000kwAœ\000kxB\000kyB>\000kzB}\000k{B≤\000k|B˚\000k}CJ\000k~Cw\000kCÆ\000kÄC◊\000kÅD\r\000kÇD=\000kÉDj\000kÑDô\000kÖD \000kÜE\000káE-\000kàE_\000kâEê\000kãE¬\000kåEÓ\000kçF.\000kéF^\000kèFí\000kêF∆\000këFÚ\000kíG\000kìGI\000kîG}\000kïG¢\000kñG÷\000kóG˛\000kòH(\000kôH_\000köHê\000kõHπ\000kúH„\000kùI\000kûI=\000küIj\000k†I£\000k°I—\000kÔJ\000kJ2\000kÒJ`\000kÚJç\000kÛJº\000kÙJ‡\000kıK\000kˆK7\000k˜Kh\000k¯Kõ\000k˘Kœ\000k˚L\000k¸L;\000k˝Lo\000k˛L†\000kˇLœ\000l\000M\000lM8\000lMm\000lM•\000lMœ\000lN\000lN7\000lNj\000lNè\000l	N∏\000l\nNÁ\000lO\000lO7\000l\rO]\000lOÜ\000lOØ\000lO‹\000lP\000lP/\000lP^\000lPà\000lP∫\000lP„\000lQ\000lQC\000lQq\000lQ∞\000lQÌ\000lRE\000lR|\000l R¥\000l!Rﬂ\000l\"S\000l#SN\000l$S{\000l%S≠\000l&S‹\000l'T\000l(TK\000l)T~\000l*T≤\000l+TÏ\000l,U%\000l-U^\000l.Uí\000l/U…\000l0V\000\000l1V8\000l2Vo\000l3Vß\000l4V·\000l5W\000l6WD\000l7Wâ\000l8WÕ\000l9X\000l:XP\000l;Xî\000l<X“\000l=Y\000l>YN\000l?Yå\000l@Y»\000lAY¯\000lBZ)\000lCZU\000lDZä\000lEZ≥\000lFZÎ\000lG[\000lH[T\000lI[Ä\000lJ[∞\000lK[„\000lL\\\000lM\\A\000lN\\o\000lO\\§\000lP\\ÿ\000lQ]\000lR]6\000lS]o\000lT]û\000lU]Œ\000lV^\000lW^:\000lX^k\000lY^ù\000lZ^ \000l[^¯\000l\\_,\000l]_S\000l^_Ü\000l__∞\000l`_‡\000la`\000lb`5\000lc`d\000ld`ê\000le`æ\000lf`Ï\000lga!\000lhaP\000liaÅ\000ljaº\000lkaÒ\000llb\000lmbQ\000lnbÜ\000lob≥\000lpb„\000lqc\n\000lrc<\000lscu\000ltcß\000luc—\000lvc˛\000lwd+\000lxdN\000lydá\000lzd´\000l{dŸ\000l|e\000l}e;\000l~eg\000leô\000lÄe≈\000lÅe¸\000lÇf+\000lÉfZ\000lÑfá\000lÖf¥\000láf„\000làg\000lâg>\000lägo\000lãgü\000låg—\000lçg˛\000léh2\000lèh[\000lêhå\000lëh¿\000líh\000lìi'\000lîiR\000lïiÅ\000lñi≥\000lóiÂ\000lòj\000lôjK\000löjv\000lõjß\000lúj€\000lùk\000lûk5\000lükd\000l†kò\000l°k…\000l£k˘\000l§l+\000l•lZ\000l¶lâ\000lßl∑\000l®lÍ\000l©m\000l™m@\000l¨mv\000l≠mß\000lÆm‹\000lØn\000l∞n@\000l±nw\000l≤n°\000l≥n—\000l¥n˛\000lµo*\000l∂oZ\000l∑oå\000l∏oæ\000lπoÌ\000l∫p\000lªpN\000lºpy\000lΩp¡\000læpÔ\000løq\000l¿qP\000l¡q|\000l¬q∑\000l√qÒ\000lƒr\000l≈rS\000l∆r~\000l«r´\000l»r◊\000l…s\000l sT\000lÀsí\000lÃs≈\000lŒs¯\000lœ{b\000l–}e\000l—} \000l“~¿\000l”Ä\000l‘Å\000l’ä\000l÷äD\000lÿä|\000lŸäø\000l⁄äÎ\000l€ã,\000l‹ãY\000l›ãÇ\000lﬁã∏\000lﬂãÂ\000l‡å\000l·åI\000l‚år\000l„åü\000l‰å \000lÂå˝\000lÊç(\000lÁçW\000lËçö\000lÈç‹\000lÍé\000lÎé[\000lÏéù\000lÌé’\000lÓè\000lÔè;\000lèt\000lÒèù\000lÚèÿ\000lÛê\000lÙê5\000lıêc\000l˜êù\000l¯ê \000l˘ë\000\000l˙ë4\000l˚ëc\000l¸ëá\000l˝ëæ\000l˛ëÍ\000lˇí!\000m\000íF\000míx\000mí≠\000míﬂ\000mì\000mìB\000mìi\000mìö\000mìÃ\000m	î\000m\nî7\000mîb\000mîí\000m\rî¡\000mîı\000mï\000mïJ\000mïw\000mï§\000mï—\000mñ\000mñ1\000mñY\000mñâ\000mñπ\000mñ„\000mó\r\000mó6\000mó_\000móâ\000mó∑\000móË\000m ò\000m!òH\000m\"òm\000m#ò£\000m$òÃ\000m%ô\n\000m&ôE\000m'ôn\000m(ô§\000m)ô„\000m*ö+\000m+ö\\\000m,öà\000m-ö∂\000mHö·\000mIõ\000mJõN\000mKõy\000mLõª\000mMõÁ\000mNú\000mOúW\000mPúÇ\000mQúÆ\000mRúŸ\000mSù\000mTù8\000mUùk\000mVùò\000mWù≈\000mXùˆ\000mYû,\000mZûX\000m[ûâ\000m\\û∫\000mwûÔ\000mxü(\000mzüP\000m{üÅ\000m|üÆ\000m}ü€\000m~†\000m†>\000mÄ†n\000mÅ††\000mÇ†∆\000mÖ†˚\000mÜ°,\000má°p\000mà°ö\000mâ°Ÿ\000mä¢\000mã¢J\000må¢y\000mç¢¨\000mé¢‡\000mè£\000mê£/\000mí£Y\000mì£í\000mî£‘\000mï§	\000mñ•[\000mó•ö\000mò•Ÿ\000mô¶ó\000mö¶ÿ\000mõß\n\000múß8\000mù®h\000mû©)\000mü©Y\000m†©à\000m°©µ\000m¢©‰\000m£™\000m§™O\000m•™´\000m¶™ﬂ\000mß´\r\000m®´[\000m©´©\000m™´˜\000m´¨,\000m∑¨[\000m√¨ß\000mƒ¨ﬁ\000m≈≠\000m∆≠L\000m«≠|\000m»≠≠\000m…≠‰\000m Æ\000mÀÆ8\000mÃÆ`\000mÕÆì\000mŒÆ»\000mœÆ˙\000m–Ø3\000m”Ø[\000m‘Øì\000m’Ø»\000m÷Ø˜\000m◊∞(\000mÿ∞_\000mŸ∞ò\000m⁄∞Ã\000m€±\000m‹±4\000m›±Y\000mﬁ±é\000mﬂ±—\000m‡≤\000m·≤X\000m‚≤û\000m„≤‡\000m‰≥\000mÂ≥9\000mÊ≥n\000mË≥¶\000mÈ≥Á\000mÍ¥&\000mÎ¥j\000mÏ¥Æ\000mÌ¥Ó\000mÓµ\000mÔµF\000mµv\000mÚµß\000mÛµ”\000mÙ∂\000mı∂<\000mˆ∂n\000m˜∂¢\000m¯∂Œ\000m˘∂˛\000m˙∑.\000m˚∑\\\000m¸∑è\000m˝∑Ω\000m˛∑Ó\000mˇ∏\000n\000∏G\000n∏x\000n∏∞\000n∏Î\000nπ\000nπQ\000nπ}\000nπ¥\000n	πÓ\000n\n∫%\000n∫R\000n∫à\000n\r∫ª\000n∫Ù\000nª \000nªY\000nªé\000nªπ\000nªÈ\000nº\000nºH\000nºw\000nº§\000nº◊\000nΩ\000nΩ7\000nΩn\000nΩó\000nΩ≈\000nΩı\000næ.\000n æ]\000n!æâ\000n\"æ¥\000n#æ‚\000n$ø\000n%øW\000n&øë\000n'øÕ\000n(¿\000n)¿P\000n*¿ã\000n+¿≥\000n,¿È\000n-¡\000n.¡J\000n/¡y\000n0¡≤\000n1¡˙\000n2¬+\000n3¬Y\000n4¬ì\000n5¬ƒ\000n6¬ı\000n7√)\000n8√\\\000n9√ì\000n:√»\000n;ƒ\000n<ƒ1\000n=ƒ]\000n>ƒí\000n?ƒ√\000n@ƒÌ\000nA≈\000nB≈B\000nC≈f\000nD≈ñ\000nE≈¬\000nF≈Î\000nG∆\000nH∆C\000nI∆m\000nJ∆£\000nK∆Ÿ\000nL«\000nM«E\000nN«{\000nO«±\000nP«‰\000nQ»\000nR»M\000nS»Ä\000nT»≥\000nU»Â\000nV…\000nW…H\000nX…y\000nY…™\000nZ…È\000n[ *\000n\\ c\000n] ¢\000n^ ’\000n_À\000n`À<\000naÀh\000nbÀò\000ncÀæ\000ndÀÁ\000nfÃ\000ngÃK\000nhÃn\000niÃô\000njÃœ\000nkÃ˙\000nlÕ&\000nmÕV\000nnÕä\000noÕÕ\000npŒ\000nqŒW\000nrŒõ\000nsŒÂ\000ntœ\000nuœ]\000nvœ¨\000nwœ’\000nx–\000ny–V\000nz–ö\000n{–ﬁ\000n|—\000n}—5\000n~—d\000n—ì\000nÄ—√\000nÇ—ˆ\000nÉ“)\000nÑ“g\000nÖ“ú\000nÜ“–\000ná”\r\000nà”B\000nâ”v\000nä”Ø\000nã”È\000nå‘#\000nç‘Y\000né‘â\000nè‘√\000nê‘\000në’&\000ní’]\000nì’í\000nî’À\000nï÷\000nñ÷6\000nó÷i\000nò÷ã\000nô÷¡\000nö÷¸\000nõ◊6\000nú◊e\000nù◊ì\000nû◊Ω\000nü◊Ï\000n†ÿ#\000n°ÿa\000n¢ÿì\000n£ÿ√\000n§ÿ\000n•Ÿ&\000nßŸU\000n®ŸÄ\000n´Ÿ¨\000n¨ŸË\000n≠⁄(\000nÆ⁄i\000nØ⁄¶\000n∞⁄Á\000n±€\000n≤€F\000n≥€w\000n¥€¨\000nµ€÷\000n∂‹\000n∑‹0\000n∏‹]\000nπ‹â\000n∫‹∏\000nª‹Ó\000nº›\000nΩ›B\000næ›i\000nø›ñ\000n¿›ø\000n¡›Î\000n¬ﬁ\000n√ﬁM\000nƒﬁå\000n≈ﬁÃ\000n∆ﬂ\000n«ﬂL\000n»ﬂ{\000n…ﬂ´\000n ﬂ€\000nÀ‡\000nÃ‡A\000nÕ‡y\000nœ‡±\000n–‡Ë\000n—·\000n“·H\000n”·}\000n‘·¶\000n’·’\000n÷‚\000n◊‚?\000nÿ‚j\000nŸ‚û\000n⁄‚—\000n€„\000n‹„;\000n›„t\000nﬂ„®\000n‡„‹\000n·‰\000n‚‰7\000n„‰j\000n‰‰õ\000nÂ‰«\000nÊ‰¯\000nÁÂ4\000nËÂb\000nÈÂâ\000nÍÂª\000nÎÂÓ\000nÏÊ!\000nÌÊP\000nÓÊ|\000nÔÊ®\000nÈÿ\000nÒÍ\000nÚÍ4\000nÛÍn\000nÙÍú\000nıÍ“\000nˆÎ	\000n˜Î4\000n¯Îk\000n˘Îó\000n˙Î«\000n˚Î˝\000n¸Ï.\000n˝Ïa\000n˛Ïâ\000nˇÏ∏\000o\000Ï‚\000oÌ\000oÌ@\000oÌn\000oÌü\000oÌ»\000oÌ¯\000oÓ,\000oÓ_\000o	Óï\000o\nÓ∏\000oÓ‹\000oÓˇ\000o\rÔ(\000oÔT\000oÔÉ\000oÔ¨\000oÔ◊\000o\n\000o2\000oW\000oz\000o§\000o«\000oÌ\000oÒ\000oÒ4\000oÒY\000oÒè\000oÒ∆\000oÒˇ\000oÚ3\000o Úh\000o!Úü\000o\"Ú‘\000o#Û\000o$Û;\000o%Ûi\000o&Ûú\000o'Û…\000o(Û˚\000o)Ù8\000o*Ùk\000o+Ù£\000o,Ùﬂ\000o-ı\000o.ıT\000o/ıé\000o0ı√\000o1ı¸\000o2ˆ4\000o3ˆl\000o4ˆ°\000o5ˆ’\000o6˜\000o8˜@\000o9˜|\000o:˜∏\000o;˜Ù\000o<¯\"\000o=¯U\000o>¯~\000o?¯©\000oA¯÷\000oC¯˛\000oD˘,\000oE˘V\000oF˘å\000oG˘√\000oH˙\n\000oI˙I\000oJ˙ç\000oK˙¿\000oL˙Û\000oM˚ \000oN˚R\000oO˚É\000oP˚±\000oQ˚›\000oR¸\000oS¸=\000oT¸|\000oU¸†\000oV¸œ\000oW¸˝\000oX˝(\000oY˝T\000oZ˝á\000o[˝¡\000o\\˝˜\000o]˛,\000o^˛Z\000o_˛ê\000o`˛Ω\000oa˛È\000obˇ$\000ocˇV\000odˇà\000oeˇΩ\000ofˇÎ\000og\000!\000oh\000O\000oi\000|\000oj\000≠\000ok\000‹\000ol\000om4\000onh\000ooû\000opŒ\000oq\000or7\000osl\000otì\000ou√\000ovÌ\000ow\000oxB\000oym\000ozû\000o{«\000o|ˆ\000o}!\000o~D\000os\000oÄ¢\000oÅ“\000oÉ\000\000oÑ3\000oÜ_\000oáâ\000oàµ\000oâ„\000oä\000oãH\000oå|\000oç≤\000oéÎ\000oèY\000oêé\000oë∆\000oí˝\000oì0\000oî\\\000oïé\000oñ∫\000oóı\000oò	!\000oô	R\000oö	}\000oõ	Æ\000oú	‘\000où\n\000oû\n&\000oü\n`\000o†\nò\000o°\nÕ\000o¢\000o£,\000o§Z\000o•ê\000o¶¡\000oßÚ\000o®\000o©K\000o™r\000o´û\000o¨æ\000o≠Ó\000oÆ\r\000oØ\rG\000o∞\rs\000o±\r•\000o≤\r—\000o≥\r˛\000o¥.\000oµi\000o∂ö\000o∑“\000o∏	\000oπ4\000o∫h\000oªõ\000oº \000oΩ\000\000oæ5\000oøn\000o¿ò\000o¡…\000o¬ı\000o√&\000oƒW\000o≈é\000o∆∆\000o«\000o»9\000o…t\000o ∞\000oÀÓ\000oÃ*\000oÕk\000oŒö\000oœ€\000o–\000o—V\000o“í\000o”“\000o‘\000o’L\000o÷Ä\000o◊∂\000oÿÎ\000oŸ%\000o⁄Z\000o€ë\000o‹ƒ\000o›˙\000oﬁ5\000oﬂh\000o‡ö\000o·Œ\000o‚\000o„9\000o‰p\000oÂ¢\000oÊ◊\000oÁ\000oË>\000oÈá\000oÍµ\000oÎÔ\000oÏ\000oÌI\000oÓ\000oÔß\000o‹\000oÒ\000oÚ0\000oÛc\000oÙå\000oıΩ\000oˆÍ\000o˜\"\000o¯R\000o˘Å\000o˙¥\000o˚Ì\000o¸'\000o˝Z\000o˛Ö\000oˇ∫\000p\000Ë\000p\000pS\000p\000p≠\000pﬁ\000p%\000pe\000p	§\000pﬁ\000p \000p\r X\000p ë\000p œ\000p!\r\000p!G\000p!Ä\000p!Ω\000p!ı\000p\"1\000p\"n\000p\"•\000p\"‡\000p#\000p#P\000p#ã\000p#»\000p$\000p$;\000p$w\000p $≥\000p!$Ï\000p\"%#\000p#%^\000p$%ó\000p%%Œ\000p&&\000p'&I\000p(&Å\000p)&æ\000p*&˚\000p+'2\000p,'h\000p-'§\000p.'›\000p/(\000p0(S\000p1(ç\000p2(Ã\000p3)\000p4)F\000p5)Ö\000p6)µ\000p7)Ë\000p8*\000p9*M\000p:*q\000p;*®\000p<*·\000p=+\000p>+4\000p?+m\000p@+ú\000pA+÷\000pB,\000pC,K\000pD,~\000pE,´\000pF,÷\000pG-\000pH-4\000pI-`\000pJ-í\000pK-æ\000pL-Ë\000pM.\000pN.D\000pO.q\000pP.ü\000pQ.Ã\000pR.¯\000pS/1\000pT/o\000pU/®\000pV/⁄\000pW0\000pX0H\000pY0|\000pZ0≤\000p[0Â\000p\\1\000p]1J\000p^1á\000p_1º\000p`1Â\000pa2	\000pb25\000pc2b\000pd2ã\000pe2ø\000pf2‰\000pg3\000ph3@\000pi3n\000pj3£\000pk3Œ\000pl4\000pm44\000pn4a\000po4ñ\000pp4Œ\000pq4ˇ\000pr53\000ps5d\000pt5í\000pu5∆\000pv5ı\000pw60\000px6k\000py6§\000pz6€\000p{7\000p|7>\000p}7s\000p7©\000pÄ7›\000pÅ8\n\000pÇ85\000pÉ8c\000pÑ8ó\000pÖ8√\000pÜ8˙\000pá95\000pà9k\000pâ9•\000pä9‡\000pã:	\000på:F\000pç:Å\000pé:¡\000pè;\000pë;=\000pí;z\000pì;µ\000pî;Ù\000pï<1\000pñ<l\000pó<î\000pò<Ω\000pô<˘\000pö=)\000põ=W\000pú=ë\000pù=√\000pû=˜\000pü>&\000p†>e\000p°>£\000p¢>‹\000p£?\000p§?X\000p•?í\000p¶? \000pß@\000p®@D\000p©@}\000p™@µ\000p´@Ò\000p¨A(\000p≠Ac\000pÆAü\000pØA’\000p∞B\000p±BD\000p≤B}\000p≥B∑\000p¥BÛ\000pµC.\000p∂Cd\000p∑Cü\000p∏C⁄\000pπD\000p∫DH\000pªDÇ\000pºD∫\000pΩD\000pæE-\000pøEi\000p¿E†\000p¡E‹\000p¬F\000p√FN\000pƒFÉ\000p≈Fæ\000p∆Fˆ\000p«G/\000p»Gj\000p…G£\000p G·\000pÀH\000pŒHY\000p—Hä\000p“H¿\000p’HÛ\000p÷I(\000p◊Ii\000pÿI•\000pŸIÂ\000pÁJ#\000pËJV\000pÈJå\000pÍJº\000pÎJÙ\000pÏK)\000pÌK_\000pÓKö\000pÔK◊\000pL\000pÒLS\000pÚLä\000pÛLæ\000pÙL˝\000pıM<\000pˆMs\000p˜M™\000p¯M⁄\000p˘N\r\000p˙N?\000p˚Nv\000p¸N©\000p˝N‡\000p˛O\000pˇOJ\000q\000Ov\000qOÆ\000qO·\000qP\000qPG\000qPÅ\000qPÆ\000qP„\000q	Q\000q\nQH\000qQ~\000qQ≥\000q\rQÈ\000qR \000qRX\000qRç\000qR¡\000qR˘\000qS,\000qSd\000qSï\000qS…\000qT\000qT6\000qTm\000qT¶\000qT⁄\000qU\000qU>\000qUu\000q U´\000q\"UÊ\000q#V\000q$VC\000q%Vq\000q&VØ\000q'V·\000q(W\000q)WA\000q*Ws\000q+W®\000q,WŸ\000q-X\000q.XB\000q/Xu\000q0X™\000q1X‡\000q2Y\000q3YP\000q4YÍ\000q5Z \000q6ZW\000q7Zë\000q8Z≈\000q9Z¸\000q:[3\000q;[f\000q<[ö\000q=[–\000q>\\\000q?\\9\000q@\\o\000qA\\¢\000qB\\‘\000qC]\000qD]9\000qE]m\000qF]°\000qG]”\000qH^\000qI^=\000qJ^m\000qK^û\000qL^‘\000qM_\000qN_=\000qO_t\000qP`\000qQ`í\000qRa<\000qSa“\000qTb\000qUb;\000qVcC\000qWdO\000qXdÉ\000qYdº\000qZdÒ\000q[e\000q\\eU\000q]eâ\000q^eø\000q_eÒ\000q`f*\000qbfb\000qcfé\000qdfƒ\000qefı\000qfg$\000qggP\000qhgÑ\000qig≤\000qjg‰\000qkh\000qlhG\000qmhx\000qnhÆ\000qoh·\000qpi\000qri>\000qsin\000qti§\000quiÿ\000qvj\000qwjB\000qxjz\000qyj¨\000qzjÈ\000q{k\000q}kG\000q~kÄ\000qkΩ\000qÄk˜\000qÅl.\000qÇle\000qÉl°\000qÑl⁄\000qÖm\000qÜmE\000qámx\000qàm©\000qâm€\000qän\n\000qãn=\000qånp\000qçn¢\000qén‘\000qèo\000qêo?\000qëoq\000qíoü\000qìoœ\000qîp\000qïp9\000qñpo\000qóp§\000qòp⁄\000qôq\r\000qöqD\000qõqy\000qúqÆ\000qùqÍ\000qûr!\000qürQ\000q†rÜ\000q°r∫\000q¢rÛ\000q£s(\000q§s]\000q•sé\000q¶s¿\000qßsÛ\000q®t'\000q©t]\000q™të\000q´t≈\000q¨t˜\000q≠u(\000qÆu^\000qØuô\000q∞u”\000q±v\000q≤vF\000q≥vo\000q¥v∑\000qµvÎ\000q∂w\000q∑wR\000q∏wÑ\000qπw¥\000q∫w‡\000qªx,\000qºx^\000qΩxé\000qæxΩ\000qøxÚ\000q¡y#\000q¬yT\000q√yà\000qƒy¡\000q≈y\000q∆z\000q«zG\000q»zx\000q…zß\000q z’\000qÀ{\000\000qÃ{0\000qÕ{^\000qŒ{Ü\000qœ{∫\000q–{Ó\000q—|\000q“|H\000q”|t\000q‘|°\000q’|⁄\000q÷}\000q◊}0\000qÿ}b\000qŸ}è\000q⁄}≈\000q€}˚\000q‹~-\000q›~e\000qﬁ~ó\000qﬂ~»\000q‡~ı\000q· \000q‚R\000q„|\000q‰§\000qÂÕ\000qÊ˚\000qÁÄ0\000qËÄ^\000qÈÄâ\000qÍÄæ\000qÎÄÌ\000qÏÅ\000qÌÅH\000qÓÅo\000qÔÅû\000qÅ \000qÒÅı\000qÚÇ'\000qÛÇT\000qÙÇ|\000qıÇ¶\000qˆÇ⁄\000q˜É\000q¯É5\000q˘Éf\000q˚Éí\000q¸Éª\000q˝ÉÏ\000q˛Ñ\000qˇÑ>\000r\000Ñu\000rÑß\000rÑ”\000rÖ\000rÖ=\000rÖm\000rÖù\000rÖÀ\000r	Ö¸\000r\nÜ/\000rÜc\000rÜó\000r\rÜ…\000rÜ˚\000rá.\000ráb\000ráí\000ráæ\000ráÎ\000rà\000ràN\000ràà\000rà≈\000ràÔ\000râ!\000râQ\000râÅ\000râ∂\000râÓ\000r ä*\000r!äc\000r\"äò\000r#äŒ\000r$ã\000r%ã4\000r&ãb\000r'ãë\000r(ã≈\000r*ã˙\000r+å'\000r,åb\000r-åû\000r.åŸ\000r/ç\000r0çK\000r1çâ\000r2çµ\000r3ç‡\000r4é\000r6é9\000r7éf\000r8éì\000r9éæ\000r:éÈ\000r;è\000r<èB\000r=èl\000r>èô\000r?è»\000r@è˚\000rAê(\000rBêY\000rCêâ\000rDêµ\000rEê·\000rFë\000rGëH\000rIëy\000rJë©\000rKë·\000rLí\000rMíB\000rNín\000rOí°\000rPíŒ\000rQí˙\000rRì\"\000rSìW\000rTìí\000rUì»\000rVì˝\000rWî-\000rXîa\000rYîñ\000rZî»\000r[î˜\000r\\ï'\000r]ïQ\000r^ï{\000r_ï•\000r`ïÚ\000rañ\000rbñF\000rcñp\000rdñΩ\000reñÁ\000rfó\000rgó;\000rhóÅ\000rió´\000rjó’\000rkò!\000rlòK\000rnòu\000roò¢\000rpòœ\000rqò¸\000rrô>\000rsôk\000rtôò\000ruô≈\000rvö\000rwö4\000rxöa\000ryöé\000rzöÃ\000r{ö˘\000r|õ&\000r}õS\000r~õï\000rõÿ\000rÄú\000rÅúD\000rÇúw\000rÉúÆ\000rÑúﬁ\000rÖù\000rÜù8\000ráùh\000ràù°\000râù“\000räùˇ\000rãû2\000råû]\000rçûá\000réûø\000rèû¯\000rêü\000rëüT\000ríü\000rìüÆ\000rîüﬁ\000rï†\000rñ†@\000ró†s\000rò†£\000rô†÷\000rö°	\000rõ°@\000rú°w\000rù°©\000rû°ﬂ\000rü¢\000r†¢X\000r°¢ñ\000r¢¢∆\000r£¢Ù\000r§£%\000r•£L\000r¶£Ü\000rß£Ø\000r®£⁄\000r©§\000r™§8\000r´§q\000r¨§ü\000r≠§∆\000rØ§ı\000r∞•%\000r±•X\000r≤•ä\000r≥•±\000r¥•€\000rµ¶\n\000r∂¶6\000r∑¶h\000r∏¶û\000rπ¶œ\000r∫ß\000rªßI\000rºßp\000rΩßó\000ræßƒ\000røß¸\000r¿®*\000r¡®_\000r¬®ê\000r√®º\000rƒ®Û\000r≈©$\000r∆©Y\000r«©è\000r»©ø\000r…©Ù\000r ™,\000rÀ™c\000rÃ™õ\000rÕ™œ\000rŒ´	\000rœ´7\000r—´`\000r“´è\000r”´∏\000r‘´·\000r’¨\000r÷¨B\000r◊¨r\000rÿ¨•\000rŸ¨–\000r€≠\n\000r‹≠U\000r›≠¢\000rﬁ≠Ó\000rﬂÆ;\000r‡ÆÇ\000r·ÆÀ\000r‚Ø\000r„Ø\\\000r‰Øã\000rÂØΩ\000rÊ∞\000rÁ∞}\000rË∞⁄\000rÈ±#\000rÍ±o\000rÎ± \000rÏ≤%\000rÌ≤{\000rÓ≤—\000rÔ≥\000r≥m\000rÒ≥¬\000rÚ¥\000rÙ¥S\000rı¥y\000rˆ¥û\000r˜¥ı\000r¯µ;\000r˘µÄ\000r˙µÃ\000r˚∑Ö\000r¸∑…\000r˝∏\000r˛∏w\000rˇ∏ÿ\000s\000πH\000sπ§\000sπˇ\000s∫I\000s∫Å\000s∫Í\000sª\000sªZ\000sª~\000s	ªÃ\000s\nº)\000sºÅ\000sΩ\000s\rΩ_\000sΩó\000sΩ¡\000sæ\000sæ7\000sæb\000sæì\000sæ√\000søò\000sø«\000s¿ \000s¿V\000s¿Ç\000s¿≤\000s¿›\000s¡\000s¡:\000s¡t\000s¡¶\000s ¡‚\000s!¬\000s\"¬L\000s#¬s\000s$¬û\000s%¬–\000s&¬ˇ\000s'√/\000s(√r\000s)√£\000s*√ÿ\000s+ƒ\000s,ƒG\000s-ƒî\000s.ƒΩ\000s/ƒÊ\000s0≈\000s1≈:\000s2≈o\000s3≈¢\000s4≈‘\000s5∆\000s6∆+\000s7∆T\000s8∆ä\000s9∆æ\000s:∆Ò\000s;«\000s<«E\000s=«n\000s>«ó\000s?«¿\000s@«Î\000sA»\000sB»@\000sC»t\000sD»û\000sE»œ\000sF»˙\000sG…$\000sH…P\000sI…É\000sJ…π\000sK…\000sL &\000sM U\000sN á\000sO µ\000sP Á\000sQÀ\000sRÀ@\000sSÀj\000sTÀî\000sUÀª\000sVÀÊ\000sWÃ\000sXÃ?\000sYÃe\000sZÃé\000s[Ã∂\000s\\Ã‰\000s]Õ\000s^Õ9\000s_Õf\000s`Õò\000saÕ \000sbŒ\000scŒu\000sdŒõ\000seŒ \000sfœ\000sgœ_\000shœú\000siœ‚\000sj–\000sk–O\000sl–t\000sm–°\000sn—i\000sq“\000sr“h\000ss“∫\000st“˛\000sw”<\000sx”q\000sy”®\000sz”—\000s{”¸\000s|‘P\000s‘°\000sÄ‘Ÿ\000sÅ’\000sÇ’?\000sÉ’m\000sÑ’ù\000sÖ’–\000sÜ’ˇ\000sá÷1\000sà÷\\\000sâ÷Ä\000sä÷±\000sã÷Â\000så◊\000sç◊_\000sé◊ö\000sè◊…\000sê◊˜\000síÿ#\000sîÿ[\000sïÿé\000sñÿæ\000sóÿÒ\000sòŸ+\000sôŸ]\000söŸí\000sõŸœ\000sú⁄\n\000sù⁄D\000sû⁄Ä\000sü⁄¬\000s†€\000s°€A\000s¢€}\000s£€º\000s§€¯\000s•‹2\000s¶‹l\000sß‹ù\000s®‹“\000s©›\000s™›=\000s´›s\000s¨›Æ\000s≠›„\000sÆﬁ\000sØﬁR\000s∞ﬁå\000s±ﬁ≈\000s≤ﬁ˛\000s≥ﬂ.\000s¥ﬂh\000sµﬂ§\000s∂ﬂ·\000s∑‡\000s∏‡]\000sπ‡ô\000s∫‡÷\000sª·\n\000sº·C\000sΩ·}\000sæ·∏\000sø·Ú\000s¿‚.\000s¡‚j\000s¬‚ß\000s√‚„\000sƒ„ \000s≈„^\000s∆„ô\000s«„’\000s»‰\000s…‰N\000s ‰å\000sÀ‰ \000sÃÂ\000sÕÂC\000sŒÂÅ\000sœÂæ\000s–Â¸\000s—Ê9\000s“Êx\000s”Ê∑\000s‘ÊÛ\000s’Á0\000s÷Án\000s◊Á©\000sÿÁÂ\000sŸË\"\000s⁄Ë`\000s€Ëû\000s‹Ë‹\000s›È\000sﬁÈU\000sﬂÈë\000s‡Èœ\000s·Í\n\000s‚ÍE\000s„ÍÄ\000s‰Íº\000sÂÍ˜\000sÊÎ0\000sÁÎm\000sËÎ™\000sÈÎ‚\000sÍÏ\000sÎÏS\000sÏÏå\000sÌÏ«\000sÓÌ\000sÔÌD\000sÌÄ\000sÒÌª\000sÚÌ¯\000sÛÓ7\000sÙÓr\000sıÓ∞\000sˆÓÌ\000s˜Ô)\000s¯Ôd\000s˘Ô°\000s˙Ô⁄\000s˚\000s¸F\000s˝Å\000s˛∂\000sˇÒ\000t\000Ò,\000tÒg\000tÒ§\000tÒÊ\000tÚ\000tÚ_\000tÚû\000tÚ‘\000tÛ\n\000t	Û?\000t\nÛ|\000tÛµ\000tÛÓ\000t\rÙ&\000tÙc\000tÙú\000tÙ’\000tı\r\000tıA\000tıx\000tı∂\000tıÚ\000tˆ'\000tˆX\000tˆë\000tˆ \000t˜\000t˜@\000t˜r\000t˜¶\000t˜◊\000t¯\r\000t ¯J\000t!¯}\000t\"¯∑\000t#¯Û\000t$˘'\000t%˘Z\000t&˘è\000t'˘œ\000t(˘¯\000t)˙#\000t*˙P\000t+˙Ö\000t,˚¡\000t-˝[\000t.˝ä\000t/˝∑\000t0˝‡\000t1˛\000t2˛4\000t3˛b\000t4˛ë\000t5˛–\000t6ˇ\000t7ˇ9\000t9ˇe\000t:ˇ†\000t;ˇ€\000t<\000\000t=\000E\000t>\000|\000t?\000≥\000t@\000‰\000tA\000tBN\000tCÑ\000tDæ\000tE¯\000tF-\000tGf\000tHü\000tIœ\000tJ˛\000tK5\000tLm\000tM†\000tN—\000tO\000tPB\000tQo\000tR©\000tS“\000tT\000tU<\000tVq\000tW†\000tXﬂ\000tY\000tZ<\000t[u\000t\\ß\000t]·\000t^\000t_@\000t`n\000taù\000tb‘\000tc\r\000tdA\000te}\000tfµ\000tgË\000th	'\000ti	[\000tk	â\000tl	¥\000tm	·\000tn\n\000to\n?\000tp\nw\000tq\n™\000tr\nÚ\000ts&\000ttU\000tuá\000tvπ\000twÍ\000tx \000tya\000tzà\000t{∏\000t|\r\000t}\ry\000t~\r≠\000tÃ\r‚\000tÕ\000tŒC\000tœl\000t–ò\000t—√\000t“Û\000t‘$\000t’O\000t÷\000t◊∑\000tÿË\000tŸ\000t⁄=\000t€l\000t‹ö\000t›À\000tﬁ¸\000tﬂ-\000t‡c\000t·ó\000t‚ \000t„Ù\000t‰)\000tÂP\000tÊ|\000tÁ¨\000tË·\000tÈ\000tÍR\000tÎÜ\000tÏ∫\000tÌÌ\000tÓ\"\000tÔR\000tä\000tÒπ\000tÚÒ\000tÛ)\000tÙ]\000tıè\000tˆ∆\000t˜˝\000t¯7\000t˘o\000t˙£\000t˚÷\000t¸\r\000t˝=\000t˛o\000tˇ¶\000u\000’\000u˚\000u3\000ue\000uö\000uœ\000u\000u=\000ur\000u	ü\000u\nÕ\000uÙ\000u \000u\rM\000uÜ\000u∂\000uﬁ\000u\n\000u@\000un\000uù\000u’\000u\000u:\000us\000u§\000u”\000u\000u=\000uk\000uõ\000u“\000u \000\000u!-\000u\"]\000u#î\000u$ \000u%Ù\000u&&\000u'S\000u(Ä\000u)ª\000u*\000u+ #\000u, \\\000u- å\000u. √\000u/ ˝\000u0!/\000u1!_\000u2!Ü\000u3!Ø\000u4!Ë\000u5\"\000u6\"E\000u7\"t\000u8\"•\000u9\"⁄\000u:#\000u;#B\000u<#t\000u=#¢\000u>#—\000u?$\000u@$:\000uA$m\000uB$™\000uC$‡\000uD%\000uE%H\000uF%u\000uG%©\000uH%Ÿ\000uI&\000uJ&<\000uK&v\000uL&¨\000uM&‰\000uN'\000uO'Q\000uP'z\000uQ'¶\000uR'÷\000uS(\000uT(4\000uU(c\000uV(é\000uW(∏\000uX(È\000uY)\000uZ)F\000u[)u\000u\\)û\000u])ƒ\000u^)˜\000u_*(\000u`*Y\000ua*ã\000ub*≥\000uc*Ô\000ud+(\000ue+V\000uf+ç\000ug+≈\000uh+˛\000ui,1\000uj,d\000uk,î\000ul,À\000um-\000un-;\000uo-n\000up-£\000uq-Ÿ\000ur.\000us.D\000ut.}\000uu.≤\000uv.‡\000uw/\r\000ux/>\000uy/k\000uz/ù\000u{/‘\000u|0\000u}0@\000u~0k\000u0Ø\000uÄ0·\000uÅ1\000uÇ1O\000uÉ1|\000uÑ1¨\000uÖ1È\000uÜ2$\000uá2R\000uà2{\000uâ2®\000uä2÷\000uã3\000\000uå33\000uç3_\000ué3ë\000uè3ª\000uê3Í\000uë4!\000uí4W\000uì4ã\000uî4¡\000uï4\000uñ5$\000uó5Z\000uò5Ñ\000uô5±\000uö5„\000uõ6\000uú6Q\000uù6Å\000uû6≥\000uü6È\000u†7\000u°7T\000u¢7ã\000u£7¬\000u§7¯\000u•8.\000u¶8i\000uß8°\000u®8◊\000u©9\000u™9C\000u´9~\000u¨9µ\000u≠9Ï\000uÆ:\"\000uØ:X\000u∞:ì\000u±:¬\000u≤:˙\000u≥;0\000u¥;e\000uµ;ô\000u∂;‘\000u∑<\000u∏<>\000uπ<t\000u∫<©\000uª<ﬂ\000uº=\000uΩ=I\000uæ=z\000uø=Ø\000u¿=‚\000u¡>\000u¬>T\000u√>á\000uƒ>“\000u≈?\n\000u∆?E\000u«?|\000u»?∞\000u…?‚\000u @\000uÀ@L\000uÃ@n\000uÕ@õ\000uŒ@Ÿ\000uœA\r\000u–AA\000u—Ay\000u“A´\000u”A·\000u‘B\000u’BH\000u÷Bx\000u◊B´\000uÿBﬁ\000uŸC\000u⁄CJ\000u€C}\000u‹C∞\000u›C‚\000uﬁD\000uﬂDJ\000u·Dw\000u‚DØ\000u„D˘\000u‰EA\000uÂEâ\000uÊE◊\000uÁF'\000uËFœ\000uÈG\000uÍG:\000uÎGz\000uÏGπ\000uÌG˛\000uÓH1\000uH_\000uÚHí\000uÙH \000u¯H˚\000u˘I=\000u¸IÄ\000u˝IÕ\000u˛Iˇ\000uˇJ/\000v\000Jc\000vJ≠\000vJˇ\000vK1\000vKh\000vKù\000vK÷\000vL\000vLB\000v	Lw\000v\nL®\000vLÍ\000vM\000v\rMR\000vMà\000vMΩ\000vMÒ\000vN0\000vNp\000vNú\000vNœ\000vO\000vO8\000vOo\000vO§\000vOÿ\000vP\000vPA\000vPx\000vP∑\000vPˆ\000vQ1\000v Ql\000v!Qß\000v\"Qﬁ\000v#R\000v$RP\000v%RÖ\000v&R¬\000v'Rˇ\000v(S8\000v)Sv\000v*S¥\000v+SÓ\000v,T \000v-TR\000v.T~\000v/T´\000v0T‰\000v1U\000v2UB\000v3Ur\000v4U§\000v5U“\000v6V\000v7VM\000v8VÜ\000v9VΩ\000v:VË\000v;W\000v<W;\000v=We\000v>Wò\000v?W \000v@WÛ\000vAX!\000vBXK\000vCXw\000vDXß\000vEX€\000vFY\000vGY7\000vHYd\000vIYó\000vJYœ\000vKZ\000vLZ<\000vMZq\000vNZß\000vRZ⁄\000vS[\000vU[I\000vV[z\000vW[•\000vX[Ÿ\000vY\\\000vZ\\K\000v[\\{\000v\\\\µ\000v]\\·\000v^]\000v_]O\000v`]â\000va]∏\000vb]Ò\000vc^+\000vd^g\000ve^ô\000vf^ƒ\000vg_\000vh_E\000vi_p\000vj_§\000vk_”\000vl`\000vm`3\000vn`^\000vo`è\000vp`µ\000vq`Ê\000vra\000vsaN\000vtaÖ\000vvaµ\000vwaÁ\000vxb\000vybW\000vzbç\000v{b¬\000v|bÓ\000v}c\000v~cT\000vcç\000vÄcΩ\000vÅcÌ\000vÇd \000vÉdL\000vÑdÖ\000vÖdµ\000vÜdÎ\000váe\000vàeQ\000vâeÑ\000väe∑\000våeÍ\000vçf \000véfV\000vèfè\000vêf≈\000vëfˆ\000víg'\000vìg]\000vîgí\000vïgø\000vñgı\000vóh+\000vòhb\000vôhá\000vöh¡\000võhÏ\000vúi\000vùiI\000vûiw\000vüi¢\000v†iÁ\000v°j\"\000v¢jU\000v£jñ\000v§j«\000v•jˆ\000v¶k(\000vßkZ\000v®kí\000v©k◊\000v™l\000v´l3\000v¨lg\000v≠l°\000vÆl—\000vØm\000v∞m1\000v≤m`\000v≥më\000v¥m…\000vµn\000\000v∂n:\000v∑nw\000v∏nµ\000vπn˜\000v∫o-\000vªoW\000vºoÜ\000vΩo≤\000væo„\000vøp\000v¿pN\000v¡p|\000v¬p∞\000v√p‚\000vƒq-\000v≈qc\000v∆qû\000v«q⁄\000v»r\000v…rR\000v rè\000vÀr \000vÃs\000vÕsQ\000vŒsà\000vœs”\000v–t\000v—t>\000v“tp\000v”t°\000v‘tÕ\000v’tˆ\000v÷u'\000v◊uS\000vÿu†\000vŸuÏ\000v⁄v0\000v€ve\000v‹v¢\000v›vË\000vﬁw\000vﬂw=\000v‡w\000v·w±\000v‚w‰\000v„x\000v‰xE\000vÂxx\000vÊx™\000vÁx€\000vËy\000vÈyJ\000vÍyï\000vÎy¡\000vÏz\000vÌz?\000vÓzy\000vÔz©\000vz€\000vÒ{\000vÚ{/\000vÛ{\\\000vÙ{¶\000vı{‹\000vˆ|#\000v˜|M\000v¯|{\000v˘|Ø\000v˙}(\000v˛}ó\000vˇ}∆\000w}Ó\000w~ \000w~Q\000w~~\000w~¨\000w\r~ﬁ\000w\000wL\000wz\000w≠\000w⁄\000wÄ \000wÄQ\000wÄê\000wÄ⁄\000wÅ2\000wÅâ\000wÅ€\000wÇ2\000w!Çâ\000w\"Çæ\000w#Ç¯\000w$É!\000w%ÉP\000w&ÉÄ\000w'É≥\000w(ÉÏ\000w)Ñ\000w*ÑE\000w+Ñk\000w,Ñí\000w-Ñ≈\000w.Ñ\000w/Ö!\000w0ÖP\000w1Ö\000w2Ö±\000w3Ö€\000w4Ü\000w5ÜM\000w6ÜÄ\000w7Ü¨\000w8Ü‚\000w9á\000w:áA\000w;án\000w<áû\000w=á›\000w?à\000wAàZ\000wBàò\000wCà≈\000wDà¯\000wEâ-\000wFâ]\000wGâà\000wHâ≥\000wJâ‚\000wKä\000wLä?\000wMär\000wNäö\000wOä–\000wPä˜\000wRã9\000wSãf\000wTãí\000wUã¿\000wVãÏ\000wWå\000wXåE\000wYåp\000wZåú\000w[å»\000w\\åÛ\000w]ç\000w^çc\000w_çë\000w`çª\000waçÌ\000wcé#\000wdéL\000weéw\000wfé•\000wgé”\000whè\000wiè2\000wjèb\000wkèê\000wlè¿\000wmèÏ\000wnê\000woêD\000wpên\000wqêπ\000wrê˛\000wsëD\000wtët\000wuë¥\000wvëﬂ\000wwí	\000wxí7\000wyíd\000wzíí\000w{íæ\000w|íÏ\000w}ì\000w~ìD\000wìr\000wÄìü\000wÅìÀ\000wÇì˘\000wÑî(\000wÖîa\000wÜîé\000wáîæ\000wàîÍ\000wâï\000wäïD\000wãïp\000wåïô\000wçï»\000wéïÛ\000wèñ \000wêñL\000wëñy\000wíñ•\000wìñÌ\000wîó\000wïóO\000wñóÄ\000wóó¢\000wòó—\000wôò\000wöò/\000wõò^\000wúòé\000wùò«\000wûòÙ\000wüô!\000w†ôK\000w°ôã\000w¢ô”\000w£ö\000w§ö9\000w•ök\000w¶öõ\000wßöÕ\000w®õ\000\000w©õ1\000w™õZ\000w´õÖ\000w¨õ≠\000w≠õÔ\000wÆú\000wØúC\000w∞úo\000w±ú§\000w≤úŒ\000w≥ú˛\000w¥ù+\000wµùV\000w∂ùú\000w∑ù≈\000w∏ù˚\000wπû?\000w∫ûm\000wªûö\000wºûÀ\000wΩû˝\000wæü.\000wøü`\000w¿üû\000w¡ü÷\000w¬†\000w√†1\000wƒ†\\\000w≈†ç\000w∆†¡\000w«†ı\000w»°.\000w…°d\000w °õ\000wÀ°À\000wÃ°ˇ\000wÕ¢*\000wŒ¢[\000wœ¢•\000w–¢Û\000w—£&\000w“£R\000w”£Å\000w‘£®\000w’£–\000w÷£˜\000w◊§ \000wÿ§N\000wŸ§{\000w⁄§£\000w€§Œ\000w‹§¯\000w›•!\000wﬁ•P\000wﬂ•y\000w‡•§\000w·•Ã\000w‚•¯\000w„¶$\000w‰¶\\\000wÂ¶ï\000wÊ¶Õ\000wÁß\000wËß;\000wÈßc\000wÍß•\000wÎßÏ\000wÏ®#\000wÌ®S\000wÓ®ã\000wÔ®÷\000w©\000wÒ©A\000wÚ©q\000wÛ©°\000wÙ©Õ\000wı©˛\000wˆ™3\000w¯™o\000w˘™ü\000w˙™‡\000w˚´*\000w¸´j\000w˝´ó\000wˇ´ƒ\000x\000´È\000x¨\000x¨:\000x¨i\000x¨ó\000x¨«\000x¨Û\000x≠&\000x≠^\000x	≠ê\000x\n≠¿\000x≠Î\000xÆ#\000x\rÆN\000xÆr\000xÆ™\000xÆÍ\000xØ\000xØF\000xØs\000xØ´\000xØ‹\000x∞\000x∞A\000x∞{\000x∞≤\000x∞‚\000x±\000x±<\000x±r\000x±∫\000x±¸\000x ≤=\000x!≤~\000x\"≤ª\000x#≤˚\000x$≥@\000x%≥p\000x&≥¨\000x'≥È\000x)¥%\000x*¥W\000x+¥Ö\000x,¥¥\000x-¥‰\000x.µ)\000x/µ_\000x0µñ\000x1µ…\000x2∂\000x3∂2\000x4∂s\000x5∂ß\000x6∂⁄\000x7∑\000x8∑K\000x9∑É\000x:∑ø\000x;∑ı\000x<∏(\000x=∏\\\000x>∏õ\000x?∏⁄\000x@π\000xAπX\000xBπá\000xCπ∑\000xDπÎ\000xE∫ \000xF∫S\000xG∫£\000xH∫œ\000xJ∫˛\000xKª(\000xMªg\000xNªï\000xOªÕ\000xPª˚\000xQº-\000xRºv\000xSºª\000xTºÂ\000xUΩ\000xWΩI\000xXΩy\000xYΩß\000xZø9\000x[¿l\000x\\¿©\000x]¿‚\000x^¡\000x_¡J\000x`¡x\000xa¡ù\000xb¬&\000xc¬Z\000xd¬Ö\000xe¬º\000xf¬¯\000xg√\000xh√R\000xi√É\000xj√µ\000xk√Ú\000xlƒ\"\000xmƒY\000xnƒê\000xoƒ…\000xpƒ˙\000xq≈1\000xr≈n\000xs≈†\000xt≈œ\000xu∆	\000xv∆5\000xw∆`\000xx∆â\000xy∆ª\000xz∆Ì\000x{«%\000x|«\\\000x}«ë\000x~«≈\000x«˘\000xÄ»(\000xÅ»f\000xÇ»ú\000xÉ»Ã\000xÑ»¯\000xÖ…+\000xÜ…X\000xá…É\000xà…±\000xâ…›\000xä \000xã 9\000xå f\000xç ì\000xé Ω\000xè Ò\000xêÀ\000xëÀJ\000xíÀs\000xìÀ§\000xîÀﬁ\000xïÃ\000xñÃ:\000xóÃh\000xòÃñ\000xôÃ…\000xöÃÛ\000xõÕ!\000xúÕU\000xûÕé\000xüÕø\000x†ÕÛ\000x°Œ#\000x¢ŒL\000x£Œv\000x§Œ¢\000x•ŒÀ\000x¶Œ˙\000xßœ-\000x®œb\000x©œç\000x™œ¡\000x´œÒ\000x¨–#\000x≠–T\000xÆ–à\000xØ–≤\000x∞–‹\000x±—\000x≤—3\000x≥—f\000x¥—î\000xµ—√\000x∂—Ï\000x∑“\000x∏“I\000xπ“q\000x∫“û\000xª“Ã\000xº“˝\000xΩ”'\000xæ”h\000xø”í\000x¿”√\000x¡”Ò\000x¬‘\000x√‘M\000xƒ‘|\000x≈‘¥\000x∆‘ﬁ\000x«’\000x ’7\000xÀ’d\000xÃ’ú\000xÕ’‘\000xŒ÷\000xœ÷A\000x–÷Ä\000x—÷∑\000x“÷Ë\000x”◊\000x‘◊C\000x’◊o\000xÿ◊°\000xŸ◊…\000x⁄ÿ\000x€ÿ9\000x‹ÿh\000x›ÿù\000xﬁÿ–\000xﬂÿ¸\000x‡Ÿ*\000x·ŸY\000x‚Ÿò\000x„ŸÀ\000x‰Ÿˇ\000xÊ⁄0\000xÁ⁄b\000xË⁄ê\000xÈ⁄Ã\000xÎ€\000\000xÏ€-\000xÌ€^\000xÓ€ê\000xÔ€«\000x€˚\000xÒ‹1\000xÚ‹a\000xÙ‹ï\000xˆ‹»\000x˜‹¯\000x¯›&\000x˘›]\000x˙›ç\000x˚›æ\000x¸›Î\000x˝ﬁ\000x˛ﬁL\000xˇﬁ|\000y\000ﬁÆ\000yﬁﬂ\000yﬂ\r\000yﬂ=\000yﬂr\000yﬂß\000yﬂ‚\000y‡\000y‡E\000y	‡{\000y\n‡Ø\000y‡‡\000y·\000y\r·F\000y·x\000y·≠\000y··\000y‚\000y‚F\000y‚x\000y‚´\000y‚ﬁ\000y„\000y„N\000y„}\000y„∞\000y„‚\000y‰\000y‰D\000y‰z\000y‰Æ\000y‰„\000y Â\000y!ÂB\000y\"Âl\000y#Âò\000y$Â≈\000y%ÂÛ\000y&Ê\"\000y'ÊS\000y(ÊÄ\000y)Ê≤\000y*ÊÂ\000y+Á\000y,ÁB\000y-Ás\000y.Á†\000y/Á‘\000y0Ë\000y1Ë3\000y2Ëf\000y3Ëñ\000y4Ë¿\000y5Ë\000y6È\000y7ÈQ\000y8ÈÄ\000y9È∞\000y:ÈÈ\000y;Í\000y<ÍP\000y=ÍÖ\000y>Íµ\000y?ÍÁ\000y@Î\000yAÎI\000yBÎx\000yCÎ¨\000yDÎ⁄\000yEÏ\000yFÏ?\000yGÏn\000yHÏ°\000yIÏ‘\000yJÌ\n\000yKÌ<\000yLÌl\000yMÌú\000yNÌ–\000yOÓ\000yPÓ4\000yQÓd\000yRÓï\000ySÓ…\000yTÓ˚\000yUÔ,\000yVÔa\000yWÔñ\000yXÔ≈\000yYÔÙ\000yZ%\000y[Y\000y\\å\000y]ø\000y^\000y_Ò'\000y`ÒU\000yaÒì\000ybÒ¿\000ycÒı\000ydÚ4\000yeÚw\000yfÚ∂\000ygÚ¯\000yhÛ&\000yiÛO\000yjÛì\000ykÛ÷\000ylÙ\n\000ymÙ:\000ynÙt\000ypÙ±\000yqÙ⁄\000yrı\000ysıY\000ytıò\000yuı”\000yvˆ\000ywˆJ\000yxˆÉ\000yyˆΩ\000yzˆˆ\000y{˜3\000y|˜q\000y}˜Æ\000y~˜Ï\000y¯+\000yÄ¯i\000yÅ¯®\000yÇ¯È\000yÉ˘)\000yÑ˘k\000yÖ˘ó\000yÜ˘Ÿ\000yá˙\000yà˙I\000yâ˙z\000yä˙£\000yã˙‘\000yå˚\000yç˚8\000yé˚f\000yè˚ì\000yê˚º\000yë˚Ë\000yí¸%\000yì¸P\000yî¸Ü\000yï¸≥\000yñ¸„\000yó˝\000yò˝@\000yô˝j\000yö˝í\000yõ˝¬\000yú˝Ò\000yù˛0\000yû˛k\000yü˛ò\000y†˛ \000y°ˇ\000\000y¢ˇ3\000y£ˇ`\000y§ˇã\000y•ˇµ\000y¶ˇ‹\000yß\000\000y®\000:\000y©\000d\000y™\000ñ\000y´\000ƒ\000y¨\000\000y≠\000yÆM\000yØv\000y∞ü\000y±”\000y≤˛\000y≥#\000y¥S\000yµ\000y∂®\000y∑‘\000y∏\000\000yπ+\000y∫W\000yªÄ\000yº∞\000yΩﬂ\000yæ\000y¿K\000y¡|\000y¬¨\000yƒ⁄\000y≈\000y∆0\000y«\\\000y»ê\000y…√\000y ı\000yÀ'\000yÃU\000yÕç\000yŒæ\000yœ„\000y–\000y—2\000y“X\000y”ã\000y‘º\000y’Ô\000y÷$\000y◊X\000yÿà\000yŸπ\000y⁄Ì\000y€	\000y‹	G\000y›	y\000yﬁ	°\000yﬂ	»\000y‡	Ú\000y·\n)\000y‚\nQ\000y„\nÑ\000y‰\n©\000yÂ\nœ\000yÊ\000yÁS\000yËë\000yÈŒ\000yÍˇ\000yÎ0\000yÏ\\\000yÌã\000yÓª\000yÔÈ\000y\r\000yÒ\rJ\000yÚ\rx\000yÛ\r§\000yÙ\r“\000yı\000yˆ-\000y˜^\000y¯å\000y˘∂\000y˙·\000y˚\000y¸8\000y˝`\000y˛ç\000yˇª\000z\000„\000z\n\000z0\000ze\000zâ\000z∞\000z›\000z\000z2\000z	_\000z\nã\000z∏\000zÂ\000z\r\r\000z6\000za\000zà\000zÆ\000z’\000z˘\000z#\000zP\000z{\000zß\000z—\000z˘\000zB\000zã\000z‘\000z ˛\000z$(\000z%U\000z&{\000z'†\000z(Œ\000z)\000z*5\000z+r\000z,†\000z-À\000z.ˆ\000z/1\000z0d\000z1ó\000z2≈\000z3˘\000z4&\000z5W\000z6à\000z7ø\000z8Û\000z9 \000z:R\000z;|\000z<Æ\000z=ﬂ\000z>\000z?F\000z@Å\000zA≤\000zBË\000zC$\000zDO\000zEw\000zF¨\000zG„\000zH\000zI@\000zJi\000zK¢\000zLÃ\000zM˝\000zN7\000zOe\000zPß\000zQ⁄\000zR\000zS>\000zTh\000zUò\000zV√\000zW\000zX'\000zYT\000zZÇ\000z[±\000z\\Î\000z] \000z^ L\000z_ u\000z` µ\000za Ë\000zb!\000zc!;\000zd!g\000ze!å\000zf!∏\000zg!Á\000zh\"\000zi\"B\000zj\"t\000zk\"ù\000zl\"¡\000zm\"Ò\000zn#!\000zo#Y\000zp#ä\000zq#∂\000zr#Î\000zs$\"\000zt$T\000zu$Ö\000zv$∞\000zw$⁄\000zx%\000zy%<\000zz%w\000z{%Ø\000z|%Í\000z}&(\000z~&j\000z&ù\000zÄ&◊\000zÅ'\000zÇ'>\000zÉ'y\000zÑ'•\000zÖ'‘\000zÜ(\000zá(,\000zà(X\000zâ(Ä\000zä(Æ\000zã(Ÿ\000zå)\000\000zç)4\000zé)h\000zè)ó\000zê)ÿ\000zë*\000zí*[\000zì*ü\000zî*ﬂ\000zï+\000zñ+U\000zó+å\000zò+À\000zö+Ù\000zõ,\000zû,D\000zü,}\000z†,≥\000z°,Â\000z¢-\000z£-R\000z§-É\000z•-√\000z¶.\000zß./\000z®.Y\000z©.ò\000z™.À\000z´/\000\000z¨/5\000z≠/u\000zÆ/∂\000zØ/˘\000z∞0=\000z±0q\000z≤0≥\000z≥0Û\000z¥17\000zµ1y\000z∂1π\000z∑1Â\000z∏2\000zπ2=\000z∫2~\000zª2´\000zº2·\000zΩ3\000zæ3=\000zø3j\000z¿3ó\000z¡3Ã\000z¬3ˇ\000z√42\000zƒ4m\000z≈4¶\000z∆4’\000z«5\000\000z»52\000z…5_\000z 5ö\000zÀ5œ\000zÃ6\000\000zÕ6;\000zŒ6r\000zœ6Æ\000z–6Â\000z—7\000z“7G\000z”7y\000z‘7µ\000z’7„\000z÷8\000z◊8?\000zÿ8h\000zŸ8ê\000z⁄8ƒ\000z€8˜\000z‹9\000z›9P\000zﬁ9}\000zﬂ9™\000z‡9Ÿ\000z·:\000z‚:D\000z„:x\000z‰:≠\000zÂ:Í\000zÊ;\000zÁ;I\000zË;q\000zÈ;•\000zÍ;‹\000zÎ<\000zÏ<R\000zÓ<ç\000zÔ<æ\000z<È\000zÒ=\000zÚ=I\000zÛ={\000zÙ=´\000zı=◊\000zˆ>\000z˜>D\000z¯>x\000z˘>ß\000z˙>ÿ\000z˚?\r\000z¸?>\000z˝?e\000z˛?î\000zˇ?∆\000{\000?Û\000{@+\000{@c\000{@ù\000{@÷\000{A\000{AL\000{AÑ\000{	AÆ\000{AÍ\000{\rB0\000{B•\000{B‘\000{Bˇ\000{C.\000{CX\000{Cä\000{Cπ\000{CÂ\000{D\000{DB\000{Ds\000{Dü\000{D…\000{ D¯\000{!E#\000{\"E_\000{#Eí\000{$Eæ\000{%E˜\000{&F+\000{'Fe\000{(Fê\000{)F¬\000{*FÒ\000{+G(\000{,GY\000{-Gä\000{.Gπ\000{/GÏ\000{0H\000{1HG\000{2Hv\000{3HÆ\000{4Hﬁ\000{5I\000{6IF\000{7Ip\000{8I£\000{9I⁄\000{:J\000{;J;\000{<Jp\000{=J§\000{>J◊\000{?K\000{@KH\000{AKx\000{BK¨\000{CK‹\000{DL\000{ELQ\000{FLÑ\000{GL√\000{HLÙ\000{IM!\000{JMT\000{KMÄ\000{LM∑\000{MMÈ\000{NN\000{ONU\000{PNÇ\000{QN´\000{RN‹\000{SO\000{TO;\000{UOh\000{VOò\000{XO–\000{YO˘\000{ZP*\000{[PZ\000{\\Pë\000{]P¡\000{^PÒ\000{_Q)\000{`QW\000{aQí\000{bQÀ\000{cR	\000{dRG\000{eRÅ\000{fRΩ\000{gR˜\000{hS6\000{iSu\000{jS∞\000{kS‰\000{lT\000{mTM\000{nTÇ\000{oTπ\000{pT\000{qU2\000{sUt\000{tU∏\000{uU¸\000{vV=\000{wVf\000{xVö\000{yVË\000{zW4\000{{Wa\000{|Wß\000{}WŸ\000{~X \000{Xc\000{ÄXú\000{ÅX‚\000{ÇY\000{ÉYa\000{ÑYß\000{ÖY„\000{ÜZ\000{áZY\000{àZô\000{âZ‹\000{ä[\000{ã[V\000{å[ï\000{ç[◊\000{é\\\000{è\\X\000{ê\\ñ\000{ë\\◊\000{í]\000{ì]X\000{î]ô\000{ï]÷\000{ñ^\000{ó^U\000{ò^ï\000{ô^’\000{ö_\000{õ_P\000{ú_è\000{û_Œ\000{ü`\r\000{†`H\000{°`Ü\000{¢`ƒ\000{£a\000{§a5\000{•ak\000{¶aú\000{ßaﬂ\000{®b\000{©bK\000{™bz\000{´b£\000{¨b”\000{≠c\000{Æc9\000{Øcb\000{∞cë\000{≤cª\000{¥cˆ\000{µd$\000{∂de\000{∑dô\000{∏dÃ\000{πd˝\000{∫e)\000{ªec\000{ºe¢\000{Ωe”\000{æe¸\000{øf-\000{¿f]\000{¡fû\000{¬f„\000{√g/\000{ƒg_\000{≈gç\000{∆gø\000{«gÙ\000{»h\"\000{…hR\000{ hã\000{Àhæ\000{ÃhÚ\000{Õi'\000{Œi]\000{œiè\000{–iº\000{—iÔ\000{“j\000{”jF\000{‘j}\000{’j¨\000{÷j◊\000{◊k	\000{ÿk<\000{Ÿke\000{⁄kô\000{€k’\000{‹l\000{›l1\000{ﬁl]\000{ﬂlâ\000{‡lø\000{·m\000\000{‚m-\000{„mb\000{‰mì\000{ÂmÕ\000{Êm˝\000{Án,\000{Ën\\\000{Ènñ\000{Ín«\000{ÎnÙ\000{Ïo\000{ÌoP\000{ÓoÄ\000{Ôo∫\000{oÚ\000{Òp+\000{Úp`\000{Ûpù\000{Ùp«\000{ıpÒ\000{ˆq\000{˜qM\000{¯q~\000{˘qØ\000{˚q‡\000{¸r\000{˝r,\000{˛r^\000{ˇrå\000|\000r€\000|s\000|sB\000|sp\000|s§\000|s⁄\000|t\000|t;\000|tf\000|	tê\000|\nt’\000|u\000|u6\000|\rug\000|uõ\000|u“\000|v\000\000|v%\000|vR\000|vÇ\000|v®\000|v◊\000|w\000|w-\000|wY\000|wÅ\000|wÆ\000|w◊\000|x\000|x-\000| xZ\000|!xã\000|\"xæ\000|#xÏ\000|$y\000|%y@\000|&yk\000|'y¢\000|(y‘\000|)z	\000|*z>\000|+zr\000|,z°\000|-z“\000|.{\000|/{0\000|0{\\\000|1{ë\000|2{≈\000|3|\000|4|2\000|5|i\000|6|ö\000|7|Ã\000|8|¸\000|9}+\000|:}b\000|;}ó\000|<}‘\000|=~\000|>~N\000|?~Ö\000|@~µ\000|A~·\000|B	\000|C)\000|DN\000|Ex\000|F¶\000|G›\000|HÄ\n\000|IÄ<\000|JÄm\000|KÄù\000|LÄœ\000|MÄˇ\000|OÅ0\000|PÅc\000|QÅí\000|RÅ≤\000|SÅË\000|TÇ\000|UÇ?\000|VÇ}\000|WÇª\000|XÇ˘\000|YÉ7\000|ZÉr\000|[É≠\000|\\ÉÍ\000|]Ñ'\000|^Ñ·\000|_Ö\000|`ÖW\000|aÖè\000|lÖ«\000|mÜ\000|nÜ=\000|oÜu\000|pÜ≠\000|qÜ‡\000|rá\000|sáF\000|táy\000|uá®\000|vá‘\000|wà\000|xà5\000|yàf\000|zàî\000|{à≈\000||àÙ\000|}â#\000|~âT\000|âã\000|Äâ≈\000|Åâ˛\000|Çä7\000|Éäp\000|Ñä°\000|Öä’\000|Üã\000|áã<\000|àãp\000|âã¢\000|äã“\000|ãåG\000|åì*\000|çö\000|é£‹\000|è™ø\000|ê±†\000|ëªq\000|í≈@\000|ì≈h\000|î≈ç\000|ï≈ˇ\000|ñÃﬂ\000|ó”æ\000|ò›ã\000|ö‰k\000|õÎI\000|úı\000|ù˛„\000|ûˇU\000|ü5\000|†\r\000|°·\000|¢¡\000|£$ü\000|§$ƒ\000|•.í\000|¶8^\000|ß8–\000|®?∞\000|©Fè\000|™P\\\000|´PÅ\000|¨Wa\000|≠^?\000|Æh\r\000|ØqŸ\000|∞r\000|±rF\000|≤ru\000|≥r®\000|¥rﬁ\000|µs\000|∂s,\000|∑sT\000|∏s|\000|πs¢\000|øs–\000|¿s˘\000|¡t!\000|¬tM\000|√ty\000|ƒt£\000|≈t“\000|∆u\000|«uC\000|»up\000|…u°\000| uœ\000|Õu˜\000|Œv(\000|œvO\000|–vv\000|—~©\000|”~—\000|‘~˝\000|’T\000|÷ã\000|◊ÿ\000|ÿÄ%\000|ŸÄu\000|⁄Ä…\000|€Å\000|‹Åk\000|›Åø\000|ﬁÇ\000|ﬂÇU\000|‡Ç´\000|·Çˇ\000|„ÉX\000|‰É±\000|ÂÑ\000|ÊÑ\\\000|ÁÑ∞\000|ËÖ\000|ÈÖ^\000|ÍÖ≤\000|ÎÖ˚\000|ÏÜN\000|ÌÜ†\000|ÓÜ¯\000|ÔáM\000|á£\000|ÒáÔ\000|Úà7\000|Ûàê\000|Ùà‰\000|ıâ6\000|ˆâç\000|˜â‰\000|¯ä7\000|˘äè\000|˙äÊ\000|˚ã\000|¸ãr\000|˝ã…\000|˛å\000|ˇåq\000}\000å≈\000}ç\000}çw\000}çÃ\000}é\000}éj\000}éø\000}è\000}èc\000}	è∏\000}\nê\000}êZ\000}ê®\000}\rê˙\000}ëM\000}ëì\000}ëË\000}í;\000}íí\000}íÁ\000}ì:\000}ìî\000}ìÍ\000}îC\000}îú\000}îı\000}ï>\000}ïà\000}ï‘\000}ñ\"\000}ñu\000}ñÃ\000} ó\000}!ót\000}\"óÀ\000}#ò\000}$òk\000}%òæ\000}&ô\000}'ô^\000}(ô¥\000})ö	\000}*öY\000}+öÆ\000},õ\000}-õL\000}.õô\000}/õﬂ\000}0ú.\000}1ú|\000}2ú–\000}3ù!\000}4ùs\000}5ùª\000}6û\000}7ûQ\000}8ûú\000}9û\000}:üB\000};üô\000}<ü\000}=†C\000}>†v\000}?†µ\000}@†›\000}A°\000}B°j\000}C°«\000}D¢\000}E¢=\000}F¢t\000}G¢ß\000}H¢·\000}I£\000}J£A\000}L£k\000}M£ù\000}N£Œ\000}O£ˇ\000}P§8\000}Q§k\000}R§ó\000}S§¿\000}T§˜\000}U•7\000}V•g\000}W•ú\000}X•–\000}Y¶\000}Z¶5\000}\\¶l\000}¡¶õ\000}¬¶»\000}√¶˘\000}ƒß*\000}≈ßX\000}∆ßá\000}«ß∂\000}»ßÁ\000}…®\000} ®M\000}À®Å\000}Ã®≥\000}Õ®ﬂ\000}Œ©\000}œ©0\000}–©[\000}—©É\000}“©¨\000}”©‘\000}‘™\000}’™A\000}÷™w\000}◊™¨\000}ÿ™·\000}Ÿ´\000}⁄´A\000}€´k\000}‹´ó\000}›´√\000}ﬁ´Ì\000}ﬂ¨\000}‡¨J\000}·¨|\000}‚¨Ø\000}„¨‡\000}‰≠\000}Â≠?\000}Ê≠g\000}Á≠ö\000}Ë≠√\000}È≠Û\000}ÍÆ5\000}ÎÆ]\000}ÏÆê\000}ÌÆµ\000}ÓÆ„\000}ÔØ\000}ØE\000}ÒØx\000}ÚØ´\000}ÛØ⁄\000}Ù∞\000}ı∞,\000}ˆ∞\\\000}˜∞í\000}¯∞√\000}˘∞Ú\000}˙±\"\000}˚±U\000}¸±Ü\000}˝±≥\000}˛±Ÿ\000}ˇ≤\000~\000≤+\000~≤Z\000~≤ä\000~≤¡\000~≤Ù\000~≥*\000~≥\\\000~≥ç\000~≥Ω\000~	≥˜\000~\n¥%\000~¥W\000~¥ä\000~\r¥µ\000~¥‡\000~µ\000~µ@\000~µÅ\000~µ≥\000~µÎ\000~∂\000~∂E\000~∂Å\000~∂≤\000~∂‰\000~∑\000~∑R\000~∑ã\000~∑≈\000~∑ˇ\000~∏8\000~∏t\000~ ∏¥\000~!∏Û\000~\"π-\000~#πd\000~$πò\000~%πÀ\000~&∫\000~'∫4\000~(∫e\000~)∫ï\000~*∫‘\000~+ª\000~,ªS\000~-ªì\000~.ª”\000~/º\000~0ºF\000~1º{\000~2º≤\000~3ºÈ\000~4Ω\000~5ΩP\000~6Ωé\000~7ΩÀ\000~8æ	\000~9æE\000~:æm\000~;æ°\000~<æ◊\000~=ø\000~>ø>\000~?øs\000~@ø¶\000~Aø”\000~Bø¸\000~C¿B\000~D¿x\000~E¿°\000~F¿÷\000~G¡\000~H¡;\000~I¡p\000~J¡ù\000~K¡“\000~L¬	\000~M¬6\000~N¬c\000~O¬ï\000~P¬À\000~Q¬˛\000~R√-\000~S√`\000~T√ê\000~U√¿\000~V√¯\000~Wƒ*\000~Xƒ[\000~Yƒë\000~Zƒ√\000~[ƒÌ\000~\\≈\000~]≈?\000~^≈y\000~_≈ß\000~`≈⁄\000~a∆	\000~b∆<\000~c∆m\000~d∆û\000~e∆Œ\000~f«\000\000~g«4\000~h«_\000~i«ñ\000~j«¿\000~k«Î\000~l»\000~m»N\000~n»Ä\000~o»Æ\000~p»ﬂ\000~q…\000~r…<\000~s…p\000~u…™\000~v…‚\000~w !\000~x N\000~y }\000~z ©\000~{ —\000~|À\000~}À8\000~~Ào\000~Àú\000~ÄÀ«\000~ÅÃ\000~ÇÃ3\000~ÉÃb\000~ÑÃò\000~ÖÃ“\000~ÜÃ˛\000~áÕ(\000~àÕT\000~âÕ\000~äÕ¨\000~ãÕ›\000~åŒ\000~çŒA\000~éŒw\000~èŒ®\000~êŒ€\000~ëœ\000~íœ9\000~ìœd\000~îœê\000~ïœº\000~ñœÁ\000~ò–\000~ô–C\000~ö–}\000~õ–¥\000~ú–\000~ù—5\000~§—\\\000~ß—Å\000~©—Ø\000~´—Í\000~¨“7\000~≠“˚\000~Æ”8\000~Ø”w\000~∞”∂\000~±”¯\000~≤‘5\000~≥‘t\000~¥‘±\000~µ‘Í\000~∂’\"\000~∑’Y\000~∏’ë\000~π’«\000~∫’¸\000~ª÷2\000~º÷h\000~Ω÷ù\000~æ÷…\000~ø÷˙\000~¿◊+\000~¡◊l\000~¬◊•\000~√◊Ÿ\000~ƒÿ\000~≈ÿH\000~∆ÿw\000~«ÿ¶\000~»ÿ”\000~ ÿ˚\000~ÀŸ&\000~ÃŸY\000~ÕŸ†\000~ŒŸ“\000~œŸ˛\000~–⁄<\000~”⁄m\000~‘⁄ô\000~’⁄ \000~÷⁄˚\000~◊€4\000~ÿ€_\000~Ÿ€í\000~⁄€ø\000~€€\000~‹‹!\000~›‹N\000~ﬁ‹\000~ﬂ‹Æ\000~‡‹ﬁ\000~·›\000~„›>\000~‰›l\000~Â›•\000~Ê››\000~Áﬁ\000~ËﬁW\000~Èﬁë\000~Íﬁ»\000~Îﬂ\000~Ïﬂ:\000~Ìﬂv\000~Óﬂ∞\000~Ôﬂﬂ\000~‡\000~Ò‡8\000~Û‡g\000~Ù‡°\000~ı‡”\000~ˆ·\000\000~˜·;\000~¯·e\000~˘·†\000~˙·—\000~˚‚\000~¸‚h\000~˝‚ñ\000~˛‚√\000\000‚˜\000„-\000„e\000„ó\000„–\000‰\000‰3\000‰c\000‰î\000	‰≈\000\n‰¸\000Â(\000ÂU\000\rÂÜ\000Âæ\000ÂÎ\000Ê\000ÊO\000Ê\000Ê«\000ÊÛ\000Á!\000ÁL\000ÁÑ\000Áπ\000Á‰\000Ë\000Ë<\000Ëi\000Ëî\000Ë¿\000 ËÁ\0002È\0003Èh\0004Èô\0005È√\0006Í\0007Í6\0008Ía\0009Íç\000:Î\000;ÎA\000<Îl\000=Î¨\000>ÎŸ\000?Ï\000@ÏJ\000AÏ≠\000BÏ‹\000CÌ\000DÌ;\000EÌh\000FÌó\000GÌ»\000HÌ˛\000IÓ'\000JÓQ\000KÓÑ\000LÓ∂\000MÓ‹\000NÔ\000OÔ8\000PÔk\000QÔ§\000TÔ÷\000U\000VN\000WÜ\000X¬\000YÒ\000ZÒ<\000[Òr\000\\Òƒ\000]Ú\000^Úf\000_Úô\000`ÚÓ\000aÛ\000bÛO\000cÛ£\000dÛÛ\000eÙF\000fÙô\000gÙ\000hıA\000iım\000kıô\000lı¬\000mıı\000nˆ)\000oˆ^\000pˆã\000qˆ∆\000r˜\000s˜>\000t˜{\000u˜∏\000v˜Û\000w¯.\000x¯k\000y¯∫\000z˘\000{˘9\000|˘i\000}˘ö\000~˘ \000˘¯\000Ä˙)\000Å˙`\000É˙ó\000Ñ˙ø\000Ö˚\000Ü˚6\000á˚d\000à˚î\000â˚≈\000ä˚ˆ\000ã¸'\000å¸`\000ç¸ä\000é¸≥\000è¸Â\000ê˝\000ë˝B\000í˝y\000ì˝§\000î˝“\000ï˝ˇ\000ñ˛,\000ó˛Z\000ò˛Ç\000ô˛≠\000ö˛ÿ\000õˇ\000úˇ3\000ûˇY\000üˇç\000†ˇ∑\000°ˇ‚\000¢\000\000£\0009\000§\000m\000•\000†\000¶\000À\000ß\000ı\000® \000©C\000™w\000´°\000¨”\000≠\000Æ:\000Øn\000∞õ\000±…\000≤˜\000≥%\000¥S\000µÅ\000∂Ø\000∑‹\000∏\000π3\000∫f\000ªé\000ºÿ\000Ω\000æ4\000øb\000¿ê\000¡æ\000¬Ï\000√\000ƒH\000≈v\000∆§\000«“\000»\000\000….\000 \\\000Àí\000Ãø\000ÕÏ\000Œ\000–B\000—w\000“§\000”ÿ\000‘	\000’	:\000÷	j\000◊	ù\000ÿ	«\000Ÿ	Ì\000⁄\n#\000€\n\\\000‹\në\000›\n√\000ﬁ\nÒ\000ﬂ\000‡K\000·~\000‚≥\000„Â\000‰\000ÂK\000Ê|\000Á≤\000ËÌ\000È\r'\000Í\rf\000Î\rú\000Ï\r‘\000Ì\000ÓW\000Ôè\000»\000Ò˙\000Ú-\000Ûi\000Ù§\000ı‡\000ˆ\000˜C\000¯r\000Ä\000£\000Ä\000Äé3Œ\000ÅFƒ\000ÅéYπ\000Ééà∂\000ÑéƒL\000Ö÷9\000Öé·Ø\000Ü˙0\000Üéó\000á*‡\000áé8∏\000âu?\000âéëñ\000ä™ä\000äéƒ\n\000Ä@\000ÅFÙ\000Éèâ\n\000Ñèƒ\000Ö÷i\000Öè·‡\000Ü˙o\000Üè∆\000á+\000áè8Ë\000à>æ\000âuç\000âèë–\000ä™±\000äèƒ9\000Äk\000Äê4\000\000ÅG\000ÇjÓ\000É~˛\000Éêâ\\\000Ñ®ø\000ÑêƒØ\000Ö÷ñ\000Öê‚\000Ü˙ß\000Üê˘\000á+<\000áê9\000à>Ê\000âuŸ\000âêí\000ä™·\000äêƒe\000ãê—Î\000Äï\000ÅGJ\000Çk\000Éëâ¨\000Ñ®Ô\000ÑëƒÓ\000Ö÷«\000Öë‚B\000Ü˙Î\000Üë&\000á+x\000áë9H\000à?\000âv,\000âëíL\000ä´\000äëƒì\000ãë“(\000Ä”\000ÅGy\000ÇkM\000ÉíâÙ\000Ñ©#\000Ñí≈@\000Ö÷˙\000Öí‚~\000Ü˚.\000Üíc\000á+™\000áí9|\000à?=\000âv~\000âííÖ\000ä´E\000äíƒ∆\000ãí“f\000Ä\000Äì45\000ÅG¢\000Çk|\000ÉìäC\000Ñ©S\000Ñì≈î\000Ö◊I\000Öì‚≥\000Ü˚n\000Üìü\000á+‡\000áì9´\000âvÀ\000âìí¬\000ä´w\000äìƒı\000ãì“§\000ÄV\000êìŸ%\000ÅG‡\000Çk≤\000Éîäë\000Ñ©ç\000Ñî≈◊\000Ö◊|\000Öî‚Ê\000Ü˚∞\000Üî›\000á,\000áî9€\000à?{\000âw\000âîì\000ä´™\000äî≈+\000Äî\000Äï4k\000ÅH\000ÅïYı\000É5\000ÉïäÂ\000Ñ©–\000Ñï∆-\000Öï„\000Ü˚Ì\000Üï\000á,F\000à?±\000âwo\000âïì8\000ä´ﬂ\000äï≈g\000ãï“ﬂ\000Ä‘\000Äñ4°\000ÅñZ\"\000Éñã6\000Ñ™\000Ññ∆Ö\000Öñ„I\000Ü¸+\000ÜñY\000á,|\000à?’\000âw∏\000ä¨\000äñ≈ü\000Ä\000Äó4◊\000ÅH1\000ÅóZb\000ÇkÌ\000Év\000Éóãà\000Ñ™J\000Ñó∆∆\000Öó„\000Ü¸i\000Üóï\000á,≤\000à?¸\000âx\000âóìp\000ÄP\000Äò5\r\000ÅH{\000ÅòZá\000Çl\000Çòqâ\000ÉòãŒ\000Ñ™w\000Ñò«\000Öò„ß\000Ü¸ß\000Üò“\000á,Â\000à@1\000âxK\000Äç\000ÅH°\000ÇlU\000Éôå\000Ñô«p\000Ö◊∫\000Öô„Í\000Ü¸Â\000Üô\000á-\000à@Z\000âxó\000âôì±\000èôÿÆ\000Ä \000Äö5C\000ÅH€\000Çlé\000Éöå`\000Ñ™£\000Ñö«´\000Ö◊Ò\000Öö‰&\000Ü˝\000ÜöL\000á-M\000âx‚\000âöì›\000Ä\000Äõ5ï\000ÅI\000Çl∏\000Éõå∞\000Ñõ«˘\000Öÿ\000Öõ‰S\000Ü˝G\000Üõä\000á-ê\000à@à\000ây3\000âõî\000ÄG\000Äú5Â\000ÅI5\000Éúå˛\000Ñ™”\000Ñú»I\000Öú‰~\000Ü˝u\000Üú«\000á-√\000âyÅ\000ä¨6\000ÄÖ\000Äù6;\000ÅI`\000Çm	\000ÉùçQ\000Ñ´\000Ñù»à\000ÖÿO\000Öù‰≥\000Ü˝û\000Üù\000á.\000à@≥\000ây–\000âùîR\000ä¨d\000Ä¡\000Äû6å\000ÅIå\000ÅûZ∞\000É•\000Éûç§\000Ñû»⁄\000Öû‰Â\000Ü˝«\000Üû@\000á.H\000à@‚\000âz\000âûî}\000ä¨ê\000Ä˙\000Äü6€\000ÅIΩ\000ÅüZﬂ\000ÉüçÛ\000Ñ´;\000Ñü….\000ÖüÂ\000Ü˝˛\000Üü|\000á.å\000àA\000âzd\000âüîΩ\000ä¨¡\000äü≈Õ\000Ä 9\000Ä†71\000Å IÒ\000Å†[\000É†éG\000Ñ ´e\000Ñ†…k\000ï„q\000Ö†ÂD\000Ü ˛0\000á .œ\000à A@\000â z´\000â†ï0\000ä ¨Ú\000ä†≈ˇ\000Ä!v\000Ä°7â\000Å!J5\000Å°[9\000Ç!mR\000É°éö\000Ñ!´ñ\000Ñ°…ª\000Ö°Âr\000Ü!˛R\000á!/\000â!{\000â°ïr\000ä!≠\000ä°∆0\000Ä\"≥\000Ä¢7◊\000Å\"Jw\000Å¢[j\000É¢éË\000Ñ\"´æ\000Ñ¢ \r\000Ö¢Â§\000Ü\"˛â\000á\"/6\000à\"AÇ\000â\"{W\000ä\"≠J\000Ä#Ô\000Ä£8'\000É£è;\000Ñ#´Ï\000Ñ£ G\000Ö£Â”\000Ü#˛∂\000á#/j\000à#A≥\000â#{∞\000ä#≠t\000Ä$,\000Ä§8{\000Å$J®\000É§èé\000Ñ$¨\000Ñ§ w\000Ö§Ê\000Ü$˛Ê\000á$/ù\000à$Aı\000â$|\000â§ï≠\000ä$≠£\000ã§”\000Ä%g\000Ä•8—\000Å%J‘\000Å•[¢\000Ç%mõ\000É•è›\000Ñ%¨P\000Ö%ÿ}\000Ö•Ê-\000Ü%ˇ\000Ü•∫\000à%B8\000â%|K\000â•ïÎ\000ä%≠“\000ã•”D\000Ä&°\000Ä¶9\000Ç¶qΩ\000É¶ê*\000Ñ&¨{\000Ö&ÿ©\000Ö¶Ê_\000Ü&ˇD\000Ü¶Á\000à&Bw\000â&|ñ\000â¶ñ\000ä&≠¸\000ä¶∆d\000ã¶”x\000Ä'‹\000Äß9o\000Åß[“\000Éßê|\000Ñ'¨™\000Ö'ÿœ\000ÖßÊÅ\000Ü'ˇt\000Üß\000á'/Ì\000à'B∂\000â'|ﬁ\000âßñX\000ä'Æ5\000äß∆ô\000ãß”¨\000Ä(\000Ä®9ƒ\000Å(K\000Å®[˛\000É®êŒ\000Ñ(¨‘\000Ö®Ê∂\000Ü(ˇ©\000Ü®G\000à(Bˆ\000â(}/\000â®ñò\000ä(Æl\000ä®∆–\000ã®”‡\000Ä)R\000Ä©:\000Å)KH\000É)€\000É©ë\000Ñ)≠\000Ö)ÿ˝\000ï®Á€\000Ü)ˇﬂ\000Ü©r\000á)0\000à)C6\000à©UΩ\000â)}~\000â©ñÿ\000ä)Æ®\000ä©∆˚\000ã©‘\000Ä*è\000Ä™:n\000Å*Kâ\000Ç*m–\000É*Ä\000É™ëh\000Ñ*≠I\000Ö™ÊÌ\000Ü*\000\000Ü™•\000á*0Q\000à*Cv\000à™V\r\000â*}“\000â™ó\000ä*Æ‰\000ä™«1\000ã™‘^\000Ä+—\000Ä´:«\000Å+K»\000É+ÄC\000É´ëµ\000Ñ+≠\000Ñ´ ¶\000ï*„¢\000ï™Ë1\000Ü+\0008\000Ü´“\000á+0y\000à+C∑\000à´VV\000â+~&\000â´óW\000ä+Ø\000ã´‘ù\000Ä,\000Ä¨;\000Å,L\000Ç,m˛\000É,Äx\000É¨í\000Ñ,≠µ\000Ö,Ÿ$\000Ö¨Á)\000Ü,\000g\000Ü¨˙\000á,0•\000à,CÈ\000à¨V§\000â¨óô\000ä,ØH\000ä¨«u\000ã¨‘‹\000Ä-Q\000Ä≠;y\000Å-LI\000Ç-n2\000Ç≠qÚ\000ì,ﬁ\000É≠íR\000Ñ-≠Á\000Ñ≠ \000Ö≠Á]\000Ü-\000ò\000Ü≠&\000á-0”\000à-D\000à≠VÒ\000â-~v\000â≠ó—\000ä-Ør\000ä≠«≤\000Ä.ë\000ÄÆ;®\000Å.Ln\000Ç.n\\\000É.Ä™\000ÉÆí¢\000Ñ.Æ\000ÑÆÀ,\000Ü.\000œ\000ÜÆV\000á.1\000à.D;\000àÆW>\000âÆò\000ä.Ø°\000äÆ«Ê\000ãÆ’\000ÄØ;Ÿ\000Å/Lì\000Ç/nî\000ÇØr\000É/ÄÂ\000ÉØíÛ\000Ñ/Æ=\000ÑØÀc\000Ü/\000ÜØÄ\000á/17\000à/De\000àØWã\000âØòG\000ä/Ø–\000äØ»%\000ãØ’P\000Ä0–\000Ä∞<\000Å0L√\000Ç0n∆\000É0Å\000É∞ì>\000Ñ0Æb\000Ñ∞Àõ\000Ü0<\000Ü∞Ø\000á01b\000à0D£\000à∞W‹\000â∞òÉ\000ä0Ø˙\000ä∞»T\000ã∞’É\000Ä1\000Ä±<7\000Ç1n¯\000É1Å]\000É±ìç\000Ñ1Æè\000Ñ±À“\000ï∞Ëa\000Ü1r\000ñ∞Ïi\000á11î\000à1DÀ\000à±X(\000â±òº\000ä1∞,\000ä±»Ö\000ã±’Ø\000Ä2J\000Ä≤<d\000Å≤\\6\000É2Åò\000É≤ì◊\000Ñ2Æ‡\000Ñ≤Ã\000Ö2ŸT\000Ü2¶\000Ü≤ﬂ\000á21Ã\000à2DÙ\000à≤Xx\000â≤òˆ\000ä2∞b\000ã≤’◊\000Ä3á\000Ä≥<ë\000Å≥\\a\000Ç3o2\000É3Å√\000É≥î%\000Ñ3Ø2\000Ñ≥ÃI\000Ö3Ÿä\000Ö≥Áñ\000Ü3Ÿ\000Ü≥\000á31˝\000à3E(\000à≥X…\000â≥ô2\000ä3∞ì\000ä≥»ø\000ã≥÷\000Ä4≈\000Ä¥<»\000Å4LÏ\000Å¥\\ó\000Ç4of\000É4ÅÛ\000É¥ît\000Ñ4Øä\000Ñ¥Ãz\000Ö4Ÿ∑\000Ö¥Á¡\000Ü4	\000Ü¥B\000á42-\000à4E\\\000à¥Y\000â¥ôp\000ä4∞»\000ä¥»Û\000ã¥÷A\000Ä5ˇ\000Å5M>\000Åµ\\À\000Ç5oô\000É5Ç!\000Éµî∫\000ÑµÃ´\000ÖµÁˆ\000Ü5:\000Üµg\000á52e\000àµY[\000âµôÆ\000ä5∞˛\000äµ…)\000ãµ÷}\000Ä6?\000Å6Më\000Å∂]\000Ç6oŒ\000É6Ç]\000É∂ï\000Ñ6Øæ\000Ñ∂Ã‡\000Ö∂Ë)\000Ü6h\000Ü∂ó\000á62¶\000à∂Y®\000â∂ôÍ\000ä6±.\000ä∂…c\000ã∂÷ª\000Ä7s\000Å7MÍ\000Å∑]@\000Ç∑rO\000É7ÇÜ\000É∑ïZ\000Ñ7ØÌ\000Ñ∑Õ\000Ö∑ËV\000Ü7ï\000Ü∑ª\000á72ÿ\000à∑Y˚\000â∑ö'\000ä7±b\000ä∑…õ\000ã∑÷˙\000Å∏]y\000Ç∏r~\000É8Ç¥\000É∏ï≠\000Ñ8∞\000Ñ∏ÕC\000Ö∏Ëà\000Ü8¡\000Ü∏È\000á83\000à8Eç\000à∏ZL\000â8~∂\000â∏ö^\000ä8±ë\000ä∏……\000ã∏◊4\000Ä9∞\000Äπ<¸\000Å9N\000Åπ]¨\000Çπr≥\000É9ÇÊ\000Éπï˛\000Ñ9∞M\000ÑπÕo\000Ö9Ÿ‡\000ÖπË∏\000Ü9Ò\000Üπ\000à9Eø\000àπZ¢\000â9~‡\000âπöî\000ä9±ƒ\000äπ…ˆ\000ãπ◊j\000Ä:’\000Å:N8\000Ç:p\000Ç∫r·\000É∫ñM\000Ñ:∞t\000Ñ∫Õ§\000Ö:⁄\000Ö∫ËÈ\000Ü:\000Ü∫B\000à:F\000\000à∫Z¯\000â:\000â∫ö«\000ä:±¯\000ä∫ *\000Ä;\000Å;NX\000Åª]Í\000Çªs\000Éªñ£\000Ñ;∞ú\000ÑªÕÊ\000Ü;J\000Üªm\000à;F@\000àª[J\000â;X\000âªö˚\000ä;≤&\000Ä<A\000ÇºsA\000Éºñı\000Ñ<∞¡\000ÑºŒ4\000Ü<x\000Üº≠\000à<FÖ\000àº[ù\000â<í\000âºõ.\000ä<≤X\000äº c\000Ä=l\000Å=NÄ\000ÇΩsh\000ÉΩóJ\000Ñ=∞Ê\000ÑΩŒÄ\000Ö=⁄G\000Ü=û\000ÜΩ’\000à=F…\000àΩ[Ó\000â=–\000âΩõb\000ä=≤Ö\000Ä>ú\000Å>N≥\000Åæ^\000Éæóü\000Ñ>±*\000ÑæŒŒ\000Ü>Õ\000á>31\000à>G\r\000àæ\\C\000â>Ä\000âæõï\000ä>≤∂\000Ä?«\000Å?N‡\000Åø^P\000Çøs¢\000ÉøóÙ\000Ñ?±W\000Ñøœ\000Ü?¯\000à?GQ\000àø\\ñ\000â?ÄN\000âøõ‘\000ä?≤Ë\000Ä@Ô\000Ä¿=2\000Å@O\000Å¿^ä\000É¿ò<\000Ñ@±â\000Ñ¿œl\000Ö¿È!\000Ü@(\000à@Gñ\000à¿\\Á\000â@Äã\000â¿ú\000ä@≥\000ÄA#\000Ä¡=`\000Ç¡sÃ\000É¡òç\000ÑA±≥\000Ñ¡œ∫\000ÖA⁄â\000Ö¡ÈX\000ÜAW\000Ü¡˙\000áA3X\000àAG‘\000à¡]0\000âAÄƒ\000â¡úP\000äA≥R\000ÄBR\000Ä¬=™\000Å¬^√\000Ç¬sˇ\000É¬ò›\000ÑB±Ê\000ÖB⁄∏\000Ö¬Èã\000ÜBã\000àBH\000à¬]Ä\000âBÄˇ\000â¬úç\000äB≥à\000åB◊”\000ÄC{\000Ä√=˚\000ÅCOA\000Å√^Ï\000É√ô(\000ÑC≤\000î¬·ı\000Ö√Èø\000ÜCº\000Ü√(\000àCHW\000à√]œ\000âCÅ=\000â√úƒ\000äC≥æ\000ÄD¨\000Äƒ>B\000ÅDOj\000í√›\000Éƒôx\000ÑD≤H\000ÖƒÈˆ\000ÜDÛ\000ÜƒZ\000àDHì\000àƒ^$\000âDÅv\000âƒú¸\000äD≥˜\000ÄE€\000ÅEOõ\000É≈ô»\000ÑE≤z\000Ö≈Í!\000ÜE)\000Ü≈ç\000àEHŒ\000à≈^v\000âEÅ±\000â≈ù3\000äE¥5\000ÄF\r\000ÅFO…\000Å∆_\000Ç∆tb\000É∆ö\000ÑF≤¨\000Ñ∆œ·\000Ö∆ÍR\000ÜFY\000Ü∆Ω\000àFI\000à∆^…\000âFÅÈ\000â∆ùh\000äF¥n\000ÄG?\000ÅGP\000Å«_J\000Ç«tö\000É«ö\\\000ÑG≤‚\000Ñ«–#\000Ö«ÍÅ\000ÜGì\000àGIF\000à«_\000âGÇ#\000â«ùù\000äG¥ß\000ÄH|\000ÅHP,\000Å»_q\000Ç»t∆\000É»ö§\000ÑH≥\000Ñ»–i\000Ö»Í≥\000ÜH \000Ü»‰\000àHIv\000à»_\\\000âHÇ[\000äH¥„\000ÄI¥\000Å…_¶\000Ç…t˙\000É…öÌ\000ÑI≥N\000Ñ…–µ\000Ö…ÍÔ\000ÜI˝\000Ü…\000àII±\000à…_¶\000âIÇò\000â…ù“\000ÄJÌ\000Å _·\000ÇJpC\000É õ:\000ÑJ≥°\000î…‚\"\000ÜJ/\000Ü e\000àJI‚\000à _Ó\000âJÇ’\000äJµ\000ÄK \000ÄÀ>ç\000ÇÀu.\000ÉÀõâ\000ÑK≥≈\000î ‚J\000ÜKa\000ÜÀ£\000àKJ\000àÀ`>\000âKÉ\r\000âÀûB\000äKµV\000ÄL A\000ÅÃ`\000ÇLpu\000ÇÃuV\000ÉÃõ‹\000ÑL≥Ô\000îÀ‚zÊ„Ó.\000ÜLë\000ÜÃ‚\000àLJB\000àÃ`è\000âLÉIÊ‰Ó]\000äLµèÊÂÓä\000ÄM y\000ÅMPd\000ÅÕ`1\000ÇMpÆ\000ÉÕú*\000ÑM¥#\000ÖÕÎ\000ÜMø\000ÜÕ\000àMJ}\000àÕ`Ê\000âMÉÇ\000âÕû|\000äMµÀ\000ÄN ±\000ÅNPå\000ÅŒ`d\000ÉŒú|\000ÑN¥X\000ÖŒÎC\000ÜNÒ\000ÜŒY\000àNJπ\000àŒa8\000âNÉº\000äN∂\000ÄO Á\000ÅOPπ\000Åœ`ù\000ìNﬁ;\000Éœúœ\000ÑO¥ã\000Ñœ–”\000ÖœÎo\000ÜO#\000Üœò\000àOJË\000àœaâ\000âOÉı\000âœû∂\000äO∂B\000ÄP!\000Å–`“\000É–ù\000ÑP¥Ω\000Ö–Î£\000ÜP`\000Ü–ÿ\000àPK\000à–aÿ\000âPÑ,\000â–ûÈ\000äP∂v\000ÄQ!J\000ÅQP‰\000Å—a\000\000Ç—uÅ\000É—ùf\000ÑQ¥Á\000ÖQ⁄ı\000Ö—Î”\000ÜQô\000Ü—\000à—b,\000âQÑf\000äQ∂©\000ÄR!Ö\000ÅRQ\000Å“a3\000Ç“uØ\000É“ù±\000ÑRµ\000ÖR€\"\000Ö“Î˜\000ÜR‘\000Ü“O\000àRKQ\000à“bÄ\000âRÑ†\000â“ü\000äR∂◊\000ÄS!¡\000Ä”>∂\000ÅSQh\000Å”a`\000Ç”uﬁ\000É”û\000\000ÑSµC\000Ö”Ï(\000Ü”è\000à”b–\000âSÑÿ\000â”üU\000äS∑\n\000ÄT!˛\000Ä‘>Ù\000ÅTQñ\000Å‘aí\000Ç‘v\000É‘ûM\000ÑTµx\000ÜT\r\000Ü‘œ\000àTKÜ\000à‘c%\000âTÖ\000â‘üç\000äT∑=\000ÄU\";\000Ä’?3\000Å’a \000Ç’v&\000É’ûò\000ÑUµª\000Ö’ÏR\000ÜUA\000Ü’ \000àUKΩ\000à’cy\000âUÖG\000â’ü√\000äU∑v\000ÄV\"a\000ÅVQª\000Ç÷vK\000ÉVÉ\000É÷ûÍ\000ÑVµ˜\000ïU„˙\000Ö÷Ïå\000ÜVÇ\000àVK\000à÷c»\000âVÖ\000â÷üÍ\000äV∑Æ\000Å◊a˝\000Ç◊vy\000É◊ü;\000ÑW∂;\000Ö◊Ï¡\000ÜW∞\000àWL$\000à◊d\000âWÖµ\000â◊†\000äW∑·\000ÄX\"î\000ÅXQÍ\000Åÿb-\000Çÿvó\000ìWﬁx\000Éÿüá\000ÑX∂z\000Ñÿ—\000ÖÿÏ˝\000ÜXÂ\000Üÿ G\000àXLU\000àÿdp\000âXÖÓ\000äX∏\000ÄY\"—\000ÅYR\000ÅŸbg\000ÇŸv«\000ÉŸüÿ\000ÑY∂¿\000ÑŸ—P\000ÖŸÌ8\000ÜY	\000ÜŸ Ñ\000àYLã\000àŸd¿\000âYÜ(ÁÔ\000äY∏Q\000ÄZ#\000ÅZR9\000Å⁄bö\000Ç⁄vÚ\000É⁄†)\000ÑZ∑\000Ñ⁄—}\000ïY‰5\000Ö⁄Ìu\000ÜZ	Y\000Ü⁄ Ω\000àZLº\000à⁄e\000âZÜ]\000â⁄†G\000äZ∏á\000Ä[#V\000Å[Rc\000Å€bÀ\000Ç€w&\000É€†q\000Ñ[∑G\000Ñ€—¥\000Ö€ÌØ\000Ü[	ï\000Ü€ ˆ\000à[L˜\000à€ea\000â[Üó\000â€†Ñ\000ä[∏æ\000Ä\\#ö\000Ä‹?u\000Å‹b˝\000Ç‹w[\000É‹†Ω\000Ñ\\∑ç\000Ñ‹—·\000Ö\\€S\000Ö‹ÌÏ\000Ü\\	Œ\000Ü‹!.\000á‹:\000à‹e¥\000â\\ÜÕ\000â‹†¬\000ä\\∏Û\000Ä]#ﬁ\000Ä›?¥\000Å]Rç\000Å›c.\000Ç›wã\000É›°\000Ñ]∑÷\000Ö]€Ñ\000Ö›Ó)\000Ü]\n\000Ü›!g\000à›f\000â]á\000ä]π&\000Ä^$$\000Äﬁ?ˆ\000Åﬁca\000Çﬁw¬\000Éﬁ°M\000Ñ^∏\000Ñﬁ“\000ÖﬁÓe\000Ü^\n5\000Üﬁ!†\000à^M+\000àﬁfP\000â^á9\000âﬁ†˛\000ä^π]\000Ä_$h\000Åﬂcâ\000Çﬂw\000Éﬂ°ó\000Ñ_∏W\000Ñﬂ“[\000ÖﬂÓü\000Ü_\nh\000Üﬂ!ÿ\000áﬂ:7\000à_MY\000àﬂfù\000â_áq\000âﬂ°5\000ä_πò\000Ä`$î\000Å‡c∫\000Ç‡x'\000É‡°Á\000Ñ`∏ù\000Ñ‡“£\000Ö‡Ó›\000Ü`\nú\000Ü‡\"\000à`Mê\000à‡fÚ\000â`áÆ\000â‡°c\000ä`π’\000Äa$¬\000Å·cÎ\000Ç·x\\\000É·¢4\000Ña∏⁄\000Ñ·“Ô\000Ö·Ô\000Üa\nÃ\000Ü·\"6\000à·gE\000âaáÈ\000â·°õ\000äa∫\000Äb$Û\000ÅbR∂\000Å‚d\000Ç‚xé\000É‚¢Ç\000Ñbπ \000Ñ‚”\000Ö‚ÔV\000Üb\000\000Ü‚\"~\000àbM»\000à‚gö\000âbà$\000â‚°⁄\000äb∫M\000Äc%!\000Å„dR\000Ç„x∏\000É„¢…\000Ñcπf\000Ñ„”H\000Ö„Ôê\000Üc9\000Ü„\"ƒ\000à„gË\000âcà_\000â„¢\000äc∫Ä\000Äd%U\000ÅdR·\000Å‰dÜ\000Ç‰xÈ\000É‰£\000Ñdπ¢\000Ñ‰”q\000Ö‰ÔÕ\000Üdo\000Ü‰#\000á‰:\\\000àdM¸\000à‰h:\000âdàô\000â‰¢W\000äd∫æ\000ãdÕ\000Äe%Ö\000ÄÂ@8\000ÅeS\000ÅÂd¿\000ÇÂy\000ÉÂ£d\000ÑeπÂ\000ÑÂ”†\000ÖÂ\000Üe£\000ÜÂ#H\000áÂ:á\000àeN.\000àÂhá\000âeà“\000âÂ¢ã\000äe∫˝\000äÂ \000Äf%∑\000ÄÊ@x\000ÅfSZ\000ÅÊdË\000ÇÊyE\000ÉÊ£≠\000Ñf∫*\000ÑÊ” \000ÖÊG\000Üf’\000áÊ:µ\000àfNb\000àÊhÿ\000âfâ	\000âÊ¢¿\000äfª;\000Äg%Ó\000ÄÁ@∑\000ÅgSÉ\000ÅÁe$\000ÉÁ£˜\000Ñg∫n\000ÖÁÇ\000Üg\000ÜÁ#w\000áÁ:\000àgNõ\000àÁi*\000âgâC\000âÁ¢Ù\000ägªx\000Äh& \000ÅËeU\000ÇËyy\000ÉhÉ\\\000ÉË§G\000Ñh∫´\000ÖËø\000Üh=\000ÜË#¨\000áh3à\000áË;)\000àËis\000âhâÄ\000âË£1\000ähª±\000ÅÈeå\000ÇÈy®\000ìhﬁû\000ÉÈ§ï\000Ñi∫\000ÖÈ˘\000Üiv\000ÜÈ#˛\000ái3˝\000áÈ;X\000àiNÕ\000àÈiø\000âiâ∏\000âÈ£f\000äiªÌ\000öËÌ‹\000åiÿ\000Äj&W\000ÄÍ@¯\000ÅÍeº\000Çjpﬁ\000ÇÍy€\000ìiﬁÊ\000ÉÍ§Ë\000Ñjª2\000ÖÍÒ6\000Üjµ\000ÜÍ$,\000áj4,\000áÍ;à\000àjO\000\000àÍj\000âjâÛ\000âÍ£ô\000äjº3\000äÍÀ\000Äk&™\000ÅkSª\000ÅÎe˜\000ÇÎz\000ÉÎ•;\000Ñkªm\000ÖÎÒx\000Ük˙\000ÜÎ$_\000ák4W\000áÎ;π\000àkO4\000àÎjZ\000âkä,\000âÎ£Õ\000äkºy\000äÎÀb\000ãkÕP\000Äl&˚\000ÅlS‡\000ÅÏf%\000Çlq\000ÇÏzC\000Ñlª∞\000ÑÏ”˙\000ÖÏÒπ\000Ül\r#\000ÜÏ$î\000áÏ;È\000àlOi\000àÏj©\000âläa\000âÏ£˛\000älº∂\000äÏÀèÁeÔí\000Äm'N\000ÅmT\000ÅÌfR\000Çmq/\000ÇÌz~\000ÑmªÓ\000ÑÌ‘<\000Öm€Ø\000ÖÌÒ˙\000Üm\rj\000ÜÌ$·\000áÌ<\000àmOû\000àÌj˘\000âmäú\000âÌ§3\000ämºÙ\000äÌÀ \000ãmÕ|\000Än'•\000ÄÓA=\000ÅnT7\000ÅÓfÄ\000ÇÓz≠\000Ñnº3\000ÖÓÚ:\000Ün\r°\000ÜÓ%\000án4Ñ\000áÓ<I\000ànO‘\000àÓkK\000ânä…\000âÓ§g\000änΩ,\000äÓÀı\000ãnÕ≤\000Äo'˝\000ÄÔAå\000ÅoT^\000ÅÔf´\000ÇÔz„\000Ñoº{\000ÖÔÚ|\000ÜÔ%=\000áo4Ø\000áÔ<s\000àoP\000àÔkõ\000âoä˝\000âÔ§£\000äoΩa\000ãoÕ„\000ÄA¬\000Åf◊\000Ç{\000Ñpº∫\000Öp€‡\000ÖÚ∑\000Üp\rœ\000Ü%i\000áp4€\000àpP?\000àkÔ\000âpã-\000äpΩó\000äÃ.\000ãpŒ$\000ÄÒAÚ\000ÅqTÑ\000ÅÒg\000íp⁄k\000ÇÒ{L\000ÑqΩ\000ÑÒ‘f\000ÖÒÚ˘\000Üq\r˛\000ÜÒ%π\000áq5\000àqP}\000àÒlA\000âqã]\000âÒ§‹\000äqΩ“\000äÒÃ^\000ãqŒ`\000Är(N\000ÄÚB(\000ÅrT¥\000ÅÚg>\000íq⁄õ\000ÇÚ{ç\000ÑrΩJ\000Ör‹ \000ÖÚÛ9\000Ür/\000ÜÚ%Á\000ár5,\000àrP±\000àÚlë\000ârãê\000âÚ•\000äræ\000ãrŒü\000Äs(~\000ÅsTﬂ\000ÅÛgl\000ír⁄Ã\000ÇÛ{ \000ÑsΩê\000Ös‹a\000ÖÛÛx\000ÜsX\000ÜÛ&\000ás5\\\000àsPÂ\000àÛl‹\000âsã \000âÛ•D\000äsæL\000ãsŒ·\000Ät(Æ\000ÄÙBP\000ÅtU\r\000ÅÙgó\000ís⁄¸\000ÇÙ|	\000ÑtΩœ\000Öt‹î\000ÖÙÛ≥\000Ütâ\000ÜÙ&C\000át5Ü\000àtQ\000àÙm3\000âÙ•m\000ätæÜ\000ãtœ#\000ãÙ◊´\000Äu)\000ÄıBx\000ÅuU5\000Åıg¿\000ít€,\000Ñuæ\000Öu‹–\000ÖıÛÛ\000Üuπ\000Üı&Ä\000áu5∂\000àuQU\000àımÜ\000âuå\000âı•õ\000äuæø\000Äv)[\000ÄˆB´\000ÅvU_\000Åˆg\000íu€Y\000Éˆ•ä\000ÑvæQ\000Öv‹˝\000ÖˆÙ4\000Üv\000áv5˜\000àvQä\000àˆm‹\000âvå@\000âˆ•·\000ävæı\000ãvœW\000Äw)≤\000Ä˜B÷\000ÅwUâ\000Å˜h\000ív€Ö\000Ç˜|=\000ìvﬂ.\000É˜•∂\000Ñwæï\000Öw›.\000Ö˜Ùv\000Üw#\000áw63\000á˜<ß\000àwQπ\000à˜n2\000âwå\000â˜¶\000äwø&\000ãwœé\000Äx*\000Ä¯C\000\000ÅxU≤\000Å¯hO\000íw€¥\000Ç¯|s\000É¯•Ì\000ÑxæŸ\000Öx›k\000Ö¯Ù∂\000ÜxZ\000Ü¯&∞\000áx6n\000á¯<‘\000àxQÎ\000à¯nà\000âxå∫\000â¯¶U\000äxøZ\000Äy*2\000Ä˘C3\000Å˘hy\000íx€·\000Ç˘|§\000Ñyø\000Öy›ù\000Ö˘Ùı\000Üyé\000Ü˘&Ù\000á˘=\000àyR!\000à˘n—\000âyåı\000â˘¶õ\000äyøë\000Äz*Ä\000Ä˙Cg\000Å˙h¨\000íy‹	\000Ç˙|“\000ÑzøR\000Öz›ÿ\000Ö˙ı7\000Üzø\000Ü˙'-\000á˙=-\000àzR\\\000à˙o!\000âzç0\000â˙¶–\000äzøÃ\000Ä{*’\000Ä˚Cõ\000íz‹8\000Ç˚}\000Ñ{øó\000Ö{ﬁ\000Ö˚ır\000Ü{Ï\000Ü˚'[\000á{6´\000à{Rï\000à˚os\000â{çl\000â˚ß\000ä{¿\000ã{œ≈\000Ä|+$\000Ä¸Cœ\000Å|U›\000í{‹k\000Ç¸};\000Ñ|ø‘\000Ö|ﬁ<\000Ö¸ı≤\000Ü|\000Ü¸'â\000á|6‹\000à|R»\000à¸oƒ\000â|ç™\000â¸ß=\000ä|¿>\000ã|œÓ\000Ä}+w\000Ä˝D\000Å}V\000Å˝h›\000Ç˝}p\000É}É}\000É˝¶\000Ñ}¿\000Ñ˝‘Ø\000Ö}ﬁp\000Ö˝ıÛ\000Ü}O\000Ü˝'Ω\000á}7\000à}R˜\000à˝p\000â}ç„\000â˝ßq\000ä}¿x\000ä˝Ãé\000Ä~+≈\000Å~VU\000Ç˛}ü\000É~É≈\000É˛¶M\000Ñ~¿^\000Ö~ﬁ§\000Ö˛ˆ2\000Ü~Å\000Ü˛'Ì\000á~7F\000à~S*\000à˛pa\000â~é\"\000â˛ßß\000ä~¿µ\000ä˛Ã¿\000Ä,\000ÄˇD7\000ÅVì\000Åˇi\000Çˇ}”\000ÉÑ\000Éˇ¶è\000Ñ¿¢\000Öﬁﬁ\000Öˇˆs\000Üµ\000Üˇ(\000àSY\000àˇp≤\000âéX\000âˇß€\000ä¿\000ÄÄ,C\000Å\000De\000ÅÄV—\000Ç\000i=\000í‹•\000É\000~\000ÉÄÑ]\000Ñ\000¶ø\000ÑÄ¿‰\000ÖÄﬂ\000Ü\000ˆµ\000ÜÄ‰\000á\000(G\000àÄSê\000â\000p¸\000âÄéé\000ä\000®\000äÄ¡-\000ãÄ–\"\000Ä◊\000ÄÅ,n\000ÅDî\000ÅÅW\000Çil\000íÄ‹€\000É~(\000ÉÅÑ©\000Ñ¶˘\000ÑÅ¡*\000Ö‘¯\000ÖÅﬂD\000Üˆ˜\000ÜÅ\000á(y\000áÅ7\000àÅSƒ\000âqH\000âÅé¡\000ä®F\000äÅ¡k\000èÅÿ5\000Ä\000ÄÇ.\r\000ÅD»\000ÅÇWU\000É~^\000ÉÇÑ˘\000ÑÇ¡q\000Ö’8\000ÖÇﬂq\000Ü˜6\000ÜÇJ\000á(®\000àÇT\000âqë\000âÇéı\000ä®r\000äÇ¡ß\000ãÇ–r\000Ä9\000ÄÉ.M\000ÅÉWÖ\000Çi°\000É~ë\000ÉÉÖD\000Ñß0\000ÑÉ¡∏\000ÖÉﬂ§\000Ü˜x\000ÜÉ|\000á(ÿ\000àÉTB\000âq€\000âÉè-\000ä®¢\000äÉ¡›\000Är\000ÄÑ.í\000ÅD˜\000ÅÑW∑\000É~«\000ÉÑÖì\000ÑÑ¡˝\000ÖÑﬂ—\000Ü˜∑\000ÜÑ¨\000á)	\000âr\"\000âÑèb\000ä®–\000äÑ¬\000ãÑ–¢\000Ä†\000ÄÖ.“\000ÅE$\000ÅÖWÍ\000ÇiÃ\000ÉÖÖ„\000Ñßp\000ÑÖ¬/\000ÖÖﬂˇ\000Ü˜˘\000ÜÖﬂ\000á):\000àÖTá\000ârp\000âÖèñ\000ä®¸\000äÖ¬I\000ãÖ–ﬂ\000Ä÷\000ÄÜ/\000ÅEP\000ÅÜX\000Çi˚\000ÉÜÜ+\000Ñßü\000ÑÜ¬o\000ÖÜ‡0\000Ü¯9\000ÜÜ\000á)g\000à=]\000àÜTæ\000âr¿\000âÜèœ\000ä©'\000äÜ¬Å\000Äá0¸\000ÅEâ\000ÅáXO\000Çj*\000ÉáÜw\000Ñá¬û\000Öá‡o\000Ü¯z\000Üá;\000á)ï\000à=É\000àáT¯\000âs\000âáè˛\000ä©W\000äá¬∂\000ãá— \000Äˇ\000Äà1,\000ÅEº\000ÅàXÇ\000ÉàÜ…zGÔ¡\000Ñà¬’ÁdÔh\000Öà‡õ\000Ü¯π\000Üàn\000á)ƒÁcÔ=\000à=∞\000ààU3\000âsc\000âàê6\000ä©É\000äà¬ÚÊÎÓ·\000ãà—WÊÍÓµ÷dÓ\000ö5Ìß\000ö4Ìs\000ñ‰ÌH\000ñ‚Ì\000ñªÏÔ\000ñ≤Ï¿\000Ä	/\000Äâ1_\000Å	EË\000ÅâX∏\000ñ±Ïí\000ññÏ#\000ñïÎ„\000Éâá\000Ñ	ß‹\000Ñâ√\000ñîÎ°\000Öâ‡œ\000Ü	¯Ú\000Üâû\000á	)\000áâ7ª\000à	=⁄\000àâU]\000â	s∂\000ââêk\000ä	©∂\000äâ√\000ñìÎ\\\000ñíÎ\000ñëÍ’\000ñvÍ≠\000ñjÍz\000ñBÍM\000ñ Í\000ñÈ„\000ñÈØ\000ñÈ|\000Ä\n\\\000Ää3C\000Å\nF\000ÅäX¸\000ñÈL\000ñÈ$\000ïπËı\000Éäán\000ï∏Ëº\000Ñä√/\000ï∑Ëá\000Öä·\000Ü\n˘1\000ÜäÃ\000á\n*\000áä7Ï\000à\n>	\000ï©Ë	\000â\nt\n\000âäê§\000ä\n©Ê\000ää√N\000ïßÁØ\000ï¶ÁÅ\000ï•ÁW\000ï§Á#\000ïùÊˇ\000ïúÊ \000ïñÊù\000ïìÊp\000ïíÊ=\000ïëÊ\000Äí\000Äã3q\000ÅFJ\000ÅãYH\000Çja\000ïêÂ‰\000ïèÂ≤\000Éãá√\000Ñ®&\000Ñã√v\000Ö’|\000ïéÂ~\000Ü˘o\000Üã˛\000á*N\000áã8#\000à>4\000àãUè\000âtU\000âãê€\000ä™\000äã√u\000ïçÂJ\000ãã—î\000ïâÂ\000ïà‰Ë\000ïÜ‰ª\000ïÖ‰í\000ïÑ‰^\000ïQ„À\000ï„=\000ï„\r\000Ä√\000ï‚‹\000ÅFp\000ï‚©\000Çjè\000î¢·…\000î.·ì\000Éåà\000Ñ®R\000Ñå√π\000Ö’À\000Öå·C\000Ü˘Ø\000Üå1\000á*}\000áå8O\000à>]\000î)·U\000ât£\000âåë\000ä™6\000äå√•\000î(·\000î'‡÷\000î‡•\000ìÈ‡r\000ìË‡<\000ìÁ‡\000ì≈ﬂº\000ìƒﬂå\000ì∏ﬂ[\000èåÿ~\000Ä\rÍ\000Äç3õ\000Å\rFö\000ÅçYs\000Ç\rjπ\000Ççq[\000íﬂ›ƒ\000Éçàf\000Ñ\r®ê\000Ñçƒ\000Ö\r’˚\000Öç·~\000Ü\r˘Ì\000Üçf\000á\r*∞\000áç8Ü\000à\r>è\000í››ï\000â\rtÔ\000âçëS\000ä\r™a\000äç√ﬁ\000í‘›d\000ãç—√\000ë±⁄C\000ë⁄\000ëŸÛ\000ëŸ∆\000ê√Ÿ~\000êîŸM\000êMÿ¯\000Çƒt.",
@@ -25665,7 +25677,7 @@ QuestieConfig = {
 ["profiles"] = {
 ["Default"] = {
 ["migrationVersion"] = 31,
-["ldbDisplayText"] = "Locate the large, red crystal on Darkshore's eastern mountain range (Complete)",
+["ldbDisplayText"] = "Quest accepted: Grime-Encrusted Ring",
 ["hideCompletedQuestObjectives"] = true,
 ["tutorialShowRunesDone"] = false,
 ["tutorialRejectInBattlegroundsDone"] = false,
