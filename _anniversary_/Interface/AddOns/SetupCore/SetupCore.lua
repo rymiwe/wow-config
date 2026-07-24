@@ -38,6 +38,17 @@ local MOVEMENT_SPELL_BY_CLASS = {
 }
 
 local MOUNT_MACRO_NAME = "SC_Mount"
+-- Visual placeholder macro that fills empty bound slots so the keyboard shape
+-- stays visible with ElvUI showGrid off. MUST be a unique name: the old value
+-- was a single space " ", which collides catastrophically - GetMacroIndexByName
+-- and the "is this slot empty" checks all key off the name, and a bare space
+-- is exactly the kind of name other macros end up with (we found six mangled
+-- Warrior ability macros all named " " sharing the account's global list, which
+-- made /setupbars place placeholders on only whichever slot happened to resolve
+-- the ambiguous lookup cleanly). LEGACY_PLACEHOLDER_NAMES are still treated as
+-- empty so pre-existing " " placeholders migrate to SC_pad on the next run.
+local PLACEHOLDER_MACRO = "SC_pad"
+local LEGACY_PLACEHOLDER_NAMES = { [" "] = true, [""] = true }
 -- Retail mount journal (not available on TBC Anniversary — kept for MountUsesJournal guard).
 local MOUNT_SPELL_ID = 150544
 -- Known TBC mount items, checked in order. First match in bags wins.
@@ -1193,7 +1204,8 @@ function SetupCore:IsReservedSlot(bar, btn)
 end
 
 function SetupCore:PlacePlaceholder(bar, btn)
-    return self:PlaceMacro(" ", bar, btn, false)
+    self:EnsureRawMacro(PLACEHOLDER_MACRO, "", 135864)
+    return self:PlaceMacro(PLACEHOLDER_MACRO, bar, btn, false)
 end
 
 function SetupCore:GetFreedKeySet()
@@ -1337,8 +1349,8 @@ function SetupCore:IsSlotEmpty(slot)
     local actionType, id = GetActionInfo(slot)
     if not actionType then return true end
     if actionType == "macro" then
-        local mname = GetMacroInfo(id)
-        return mname == " " or mname == ""
+        local mname = GetMacroInfo(id) or ""
+        return mname == PLACEHOLDER_MACRO or LEGACY_PLACEHOLDER_NAMES[mname] == true
     end
     return false
 end
@@ -1580,6 +1592,35 @@ function SetupCore:DeleteMacro(name)
     return false
 end
 
+-- Remove corrupt macros: name is a bare space " " but the body carries real
+-- content. The legitimate placeholder (SC_pad now, legacy " " during migration)
+-- ALWAYS has an empty body, so a " "-named macro with a real body is orphaned
+-- corruption - we found six mangled Warrior ability macros (Heroic Strike,
+-- Sunder, Cleave, Mortal Strike, Bloodthirst, Throw) renamed to " " sharing the
+-- account's global macro list, which is what broke placeholder placement. These
+-- are global macros, so this cleans them for every character; WarriorSetup
+-- rebuilds the warrior's real (SC_-named) macros on its own /setupbars.
+function SetupCore:CleanCorruptPlaceholderMacros()
+    local corrupt = {}
+    -- Scan a generous fixed range: global + per-character macro indices are
+    -- non-contiguous across clients; GetMacroInfo returns nil for empty slots.
+    for i = 1, 200 do
+        local name, _, body = GetMacroInfo(i)
+        if name == " " and body and body:gsub("%s", "") ~= "" then
+            corrupt[#corrupt + 1] = i
+        end
+    end
+    -- Delete highest index first so lower indices don't shift underneath us.
+    table.sort(corrupt, function(a, b) return a > b end)
+    for _, idx in ipairs(corrupt) do
+        DeleteMacro(idx)
+    end
+    if #corrupt > 0 then
+        print(string.format("|cff999999SetupCore|r removed %d corrupt \" \" macro(s)", #corrupt))
+    end
+    return #corrupt
+end
+
 function SetupCore:DeleteMacros(names)
     local removed = 0
     for i = 1, #names do
@@ -1619,8 +1660,8 @@ function SetupCore:PrepareSlotForPlace(slot)
     if not slot or not HasAction(slot) then return end
     local actionType, id = GetActionInfo(slot)
     if actionType == "macro" then
-        local mname = GetMacroInfo(id)
-        if mname == " " or mname == "" then
+        local mname = GetMacroInfo(id) or ""
+        if mname == PLACEHOLDER_MACRO or LEGACY_PLACEHOLDER_NAMES[mname] == true then
             self:ClearSlot(slot)
         end
     end
@@ -1692,14 +1733,13 @@ end
 -- freedKeys = key released entirely (no bind, no placeholder). All other
 -- bound-but-empty slots get a placeholder so the keyboard shape stays visible.
 function SetupCore:FillEmptyBoundSlots()
-    local placeholderName = " "
-    -- Subtle placeholder icon (file ID, user-chosen). WoW accepts numeric file
-    -- IDs directly via CreateMacro/EditMacro — more reliable than name strings
-    -- which silently fail if the texture isn't in the current client.
-    -- 135864 = the icon rymiwe picked manually in WoW's macro UI as the
-    -- low-contrast placeholder. To change: pick a new icon in-game on the " "
-    -- macro, /reload (or graceful exit), then read the new file ID from
-    -- WTF/Account/<acct>/macros-cache.txt and update this constant.
+    local placeholderName = PLACEHOLDER_MACRO
+    -- Subtle placeholder icon (file ID). WoW accepts numeric file IDs directly
+    -- via CreateMacro/EditMacro — more reliable than name strings which silently
+    -- fail if the texture isn't in the current client. 135864 = the low-contrast
+    -- icon rymiwe picked. To change: pick a new icon in-game on the SC_pad macro,
+    -- /reload, then read the new file ID from the char's macros-cache.txt and
+    -- update this constant.
     local placeholderIcon = 135864
     local idx = self:EnsureRawMacro(placeholderName, "", placeholderIcon)
     if not idx then
@@ -1955,6 +1995,10 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     local mapped = {}
     for _, item in ipairs(layout) do mapped[item[1]] = true end
     ignore = ignore or {}
+
+    -- Purge corrupt " "-named macros before (re)placing placeholders, so the
+    -- placeholder lookup can't collide with orphaned junk in the macro list.
+    self:CleanCorruptPlaceholderMacros()
 
     -- Fill any remaining empty bound slots with the visual placeholder.
     self:FillEmptyBoundSlots()

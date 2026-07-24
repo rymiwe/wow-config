@@ -18,8 +18,9 @@ ElvCharacterDB = {
 "/p click the spekaer",
 "/p and then the icon next to party again please",
 "/p did you join",
-"/setupbars",
 "/lie",
+"/rl",
+"/setupbars",
 },
 ["ChatHistoryLog"] = {
 },

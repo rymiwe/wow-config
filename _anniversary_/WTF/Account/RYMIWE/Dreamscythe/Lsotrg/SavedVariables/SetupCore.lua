@@ -52,6 +52,16 @@ nil,
 [60] = {
 ["type"] = "macro",
 },
+[61] = {
+["id"] = 587,
+["type"] = "spell",
+["name"] = "Conjure Food",
+},
+[62] = {
+["id"] = 5505,
+["type"] = "spell",
+["name"] = "Conjure Water",
+},
 [32] = {
 ["type"] = "macro",
 },
@@ -98,6 +108,24 @@ nil,
 [48] = {
 ["type"] = "macro",
 },
+[72] = {
+["id"] = 2288,
+["type"] = "item",
+},
+[63] = {
+["id"] = 1459,
+["type"] = "spell",
+["name"] = "Arcane Intellect",
+},
+[64] = {
+["id"] = 7300,
+["type"] = "spell",
+["name"] = "Frost Armor",
+},
+[71] = {
+["id"] = 5349,
+["type"] = "item",
+},
 [53] = {
 ["type"] = "macro",
 },
@@ -119,6 +147,6 @@ nil,
 ["type"] = "macro",
 },
 },
-["timestamp"] = "2026-07-21 17:03:44",
+["timestamp"] = "2026-07-23 19:19:52",
 },
 }

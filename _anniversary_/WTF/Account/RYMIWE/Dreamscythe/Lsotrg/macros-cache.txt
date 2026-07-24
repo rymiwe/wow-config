@@ -35,6 +35,8 @@ VER 3 0100000000000009 "SC_Mount" "132261"
 /dismount [mounted]
 /run print("|cffff0000SetupCore|r: no mount in bags — keep a mount item or train a mount spell")
 END
+VER 3 010000000000000A "SC_pad" "135864"
+END
 VER 3 0100000000000007 "SC_Polymorph" "136071"
 #showtooltip
 /cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] Polymorph

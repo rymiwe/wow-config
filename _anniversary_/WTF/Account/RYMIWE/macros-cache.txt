@@ -1,33 +1,7 @@
-VER 3 0000000000000002 " " "135864"
-END
-VER 3 0000000000000003 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/startattack
-/cast Heroic Strike
-END
-VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/startattack
-/cast [@mouseover,harm,nodead][] Sunder Armor
-END
 VER 3 0000000000000010 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /startattack
 /cast Cleave
-END
-VER 3 0000000000000013 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cast [worn:thrown] Throw; [worn:bow] Shoot Bow; [worn:gun] Shoot Gun; [worn:crossbow] Shoot Crossbow
-END
-VER 3 0000000000000012 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/startattack
-/cast Mortal Strike
-END
-VER 3 000000000000001D " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/startattack
-/cast Bloodthirst
 END
 VER 3 0000000000000019 " druid-travel" "132144"
 #showtooltip Travel Form
