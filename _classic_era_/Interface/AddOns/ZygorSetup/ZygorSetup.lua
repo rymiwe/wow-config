@@ -25,6 +25,14 @@
 -- grows upward from here). Nudge these if the placement needs adjusting.
 local GUIDE_ANCHOR = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 120}
 
+-- Action bar (the row of clickable quest-item / targeting buttons). We must NOT
+-- leave it "snapped": Zygor's snap pins the bar to UIParent at the viewer's top
+-- AT THAT INSTANT (ActionBar.lua SavePosition), so when the viewer grows upward
+-- (resizeup) its top rises above the stale bar and the viewer frame covers the
+-- buttons -> clicks do nothing. So snapped=false + a fixed screen position just
+-- BELOW the guide's bottom anchor, where the upward-growing viewer never reaches.
+local ACTIONBAR_ANCHOR = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 40}
+
 -- Zygor profile settings (ZGV.db.profile.<key>).
 local PRESET = {
     windowlocked      = true,
@@ -32,6 +40,10 @@ local PRESET = {
     opacity           = 0.5,
     resizeup          = true,
     frame_anchor      = GUIDE_ANCHOR,
+
+    -- Action bar: fixed (unsnapped) so it can't be overlapped by the grown viewer.
+    actionbar_anchor_snapped = false,
+    actionbar_anchor         = ACTIONBAR_ANCHOR,
 
     -- Auto-select quest rewards. autoselectitem is gated behind questitemselector
     -- (default true) both in the options UI and at runtime, so assert both.
@@ -75,6 +87,12 @@ local function ApplyZygor()
     end
     if ZGV.UpdateLocking then pcall(ZGV.UpdateLocking, ZGV) end
     if ZGV.UpdateFrame then pcall(ZGV.UpdateFrame, ZGV, true) end
+
+    -- Unsnap + reposition the action bar live (else it applies on next /reload).
+    if ZGV.ActionBar and ZGV.ActionBar.Frame and ZGV.F and ZGV.F.SetFrameAnchor then
+        ZGV.ActionBar.Frame.snapped = false
+        pcall(ZGV.F.SetFrameAnchor, ZGV.ActionBar.Frame, p.actionbar_anchor)
+    end
     return true
 end
 
