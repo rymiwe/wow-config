@@ -1,7 +1,7 @@
-## Interface: 11508
+## Interface: 11509
 ## Title: Zygor Setup
 ## Notes: Apply opinionated Zygor guide-window config on login (Classic Era / SoD)
-## Version: 1.0
+## Version: 1.1
 ## OptionalDeps: ZygorGuidesViewerClassic
 
 ZygorSetup.lua

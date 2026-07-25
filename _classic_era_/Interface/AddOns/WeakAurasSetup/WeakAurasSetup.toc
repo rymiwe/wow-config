@@ -1,7 +1,7 @@
-## Interface: 11508
+## Interface: 11509
 ## Title: WeakAuras Setup
 ## Notes: Automatically ensures important WeakAuras are present on login (Shaman totem profile selector, etc.)
-## Version: 1.0
+## Version: 1.1
 ## OptionalDeps: WeakAuras
 
 WeakAurasSetup.lua
