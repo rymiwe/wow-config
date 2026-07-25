@@ -14,6 +14,9 @@
 --
 -- Quest watch:
 --   - Guard QuestWatch_Update when QuestWatchLine frames are not ready (Anniversary login race)
+--
+-- UI scale:
+--   - Force ElvUI's account-wide UIScale to a fixed value on login (see UI_SCALE)
 
 local function GetDock()
     return _G.GeneralDockManager or _G.GENERAL_CHAT_DOCK
@@ -545,6 +548,23 @@ local function SetupGameMenuFix()
     FixGameMenuLogoutButtons()
 end
 
+-- ElvUI global UI scale: force a fixed value on login. This is account-wide
+-- (E.global.general.UIScale) and overrides ElvUI's auto-scale. Edit UI_SCALE to
+-- taste: higher = bigger UI, lower = smaller/crisper (pixel-perfect on this 4K
+-- rig is ~0.4). E:UIScale() self-defers if called in combat.
+local UI_SCALE = 0.69
+local function ApplyUIScale()
+    local E = _G.ElvUI and _G.ElvUI[1]
+    if not E or not E.global or not E.global.general then return end
+    if E.global.general.autoScale == false and E.global.general.UIScale == UI_SCALE then
+        return
+    end
+    E.global.general.autoScale = false
+    E.global.general.UIScale = UI_SCALE
+    if E.UIMult then pcall(E.UIMult, E) end
+    if E.UIScale then pcall(E.UIScale, E) end
+end
+
 local questWatchGuardFrame = CreateFrame('Frame')
 questWatchGuardFrame:RegisterEvent('QUEST_LOG_UPDATE')
 questWatchGuardFrame:RegisterEvent('QUEST_WATCH_UPDATE')
@@ -581,8 +601,10 @@ f:SetScript('OnEvent', function(_, event, addon)
     SetupGuildRankArrowFix()
     SetupQuestWatchGuard()
     DisableQuestWatchMouseCapture()
+    ApplyUIScale()
     C_Timer.After(0.3, function()
         ApplyInitFix()
+        ApplyUIScale()
         DisableQuestWatchMouseCapture()
         SnapToPanel()
         if not hooked and _G.ChatFrame1 then
