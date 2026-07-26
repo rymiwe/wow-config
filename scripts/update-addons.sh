@@ -8,6 +8,9 @@
 # The Era set skips TotemTimers (Anniversary-only patched fork) and scrapes
 # the "Classic" AskMrRobot section instead of "TBC".
 #
+# NOTE: for _classic_era_ this installs the ElvUI DEV BUILD from GitHub (the
+# packaged release lags WoW 1.15.9). See the ELVUI_ERA_DEV block below to revert.
+#
 # Usage:
 #   ./scripts/update-addons.sh                              # _anniversary_ (default)
 #   ./scripts/update-addons.sh --flavor _classic_era_       # Classic Era / SoD
@@ -94,9 +97,47 @@ if m:
 PY
 }
 
-elvui_url="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null \
-    | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
-fetch_addon_zip "ElvUI"     "$elvui_url"
+# --- ElvUI on Classic Era: run the DEVELOPMENT build from GitHub -------------
+# WoW 1.15.9 (interface 11509) reworked a lot of Blizzard UI internals. The last
+# packaged ElvUI *release* (15.18) targets 1.15.8 and crashes on 1.15.9; the
+# devs' git 'main' branch already carries the Era/1.15.9 fixes. So for
+# _classic_era_ we install ElvUI straight from github.com/tukui-org/ElvUI.
+# >>> We are intentionally on the ElvUI DEV BUILD for Classic Era. <<<
+# TO REVERT to the stable Tukui release once it catches up to 1.15.9:
+# run with ELVUI_ERA_DEV=0 (or flip the default below) and Era will use the
+# same Tukui API fetch as Anniversary.
+ELVUI_ERA_DEV="${ELVUI_ERA_DEV:-1}"
+install_elvui_github_dev() {
+    local url="https://github.com/tukui-org/ElvUI/archive/refs/heads/main.zip"
+    local tmp tmpdir
+    tmp="$(mktemp -t elvui-XXXXXX.zip)"
+    tmpdir="$(mktemp -d)"
+    if curl -fsSL "$url" -o "$tmp" 2>/dev/null && unzip -qo "$tmp" -d "$tmpdir" 2>/dev/null; then
+        local src="$tmpdir/ElvUI-main" a
+        for a in ElvUI ElvUI_Libraries ElvUI_Options; do
+            if [[ -d "$src/$a" ]]; then
+                rm -rf "$ADDONS_DIR/$a"
+                cp -r "$src/$a" "$ADDONS_DIR/$a"
+            fi
+        done
+        # git tree uses an @project-version@ placeholder the packager fills in;
+        # replace it so ElvUI's version parsing/display is clean.
+        find "$ADDONS_DIR/ElvUI" "$ADDONS_DIR/ElvUI_Libraries" "$ADDONS_DIR/ElvUI_Options" \
+            -name '*.toc' -exec sed -i 's/@project-version@/dev/g' {} + 2>/dev/null || true
+        echo "  Updated ElvUI (GitHub dev build - Classic Era / 1.15.9)"
+    else
+        echo "WARN: ElvUI dev-build download failed" >&2
+    fi
+    rm -rf "$tmp" "$tmpdir"
+}
+
+if [[ "$FLAVOR" == "_classic_era_" && "$ELVUI_ERA_DEV" == "1" ]]; then
+    install_elvui_github_dev
+else
+    elvui_url="$(curl -fsSL "https://api.tukui.org/v1/addon/elvui" 2>/dev/null \
+        | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
+    fetch_addon_zip "ElvUI"     "$elvui_url"
+fi
 fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
 fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
 fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"

@@ -10,6 +10,10 @@
   The Era set skips TotemTimers (Anniversary-only patched fork) and scrapes
   the "Classic" AskMrRobot section instead of "TBC".
 
+  NOTE: for _classic_era_ this installs the ElvUI DEV BUILD from GitHub (the
+  packaged release lags WoW 1.15.9). Set env ELVUI_ERA_DEV=0 to revert. See the
+  Install-ElvUIDevBuild block below.
+
 .PARAMETER WowDir
   Path to your World of Warcraft install. Auto-detected if omitted.
 
@@ -95,10 +99,57 @@ function Get-AmrSectionZipUrl {
     return $null
 }
 
-try {
-    $elvuiInfo = Invoke-RestMethod -Uri "https://api.tukui.org/v1/addon/elvui" -UseBasicParsing
-    Install-AddonZip "ElvUI" $elvuiInfo.url $addonsDir
-} catch { Write-Warning "ElvUI Tukui API failed: $_" }
+# --- ElvUI on Classic Era: run the DEVELOPMENT build from GitHub -------------
+# WoW 1.15.9 (interface 11509) reworked a lot of Blizzard UI internals. The last
+# packaged ElvUI release (15.18) targets 1.15.8 and crashes on 1.15.9; the devs'
+# git 'main' branch already carries the Era fixes. So for _classic_era_ we install
+# ElvUI straight from github.com/tukui-org/ElvUI.
+# >>> We are intentionally on the ElvUI DEV BUILD for Classic Era. <<<
+# TO REVERT to the stable Tukui release once it catches up to 1.15.9:
+# set the env var ELVUI_ERA_DEV=0, and Era uses the same Tukui fetch as Anniversary.
+function Install-ElvUIDevBuild {
+    param([string]$DestDir)
+    $url = "https://github.com/tukui-org/ElvUI/archive/refs/heads/main.zip"
+    $tmp = Join-Path $env:TEMP "elvui-dev.zip"
+    $tmpdir = Join-Path $env:TEMP "elvui-dev-extract"
+    try {
+        if (Test-Path $tmpdir) { Remove-Item -Recurse -Force $tmpdir }
+        Invoke-WebRequest -Uri $url -OutFile $tmp -UseBasicParsing
+        Expand-Archive -Path $tmp -DestinationPath $tmpdir -Force
+        $src = Join-Path $tmpdir "ElvUI-main"
+        foreach ($a in @("ElvUI","ElvUI_Libraries","ElvUI_Options")) {
+            $from = Join-Path $src $a
+            if (Test-Path $from) {
+                $to = Join-Path $DestDir $a
+                if (Test-Path $to) { Remove-Item -Recurse -Force $to }
+                Copy-Item -Recurse -Force $from $to
+                # replace the @project-version@ packager placeholder so version parsing is clean
+                Get-ChildItem $to -Filter *.toc -Recurse | ForEach-Object {
+                    $c = Get-Content -Raw $_.FullName
+                    if ($c -match '@project-version@') {
+                        Set-Content -NoNewline -Path $_.FullName -Value ($c -replace '@project-version@','dev') -Encoding UTF8
+                    }
+                }
+            }
+        }
+        Write-Host "  Updated ElvUI (GitHub dev build - Classic Era / 1.15.9)"
+    } catch {
+        Write-Warning "ElvUI dev-build install failed: $_"
+    } finally {
+        Remove-Item $tmp -Force -ErrorAction SilentlyContinue
+        Remove-Item $tmpdir -Recurse -Force -ErrorAction SilentlyContinue
+    }
+}
+
+$elvuiEraDev = -not ($env:ELVUI_ERA_DEV -eq "0")
+if ($Flavor -eq "_classic_era_" -and $elvuiEraDev) {
+    Install-ElvUIDevBuild $addonsDir
+} else {
+    try {
+        $elvuiInfo = Invoke-RestMethod -Uri "https://api.tukui.org/v1/addon/elvui" -UseBasicParsing
+        Install-AddonZip "ElvUI" $elvuiInfo.url $addonsDir
+    } catch { Write-Warning "ElvUI Tukui API failed: $_" }
+}
 
 Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
 Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
