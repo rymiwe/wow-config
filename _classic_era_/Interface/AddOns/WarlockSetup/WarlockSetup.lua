@@ -165,16 +165,16 @@ do
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 
-    -- Curses ring (M4 hold) - 5 mutually-contextual curses.
+    -- Curses ring (M4 hold) - the 5 SITUATIONAL curses only. The damage curses
+    -- (Curse of Agony 980, Curse of Doom 603) live on the bar (1,3 / 1,4), so they
+    -- are intentionally NOT duplicated here.
     R:AddDefaultRing("WarlockCurses", {
-        {id="/cast {{spell:980}}",   _u="ag"}, -- Curse of Agony
         {id="/cast {{spell:702}}",   _u="wk"}, -- Curse of Weakness
         {id="/cast {{spell:1490}}",  _u="el"}, -- Curse of the Elements
         {id="/cast {{spell:17862}}", _u="sh"}, -- Curse of Shadow
         {id="/cast {{spell:704}}",   _u="rk"}, -- Curse of Recklessness
         {id="/cast {{spell:1714}}",  _u="tg"}, -- Curse of Tongues
-        {id="/cast {{spell:603}}",   _u="dm"}, -- Curse of Doom
-        name = "Curses", hotkey = "BUTTON4", _u = "WlkCrs", v = 1,
+        name = "Curses", hotkey = "BUTTON4", _u = "WlkCrs", v = 2,
     })
 
     -- Pet summons + stones ring (M5 hold) - slow OOC utility.
@@ -190,7 +190,7 @@ do
         {id="/cast {{spell:18540}}", _u="dg"}, -- Summon Doomguard
         {id="/cast {{spell:687}}",   _u="dsk"},-- Demon Skin (L1 armor)
         {id="/cast {{spell:706}}",   _u="dar"},-- Demon Armor
-        {id="/cast {{spell:28189}}", _u="far"},-- Fel Armor
-        name = "Pet, Stones & Armor", hotkey = "BUTTON5", _u = "WlkPet", v = 2,
+        {id="/cast {{spell:403619/28189}}", _u="far"},-- Fel Armor (SoD 403619 / TBC 28189)
+        name = "Pet, Stones & Armor", hotkey = "BUTTON5", _u = "WlkPet", v = 3,
     })
 end
