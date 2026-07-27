@@ -216,7 +216,10 @@ local MACRO_TEMPLATES = {
     -- Don't use for CC spells (Entangling Roots, Hibernate) — startattack would
     -- break the CC by triggering melee swings on the rooted/sleeping mob.
     ["nuke-mouseover"] = function(spell)
-        return "#showtooltip\n/startattack\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
+        -- /startattack engages MELEE only if no wand equipped; if a wand IS equipped
+        -- (SoD casters), fire it instead (!Shoot keeps it on, never toggles it off).
+        -- Both are no-ops when inapplicable. Then the actual nuke on mouseover.
+        return "#showtooltip\n/startattack [noequipped:Wands]\n/cast [equipped:Wands] !Shoot\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
     end,
     ["focus-mouseover-harm"] = function(spell)
         return "#showtooltip\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell
