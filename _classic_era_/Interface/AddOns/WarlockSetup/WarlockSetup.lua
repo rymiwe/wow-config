@@ -16,11 +16,12 @@
 --   * Soulshards are inventory items, not spells - no slot.
 --   * Curses go in OPie M4 ring (5 curses: Weakness/Recklessness/Tongues/Elements/Shadow)
 --     - frequent-toggle but contextual choice, ring is cleaner than 5 bar slots.
---   * Pet summons + stones go in OPie M5 ring (slow OOC utility).
+--   * Pet summons + stones + armors go in OPie M5 ring (slow OOC utility). Armors
+--     (Demon Skin/Demon Armor/Fel Armor) are ring-only for consistency, not bar slots.
 --
 -- OPie rings:
 --   M4 = Curses
---   M5 = Pet summons + Soulstone/Healthstone create
+--   M5 = Pet summons + Soulstone/Healthstone create + Armors
 
 local LAYOUT = {
     -- MAIN TOP (Bar 1) - INSTANTS only on numrow. DoTs get nuke-mouseover so
@@ -36,9 +37,10 @@ local LAYOUT = {
     {"Howl of Terror",         1, 11},                    -- L40   R   (instant AoE fear; panic)
     {"Banish",                 1, 12, "mouseover-harm"},  -- L26   T   (8s CC vs Demon/Elemental; cast)
 
-    -- MAIN BOTTOM (Bar 3) - F/G armor toggle, ZXCVB combat utility
-    {"Demon Armor",            3, 5},                     -- L28   F   (default armor; right-aligned)
-    {"Fel Armor",              3, 6},                     -- TBC L62 G (Demonology variant; spell power)
+    -- MAIN BOTTOM (Bar 3) - G=Fear, ZXCVB combat utility. Armors -> M5 OPie ring
+    -- (they were inconsistent: Fel Armor bound but Demon Armor untrained/empty).
+    -- F (3,5) left empty.
+    {"Fear",                   3, 6, "mouseover-harm"},   -- L8    G   (single-target fear; moved off the unbound alt slot 5,7)
     -- ZXCVB row: combat instants + utility
     {"Soul Fire",              3, 8},                     -- L48   Z   (6s cast nuke - heavy damage; OK on bottom row since cast)
     {"Conflagrate",            3, 9},                     -- L20 Destro X (instant burst; consumes Immolate)
@@ -61,8 +63,7 @@ local LAYOUT = {
     -- ALT BOTTOM (Bar 5) - defensives + stone usage
     {"Soulshatter",            5, 5, "self-cast"},        -- TBC L62 Alt-F (drop threat - high-value defensive)
     {"Curse of Exhaustion",    5, 6, "mouseover-harm"},   -- L36 Affl Alt-G (snare debuff; Affl talent)
-    -- Alt-ZXCVB: panic + escapes
-    {"Fear",                   5, 7, "mouseover-harm"},   -- L8    (single-target fear; Alt-Z = mount)
+    -- Alt-ZXCVB: panic + escapes (Fear moved to main-bottom G - was on unbound slot 5,7)
     {"Mortal Coil",            5, 9, "self-cast"},        -- (Soul Link talent? skip if absent)
     {"Enslave Demon",          5, 10, "mouseover-harm"},  -- L30   Alt-C (channel; control demon)
     {"Sense Demons",           5, 11, "self-cast"},       -- L20   Alt-V (tracking; low-use)
@@ -99,6 +100,8 @@ local IGNORE = {
     ["Create Healthstone"]=true, ["Create Soulstone"]=true,
     ["Create Spellstone"]=true, ["Create Firestone"]=true,
     ["Soulstone"]=true,                                   -- using a soulstone is via item right-click
+    -- Armors - handled by OPie ring (M5)
+    ["Demon Skin"]=true, ["Demon Armor"]=true, ["Fel Armor"]=true,
     -- Race passives
     ["Stoneform"]=true, ["Find Treasure"]=true, ["Frost Resistance"]=true,
     ["Touch of Elune"]=true, ["Wisp Spirit"]=true, ["Quickness"]=true,
@@ -185,6 +188,9 @@ do
         {id="/cast {{spell:693}}",   _u="ss"}, -- Create Soulstone
         {id="/cast {{spell:1122}}",  _u="if"}, -- Summon Infernal
         {id="/cast {{spell:18540}}", _u="dg"}, -- Summon Doomguard
-        name = "Pet & Stones", hotkey = "BUTTON5", _u = "WlkPet", v = 1,
+        {id="/cast {{spell:687}}",   _u="dsk"},-- Demon Skin (L1 armor)
+        {id="/cast {{spell:706}}",   _u="dar"},-- Demon Armor
+        {id="/cast {{spell:28189}}", _u="far"},-- Fel Armor
+        name = "Pet, Stones & Armor", hotkey = "BUTTON5", _u = "WlkPet", v = 2,
     })
 end

@@ -23,7 +23,7 @@
 -- Lower-right screen anchor. {point, relativeTo(nil=UIParent), relativePoint, x, y}.
 -- x is offset in from the right edge; y is offset up from the bottom (the window
 -- grows upward from here). Nudge these if the placement needs adjusting.
-local GUIDE_ANCHOR = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 120}
+local GUIDE_ANCHOR = {"BOTTOMRIGHT", nil, "BOTTOMRIGHT", -282.22, 290}
 
 -- Action bar (the row of clickable quest-item / targeting buttons). We must NOT
 -- leave it "snapped": Zygor's snap pins the bar to UIParent at the viewer's top

@@ -1,8 +1,12 @@
--- ElvUI Fixes (Classic Era / SoD) — trimmed to the essentials for the ElvUI
--- dev build. The Anniversary edition also carried game-menu / guild / quest-watch
--- taint workarounds; those were for the older ElvUI on the Anniversary client and
--- the current Era dev build handles them natively, so they're dropped here. If one
--- turns out to be needed on Era, port it back from _anniversary_/.../ElvUIFixes.
+-- ElvUI Fixes (Classic Era / SoD) — essentials for the ElvUI dev build. The
+-- Anniversary edition also carried guild / quest-watch taint workarounds; those
+-- are dropped here (the Era dev build handles them natively). The game-menu
+-- logout/quit fix WAS needed and has been restored (see below). If another
+-- Anniversary fix turns out to be needed, port it from _anniversary_/.../ElvUIFixes.
+--
+-- Game menu:
+--   - Secure /logout and /quit overlays on the Esc menu (ElvUI skinning taints the
+--     protected Logout()/Quit() so the buttons stop working without this)
 --
 -- Chat:
 --   - Force GeneralDockManager.primary=ChatFrame1, re-snap after SetPoint drift
@@ -212,6 +216,121 @@ local function ApplyUIScale()
     if E.UIScale then pcall(E.UIScale, E) end
 end
 
+-- Game menu: ElvUI skins the Esc menu, which taints the protected Logout()/Quit()
+-- buttons so they silently stop working. Overlay secure /logout and /quit buttons.
+-- (Ported back from the Anniversary ElvUIFixes - the Era ElvUI dev build taints
+-- these the same way, so this IS needed on Era despite the earlier trim.)
+local function IsLogoutLabel(text)
+    if not text or text == "" then return false end
+    if _G.LOGOUT and text == _G.LOGOUT then return true end
+    if _G.GAMEMENU_LOGOUT and text == _G.GAMEMENU_LOGOUT then return true end
+    return text == "Log Out"
+end
+
+local function IsQuitLabel(text)
+    if not text or text == "" then return false end
+    if _G.QUIT_GAME and text == _G.QUIT_GAME then return true end
+    if _G.QUIT and text == _G.QUIT then return true end
+    return text == "Exit Game"
+end
+
+local function IsGameMenuActionButton(btn)
+    if not btn or btn == _G.GameMenuFrame then return false end
+    if not btn.IsObjectType or not btn:IsObjectType("Button") then return false end
+    local w, h = btn:GetSize()
+    if not w or not h or w < 40 or h < 10 then return false end
+    -- Real menu rows are ~144x21; reject frames that span the whole panel.
+    if w > 320 or h > 48 then return false end
+    return true
+end
+
+local function RestoreUnderlyingMouse(btn)
+    if btn and btn.ElvUIFixesMouseDisabled then
+        btn:EnableMouse(true)
+        btn.ElvUIFixesMouseDisabled = nil
+    end
+end
+
+local function ClearSecureOverlay(btn)
+    if not btn or not btn.ElvUIFixesSecure then return end
+    btn.ElvUIFixesSecure:Hide()
+    btn.ElvUIFixesSecure:ClearAllPoints()
+    btn.ElvUIFixesSecure:SetParent(nil)
+    btn.ElvUIFixesSecure = nil
+    RestoreUnderlyingMouse(btn)
+end
+
+local function EnsureGameMenuSecureMacroOverlay(btn, macrotext)
+    if not IsGameMenuActionButton(btn) or not macrotext or InCombatLockdown() then return end
+    local overlay = btn.ElvUIFixesSecure
+    if not overlay then
+        overlay = CreateFrame("Button", nil, btn, "SecureActionButtonTemplate")
+        overlay:SetPoint("TOPLEFT", btn, "TOPLEFT", 0, 0)
+        overlay:SetPoint("BOTTOMRIGHT", btn, "BOTTOMRIGHT", 0, 0)
+        overlay:SetFrameStrata(btn:GetFrameStrata())
+        overlay:RegisterForClicks("AnyUp", "AnyDown")
+        overlay:EnableMouse(true)
+        btn.ElvUIFixesSecure = overlay
+    end
+    overlay:SetFrameLevel(btn:GetFrameLevel() + 2)
+    if overlay:GetAttribute("macrotext") ~= macrotext then
+        overlay:SetAttribute("type", "macro")
+        overlay:SetAttribute("macrotext", macrotext)
+    end
+    overlay:Show()
+end
+
+local function ConsiderGameMenuButton(btn)
+    if not IsGameMenuActionButton(btn) then return end
+    local text = btn.GetText and btn:GetText()
+    if IsLogoutLabel(text) then
+        EnsureGameMenuSecureMacroOverlay(btn, "/logout")
+    elseif IsQuitLabel(text) then
+        EnsureGameMenuSecureMacroOverlay(btn, "/quit")
+    else
+        ClearSecureOverlay(btn)
+    end
+end
+
+local function FixGameMenuLogoutButtons()
+    local menu = _G.GameMenuFrame
+    if not menu then return end
+    if menu.buttonPool and menu.buttonPool.EnumerateActive then
+        for button in menu.buttonPool:EnumerateActive() do
+            ConsiderGameMenuButton(button)
+        end
+    end
+    if menu.MenuButtons then
+        for _, button in pairs(menu.MenuButtons) do
+            ConsiderGameMenuButton(button)
+        end
+    end
+    -- Legacy named buttons (pre-buttonPool). Only bind when label matches.
+    ConsiderGameMenuButton(_G.GameMenuButtonLogout)
+    ConsiderGameMenuButton(_G.GameMenuButtonQuit)
+end
+
+local gameMenuHooked = false
+local function SetupGameMenuFix()
+    if gameMenuHooked then return end
+    local menu = _G.GameMenuFrame
+    if not menu then return end
+    menu:HookScript("OnShow", FixGameMenuLogoutButtons)
+    if menu.InitButtons then
+        hooksecurefunc(menu, "InitButtons", FixGameMenuLogoutButtons)
+    end
+    if menu.Layout then
+        hooksecurefunc(menu, "Layout", function()
+            C_Timer.After(0, FixGameMenuLogoutButtons)
+        end)
+    end
+    if _G.GameMenuFrame_UpdateVisibleButtons then
+        hooksecurefunc("GameMenuFrame_UpdateVisibleButtons", FixGameMenuLogoutButtons)
+    end
+    gameMenuHooked = true
+    FixGameMenuLogoutButtons()
+end
+
 local f = CreateFrame('Frame')
 f:RegisterEvent('PLAYER_ENTERING_WORLD')
 f:RegisterEvent('ADDON_LOADED')
@@ -221,9 +340,13 @@ f:SetScript('OnEvent', function(_, event, addon)
             or addon == 'Blizzard_ChatFrameBase' then
             WrapShowUIPanel()
         end
+        if addon == 'ElvUI' or addon == 'Blizzard_GlueXML' then
+            SetupGameMenuFix()
+        end
         return
     end
     WrapShowUIPanel()
+    SetupGameMenuFix()
     ApplyUIScale()
     C_Timer.After(0.3, function()
         ApplyInitFix()
@@ -237,3 +360,4 @@ f:SetScript('OnEvent', function(_, event, addon)
 end)
 
 WrapShowUIPanel()
+SetupGameMenuFix()
