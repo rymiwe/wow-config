@@ -37,10 +37,10 @@ local LAYOUT = {
     {"Howl of Terror",         1, 11},                    -- L40   R   (instant AoE fear; panic)
     {"Banish",                 1, 12, "mouseover-harm"},  -- L26   T   (8s CC vs Demon/Elemental; cast)
 
-    -- MAIN BOTTOM (Bar 3) - G=Fear, ZXCVB combat utility. Armors -> M5 OPie ring
-    -- (they were inconsistent: Fel Armor bound but Demon Armor untrained/empty).
-    -- F (3,5) left empty.
-    {"Fear",                   3, 6, "mouseover-harm"},   -- L8    G   (single-target fear; moved off the unbound alt slot 5,7)
+    -- MAIN BOTTOM (Bar 3) - G=Soulshatter, ZXCVB combat utility. Armors -> M5 OPie
+    -- ring (they were inconsistent: Fel Armor bound but Demon Armor untrained/empty).
+    -- F (3,5) left empty. Fear lives on Alt-F (cast-time -> alt bar; F = "Fear").
+    {"Soulshatter",            3, 6, "self-cast"},        -- TBC L62 G (drop threat; instant defensive)
     -- ZXCVB row: combat instants + utility
     {"Soul Fire",              3, 8},                     -- L48   Z   (6s cast nuke - heavy damage; OK on bottom row since cast)
     {"Conflagrate",            3, 9},                     -- L20 Destro X (instant burst; consumes Immolate)
@@ -60,8 +60,8 @@ local LAYOUT = {
     {"Detect Lesser Invisibility", 4, 11, "self-cast"},   -- L26   Alt-R (low-use; could move)
     {"Eye of Kilrogg",         4, 12, "self-cast"},       -- L22   Alt-T (scout familiar)
 
-    -- ALT BOTTOM (Bar 5) - defensives + stone usage
-    {"Soulshatter",            5, 5, "self-cast"},        -- TBC L62 Alt-F (drop threat - high-value defensive)
+    -- ALT BOTTOM (Bar 5) - Fear + snare + panic/escapes
+    {"Fear",                   5, 5, "mouseover-harm"},   -- L8    Alt-F (single-target cast fear; "F" = Fear)
     {"Curse of Exhaustion",    5, 6, "mouseover-harm"},   -- L36 Affl Alt-G (snare debuff; Affl talent)
     -- Alt-ZXCVB: panic + escapes (Fear moved to main-bottom G - was on unbound slot 5,7)
     {"Mortal Coil",            5, 9, "self-cast"},        -- (Soul Link talent? skip if absent)
