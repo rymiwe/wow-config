@@ -199,7 +199,7 @@ local hooked = false
 -- (E.global.general.UIScale) and overrides ElvUI's auto-scale. Edit UI_SCALE to
 -- taste: higher = bigger UI, lower = smaller/crisper (pixel-perfect on this 4K
 -- rig is ~0.4). E:UIScale() self-defers if called in combat.
-local UI_SCALE = 0.45
+local UI_SCALE = 0.6
 local function ApplyUIScale()
     local E = _G.ElvUI and _G.ElvUI[1]
     if not E or not E.global or not E.global.general then return end
