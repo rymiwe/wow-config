@@ -166,7 +166,10 @@ local BINDINGS = {
     {"SHIFT-6", nil},
     {"SHIFT-MOUSEWHEELUP", nil}, {"SHIFT-MOUSEWHEELDOWN", nil},
     -- Mouse buttons: M3 = decurse macro (RegisterDecurseMacro). M4/M5 = OPie rings.
-    -- Do not bind M4/M5 here — /setupbars would clobber /opie ring bindings.
+    -- Don't SET an action on M4/M5 (that clobbers OPie's ring binding), but DO clear
+    -- any default regular binding (e.g. BUTTON4 -> auto-run toggle) so it can't fire
+    -- alongside the ring. OPie holds M4/M5 via a secure override that survives this.
+    {"BUTTON4", nil}, {"BUTTON5", nil},
     -- Shift+M3 = ElvUI's built-in raid-marker radial (marks current target;
     -- see Interface/AddOns/ElvUI/Bindings.xml). Action name has a literal
     -- space — that's the real binding token ElvUI registers, not a typo.
