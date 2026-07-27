@@ -63,7 +63,7 @@ local LAYOUT = {
     -- ALT BOTTOM (Bar 5) - Fear + snare + panic/escapes
     {"Fear",                   5, 5, "mouseover-harm"},   -- L8    Alt-F (single-target cast fear; "F" = Fear)
     {"Curse of Exhaustion",    5, 6, "mouseover-harm"},   -- L36 Affl Alt-G (snare debuff; Affl talent)
-    -- Alt-ZXCVB: panic + escapes (Fear moved to main-bottom G - was on unbound slot 5,7)
+    -- Alt-ZXCVB: panic + escapes
     {"Mortal Coil",            5, 9, "self-cast"},        -- (Soul Link talent? skip if absent)
     {"Enslave Demon",          5, 10, "mouseover-harm"},  -- L30   Alt-C (channel; control demon)
     {"Sense Demons",           5, 11, "self-cast"},       -- L20   Alt-V (tracking; low-use)
