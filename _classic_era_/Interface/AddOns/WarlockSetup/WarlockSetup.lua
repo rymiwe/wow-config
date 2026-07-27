@@ -10,10 +10,15 @@
 --   Bar 5 = ALT BOTTOM (mirror of Bar 3)
 --
 -- Warlock-specific notes:
---   * No baseline interrupt - ` slot left empty (Warlock interrupt is via Felhunter Spell Lock on pet bar)
+--   * No baseline interrupt (Warlock interrupt is via Felhunter Spell Lock on pet bar).
+--     The ` slot now holds the Shadowflame rune (see SoD runes below).
 --   * Pet abilities (Firebolt, Sacrifice, Lash of Pain, Spell Lock, Devour Magic, etc.)
 --     auto-populate the Blizzard PetActionBar - never placed here.
 --   * Soulshards are inventory items, not spells - no slot.
+--   * SoD RUNE abilities: active runes are placed by name on the empty bound slots
+--     (Head->` Shadowflame, Legs->5 Chaos Bolt/Haunt, Chest->F Metamorphosis/SB Volley,
+--     Hands->Alt-` Demonic Grace, Cloak->Alt-R Incinerate). Summon Felguard -> M5 ring.
+--     Passive runes are IGNORE'd. Names verified vs the SoD rune list; check /runes.
 --   * Curses go in OPie M4 ring (5 curses: Weakness/Recklessness/Tongues/Elements/Shadow)
 --     - frequent-toggle but contextual choice, ring is cleaner than 5 bar slots.
 --   * Pet summons + stones + armors go in OPie M5 ring (slow OOC utility). Armors
@@ -57,7 +62,7 @@ local LAYOUT = {
     -- Alt-QERT: utility - rez/buffs/dispels (Warlock has no friend heals)
     {"Health Funnel",          4, 8, "self-cast"},        -- L8    Alt-Q (channel - heal active pet)
     {"Unending Breath",        4, 10, "mouseover-help"},  -- L16   Alt-E (water breathing buff)
-    {"Detect Lesser Invisibility", 4, 11, "self-cast"},   -- L26   Alt-R (low-use; could move)
+    {"Incinerate",             4, 11, "nuke-mouseover"},  -- Alt-R  SoD Cloak RUNE (fire nuke; replaced Detect Lesser Invis, low-use)
     {"Eye of Kilrogg",         4, 12, "self-cast"},       -- L22   Alt-T (scout familiar)
 
     -- ALT BOTTOM (Bar 5) - Fear + snare + panic/escapes
@@ -68,6 +73,19 @@ local LAYOUT = {
     {"Enslave Demon",          5, 10, "mouseover-harm"},  -- L30   Alt-C (channel; control demon)
     {"Sense Demons",           5, 11, "self-cast"},       -- L20   Alt-V (tracking; low-use)
     -- B left empty (placeholder for racial)
+
+    -- SoD RUNE ABILITIES (active, engraved). Placed by NAME - SetupCore skips any
+    -- not currently engraved/known, so this is safe even if a name is slightly off
+    -- (run /runes to see exact in-game names). Runes are one-per-equipment-slot and
+    -- mutually exclusive within a slot, so each equipment slot maps to one bar slot:
+    --   Head->` , Legs->5 , Chest->F , Hands->Alt-` , Cloak->Alt-R (Incinerate, above).
+    {"Shadowflame",            1, 1},                     -- `      Head rune (cone AoE opener; instant slot)
+    {"Chaos Bolt",             1, 6, "nuke-mouseover"},   -- 5      Legs rune (fire nuke; numrow)
+    {"Haunt",                  1, 6, "nuke-mouseover"},   -- 5      Legs alt (shadow nuke+DoT)
+    {"Metamorphosis",          3, 5},                     -- F      Chest rune (demon-form toggle)
+    {"Shadow Bolt Volley",     3, 5},                     -- F      Chest alt (AoE nuke)
+    {"Demonic Grace",          4, 1, "self-cast"},        -- Alt-`  Hands rune (defensive surge)
+    -- Summon Felguard (Cloak rune) is a SUMMON -> M5 OPie ring, not a bar slot.
 }
 
 local IGNORE = {
@@ -123,6 +141,19 @@ local IGNORE = {
     ["Inscription"]=true, ["Milling"]=true, ["Gemcutting"]=true,
     -- Misc
     ["Ritual of Summoning"]=true, ["Ritual of Souls"]=true,
+    ["Detect Lesser Invisibility"]=true,                  -- freed Alt-R for Incinerate rune
+    -- SoD PASSIVE runes (no slot needed; active runes are placed via LAYOUT above).
+    ["Demonic Pact"]=true, ["Everlasting Affliction"]=true, ["Lake of Fire"]=true,
+    ["Master Channeler"]=true, ["Demonic Tactics"]=true, ["Grimoire of Synergy"]=true,
+    ["Invocation"]=true, ["Shadow and Flame"]=true, ["Dance of the Wicked"]=true,
+    ["Demonic Knowledge"]=true, ["Decimation"]=true, ["Backdraft"]=true,
+    ["Unstable Affliction"]=true, ["Immolation Aura"]=true, ["Soul Siphon"]=true,
+    ["Mark of Chaos"]=true, ["Infernal Armor"]=true, ["Soul Harvest"]=true,
+    ["Vengeance"]=true, ["Enslaved Soul"]=true, ["Soul Engraving"]=true,
+    -- SoD rune weapon specializations (passive)
+    ["Shadow Weapon Specialization"]=true, ["Fire Weapon Specialization"]=true,
+    ["Defense Weapon Specialization"]=true, ["Dagger Specialization"]=true,
+    ["Sword Specialization"]=true, ["Pole Weapon Specialization"]=true,
 }
 
 -- Per-race racial placement (per docs/racials.md)

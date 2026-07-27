@@ -1,7 +1,7 @@
 ## Interface: 11509
 ## Title: Warlock Setup
 ## Notes: /setupbars - populate ElvUI action bars from a hardcoded layout (Affliction-leaning DoT generalist)
-## Version: 1.6
+## Version: 1.7
 ## Dependencies: SetupCore
 ## OptionalDeps: OPie
 
