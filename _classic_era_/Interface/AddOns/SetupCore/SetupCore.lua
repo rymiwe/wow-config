@@ -2100,6 +2100,38 @@ SlashCmdList["SETUPDECURSE"] = function()
     end
 end
 
+-- /runes : list engraved Season of Discovery runes + the abilities they grant.
+-- Read-only diagnostic (groundwork for auto-placing active rune abilities). Fully
+-- guarded so an unexpected C_Engraving shape can't break anything.
+SLASH_SETUPRUNES1 = "/runes"
+SlashCmdList["SETUPRUNES"] = function()
+    if not (C_Engraving and C_Engraving.IsEngravingEnabled and C_Engraving.IsEngravingEnabled()) then
+        print("|cffff0000/runes|r: engraving unavailable (not Season of Discovery?).")
+        return
+    end
+    pcall(function() if C_Engraving.RefreshRunesList then C_Engraving.RefreshRunesList() end end)
+    local slots = {
+        "HeadSlot", "ShoulderSlot", "BackSlot", "ChestSlot", "WristSlot",
+        "HandsSlot", "WaistSlot", "LegsSlot", "FeetSlot",
+    }
+    print("|cff00ff00Engraved runes|r (put castable ones on a bar/ring; passives just work):")
+    local found = 0
+    for _, slot in ipairs(slots) do
+        local slotid = GetInventorySlotInfo(slot)
+        local ok, rune = pcall(C_Engraving.GetRuneForEquipmentSlot, slotid)
+        if ok and type(rune) == "table" and rune.learnedAbilitySpellIDs then
+            for _, sid in pairs(rune.learnedAbilitySpellIDs) do
+                local name = GetSpellInfo(sid) or ("spell:" .. tostring(sid))
+                print(string.format("|cff999999  %-9s|r %s |cff666666(id %d)|r", slot:gsub("Slot", ""), name, sid))
+                found = found + 1
+            end
+        end
+    end
+    if found == 0 then
+        print("|cff999999  no engraved runes detected (nothing engraved, or API returned empty).|r")
+    end
+end
+
 SLASH_SETUPMOUNT1 = "/mountfix"
 SlashCmdList["SETUPMOUNT"] = function()
     local _, mountDesc = SetupCore:EnsureMountMacro()
