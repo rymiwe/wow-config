@@ -2,8 +2,6 @@
 ElvCharacterDB = {
 ["ConvertKeybindings"] = true,
 ["ChatEditHistory"] = {
-"/s HEARTACHEE",
-"/s MISTTTAKKKE",
 "/s WHYYYYYYYYYY",
 "/s HEAR YOU SAY",
 "/listen",
@@ -22,6 +20,8 @@ ElvCharacterDB = {
 "ok logging to see if i have a ~10",
 "sounds good",
 "/ginvite peliwe",
+"/p might be out tonight",
+"/p sorry =/",
 },
 ["ChatHistoryLog"] = {
 },

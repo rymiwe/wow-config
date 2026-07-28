@@ -1,7 +1,7 @@
 
 GuildMotdCyclerDB = {
-["lastMotdText"] = "Today's element: Earth. Today's mood: Tremor Totem. (Therazane holds the line.)",
-["lastMotdDate"] = "2026-07-21",
+["saltDate"] = "2026-07-27",
 ["lastSalt"] = 0,
-["saltDate"] = "2026-07-21",
+["lastMotdDate"] = "2026-07-27",
+["lastMotdText"] = "Today's element: Air. Today's mood: Lightning Bolt. (Al'Akir rides the gale.)",
 }
