@@ -214,7 +214,7 @@ do
         {id="/cast {{spell:697}}",   _u="vw"}, -- Summon Voidwalker
         {id="/cast {{spell:712}}",   _u="sc"}, -- Summon Succubus
         {id="/cast {{spell:691}}",   _u="fh"}, -- Summon Felhunter
-        {id="/cast {{spell:30146}}", _u="fg"}, -- Summon Felguard (TBC Demonology)
+        {id="/cast {{spell:427733/30146}}", _u="fg"}, -- Summon Felguard (SoD 427733 / TBC 30146)
         {id="/cast {{spell:6201}}",  _u="hs"}, -- Create Healthstone
         {id="/cast {{spell:693}}",   _u="ss"}, -- Create Soulstone
         {id="/cast {{spell:1122}}",  _u="if"}, -- Summon Infernal
@@ -222,6 +222,6 @@ do
         {id="/cast {{spell:687}}",   _u="dsk"},-- Demon Skin (L1 armor)
         {id="/cast {{spell:706}}",   _u="dar"},-- Demon Armor
         {id="/cast {{spell:403619/28189}}", _u="far"},-- Fel Armor (SoD 403619 / TBC 28189)
-        name = "Pet, Stones & Armor", hotkey = "BUTTON5", _u = "WlkPet", v = 3,
+        name = "Pet, Stones & Armor", hotkey = "BUTTON5", _u = "WlkPet", v = 4,
     })
 end
