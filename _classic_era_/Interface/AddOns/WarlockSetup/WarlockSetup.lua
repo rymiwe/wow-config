@@ -58,17 +58,18 @@ local LAYOUT = {
     {"Life Tap",               3, 12, "self-cast"},       -- L6    B   (HP -> mana; high-frequency)
 
     -- ALT TOP (Bar 4) - CAST-TIME damage on numrow, heals/utility on Alt-QERT
+    -- Cast-time damage on the alt numrow (Alt-1..5). "6" is intentionally unbound
+    -- (layout skips 6/7/8/9/0), so nothing may live on bar-4 button 7.
     {"Shadow Bolt",            4, 2, "nuke-mouseover"},   -- L1    Alt-1 (primary cast nuke; mouseover lets you nuke add while DoT ticks on main)
     {"Immolate",               4, 3, "nuke-mouseover"},   -- L1    Alt-2 (cast DoT - 1.5s cast, 15s DoT; spread-friendly)
-    {"Searing Pain",           4, 4, "nuke-mouseover"},   -- L18   Alt-3 (cast nuke + threat; tank-like for Voidwalker pulls)
-    {"Hellfire",               4, 5, "self-cast"},        -- L20   Alt-4 (channel AoE; self-damage, anchor on player)
-    {"Rain of Fire",           4, 6},                     -- L20   Alt-5 (ground-targeted AoE channel)
-    {"Corruption",             4, 7, "nuke-mouseover"},   -- L4    Alt-6 (cast DoT until 5/5 Imp Corruption; then move to bar1 "1")
-    -- Alt-QERT: utility - rez/buffs/dispels (Warlock has no friend heals)
+    {"Corruption",             4, 4, "nuke-mouseover"},   -- L4    Alt-3 (cast DoT until 5/5 Imp Corruption; grouped with the other DoT casts)
+    {"Searing Pain",           4, 5, "nuke-mouseover"},   -- L18   Alt-4 (cast nuke + threat; tank-like for Voidwalker pulls)
+    {"Hellfire",               4, 6, "self-cast"},        -- L20   Alt-5 (channel AoE; self-damage, anchor on player)
+    -- Alt-QERT: utility - pet heal/buffs + AoE/scout
     {"Health Funnel",          4, 8, "self-cast"},        -- L8    Alt-Q (channel - heal active pet)
     {"Unending Breath",        4, 10, "mouseover-help"},  -- L16   Alt-E (water breathing buff)
     {"Incinerate",             4, 11, "nuke-mouseover"},  -- Alt-R  SoD Cloak RUNE (fire nuke; replaced Detect Lesser Invis, low-use)
-    {"Eye of Kilrogg",         4, 12, "self-cast"},       -- L22   Alt-T (scout familiar)
+    {"Rain of Fire",           4, 12},                    -- L20   Alt-T (ground-targeted AoE channel; moved off numrow for Corruption)
 
     -- ALT BOTTOM (Bar 5) - Fear + snare + panic/escapes
     {"Fear",                   5, 5, "mouseover-harm"},   -- L8    Alt-F (single-target cast fear; "F" = Fear)
@@ -148,6 +149,7 @@ local IGNORE = {
     ["Inscription"]=true, ["Milling"]=true, ["Gemcutting"]=true,
     -- Misc
     ["Ritual of Summoning"]=true, ["Ritual of Souls"]=true,
+    ["Eye of Kilrogg"]=true,                              -- niche scout; dropped from bar for Corruption (drag from book if needed)
     ["Detect Lesser Invisibility"]=true,                  -- freed Alt-R for Incinerate rune
     -- SoD PASSIVE runes (no slot needed; active runes are placed via LAYOUT above).
     ["Demonic Pact"]=true, ["Everlasting Affliction"]=true, ["Lake of Fire"]=true,
@@ -200,7 +202,7 @@ SetupCore:RegisterClass("WARLOCK", Run, LAYOUT)
 -- Known active runes (Metamorphosis, Shadowflame, Chaos Bolt, Haunt, Incinerate,
 -- Shadow Bolt Volley, Demonic Grace) keep their curated LAYOUT homes above.
 SetupCore:RegisterRuneOverflow("WARLOCK", {
-    {1, 2},   -- "1"  (freed by moving Corruption to Alt-6 until 5/5 Imp Corruption)
+    {1, 2},   -- "1"  (empty until Corruption goes instant at 5/5 Imp Corruption)
     {1, 6},   -- "5"  (numrow spare)
 })
 
