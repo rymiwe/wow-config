@@ -15,10 +15,14 @@
 --   * Pet abilities (Firebolt, Sacrifice, Lash of Pain, Spell Lock, Devour Magic, etc.)
 --     auto-populate the Blizzard PetActionBar - never placed here.
 --   * Soulshards are inventory items, not spells - no slot.
---   * SoD RUNE abilities: active runes are placed by name on the empty bound slots
+--   * SoD RUNE abilities: known active runes get curated homes by name in LAYOUT
 --     (Head->` Shadowflame, Legs->5 Chaos Bolt/Haunt, Chest->F Metamorphosis/SB Volley,
---     Hands->Alt-` Demonic Grace, Cloak->Alt-R Incinerate). Summon Felguard -> M5 ring.
---     Passive runes are IGNORE'd. Names verified vs the SoD rune list; check /runes.
+--     Hands->Alt-` Demonic Grace, Cloak->Alt-R Incinerate). Summon Felguard -> M5 ring,
+--     Mark of Chaos -> M4 curse ring. Passive runes are IGNORE'd.
+--     ANY other active rune you engrave is auto-detected from your gear (C_Engraving)
+--     and placed on a spare bound slot by SetupCore:PlaceEngravedRunes - so a new
+--     rune is never lost even if it isn't listed here. Overflow slots: see
+--     RegisterRuneOverflow below. Run /runes to see exact ability names.
 --   * Curses go in OPie M4 ring (5 curses: Weakness/Recklessness/Tongues/Elements/Shadow)
 --     - frequent-toggle but contextual choice, ring is cleaner than 5 bar slots.
 --   * Pet summons + stones + armors go in OPie M5 ring (slow OOC utility). Armors
@@ -31,7 +35,7 @@
 local LAYOUT = {
     -- MAIN TOP (Bar 1) - INSTANTS only on numrow. DoTs get nuke-mouseover so
     -- you can apply them to mouseover targets while staying engaged with current.
-    {"Corruption",             1, 2, "nuke-mouseover"},   -- L4    1   (instant DoT 18s; spread freely)
+    -- 1 left empty until Corruption goes instant (5/5 Improved Corruption); then move it back here.
     {"Curse of Agony",         1, 3, "nuke-mouseover"},   -- L8    2   (24s ramping DoT; spread for sustained pulls)
     {"Curse of Doom",          1, 4, "nuke-mouseover"},   -- L60+  3   (1min CD heavy DoT; boss/elite)
     {"Death Coil",             1, 5},                     -- TBC L42 4 (instant; 3s horror + self-heal)
@@ -59,6 +63,7 @@ local LAYOUT = {
     {"Searing Pain",           4, 4, "nuke-mouseover"},   -- L18   Alt-3 (cast nuke + threat; tank-like for Voidwalker pulls)
     {"Hellfire",               4, 5, "self-cast"},        -- L20   Alt-4 (channel AoE; self-damage, anchor on player)
     {"Rain of Fire",           4, 6},                     -- L20   Alt-5 (ground-targeted AoE channel)
+    {"Corruption",             4, 7, "nuke-mouseover"},   -- L4    Alt-6 (cast DoT until 5/5 Imp Corruption; then move to bar1 "1")
     -- Alt-QERT: utility - rez/buffs/dispels (Warlock has no friend heals)
     {"Health Funnel",          4, 8, "self-cast"},        -- L8    Alt-Q (channel - heal active pet)
     {"Unending Breath",        4, 10, "mouseover-help"},  -- L16   Alt-E (water breathing buff)
@@ -107,10 +112,12 @@ local IGNORE = {
     ["Improved Immolate"]=true, ["Devastation"]=true, ["Pyroclasm"]=true,
     ["Emberstorm"]=true, ["Backlash"]=true, ["Improved Fire Bolt"]=true,
     ["Empowered Imp"]=true,
-    -- Curses - handled by OPie ring (M4)
+    -- Curses - handled by OPie ring (M4). Mark of Chaos is the SoD Back rune that
+    -- combines Curse of the Elements + Curse of Shadow; it's an active curse (not a
+    -- passive), so it belongs on the curse ring, not a bar.
     ["Curse of Weakness"]=true, ["Curse of Recklessness"]=true,
     ["Curse of Tongues"]=true, ["Curse of the Elements"]=true,
-    ["Curse of Shadow"]=true,
+    ["Curse of Shadow"]=true, ["Mark of Chaos"]=true,
     -- Pet summons + stones - handled by OPie ring (M5)
     ["Summon Imp"]=true, ["Summon Voidwalker"]=true, ["Summon Succubus"]=true,
     ["Summon Felhunter"]=true, ["Summon Felguard"]=true,
@@ -148,7 +155,7 @@ local IGNORE = {
     ["Invocation"]=true, ["Shadow and Flame"]=true, ["Dance of the Wicked"]=true,
     ["Demonic Knowledge"]=true, ["Decimation"]=true, ["Backdraft"]=true,
     ["Unstable Affliction"]=true, ["Immolation Aura"]=true, ["Soul Siphon"]=true,
-    ["Mark of Chaos"]=true, ["Infernal Armor"]=true, ["Soul Harvest"]=true,
+    ["Infernal Armor"]=true, ["Soul Harvest"]=true,
     ["Vengeance"]=true, ["Enslaved Soul"]=true, ["Soul Engraving"]=true,
     -- SoD rune weapon specializations (passive)
     ["Shadow Weapon Specialization"]=true, ["Fire Weapon Specialization"]=true,
@@ -187,6 +194,16 @@ end
 
 SetupCore:RegisterClass("WARLOCK", Run, LAYOUT)
 
+-- Landing slots for any ACTIVE engraved rune ability the LAYOUT above does not map
+-- (a rune we haven't anticipated). SetupCore:PlaceEngravedRunes fills these first,
+-- then any other empty bound slot, so a newly-engraved rune is never left unbound.
+-- Known active runes (Metamorphosis, Shadowflame, Chaos Bolt, Haunt, Incinerate,
+-- Shadow Bolt Volley, Demonic Grace) keep their curated LAYOUT homes above.
+SetupCore:RegisterRuneOverflow("WARLOCK", {
+    {1, 2},   -- "1"  (freed by moving Corruption to Alt-6 until 5/5 Imp Corruption)
+    {1, 6},   -- "5"  (numrow spare)
+})
+
 -- ===========================================================================
 -- OPie ring registration
 -- ===========================================================================
@@ -200,12 +217,13 @@ do
     -- (Curse of Agony 980, Curse of Doom 603) live on the bar (1,3 / 1,4), so they
     -- are intentionally NOT duplicated here.
     R:AddDefaultRing("WarlockCurses", {
+        {id="/cast {{spell:440892}}",_u="mc"}, -- Mark of Chaos (SoD Back rune: Elements+Shadow combined)
         {id="/cast {{spell:702}}",   _u="wk"}, -- Curse of Weakness
         {id="/cast {{spell:1490}}",  _u="el"}, -- Curse of the Elements
         {id="/cast {{spell:17862}}", _u="sh"}, -- Curse of Shadow
         {id="/cast {{spell:704}}",   _u="rk"}, -- Curse of Recklessness
         {id="/cast {{spell:1714}}",  _u="tg"}, -- Curse of Tongues
-        name = "Curses", hotkey = "BUTTON4", _u = "WlkCrs", v = 2,
+        name = "Curses", hotkey = "BUTTON4", _u = "WlkCrs", v = 3,
     })
 
     -- Pet summons + stones ring (M5 hold) - slow OOC utility.

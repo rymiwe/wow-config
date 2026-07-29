@@ -24,6 +24,7 @@ local registeredRacials = {}
 local registeredFreedKeys = {}
 local registeredPostLayout = {}
 local registeredReservedSlots = {}
+local registeredRuneOverflow = {}
 local macroBindingsByClass = {}
 
 -- Z -> bar 3 slot 8; Alt/Meta-Z -> bar 5 slot 8 (mount macro). Movement classes
@@ -1202,6 +1203,115 @@ function SetupCore:IsReservedSlot(bar, btn)
     return false
 end
 
+-- Class addons declare preferred landing slots ({{bar,btn},...}) for engraved SoD
+-- rune abilities that have no explicit LAYOUT home. Extra runes beyond this list
+-- fall back to any empty bound slot, so nothing is ever left unplaced.
+function SetupCore:RegisterRuneOverflow(class, slots)
+    registeredRuneOverflow[class] = slots
+end
+
+-- Reverse-lookup the keyboard key bound to an ElvUI (bar, btn) slot, for logging.
+function SetupCore:KeyForSlot(bar, btn)
+    local actionFor = {
+        [1] = "ACTIONBUTTON" .. btn,
+        [3] = "MULTIACTIONBAR3BUTTON" .. btn,
+        [4] = "MULTIACTIONBAR4BUTTON" .. btn,
+        [5] = "MULTIACTIONBAR2BUTTON" .. btn,
+    }
+    local want = actionFor[bar]
+    if want then
+        for _, b in ipairs(BINDINGS) do
+            if b[2] == want then return b[1] end
+        end
+    end
+    return string.format("bar%d:%d", bar, btn)
+end
+
+-- Auto-place ACTIVE engraved (Season of Discovery) rune abilities that the static
+-- LAYOUT did not account for, so a newly-engraved rune is never left unbound.
+-- Passive runes and ring-routed abilities (curses/summons) live in `ignore` and
+-- are skipped. Reads what is actually engraved on the player's gear via
+-- C_Engraving, so it adapts to any rune swap. Called from ApplyLayout after the
+-- named pass, before placeholders fill the remaining empty slots.
+function SetupCore:PlaceEngravedRunes(mapped, ignore)
+    if not (C_Engraving and C_Engraving.IsEngravingEnabled and C_Engraving.IsEngravingEnabled()) then
+        return 0
+    end
+    pcall(function() if C_Engraving.RefreshRunesList then C_Engraving.RefreshRunesList() end end)
+
+    local _, class = UnitClass("player")
+    mapped, ignore = mapped or {}, ignore or {}
+
+    -- "handled" = ability already placed by LAYOUT (mapped) or needs no bar slot
+    -- (ignore = passive or routed to an OPie ring). Normalized so rank suffixes
+    -- and layout/spellbook name forms compare equal.
+    local handled = {}
+    for name in pairs(mapped) do handled[self:NormalizeSpellName(name) or name] = true end
+    for name in pairs(ignore) do handled[self:NormalizeSpellName(name) or name] = true end
+
+    -- Ordered pool of candidate landing slots: class overflow list first, then any
+    -- other bound slot (so a surprise rune is placed even if the nice slots fill).
+    local freedSet = self:GetFreedKeySet()
+    local barMap = {["3"]=3, ["4"]=4, ["2"]=5}
+    local pool, seenSlot = {}, {}
+    local function addSlot(bar, btn)
+        local k = bar .. ":" .. btn
+        if not seenSlot[k] then seenSlot[k] = true; pool[#pool+1] = {bar, btn} end
+    end
+    for _, s in ipairs(registeredRuneOverflow[class] or {}) do addSlot(s[1], s[2]) end
+    for _, b in ipairs(BINDINGS) do
+        local key, action = b[1], b[2]
+        if action and not freedSet[key] then
+            local n = action:match("^ACTIONBUTTON(%d+)$")
+            if n then
+                addSlot(1, tonumber(n))
+            else
+                local mb, btn = action:match("^MULTIACTIONBAR(%d+)BUTTON(%d+)$")
+                if mb and barMap[mb] then addSlot(barMap[mb], tonumber(btn)) end
+            end
+        end
+    end
+    local function nextFreeSlot()
+        for _, s in ipairs(pool) do
+            local bar, btn = s[1], s[2]
+            if not self:IsReservedSlot(bar, btn) then
+                local slot = self:ResolveActionSlot(bar, btn)
+                if slot and self:IsSlotEmpty(slot) then return bar, btn end
+            end
+        end
+    end
+
+    local slots = {
+        "HeadSlot", "ShoulderSlot", "BackSlot", "ChestSlot", "WristSlot",
+        "HandsSlot", "WaistSlot", "LegsSlot", "FeetSlot",
+    }
+    local placed = 0
+    for _, slotName in ipairs(slots) do
+        local slotid = GetInventorySlotInfo(slotName)
+        local ok, rune = pcall(C_Engraving.GetRuneForEquipmentSlot, slotid)
+        if ok and type(rune) == "table" and rune.learnedAbilitySpellIDs then
+            for _, sid in pairs(rune.learnedAbilitySpellIDs) do
+                local raw = GetSpellInfo(sid)
+                local name = raw and (self:NormalizeSpellName(raw) or raw)
+                if name and not handled[name] and self:FindHighestRank(name) then
+                    local bar, btn = nextFreeSlot()
+                    if bar then
+                        if self:PlaceSpell(name, bar, btn, nil, true) then
+                            handled[name] = true  -- don't double-place across slots
+                            placed = placed + 1
+                            print(string.format("|cff00ccffSetupCore|r auto-placed engraved rune |cffffffff%s|r on %s",
+                                raw, self:KeyForSlot(bar, btn)))
+                        end
+                    else
+                        print(string.format("|cffff8800SetupCore|r no free slot for engraved rune |cffffffff%s|r - drag it to a bar manually", raw))
+                    end
+                end
+            end
+        end
+    end
+    return placed
+end
+
 function SetupCore:PlacePlaceholder(bar, btn)
     return self:PlaceMacro(" ", bar, btn, false)
 end
@@ -1965,6 +2075,11 @@ function SetupCore:ApplyLayout(layoutOrTiers, ignore, racials)
     local mapped = {}
     for _, item in ipairs(layout) do mapped[item[1]] = true end
     ignore = ignore or {}
+
+    -- Auto-place any ACTIVE engraved rune ability the static layout didn't cover,
+    -- so newly-engraved SoD runes always land on a bound key (never lost). Runs
+    -- before the placeholder fill so runes claim real slots first.
+    self:PlaceEngravedRunes(mapped, ignore)
 
     -- Fill any remaining empty bound slots with the visual placeholder.
     self:FillEmptyBoundSlots()
