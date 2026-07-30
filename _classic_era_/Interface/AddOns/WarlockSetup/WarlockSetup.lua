@@ -9,6 +9,13 @@
 --   Bar 4 = ALT TOP (mirror of Bar 1)
 --   Bar 5 = ALT BOTTOM (mirror of Bar 3)
 --
+-- METAMORPHOSIS (demon form): Meta is a form ([form:1]) that does NOT auto-page the
+-- bars like Druid forms. We set ElvUI Bar 1 paging to "[form:1] 7;" (SetBarPaging),
+-- so demon form shows page 7 - the demon PAGE (Shadow Cleave/Demon Charge/Demonic
+-- Howl, see META_LAYOUT). Run() builds the caster layout in normal form and the
+-- demon page when you /setupbars while transformed. Your curses/DoTs/Life Tap keep
+-- working in demon form (Meta is additive, not restrictive), just on the other bars.
+--
 -- Warlock-specific notes:
 --   * No baseline interrupt (Warlock interrupt is via Felhunter Spell Lock on pet bar).
 --     The ` slot now holds the Shadowflame rune (see SoD runes below).
@@ -154,6 +161,16 @@ local IGNORE = {
     ["Ritual of Summoning"]=true, ["Ritual of Souls"]=true,
     ["Eye of Kilrogg"]=true,                              -- niche scout; dropped from bar for Corruption (drag from book if needed)
     ["Detect Lesser Invisibility"]=true,                  -- freed Alt-R for Incinerate rune
+    -- Metamorphosis demon-form abilities: placed on the demon PAGE (see META_LAYOUT),
+    -- not the caster bars. Ignore in caster-form orphan checks. Names differ by form
+    -- ("Metamorphosis : X" out of form, bare name in form).
+    ["Shadow Cleave"]=true, ["Demon Charge"]=true, ["Demonic Howl"]=true,
+    ["Metamorphosis : Demon Charge"]=true, ["Metamorphosis : Demonic Howl"]=true,
+    -- Wand attack, weapon-spec passive, and generic engraving-slot placeholders that
+    -- show in the spellbook (unengraved slots) - no bar slot needed.
+    ["Shoot"]=true, ["Axe Specialization"]=true,
+    ["Portal of Summoning"]=true, ["Soul Harvesting"]=true,
+    ["Helm Rune Ability"]=true, ["Legs Rune Ability"]=true, ["Shoulder Rune Ability"]=true,
     -- SoD PASSIVE runes (no slot needed; active runes are placed via LAYOUT above).
     ["Demonic Pact"]=true, ["Everlasting Affliction"]=true, ["Lake of Fire"]=true,
     ["Master Channeler"]=true, ["Demonic Tactics"]=true, ["Grimoire of Synergy"]=true,
@@ -188,20 +205,35 @@ local RACIALS = {
     Human = {},  -- no combat racial
 }
 
+-- DEMON PAGE (Metamorphosis). Bar 1 pages to action page 7 in demon form (see
+-- SetBarPaging "[form:1] 7;" below), so these land on the demon page and don't
+-- touch the caster page. Only the demon-ONLY abilities go here - your curses,
+-- Corruption, Immolate, Life Tap all still work in demon form on the other bars.
+local META_LAYOUT = {
+    {"Shadow Cleave",  1, 2},   -- 1  builder/nuke (Shadow Bolt becomes this in-form; spam for threat)
+    {"Demon Charge",   1, 3},   -- 2  gap closer / initiate
+    {"Demonic Howl",   1, 4},   -- 3  AoE fear / threat
+}
+
 local function Run()
-    -- Metamorphosis (demon form) swaps the spellbook to demon abilities and HIDES
-    -- your normal kit (Shadow Bolt, etc.). Running setup in that state wipes the bars
-    -- and skips every caster spell. Detect it (Meta known but Shadow Bolt hidden) and
-    -- bail with instructions rather than mangling the layout.
-    if SetupCore:FindHighestRank("Metamorphosis") and not SetupCore:FindHighestRank("Shadow Bolt") then
-        print("|cffff4040WarlockSetup:|r you look like you're in Metamorphosis (demon) form -")
-        print("|cffff4040  your normal spells are hidden.|r Cancel demon form, then re-run /setupbars.")
+    -- Metamorphosis is a form ([form:1]) but, unlike Druid forms, does NOT auto-page
+    -- the bars (bonusOffset stays 0). So we drive ElvUI's Bar 1 paging ourselves:
+    -- demon form -> page 7 (demon page), caster form -> page 1. Idempotent; re-asserted
+    -- every run so it self-heals if the ElvUI profile is re-imported.
+    SetupCore:SetBarPaging("bar1", "[form:1] 7;")
+
+    if (GetShapeshiftForm and GetShapeshiftForm()) == 1 then
+        -- In demon form: Bar 1 now shows page 7 - build the demon page there. The
+        -- caster page (page 1) and the other bars are left untouched.
+        SetupCore:ApplyFormLayout("WarlockSetup", "Metamorphosis (demon) form", META_LAYOUT)
+        print("|cff999999  Caster bars untouched. Shift out of demon form and /setupbars for the caster layout.|r")
         return
     end
+
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("WarlockSetup", placed, skipped, orphans)
-    print("|cffffd700WarlockSetup tip:|r Curses are on keys 1-5 (all instant, cast on the move).")
-    print("|cff999999  DoTs (CoA/Corruption/Immolate) use mouseover - hover an add and press the key.|r")
+    print("|cffffd700WarlockSetup tip:|r Curses on keys 1-5 (all instant, cast on the move).")
+    print("|cff999999  Demon form pages Bar 1 to your demon kit - shift in and /setupbars to build it.|r")
     print("|cff999999  Pet summons + stones + armors: hold M5. Pet abilities live on the PetActionBar.|r")
 end
 

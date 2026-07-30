@@ -1990,6 +1990,26 @@ end
 -- Warrior stances, Rogue stealth). Caller verifies form; we just place the
 -- given abilities onto whichever action slots the current ElvUI buttons map to.
 -- Because ElvUI buttons' `action` attribute points to the current form's bonus
+-- Set ElvUI's per-class paging condition for a bar and re-register its state
+-- driver, so the bar swaps action pages on a macro condition. Used to page Bar 1
+-- to a form page that Blizzard does NOT auto-page (e.g. a Warlock's Metamorphosis
+-- demon form: "[form:1] 7;" -> page 7 in demon form, default page otherwise).
+-- ElvUI ships this exact default for Warlock on Wrath/Mists but leaves it empty on
+-- Classic Era, where SoD grants Metamorphosis via rune. Persists in the ElvUI
+-- profile; must run out of combat (RegisterStateDriver is protected).
+function SetupCore:SetBarPaging(barName, condition)
+    if InCombatLockdown() then return false end
+    if type(_G.ElvUI) ~= "table" then return false end
+    local E = _G.ElvUI[1]
+    if not (E and E.GetModule) then return false end
+    local AB = E:GetModule("ActionBars", true)
+    if not (AB and AB.db and AB.db[barName]) then return false end
+    AB.db[barName].paging = AB.db[barName].paging or {}
+    AB.db[barName].paging[E.myclass] = condition
+    local ok = pcall(function() AB:PositionAndSizeBar(barName) end)
+    return ok
+end
+
 -- bar page, ClearAllBars + PlaceSpell here only affects the form-specific
 -- slots - the caster/other-form placements are untouched.
 function SetupCore:ApplyFormLayout(addonName, formName, formLayout)
@@ -2277,6 +2297,27 @@ SlashCmdList["SPELLFIND"] = function(msg)
         tostring(SetupCore:FindHighestRank("Shadow Bolt")),
         tostring(SetupCore:FindHighestRank("Immolate")),
         tostring(SetupCore:FindHighestRank("Metamorphosis"))))
+end
+
+-- /formcheck : dump shapeshift/stance + bar-paging state and the current spellbook.
+-- Run it once in normal form and once transformed (e.g. Metamorphosis): if `form`,
+-- `bonusOffset`, or `Bar1Btn1slot` change between the two, Bar 1 pages with the form
+-- and we can build a form-specific page like the Druid does. Read-only.
+SLASH_FORMCHECK1 = "/formcheck"
+SlashCmdList["FORMCHECK"] = function()
+    local form = GetShapeshiftForm and GetShapeshiftForm()
+    local nf = GetNumShapeshiftForms and GetNumShapeshiftForms()
+    local off = GetBonusBarOffset and GetBonusBarOffset()
+    local b = _G["ElvUI_Bar1Button1"]
+    local slot = b and b:GetAttribute("action")
+    print(string.format("|cff00ff00/formcheck|r form=%s numForms=%s bonusOffset=%s Bar1Btn1slot=%s",
+        tostring(form), tostring(nf), tostring(off), tostring(slot)))
+    local names = {}
+    for j = 1, 200 do
+        local n = GetSpellBookItemName(j, "spell")
+        if n then names[#names + 1] = n end
+    end
+    print("  spellbook: " .. table.concat(names, ", "))
 end
 
 SLASH_SETUPMOUNT1 = "/mountfix"
