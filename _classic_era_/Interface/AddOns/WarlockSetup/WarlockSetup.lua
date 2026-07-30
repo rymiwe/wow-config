@@ -223,8 +223,19 @@ local function Run()
     SetupCore:SetBarPaging("bar1", "[form:1] 7;")
 
     if (GetShapeshiftForm and GetShapeshiftForm()) == 1 then
-        -- In demon form: Bar 1 now shows page 7 - build the demon page there. The
-        -- caster page (page 1) and the other bars are left untouched.
+        -- Safety: only build the demon page if Bar 1 has ACTUALLY paged off the
+        -- caster page (button 1 action slot > 12). If paging was just set this run
+        -- and the state driver hasn't swapped yet, bail rather than overwrite the
+        -- caster curses on page 1.
+        local b1 = _G["ElvUI_Bar1Button1"]
+        local slot = b1 and b1:GetAttribute("action")
+        if not slot or slot <= 12 then
+            print("|cffff8800WarlockSetup:|r Bar 1 hasn't paged to the demon page yet.")
+            print("|cff999999  Run /setupbars once in NORMAL form first, then shift to demon form and /setupbars again.|r")
+            return
+        end
+        -- In demon form with Bar 1 on page 7: build the demon page there. The caster
+        -- page (page 1) and the other bars are left untouched.
         SetupCore:ApplyFormLayout("WarlockSetup", "Metamorphosis (demon) form", META_LAYOUT)
         print("|cff999999  Caster bars untouched. Shift out of demon form and /setupbars for the caster layout.|r")
         return
