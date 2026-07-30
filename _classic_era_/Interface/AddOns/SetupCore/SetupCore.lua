@@ -2250,6 +2250,35 @@ SlashCmdList["SETUPRUNES"] = function()
     end
 end
 
+-- /spellfind <text> : dump every spellbook entry whose name contains <text>,
+-- with its index, plus the non-nil count, the first nil index (gap detector),
+-- and the FindHighestRank result for a few reference spells. Read-only. This is
+-- how we ground-truth why a spell like Shadow Bolt fails to place: it shows what
+-- GetSpellBookItemName actually returns on this client for that name.
+SLASH_SPELLFIND1 = "/spellfind"
+SlashCmdList["SPELLFIND"] = function(msg)
+    local q = (msg or ""):gsub("^%s+", ""):gsub("%s+$", ""):lower()
+    local nonNil, firstNil = 0, nil
+    local hits = {}
+    for j = 1, 600 do
+        local sname, srank = GetSpellBookItemName(j, "spell")
+        if sname then
+            nonNil = nonNil + 1
+            if q == "" or sname:lower():find(q, 1, true) then
+                hits[#hits + 1] = string.format("%d=%s%s", j, sname, (srank and srank ~= "" and (" [" .. srank .. "]") or ""))
+            end
+        elseif not firstNil then
+            firstNil = j
+        end
+    end
+    print(string.format("|cff00ff00/spellfind|r q='%s'  non-nil=%d  firstNil=%s", q, nonNil, tostring(firstNil)))
+    print("  matches: " .. (#hits > 0 and table.concat(hits, ", ") or "|cffff4040NONE|r"))
+    print(string.format("  FindHighestRank: Shadow Bolt=%s  Immolate=%s  Metamorphosis=%s",
+        tostring(SetupCore:FindHighestRank("Shadow Bolt")),
+        tostring(SetupCore:FindHighestRank("Immolate")),
+        tostring(SetupCore:FindHighestRank("Metamorphosis"))))
+end
+
 SLASH_SETUPMOUNT1 = "/mountfix"
 SlashCmdList["SETUPMOUNT"] = function()
     local _, mountDesc = SetupCore:EnsureMountMacro()

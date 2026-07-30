@@ -16,30 +16,32 @@
 --     auto-populate the Blizzard PetActionBar - never placed here.
 --   * Soulshards are inventory items, not spells - no slot.
 --   * SoD RUNE abilities: known active runes get curated homes by name in LAYOUT
---     (Head->` Shadowflame, Legs->5 Chaos Bolt/Haunt, Chest->F Metamorphosis/SB Volley,
---     Hands->Alt-` Demonic Grace, Cloak->Alt-R Incinerate). Summon Felguard -> M5 ring,
---     Mark of Chaos -> M4 curse ring. Passive runes are IGNORE'd.
+--     (Head->` Shadowflame, Hands->F Metamorphosis/SB Volley, Alt-` Demonic Grace,
+--     Cloak->Alt-R Incinerate). Summon Felguard -> M5 ring. Passive runes are IGNORE'd.
 --     ANY other active rune you engrave is auto-detected from your gear (C_Engraving)
 --     and placed on a spare bound slot by SetupCore:PlaceEngravedRunes - so a new
---     rune is never lost even if it isn't listed here. Overflow slots: see
---     RegisterRuneOverflow below. Run /runes to see exact ability names.
---   * Curses go in OPie M4 ring (5 curses: Weakness/Recklessness/Tongues/Elements/Shadow)
---     - frequent-toggle but contextual choice, ring is cleaner than 5 bar slots.
+--     rune is never lost even if it isn't listed here. Run /runes for exact names.
+--     IMPORTANT: run /setupbars in NORMAL form - Metamorphosis (demon form) hides your
+--     caster spellbook; Run() guards against setting up while transformed.
+--   * Curses are all INSTANT, so they live on the number row (keys 1-5), castable
+--     while moving. Shadow/Doom/Mark of Chaos stay off the bar (see IGNORE).
 --   * Pet summons + stones + armors go in OPie M5 ring (slow OOC utility). Armors
 --     (Demon Skin/Demon Armor/Fel Armor) are ring-only for consistency, not bar slots.
 --
 -- OPie rings:
---   M4 = Curses
+--   M4 = (retired - curses moved to the number row; free for future use)
 --   M5 = Pet summons + Soulstone/Healthstone create + Armors
 
 local LAYOUT = {
-    -- MAIN TOP (Bar 1) - INSTANTS only on numrow. DoTs get nuke-mouseover so
-    -- you can apply them to mouseover targets while staying engaged with current.
-    -- 1 left empty until Corruption goes instant (5/5 Improved Corruption); then move it back here.
+    -- MAIN TOP (Bar 1) - INSTANTS on numrow. Curses are all instant, so they live
+    -- here (keys 1-5): easy to fire while moving. DoTs/curses use mouseover so you
+    -- can apply them to a mouseover add while staying engaged with your current target.
+    -- ` (button 1) stays reserved for the Shadowflame head rune (see runes below).
+    {"Curse of Weakness",      1, 2, "mouseover-harm"},   -- L4    1   (-mob damage; survivability)
     {"Curse of Agony",         1, 3, "nuke-mouseover"},   -- L8    2   (24s ramping DoT; spread for sustained pulls)
-    {"Curse of Doom",          1, 4, "nuke-mouseover"},   -- L60+  3   (1min CD heavy DoT; boss/elite)
-    {"Death Coil",             1, 5},                     -- TBC L42 4 (instant; 3s horror + self-heal)
-    -- 5 left empty (placeholder)
+    {"Curse of the Elements",  1, 4, "mouseover-harm"},   -- L24   3   (+magic damage taken; boosts your fire/shadow)
+    {"Curse of Recklessness",  1, 5, "mouseover-harm"},   -- L14   4   (-armor; more pet/melee damage)
+    {"Curse of Tongues",       1, 6, "mouseover-harm"},   -- L38   5   (slow enemy casts; caster mobs/PvP)
     -- QERT row: utility / panic / drains
     {"Drain Life",             1, 8},                     -- L14   Q   (channel; emergency self-heal via damage)
     {"Drain Soul",             1, 10},                    -- L24   E   (channel; soulshard farming)
@@ -75,21 +77,22 @@ local LAYOUT = {
     {"Fear",                   5, 5, "mouseover-harm"},   -- L8    Alt-F (single-target cast fear; "F" = Fear)
     {"Curse of Exhaustion",    5, 6, "mouseover-harm"},   -- L36 Affl Alt-G (snare debuff; Affl talent)
     -- Alt-ZXCVB: panic + escapes
-    {"Mortal Coil",            5, 9, "self-cast"},        -- (Soul Link talent? skip if absent)
+    {"Death Coil",             5, 9},                     -- L42   Alt-X (instant horror + self-heal; panic. Off numrow for curses)
     {"Enslave Demon",          5, 10, "mouseover-harm"},  -- L30   Alt-C (channel; control demon)
     {"Sense Demons",           5, 11, "self-cast"},       -- L20   Alt-V (tracking; low-use)
     -- B left empty (placeholder for racial)
 
     -- SoD RUNE ABILITIES (active, engraved). Placed by NAME - SetupCore skips any
     -- not currently engraved/known, so this is safe even if a name is slightly off
-    -- (run /runes to see exact in-game names). Runes are one-per-equipment-slot and
-    -- mutually exclusive within a slot, so each equipment slot maps to one bar slot:
-    --   Head->` , Legs->5 , Chest->F , Hands->Alt-` , Cloak->Alt-R (Incinerate, above).
+    -- (run /runes to see exact in-game names). These are the curated homes for the
+    -- common ones; anything else you engrave auto-places via PlaceEngravedRunes:
+    --   Shadowflame -> ` , Metamorphosis / Shadow Bolt Volley -> F , Demonic Grace ->
+    --   Alt-` , Incinerate -> Alt-R (above). Summon Felguard -> M5 ring.
     {"Shadowflame",            1, 1},                     -- `      Head rune (cone AoE opener; instant slot)
-    {"Chaos Bolt",             1, 6, "nuke-mouseover"},   -- 5      Legs rune (fire nuke; numrow)
-    {"Haunt",                  1, 6, "nuke-mouseover"},   -- 5      Legs alt (shadow nuke+DoT)
-    {"Metamorphosis",          3, 5},                     -- F      Chest rune (demon-form toggle)
-    {"Shadow Bolt Volley",     3, 5},                     -- F      Chest alt (AoE nuke)
+    -- Chaos Bolt / Haunt (Legs runes) used to sit on "5"; that key is now Curse of
+    -- Tongues. When engraved they auto-place via SetupCore:PlaceEngravedRunes.
+    {"Metamorphosis",          3, 5},                     -- F      demon-form toggle (mutually excl. with Shadow Bolt Volley)
+    {"Shadow Bolt Volley",     3, 5},                     -- F      AoE nuke rune (alt of Metamorphosis)
     {"Demonic Grace",          4, 1, "self-cast"},        -- Alt-`  Hands rune (defensive surge)
     -- Summon Felguard (Cloak rune) is a SUMMON -> M5 OPie ring, not a bar slot.
 }
@@ -113,12 +116,12 @@ local IGNORE = {
     ["Improved Immolate"]=true, ["Devastation"]=true, ["Pyroclasm"]=true,
     ["Emberstorm"]=true, ["Backlash"]=true, ["Improved Fire Bolt"]=true,
     ["Empowered Imp"]=true,
-    -- Curses - handled by OPie ring (M4). Mark of Chaos is the SoD Back rune that
-    -- combines Curse of the Elements + Curse of Shadow; it's an active curse (not a
-    -- passive), so it belongs on the curse ring, not a bar.
-    ["Curse of Weakness"]=true, ["Curse of Recklessness"]=true,
-    ["Curse of Tongues"]=true, ["Curse of the Elements"]=true,
-    ["Curse of Shadow"]=true, ["Mark of Chaos"]=true,
+    -- Most curses now live on the number row (all instant - see LAYOUT). Only these
+    -- stay off the bar: Shadow (we run Elements for fire dmg), Doom (L60 raid curse),
+    -- and Mark of Chaos (Back rune; when engraved it supersedes Elements - give it the
+    -- Elements slot then). Mortal Coil replaced by Death Coil on Alt-X (near-duplicate).
+    ["Curse of Shadow"]=true, ["Curse of Doom"]=true,
+    ["Mark of Chaos"]=true, ["Mortal Coil"]=true,
     -- Pet summons + stones - handled by OPie ring (M5)
     ["Summon Imp"]=true, ["Summon Voidwalker"]=true, ["Summon Succubus"]=true,
     ["Summon Felhunter"]=true, ["Summon Felguard"]=true,
@@ -186,25 +189,29 @@ local RACIALS = {
 }
 
 local function Run()
+    -- Metamorphosis (demon form) swaps the spellbook to demon abilities and HIDES
+    -- your normal kit (Shadow Bolt, etc.). Running setup in that state wipes the bars
+    -- and skips every caster spell. Detect it (Meta known but Shadow Bolt hidden) and
+    -- bail with instructions rather than mangling the layout.
+    if SetupCore:FindHighestRank("Metamorphosis") and not SetupCore:FindHighestRank("Shadow Bolt") then
+        print("|cffff4040WarlockSetup:|r you look like you're in Metamorphosis (demon) form -")
+        print("|cffff4040  your normal spells are hidden.|r Cancel demon form, then re-run /setupbars.")
+        return
+    end
     local placed, skipped, orphans = SetupCore:ApplyLayout(LAYOUT, IGNORE, RACIALS)
     SetupCore:PrintResults("WarlockSetup", placed, skipped, orphans)
-    print("|cffffd700WarlockSetup tip:|r DoTs (Corruption/CoA/Immolate) all use mouseover -")
-    print("|cff999999  hover an add and press 1/2/Alt-2 to spread without losing main target.|r")
-    print("|cff999999  Curses: hold M4 (OPie ring). Pet summons + stones: hold M5.|r")
-    print("|cff999999  Pet abilities (Firebolt, Spell Lock, etc.) live on Blizzard PetActionBar.|r")
+    print("|cffffd700WarlockSetup tip:|r Curses are on keys 1-5 (all instant, cast on the move).")
+    print("|cff999999  DoTs (CoA/Corruption/Immolate) use mouseover - hover an add and press the key.|r")
+    print("|cff999999  Pet summons + stones + armors: hold M5. Pet abilities live on the PetActionBar.|r")
 end
 
 SetupCore:RegisterClass("WARLOCK", Run, LAYOUT)
 
--- Landing slots for any ACTIVE engraved rune ability the LAYOUT above does not map
--- (a rune we haven't anticipated). SetupCore:PlaceEngravedRunes fills these first,
--- then any other empty bound slot, so a newly-engraved rune is never left unbound.
--- Known active runes (Metamorphosis, Shadowflame, Chaos Bolt, Haunt, Incinerate,
--- Shadow Bolt Volley, Demonic Grace) keep their curated LAYOUT homes above.
-SetupCore:RegisterRuneOverflow("WARLOCK", {
-    {1, 2},   -- "1"  (empty until Corruption goes instant at 5/5 Imp Corruption)
-    {1, 6},   -- "5"  (numrow spare)
-})
+-- No dedicated rune-overflow slots: the number row is full of curses now, and the
+-- known active runes (Metamorphosis->F, Shadowflame->`, Demonic Grace->Alt-`) keep
+-- curated LAYOUT homes. Any OTHER active rune you engrave (e.g. a Legs Chaos Bolt/
+-- Haunt) is auto-placed by SetupCore:PlaceEngravedRunes onto the first empty bound
+-- slot, and it prints which key it used so you can re-home it if you like.
 
 -- ===========================================================================
 -- OPie ring registration
@@ -215,18 +222,8 @@ do
     local R = OPie and OPie.CustomRings
     if not (R and R.AddDefaultRing) then return end
 
-    -- Curses ring (M4 hold) - the 5 SITUATIONAL curses only. The damage curses
-    -- (Curse of Agony 980, Curse of Doom 603) live on the bar (1,3 / 1,4), so they
-    -- are intentionally NOT duplicated here.
-    R:AddDefaultRing("WarlockCurses", {
-        {id="/cast {{spell:440892}}",_u="mc"}, -- Mark of Chaos (SoD Back rune: Elements+Shadow combined)
-        {id="/cast {{spell:702}}",   _u="wk"}, -- Curse of Weakness
-        {id="/cast {{spell:1490}}",  _u="el"}, -- Curse of the Elements
-        {id="/cast {{spell:17862}}", _u="sh"}, -- Curse of Shadow
-        {id="/cast {{spell:704}}",   _u="rk"}, -- Curse of Recklessness
-        {id="/cast {{spell:1714}}",  _u="tg"}, -- Curse of Tongues
-        name = "Curses", hotkey = "BUTTON4", _u = "WlkCrs", v = 3,
-    })
+    -- Curse ring RETIRED: all instant curses moved to the number row (keys 1-5).
+    -- M4 is now free for future use (e.g. demon-form abilities). Only M5 remains.
 
     -- Pet summons + stones ring (M5 hold) - slow OOC utility.
     R:AddDefaultRing("WarlockPet", {
