@@ -210,9 +210,14 @@ local RACIALS = {
 -- touch the caster page. Only the demon-ONLY abilities go here - your curses,
 -- Corruption, Immolate, Life Tap all still work in demon form on the other bars.
 local META_LAYOUT = {
-    {"Shadow Cleave",  1, 2},   -- 1  builder/nuke (Shadow Bolt becomes this in-form; spam for threat)
-    {"Demon Charge",   1, 3},   -- 2  gap closer / initiate
-    {"Demonic Howl",   1, 4},   -- 3  AoE fear / threat
+    {"Shadow Cleave",     1, 2},                     -- 1  builder/nuke (Shadow Bolt becomes this in-form; spam for threat)
+    {"Demon Charge",      1, 3},                     -- 2  gap closer / initiate
+    {"Demonic Howl",      1, 4},                     -- 3  AoE fear / threat
+    -- Tank-relevant curses on the demon page too (curses are instant and work in
+    -- demon form). Weakness = mitigation, Agony = threat DoT. Recklessness is
+    -- deliberately omitted here - it raises the mob's damage, bad while tanking.
+    {"Curse of Weakness", 1, 5, "mouseover-harm"},   -- 4  -mob damage (reapply while tanking)
+    {"Curse of Agony",    1, 6, "nuke-mouseover"},   -- 5  ramping threat DoT
 }
 
 local function Run()
