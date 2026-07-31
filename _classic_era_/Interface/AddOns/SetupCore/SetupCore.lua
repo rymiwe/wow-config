@@ -1774,6 +1774,14 @@ end
 function SetupCore:PlaceSpell(name, bar, btn, template, forceClear)
     local slot = self:ResolveActionSlot(bar, btn)
     if not slot then return false end
+
+    -- Confirm the spell is trained/known BEFORE touching the slot. Otherwise an
+    -- untrained LAYOUT entry that shares a slot with a trained one (two mutually-
+    -- exclusive runes on the same key, e.g. Metamorphosis / Shadow Bolt Volley on F)
+    -- would force-clear the good placement here and then bail, wiping it.
+    local idx = self:FindHighestRank(name)
+    if not idx then return false end
+
     if forceClear then
         self:ClearSlot(slot)
     else
@@ -1781,9 +1789,6 @@ function SetupCore:PlaceSpell(name, bar, btn, template, forceClear)
     end
 
     if template then
-        -- Skip if the underlying spell isn't trained yet — no point creating a
-        -- macro for a spell the player can't cast.
-        if not self:FindHighestRank(name) then return false end
         local macroIdx = self:EnsureMacro(name, template)
         if not macroIdx then return false end
         PickupMacro(macroIdx)
@@ -1796,8 +1801,6 @@ function SetupCore:PlaceSpell(name, bar, btn, template, forceClear)
         return false
     end
 
-    local idx = self:FindHighestRank(name)
-    if not idx then return false end
     PickupSpellBookItem(idx, "spell")
     if GetCursorInfo() == "spell" then
         PlaceAction(slot)
