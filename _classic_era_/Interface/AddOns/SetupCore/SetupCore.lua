@@ -206,10 +206,10 @@ local MACRO_TEMPLATES = {
     -- focus-mouseover-harm and interrupt templates put @focus first because
     -- those spells SHOULD hit the CC target.
     ["mouseover-help"] = function(spell)
-        return "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] " .. spell
+        return "#showtooltip " .. spell .. "\n/cast [@mouseover,help,nodead][help,nodead][@player] " .. spell
     end,
     ["mouseover-harm"] = function(spell)
-        return "#showtooltip\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
+        return "#showtooltip " .. spell .. "\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
     end,
     -- Like mouseover-harm but adds /startattack so auto-attack engages your
     -- CURRENT target while the spell lands on mouseover (or current as fallback).
@@ -220,16 +220,16 @@ local MACRO_TEMPLATES = {
         -- /startattack engages MELEE only if no wand equipped; if a wand IS equipped
         -- (SoD casters), fire it instead (!Shoot keeps it on, never toggles it off).
         -- Both are no-ops when inapplicable. Then the actual nuke on mouseover.
-        return "#showtooltip\n/startattack [noequipped:Wands]\n/cast [equipped:Wands] !Shoot\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
+        return "#showtooltip " .. spell .. "\n/startattack [noequipped:Wands]\n/cast [equipped:Wands] !Shoot\n/cast [@mouseover,harm,nodead][harm,nodead] " .. spell
     end,
     ["focus-mouseover-harm"] = function(spell)
-        return "#showtooltip\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell
+        return "#showtooltip " .. spell .. "\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell
     end,
     ["startattack"] = function(spell)
-        return "#showtooltip\n/startattack\n/cast " .. spell
+        return "#showtooltip " .. spell .. "\n/startattack\n/cast " .. spell
     end,
     ["self-cast"] = function(spell)
-        return "#showtooltip\n/cast [@player] " .. spell
+        return "#showtooltip " .. spell .. "\n/cast [@player] " .. spell
     end,
     -- Druid form-shift safety wrappers — prevent accidental Cat↔Bear shifts
     -- mid-combat (which destroys energy/rage). Bear macro won't fire if in Cat
@@ -237,16 +237,16 @@ local MACRO_TEMPLATES = {
     -- need protection (low-risk shifts). Includes /startattack so engaging the
     -- form at a target also begins auto-attack.
     ["druid-bear-safe"] = function(spell)
-        return "#showtooltip\n/startattack\n/cast [noform:4] " .. spell
+        return "#showtooltip " .. spell .. "\n/startattack\n/cast [noform:4] " .. spell
     end,
     ["druid-cat-safe"] = function(spell)
-        return "#showtooltip\n/startattack\n/cast [noform:1] " .. spell
+        return "#showtooltip " .. spell .. "\n/startattack\n/cast [noform:1] " .. spell
     end,
     -- Smart interrupt: focus first, then mouseover, then current target.
     -- Spell name is class-specific (Earth Shock for Shaman, Counterspell for
     -- Mage, Kick for Rogue, etc.). Class addons pass the right spell name.
     ["interrupt"] = function(spell)
-        return "#showtooltip\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell
+        return "#showtooltip " .. spell .. "\n/cast [@focus,harm,nodead][@mouseover,harm,nodead][harm,nodead] " .. spell
     end,
     -- Redirect-taunt (Paladin Righteous Defense, and any future ability with
     -- the same shape): the spell must be cast on the FRIENDLY unit under
@@ -255,7 +255,7 @@ local MACRO_TEMPLATES = {
     -- mob is currently attacking, closer to how a normal taunt feels to use.
     -- Falls back to mouseover/target in case you point at the ally directly.
     ["redirect-taunt"] = function(spell)
-        return "#showtooltip\n/cast [@mouseovertarget,help,nodead][@mouseover,help,nodead][help,nodead] " .. spell
+        return "#showtooltip " .. spell .. "\n/cast [@mouseovertarget,help,nodead][@mouseover,help,nodead][help,nodead] " .. spell
     end,
     -- Paladin dispel cascade: Cleanse (L42 Holy talent, dispels Magic too) tried
     -- first; falls through to Purify (L8 base, Disease/Poison only) if Cleanse
