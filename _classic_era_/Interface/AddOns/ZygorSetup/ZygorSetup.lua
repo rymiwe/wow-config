@@ -14,6 +14,9 @@
 --   * Grow upwards (resizeup) - window expands above its bottom anchor
 --   * Anchored to the lower-right of the screen (frame_anchor). Since the window
 --     is locked, tweak GUIDE_ANCHOR below to reposition (then /reload).
+--   * Guide window scaled to 75% (framescale) with the "stealth" skin style
+--   * Action bar snapped to the viewer at a hand-placed spot (see ACTIONBAR_ANCHOR)
+--   * Waypoint arrow: Starlight skin, scale 0.625, font 8, outline + freeze on
 --   * Auto-select quest rewards (autoselectitem; questitemselector on)
 --   * Auto-equip suggested gear upgrades (autogearauto; autogear/nc_gear on)
 --
@@ -40,6 +43,23 @@ local PRESET = {
     opacity           = 0.5,
     resizeup          = true,
     frame_anchor      = GUIDE_ANCHOR,
+
+    -- Guide window look (rymiwe's hand-tuned values). The _s keys are the options
+    -- slider steps; the plain keys are the resolved values. Set both so the value
+    -- applies AND the options UI shows the right slider position.
+    framescale        = 0.75,       -- window scale (75%)
+    framescale_s      = 2,
+    skin              = "default",
+    skinstyle         = "stealth",  -- "stealth" sub-style of the default skin
+
+    -- Waypoint arrow (rymiwe's hand-tuned values).
+    arrowskin         = "Starlight",
+    arrowscale        = 0.625,
+    arrowscale_s      = 1,
+    arrowfontsize     = 8,
+    arrowfontsize_s   = 2,
+    arrowoutline      = true,
+    arrowfreeze       = true,
 
     -- Action bar: SNAPPED to the viewer per rymiwe's manual setup (see caveat above).
     actionbar_anchor_snapped = true,
