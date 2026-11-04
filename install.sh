@@ -55,7 +55,7 @@ find_wow_dir() {
              "$HOME"/World\ of\ Warcraft; do
         if [[ -d "$d/$FLAVOR" ]]; then echo "$d"; return; fi
     done
-    echo "ERROR: Could not find WoW install. Set WOWDIR=/path or pass --wow-dir." >&2
+    echo "ERROR: Could not find a WoW folder containing $FLAVOR. Install WoW: Forever (or the right flavor), launch it once to the Gamerules screen, quit, and rerun. Or set WOWDIR=/path or pass --wow-dir." >&2
     exit 1
 }
 
@@ -64,7 +64,7 @@ WOW="$(find_wow_dir)"
 list_accounts() {
     local acct_dir="$WOW/$FLAVOR/WTF/Account"
     if [[ ! -d "$acct_dir" ]]; then
-        echo "ERROR: No WTF/Account directory at $acct_dir. Launch WoW once first." >&2
+        echo "ERROR: No WTF/Account folder at $acct_dir. Launch this WoW flavor once, log in to character select, quit, and rerun." >&2
         exit 1
     fi
     if [[ -n "$ACCOUNT" ]]; then

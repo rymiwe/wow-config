@@ -55,7 +55,7 @@ function Find-WowDir {
     foreach ($c in $candidates) {
         if (Test-Path (Join-Path $c $Flavor)) { return $c }
     }
-    throw "Could not find WoW install. Set `$env:WOWDIR or pass -WowDir."
+    throw "Could not find a WoW folder containing $Flavor. Launch WoW: Forever once to the Gamerules screen, quit, and rerun. Or set `$env:WOWDIR or pass -WowDir."
 }
 
 function Find-Account {
