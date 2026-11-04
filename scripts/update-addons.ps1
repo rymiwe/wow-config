@@ -58,6 +58,7 @@ if (-not $WowDir -or -not (Test-Path (Join-Path $WowDir "$Flavor\$wowExe"))) {
 }
 
 $addonsDir = Join-Path $WowDir "$Flavor\Interface\AddOns"
+New-Item -ItemType Directory -Force -Path $addonsDir | Out-Null
 Write-Host "Updating addons in: $addonsDir"
 
 function Install-AddonZip {

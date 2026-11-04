@@ -61,6 +61,7 @@ find_wow_dir() {
 
 WOW="$(find_wow_dir)"
 ADDONS_DIR="$WOW/$FLAVOR/Interface/AddOns"
+mkdir -p "$ADDONS_DIR"
 echo "Updating addons in: $ADDONS_DIR"
 
 fetch_addon_zip() {
