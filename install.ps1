@@ -17,6 +17,14 @@
   upsert: preserve existing bindings/SavedVariables (smart-merge new template
           bindings only, keeps user customizations).
 
+.PARAMETER Flavor
+  _anniversary_ (default) or _forever_. _forever_ installs the WoW: Forever kit
+  (bars + binds + CVars + ElvUI profile + community addons via
+  scripts\update-addons.ps1). No SetupCore / class addons on Forever.
+
+.EXAMPLE
+  & ([scriptblock]::Create((iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1").Content)) -Flavor _forever_
+
 .EXAMPLE
   iex (iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1").Content
 #>
@@ -26,13 +34,14 @@ param(
     [ValidateSet("upsert", "fresh")][string]$Mode = "fresh",
     [string]$Branch = "main",
     [string]$RepoUrl = "https://github.com/rymiwe/wow-config.git",
-    [switch]$UseLocal
+    [switch]$UseLocal,
+    [ValidateSet("_anniversary_", "_forever_")][string]$Flavor = "_anniversary_"
 )
 
 $ErrorActionPreference = "Stop"
 
 function Find-WowDir {
-    if ($WowDir -and (Test-Path (Join-Path $WowDir "_anniversary_"))) { return $WowDir }
+    if ($WowDir -and (Test-Path (Join-Path $WowDir $Flavor))) { return $WowDir }
     $candidates = @(
         "$env:ProgramFiles\World of Warcraft",
         "${env:ProgramFiles(x86)}\World of Warcraft",
@@ -44,7 +53,7 @@ function Find-WowDir {
         "E:\Games\World of Warcraft"
     )
     foreach ($c in $candidates) {
-        if (Test-Path (Join-Path $c "_anniversary_")) { return $c }
+        if (Test-Path (Join-Path $c $Flavor)) { return $c }
     }
     throw "Could not find WoW install. Set `$env:WOWDIR or pass -WowDir."
 }
@@ -52,7 +61,7 @@ function Find-WowDir {
 function Find-Account {
     param([string]$Wow)
     if ($Account) { return $Account }
-    $acctDir = Join-Path $Wow "_anniversary_\WTF\Account"
+    $acctDir = Join-Path $Wow "$Flavor\WTF\Account"
     if (-not (Test-Path $acctDir)) {
         throw "No WTF/Account directory at $acctDir. Launch WoW once first."
     }
@@ -73,6 +82,7 @@ $acct = Find-Account -Wow $wow
 Write-Host "WoW directory:  $wow"
 Write-Host "Account:        $acct"
 Write-Host "Mode:           $Mode"
+Write-Host "Flavor:         $Flavor"
 if ($UseLocal) {
     Write-Host "Source:         local repo ($PSScriptRoot)"
 } else {
@@ -94,6 +104,58 @@ if ($UseLocal) {
 }
 
 try {
+    # --- WoW: Forever kit ---------------------------------------------------
+    # Forever (1.60.1, Interface 16001, product wowf, exe Wow.exe) is the modern
+    # Mainline API: our Classic-API custom addons are NOT installed. Ship the bar
+    # layout + keybinds + CVars + ElvUI profile, then community addons.
+    if ($Flavor -eq "_forever_") {
+        $ftpl     = Join-Path $tempDir "templates\_forever_"
+        $acctRoot = Join-Path $wow "_forever_\WTF\Account\$acct"
+        $fSV      = Join-Path $acctRoot "SavedVariables"
+        if (-not (Test-Path $fSV)) { New-Item -ItemType Directory -Force -Path $fSV | Out-Null }
+        $fBind = Join-Path $acctRoot "bindings-cache.wtf"
+        if ($Mode -eq "fresh" -or -not (Test-Path $fBind)) {
+            Copy-Item (Join-Path $ftpl "bindings-cache.wtf") $fBind -Force
+            Write-Host "Installed bindings-cache.wtf"
+        } else { Write-Host "bindings-cache.wtf exists - leaving alone (use -Mode fresh)" }
+        $fElv = Join-Path $fSV "ElvUI.lua"
+        if ($Mode -eq "fresh" -or -not (Test-Path $fElv)) {
+            Copy-Item (Join-Path $tempDir "templates\ElvUI.lua") $fElv -Force
+            Write-Host "Installed ElvUI.lua (full layout)"
+        } else { Write-Host "ElvUI.lua exists - leaving alone (use -Mode fresh)" }
+        # Config.wtf: never replace wholesale (holds client portal/graphics);
+        # upsert our SET lines.
+        $fCfg = Join-Path $wow "_forever_\WTF\Config.wtf"
+        $tplLines = Get-Content (Join-Path $ftpl "Config.wtf")
+        if (-not (Test-Path $fCfg)) {
+            Copy-Item (Join-Path $ftpl "Config.wtf") $fCfg -Force
+            Write-Host "Installed Config.wtf (CVar defaults)"
+        } else {
+            $cfg = @(Get-Content $fCfg)
+            $added = 0
+            foreach ($line in $tplLines) {
+                if ($line -match '^SET\s+(\S+)\s') {
+                    $key = [regex]::Escape($matches[1])
+                    $idx = -1
+                    for ($i = 0; $i -lt $cfg.Count; $i++) { if ($cfg[$i] -match "^SET\s+$key\s") { $idx = $i; break } }
+                    if ($idx -ge 0) { if ($Mode -eq "fresh") { $cfg[$idx] = $line } }
+                    else { $cfg += $line; $added++ }
+                }
+            }
+            $cfg | Set-Content -Path $fCfg
+            Write-Host "Config.wtf merged ($added new CVars added)"
+        }
+        Write-Host ""
+        & (Join-Path $tempDir "scripts\update-addons.ps1") -WowDir $wow -Flavor "_forever_"
+        Write-Host ""
+        Write-Host "Forever install complete. Next steps:"
+        Write-Host "  1. Launch WoW: Forever. If the ElvUI install wizard appears, close it with the X."
+        Write-Host "  2. Drag spells onto the bars by hand (keys already match our layout)."
+        Write-Host "  3. OPie: /opie -> bind rings to BUTTON4 / BUTTON5 yourself."
+        Write-Host "  4. Zygor: install via the Zygor client (Elite subscription) into _forever_."
+        return
+    }
+
     $srcAddons    = Join-Path $tempDir "_anniversary_\Interface\AddOns"
     $dstAddons    = Join-Path $wow     "_anniversary_\Interface\AddOns"
     $srcTemplates = Join-Path $tempDir "templates"

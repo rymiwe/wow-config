@@ -4,7 +4,11 @@
 # Doesn't touch our custom addons, bindings, or SavedVariables.
 #
 # Flavor-aware: defaults to _anniversary_ (unchanged behavior). Pass
-# --flavor _classic_era_ to refresh the Classic Era / SoD client instead.
+# --flavor _classic_era_ to refresh the Classic Era / SoD client instead, or
+# --flavor _forever_ for WoW: Forever (1.60.1, Interface 16001, exe Wow.exe).
+# The Forever set is ElvUI, Questie, BadBoy, OPie only (WeakAuras has no
+# Forever build yet; AMR/TotemTimers unconfirmed). WITH_BARTENDER4=1 also
+# fetches Bartender4 (off by default: it duplicates ElvUI's action bars).
 # The Era set skips TotemTimers (Anniversary-only patched fork) and scrapes
 # the "Classic" AskMrRobot section instead of "TBC".
 #
@@ -28,11 +32,16 @@ while [[ $# -gt 0 ]]; do
 done
 
 WOWDIR="${WOWDIR:-}"
+# Client exe that proves a flavor folder is a real install.
+case "$FLAVOR" in
+    _forever_) WOW_EXE="Wow.exe" ;;
+    *)         WOW_EXE="WowClassic.exe" ;;
+esac
 # A real install has WowClassic.exe inside the flavor folder; testing only for
 # the folder can latch onto a stray/dead <flavor> dir (e.g. an orphaned
 # Program Files (x86) shell) and install addons where the game never reads them.
 find_wow_dir() {
-    if [[ -n "$WOWDIR" && -f "$WOWDIR/$FLAVOR/WowClassic.exe" ]]; then
+    if [[ -n "$WOWDIR" && -f "$WOWDIR/$FLAVOR/$WOW_EXE" ]]; then
         echo "$WOWDIR"; return
     fi
     for d in "$HOME"/.steam/steam/steamapps/compatdata/*/pfx/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
@@ -44,9 +53,9 @@ find_wow_dir() {
              "$HOME"/Games/World\ of\ Warcraft \
              "$HOME"/Games/world-of-warcraft \
              "$HOME"/World\ of\ Warcraft; do
-        if [[ -f "$d/$FLAVOR/WowClassic.exe" ]]; then echo "$d"; return; fi
+        if [[ -f "$d/$FLAVOR/$WOW_EXE" ]]; then echo "$d"; return; fi
     done
-    echo "ERROR: Could not find WoW install with '$FLAVOR/WowClassic.exe'. Set WOWDIR=/path." >&2
+    echo "ERROR: Could not find WoW install with '$FLAVOR/$WOW_EXE'. Set WOWDIR=/path." >&2
     exit 1
 }
 
@@ -138,9 +147,15 @@ else
         | grep -oE '"url":"[^"]+"' | head -1 | sed -E 's|^"url":"||;s|"$||')"
     fetch_addon_zip "ElvUI"     "$elvui_url"
 fi
-fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
+if [[ "$FLAVOR" != "_forever_" ]]; then
+    fetch_addon_zip "WeakAuras" "$(github_latest_zip WeakAuras/WeakAuras2)"
+fi
 fetch_addon_zip "Questie"   "$(github_latest_zip Questie/Questie)"
 fetch_addon_zip "BadBoy"    "$(github_latest_zip funkydude/BadBoy)"
+
+if [[ "$FLAVOR" == "_forever_" && "${WITH_BARTENDER4:-0}" == "1" ]]; then
+    fetch_addon_zip "Bartender4" "$(github_latest_zip Nevcairiel/Bartender4)"
+fi
 
 # TotemTimers here is a patched TBC fork; Anniversary only.
 if [[ "$FLAVOR" == "_anniversary_" ]]; then
