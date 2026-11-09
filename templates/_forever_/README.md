@@ -13,6 +13,14 @@ those are Classic-API code and are not ported. Place spells on bars by hand
 | `Config.wtf` | trimmed `templates/Config.wtf` | Only CVars referenced in Forever's Blizzard UI source. |
 | ElvUI profile | `templates/ElvUI.lua` (shared, unchanged) | ElvUI 16.x uses one Shared/Defaults + DBConversions for every flavor, so the same profile table loads. |
 
+## CVars in this kit
+- `autoLootDefault 1`, `autoSelfCast 1`, `cameraSmoothStyle 0` (never adjust),
+  `nameplateShowEnemies 1` (+ enemy minions/minus).
+- `nameplateShowFriendlyPlayers 1` — Forever's name for Classic's
+  `nameplateShowFriends` (see dropped list). Friendly NPCs stay off.
+- `showTargetOfTarget 1` — Options > Gameplay > Combat (Forever UI source).
+- `showQuestLevel 1` — Forever 1.60.1 CVar (quest log/list shows level).
+
 ## CVars dropped (could not confirm in Forever UI source)
 - `nameplateShowFriends`, `nameplateShowFriendlyMinions` -> replaced by
   `nameplateShowFriendlyPlayers` / `nameplateShowFriendlyNpcs` (modern names).
