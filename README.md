@@ -89,6 +89,29 @@ If you use the auction house:
 | `--upsert` (default) | Install/update addons. Skip existing bindings, SavedVariables, and ElvUI layout. Merge new CVars into Config.wtf without overwriting existing graphics settings. |
 | `--fresh` | Overwrite bindings, reseed auto-setup flag, install full ElvUI layout, replace Config.wtf entirely. Use this for a brand-new install. |
 
+## WoW: Forever (kit, no auto spell placement)
+
+WoW: Forever (client 1.60.1, Interface 16001, folder `_forever_`, exe `Wow.exe`)
+runs the modern addon API, so SetupCore and the class addons are **not** installed
+there. The kit ships our **bar layout, keybinds, CVars and ElvUI profile**, plus
+ElvUI, Questie, BadBoy and OPie (all have Forever builds). WeakAuras has no
+Forever build yet; Bartender4 is opt-in (`WITH_BARTENDER4=1`). Zygor is paid:
+install it with the Zygor client into `_forever_`.
+
+Launch WoW: Forever once first (creates `_forever_/WTF/Account/...`), close it, then:
+
+| Platform | Command |
+|---|---|
+| Windows (easy) | double-click [`install-forever.bat`](install-forever.bat) |
+| Windows (PowerShell) | `& ([scriptblock]::Create((iwr "https://raw.githubusercontent.com/rymiwe/wow-config/main/install.ps1").Content)) -Flavor _forever_` |
+| Linux / Steam Deck / Omarchy | `curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/install.sh \| bash -s -- --flavor _forever_` |
+
+Refresh community addons later: `scripts/update-addons.sh --flavor _forever_` /
+`scripts/update-addons.ps1 -Flavor _forever_`. In game: drag spells onto the bars
+(keys already match the layout), bind OPie rings to M4/M5 in `/opie`, and close
+the ElvUI install wizard with the X if it appears. Details and dropped CVars:
+[`templates/_forever_/README.md`](templates/_forever_/README.md).
+
 ## Custom addons
 
 | addon | purpose |

@@ -6,7 +6,9 @@
 
 .DESCRIPTION
   Flavor-aware: defaults to _anniversary_ (unchanged behavior). Pass
-  -Flavor _classic_era_ to refresh the Classic Era / SoD client instead.
+  -Flavor _classic_era_ to refresh the Classic Era / SoD client instead, or
+  -Flavor _forever_ for WoW: Forever (ElvUI, Questie, BadBoy, OPie; set
+  $env:WITH_BARTENDER4=1 to add Bartender4).
   The Era set skips TotemTimers (Anniversary-only patched fork) and scrapes
   the "Classic" AskMrRobot section instead of "TBC".
 
@@ -36,6 +38,8 @@ $ErrorActionPreference = "Continue"
 # A real install has WowClassic.exe inside the flavor folder; testing only for
 # the folder can latch onto a stray/dead <flavor> dir (e.g. an orphaned
 # Program Files (x86) shell) and install addons where the game never reads them.
+# Forever (1.60.1, Interface 16001, product wowf) ships Wow.exe, not WowClassic.exe.
+$wowExe = if ($Flavor -eq "_forever_") { "Wow.exe" } else { "WowClassic.exe" }
 if (-not $WowDir) {
     foreach ($candidate in @(
         "C:\Program Files (x86)\World of Warcraft",
@@ -45,15 +49,16 @@ if (-not $WowDir) {
         "E:\Program Files\World of Warcraft",
         "E:\Program Files (x86)\World of Warcraft"
     )) {
-        if (Test-Path (Join-Path $candidate "$Flavor\WowClassic.exe")) { $WowDir = $candidate; break }
+        if (Test-Path (Join-Path $candidate "$Flavor\$wowExe")) { $WowDir = $candidate; break }
     }
 }
-if (-not $WowDir -or -not (Test-Path (Join-Path $WowDir "$Flavor\WowClassic.exe"))) {
-    Write-Error "Could not find WoW install with '$Flavor\WowClassic.exe'. Pass -WowDir 'C:\path\to\World of Warcraft'."
+if (-not $WowDir -or -not (Test-Path (Join-Path $WowDir "$Flavor\$wowExe"))) {
+    Write-Error "Could not find WoW install with '$Flavor\$wowExe'. Pass -WowDir 'C:\path\to\World of Warcraft'."
     exit 1
 }
 
 $addonsDir = Join-Path $WowDir "$Flavor\Interface\AddOns"
+New-Item -ItemType Directory -Force -Path $addonsDir | Out-Null
 Write-Host "Updating addons in: $addonsDir"
 
 function Install-AddonZip {
@@ -151,9 +156,17 @@ if ($Flavor -eq "_classic_era_" -and $elvuiEraDev) {
     } catch { Write-Warning "ElvUI Tukui API failed: $_" }
 }
 
-Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
+# WeakAuras has no Forever build yet (5.22.1 ships Classic-family TOCs only).
+if ($Flavor -ne "_forever_") {
+    Install-AddonZip "WeakAuras" (Get-GitHubLatestZipUrl "WeakAuras/WeakAuras2") $addonsDir
+}
 Install-AddonZip "Questie"   (Get-GitHubLatestZipUrl "Questie/Questie")     $addonsDir
 Install-AddonZip "BadBoy"    (Get-GitHubLatestZipUrl "funkydude/BadBoy")    $addonsDir
+
+# Bartender4 (Forever-ready) is opt-in: it duplicates ElvUI action bars.
+if ($Flavor -eq "_forever_" -and $env:WITH_BARTENDER4 -eq "1") {
+    Install-AddonZip "Bartender4" (Get-GitHubLatestZipUrl "Nevcairiel/Bartender4") $addonsDir
+}
 
 # TotemTimers here is a patched TBC fork; Anniversary only.
 if ($Flavor -eq "_anniversary_") {
