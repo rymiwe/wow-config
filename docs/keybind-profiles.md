@@ -99,7 +99,7 @@ KeyKit will not apply or undo in combat; it tells you to wait until the fight is
 
 **Applied the first KeyKit version already?** It bound keys straight to spells, which left the bars empty. Press **Apply** again: keys that point at a spell are moved back to their bar button (from `templates/_forever_/bindings-cache.wtf`) and the spell goes on the bar.
 
-**Empty "Main Hand 0.0" bar above the action bars?** That is WoW: Forever's own swing timer (ElvUI only restyles it). The Forever kit turns it off with `showSwingTimer 0` in `Config.wtf`, but the game can keep an account-wide copy. If it is still there, type `/console showSwingTimer 0` once.
+**"Main Hand 0.0" bar across the action bars?** That is WoW: Forever's own swing timer (the Blizzard_SwingTimer UI; ElvUI only restyles it). Its on/off setting is saved per account, not in `Config.wtf`, so the kit cannot ship it. Type `/console showSwingTimer 0` once to hide it.
 
 The two **Starter** profiles work for any class. Every key points at an action bar slot, so you drag your spells onto the bar and the keys follow. The one-bar starter puts the main bar on 1-4, Q, E, R, F, C and mouse buttons 3-5, with A/D strafe. The Alt-layer starter adds the bottom-left bar on Alt plus the same keys.
 
