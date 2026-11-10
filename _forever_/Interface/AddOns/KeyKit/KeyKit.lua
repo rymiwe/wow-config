@@ -29,6 +29,7 @@ end
 ---------------------------------------------------------------------------
 local function SetOne(key, kind, value)
   if kind == "spell" then return SetBindingSpell(key, value) end
+  if kind == "item" then return SetBindingItem(key, value) end
   if kind == "macro" then return SetBindingMacro(key, value) end
   if kind == "click" then
     local button, mouse = value:match("^([^:]+):?(.*)$")
@@ -41,22 +42,89 @@ local function SetStatus(msg)
   if frame then frame.status:SetText(msg) end
 end
 
+-- Spell ID if the character knows the spell, else nil.
+local function KnownSpell(name)
+  if C_Spell and C_Spell.GetSpellInfo then
+    local info = C_Spell.GetSpellInfo(name)
+    return info and info.spellID
+  end
+  return select(7, GetSpellInfo(name))
+end
+
+-- Put a spell/item/macro on the cursor. Returns true if something landed there.
+local function PickUp(kind, value)
+  ClearCursor()
+  if kind == "spell" then
+    local id = KnownSpell(value)
+    if not id then return false end
+    PickupSpell(id)
+  elseif kind == "item" then
+    PickupItem(value)
+  elseif kind == "macro" then
+    PickupMacro(value)
+  else
+    return false
+  end
+  local onCursor = GetCursorInfo()
+  return onCursor == kind
+end
+
+-- Empty a slot, or put back what GetActionInfo reported for it.
+local function RestoreSlot(slot, kind, id)
+  ClearCursor()
+  if kind == "spell" then PickupSpell(id)
+  elseif kind == "item" then PickupItem(id)
+  elseif kind == "macro" then PickupMacro(id) end
+  if GetCursorInfo() then
+    PlaceAction(slot)
+  else
+    PickupAction(slot)       -- nothing to put back: lift the slot's contents off
+  end
+  ClearCursor()
+end
+
+-- The bar button a key fires: its current binding if that is a bar button,
+-- else the wow-config bindings template (ns.BAR_KEYS, generated).
+local function BarCommandFor(key)
+  local current = GetBindingAction(key)
+  if ns.SlotForCommand(current) then return current end
+  local cmd = ns.BAR_KEYS and ns.BAR_KEYS[key]
+  if ns.SlotForCommand(cmd) then return cmd end
+  return nil
+end
+
 local function Apply()
   if not selected then return end
   if InCombatLockdown() then
     SetStatus("|cffff6060You're in combat. Apply again once the fight is over.|r")
     return
   end
-  -- Snapshot every key this profile touches, so Undo can put them back.
-  local snap = { set = GetCurrentBindingSet(), keys = {}, profile = selected.title }
-  for _, b in ipairs(selected.binds) do
-    if b.kind then snap.keys[b.key] = GetBindingAction(b.key) or "" end
-  end
-  local done, skipped = 0, {}
+  -- Snapshot every key and bar slot this profile touches, so Undo can put them back.
+  local snap = { set = GetCurrentBindingSet(), keys = {}, slots = {}, profile = selected.title }
+  local placed, bound, skipped = 0, 0, {}
   for _, b in ipairs(selected.binds) do
     if b.kind then
-      if SetOne(b.key, b.kind, b.value) then
-        done = done + 1
+      if snap.keys[b.key] == nil then snap.keys[b.key] = GetBindingAction(b.key) or "" end
+      local placeable = b.kind == "spell" or b.kind == "item" or b.kind == "macro"
+      local cmd = placeable and BarCommandFor(b.key)
+      if cmd then
+        -- Key keeps (or gets back) its bar button; the spell goes on that button.
+        local slot = ns.SlotForCommand(cmd)
+        if PickUp(b.kind, b.value) then
+          if not snap.slots[slot] then
+            local t, id = GetActionInfo(slot)
+            snap.slots[slot] = { kind = t or "", id = id }
+          end
+          PlaceAction(slot)
+          ClearCursor()
+          if GetBindingAction(b.key) ~= cmd then SetBinding(b.key, cmd) end
+          placed = placed + 1
+        else
+          ClearCursor()
+          skipped[#skipped + 1] = b.key .. " " .. b.value
+        end
+      elseif SetOne(b.key, b.kind, b.value) then
+        bound = bound + 1
       else
         skipped[#skipped + 1] = b.key .. " " .. b.value
       end
@@ -66,8 +134,8 @@ local function Apply()
   SaveBindings(which)
   db.undo = snap
   frame.undo:Enable()
-  local msg = ("Applied %s: %d keys set, saved for %s."):format(
-    selected.title, done, which == CHARACTER and "this character" or "all characters")
+  local msg = ("Applied %s: %d on bars, %d keys bound, saved for %s."):format(
+    selected.title, placed, bound, which == CHARACTER and "this character" or "all characters")
   if #skipped > 0 then
     msg = msg .. (" Skipped %d (not learned yet?)."):format(#skipped)
     Print("Skipped: " .. table.concat(skipped, ", "))
@@ -83,6 +151,9 @@ local function Undo()
     SetStatus("|cffff6060You're in combat. Undo once the fight is over.|r")
     return
   end
+  for slot, old in pairs(snap.slots or {}) do
+    RestoreSlot(slot, old.kind, old.id)
+  end
   for key, action in pairs(snap.keys) do
     if action == "" then
       SetBinding(key)
@@ -93,7 +164,7 @@ local function Undo()
   SaveBindings(snap.set or GetCurrentBindingSet())
   db.undo = nil
   frame.undo:Disable()
-  local msg = "Put back the keys from before " .. (snap.profile or "the last Apply") .. "."
+  local msg = "Put back the keys and bar buttons from before " .. (snap.profile or "the last Apply") .. "."
   SetStatus(msg)
   Print(msg)
 end

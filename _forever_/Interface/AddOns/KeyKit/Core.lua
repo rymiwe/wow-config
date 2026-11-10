@@ -65,13 +65,28 @@ function ns.ActionToEntry(action)
   if kind == "SPELL" then return "spell", value end
   if kind == "MACRO" then return "macro", value end
   if kind == "CLICK" then return "click", value end
+  if kind == "ITEM" then return "item", value end
   return "cmd", action
+end
+
+-- Binding command -> action slot it fires (page 1). nil if not a bar button.
+local BAR_BASE = {
+  ACTIONBUTTON = 0, MULTIACTIONBAR3BUTTON = 24, MULTIACTIONBAR4BUTTON = 36,
+  MULTIACTIONBAR2BUTTON = 48, MULTIACTIONBAR1BUTTON = 60,
+  MULTIACTIONBAR5BUTTON = 144, MULTIACTIONBAR6BUTTON = 156, MULTIACTIONBAR7BUTTON = 168,
+}
+function ns.SlotForCommand(cmd)
+  if not cmd then return nil end
+  local bar, n = cmd:match("^(%u[%u%d]-BUTTON)(%d+)$")
+  n = tonumber(n)
+  if bar and BAR_BASE[bar] and n >= 1 and n <= 12 then return BAR_BASE[bar] + n end
+  return nil
 end
 
 local function trim(s) return (s:gsub("^%s+", ""):gsub("%s+$", "")) end
 
 local HEADER_FIELDS = { name = true, class = true, levels = true, note = true, url = true }
-local KINDS = { spell = true, macro = true, click = true, cmd = true }
+local KINDS = { spell = true, item = true, macro = true, click = true, cmd = true }
 
 --[[ KeyKit text format, version 1. One item per line:
 
@@ -85,6 +100,7 @@ local KINDS = { spell = true, macro = true, click = true, cmd = true }
   ALT-1 = spell Serpent Sting
   W = cmd TOGGLEAUTORUN
   BUTTON4 = macro PetAttack
+  C = item Hearthstone
   F = click MyAddonButton:LeftButton
 
 Keys are WoW key names (ALT-/CTRL-/SHIFT- prefixes, BUTTON3-5 for the mouse).
@@ -108,7 +124,7 @@ function ns.Parse(text)
         local kind, value = right:match("^(%a+)%s+(.+)$")
         kind = kind and kind:lower()
         if not kind or not KINDS[kind] then
-          return nil, ("line %d: use 'KEY = spell|macro|click|cmd <name>'"):format(n)
+          return nil, ("line %d: use 'KEY = spell|item|macro|click|cmd <name>'"):format(n)
         end
         local key = left:upper()
         local base, layer = ns.SplitKey(key)
