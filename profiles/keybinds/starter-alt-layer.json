@@ -1,0 +1,240 @@
+{
+  "id": "starter-alt-layer",
+  "title": "Starter: any class, Alt layer",
+  "subtitle": "The one-bar starter plus Alt for a second bar (bottom-left bar)",
+  "summary": "Same as one-bar, and Alt + the same keys runs the bottom-left bar.",
+  "class": "any",
+  "level": null,
+  "levels": "10-60",
+  "spec": null,
+  "flavor": "any",
+  "source": {
+    "name": "wow-config starter",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "wow-config (common keyboard-turning-free setup)"
+  },
+  "notes": [
+    "Same keys as the one-bar starter. Holding Alt reaches the bottom-left bar, so the same finger positions carry twice the spells.",
+    "Alt is easier to hold than Shift for small hands, and Shift-number keys page the action bar by default in WoW.",
+    "Turn on the bottom-left bar in Options > Action Bars to see what you put there."
+  ],
+  "binds": [
+    {
+      "key": "W",
+      "mod": null,
+      "action": "Move Forward",
+      "role": "movement",
+      "command": "MOVEFORWARD"
+    },
+    {
+      "key": "S",
+      "mod": null,
+      "action": "Move Backward",
+      "role": "movement",
+      "command": "MOVEBACKWARD"
+    },
+    {
+      "key": "A",
+      "mod": null,
+      "action": "Strafe Left",
+      "role": "movement",
+      "command": "STRAFELEFT"
+    },
+    {
+      "key": "D",
+      "mod": null,
+      "action": "Strafe Right",
+      "role": "movement",
+      "command": "STRAFERIGHT"
+    },
+    {
+      "key": "SPACE",
+      "mod": null,
+      "action": "Jump",
+      "role": "movement",
+      "command": "JUMP"
+    },
+    {
+      "key": "TAB",
+      "mod": null,
+      "action": "Target nearest enemy",
+      "role": "utility",
+      "command": "TARGETNEARESTENEMY"
+    },
+    {
+      "key": "B",
+      "mod": null,
+      "action": "Bags",
+      "role": "utility",
+      "command": "OPENALLBAGS"
+    },
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Bar 1 slot 1",
+      "role": "rotation",
+      "command": "ACTIONBUTTON1"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Bar 1 slot 2",
+      "role": "rotation",
+      "command": "ACTIONBUTTON2"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Bar 1 slot 3",
+      "role": "rotation",
+      "command": "ACTIONBUTTON3"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Bar 1 slot 4",
+      "role": "rotation",
+      "command": "ACTIONBUTTON4"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Bar 1 slot 5",
+      "role": "rotation",
+      "command": "ACTIONBUTTON5"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Bar 1 slot 6",
+      "role": "rotation",
+      "command": "ACTIONBUTTON6"
+    },
+    {
+      "key": "R",
+      "mod": null,
+      "action": "Bar 1 slot 7",
+      "role": "heal",
+      "command": "ACTIONBUTTON7"
+    },
+    {
+      "key": "F",
+      "mod": null,
+      "action": "Bar 1 slot 8",
+      "role": "buff",
+      "command": "ACTIONBUTTON8"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Bar 1 slot 9",
+      "role": "cc",
+      "command": "ACTIONBUTTON9"
+    },
+    {
+      "key": "MOUSE4",
+      "mod": null,
+      "action": "Bar 1 slot 10",
+      "role": "defensive",
+      "command": "ACTIONBUTTON10"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Bar 1 slot 11",
+      "role": "defensive",
+      "command": "ACTIONBUTTON11"
+    },
+    {
+      "key": "MOUSE3",
+      "mod": null,
+      "action": "Bar 1 slot 12",
+      "role": "utility",
+      "command": "ACTIONBUTTON12"
+    },
+    {
+      "key": "1",
+      "mod": "alt",
+      "action": "Bottom-left slot 1",
+      "role": "rotation",
+      "command": "MULTIACTIONBAR1BUTTON1"
+    },
+    {
+      "key": "2",
+      "mod": "alt",
+      "action": "Bottom-left slot 2",
+      "role": "rotation",
+      "command": "MULTIACTIONBAR1BUTTON2"
+    },
+    {
+      "key": "3",
+      "mod": "alt",
+      "action": "Bottom-left slot 3",
+      "role": "rotation",
+      "command": "MULTIACTIONBAR1BUTTON3"
+    },
+    {
+      "key": "4",
+      "mod": "alt",
+      "action": "Bottom-left slot 4",
+      "role": "rotation",
+      "command": "MULTIACTIONBAR1BUTTON4"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Bottom-left slot 5",
+      "role": "rotation",
+      "command": "MULTIACTIONBAR1BUTTON5"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Bottom-left slot 6",
+      "role": "rotation",
+      "command": "MULTIACTIONBAR1BUTTON6"
+    },
+    {
+      "key": "R",
+      "mod": "alt",
+      "action": "Bottom-left slot 7",
+      "role": "heal",
+      "command": "MULTIACTIONBAR1BUTTON7"
+    },
+    {
+      "key": "F",
+      "mod": "alt",
+      "action": "Bottom-left slot 8",
+      "role": "buff",
+      "command": "MULTIACTIONBAR1BUTTON8"
+    },
+    {
+      "key": "C",
+      "mod": "alt",
+      "action": "Bottom-left slot 9",
+      "role": "cc",
+      "command": "MULTIACTIONBAR1BUTTON9"
+    },
+    {
+      "key": "MOUSE4",
+      "mod": "alt",
+      "action": "Bottom-left slot 10",
+      "role": "defensive",
+      "command": "MULTIACTIONBAR1BUTTON10"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": "alt",
+      "action": "Bottom-left slot 11",
+      "role": "defensive",
+      "command": "MULTIACTIONBAR1BUTTON11"
+    },
+    {
+      "key": "MOUSE3",
+      "mod": "alt",
+      "action": "Bottom-left slot 12",
+      "role": "utility",
+      "command": "MULTIACTIONBAR1BUTTON12"
+    }
+  ]
+}

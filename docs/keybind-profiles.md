@@ -71,6 +71,7 @@ Each layout is a JSON file in `profiles/keybinds/`. The shape is small on purpos
 - `mod` is `null`, `"shift"`, `"alt"`, or `"ctrl"`
 - `role` is one of: `rotation`, `cc`, `defensive`, `heal`, `buff`, `movement`, `utility`
 - Optional extras: `badge` (a small tag like `TBC`) and `notes` at the profile level
+- For KeyKit: `summary` (one line for the list), `levels` (a band like `"1-60"`), and a per-bind `command` (a WoW binding name such as `ACTIONBUTTON1`) when the action is not a spell
 
 To redraw the pictures after you edit a profile (Pillow required):
 
@@ -81,11 +82,55 @@ python3 scripts/render-keybinds.py profiles/keybinds/ryan-forever-paladin-10.jso
 
 `--suggest '1=Holy Strike'` can overlay a Forever suggestion on a TBC picture without changing the profile itself.
 
-## Next: applying a profile in the game
+## Applying a profile in the game: KeyKit
 
-Not built yet. The next step is a small addon that reads one of these profiles and sets the action bars and keybinds on a character — the same job PaladinSetup already does for TBC, but driven by the JSON so Forever (and other classes later) can share the same source.
+KeyKit is a small addon for **WoW: Forever** (its TOC also lists Classic Era and Anniversary, but the installers only copy it into Forever). It shows every profile in this folder on a keyboard, and sets the keys only when you press **Apply**.
 
-Until that exists, you can still copy bars, macros, and keybinds between characters with **Myslot**. It exports everything as a pasteable string. The current addon (v6.3.0, 8 November 2026) lists WoW: Forever and its TOC includes interface **16001**. Command is `/myslot`.
+**In the game:**
+
+1. Install or update with `install-forever.bat` (Windows) or `install.sh --flavor _forever_` (Mac, Linux, Steam Deck). With WoW running, type `/reload` afterward, or restart WoW.
+2. Type `/keykit`. A window opens with the profiles on the left.
+3. Click a profile. The keyboard on the right shows what each key does. Use **Plain keys / Shift / Alt / Ctrl** to see each layer, including the mouse buttons. Keys marked *(look only)* are shown for reference and never set (OPie rings, cursor dispels).
+4. Leave **Only this character** unticked to save for every character on the account. Tick it to save for this character only.
+5. Press **Apply**. The chat window lists any spell the character has not learned yet; those keys are skipped.
+6. Changed your mind? Press **Undo**. It puts back the keys the last Apply changed, even after a `/reload`.
+
+KeyKit will not apply or undo in combat; it tells you to wait until the fight is over.
+
+The two **Starter** profiles work for any class. Every key points at an action bar slot, so you drag your spells onto the bar and the keys follow. The one-bar starter puts the main bar on 1-4, Q, E, R, F, C and mouse buttons 3-5, with A/D strafe. The Alt-layer starter adds the bottom-left bar on Alt plus the same keys.
+
+**Import and export.** **Export** writes your current keys on this board as text. **Import...** takes the same text and adds it to the list as your own profile (saved on this computer only). **Delete** removes one of your own profiles. The format is one line each:
+
+```
+# KeyKit 1
+name = My hunter
+class = hunter
+levels = 10-30
+note = Pet attack on Q
+url = https://example.com/where-i-found-it
+1 = spell Arcane Shot
+ALT-1 = spell Serpent Sting
+W = cmd TOGGLEAUTORUN
+BUTTON4 = macro PetAttack
+F = click SomeButton:LeftButton
+```
+
+Keys use WoW's names: `ALT-`, `CTRL-`, `SHIFT-` prefixes, and `BUTTON3` to `BUTTON5` for the mouse. Only `name` and one key line are required.
+
+**Adding a profile for everyone.** Add a JSON file here, then regenerate the addon's profile list:
+
+```bash
+python3 scripts/gen-keykit-profiles.py          # writes _forever_/Interface/AddOns/KeyKit/Profiles.lua
+python3 scripts/gen-keykit-profiles.py --check  # fails if Profiles.lua is out of date
+```
+
+The JSON stays the source. Never edit `Profiles.lua` by hand. Plain-English actions such as `Autorun`, `Strafe Left`, and `Bags` become WoW binding commands. Anything with a parenthesis, such as `Blessings (OPie)`, is look-only. Everything else is treated as a spell name.
+
+Profiles from other sites carry a **source link only**. Never copy their maps in (see the PullCall section above).
+
+### Copying everything between characters
+
+KeyKit only sets keys. To copy bars, macros, and keybinds together, use **Myslot**. It exports everything as a pasteable string. The current addon (v6.3.0, 8 November 2026) lists WoW: Forever and its TOC includes interface **16001**. Command is `/myslot`.
 
 - [Myslot on GitHub](https://github.com/tg123/myslot)
 - [Myslot on WowAce](https://www.wowace.com/projects/myslot) (Forever is listed on the recent-files row for v6.3.0)
