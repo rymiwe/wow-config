@@ -1,0 +1,60 @@
+{
+  "id": "ryan-paladin-forever-04",
+  "title": "Ryan's paladin, level 4-5",
+  "subtitle": "New at 4: 2 Judgement, Alt-Z Blessing of Might",
+  "summary": "Ryan's leveling plan as of level 4. New: 2 Judgement, Alt-Z Blessing of Might.",
+  "class": "paladin",
+  "level": 4,
+  "levels": "4-5",
+  "spec": null,
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's paladin leveling plan",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Keys only get reassigned as you level, so applying the next step over this one is safe.",
+    "Seal of Justice and Seal of Fury get pushed off the keys by level 36. Cast them from the spellbook if you need them."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Seal of Righteousness",
+      "role": "buff"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Holy Light",
+      "role": "heal"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Devotion Aura",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Judgement",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Blessing of Might",
+      "role": "buff"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "ryan-paladin-forever-06",
+  "title": "Ryan's paladin, level 6-7",
+  "subtitle": "New at 6: 1 Seal of the Crusader, 3 Seal of Righteousness, 4 Holy Strike, Shift-T Divine Protection",
+  "summary": "Ryan's leveling plan as of level 6. New: 1 Seal of the Crusader, 3 Seal of Righteousness, 4 Holy Strike, Shift-T Divine Protection.",
+  "class": "paladin",
+  "level": 6,
+  "levels": "6-7",
+  "spec": null,
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's paladin leveling plan",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Keys only get reassigned as you level, so applying the next step over this one is safe.",
+    "Seal of Justice and Seal of Fury get pushed off the keys by level 36. Cast them from the spellbook if you need them."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Seal of the Crusader",
+      "role": "buff"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Holy Light",
+      "role": "heal"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Devotion Aura",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Judgement",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Blessing of Might",
+      "role": "buff"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Seal of Righteousness",
+      "role": "buff"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Holy Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "T",
+      "mod": "shift",
+      "action": "Divine Protection",
+      "role": "defensive"
+    }
+  ]
+}

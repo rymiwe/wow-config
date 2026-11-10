@@ -67,6 +67,8 @@ def apply_target(bind: dict):
     """Return (kind, value) for SetBinding*, or (None, None) for preview only."""
     if bind.get("command"):
         return "cmd", bind["command"]
+    if bind.get("item"):
+        return "item", bind["item"]
     action = bind["action"].strip()
     low = action.lower()
     if low in COMMANDS:
