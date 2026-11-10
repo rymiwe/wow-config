@@ -92,10 +92,14 @@ KeyKit is a small addon for **WoW: Forever** (its TOC also lists Classic Era and
 2. Type `/keykit`. A window opens with the profiles on the left.
 3. Click a profile. The keyboard on the right shows what each key does. Use **Plain keys / Shift / Alt / Ctrl** to see each layer, including the mouse buttons. Keys marked *(look only)* are shown for reference and never set (OPie rings, cursor dispels).
 4. Leave **Only this character** unticked to save for every character on the account. Tick it to save for this character only.
-5. Press **Apply**. The chat window lists any spell the character has not learned yet; those keys are skipped.
-6. Changed your mind? Press **Undo**. It puts back the keys the last Apply changed, even after a `/reload`.
+5. Press **Apply**. Each spell, item, or macro goes onto the action bar button its key fires, so the bar shows what the key does. In the wow-config layout the plain keys fire the two centre bars and Alt fires the two bars on the right. A key that fires no bar button is bound straight to the spell instead. The chat window lists any spell the character has not learned yet; those keys are skipped.
+6. Changed your mind? Press **Undo**. It puts back the keys and the bar buttons the last Apply changed, even after a `/reload`.
 
 KeyKit will not apply or undo in combat; it tells you to wait until the fight is over.
+
+**Applied the first KeyKit version already?** It bound keys straight to spells, which left the bars empty. Press **Apply** again: keys that point at a spell are moved back to their bar button (from `templates/_forever_/bindings-cache.wtf`) and the spell goes on the bar.
+
+**Empty "Main Hand 0.0" bar above the action bars?** That is WoW: Forever's own swing timer (ElvUI only restyles it). The Forever kit turns it off with `showSwingTimer 0` in `Config.wtf`, but the game can keep an account-wide copy. If it is still there, type `/console showSwingTimer 0` once.
 
 The two **Starter** profiles work for any class. Every key points at an action bar slot, so you drag your spells onto the bar and the keys follow. The one-bar starter puts the main bar on 1-4, Q, E, R, F, C and mouse buttons 3-5, with A/D strafe. The Alt-layer starter adds the bottom-left bar on Alt plus the same keys.
 
