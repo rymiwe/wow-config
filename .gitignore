@@ -48,6 +48,8 @@
 !_*/Interface/AddOns/HeyDaddy/**
 !_*/Interface/AddOns/WeakAurasSetup/
 !_*/Interface/AddOns/WeakAurasSetup/**
+!_*/Interface/AddOns/KeyKit/
+!_*/Interface/AddOns/KeyKit/**
 
 # Distribution (templates and install scripts at repo root)
 !templates/

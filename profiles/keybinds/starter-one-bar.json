@@ -1,0 +1,156 @@
+{
+  "id": "starter-one-bar",
+  "title": "Starter: any class, one bar",
+  "subtitle": "No clicking: A/D strafe, 1-4 Q E R F C and mouse buttons run the main bar",
+  "summary": "Main bar on 1-4 Q E R F C plus mouse 3/4/5. A/D strafe.",
+  "class": "any",
+  "level": null,
+  "levels": "1-60",
+  "spec": null,
+  "flavor": "any",
+  "source": {
+    "name": "wow-config starter",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "wow-config (common keyboard-turning-free setup)"
+  },
+  "notes": [
+    "Every key points at a slot on the main action bar, so it works for any class. Drag your most-pressed spells to slots 1-4.",
+    "A and D strafe instead of turning, so you never need to hold the mouse to turn while fighting.",
+    "Mouse 4 and 5 hold defensives (slots 10 and 11). Middle-click is slot 12."
+  ],
+  "binds": [
+    {
+      "key": "W",
+      "mod": null,
+      "action": "Move Forward",
+      "role": "movement",
+      "command": "MOVEFORWARD"
+    },
+    {
+      "key": "S",
+      "mod": null,
+      "action": "Move Backward",
+      "role": "movement",
+      "command": "MOVEBACKWARD"
+    },
+    {
+      "key": "A",
+      "mod": null,
+      "action": "Strafe Left",
+      "role": "movement",
+      "command": "STRAFELEFT"
+    },
+    {
+      "key": "D",
+      "mod": null,
+      "action": "Strafe Right",
+      "role": "movement",
+      "command": "STRAFERIGHT"
+    },
+    {
+      "key": "SPACE",
+      "mod": null,
+      "action": "Jump",
+      "role": "movement",
+      "command": "JUMP"
+    },
+    {
+      "key": "TAB",
+      "mod": null,
+      "action": "Target nearest enemy",
+      "role": "utility",
+      "command": "TARGETNEARESTENEMY"
+    },
+    {
+      "key": "B",
+      "mod": null,
+      "action": "Bags",
+      "role": "utility",
+      "command": "OPENALLBAGS"
+    },
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Bar 1 slot 1",
+      "role": "rotation",
+      "command": "ACTIONBUTTON1"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Bar 1 slot 2",
+      "role": "rotation",
+      "command": "ACTIONBUTTON2"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Bar 1 slot 3",
+      "role": "rotation",
+      "command": "ACTIONBUTTON3"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Bar 1 slot 4",
+      "role": "rotation",
+      "command": "ACTIONBUTTON4"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Bar 1 slot 5",
+      "role": "rotation",
+      "command": "ACTIONBUTTON5"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Bar 1 slot 6",
+      "role": "rotation",
+      "command": "ACTIONBUTTON6"
+    },
+    {
+      "key": "R",
+      "mod": null,
+      "action": "Bar 1 slot 7",
+      "role": "heal",
+      "command": "ACTIONBUTTON7"
+    },
+    {
+      "key": "F",
+      "mod": null,
+      "action": "Bar 1 slot 8",
+      "role": "buff",
+      "command": "ACTIONBUTTON8"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Bar 1 slot 9",
+      "role": "cc",
+      "command": "ACTIONBUTTON9"
+    },
+    {
+      "key": "MOUSE4",
+      "mod": null,
+      "action": "Bar 1 slot 10",
+      "role": "defensive",
+      "command": "ACTIONBUTTON10"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Bar 1 slot 11",
+      "role": "defensive",
+      "command": "ACTIONBUTTON11"
+    },
+    {
+      "key": "MOUSE3",
+      "mod": null,
+      "action": "Bar 1 slot 12",
+      "role": "utility",
+      "command": "ACTIONBUTTON12"
+    }
+  ]
+}

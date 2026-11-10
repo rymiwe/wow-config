@@ -145,6 +145,17 @@ try {
             $cfg | Set-Content -Path $fCfg
             Write-Host "Config.wtf merged ($added new CVars added)"
         }
+        # KeyKit: our one Forever addon (keybind profiles, /keykit).
+        $kkSrc = Join-Path $tempDir "_forever_\Interface\AddOns\KeyKit"
+        $kkDst = Join-Path $wow "_forever_\Interface\AddOns\KeyKit"
+        if ((Test-Path $kkDst) -and (Resolve-Path $kkSrc).Path -eq (Resolve-Path $kkDst).Path) {
+            Write-Host "KeyKit already in place (local repo is the WoW folder)"
+        } else {
+            if (Test-Path $kkDst) { Remove-Item $kkDst -Recurse -Force }
+            New-Item -ItemType Directory -Force -Path (Split-Path $kkDst) | Out-Null
+            Copy-Item $kkSrc $kkDst -Recurse -Force
+            Write-Host "Installed KeyKit (type /keykit in game)"
+        }
         Write-Host ""
         & (Join-Path $tempDir "scripts\update-addons.ps1") -WowDir $wow -Flavor "_forever_"
         Write-Host ""
@@ -153,6 +164,7 @@ try {
         Write-Host "  2. Drag spells onto the bars by hand (keys already match our layout)."
         Write-Host "  3. OPie: /opie -> bind rings to BUTTON4 / BUTTON5 yourself."
         Write-Host "  4. Zygor: install via the Zygor client (Elite subscription) into _forever_."
+        Write-Host "  5. Keybind profiles: type /keykit, pick one, press Apply."
         return
     }
 
