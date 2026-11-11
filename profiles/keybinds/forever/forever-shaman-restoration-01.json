@@ -1,0 +1,48 @@
+{
+  "id": "forever-shaman-restoration-01",
+  "title": "Restoration shaman, level 1-3",
+  "subtitle": "New at 1: 1 Rockbiter Weapon, 2 Lightning Bolt, Z Healing Wave, Alt-H Hearthstone",
+  "summary": "Restoration shaman keys as of level 1. New: 1 Rockbiter Weapon, 2 Lightning Bolt, Z Healing Wave, Alt-H Hearthstone.",
+  "class": "shaman",
+  "level": 1,
+  "levels": "1-3",
+  "spec": "Restoration",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Rockbiter Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Lightning Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

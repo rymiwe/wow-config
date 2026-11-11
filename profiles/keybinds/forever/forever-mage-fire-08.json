@@ -1,0 +1,84 @@
+{
+  "id": "forever-mage-fire-08",
+  "title": "Fire mage, level 8-9",
+  "subtitle": "New at 8: 2 Arcane Missiles, 3 Frostbolt, 4 Shoot, Z Polymorph",
+  "summary": "Fire mage keys as of level 8. New: 2 Arcane Missiles, 3 Frostbolt, 4 Shoot, Z Polymorph.",
+  "class": "mage",
+  "level": 8,
+  "levels": "8-9",
+  "spec": "Fire",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Fire Blast",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Arcane Missiles",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Frostbolt",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Shoot",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Polymorph",
+      "role": "cc"
+    },
+    {
+      "key": "2",
+      "mod": "alt",
+      "action": "Food or Conjure Food",
+      "role": "utility"
+    },
+    {
+      "key": "3",
+      "mod": "alt",
+      "action": "Drink or Conjure Water",
+      "role": "utility"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Frost Armor",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Arcane Intellect",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

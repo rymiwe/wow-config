@@ -1,0 +1,60 @@
+{
+  "id": "forever-warrior-fury-02",
+  "title": "Fury warrior, level 2-3",
+  "subtitle": "New at 2: Alt-Z Valor of Azeroth",
+  "summary": "Fury warrior keys as of level 2. New: Alt-Z Valor of Azeroth.",
+  "class": "warrior",
+  "level": 2,
+  "levels": "2-3",
+  "spec": "Fury",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Battle Shout",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Heroic Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Battle Stance",
+      "role": "buff"
+    },
+    {
+      "key": "6",
+      "mod": null,
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Valor of Azeroth",
+      "role": "rotation"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

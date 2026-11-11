@@ -1,0 +1,150 @@
+{
+  "id": "forever-shaman-elemental-34",
+  "title": "Elemental shaman, level 34-39",
+  "subtitle": "New at 34: 4 Frost Shock, 5 Lightning Bolt, Q Strength of Earth Totem, E Mana Spring Totem, R Chain Lightning, Mouse 4 Earth Shock; cleared F",
+  "summary": "Elemental shaman keys as of level 34. New: 4 Frost Shock, 5 Lightning Bolt, Q Strength of Earth Totem, E Mana Spring Totem, R Chain Lightning, Mouse 4 Earth Shock; cleared F.",
+  "class": "shaman",
+  "level": 34,
+  "levels": "34-39",
+  "spec": "Elemental",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Rockbiter Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Searing Totem",
+      "role": "buff"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Lightning Shield",
+      "role": "buff"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Frost Shock",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Lightning Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Strength of Earth Totem",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Mana Spring Totem",
+      "role": "buff"
+    },
+    {
+      "key": "R",
+      "mod": null,
+      "action": "Chain Lightning",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Purge",
+      "role": "heal"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Cure Poison",
+      "role": "heal"
+    },
+    {
+      "key": "V",
+      "mod": null,
+      "action": "Lesser Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "MOUSE4",
+      "mod": null,
+      "action": "Earth Shock",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Ghost Wolf",
+      "role": "movement"
+    },
+    {
+      "key": "E",
+      "mod": "shift",
+      "action": "Cure Disease",
+      "role": "heal"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Flametongue Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Frostbrand Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "R",
+      "mod": "alt",
+      "action": "Windfury Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Water Breathing",
+      "role": "movement"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Water Walking",
+      "role": "movement"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}
