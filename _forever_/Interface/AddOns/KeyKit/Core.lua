@@ -8,7 +8,7 @@ ns = ns or {}
 ns.ROWS = {
   { { "ESCAPE", "Esc", 1 }, { "`", "`", 1 }, { "1", "1", 1 }, { "2", "2", 1 }, { "3", "3", 1 }, { "4", "4", 1 }, { "5", "5", 1 }, { "6", "6", 1 } },
   { { "TAB", "Tab", 1.5 }, { "Q", "Q", 1 }, { "W", "W", 1 }, { "E", "E", 1 }, { "R", "R", 1 }, { "T", "T", 1 } },
-  { { "CAPSLOCK", "Caps", 1.75 }, { "A", "A", 1 }, { "S", "S", 1 }, { "D", "D", 1 }, { "F", "F", 1 }, { "G", "G", 1 } },
+  { { "CAPSLOCK", "Caps", 1.75 }, { "A", "A", 1 }, { "S", "S", 1 }, { "D", "D", 1 }, { "F", "F", 1 }, { "G", "G", 1 }, { "H", "H", 1 } },
   { { "LSHIFT", "Shift", 2.25 }, { "Z", "Z", 1 }, { "X", "X", 1 }, { "C", "C", 1 }, { "V", "V", 1 }, { "B", "B", 1 } },
   { { "LCTRL", "Ctrl", 1.5 }, { "LALT", "Alt", 1.5 }, { "SPACE", "Space", 3.25 } },
 }
@@ -81,6 +81,16 @@ function ns.SlotForCommand(cmd)
   n = tonumber(n)
   if bar and BAR_BASE[bar] and n >= 1 and n <= 12 then return BAR_BASE[bar] + n end
   return nil
+end
+
+-- Every slot on the bar a command belongs to: "MULTIACTIONBAR3BUTTON5" -> 25..36.
+function ns.BarSlots(cmd)
+  local bar = cmd and cmd:match("^(%u[%u%d]-BUTTON)%d+$")
+  local base = bar and BAR_BASE[bar]
+  if not base then return nil end
+  local slots = {}
+  for n = 1, 12 do slots[n] = base + n end
+  return bar, slots
 end
 
 local function trim(s) return (s:gsub("^%s+", ""):gsub("%s+$", "")) end

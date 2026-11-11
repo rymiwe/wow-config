@@ -124,49 +124,125 @@ local function BarCommandFor(key)
   return nil
 end
 
+-- Only plain and Alt keys go on bars. In the wow-config bindings, Shift keys fire
+-- the same buttons as the plain keys (so a mistaken Shift press still works),
+-- so a Shift spell on a bar would replace the plain key's spell. Shift, Ctrl,
+-- mouse and any key without a bar button are bound straight to the spell.
+local BAR_LAYERS = { none = true, alt = true }
+local LAYER_ORDER = { none = 1, alt = 2, ctrl = 3, shift = 4 }
+
+local function InCombat(what)
+  if InCombatLockdown() then
+    SetStatus("|cffff6060You're in combat. " .. what .. " once the fight is over.|r")
+    return true
+  end
+  return false
+end
+
 local function Apply()
   if not selected then return end
-  if InCombatLockdown() then
-    SetStatus("|cffff6060You're in combat. Apply again once the fight is over.|r")
-    return
+  if InCombat("Apply again") then return end
+  -- Snapshot every key and bar slot this touches, so Undo can put them back.
+  local snap = { set = GetCurrentBindingSet(), keys = {}, slots = {}, profile = selected.title, direct = {} }
+  for k in pairs(db.direct) do snap.direct[k] = true end
+  local function SaveKey(key)
+    if snap.keys[key] == nil then snap.keys[key] = GetBindingAction(key) or "" end
   end
-  -- Snapshot every key and bar slot this profile touches, so Undo can put them back.
-  local snap = { set = GetCurrentBindingSet(), keys = {}, slots = {}, profile = selected.title }
-  local placed, bound, skipped = 0, 0, {}
+  local function SaveSlot(slot)
+    if not snap.slots[slot] then
+      local t, id = GetActionInfo(slot)
+      snap.slots[slot] = { kind = t or "", id = id }
+    end
+  end
+
+  -- 1. Plan: which keys put their spell on a bar button, which bind directly.
+  local order = {}
   for _, b in ipairs(selected.binds) do
-    if b.kind then
-      if snap.keys[b.key] == nil then snap.keys[b.key] = GetBindingAction(b.key) or "" end
-      local placeable = b.kind == "spell" or b.kind == "item" or b.kind == "macro"
-      local cmd = placeable and BarCommandFor(b.key)
-      if cmd then
-        -- Key keeps (or gets back) its bar button; the spell goes on that button.
-        local slot = ns.SlotForCommand(cmd)
-        if PickUp(b.kind, b.value) then
-          if not snap.slots[slot] then
-            local t, id = GetActionInfo(slot)
-            snap.slots[slot] = { kind = t or "", id = id }
-          end
-          PlaceAction(slot)
+    if b.kind then order[#order + 1] = b end
+  end
+  table.sort(order, function(x, y)
+    local lx, ly = LAYER_ORDER[x.layer] or 5, LAYER_ORDER[y.layer] or 5
+    if lx ~= ly then return lx < ly end
+    return x.key < y.key
+  end)
+  local plan, taken, bars, inProfile = {}, {}, {}, {}
+  for _, b in ipairs(order) do
+    inProfile[b.key] = true
+    local placeable = b.kind == "spell" or b.kind == "item" or b.kind == "macro"
+    local cmd = placeable and BAR_LAYERS[b.layer] and BarCommandFor(b.key)
+    local slot = cmd and ns.SlotForCommand(cmd)
+    if slot and not taken[slot] then
+      taken[slot] = true
+      local bar, slots = ns.BarSlots(cmd)
+      bars[bar] = slots
+      plan[#plan + 1] = { b = b, cmd = cmd, slot = slot }
+    else
+      plan[#plan + 1] = { b = b }
+    end
+  end
+
+  -- 2. Keys an earlier Apply bound straight to a spell, that this profile
+  --    leaves empty: give them back their wow-config binding (or none).
+  local reset = 0
+  for key in pairs(db.direct) do
+    if not inProfile[key] then
+      SaveKey(key)
+      local cmd = ns.BAR_KEYS and ns.BAR_KEYS[key]
+      if cmd then SetBinding(key, cmd) else SetBinding(key) end
+      db.direct[key] = nil
+      reset = reset + 1
+    end
+  end
+
+  -- 3. Clear these bars first (checkbox): empty every slot on each bar used.
+  local cleared = 0
+  if db.clearBars then
+    for _, slots in pairs(bars) do
+      for _, slot in ipairs(slots) do
+        if GetActionInfo(slot) then
+          SaveSlot(slot)
           ClearCursor()
-          if GetBindingAction(b.key) ~= cmd then SetBinding(b.key, cmd) end
-          placed = placed + 1
-        else
+          PickupAction(slot)
           ClearCursor()
-          skipped[#skipped + 1] = b.key .. " " .. b.value
+          cleared = cleared + 1
         end
-      elseif SetOne(b.key, b.kind, b.value) then
-        bound = bound + 1
-      else
-        skipped[#skipped + 1] = b.key .. " " .. b.value
       end
     end
   end
+
+  -- 4. Place and bind.
+  local placed, bound, skipped = 0, 0, {}
+  for _, step in ipairs(plan) do
+    local b = step.b
+    SaveKey(b.key)
+    if step.slot then
+      if PickUp(b.kind, b.value) then
+        SaveSlot(step.slot)
+        PlaceAction(step.slot)
+        ClearCursor()
+        if GetBindingAction(b.key) ~= step.cmd then SetBinding(b.key, step.cmd) end
+        db.direct[b.key] = nil
+        placed = placed + 1
+      else
+        ClearCursor()
+        skipped[#skipped + 1] = b.key .. " " .. b.value
+      end
+    elseif SetOne(b.key, b.kind, b.value) then
+      db.direct[b.key] = true
+      bound = bound + 1
+    else
+      skipped[#skipped + 1] = b.key .. " " .. b.value
+    end
+  end
+
   local which = frame.charOnly:GetChecked() and CHARACTER or ACCOUNT
   SaveBindings(which)
   db.undo = snap
   frame.undo:Enable()
   local msg = ("Applied %s: %d on bars, %d keys bound, saved for %s."):format(
     selected.title, placed, bound, which == CHARACTER and "this character" or "all characters")
+  if cleared > 0 then msg = msg .. (" Cleared %d bar buttons first."):format(cleared) end
+  if reset > 0 then msg = msg .. (" Reset %d keys this level leaves empty."):format(reset) end
   if #skipped > 0 then
     msg = msg .. (" Skipped %d (not learned yet?)."):format(#skipped)
     Print("Skipped: " .. table.concat(skipped, ", "))
@@ -178,10 +254,7 @@ end
 local function Undo()
   local snap = db.undo
   if not snap then return end
-  if InCombatLockdown() then
-    SetStatus("|cffff6060You're in combat. Undo once the fight is over.|r")
-    return
-  end
+  if InCombat("Undo") then return end
   for slot, old in pairs(snap.slots or {}) do
     RestoreSlot(slot, old.kind, old.id)
   end
@@ -192,6 +265,7 @@ local function Undo()
       SetOne(key, ns.ActionToEntry(action))
     end
   end
+  if snap.direct then db.direct = snap.direct end
   SaveBindings(snap.set or GetCurrentBindingSet())
   db.undo = nil
   frame.undo:Disable()
@@ -253,15 +327,49 @@ local function RefreshPreview()
   if selected.personal then frame.delete:Show() else frame.delete:Hide() end
 end
 
+local function Cap(s) return (s or ""):gsub("^%l", string.upper) end
+
+local function PlayerClass()
+  local _, token = UnitClass("player")
+  return token and token:lower()
+end
+
+-- Rows for the list: headers ("Retribution") and profiles. Your class only,
+-- unless "Show all classes" is ticked.
+local function ListRows()
+  local rows, cls, lvl = {}, PlayerClass(), UnitLevel("player") or 0
+  if #db.personal > 0 then
+    rows[#rows + 1] = { header = "Your profiles" }
+    for _, p in ipairs(db.personal) do rows[#rows + 1] = { profile = p } end
+  end
+  local haveClass = false
+  for _, p in ipairs(ns.PROFILES or {}) do
+    if p.class == cls then haveClass = true break end
+  end
+  local showAll = db.showAll or not haveClass
+  local group
+  for _, p in ipairs(ns.PROFILES or {}) do
+    if showAll or p.class == cls or p.class == "any" then
+      local g = p.spec and (showAll and (p.spec .. " " .. p.class) or p.spec) or Cap(p.class)
+      if g ~= group then
+        rows[#rows + 1] = { header = Cap(g) }
+        group = g
+      end
+      local here = p.minLevel and lvl >= p.minLevel and lvl <= (p.maxLevel or p.minLevel)
+      rows[#rows + 1] = { profile = p, here = here and (p.class == cls) }
+    end
+  end
+  return rows
+end
+
 local function RefreshList()
-  local profiles = AllProfiles()
+  local rows = ListRows()
   local child = frame.listChild
-  for i, p in ipairs(profiles) do
+  local y = 0
+  for i, row in ipairs(rows) do
     local b = listButtons[i]
     if not b then
       b = CreateFrame("Button", nil, child)
-      b:SetSize(210, 38)
-      b:SetPoint("TOPLEFT", 0, -(i - 1) * 40)
       b:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
       b.top = b:CreateFontString(nil, "OVERLAY", "GameFontNormal")
       b.top:SetPoint("TOPLEFT", 6, -4)
@@ -272,6 +380,7 @@ local function RefreshList()
       b.sub:SetWidth(200)
       b.sub:SetJustifyH("LEFT")
       b:SetScript("OnClick", function(self)
+        if not self.profile then return end
         selected = self.profile
         RefreshPreview()
         for _, o in ipairs(listButtons) do o:UnlockHighlight() end
@@ -279,13 +388,33 @@ local function RefreshList()
       end)
       listButtons[i] = b
     end
-    b.profile = p
-    b.top:SetText(p.title)
-    b.sub:SetText((p.class or "any") .. ", levels " .. (p.levels or "any") .. (p.personal and ", yours" or ""))
+    b:ClearAllPoints()
+    b:SetPoint("TOPLEFT", 0, -y)
+    b:UnlockHighlight()
+    if row.header then
+      b.profile = nil
+      b:SetSize(210, 22)
+      b:EnableMouse(false)
+      b.top:SetText("|cffd4af5a" .. row.header .. "|r")
+      b.sub:SetText("")
+      y = y + 24
+    else
+      local p = row.profile
+      b.profile = p
+      b:SetSize(210, 38)
+      b:EnableMouse(true)
+      b.top:SetText((row.here and "|cff33ff99" or "|cffffffff") .. (p.title or "") .. "|r")
+      local sub = p.personal and ((p.class or "any") .. ", yours")
+        or ("Level " .. (p.levels or "any"))
+      if row.here then sub = sub .. "  |cff33ff99< your level|r" end
+      b.sub:SetText(sub)
+      if p == selected then b:LockHighlight() end
+      y = y + 40
+    end
     b:Show()
   end
-  for i = #profiles + 1, #listButtons do listButtons[i]:Hide() end
-  child:SetHeight(math.max(1, #profiles * 40))
+  for i = #rows + 1, #listButtons do listButtons[i]:Hide() end
+  child:SetHeight(math.max(1, y))
 end
 
 ---------------------------------------------------------------------------
@@ -430,9 +559,18 @@ local function BuildFrame()
   close:SetPoint("TOPRIGHT", -4, -4)
 
   -- Profile list
+  f.showAll = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
+  f.showAll:SetPoint("TOPLEFT", 14, -38)
+  f.showAll:SetScript("OnClick", function(self)
+    db.showAll = self:GetChecked() and true or false
+    RefreshList()
+  end)
+  local sal = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+  sal:SetPoint("LEFT", f.showAll, "RIGHT", 2, 0)
+  sal:SetText("Show all classes")
   local scroll = CreateFrame("ScrollFrame", "KeyKitListScroll", f, "UIPanelScrollFrameTemplate")
-  scroll:SetPoint("TOPLEFT", 16, -44)
-  scroll:SetSize(214, 400)
+  scroll:SetPoint("TOPLEFT", 16, -68)
+  scroll:SetSize(214, 376)
   local child = CreateFrame("Frame", nil, scroll)
   child:SetSize(214, 1)
   scroll:SetScrollChild(child)
@@ -494,8 +632,14 @@ local function BuildFrame()
   f.apply:SetPoint("BOTTOMLEFT", px, 44)
   f.undo = Button(f, "Undo", 80, function() Safe("Undo", Undo) end)
   f.undo:SetPoint("LEFT", f.apply, "RIGHT", 6, 0)
+  f.clearBars = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
+  f.clearBars:SetPoint("BOTTOMLEFT", px - 4, 68)
+  f.clearBars:SetScript("OnClick", function(self) db.clearBars = self:GetChecked() and true or false end)
+  local cbl = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+  cbl:SetPoint("LEFT", f.clearBars, "RIGHT", 2, 0)
+  cbl:SetText("Clear these bars first")
   f.charOnly = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
-  f.charOnly:SetPoint("LEFT", f.undo, "RIGHT", 10, 0)
+  f.charOnly:SetPoint("LEFT", f.clearBars, "RIGHT", 150, 0)
   local cl = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
   cl:SetPoint("LEFT", f.charOnly, "RIGHT", 2, 0)
   cl:SetText("Only this character")
@@ -519,6 +663,8 @@ local function BuildFrame()
 
   f:SetScript("OnShow", function()
     f.charOnly:SetChecked(GetCurrentBindingSet() == CHARACTER)
+    f.clearBars:SetChecked(db.clearBars)
+    f.showAll:SetChecked(db.showAll)
     if db.undo then f.undo:Enable() else f.undo:Disable() end
     RefreshList()
     RefreshPreview()
@@ -534,6 +680,8 @@ loader:SetScript("OnEvent", function(self, _, name)
   if name ~= ADDON then return end
   KeyKitDB = KeyKitDB or {}
   KeyKitDB.personal = KeyKitDB.personal or {}
+  KeyKitDB.direct = KeyKitDB.direct or {}      -- keys KeyKit bound straight to a spell
+  if KeyKitDB.clearBars == nil then KeyKitDB.clearBars = true end
   db = KeyKitDB
   self:UnregisterEvent("ADDON_LOADED")
 end)
