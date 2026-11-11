@@ -135,22 +135,54 @@ local function EnsurePad()
   return idx and idx > 0 and idx or nil
 end
 
--- The bar button a key fires: the wow-config bindings template (ns.BAR_KEYS,
--- generated) first, since Apply rebinds the bars to it. Keys the template does
--- not list keep whatever bar button they fire now.
+-- Classes with no forms or stances get a Ctrl bar (ElvUI bar 10, page 10).
+-- Druid, Rogue and Warrior use pages 7 to 10 for forms and stances.
+local FORMLESS = { HUNTER = true, MAGE = true, PALADIN = true, PRIEST = true, SHAMAN = true, WARLOCK = true }
+
+local function Formless()
+  local _, class = UnitClass("player")
+  return FORMLESS[class] == true
+end
+
+-- Key -> bar button: the wow-config bindings template (ns.BAR_KEYS, generated),
+-- plus the Ctrl bar keys (ns.CTRL_KEYS) for classes that have that bar.
+local barKeys
+local function BarKeys()
+  if not barKeys then
+    barKeys = {}
+    for k, cmd in pairs(ns.BAR_KEYS or {}) do barKeys[k] = cmd end
+    if Formless() then
+      for k, cmd in pairs(ns.CTRL_KEYS or {}) do barKeys[k] = cmd end
+    end
+  end
+  return barKeys
+end
+
+-- The bar button a key fires: the wow-config bindings template first, since
+-- Apply rebinds the bars to it. Keys the template does not list keep whatever
+-- bar button they fire now.
 local function BarCommandFor(key)
-  local cmd = ns.BAR_KEYS and ns.BAR_KEYS[key]
+  local cmd = BarKeys()[key]
   if ns.SlotForCommand(cmd) then return cmd end
   local current = GetBindingAction(key)
   if ns.SlotForCommand(current) then return current end
   return nil
 end
 
--- Only plain and Alt keys go on bars. In the wow-config bindings, Shift keys fire
--- the same buttons as the plain keys (so a mistaken Shift press still works),
--- so a Shift spell on a bar would replace the plain key's spell. Shift, Ctrl,
--- mouse and any key without a bar button are bound straight to the spell.
-local BAR_LAYERS = { none = true, alt = true }
+-- Plain and Alt keys go on bars. Shift keys go on the Shift bar (ElvUI bar 2)
+-- and Ctrl keys on the Ctrl bar (bar 10, formless classes only), and only when
+-- their button is on that bar. The other Shift keys (Shift-3, Shift-C...) fire
+-- the plain key's button, so a Shift spell there would replace the plain key's
+-- spell. Those, mouse keys and any key without a bar button are bound straight
+-- to the spell.
+local MOD_BAR = { shift = "ELVUIBAR2BUTTON", ctrl = "ELVUIBAR10BUTTON" }
+
+local function OnBar(layer, cmd)
+  if layer == "none" or layer == "alt" then return true end
+  if layer == "ctrl" and not Formless() then return false end
+  return (ns.BarSlots(cmd)) == MOD_BAR[layer]
+end
+
 local LAYER_ORDER = { none = 1, alt = 2, ctrl = 3, shift = 4 }
 
 local function InCombat(what)
@@ -161,9 +193,53 @@ local function InCombat(what)
   return false
 end
 
+-- Turn on the Shift bar (ElvUI bar 2) and, for formless classes, the Ctrl bar
+-- (bar 10), through ElvUI's own settings. A bar's position is set once, so a
+-- bar you move stays where you put it. Out of combat only.
+local BAR_SETUP = {
+  bar2  = { mover = "ElvAB_2",  at = "BOTTOM,ElvUIParent,BOTTOM,-442,4", buttons = 12 },
+  bar10 = { mover = "ElvAB_10", at = "BOTTOM,ElvUIParent,BOTTOM,-605,4", buttons = 8 },
+}
+
+local function SetupBars()
+  if InCombatLockdown() then return end
+  local E = ElvUI and ElvUI[1]
+  local AB = E and E.GetModule and E:GetModule("ActionBars", true)
+  if not (AB and AB.handledBars and AB.UpdateButtonSettings and E.db and E.db.actionbar) then return end
+  db.barsPlaced = db.barsPlaced or {}
+  for name, s in pairs(BAR_SETUP) do
+    local want = name == "bar2" or Formless()
+    local bar = E.db.actionbar[name]
+    if bar and AB.handledBars[name] then
+      local changed = bar.enabled ~= want
+      bar.enabled = want
+      if want then
+        for k, v in pairs({ buttons = s.buttons, buttonsPerRow = 4, buttonSize = 36, buttonSpacing = 3,
+                            point = "TOPLEFT", showGrid = false }) do
+          if bar[k] ~= v then bar[k] = v changed = true end
+        end
+        local place = not db.barsPlaced[name]
+        if place then
+          E.db.movers = E.db.movers or {}
+          E.db.movers[s.mover] = s.at
+          db.barsPlaced[name] = true
+          changed = true
+        end
+        if changed then
+          AB:UpdateButtonSettings(name)
+          if place then E:SetMoverPoints(s.mover) end
+        end
+      elseif changed then
+        AB:UpdateButtonSettings(name)
+      end
+    end
+  end
+end
+
 local function Apply()
   if not selected then return end
   if InCombat("Apply again") then return end
+  SetupBars()
   -- Snapshot every key and bar slot this touches, so Undo can put them back.
   local snap = { set = GetCurrentBindingSet(), keys = {}, slots = {}, profile = selected.title, direct = {} }
   for k in pairs(db.direct) do snap.direct[k] = true end
@@ -185,14 +261,15 @@ local function Apply()
   for _, b in ipairs(selected.binds) do
     if b.kind then
       profileKeys[b.key] = true
-      if BAR_LAYERS[b.layer] then
-        local bar = ns.BAR_KEYS and ns.BarSlots(ns.BAR_KEYS[b.key])
+      local cmd = BarKeys()[b.key]
+      if cmd and OnBar(b.layer, cmd) then
+        local bar = ns.BarSlots(cmd)
         if bar then useBars[bar] = true end
       end
     end
   end
   local rebound = 0
-  for key, cmd in pairs(ns.BAR_KEYS or {}) do
+  for key, cmd in pairs(BarKeys()) do
     local bar = ns.BarSlots(cmd)
     if bar and useBars[bar] and (GetBindingAction(key) or "") ~= cmd then
       SaveKey(key)
@@ -204,11 +281,22 @@ local function Apply()
     for n = 1, 12 do
       local cmd = bar .. n
       for _, key in ipairs({ GetBindingKey(cmd) }) do
-        if ns.BAR_KEYS[key] ~= cmd and not profileKeys[key] then
+        if BarKeys()[key] ~= cmd and not profileKeys[key] then
           SaveKey(key)
           SetBinding(key)
           rebound = rebound + 1
         end
+      end
+    end
+  end
+
+  -- Classes with forms have no Ctrl bar: a Ctrl key an earlier Apply left on it goes back to unbound.
+  if not Formless() then
+    for key, cmd in pairs(ns.CTRL_KEYS or {}) do
+      if GetBindingAction(key) == cmd and not profileKeys[key] then
+        SaveKey(key)
+        SetBinding(key)
+        rebound = rebound + 1
       end
     end
   end
@@ -227,7 +315,8 @@ local function Apply()
   for _, b in ipairs(order) do
     inProfile[b.key] = true
     local placeable = b.kind == "spell" or b.kind == "item" or b.kind == "macro"
-    local cmd = placeable and BAR_LAYERS[b.layer] and BarCommandFor(b.key)
+    local cmd = placeable and BarCommandFor(b.key)
+    if cmd and not OnBar(b.layer, cmd) then cmd = nil end
     local slot = cmd and ns.SlotForCommand(cmd)
     if slot and not taken[slot] then
       taken[slot] = true
@@ -245,7 +334,7 @@ local function Apply()
   for key in pairs(db.direct) do
     if not inProfile[key] then
       SaveKey(key)
-      local cmd = ns.BAR_KEYS and ns.BAR_KEYS[key]
+      local cmd = BarKeys()[key]
       if cmd then SetBinding(key, cmd) else SetBinding(key) end
       db.direct[key] = nil
       reset = reset + 1
@@ -300,7 +389,7 @@ local function Apply()
   if db.placeholders then
     local padIdx = EnsurePad()
     padsFull = not padIdx
-    for key, cmd in pairs(padIdx and ns.BAR_KEYS or {}) do
+    for key, cmd in pairs(padIdx and BarKeys() or {}) do
       local bar = ns.BarSlots(cmd)
       local slot = ns.SlotForCommand(cmd)
       if bar and bars[bar] and slot and GetBindingAction(key) == cmd and not GetActionInfo(slot) then
@@ -764,7 +853,12 @@ end
 ---------------------------------------------------------------------------
 local loader = CreateFrame("Frame")
 loader:RegisterEvent("ADDON_LOADED")
-loader:SetScript("OnEvent", function(self, _, name)
+loader:RegisterEvent("PLAYER_LOGIN")
+loader:SetScript("OnEvent", function(self, event, name)
+  if event == "PLAYER_LOGIN" then
+    C_Timer.After(1, SetupBars)      -- after ElvUI has built its bars
+    return
+  end
   if name ~= ADDON then return end
   KeyKitDB = KeyKitDB or {}
   KeyKitDB.personal = KeyKitDB.personal or {}
