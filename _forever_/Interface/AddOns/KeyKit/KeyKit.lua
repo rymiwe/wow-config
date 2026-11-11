@@ -135,13 +135,14 @@ local function EnsurePad()
   return idx and idx > 0 and idx or nil
 end
 
--- The bar button a key fires: its current binding if that is a bar button,
--- else the wow-config bindings template (ns.BAR_KEYS, generated).
+-- The bar button a key fires: the wow-config bindings template (ns.BAR_KEYS,
+-- generated) first, since Apply rebinds the bars to it. Keys the template does
+-- not list keep whatever bar button they fire now.
 local function BarCommandFor(key)
-  local current = GetBindingAction(key)
-  if ns.SlotForCommand(current) then return current end
   local cmd = ns.BAR_KEYS and ns.BAR_KEYS[key]
   if ns.SlotForCommand(cmd) then return cmd end
+  local current = GetBindingAction(key)
+  if ns.SlotForCommand(current) then return current end
   return nil
 end
 
@@ -173,6 +174,42 @@ local function Apply()
     if not snap.slots[slot] then
       local t, id = GetActionInfo(slot)
       snap.slots[slot] = { kind = t or "", id = id }
+    end
+  end
+
+  -- 0. Make the bars keyboard-shaped. For each bar the profile uses, every
+  --    template key fires its template button, and any other key still firing
+  --    a button on that bar (mouse buttons, stray Shift binds) is unbound,
+  --    unless the profile binds that key itself.
+  local profileKeys, useBars = {}, {}
+  for _, b in ipairs(selected.binds) do
+    if b.kind then
+      profileKeys[b.key] = true
+      if BAR_LAYERS[b.layer] then
+        local bar = ns.BAR_KEYS and ns.BarSlots(ns.BAR_KEYS[b.key])
+        if bar then useBars[bar] = true end
+      end
+    end
+  end
+  local rebound = 0
+  for key, cmd in pairs(ns.BAR_KEYS or {}) do
+    local bar = ns.BarSlots(cmd)
+    if bar and useBars[bar] and (GetBindingAction(key) or "") ~= cmd then
+      SaveKey(key)
+      SetBinding(key, cmd)
+      rebound = rebound + 1
+    end
+  end
+  for bar in pairs(useBars) do
+    for n = 1, 12 do
+      local cmd = bar .. n
+      for _, key in ipairs({ GetBindingKey(cmd) }) do
+        if ns.BAR_KEYS[key] ~= cmd and not profileKeys[key] then
+          SaveKey(key)
+          SetBinding(key)
+          rebound = rebound + 1
+        end
+      end
     end
   end
 
@@ -285,6 +322,7 @@ local function Apply()
     selected.title, placed, pads, bound, which == CHARACTER and "this character" or "all characters")
   if cleared > 0 then msg = msg .. (" Cleared %d bar buttons first."):format(cleared) end
   if padsFull then msg = msg .. " Macro slots are full, so no placeholders." end
+  if rebound > 0 then msg = msg .. (" Rebound %d keys to the keyboard layout."):format(rebound) end
   if reset > 0 then msg = msg .. (" Reset %d keys this level leaves empty."):format(reset) end
   if #skipped > 0 then
     msg = msg .. (" Skipped %d (not learned yet?)."):format(#skipped)
