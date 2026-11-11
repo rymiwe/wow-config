@@ -68,9 +68,11 @@ bind META-C MULTIACTIONBAR2BUTTON10
 bind META-V MULTIACTIONBAR2BUTTON11
 bind META-B MULTIACTIONBAR2BUTTON12
 bind ; QUESTIE_TOGGLE_JOURNEY
-# SHIFT-* bindings: the 12 Shift keys the keymaps use (1 2 4 5 Q E R T F G Z X)
-# fire their own ElvUI bar 2 (page 2). The other Shift keys fire the same button
-# as the un-modified key.
+# SHIFT-* bindings (Druid, Rogue, Warrior and any class KeyKit has not set up): the
+# 12 Shift keys the keymaps use (1 2 4 5 Q E R T F G Z X) fire their own ElvUI bar 2
+# (page 2). The other Shift keys fire the same button as the un-modified key.
+# KeyKit rebinds Hunter, Mage, Paladin, Priest, Shaman and Warlock to full copies of
+# the plain layer: Shift on ElvUI bars 2 and 8, Ctrl on bars 9 and 10.
 # Default WoW binds Shift+1..= and Shift+MouseWheel to action-bar PAGE cycling
 # (CHANGEACTIONBARLEFT/RIGHT), which conflicts with normal play (accidental
 # page swaps mid-combat) and with the ElvUI [mod:shift]1 bar 1 paging.
