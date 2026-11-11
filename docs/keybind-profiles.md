@@ -39,11 +39,11 @@ If you want to compare, open the PullCall pages above in a browser.
 
 ## What's in a profile
 
-Each layout is a JSON file in `profiles/keybinds/`. The shape is small on purpose:
+Each layout is a JSON file in `profiles/keybinds/`. Ryan's keys for every class and spec are generated into `profiles/keybinds/forever/` from `profiles/source/forever-keymaps.yaml` (see below). The shape is small on purpose:
 
 ```json
 {
-  "id": "ryan-paladin-forever-10",
+  "id": "forever-paladin-retribution-10",
   "class": "paladin",
   "level": 10,
   "spec": null,
@@ -68,7 +68,7 @@ To redraw the pictures after you edit a profile (Pillow required):
 
 ```bash
 python3 scripts/render-keybinds.py --all
-python3 scripts/render-keybinds.py profiles/keybinds/ryan-paladin-forever-50.json -o /tmp/preview.png
+python3 scripts/render-keybinds.py profiles/keybinds/forever/forever-paladin-retribution-50.json -o /tmp/preview.png
 ```
 
 ## Applying a profile in the game: KeyKit
@@ -78,13 +78,18 @@ KeyKit is a small addon for **WoW: Forever** (its TOC also lists Classic Era and
 **In the game:**
 
 1. Install or update with `install-forever.bat` (Windows) or `install.sh --flavor _forever_` (Mac, Linux, Steam Deck). With WoW running, type `/reload` afterward, or restart WoW.
-2. Type `/keykit`. A window opens with the profiles on the left.
+2. Type `/keykit`. A window opens with your class's profiles on the left, grouped by spec (Holy, Protection, Retribution, and so on). The step for your level is green and says **< your level**. Tick **Show all classes** to see every class.
 3. Click a profile. The keyboard on the right shows what each key does. Use **Plain keys / Shift / Alt / Ctrl** to see each layer, including the mouse buttons. Keys marked *(look only)* are shown for reference and never set (OPie rings, cursor dispels).
-4. Leave **Only this character** unticked to save for every character on the account. Tick it to save for this character only.
-5. Press **Apply**. Each spell, item, or macro goes onto the action bar button its key fires, so the bar shows what the key does. In the wow-config layout the plain keys fire the two centre bars and Alt fires the two bars on the right. A key that fires no bar button is bound straight to the spell instead. The chat window lists any spell the character has not learned yet; those keys are skipped.
-6. Changed your mind? Press **Undo**. It puts back the keys and the bar buttons the last Apply changed, even after a `/reload`.
+4. **Clear these bars first** is ticked unless you untick it. Apply then empties every button on each bar the profile uses before it places the profile, so old spells don't linger. Bars the profile doesn't use are left alone. KeyKit remembers the tick.
+5. Leave **Only this character** unticked to save for every character on the account. Tick it to save for this character only.
+6. Press **Apply**. Each spell, item, or macro goes onto the action bar button its key fires, so the bar shows what the key does. In the wow-config layout the plain keys fire the two centre bars and Alt fires the two bars on the right. A key that fires no bar button is bound straight to the spell instead. The chat window lists any spell the character has not learned yet; those keys are skipped.
+   Shift, Ctrl, and mouse keys (and Alt-H for the Hearthstone) don't get their own bar button. KeyKit binds them straight to the spell or item, so they work but don't show on a bar. If a later level leaves one of those keys empty, Apply sets it back to its wow-config binding.
+7. Changed your mind? Press **Undo**. It puts back the keys and every bar button the last Apply changed or cleared, even after a `/reload`.
+8. When you level up, open `/keykit` again and apply the green step. Each step includes everything from the steps before it.
 
-KeyKit will not apply or undo in combat; it tells you to wait until the fight is over.
+KeyKit will not apply, clear bars, or undo in combat; it tells you to wait until the fight is over.
+
+Talent spells (Holy Shock and the like) are not in the profiles on purpose. Put them on an empty key yourself.
 
 **"Main Hand 0.0" bar across the action bars?** That is WoW: Forever's own swing timer (the Blizzard_SwingTimer UI; ElvUI only restyles it). Its on/off setting is saved per account, not in `Config.wtf`, so the kit cannot ship it. Type `/console showSwingTimer 0` once to hide it.
 
@@ -108,12 +113,14 @@ F = click SomeButton:LeftButton
 
 Keys use WoW's names: `ALT-`, `CTRL-`, `SHIFT-` prefixes, and `BUTTON3` to `BUTTON5` for the mouse. Only `name` and one key line are required.
 
-**Adding a profile for everyone.** Add a JSON file here, then regenerate the addon's profile list:
+**Changing Ryan's keys.** Edit `profiles/source/forever-keymaps.yaml` (each class and spec lists only what changes at each level; `null` clears a key; `at_60` is the full layout at 60), then regenerate:
 
 ```bash
-python3 scripts/gen-keykit-profiles.py          # writes _forever_/Interface/AddOns/KeyKit/Profiles.lua
-python3 scripts/gen-keykit-profiles.py --check  # fails if Profiles.lua is out of date
+python3 scripts/gen-keykit-profiles.py          # YAML -> profiles/keybinds/forever/*.json -> KeyKit/Profiles.lua
+python3 scripts/gen-keykit-profiles.py --check  # fails if anything is out of date, or a spec's steps don't add up to its at_60
 ```
+
+Never edit the generated files in `profiles/keybinds/forever/` by hand. **Adding a profile for everyone** else works the same way: add a JSON file to `profiles/keybinds/` and run the generator.
 
 The JSON stays the source. Never edit `Profiles.lua` by hand. Plain-English actions such as `Autorun`, `Strafe Left`, and `Bags` become WoW binding commands. Anything with a parenthesis, such as `Blessings (OPie)`, is look-only. Everything else is treated as a spell name.
 
