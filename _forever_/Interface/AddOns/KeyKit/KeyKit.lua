@@ -28,8 +28,8 @@ end
 -- Binding work
 ---------------------------------------------------------------------------
 local function SetOne(key, kind, value)
-  if kind == "spell" then return SetBindingSpell(key, value) end
-  if kind == "item" then return SetBindingItem(key, value) end
+  if kind == "spell" then return SetBindingSpell and SetBindingSpell(key, value) end
+  if kind == "item" then return SetBindingItem and SetBindingItem(key, value) end
   if kind == "macro" then return SetBindingMacro(key, value) end
   if kind == "click" then
     local button, mouse = value:match("^([^:]+):?(.*)$")
@@ -42,13 +42,48 @@ local function SetStatus(msg)
   if frame then frame.status:SetText(msg) end
 end
 
--- Spell ID if the character knows the spell, else nil.
+-- WoW: Forever uses the modern API: the old globals (GetSpellInfo, PickupSpell,
+-- PickupItem) are gone, and looking a spell up by name is unreliable. So find
+-- spells in the spellbook by name, and pick things up through C_Spell/C_Item.
+local PickupSpellFn = (C_Spell and C_Spell.PickupSpell) or PickupSpell
+local PickupItemFn = (C_Item and C_Item.PickupItem) or PickupItem
+local PickupMacroFn = PickupMacro
+
+-- Spell ID of the highest rank the character knows, else nil.
 local function KnownSpell(name)
+  local want = name:lower()
+  if C_SpellBook and C_SpellBook.GetNumSpellBookSkillLines then
+    local bank = Enum and Enum.SpellBookSpellBank and Enum.SpellBookSpellBank.Player or 0
+    local found
+    for line = 1, C_SpellBook.GetNumSpellBookSkillLines() do
+      local info = C_SpellBook.GetSpellBookSkillLineInfo(line)
+      if info then
+        for i = info.itemIndexOffset + 1, info.itemIndexOffset + info.numSpellBookItems do
+          local item = C_SpellBook.GetSpellBookItemInfo(i, bank)
+          if item and item.name and item.name:lower() == want and item.spellID
+             and not item.isPassive and not item.isOffSpec then
+            found = item.spellID   -- later entries are higher ranks
+          end
+        end
+      end
+    end
+    if found then return found end
+  end
   if C_Spell and C_Spell.GetSpellInfo then
     local info = C_Spell.GetSpellInfo(name)
-    return info and info.spellID
+    if info and info.spellID and (not IsPlayerSpell or IsPlayerSpell(info.spellID)) then
+      return info.spellID
+    end
+    return nil
   end
-  return select(7, GetSpellInfo(name))
+  if GetSpellInfo then return select(7, GetSpellInfo(name)) end
+  return nil
+end
+
+local function PickupThing(kind, id)
+  if kind == "spell" and PickupSpellFn then PickupSpellFn(id)
+  elseif kind == "item" and PickupItemFn then PickupItemFn(id)
+  elseif kind == "macro" and PickupMacroFn then PickupMacroFn(id) end
 end
 
 -- Put a spell/item/macro on the cursor. Returns true if something landed there.
@@ -57,11 +92,9 @@ local function PickUp(kind, value)
   if kind == "spell" then
     local id = KnownSpell(value)
     if not id then return false end
-    PickupSpell(id)
-  elseif kind == "item" then
-    PickupItem(value)
-  elseif kind == "macro" then
-    PickupMacro(value)
+    PickupThing("spell", id)
+  elseif kind == "item" or kind == "macro" then
+    PickupThing(kind, value)
   else
     return false
   end
@@ -72,9 +105,7 @@ end
 -- Empty a slot, or put back what GetActionInfo reported for it.
 local function RestoreSlot(slot, kind, id)
   ClearCursor()
-  if kind == "spell" then PickupSpell(id)
-  elseif kind == "item" then PickupItem(id)
-  elseif kind == "macro" then PickupMacro(id) end
+  PickupThing(kind, id)
   if GetCursorInfo() then
     PlaceAction(slot)
   else
@@ -357,6 +388,16 @@ local function MakeKey(parent, base, cap, x, y, w)
   return k
 end
 
+-- Run a click handler; if it fails, say so in the window and chat.
+local function Safe(what, fn)
+  local ok, err = xpcall(fn, function(e) return tostring(e) .. "\n" .. (debugstack and debugstack(2, 3, 0) or "") end)
+  if not ok then
+    ClearCursor()
+    SetStatus("|cffff6060" .. what .. " failed. The error is in chat; please send it to Ryan's addon helper.|r")
+    Print(what .. " failed: " .. err)
+  end
+end
+
 local function Button(parent, text, w, onClick)
   local b = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
   b:SetSize(w, 24)
@@ -449,9 +490,9 @@ local function BuildFrame()
   end
 
   -- Actions
-  f.apply = Button(f, "Apply", 100, Apply)
+  f.apply = Button(f, "Apply", 100, function() Safe("Apply", Apply) end)
   f.apply:SetPoint("BOTTOMLEFT", px, 44)
-  f.undo = Button(f, "Undo", 80, Undo)
+  f.undo = Button(f, "Undo", 80, function() Safe("Undo", Undo) end)
   f.undo:SetPoint("LEFT", f.apply, "RIGHT", 6, 0)
   f.charOnly = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
   f.charOnly:SetPoint("LEFT", f.undo, "RIGHT", 10, 0)
