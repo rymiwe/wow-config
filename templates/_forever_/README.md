@@ -22,6 +22,9 @@ those are Classic-API code and are not ported. Place spells on bars by hand
 - `showQuestLevel 1` — Forever 1.60.1 CVar (quest log/list shows level).
 
 ## CVars dropped (could not confirm in Forever UI source)
+- `showSwingTimer`: real, but account-scoped (lives in
+  `WTF/Account/<ACCT>/config-cache.wtf`), so the client drops it from
+  Config.wtf on exit. Turn the swing timer off with `/console showSwingTimer 0`.
 - `nameplateShowFriends`, `nameplateShowFriendlyMinions` -> replaced by
   `nameplateShowFriendlyPlayers` / `nameplateShowFriendlyNpcs` (modern names).
 - `nameplateMaxDistance`, `nameplateMaxAlpha`, `removeChatDelay`,

@@ -1,0 +1,54 @@
+{
+  "id": "forever-shaman-elemental-04",
+  "title": "Elemental shaman, level 4-7",
+  "subtitle": "New at 4: 2 Earth Shock, 3 Lightning Bolt",
+  "summary": "Elemental shaman keys as of level 4. New: 2 Earth Shock, 3 Lightning Bolt.",
+  "class": "shaman",
+  "level": 4,
+  "levels": "4-7",
+  "spec": "Elemental",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Rockbiter Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Earth Shock",
+      "role": "cc"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Lightning Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

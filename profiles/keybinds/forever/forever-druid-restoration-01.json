@@ -1,0 +1,48 @@
+{
+  "id": "forever-druid-restoration-01",
+  "title": "Restoration druid, level 1-3",
+  "subtitle": "New at 1: 1 Wrath, Shift-F Healing Touch, Alt-Z Mark of the Wild, Alt-H Hearthstone",
+  "summary": "Restoration druid keys as of level 1. New: 1 Wrath, Shift-F Healing Touch, Alt-Z Mark of the Wild, Alt-H Hearthstone.",
+  "class": "druid",
+  "level": 1,
+  "levels": "1-3",
+  "spec": "Restoration",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Wrath",
+      "role": "rotation"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Healing Touch",
+      "role": "heal"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Mark of the Wild",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

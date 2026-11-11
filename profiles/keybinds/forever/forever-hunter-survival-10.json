@@ -1,0 +1,114 @@
+{
+  "id": "forever-hunter-survival-10",
+  "title": "Survival hunter, level 10-11",
+  "subtitle": "New at 10: T Mine!, Alt-E Aspect of the Hawk, Alt-X Track Humanoids, Ctrl-Q Attack, Ctrl-E Follow, Ctrl-R Stay or Move To, Ctrl-F Pet ability 1",
+  "summary": "Survival hunter keys as of level 10. New: T Mine!, Alt-E Aspect of the Hawk, Alt-X Track Humanoids, Ctrl-Q Attack, Ctrl-E Follow, Ctrl-R Stay or Move To, Ctrl-F Pet ability 1.",
+  "class": "hunter",
+  "level": 10,
+  "levels": "10-11",
+  "spec": "Survival",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Raptor Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Hunter's Mark",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Serpent Sting",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Arcane Shot",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Auto Shot",
+      "role": "rotation"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Mine!",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Aspect of the Monkey",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Aspect of the Hawk",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Track Beasts",
+      "role": "utility"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Track Humanoids",
+      "role": "utility"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "Q",
+      "mod": "ctrl",
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": "ctrl",
+      "action": "Follow",
+      "role": "rotation"
+    },
+    {
+      "key": "R",
+      "mod": "ctrl",
+      "action": "Stay or Move To",
+      "role": "rotation"
+    },
+    {
+      "key": "F",
+      "mod": "ctrl",
+      "action": "Pet ability 1",
+      "role": "rotation"
+    }
+  ]
+}

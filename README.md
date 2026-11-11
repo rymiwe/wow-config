@@ -11,7 +11,7 @@ Opinionated UI setup for WoW Anniversary (TBC Classic 2.5.5). Built for casual p
 - **Auto-place on training** — newly-trained spells go on their reserved bar slot automatically, no `/setupbars` needed; `/restorebars` undoes any layout change
 - **One-shot bulk-install** for recommended companion addons (ElvUI, WeakAuras, BadBoy, OPie, Ask Mr. Robot, TSM, Questie)
 - **Per-class layouts** — Shaman, Druid (Feral+Balance), Hunter, Paladin, Warrior ship now; new classes generated via the [`wow-class-setup` skill](.claude/skills/wow-class-setup.md)
-- **Keybind pictures** — keyboard diagrams of the paladin layouts, plus a simple profile format, in [`docs/keybind-profiles.md`](docs/keybind-profiles.md)
+- **Keybind profiles**: Ryan's Forever keys for every class and spec at each level step, applied in game with the KeyKit addon (`/keykit`). It lists your class by spec, highlights your level, and can clear the bars before applying. See [`docs/keybind-profiles.md`](docs/keybind-profiles.md)
 
 Designed for the audience: kids, spouses, friends who want to log in and play. Optimized for "discoverability over efficiency" — every key bind is intuitive even if it costs 0.1s of theoretical optimization. PvP-grade speed is explicitly NOT the goal.
 

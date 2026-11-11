@@ -1,0 +1,132 @@
+{
+  "id": "forever-shaman-restoration-30",
+  "title": "Restoration shaman, level 30-31",
+  "subtitle": "New at 30: Alt-R Windfury Weapon",
+  "summary": "Restoration shaman keys as of level 30. New: Alt-R Windfury Weapon.",
+  "class": "shaman",
+  "level": 30,
+  "levels": "30-31",
+  "spec": "Restoration",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Rockbiter Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Searing Totem",
+      "role": "buff"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Lightning Shield",
+      "role": "buff"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Earth Shock",
+      "role": "cc"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Flame Shock",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Lightning Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "R",
+      "mod": null,
+      "action": "Lesser Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Purge",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Cure Poison",
+      "role": "heal"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Cure Disease",
+      "role": "heal"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Ghost Wolf",
+      "role": "movement"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Flametongue Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Frostbrand Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "R",
+      "mod": "alt",
+      "action": "Windfury Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Water Breathing",
+      "role": "movement"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Water Walking",
+      "role": "movement"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

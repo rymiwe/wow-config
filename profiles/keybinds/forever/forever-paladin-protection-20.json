@@ -1,0 +1,156 @@
+{
+  "id": "forever-paladin-protection-20",
+  "title": "Protection paladin, level 20",
+  "subtitle": "New at 20: 1 Seal of Righteousness, 3 Holy Strike, 4 Consecration, 5 Exorcism, 6 Attack, Q Seal of Fury, Z Purify, X Lay on Hands, C Flash of Light, Shift-G Divine Protection, Shift-T Hammer of Justice, Alt-R Seal of the Crusader, Alt-V Blessing of Kings",
+  "summary": "Protection paladin keys as of level 20. New: 1 Seal of Righteousness, 3 Holy Strike, 4 Consecration, 5 Exorcism, 6 Attack, Q Seal of Fury, Z Purify, X Lay on Hands, C Flash of Light, Shift-G Divine Protection, Shift-T Hammer of Justice, Alt-R Seal of the Crusader, Alt-V Blessing of Kings.",
+  "class": "paladin",
+  "level": 20,
+  "levels": "20",
+  "spec": "Protection",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Seal of Righteousness",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Judgement",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Holy Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Consecration",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Exorcism",
+      "role": "rotation"
+    },
+    {
+      "key": "6",
+      "mod": null,
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Seal of Fury",
+      "role": "buff"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Blessing of Protection",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Purify",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Lay on Hands",
+      "role": "heal"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Flash of Light",
+      "role": "heal"
+    },
+    {
+      "key": "T",
+      "mod": "shift",
+      "action": "Hammer of Justice",
+      "role": "cc"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Holy Light",
+      "role": "heal"
+    },
+    {
+      "key": "G",
+      "mod": "shift",
+      "action": "Divine Protection",
+      "role": "defensive"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Devotion Aura",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Retribution Aura",
+      "role": "buff"
+    },
+    {
+      "key": "R",
+      "mod": "alt",
+      "action": "Seal of the Crusader",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Blessing of Might",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Righteous Fury",
+      "role": "buff"
+    },
+    {
+      "key": "C",
+      "mod": "alt",
+      "action": "Blessing of Wisdom",
+      "role": "buff"
+    },
+    {
+      "key": "V",
+      "mod": "alt",
+      "action": "Blessing of Kings",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

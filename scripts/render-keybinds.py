@@ -4,7 +4,7 @@
 Usage:
     python3 scripts/render-keybinds.py profiles/keybinds/<id>.json -o out.png
     python3 scripts/render-keybinds.py --all
-    python3 scripts/render-keybinds.py profiles/keybinds/ryan-paladin-anniversary.json \\
+    python3 scripts/render-keybinds.py profiles/keybinds/ryan-paladin-forever-50.json \\
         --suggest '1=Holy Strike' -o /tmp/preview.png
 
 Requires Pillow. Looks for Geist (or IBM Plex Sans / DejaVu) on this box.

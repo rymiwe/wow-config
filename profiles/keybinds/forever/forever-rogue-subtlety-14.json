@@ -1,0 +1,96 @@
+{
+  "id": "forever-rogue-subtlety-14",
+  "title": "Subtlety rogue, level 14-19",
+  "subtitle": "New at 14: 1 Garrote, 2 Eviscerate, 3 Slice and Dice, 4 Sinister Strike",
+  "summary": "Subtlety rogue keys as of level 14. New: 1 Garrote, 2 Eviscerate, 3 Slice and Dice, 4 Sinister Strike.",
+  "class": "rogue",
+  "level": 14,
+  "levels": "14-19",
+  "spec": "Subtlety",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Garrote",
+      "role": "cc"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Eviscerate",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Slice and Dice",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Sinister Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "6",
+      "mod": null,
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Evasion",
+      "role": "defensive"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Gouge",
+      "role": "cc"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Sap",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE4",
+      "mod": null,
+      "action": "Kick",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Sprint",
+      "role": "movement"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Stealth",
+      "role": "movement"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "forever-mage-arcane-01",
+  "title": "Arcane mage, level 1-3",
+  "subtitle": "New at 1: 1 Fireball, 2 Shoot, Alt-Z Frost Armor, Alt-X Arcane Intellect, Alt-H Hearthstone",
+  "summary": "Arcane mage keys as of level 1. New: 1 Fireball, 2 Shoot, Alt-Z Frost Armor, Alt-X Arcane Intellect, Alt-H Hearthstone.",
+  "class": "mage",
+  "level": 1,
+  "levels": "1-3",
+  "spec": "Arcane",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Fireball",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Shoot",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Frost Armor",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Arcane Intellect",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

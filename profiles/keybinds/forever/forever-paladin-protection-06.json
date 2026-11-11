@@ -1,0 +1,78 @@
+{
+  "id": "forever-paladin-protection-06",
+  "title": "Protection paladin, level 6-7",
+  "subtitle": "New at 6: 1 Seal of the Crusader, 3 Seal of Righteousness, 4 Holy Strike, Shift-T Divine Protection",
+  "summary": "Protection paladin keys as of level 6. New: 1 Seal of the Crusader, 3 Seal of Righteousness, 4 Holy Strike, Shift-T Divine Protection.",
+  "class": "paladin",
+  "level": 6,
+  "levels": "6-7",
+  "spec": "Protection",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Seal of the Crusader",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Judgement",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Seal of Righteousness",
+      "role": "buff"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Holy Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "T",
+      "mod": "shift",
+      "action": "Divine Protection",
+      "role": "defensive"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Holy Light",
+      "role": "heal"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Devotion Aura",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Blessing of Might",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}
