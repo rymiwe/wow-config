@@ -1,13 +1,18 @@
-# Keybind pictures
+# Keybind profiles
 
-These are pictures of our paladin keyboards — the same idea as a Steam controller community profile. You can see which ability sits on which key, including the Alt layer and the side mouse buttons, without opening the game.
+These are Ryan's paladin keyboards for WoW: Forever, one profile per level step, from level 1 to 60. Each step adds the spells you learn at that level and moves a few keys around. Apply the step that matches your level in the game with KeyKit (below).
 
-Pictures live next to the profiles that generate them:
+The level 50 step is the full level-60 layout:
 
-- [Ryan — Paladin (TBC Anniversary)](../profiles/keybinds/renders/ryan-paladin-anniversary.png)
-- [Ryan — Forever Paladin (level 10)](../profiles/keybinds/renders/ryan-forever-paladin-10.png)
+- **Number keys:** 1 Seal of the Crusader, 2 Judgement, 3 Seal of Righteousness, 4 Hammer of Wrath, 5 Holy Strike, 6 Attack
+- **Letter keys:** Q Consecration, E Exorcism, R Holy Wrath, T Blessing of Protection, Z Hammer of Justice, X Purify, C Lay on Hands, V Flash of Light
+- **Shift:** F Holy Light, T Divine Protection, E Cleanse, G Divine Shield, 4 Divine Intervention
+- **Alt, auras:** Q Devotion, E Retribution, R Concentration, F Shadow Resistance, T Frost Resistance, G Fire Resistance
+- **Alt, blessings and other:** Z Might, C Wisdom, V Kings, X Righteous Fury, H Hearthstone
 
-Colors are the same on every picture:
+Seal of Justice and Seal of Fury get pushed off the keys as you level; by level 36 neither has a key.
+
+Colors on the KeyKit keyboard:
 
 | Color | Meaning |
 |-------|---------|
@@ -17,22 +22,7 @@ Colors are the same on every picture:
 | Green | Heals and dispels |
 | Purple | Buffs (seals, blessings, auras) |
 | Slate | Movement |
-| Teal | Utility (bags and similar) |
-
-## Ryan's paladin layouts
-
-Both pictures use the same left-hand feel from the wow-config bindings template: **A/D strafe**, **W autorun** (you still move forward by holding both mouse buttons), combat keys around WASD, **Shift does not change the ability** (it only blocks accidental action-bar paging; Shift-B still opens bags), and **Alt is the second layer**.
-
-**TBC Anniversary** is what PaladinSetup will put on the bars today. Crusader Strike, Avenger's Shield, Avenging Wrath, and Righteous Defense are marked **TBC** — they do not exist in WoW: Forever.
-
-**Forever, level 10** is the same philosophy with early Forever spells only. **Holy Strike sits on 1**, the slot Crusader Strike uses in TBC. Empty keys are left empty on purpose, so later spells (Consecration, Flash of Light, and so on) can land in their usual homes as you level. This profile is a picture and a plan. PaladinSetup does not apply a Forever layout in-game yet.
-
-A few things are deliberately not on the keyboard picture:
-
-- Righteous Fury and Redemption live on the click-only utility bar (Bar 10)
-- Divine Favor is click-only
-- Questie opens on the semicolon key, off the left-hand cluster
-- Racials are per-character (Draenei Alt-G, Dwarf Alt-Z, Blood Elf Arcane Torrent on C)
+| Teal | Utility (bags, Hearthstone) |
 
 ## Why there is no PullCall map here
 
@@ -53,14 +43,15 @@ Each layout is a JSON file in `profiles/keybinds/`. The shape is small on purpos
 
 ```json
 {
-  "id": "ryan-forever-paladin-10",
+  "id": "ryan-paladin-forever-10",
   "class": "paladin",
   "level": 10,
   "spec": null,
   "source": { "name": "wow-config", "url": "https://github.com/rymiwe/wow-config", "credit": "Ryan Weiss" },
   "binds": [
-    { "key": "1", "mod": null, "action": "Holy Strike", "role": "rotation" },
-    { "key": "1", "mod": "alt", "action": "Holy Light", "role": "heal" }
+    { "key": "1", "mod": null, "action": "Seal of the Crusader", "role": "buff" },
+    { "key": "F", "mod": "shift", "action": "Holy Light", "role": "heal" },
+    { "key": "H", "mod": "alt", "action": "Hearthstone", "role": "utility", "item": "Hearthstone" }
   ]
 }
 ```
@@ -71,16 +62,14 @@ Each layout is a JSON file in `profiles/keybinds/`. The shape is small on purpos
 - `mod` is `null`, `"shift"`, `"alt"`, or `"ctrl"`
 - `role` is one of: `rotation`, `cc`, `defensive`, `heal`, `buff`, `movement`, `utility`
 - Optional extras: `badge` (a small tag like `TBC`) and `notes` at the profile level
-- For KeyKit: `summary` (one line for the list), `levels` (a band like `"1-60"`), and a per-bind `command` (a WoW binding name such as `ACTIONBUTTON1`) when the action is not a spell
+- For KeyKit: `summary` (one line for the list), `levels` (a band like `"1-60"`), a per-bind `command` (a WoW binding name such as `ACTIONBUTTON1`) when the action is not a spell, and a per-bind `item` (an item name such as `Hearthstone`) for items
 
 To redraw the pictures after you edit a profile (Pillow required):
 
 ```bash
 python3 scripts/render-keybinds.py --all
-python3 scripts/render-keybinds.py profiles/keybinds/ryan-forever-paladin-10.json -o /tmp/preview.png
+python3 scripts/render-keybinds.py profiles/keybinds/ryan-paladin-forever-50.json -o /tmp/preview.png
 ```
-
-`--suggest '1=Holy Strike'` can overlay a Forever suggestion on a TBC picture without changing the profile itself.
 
 ## Applying a profile in the game: KeyKit
 
@@ -97,11 +86,9 @@ KeyKit is a small addon for **WoW: Forever** (its TOC also lists Classic Era and
 
 KeyKit will not apply or undo in combat; it tells you to wait until the fight is over.
 
-**Applied the first KeyKit version already?** It bound keys straight to spells, which left the bars empty. Press **Apply** again: keys that point at a spell are moved back to their bar button (from `templates/_forever_/bindings-cache.wtf`) and the spell goes on the bar.
-
 **"Main Hand 0.0" bar across the action bars?** That is WoW: Forever's own swing timer (the Blizzard_SwingTimer UI; ElvUI only restyles it). Its on/off setting is saved per account, not in `Config.wtf`, so the kit cannot ship it. Type `/console showSwingTimer 0` once to hide it.
 
-The two **Starter** profiles work for any class. Every key points at an action bar slot, so you drag your spells onto the bar and the keys follow. The one-bar starter puts the main bar on 1-4, Q, E, R, F, C and mouse buttons 3-5, with A/D strafe. The Alt-layer starter adds the bottom-left bar on Alt plus the same keys.
+**Apply did nothing, or the status line shows an error?** KeyKit now prints any error in the window and in chat. Send a screenshot of it.
 
 **Import and export.** **Export** writes your current keys on this board as text. **Import...** takes the same text and adds it to the list as your own profile (saved on this computer only). **Delete** removes one of your own profiles. The format is one line each:
 
