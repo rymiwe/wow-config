@@ -135,8 +135,10 @@ local function EnsurePad()
   return idx and idx > 0 and idx or nil
 end
 
--- Classes with no forms or stances get a Ctrl bar (ElvUI bar 10, page 10).
--- Druid, Rogue and Warrior use pages 7 to 10 for forms and stances.
+-- Classes with no forms or stances get full Shift and Ctrl layers: copies of the
+-- plain layer on ElvUI bars 2 and 8 (Shift) and 9 and 10 (Ctrl). Druid, Rogue and
+-- Warrior use pages 7 to 10 for forms and stances, so they keep the compact Shift
+-- bar (bar 2) and bind Ctrl keys straight to the spell.
 local FORMLESS = { HUNTER = true, MAGE = true, PALADIN = true, PRIEST = true, SHAMAN = true, WARLOCK = true }
 
 local function Formless()
@@ -145,14 +147,14 @@ local function Formless()
 end
 
 -- Key -> bar button: the wow-config bindings template (ns.BAR_KEYS, generated),
--- plus the Ctrl bar keys (ns.CTRL_KEYS) for classes that have that bar.
+-- plus the full Shift and Ctrl layers (ns.FORMLESS_KEYS) for classes that have them.
 local barKeys
 local function BarKeys()
   if not barKeys then
     barKeys = {}
     for k, cmd in pairs(ns.BAR_KEYS or {}) do barKeys[k] = cmd end
     if Formless() then
-      for k, cmd in pairs(ns.CTRL_KEYS or {}) do barKeys[k] = cmd end
+      for k, cmd in pairs(ns.FORMLESS_KEYS or {}) do barKeys[k] = cmd end
     end
   end
   return barKeys
@@ -169,18 +171,35 @@ local function BarCommandFor(key)
   return nil
 end
 
--- Plain and Alt keys go on bars. Shift keys go on the Shift bar (ElvUI bar 2)
--- and Ctrl keys on the Ctrl bar (bar 10, formless classes only), and only when
--- their button is on that bar. The other Shift keys (Shift-3, Shift-C...) fire
--- the plain key's button, so a Shift spell there would replace the plain key's
--- spell. Those, mouse keys and any key without a bar button are bound straight
--- to the spell.
-local MOD_BAR = { shift = "ELVUIBAR2BUTTON", ctrl = "ELVUIBAR10BUTTON" }
+-- Plain and Alt keys go on bars. Shift keys go on the Shift bars (ElvUI bars 2
+-- and 8) and Ctrl keys on the Ctrl bars (9 and 10, formless classes only), and
+-- only when their button is on one of those bars. A form class's other Shift keys
+-- (Shift-3, Shift-C...) fire the plain key's button, so a Shift spell there would
+-- replace the plain key's spell. Those, mouse keys and any key without a bar
+-- button are bound straight to the spell.
+local MOD_BAR = {
+  shift = { ELVUIBAR2BUTTON = true, ELVUIBAR8BUTTON = true },
+  ctrl  = { ELVUIBAR9BUTTON = true, ELVUIBAR10BUTTON = true },
+}
+-- Shift and Ctrl bars come in pairs, like plain bars 1 and 3.
+local PAIRS = { { "ELVUIBAR2BUTTON", "ELVUIBAR8BUTTON" }, { "ELVUIBAR9BUTTON", "ELVUIBAR10BUTTON" } }
+-- Template binding of a formless-layer key that is not a bar button.
+local TEMPLATE_OTHER = { ["SHIFT-B"] = "OPENALLBAGS" }
 
 local function OnBar(layer, cmd)
   if layer == "none" or layer == "alt" then return true end
   if layer == "ctrl" and not Formless() then return false end
-  return (ns.BarSlots(cmd)) == MOD_BAR[layer]
+  return MOD_BAR[layer] ~= nil and MOD_BAR[layer][(ns.BarSlots(cmd))] == true
+end
+
+-- Formless classes use both bars of a pair or neither: add the partner of any bar in t.
+local function CompletePairs(t, make)
+  if not Formless() then return end
+  for _, p in ipairs(PAIRS) do
+    if t[p[1]] or t[p[2]] then
+      for _, bar in ipairs(p) do t[bar] = t[bar] or make(bar) end
+    end
+  end
 end
 
 local LAYER_ORDER = { none = 1, alt = 2, ctrl = 3, shift = 4 }
@@ -193,12 +212,19 @@ local function InCombat(what)
   return false
 end
 
--- Turn on the Shift bar (ElvUI bar 2) and, for formless classes, the Ctrl bar
--- (bar 10), through ElvUI's own settings. A bar's position is set once, so a
--- bar you move stays where you put it. Out of combat only.
+-- Turn on the Shift bar (ElvUI bar 2) and, for formless classes, the rest of the
+-- Shift and Ctrl bars (8, 9, 10), through ElvUI's own settings. Formless classes get
+-- two 6-wide blocks that copy plain bars 1 and 3: Shift on the left, Ctrl on the
+-- right, level with the plain, Alt and side bars. Form classes get the compact
+-- 4-wide Shift bar and no others. A bar's position is set once per layout, so a bar
+-- you move stays where you put it. Out of combat only.
+local BAR_LAYOUT_VERSION = 2       -- bump to place the bars again, once
 local BAR_SETUP = {
-  bar2  = { mover = "ElvAB_2",  at = "BOTTOM,ElvUIParent,BOTTOM,-442,4", buttons = 12 },
-  bar10 = { mover = "ElvAB_10", at = "BOTTOM,ElvUIParent,BOTTOM,-605,4", buttons = 8 },
+  -- name = { mover, full position, buttons, per row }; compact applies to bar2 only
+  bar2  = { mover = "ElvAB_2",  full = "BOTTOM,ElvUIParent,BOTTOM,-478,87", compact = "BOTTOM,ElvUIParent,BOTTOM,-442,4" },
+  bar8  = { mover = "ElvAB_8",  full = "BOTTOM,ElvUIParent,BOTTOM,-478,4" },
+  bar9  = { mover = "ElvAB_9",  full = "BOTTOM,ElvUIParent,BOTTOM,478,87" },
+  bar10 = { mover = "ElvAB_10", full = "BOTTOM,ElvUIParent,BOTTOM,478,4" },
 }
 
 local function SetupBars()
@@ -207,22 +233,26 @@ local function SetupBars()
   local AB = E and E.GetModule and E:GetModule("ActionBars", true)
   if not (AB and AB.handledBars and AB.UpdateButtonSettings and E.db and E.db.actionbar) then return end
   db.barsPlaced = db.barsPlaced or {}
+  local formless = Formless()
   for name, s in pairs(BAR_SETUP) do
-    local want = name == "bar2" or Formless()
+    local want = name == "bar2" or formless
+    local at = formless and s.full or s.compact
+    local perRow = formless and 6 or 4
+    local tag = BAR_LAYOUT_VERSION .. (formless and "full" or "compact")
     local bar = E.db.actionbar[name]
     if bar and AB.handledBars[name] then
       local changed = bar.enabled ~= want
       bar.enabled = want
       if want then
-        for k, v in pairs({ buttons = s.buttons, buttonsPerRow = 4, buttonSize = 36, buttonSpacing = 3,
+        for k, v in pairs({ buttons = 12, buttonsPerRow = perRow, buttonSize = 36, buttonSpacing = 3,
                             point = "TOPLEFT", showGrid = false }) do
           if bar[k] ~= v then bar[k] = v changed = true end
         end
-        local place = not db.barsPlaced[name]
+        local place = db.barsPlaced[name] ~= tag
         if place then
           E.db.movers = E.db.movers or {}
-          E.db.movers[s.mover] = s.at
-          db.barsPlaced[name] = true
+          E.db.movers[s.mover] = at
+          db.barsPlaced[name] = tag
           changed = true
         end
         if changed then
@@ -268,6 +298,7 @@ local function Apply()
       end
     end
   end
+  CompletePairs(useBars, function() return true end)
   local rebound = 0
   for key, cmd in pairs(BarKeys()) do
     local bar = ns.BarSlots(cmd)
@@ -290,13 +321,17 @@ local function Apply()
     end
   end
 
-  -- Classes with forms have no Ctrl bar: a Ctrl key an earlier Apply left on it goes back to unbound.
+  -- Classes with forms have no Shift bar 8 or Ctrl bars: a key an earlier Apply (on a
+  -- formless character) left on one goes back to its template binding, or to unbound.
   if not Formless() then
-    for key, cmd in pairs(ns.CTRL_KEYS or {}) do
+    for key, cmd in pairs(ns.FORMLESS_KEYS or {}) do
       if GetBindingAction(key) == cmd and not profileKeys[key] then
-        SaveKey(key)
-        SetBinding(key)
-        rebound = rebound + 1
+        local want = (ns.BAR_KEYS or {})[key] or TEMPLATE_OTHER[key]
+        if want ~= cmd then
+          SaveKey(key)
+          if want then SetBinding(key, want) else SetBinding(key) end
+          rebound = rebound + 1
+        end
       end
     end
   end
@@ -327,6 +362,8 @@ local function Apply()
       plan[#plan + 1] = { b = b }
     end
   end
+
+  CompletePairs(bars, function(bar) return select(2, ns.BarSlots(bar .. "1")) end)
 
   -- 2. Keys an earlier Apply bound straight to a spell, that this profile
   --    leaves empty: give them back their wow-config binding (or none).

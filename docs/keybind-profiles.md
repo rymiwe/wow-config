@@ -84,18 +84,25 @@ KeyKit is a small addon for **WoW: Forever** (its TOC also lists Classic Era and
    **Fill empty keys with placeholders**, just below, is also ticked unless you untick it. After Apply, every button on those bars that a key fires but the profile leaves empty gets a blank-looking macro named `KK_pad`, so the bars show which buttons your keys use. A spell the character has not learned yet leaves a placeholder on its key. KeyKit treats `KK_pad` as empty: Clear removes it and Apply places over it. It is one account-wide macro; if the account's macro slots are full, the status line says so and Apply carries on without placeholders.
 5. Leave **Only this character** unticked to save for every character on the account. Tick it to save for this character only.
 6. Press **Apply**. First it rebinds the keys on each bar the profile uses to the wow-config layout (so Q fires its template button, not whatever the account has now). It also unbinds other keys that still fire those bars, such as mouse buttons 3 to 5, unless the profile binds them. The status line says "Rebound N keys to the keyboard layout", and Undo restores the old keys. Then each spell, item, or macro goes onto the action bar button its key fires, so the bar shows what the key does. A key that fires no bar button is bound straight to the spell instead. The chat window lists any spell the character has not learned yet; those keys are skipped.
-   Each key has its own bar button, on one of four bars:
+   Each key has its own bar button. Hunter, Mage, Paladin, Priest, Shaman and Warlock (no forms or stances) get full copies of the plain layer for Shift and Ctrl, so every Shift and Ctrl combo of the 17 keys (` 1 2 3 4 5 / Q E R T / F G Z X C V B) has a button:
 
-   | Keys | ElvUI bar | Page |
+   | Keys | ElvUI bars | Pages |
    |---|---|---|
    | Plain | the two centre bars | 1, 3 |
    | Alt | the two bars on the right | 4, 5 |
+   | Shift | bars 2 and 8, laid out like plain bars 1 and 3 | 2, 8 |
+   | Ctrl | bars 9 and 10, laid out like plain bars 1 and 3 | 9, 10 |
+
+   Druid, Rogue and Warrior use pages 7 to 10 for forms and stances, so they keep a compact Shift bar:
+
+   | Keys | ElvUI bar | Page |
+   |---|---|---|
    | Shift | bar 2, 12 buttons laid out like the plain keys (1 2 4 5 / Q E R T / F G Z X) | 2 |
-   | Ctrl | bar 10, 8 buttons (1 2 4 5 / Q E R F), Hunter, Mage, Paladin, Priest, Shaman and Warlock only | 10 |
+   | Ctrl | no bar, bound straight to the spell | none |
 
-   The Shift bar holds the 12 Shift keys the keymaps use. The other Shift keys (Shift-`, Shift-3, Shift-C, Shift-V) still fire the plain key's button, and Shift-B opens the bags. Druid, Rogue and Warrior have no Ctrl bar, because their form and stance bars use pages 7 to 10. Their Ctrl keys are bound straight to the spell.
+   Their other Shift keys (Shift-`, Shift-3, Shift-C, Shift-V) still fire the plain key's button, and Shift-B opens the bags. On the six formless classes Shift-B fires its own button on bar 8 instead.
 
-   KeyKit turns on bar 2 (and bar 10 for the classes above, off for the rest) in ElvUI when you log in and when you press Apply, out of combat. It sets the position once, so drag the bars where you like (`/moveui`) and KeyKit leaves them. Undo restores keys and bar buttons, not whether a bar is on.
+   KeyKit turns on bar 2 (and bars 8, 9 and 10 for the formless classes, off for the rest) in ElvUI when you log in and when you press Apply, out of combat. A formless class's blocks copy the plain bars' look (6 buttons per row, 36 px, 3 px apart, 83 px between the two bars): Shift on the left, level with the plain bars and the bars 6 and 7 beside them, and Ctrl on the right, level with the Alt bars. Nothing sits over the unit frames. KeyKit sets each bar's position once per layout, so drag the bars where you like (`/moveui`) and KeyKit leaves them. Switching to a class with forms turns bars 8 to 10 off and moves bar 2 to its compact spot once. Press Apply on that character to drop the old Shift and Ctrl bindings. Undo restores keys and bar buttons, not whether a bar is on.
 
    Mouse keys and Alt-H (Hearthstone) don't get a bar button. KeyKit binds them straight to the spell or item, so they work but don't show on a bar. If a later level leaves one of those keys empty, Apply sets it back to its wow-config binding.
 7. Changed your mind? Press **Undo**. It puts back the keys and every bar button the last Apply changed, cleared, or filled with a placeholder, even after a `/reload`.
