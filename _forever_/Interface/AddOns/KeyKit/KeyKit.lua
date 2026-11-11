@@ -114,6 +114,27 @@ local function RestoreSlot(slot, kind, id)
   ClearCursor()
 end
 
+-- Placeholder: an empty account-wide macro put on bar buttons a key fires but
+-- the profile leaves empty, so the bars show which buttons the keys use.
+-- Unique name, because the empty checks key off it. KeyKit treats a slot
+-- holding it as empty: Clear clears it, Apply places over it.
+local PAD_NAME, PAD_ICON = "KK_pad", 135864
+
+local function IsPad(slot)
+  local t, id = GetActionInfo(slot)
+  return t == "macro" and GetMacroInfo(id) == PAD_NAME
+end
+
+-- Macro index of KK_pad, created if missing. nil if the account macros are full.
+local function EnsurePad()
+  local idx = GetMacroIndexByName(PAD_NAME)
+  if idx and idx > 0 then return idx end
+  if GetNumMacros() >= (MAX_ACCOUNT_MACROS or 120) then return nil end
+  CreateMacro(PAD_NAME, PAD_ICON, "", false)
+  idx = GetMacroIndexByName(PAD_NAME)
+  return idx and idx > 0 and idx or nil
+end
+
 -- The bar button a key fires: its current binding if that is a bar button,
 -- else the wow-config bindings template (ns.BAR_KEYS, generated).
 local function BarCommandFor(key)
@@ -200,11 +221,11 @@ local function Apply()
     for _, slots in pairs(bars) do
       for _, slot in ipairs(slots) do
         if GetActionInfo(slot) then
+          if not IsPad(slot) then cleared = cleared + 1 end
           SaveSlot(slot)
           ClearCursor()
           PickupAction(slot)
           ClearCursor()
-          cleared = cleared + 1
         end
       end
     end
@@ -235,13 +256,35 @@ local function Apply()
     end
   end
 
+  -- 5. Fill with placeholders (checkbox): every empty button a key fires, on
+  --    the bars this profile uses. Unlearned spells leave theirs empty, so
+  --    they get one too.
+  local pads, padsFull = 0, false
+  if db.placeholders then
+    local padIdx = EnsurePad()
+    padsFull = not padIdx
+    for key, cmd in pairs(padIdx and ns.BAR_KEYS or {}) do
+      local bar = ns.BarSlots(cmd)
+      local slot = ns.SlotForCommand(cmd)
+      if bar and bars[bar] and slot and GetBindingAction(key) == cmd and not GetActionInfo(slot) then
+        SaveSlot(slot)
+        ClearCursor()
+        PickupMacroFn(padIdx)
+        PlaceAction(slot)
+        ClearCursor()
+        pads = pads + 1
+      end
+    end
+  end
+
   local which = frame.charOnly:GetChecked() and CHARACTER or ACCOUNT
   SaveBindings(which)
   db.undo = snap
   frame.undo:Enable()
-  local msg = ("Applied %s: %d on bars, %d keys bound, saved for %s."):format(
-    selected.title, placed, bound, which == CHARACTER and "this character" or "all characters")
+  local msg = ("Applied %s: placed %d on bars, %d placeholders, %d keys bound, saved for %s."):format(
+    selected.title, placed, pads, bound, which == CHARACTER and "this character" or "all characters")
   if cleared > 0 then msg = msg .. (" Cleared %d bar buttons first."):format(cleared) end
+  if padsFull then msg = msg .. " Macro slots are full, so no placeholders." end
   if reset > 0 then msg = msg .. (" Reset %d keys this level leaves empty."):format(reset) end
   if #skipped > 0 then
     msg = msg .. (" Skipped %d (not learned yet?)."):format(#skipped)
@@ -537,7 +580,7 @@ end
 
 local function BuildFrame()
   local f = CreateFrame("Frame", "KeyKitFrame", UIParent, BackdropTemplateMixin and "BackdropTemplate")
-  f:SetSize(860, 520)
+  f:SetSize(860, 552)
   f:SetPoint("CENTER")
   f:SetFrameStrata("HIGH")
   f:SetBackdrop({ bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
@@ -633,11 +676,17 @@ local function BuildFrame()
   f.undo = Button(f, "Undo", 80, function() Safe("Undo", Undo) end)
   f.undo:SetPoint("LEFT", f.apply, "RIGHT", 6, 0)
   f.clearBars = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
-  f.clearBars:SetPoint("BOTTOMLEFT", px - 4, 68)
+  f.clearBars:SetPoint("BOTTOMLEFT", px - 4, 96)
   f.clearBars:SetScript("OnClick", function(self) db.clearBars = self:GetChecked() and true or false end)
   local cbl = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
   cbl:SetPoint("LEFT", f.clearBars, "RIGHT", 2, 0)
   cbl:SetText("Clear these bars first")
+  f.placeholders = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
+  f.placeholders:SetPoint("TOPLEFT", f.clearBars, "BOTTOMLEFT", 0, 6)
+  f.placeholders:SetScript("OnClick", function(self) db.placeholders = self:GetChecked() and true or false end)
+  local pl = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+  pl:SetPoint("LEFT", f.placeholders, "RIGHT", 2, 0)
+  pl:SetText("Fill empty keys with placeholders")
   f.charOnly = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate")
   f.charOnly:SetPoint("LEFT", f.clearBars, "RIGHT", 150, 0)
   local cl = f:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
@@ -664,6 +713,7 @@ local function BuildFrame()
   f:SetScript("OnShow", function()
     f.charOnly:SetChecked(GetCurrentBindingSet() == CHARACTER)
     f.clearBars:SetChecked(db.clearBars)
+    f.placeholders:SetChecked(db.placeholders)
     f.showAll:SetChecked(db.showAll)
     if db.undo then f.undo:Enable() else f.undo:Disable() end
     RefreshList()
@@ -682,6 +732,7 @@ loader:SetScript("OnEvent", function(self, _, name)
   KeyKitDB.personal = KeyKitDB.personal or {}
   KeyKitDB.direct = KeyKitDB.direct or {}      -- keys KeyKit bound straight to a spell
   if KeyKitDB.clearBars == nil then KeyKitDB.clearBars = true end
+  if KeyKitDB.placeholders == nil then KeyKitDB.placeholders = true end
   db = KeyKitDB
   self:UnregisterEvent("ADDON_LOADED")
 end)
