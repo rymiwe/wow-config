@@ -1,0 +1,2 @@
+# gitleaks false positive: KEY_ORDER is the keyboard sort order ("`123456QWERT..."), not a credential.
+c45369de6a12bac8e8e569a0c6df2717194d6001:scripts/gen-keykit-profiles.py:generic-api-key:252
