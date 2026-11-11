@@ -3,6 +3,7 @@
 
 # Allow repo metadata
 !.gitignore
+!.gitleaksignore
 !.gitattributes
 !README.md
 
