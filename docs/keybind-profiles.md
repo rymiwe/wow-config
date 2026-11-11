@@ -83,8 +83,21 @@ KeyKit is a small addon for **WoW: Forever** (its TOC also lists Classic Era and
 4. **Clear these bars first** is ticked unless you untick it. Apply then empties every button on each bar the profile uses before it places the profile, so old spells don't linger. Bars the profile doesn't use are left alone. KeyKit remembers the tick.
    **Fill empty keys with placeholders**, just below, is also ticked unless you untick it. After Apply, every button on those bars that a key fires but the profile leaves empty gets a blank-looking macro named `KK_pad`, so the bars show which buttons your keys use. A spell the character has not learned yet leaves a placeholder on its key. KeyKit treats `KK_pad` as empty: Clear removes it and Apply places over it. It is one account-wide macro; if the account's macro slots are full, the status line says so and Apply carries on without placeholders.
 5. Leave **Only this character** unticked to save for every character on the account. Tick it to save for this character only.
-6. Press **Apply**. First it rebinds the keys on each bar the profile uses to the wow-config layout (so Q fires its template button, not whatever the account has now). It also unbinds other keys that still fire those bars, such as mouse buttons 3 to 5, unless the profile binds them. The status line says "Rebound N keys to the keyboard layout", and Undo restores the old keys. Then each spell, item, or macro goes onto the action bar button its key fires, so the bar shows what the key does. In the wow-config layout the plain keys fire the two centre bars and Alt fires the two bars on the right. A key that fires no bar button is bound straight to the spell instead. The chat window lists any spell the character has not learned yet; those keys are skipped.
-   Shift, Ctrl, and mouse keys (and Alt-H for the Hearthstone) don't get their own bar button. KeyKit binds them straight to the spell or item, so they work but don't show on a bar. If a later level leaves one of those keys empty, Apply sets it back to its wow-config binding.
+6. Press **Apply**. First it rebinds the keys on each bar the profile uses to the wow-config layout (so Q fires its template button, not whatever the account has now). It also unbinds other keys that still fire those bars, such as mouse buttons 3 to 5, unless the profile binds them. The status line says "Rebound N keys to the keyboard layout", and Undo restores the old keys. Then each spell, item, or macro goes onto the action bar button its key fires, so the bar shows what the key does. A key that fires no bar button is bound straight to the spell instead. The chat window lists any spell the character has not learned yet; those keys are skipped.
+   Each key has its own bar button, on one of four bars:
+
+   | Keys | ElvUI bar | Page |
+   |---|---|---|
+   | Plain | the two centre bars | 1, 3 |
+   | Alt | the two bars on the right | 4, 5 |
+   | Shift | bar 2, 12 buttons laid out like the plain keys (1 2 4 5 / Q E R T / F G Z X) | 2 |
+   | Ctrl | bar 10, 8 buttons (1 2 4 5 / Q E R F), Hunter, Mage, Paladin, Priest, Shaman and Warlock only | 10 |
+
+   The Shift bar holds the 12 Shift keys the keymaps use. The other Shift keys (Shift-`, Shift-3, Shift-C, Shift-V) still fire the plain key's button, and Shift-B opens the bags. Druid, Rogue and Warrior have no Ctrl bar, because their form and stance bars use pages 7 to 10. Their Ctrl keys are bound straight to the spell.
+
+   KeyKit turns on bar 2 (and bar 10 for the classes above, off for the rest) in ElvUI when you log in and when you press Apply, out of combat. It sets the position once, so drag the bars where you like (`/moveui`) and KeyKit leaves them. Undo restores keys and bar buttons, not whether a bar is on.
+
+   Mouse keys and Alt-H (Hearthstone) don't get a bar button. KeyKit binds them straight to the spell or item, so they work but don't show on a bar. If a later level leaves one of those keys empty, Apply sets it back to its wow-config binding.
 7. Changed your mind? Press **Undo**. It puts back the keys and every bar button the last Apply changed, cleared, or filled with a placeholder, even after a `/reload`.
 8. When you level up, open `/keykit` again and apply the green step. Each step includes everything from the steps before it.
 
