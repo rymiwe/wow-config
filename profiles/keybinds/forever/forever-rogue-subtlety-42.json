@@ -1,0 +1,156 @@
+{
+  "id": "forever-rogue-subtlety-42",
+  "title": "Subtlety rogue, level 42-60",
+  "subtitle": "New at 42: 2 Premeditation, 3 Garrote, 4 Rupture, 5 Eviscerate, Q Slice and Dice, E Sinister Strike, R Backstab, F Ambush",
+  "summary": "Subtlety rogue keys as of level 42. New: 2 Premeditation, 3 Garrote, 4 Rupture, 5 Eviscerate, Q Slice and Dice, E Sinister Strike, R Backstab, F Ambush.",
+  "class": "rogue",
+  "level": 42,
+  "levels": "42-60",
+  "spec": "Subtlety",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Instant Poison",
+      "role": "utility"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Premeditation",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Garrote",
+      "role": "cc"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Rupture",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Eviscerate",
+      "role": "rotation"
+    },
+    {
+      "key": "6",
+      "mod": null,
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Slice and Dice",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Sinister Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "R",
+      "mod": null,
+      "action": "Backstab",
+      "role": "rotation"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Evasion",
+      "role": "defensive"
+    },
+    {
+      "key": "F",
+      "mod": null,
+      "action": "Ambush",
+      "role": "rotation"
+    },
+    {
+      "key": "G",
+      "mod": null,
+      "action": "Distract",
+      "role": "cc"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Gouge",
+      "role": "cc"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Sap",
+      "role": "cc"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Cheap Shot",
+      "role": "cc"
+    },
+    {
+      "key": "V",
+      "mod": null,
+      "action": "Kidney Shot",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE4",
+      "mod": null,
+      "action": "Kick",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Sprint",
+      "role": "movement"
+    },
+    {
+      "key": "4",
+      "mod": "shift",
+      "action": "Vanish",
+      "role": "defensive"
+    },
+    {
+      "key": "5",
+      "mod": "shift",
+      "action": "Blind",
+      "role": "cc"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Stealth",
+      "role": "movement"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

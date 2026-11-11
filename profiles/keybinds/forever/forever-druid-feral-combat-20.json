@@ -1,0 +1,168 @@
+{
+  "id": "forever-druid-feral-combat-20",
+  "title": "Feral Combat druid, level 20-23",
+  "subtitle": "New at 20: 1 Rip, 2 Claw, 3 Feral Charge (Bear), 4 Enrage, 5 Faerie Fire, 6 Attack, Q Demoralizing Roar, E Maul, T Rebirth, Alt-C Prowl, Alt-Q Cat Form, Alt-E Bear Form, Alt-R Aquatic Form",
+  "summary": "Feral Combat druid keys as of level 20. New: 1 Rip, 2 Claw, 3 Feral Charge (Bear), 4 Enrage, 5 Faerie Fire, 6 Attack, Q Demoralizing Roar, E Maul, T Rebirth, Alt-C Prowl, Alt-Q Cat Form, Alt-E Bear Form, Alt-R Aquatic Form.",
+  "class": "druid",
+  "level": 20,
+  "levels": "20-23",
+  "spec": "Feral Combat",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Rip",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Claw",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Feral Charge (Bear)",
+      "role": "cc"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Enrage",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Faerie Fire",
+      "role": "rotation"
+    },
+    {
+      "key": "6",
+      "mod": null,
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Demoralizing Roar",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Maul",
+      "role": "rotation"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Rebirth",
+      "role": "heal"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Healing Touch",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Rejuvenation",
+      "role": "heal"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Entangling Roots",
+      "role": "cc"
+    },
+    {
+      "key": "V",
+      "mod": null,
+      "action": "Growl",
+      "role": "cc"
+    },
+    {
+      "key": "Q",
+      "mod": "shift",
+      "action": "Cure Poison",
+      "role": "heal"
+    },
+    {
+      "key": "E",
+      "mod": "shift",
+      "action": "Regrowth",
+      "role": "heal"
+    },
+    {
+      "key": "R",
+      "mod": "shift",
+      "action": "Bash",
+      "role": "cc"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Cat Form",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Bear Form",
+      "role": "buff"
+    },
+    {
+      "key": "R",
+      "mod": "alt",
+      "action": "Aquatic Form",
+      "role": "movement"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Mark of the Wild",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Thorns",
+      "role": "buff"
+    },
+    {
+      "key": "C",
+      "mod": "alt",
+      "action": "Prowl",
+      "role": "movement"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "4",
+      "mod": "ctrl",
+      "action": "Hibernate",
+      "role": "cc"
+    }
+  ]
+}

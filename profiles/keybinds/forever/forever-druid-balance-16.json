@@ -1,0 +1,114 @@
+{
+  "id": "forever-druid-balance-16",
+  "title": "Balance druid, level 16-17",
+  "subtitle": "New at 16: Alt-E Aquatic Form",
+  "summary": "Balance druid keys as of level 16. New: Alt-E Aquatic Form.",
+  "class": "druid",
+  "level": 16,
+  "levels": "16-17",
+  "spec": "Balance",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Maul",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Moonfire",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Wrath",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Healing Touch",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Rejuvenation",
+      "role": "heal"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Entangling Roots",
+      "role": "cc"
+    },
+    {
+      "key": "V",
+      "mod": null,
+      "action": "Growl",
+      "role": "cc"
+    },
+    {
+      "key": "Q",
+      "mod": "shift",
+      "action": "Cure Poison",
+      "role": "heal"
+    },
+    {
+      "key": "E",
+      "mod": "shift",
+      "action": "Regrowth",
+      "role": "heal"
+    },
+    {
+      "key": "R",
+      "mod": "shift",
+      "action": "Bash",
+      "role": "cc"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Bear Form",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Aquatic Form",
+      "role": "movement"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Mark of the Wild",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Thorns",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

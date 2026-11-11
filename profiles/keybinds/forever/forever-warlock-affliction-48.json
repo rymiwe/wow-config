@@ -1,0 +1,168 @@
+{
+  "id": "forever-warlock-affliction-48",
+  "title": "Affliction warlock, level 48-49",
+  "subtitle": "New at 48: T Soul Fire",
+  "summary": "Affliction warlock keys as of level 48. New: T Soul Fire.",
+  "class": "warlock",
+  "level": 48,
+  "levels": "48-49",
+  "spec": "Affliction",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Life Tap",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Shoot",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Bane of Agony",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Corruption",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Immolate",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Shadow Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Death Coil",
+      "role": "defensive"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Soul Fire",
+      "role": "rotation"
+    },
+    {
+      "key": "G",
+      "mod": null,
+      "action": "Rain of Fire",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Health Funnel",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Drain Life",
+      "role": "heal"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Banish",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Howl of Terror",
+      "role": "cc"
+    },
+    {
+      "key": "T",
+      "mod": "shift",
+      "action": "Shadow Ward",
+      "role": "defensive"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Hellfire",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Demon Skin",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Unending Breath",
+      "role": "defensive"
+    },
+    {
+      "key": "C",
+      "mod": "alt",
+      "action": "Demon Armor",
+      "role": "buff"
+    },
+    {
+      "key": "V",
+      "mod": "alt",
+      "action": "Detect Invisibility",
+      "role": "utility"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "Q",
+      "mod": "ctrl",
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": "ctrl",
+      "action": "Follow",
+      "role": "rotation"
+    },
+    {
+      "key": "R",
+      "mod": "ctrl",
+      "action": "Stay or Move To",
+      "role": "rotation"
+    },
+    {
+      "key": "F",
+      "mod": "ctrl",
+      "action": "Pet ability 1",
+      "role": "rotation"
+    }
+  ]
+}

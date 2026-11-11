@@ -1,0 +1,168 @@
+{
+  "id": "forever-warrior-protection-33",
+  "title": "Protection warrior, level 33-35",
+  "subtitle": "New at 33: 1 Bloodrage, 2 Battle Shout, 3 Shield Block, 4 Revenge, 5 Execute, Q Rend, E Heroic Strike, R Shield Wall, F Thunder Clap, Shift-X Intercept, Mouse 5 Charge, Alt-Q Battle Stance, Alt-E Defensive Stance, Alt-R Berserker Stance",
+  "summary": "Protection warrior keys as of level 33. New: 1 Bloodrage, 2 Battle Shout, 3 Shield Block, 4 Revenge, 5 Execute, Q Rend, E Heroic Strike, R Shield Wall, F Thunder Clap, Shift-X Intercept, Mouse 5 Charge, Alt-Q Battle Stance, Alt-E Defensive Stance, Alt-R Berserker Stance.",
+  "class": "warrior",
+  "level": 33,
+  "levels": "33-35",
+  "spec": "Protection",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Bloodrage",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Battle Shout",
+      "role": "buff"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Shield Block",
+      "role": "defensive"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Revenge",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Execute",
+      "role": "rotation"
+    },
+    {
+      "key": "6",
+      "mod": null,
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Rend",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": null,
+      "action": "Heroic Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "R",
+      "mod": null,
+      "action": "Shield Wall",
+      "role": "defensive"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Mocking Blow",
+      "role": "cc"
+    },
+    {
+      "key": "F",
+      "mod": null,
+      "action": "Thunder Clap",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Taunt",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE4",
+      "mod": null,
+      "action": "Shield Bash",
+      "role": "cc"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Charge",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": "shift",
+      "action": "Disarm",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": "shift",
+      "action": "Retaliation",
+      "role": "defensive"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Berserker Rage",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "shift",
+      "action": "Intercept",
+      "role": "cc"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Battle Stance",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Defensive Stance",
+      "role": "buff"
+    },
+    {
+      "key": "R",
+      "mod": "alt",
+      "action": "Berserker Stance",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Valor of Azeroth",
+      "role": "rotation"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "1",
+      "mod": "ctrl",
+      "action": "Intimidating Shout",
+      "role": "cc"
+    }
+  ]
+}

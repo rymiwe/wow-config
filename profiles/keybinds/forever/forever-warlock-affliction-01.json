@@ -1,0 +1,78 @@
+{
+  "id": "forever-warlock-affliction-01",
+  "title": "Affliction warlock, level 1-3",
+  "subtitle": "New at 1: 1 Immolate, 2 Shadow Bolt, 3 Shoot, Alt-Z Demon Skin, Alt-H Hearthstone, Ctrl-Q Attack, Ctrl-E Follow, Ctrl-R Stay or Move To, Ctrl-F Pet ability 1",
+  "summary": "Affliction warlock keys as of level 1. New: 1 Immolate, 2 Shadow Bolt, 3 Shoot, Alt-Z Demon Skin, Alt-H Hearthstone, Ctrl-Q Attack, Ctrl-E Follow, Ctrl-R Stay or Move To, Ctrl-F Pet ability 1.",
+  "class": "warlock",
+  "level": 1,
+  "levels": "1-3",
+  "spec": "Affliction",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Immolate",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Shadow Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Shoot",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Demon Skin",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "Q",
+      "mod": "ctrl",
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": "ctrl",
+      "action": "Follow",
+      "role": "rotation"
+    },
+    {
+      "key": "R",
+      "mod": "ctrl",
+      "action": "Stay or Move To",
+      "role": "rotation"
+    },
+    {
+      "key": "F",
+      "mod": "ctrl",
+      "action": "Pet ability 1",
+      "role": "rotation"
+    }
+  ]
+}
