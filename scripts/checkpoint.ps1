@@ -4,7 +4,10 @@
 
 .DESCRIPTION
   Captures live WTF SavedVariables, bindings, Config.wtf, plus any Interface/AddOns
-  and templates edits since the last checkpoint. Auto-generates a commit message
+  and templates edits since the last checkpoint. Covers both Anniversary
+  (_anniversary_) and WoW: Forever (_forever_). For Forever, .gitignore keeps
+  only the shared layout files (account ElvUI.lua, bindings, KeyKit) - never
+  Config.wtf or chat history. Auto-generates a commit message
   with timestamp + diff shortstat. Pushes to origin/main unless -NoPush.
 
   Designed to run automatically from scripts/play.ps1 after WoW exits, or manually
@@ -59,10 +62,17 @@ if ($gitDir) {
 
 # Stage tracked-content paths only - never `git add .` (could pull in random junk).
 # .gitignore enforces the deny-by-default whitelist; we just narrow further to the
-# directories that actually change in normal play.
+# directories that actually change in normal play. A flavor that isn't installed
+# on this machine is skipped by the Test-Path check below.
+#
+# _forever_ is WoW: Forever. Its .gitignore section is much tighter than
+# Anniversary's: only account ElvUI.lua, bindings-cache.wtf, and KeyKit get in.
+# Those are what the Steam Deck / ibp pull with scripts/sync-forever.sh.
 $paths = @(
     "_anniversary_/WTF",
     "_anniversary_/Interface/AddOns",
+    "_forever_/WTF",
+    "_forever_/Interface/AddOns",
     "templates"
 )
 foreach ($p in $paths) {

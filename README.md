@@ -113,6 +113,9 @@ Refresh community addons later: `scripts/update-addons.sh --flavor _forever_` /
 the ElvUI install wizard with the X if it appears. Details and dropped CVars:
 [`templates/_forever_/README.md`](templates/_forever_/README.md).
 
+Keeping the Steam Deck and ibp in step with BLD's Forever layout:
+[Keeping Forever in sync](templates/_forever_/README.md#keeping-forever-in-sync).
+
 ## Custom addons
 
 | addon | purpose |
@@ -225,7 +228,7 @@ Two patterns depending on how you launch WoW. **Pick one.**
 
 #### Battle.net users → `scripts/watch.ps1` (recommended)
 
-A background watcher that polls for `WowClassic.exe`, attaches when it appears, and runs `checkpoint.ps1` every time it exits. Truly invisible — you launch via Battle.net normally and the repo stays in sync.
+A background watcher that polls for `WowClassic.exe` (Anniversary) or `Wow.exe` (WoW: Forever), attaches when it appears, and runs `checkpoint.ps1` every time it exits. Truly invisible — you launch via Battle.net normally and the repo stays in sync.
 
 **Install as a hidden Scheduled Task** (recommended — no terminal, no taskbar entry):
 
@@ -249,7 +252,7 @@ Wraps `WowClassic.exe` with pre-launch fetch + post-exit checkpoint. Pin to task
 
 #### What checkpoint.ps1 does (called by both)
 
-1. Stages `_anniversary_/WTF`, `Interface/AddOns`, and `templates`
+1. Stages `_anniversary_/WTF`, `_anniversary_/Interface/AddOns`, `_forever_/WTF`, `_forever_/Interface/AddOns`, and `templates` (Forever's `.gitignore` keeps only the ElvUI layout, keybinds, and KeyKit; see [Keeping Forever in sync](templates/_forever_/README.md#keeping-forever-in-sync))
 2. Commits with auto-generated message (timestamp + diff shortstat)
 3. Pushes to `origin/main`
 

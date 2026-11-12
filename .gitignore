@@ -89,6 +89,52 @@
 !_*/WTF/Account/*/*/*/SavedVariables/
 !_*/WTF/Account/*/*/*/SavedVariables/*.lua
 
+# --- WoW: Forever (_forever_): tighter whitelist ------------------------------
+# The rules above allow every flavor's WTF + custom addons. For Forever we want
+# much less: only the layout files the Steam Deck / ibp pull with
+# scripts/sync-forever.sh. Later rules win, so this block first re-denies all of
+# _forever_/WTF and _forever_/Interface/AddOns, then re-allows a short list.
+#
+# Tracked (BLD commits these; other machines pull them):
+#   account  SavedVariables/ElvUI.lua     (ElvUI layout; UIScale is kept per machine by the sync script)
+#   account  SavedVariables/KeyKit.lua    (KeyKit, account-wide today)
+#   per-char SavedVariables/KeyKit.lua    (in case KeyKit goes per-character)
+#   account  bindings-cache.wtf
+#   per-char bindings-cache.wtf
+#   Interface/AddOns/KeyKit/              (our own addon)
+#
+# Never tracked: WTF/Config.wtf (machine-specific graphics/CVars), per-char
+# SavedVariables/ElvUI.lua (holds chat history), chat-cache.txt, macros, and
+# every other addon folder (ElvUI, Questie, BadBoy, OPie... install via scripts).
+#
+# Git can't re-include a file whose parent directory is ignored, so each
+# allowed level re-opens its directory (the `!.../` lines) before re-denying
+# that directory's contents (the `.../*` lines).
+
+# WTF: deny everything under _forever_/WTF, reopen the Account dir
+_forever_/WTF/*
+!_forever_/WTF/Account/
+# Account level: _forever_/WTF/Account/<ACCOUNT>/...
+_forever_/WTF/Account/*/*
+!_forever_/WTF/Account/*/bindings-cache.wtf
+# Reopen subdirs of the account dir: SavedVariables/ and each <Realm>/
+!_forever_/WTF/Account/*/*/
+_forever_/WTF/Account/*/*/*
+!_forever_/WTF/Account/*/SavedVariables/ElvUI.lua
+!_forever_/WTF/Account/*/SavedVariables/KeyKit.lua
+# Per-character level: _forever_/WTF/Account/<ACCOUNT>/<Realm>/<Character>/...
+!_forever_/WTF/Account/*/*/*/
+_forever_/WTF/Account/*/*/*/*
+!_forever_/WTF/Account/*/*/*/bindings-cache.wtf
+!_forever_/WTF/Account/*/*/*/SavedVariables/
+_forever_/WTF/Account/*/*/*/SavedVariables/*
+!_forever_/WTF/Account/*/*/*/SavedVariables/KeyKit.lua
+
+# AddOns: only KeyKit. Third-party addons stay untracked.
+_forever_/Interface/AddOns/*
+!_forever_/Interface/AddOns/KeyKit/
+!_forever_/Interface/AddOns/KeyKit/**
+
 # Even within whitelisted paths, always ignore noise
 __pycache__/
 *.pyc
