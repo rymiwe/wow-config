@@ -1,8 +1,10 @@
 
 KeyKitDB = {
 ["barsPlaced"] = {
-["bar10"] = true,
-["bar2"] = true,
+["bar10"] = "2full",
+["bar8"] = "2full",
+["bar9"] = "2full",
+["bar2"] = "2full",
 },
 ["clearBars"] = true,
 ["direct"] = {
@@ -26,7 +28,7 @@ KeyKitDB = {
 ["SHIFT-Z"] = "MULTIACTIONBAR3BUTTON8",
 ["SHIFT-2"] = "ACTIONBUTTON3",
 ["1"] = "ACTIONBUTTON2",
-["SHIFT-X"] = "MULTIACTIONBAR3BUTTON9",
+["SHIFT-G"] = "MULTIACTIONBAR3BUTTON6",
 ["3"] = "ACTIONBUTTON4",
 ["2"] = "ACTIONBUTTON3",
 ["ALT-E"] = "MULTIACTIONBAR4BUTTON10",
@@ -40,7 +42,7 @@ KeyKitDB = {
 ["SHIFT-E"] = "ACTIONBUTTON10",
 ["ALT-Q"] = "MULTIACTIONBAR4BUTTON8",
 ["SHIFT-F"] = "SPELL Holy Light",
-["SHIFT-G"] = "MULTIACTIONBAR3BUTTON6",
+["SHIFT-X"] = "MULTIACTIONBAR3BUTTON9",
 },
 ["slots"] = {
 {
