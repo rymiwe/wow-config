@@ -229,9 +229,12 @@ end
 --     A bar is 2 rows: 36 + 3 + 36 = 75 tall. The lower bar sits one row above
 --     the utility row, at y 4 + 39 = 43. The upper bar sits 3 above the lower
 --     bar's top, at y 43 + 75 + 3 = 121. The top of a block is 121 + 75 = 196.
+--   Stance bar: the blocks reach y 196, where the stance bar used to sit (0,170,
+--     26 tall). Formless classes get it centered over the Ctrl block, 3 above its
+--     top: x 351, y 196 + 3 = 199. Form classes have no Ctrl block and keep 0,170.
 -- A bar's position is set once per layout version, so a bar you move stays where
 -- you put it. Out of combat only.
-local BAR_LAYOUT_VERSION = 3       -- bump to place the bars again, once
+local BAR_LAYOUT_VERSION = 4       -- bump to place the bars again, once
 local BAR_SETUP = {
   -- name = { mover, full = position, compact = bar 2's position for form classes,
   --          row = buttons in a one-row utility bar, formless = formless classes only }
@@ -246,6 +249,10 @@ local BAR_SETUP = {
   bar9  = { mover = "ElvAB_9",  full = "BOTTOM,ElvUIParent,BOTTOM,351,121", formless = true },
   bar10 = { mover = "ElvAB_10", full = "BOTTOM,ElvUIParent,BOTTOM,351,43", formless = true },
 }
+-- The stance bar is not one of the ten bars: ElvUI gives it a mover (ShiftAB) and no
+-- AB.handledBars entry. Only its position is set here, never its button settings.
+local STANCE_MOVER = "ShiftAB"
+local STANCE_AT = { full = "BOTTOM,ElvUIParent,BOTTOM,351,199", compact = "BOTTOM,ElvUIParent,BOTTOM,0,170" }
 
 local function SetupBars()
   if InCombatLockdown() then return end
@@ -289,6 +296,16 @@ local function SetupBars()
         AB:UpdateButtonSettings(name)
       end
     end
+  end
+  -- Like bar 2, the stance bar has one position per class kind, so it is placed
+  -- again when the class kind changes. Skipped until ElvUI has made its mover.
+  local kind = formless and "full" or "compact"
+  if db.barsPlaced.stanceBar ~= BAR_LAYOUT_VERSION .. kind
+     and E.CreatedMovers and E.CreatedMovers[STANCE_MOVER] then
+    E.db.movers = E.db.movers or {}
+    E.db.movers[STANCE_MOVER] = STANCE_AT[kind]
+    db.barsPlaced.stanceBar = BAR_LAYOUT_VERSION .. kind
+    E:SetMoverPoints(STANCE_MOVER)
   end
 end
 
