@@ -12,6 +12,9 @@
 #   --fresh             Overwrite bindings/ElvUI/SetupCore + reseed auto-setup flag (DEFAULT)
 #   --upsert            Preserve existing bindings/SavedVariables (smart-merge new bindings only)
 #   --branch <name>     Repo branch (default: main)
+#   --flavor <folder>   _anniversary_ (default) or _forever_ (WoW: Forever kit:
+#                       bars + binds + CVars + ElvUI profile + community addons;
+#                       no SetupCore/class addons)
 
 set -euo pipefail
 
@@ -19,6 +22,7 @@ WOWDIR="${WOWDIR:-}"
 ACCOUNT="${ACCOUNT:-}"
 MODE="${MODE:-fresh}"
 BRANCH="${BRANCH:-main}"
+FLAVOR="${FLAVOR:-_anniversary_}"
 REPO_URL="${REPO_URL:-https://github.com/rymiwe/wow-config.git}"
 
 while [[ $# -gt 0 ]]; do
@@ -27,20 +31,23 @@ while [[ $# -gt 0 ]]; do
         --account) ACCOUNT="$2"; shift 2 ;;
         --branch)  BRANCH="$2"; shift 2 ;;
         --mode)    MODE="$2"; shift 2 ;;
+        --flavor)  FLAVOR="$2"; shift 2 ;;
         --fresh)   MODE="fresh"; shift ;;
         --upsert)  MODE="upsert"; shift ;;
-        -h|--help) sed -n '2,17p' "$0"; exit 0 ;;
+        -h|--help) sed -n '2,20p' "$0"; exit 0 ;;
         *) echo "Unknown arg: $1" >&2; exit 1 ;;
     esac
 done
 
 find_wow_dir() {
-    if [[ -n "$WOWDIR" && -d "$WOWDIR/_anniversary_" ]]; then
+    if [[ -n "$WOWDIR" && -d "$WOWDIR/$FLAVOR" ]]; then
         echo "$WOWDIR"; return
     fi
     # Steam Deck Proton prefixes (any compatdata appid)
     for d in "$HOME"/.steam/steam/steamapps/compatdata/*/pfx/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
              "$HOME"/.steam/steam/steamapps/compatdata/*/pfx/drive_c/Program\ Files/World\ of\ Warcraft \
+             /run/media/*/steamapps/compatdata/*/pfx/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
+             /run/media/*/*/steamapps/compatdata/*/pfx/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
              "$HOME"/Games/battlenet/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
              "$HOME"/.local/share/lutris/runners/wine/*/drive_c/Program\ Files\ \(x86\)/World\ of\ Warcraft \
              "$HOME"/.local/share/lutris/games/world-of-warcraft \
@@ -48,18 +55,18 @@ find_wow_dir() {
              "$HOME"/Games/World\ of\ Warcraft \
              "$HOME"/Games/world-of-warcraft \
              "$HOME"/World\ of\ Warcraft; do
-        if [[ -d "$d/_anniversary_" ]]; then echo "$d"; return; fi
+        if [[ -d "$d/$FLAVOR" ]]; then echo "$d"; return; fi
     done
-    echo "ERROR: Could not find WoW install. Set WOWDIR=/path or pass --wow-dir." >&2
+    echo "ERROR: Could not find a WoW folder containing $FLAVOR. Install WoW: Forever (or the right flavor), launch it once to the Gamerules screen, quit, and rerun. Or set WOWDIR=/path or pass --wow-dir." >&2
     exit 1
 }
 
 WOW="$(find_wow_dir)"
 
 list_accounts() {
-    local acct_dir="$WOW/_anniversary_/WTF/Account"
+    local acct_dir="$WOW/$FLAVOR/WTF/Account"
     if [[ ! -d "$acct_dir" ]]; then
-        echo "ERROR: No WTF/Account directory at $acct_dir. Launch WoW once first." >&2
+        echo "ERROR: No WTF/Account folder at $acct_dir. Launch this WoW flavor once, log in to character select, quit, and rerun." >&2
         exit 1
     fi
     if [[ -n "$ACCOUNT" ]]; then
@@ -82,12 +89,72 @@ mapfile -t ACCOUNTS < <(list_accounts)
 echo "WoW directory:  $WOW"
 echo "Accounts:       ${ACCOUNTS[*]}"
 echo "Mode:           $MODE"
+echo "Flavor:         $FLAVOR"
 echo "Repo:           $REPO_URL ($BRANCH)"
 
 TMP="$(mktemp -d -t wow-config-XXXXXX)"
 trap 'rm -rf "$TMP"' EXIT
 echo "Cloning repo..."
 git clone --depth 1 --branch "$BRANCH" "$REPO_URL" "$TMP" >/dev/null
+
+# --- WoW: Forever kit -------------------------------------------------------
+# Forever (1.60.1, Interface 16001, product wowf, exe Wow.exe) runs the modern
+# Mainline API, so our Classic-API custom addons (SetupCore, class addons,
+# ElvUIFixes) are NOT installed. We ship the bar layout + keybinds + CVars +
+# ElvUI profile, then hand off to update-addons.sh for community addons.
+if [[ "$FLAVOR" == "_forever_" ]]; then
+    FTPL="$TMP/templates/_forever_"
+    for ACCT in "${ACCOUNTS[@]}"; do
+        echo ""
+        echo "=== Account: $ACCT (Forever) ==="
+        acct_root="$WOW/_forever_/WTF/Account/$ACCT"
+        mkdir -p "$acct_root/SavedVariables"
+        if [[ "$MODE" == "fresh" || ! -f "$acct_root/bindings-cache.wtf" ]]; then
+            cp "$FTPL/bindings-cache.wtf" "$acct_root/bindings-cache.wtf"
+            echo "Installed bindings-cache.wtf"
+        else
+            echo "bindings-cache.wtf exists - leaving alone (use --fresh to overwrite)"
+        fi
+        if [[ "$MODE" == "fresh" || ! -f "$acct_root/SavedVariables/ElvUI.lua" ]]; then
+            cp "$TMP/templates/ElvUI.lua" "$acct_root/SavedVariables/ElvUI.lua"
+            echo "Installed ElvUI.lua (full layout)"
+        else
+            echo "ElvUI.lua exists - leaving alone (use --fresh to install layout)"
+        fi
+    done
+    fcfg="$WOW/_forever_/WTF/Config.wtf"
+    if [[ ! -f "$fcfg" ]]; then
+        cp "$FTPL/Config.wtf" "$fcfg"; echo "Installed Config.wtf (CVar defaults)"
+    else
+        # Never replace Forever's Config.wtf wholesale (it holds the client's
+        # own portal/graphics/account settings); upsert our SET lines.
+        appended=0
+        while IFS= read -r line; do
+            if [[ "$line" =~ ^SET[[:space:]]+([^[:space:]]+)[[:space:]] ]]; then
+                key="${BASH_REMATCH[1]}"
+                if grep -qE "^SET[[:space:]]+${key}[[:space:]]" "$fcfg"; then
+                    [[ "$MODE" == "fresh" ]] && sed -i "s|^SET[[:space:]]\+${key}[[:space:]].*|${line}|" "$fcfg"
+                else
+                    echo "$line" >> "$fcfg"; appended=$((appended+1))
+                fi
+            fi
+        done < "$FTPL/Config.wtf"
+        echo "Config.wtf merged ($appended new CVars added)"
+    fi
+    echo ""
+    WOWDIR="$WOW" bash "$TMP/scripts/update-addons.sh" --flavor _forever_ || echo "WARN: community addon update had errors" >&2
+    if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]] || command -v hyprctl >/dev/null 2>&1; then
+        echo; echo "Hyprland detected - applying integration (Super+number passes to WoW)..."
+        REPO_DIR="$TMP" bash "$TMP/scripts/install-omarchy-wow.sh"
+    fi
+    echo
+    echo "Forever install complete. Next steps:"
+    echo "  1. Launch WoW: Forever. If the ElvUI install wizard appears, close it with the X."
+    echo "  2. Drag spells onto the bars by hand (keys already match our layout)."
+    echo "  3. OPie: /opie -> bind rings to BUTTON4 / BUTTON5 yourself."
+    echo "  4. Zygor: install via the Zygor client (Elite subscription) into _forever_."
+    exit 0
+fi
 
 SRC_ADDONS="$TMP/_anniversary_/Interface/AddOns"
 DST_ADDONS="$WOW/_anniversary_/Interface/AddOns"

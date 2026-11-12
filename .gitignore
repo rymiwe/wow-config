@@ -52,9 +52,12 @@
 # Distribution (templates and install scripts at repo root)
 !templates/
 !templates/**
+!profiles/
+!profiles/**
 !install.ps1
 !install.sh
 !install.bat
+!install-forever.bat
 !README.md
 !INSTALL.txt
 !scripts/
@@ -87,6 +90,9 @@
 !_*/WTF/Account/*/*/*/SavedVariables/*.lua
 
 # Even within whitelisted paths, always ignore noise
+__pycache__/
+*.pyc
+*.pyo
 *.bak
 *.old
 *.md5
