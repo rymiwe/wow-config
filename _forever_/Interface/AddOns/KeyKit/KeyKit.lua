@@ -212,19 +212,39 @@ local function InCombat(what)
   return false
 end
 
--- Turn on the Shift bar (ElvUI bar 2) and, for formless classes, the rest of the
--- Shift and Ctrl bars (8, 9, 10), through ElvUI's own settings. Formless classes get
--- two 6-wide blocks that copy plain bars 1 and 3: Shift on the left, Ctrl on the
--- right, level with the plain, Alt and side bars. Form classes get the compact
--- 4-wide Shift bar and no others. A bar's position is set once per layout, so a bar
--- you move stays where you put it. Out of combat only.
-local BAR_LAYOUT_VERSION = 2       -- bump to place the bars again, once
+-- Place the ten ElvUI bars of the layout, through ElvUI's own settings. Every class
+-- gets the utility row and the Plain and Alt blocks. Formless classes also get the
+-- Shift block (bars 2 and 8) and the Ctrl block (bars 9 and 10). Form classes get
+-- the compact 4-wide Shift bar (bar 2) and no bars 8, 9 or 10.
+--
+-- Buttons are 36 wide with 3 between them, and no bar has a backdrop, so a bar's
+-- frame is exactly its buttons: n buttons are n*36 + (n-1)*3 wide. A mover's x is
+-- the center of its bar and its y the bottom edge.
+--   Utility row, y 4: bar 6 (12 buttons, 465 wide) then bar 7 (6 buttons, 231 wide),
+--     3 apart, 699 in all, from -349.5 to 349.5. Centers: -349.5 + 465/2 = -117
+--     and 349.5 - 231/2 = 234.
+--   Blocks: each is two bars of 12 buttons, 6 per row, so 231 wide and 4 rows tall.
+--     Four blocks 3 apart are 933 wide, from -466.5 to 466.5. Centers are 234
+--     apart: Shift -351, Plain -117, Alt 117, Ctrl 351.
+--     A bar is 2 rows: 36 + 3 + 36 = 75 tall. The lower bar sits one row above
+--     the utility row, at y 4 + 39 = 43. The upper bar sits 3 above the lower
+--     bar's top, at y 43 + 75 + 3 = 121. The top of a block is 121 + 75 = 196.
+-- A bar's position is set once per layout version, so a bar you move stays where
+-- you put it. Out of combat only.
+local BAR_LAYOUT_VERSION = 3       -- bump to place the bars again, once
 local BAR_SETUP = {
-  -- name = { mover, full position, buttons, per row }; compact applies to bar2 only
-  bar2  = { mover = "ElvAB_2",  full = "BOTTOM,ElvUIParent,BOTTOM,-478,87", compact = "BOTTOM,ElvUIParent,BOTTOM,-442,4" },
-  bar8  = { mover = "ElvAB_8",  full = "BOTTOM,ElvUIParent,BOTTOM,-478,4" },
-  bar9  = { mover = "ElvAB_9",  full = "BOTTOM,ElvUIParent,BOTTOM,478,87" },
-  bar10 = { mover = "ElvAB_10", full = "BOTTOM,ElvUIParent,BOTTOM,478,4" },
+  -- name = { mover, full = position, compact = bar 2's position for form classes,
+  --          row = buttons in a one-row utility bar, formless = formless classes only }
+  bar6  = { mover = "ElvAB_6",  full = "BOTTOM,ElvUIParent,BOTTOM,-117,4", row = 12 },
+  bar7  = { mover = "ElvAB_7",  full = "BOTTOM,ElvUIParent,BOTTOM,234,4", row = 6 },
+  bar1  = { mover = "ElvAB_1",  full = "BOTTOM,ElvUIParent,BOTTOM,-117,121" },
+  bar3  = { mover = "ElvAB_3",  full = "BOTTOM,ElvUIParent,BOTTOM,-117,43" },
+  bar4  = { mover = "ElvAB_4",  full = "BOTTOM,ElvUIParent,BOTTOM,117,121" },
+  bar5  = { mover = "ElvAB_5",  full = "BOTTOM,ElvUIParent,BOTTOM,117,43" },
+  bar2  = { mover = "ElvAB_2",  full = "BOTTOM,ElvUIParent,BOTTOM,-351,121", compact = "BOTTOM,ElvUIParent,BOTTOM,-442,4" },
+  bar8  = { mover = "ElvAB_8",  full = "BOTTOM,ElvUIParent,BOTTOM,-351,43", formless = true },
+  bar9  = { mover = "ElvAB_9",  full = "BOTTOM,ElvUIParent,BOTTOM,351,121", formless = true },
+  bar10 = { mover = "ElvAB_10", full = "BOTTOM,ElvUIParent,BOTTOM,351,43", formless = true },
 }
 
 local function SetupBars()
@@ -235,20 +255,26 @@ local function SetupBars()
   db.barsPlaced = db.barsPlaced or {}
   local formless = Formless()
   for name, s in pairs(BAR_SETUP) do
-    local want = name == "bar2" or formless
-    local at = formless and s.full or s.compact
-    local perRow = formless and 6 or 4
-    local tag = BAR_LAYOUT_VERSION .. (formless and "full" or "compact")
+    local want = formless or not s.formless
+    -- Only bar 2 has a second position. Every other bar sits in the same place for
+    -- every class, so it keeps one tag and is not placed again on a class change.
+    local compact = not formless and s.compact ~= nil
+    local at = compact and s.compact or s.full
+    local tag = BAR_LAYOUT_VERSION .. (compact and "compact" or "full")
+    local set = { buttons = s.row or 12, buttonsPerRow = s.row or (compact and 4 or 6),
+                  buttonSize = 36, buttonSpacing = 3, backdrop = false }
+    -- Block bars fill from the top left and hide empty slots. The utility row keeps
+    -- its own settings for those.
+    if not s.row then set.point = "TOPLEFT" set.showGrid = false end
     local bar = E.db.actionbar[name]
     if bar and AB.handledBars[name] then
       local changed = bar.enabled ~= want
       bar.enabled = want
       if want then
-        for k, v in pairs({ buttons = 12, buttonsPerRow = perRow, buttonSize = 36, buttonSpacing = 3,
-                            point = "TOPLEFT", showGrid = false }) do
+        for k, v in pairs(set) do
           if bar[k] ~= v then bar[k] = v changed = true end
         end
-        local place = db.barsPlaced[name] ~= tag
+        local place = at ~= nil and db.barsPlaced[name] ~= tag
         if place then
           E.db.movers = E.db.movers or {}
           E.db.movers[s.mover] = at
