@@ -1,8 +1,10 @@
 
 TomTomDB = {
 ["profileKeys"] = {
-["Eeightb - Doomhowl"] = "Default",
 ["Acseven - Doomhowl"] = "Default",
+["Jrti - Wild Growth"] = "Default",
+["Polygonous - Crusader Strike"] = "Default",
+["Eeightb - Doomhowl"] = "Default",
 ["Fsevenone - Doomhowl"] = "Default",
 },
 ["profiles"] = {
@@ -32,14 +34,20 @@ nil,
 TomTomWaypoints = nil
 TomTomWaypointsM = {
 ["profileKeys"] = {
-["Eeightb - Doomhowl"] = "Eeightb - Doomhowl",
 ["Acseven - Doomhowl"] = "Acseven - Doomhowl",
+["Jrti - Wild Growth"] = "Jrti - Wild Growth",
+["Polygonous - Crusader Strike"] = "Polygonous - Crusader Strike",
+["Eeightb - Doomhowl"] = "Eeightb - Doomhowl",
 ["Fsevenone - Doomhowl"] = "Fsevenone - Doomhowl",
 },
 ["profiles"] = {
-["Eeightb - Doomhowl"] = {
-},
 ["Acseven - Doomhowl"] = {
+},
+["Jrti - Wild Growth"] = {
+},
+["Polygonous - Crusader Strike"] = {
+},
+["Eeightb - Doomhowl"] = {
 },
 ["Fsevenone - Doomhowl"] = {
 },

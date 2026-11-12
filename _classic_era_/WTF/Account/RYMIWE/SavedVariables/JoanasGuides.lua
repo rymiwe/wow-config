@@ -1,8 +1,9 @@
 
 JoanasGuides_Account = {
-["enableStepID"] = true,
+["JoanasGuides-MinimapButton"] = {
+["position"] = -2.888,
+},
 ["autoquests"] = true,
-["objectiveCompletionSound"] = true,
 ["WindowLocation"] = {
 "RIGHT",
 nil,
@@ -10,10 +11,9 @@ nil,
 -248.0179443359375,
 -47.47772598266602,
 },
+["autotaxi"] = true,
 ["scale"] = 1,
 ["autobanking"] = true,
-["autotaxi"] = true,
-["JoanasGuides-MinimapButton"] = {
-["position"] = -2.888,
-},
+["objectiveCompletionSound"] = true,
+["enableStepID"] = true,
 }
