@@ -114,6 +114,7 @@ the ElvUI install wizard with the X if it appears. Details and dropped CVars:
 [`templates/_forever_/README.md`](templates/_forever_/README.md).
 
 Keeping the Steam Deck and ibp in step with BLD's Forever layout:
+One-time Deck shortcut (adds a desktop icon): `curl -sL https://raw.githubusercontent.com/rymiwe/wow-config/main/scripts/deck-shortcut.sh | bash`
 [Keeping Forever in sync](templates/_forever_/README.md#keeping-forever-in-sync).
 
 ## Custom addons
