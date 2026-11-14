@@ -48,6 +48,9 @@ Deck and ibp only pull it down, with `scripts/sync-forever.sh`.
 
 - **Syncs:** ElvUI layout (account-wide), keybinds, and KeyKit.
 - **Never syncs:** graphics settings (`Config.wtf`), chat history, other addons.
+- **Every account on the machine gets it.** ibp plays Forever on a second
+  Battle.net account; the account-wide files go to each account folder.
+  Each character's ElvUI install flag stays local, so the wizard doesn't return.
 - **UI scale stays per machine.** The Deck keeps its own scale (0.7111), BLD its own (0.6).
 
 Bars changed on the Deck or ibp get replaced at the next sync. The old copy
