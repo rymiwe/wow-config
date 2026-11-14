@@ -13,8 +13,12 @@ KeyKitDB = {
 ["bar1"] = "4full",
 ["bar4"] = "4full",
 },
+["clearBars"] = true,
 ["direct"] = {
 ["ALT-H"] = true,
+},
+["placeholders"] = true,
+["personal"] = {
 },
 ["undo"] = {
 ["profile"] = "Holy paladin, level 16-19",
@@ -33,10 +37,10 @@ KeyKitDB = {
 ["SHIFT-T"] = "ELVUIBAR2BUTTON12",
 ["X"] = "MULTIACTIONBAR3BUTTON9",
 ["Z"] = "MULTIACTIONBAR3BUTTON8",
-["ALT-C"] = "MULTIACTIONBAR2BUTTON10",
+["T"] = "ACTIONBUTTON12",
 ["ALT-Q"] = "MULTIACTIONBAR4BUTTON8",
 ["SHIFT-F"] = "ELVUIBAR8BUTTON5",
-["T"] = "ACTIONBUTTON12",
+["ALT-C"] = "MULTIACTIONBAR2BUTTON10",
 },
 ["slots"] = {
 {
@@ -264,8 +268,4 @@ nil,
 ["ALT-H"] = true,
 },
 },
-["placeholders"] = true,
-["personal"] = {
-},
-["clearBars"] = true,
 }
