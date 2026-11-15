@@ -182,7 +182,14 @@ local MOD_BAR = {
   ctrl  = { ELVUIBAR9BUTTON = true, ELVUIBAR10BUTTON = true },
 }
 -- Shift and Ctrl bars come in pairs, like plain bars 1 and 3.
-local PAIRS = { { "ELVUIBAR2BUTTON", "ELVUIBAR8BUTTON" }, { "ELVUIBAR9BUTTON", "ELVUIBAR10BUTTON" } }
+-- The two bars of each block. The Plain and Alt blocks are pairs for every class;
+-- the Shift and Ctrl pairs exist only for formless classes.
+local PAIRS = {
+  { "ACTIONBUTTON", "MULTIACTIONBAR3BUTTON" },
+  { "MULTIACTIONBAR4BUTTON", "MULTIACTIONBAR2BUTTON" },
+  { "ELVUIBAR2BUTTON", "ELVUIBAR8BUTTON", formless = true },
+  { "ELVUIBAR9BUTTON", "ELVUIBAR10BUTTON", formless = true },
+}
 -- Template binding of a formless-layer key that is not a bar button.
 local TEMPLATE_OTHER = { ["SHIFT-B"] = "OPENALLBAGS" }
 
@@ -192,11 +199,12 @@ local function OnBar(layer, cmd)
   return MOD_BAR[layer] ~= nil and MOD_BAR[layer][(ns.BarSlots(cmd))] == true
 end
 
--- Formless classes use both bars of a pair or neither: add the partner of any bar in t.
+-- A block shows both its bars or neither: add the partner of any bar in t, so a
+-- bar whose keys the profile leaves empty still gets its placeholders.
 local function CompletePairs(t, make)
-  if not Formless() then return end
+  local formless = Formless()
   for _, p in ipairs(PAIRS) do
-    if t[p[1]] or t[p[2]] then
+    if (formless or not p.formless) and (t[p[1]] or t[p[2]]) then
       for _, bar in ipairs(p) do t[bar] = t[bar] or make(bar) end
     end
   end
