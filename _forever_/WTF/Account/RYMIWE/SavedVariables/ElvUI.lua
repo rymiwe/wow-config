@@ -2,6 +2,7 @@
 ElvDB = {
 ["profileKeys"] = {
 ["Wesso Back"] = "Default",
+["Shift Left"] = "Default",
 ["Rym Wicen"] = "Default",
 },
 ["DisabledAddOns"] = {
@@ -11,6 +12,7 @@ ElvDB = {
 ["class"] = {
 ["CAMWOW US1 Realm 3 PvE"] = {
 ["Wesso Back"] = "PALADIN",
+["Shift Left"] = "DRUID",
 ["Rym Wicen"] = "PRIEST",
 },
 },
@@ -236,7 +238,7 @@ ElvDB = {
 ["AddonCompartmentMover"] = "RIGHT,ElvUI_MinimapHolder,RIGHT,-5,10",
 ["ObjectiveFrameMover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-79,-293",
 ["MirrorTimer2Mover"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-310,-247",
-["ShiftAB"] = "BOTTOM,ElvUIParent,BOTTOM,351,199",
+["ShiftAB"] = "BOTTOM,ElvUIParent,BOTTOM,0,170",
 ["ShardTransferMover"] = "TOPLEFT,UIParent,TOPLEFT,4,-613",
 ["AutoButtonBar5Mover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-279,328",
 ["ElvUF_TargetCastbarMover"] = "BOTTOM,ElvUIParent,BOTTOM,136,216",
@@ -279,7 +281,7 @@ ElvDB = {
 ["DTPanelCoordsMover"] = "BOTTOMRIGHT,ElvUIParent,BOTTOMRIGHT,-76,49",
 ["SalvageCrateMover"] = "TOPLEFT,ElvUIParent,TOPLEFT,2,-483",
 ["ExperienceBarMover"] = "TOP,ElvUIParent,TOP,0,-4",
-["ElvAB_2"] = "BOTTOM,ElvUIParent,BOTTOM,-351,121",
+["ElvAB_2"] = "BOTTOM,ElvUIParent,BOTTOM,-442,4",
 ["ElvUF_TargetMover"] = "BOTTOM,ElvUIParent,BOTTOM,136,230",
 ["AdditionalPowerMover"] = "BOTTOM,ElvUIParent,BOTTOM,-136,291",
 ["SquareMinimapBar"] = "TOPRIGHT,ElvUIParent,TOPRIGHT,-2,-185",
@@ -616,14 +618,11 @@ ElvDB = {
 ["sizeOverride"] = 33,
 ["perrow"] = 4,
 },
-["portrait"] = {
-["width"] = 25,
-["style"] = "Class",
-},
 ["pvpTrinket"] = {
 ["xOffset"] = 7,
 ["size"] = 32,
 },
+["pvpSpecIcon"] = false,
 ["spacing"] = 15,
 ["pvpclassificationindicator"] = {
 ["size"] = 32,
@@ -653,7 +652,10 @@ ElvDB = {
 ["position"] = "LEFT",
 ["xOffset"] = 2,
 },
-["pvpSpecIcon"] = false,
+["portrait"] = {
+["width"] = 25,
+["style"] = "Class",
+},
 ["height"] = 27,
 ["buffs"] = {
 ["xOffset"] = -4,
@@ -779,7 +781,6 @@ ElvDB = {
 ["showGrid"] = false,
 },
 ["bar8"] = {
-["enabled"] = true,
 ["buttonsPerRow"] = 6,
 ["point"] = "TOPLEFT",
 ["buttonSpacing"] = 3,
@@ -789,7 +790,6 @@ ElvDB = {
 ["desaturateOnCooldown"] = true,
 ["fontOutline"] = "OUTLINE",
 ["bar9"] = {
-["enabled"] = true,
 ["buttonsPerRow"] = 6,
 ["point"] = "TOPLEFT",
 ["buttonSpacing"] = 3,
@@ -820,7 +820,6 @@ ElvDB = {
 ["hotkeytext"] = false,
 },
 ["bar10"] = {
-["enabled"] = true,
 ["buttonsPerRow"] = 6,
 ["point"] = "TOPLEFT",
 ["buttonSpacing"] = 3,
@@ -836,7 +835,7 @@ ElvDB = {
 },
 ["bar2"] = {
 ["enabled"] = true,
-["buttonsPerRow"] = 6,
+["buttonsPerRow"] = 4,
 ["visibility"] = "[vehicleui][overridebar][petbattle][possessbar] hide; show",
 ["point"] = "TOPLEFT",
 ["buttonSpacing"] = 3,
@@ -1155,6 +1154,7 @@ nil,
 ["faction"] = {
 ["CAMWOW US1 Realm 3 PvE"] = {
 ["Wesso Back"] = "Horde",
+["Shift Left"] = "Horde",
 ["Rym Wicen"] = "Horde",
 },
 },
@@ -1179,10 +1179,14 @@ nil,
 ElvPrivateDB = {
 ["profileKeys"] = {
 ["Wesso Back"] = "Wesso Back",
+["Shift Left"] = "Shift Left",
 ["Rym Wicen"] = "Rym Wicen",
 },
 ["profiles"] = {
 ["Wesso Back"] = {
+["install_complete"] = 16.01,
+},
+["Shift Left"] = {
 ["install_complete"] = 16.01,
 },
 ["Rym Wicen"] = {
