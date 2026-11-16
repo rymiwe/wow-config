@@ -1,0 +1,60 @@
+{
+  "id": "forever-shaman-elemental-08",
+  "title": "Elemental shaman, level 8-9",
+  "subtitle": "New at 8: 2 Lightning Shield, 3 Earth Shock, 4 Lightning Bolt",
+  "summary": "Elemental shaman keys as of level 8. New: 2 Lightning Shield, 3 Earth Shock, 4 Lightning Bolt.",
+  "class": "shaman",
+  "level": 8,
+  "levels": "8-9",
+  "spec": "Elemental",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Rockbiter Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Lightning Shield",
+      "role": "buff"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Earth Shock",
+      "role": "cc"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Lightning Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

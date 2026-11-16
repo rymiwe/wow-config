@@ -1,0 +1,132 @@
+{
+  "id": "forever-hunter-beast-mastery-12",
+  "title": "Beast Mastery hunter, level 12-15",
+  "subtitle": "New at 12: 2 Wing Clip, 3 Hunter's Mark, 4 Serpent Sting, 5 Arcane Shot, Q Auto Shot, G Dismember, Z Mend Pet",
+  "summary": "Beast Mastery hunter keys as of level 12. New: 2 Wing Clip, 3 Hunter's Mark, 4 Serpent Sting, 5 Arcane Shot, Q Auto Shot, G Dismember, Z Mend Pet.",
+  "class": "hunter",
+  "level": 12,
+  "levels": "12-15",
+  "spec": "Beast Mastery",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Raptor Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Wing Clip",
+      "role": "cc"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Hunter's Mark",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Serpent Sting",
+      "role": "rotation"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Arcane Shot",
+      "role": "rotation"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Auto Shot",
+      "role": "rotation"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Mine!",
+      "role": "rotation"
+    },
+    {
+      "key": "G",
+      "mod": null,
+      "action": "Dismember",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Mend Pet",
+      "role": "heal"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Aspect of the Monkey",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Aspect of the Hawk",
+      "role": "buff"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Track Beasts",
+      "role": "utility"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Track Humanoids",
+      "role": "utility"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "Q",
+      "mod": "ctrl",
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "E",
+      "mod": "ctrl",
+      "action": "Follow",
+      "role": "rotation"
+    },
+    {
+      "key": "R",
+      "mod": "ctrl",
+      "action": "Stay or Move To",
+      "role": "rotation"
+    },
+    {
+      "key": "F",
+      "mod": "ctrl",
+      "action": "Pet ability 1",
+      "role": "rotation"
+    }
+  ]
+}

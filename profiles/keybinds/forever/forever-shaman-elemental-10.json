@@ -1,0 +1,78 @@
+{
+  "id": "forever-shaman-elemental-10",
+  "title": "Elemental shaman, level 10-11",
+  "subtitle": "New at 10: 2 Searing Totem, 3 Lightning Shield, 4 Earth Shock, 5 Strength of Earth Totem, Q Lightning Bolt, Alt-Q Flametongue Weapon",
+  "summary": "Elemental shaman keys as of level 10. New: 2 Searing Totem, 3 Lightning Shield, 4 Earth Shock, 5 Strength of Earth Totem, Q Lightning Bolt, Alt-Q Flametongue Weapon.",
+  "class": "shaman",
+  "level": 10,
+  "levels": "10-11",
+  "spec": "Elemental",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Rockbiter Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Searing Totem",
+      "role": "buff"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Lightning Shield",
+      "role": "buff"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Earth Shock",
+      "role": "cc"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Strength of Earth Totem",
+      "role": "buff"
+    },
+    {
+      "key": "Q",
+      "mod": null,
+      "action": "Lightning Bolt",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Healing Wave",
+      "role": "heal"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Flametongue Weapon",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

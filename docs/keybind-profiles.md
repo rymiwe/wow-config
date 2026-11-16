@@ -1,13 +1,18 @@
-# Keybind pictures
+# Keybind profiles
 
-These are pictures of our paladin keyboards — the same idea as a Steam controller community profile. You can see which ability sits on which key, including the Alt layer and the side mouse buttons, without opening the game.
+These are Ryan's paladin keyboards for WoW: Forever, one profile per level step, from level 1 to 60. Each step adds the spells you learn at that level and moves a few keys around. Apply the step that matches your level in the game with KeyKit (below).
 
-Pictures live next to the profiles that generate them:
+The level 50 step is the full level-60 layout:
 
-- [Ryan — Paladin (TBC Anniversary)](../profiles/keybinds/renders/ryan-paladin-anniversary.png)
-- [Ryan — Forever Paladin (level 10)](../profiles/keybinds/renders/ryan-forever-paladin-10.png)
+- **Number keys:** 1 Seal of the Crusader, 2 Judgement, 3 Seal of Righteousness, 4 Hammer of Wrath, 5 Holy Strike, 6 Attack
+- **Letter keys:** Q Consecration, E Exorcism, R Holy Wrath, T Blessing of Protection, Z Hammer of Justice, X Purify, C Lay on Hands, V Flash of Light
+- **Shift:** F Holy Light, T Divine Protection, E Cleanse, G Divine Shield, 4 Divine Intervention
+- **Alt, auras:** Q Devotion, E Retribution, R Concentration, F Shadow Resistance, T Frost Resistance, G Fire Resistance
+- **Alt, blessings and other:** Z Might, C Wisdom, V Kings, X Righteous Fury, H Hearthstone
 
-Colors are the same on every picture:
+Seal of Justice and Seal of Fury get pushed off the keys as you level; by level 36 neither has a key.
+
+Colors on the KeyKit keyboard:
 
 | Color | Meaning |
 |-------|---------|
@@ -17,22 +22,7 @@ Colors are the same on every picture:
 | Green | Heals and dispels |
 | Purple | Buffs (seals, blessings, auras) |
 | Slate | Movement |
-| Teal | Utility (bags and similar) |
-
-## Ryan's paladin layouts
-
-Both pictures use the same left-hand feel from the wow-config bindings template: **A/D strafe**, **W autorun** (you still move forward by holding both mouse buttons), combat keys around WASD, **Shift does not change the ability** (it only blocks accidental action-bar paging; Shift-B still opens bags), and **Alt is the second layer**.
-
-**TBC Anniversary** is what PaladinSetup will put on the bars today. Crusader Strike, Avenger's Shield, Avenging Wrath, and Righteous Defense are marked **TBC** — they do not exist in WoW: Forever.
-
-**Forever, level 10** is the same philosophy with early Forever spells only. **Holy Strike sits on 1**, the slot Crusader Strike uses in TBC. Empty keys are left empty on purpose, so later spells (Consecration, Flash of Light, and so on) can land in their usual homes as you level. This profile is a picture and a plan. PaladinSetup does not apply a Forever layout in-game yet.
-
-A few things are deliberately not on the keyboard picture:
-
-- Righteous Fury and Redemption live on the click-only utility bar (Bar 10)
-- Divine Favor is click-only
-- Questie opens on the semicolon key, off the left-hand cluster
-- Racials are per-character (Draenei Alt-G, Dwarf Alt-Z, Blood Elf Arcane Torrent on C)
+| Teal | Utility (bags, Hearthstone) |
 
 ## Why there is no PullCall map here
 
@@ -49,18 +39,19 @@ If you want to compare, open the PullCall pages above in a browser.
 
 ## What's in a profile
 
-Each layout is a JSON file in `profiles/keybinds/`. The shape is small on purpose:
+Each layout is a JSON file in `profiles/keybinds/`. Ryan's keys for every class and spec are generated into `profiles/keybinds/forever/` from `profiles/source/forever-keymaps.yaml` (see below). The shape is small on purpose:
 
 ```json
 {
-  "id": "ryan-forever-paladin-10",
+  "id": "forever-paladin-retribution-10",
   "class": "paladin",
   "level": 10,
   "spec": null,
   "source": { "name": "wow-config", "url": "https://github.com/rymiwe/wow-config", "credit": "Ryan Weiss" },
   "binds": [
-    { "key": "1", "mod": null, "action": "Holy Strike", "role": "rotation" },
-    { "key": "1", "mod": "alt", "action": "Holy Light", "role": "heal" }
+    { "key": "1", "mod": null, "action": "Seal of the Crusader", "role": "buff" },
+    { "key": "F", "mod": "shift", "action": "Holy Light", "role": "heal" },
+    { "key": "H", "mod": "alt", "action": "Hearthstone", "role": "utility", "item": "Hearthstone" }
   ]
 }
 ```
@@ -71,21 +62,94 @@ Each layout is a JSON file in `profiles/keybinds/`. The shape is small on purpos
 - `mod` is `null`, `"shift"`, `"alt"`, or `"ctrl"`
 - `role` is one of: `rotation`, `cc`, `defensive`, `heal`, `buff`, `movement`, `utility`
 - Optional extras: `badge` (a small tag like `TBC`) and `notes` at the profile level
+- For KeyKit: `summary` (one line for the list), `levels` (a band like `"1-60"`), a per-bind `command` (a WoW binding name such as `ACTIONBUTTON1`) when the action is not a spell, and a per-bind `item` (an item name such as `Hearthstone`) for items
 
 To redraw the pictures after you edit a profile (Pillow required):
 
 ```bash
 python3 scripts/render-keybinds.py --all
-python3 scripts/render-keybinds.py profiles/keybinds/ryan-forever-paladin-10.json -o /tmp/preview.png
+python3 scripts/render-keybinds.py profiles/keybinds/forever/forever-paladin-retribution-50.json -o /tmp/preview.png
 ```
 
-`--suggest '1=Holy Strike'` can overlay a Forever suggestion on a TBC picture without changing the profile itself.
+## Applying a profile in the game: KeyKit
 
-## Next: applying a profile in the game
+KeyKit is a small addon for **WoW: Forever** (its TOC also lists Classic Era and Anniversary, but the installers only copy it into Forever). It shows every profile in this folder on a keyboard, and sets the keys only when you press **Apply**.
 
-Not built yet. The next step is a small addon that reads one of these profiles and sets the action bars and keybinds on a character — the same job PaladinSetup already does for TBC, but driven by the JSON so Forever (and other classes later) can share the same source.
+**In the game:**
 
-Until that exists, you can still copy bars, macros, and keybinds between characters with **Myslot**. It exports everything as a pasteable string. The current addon (v6.3.0, 8 November 2026) lists WoW: Forever and its TOC includes interface **16001**. Command is `/myslot`.
+1. Install or update with `install-forever.bat` (Windows) or `install.sh --flavor _forever_` (Mac, Linux, Steam Deck). With WoW running, type `/reload` afterward, or restart WoW.
+2. Type `/keykit`. A window opens with your class's profiles on the left, grouped by spec (Holy, Protection, Retribution, and so on). The step for your level is green and says **< your level**. Tick **Show all classes** to see every class.
+3. Click a profile. The keyboard on the right shows what each key does. Use **Plain keys / Shift / Alt / Ctrl** to see each layer, including the mouse buttons. Keys marked *(look only)* are shown for reference and never set (OPie rings, cursor dispels).
+4. **Clear these bars first** is ticked unless you untick it. Apply then empties every button on each bar the profile uses before it places the profile, so old spells don't linger. Bars the profile doesn't use are left alone. KeyKit remembers the tick.
+   **Fill empty keys with placeholders**, just below, is also ticked unless you untick it. After Apply, every button on those bars that a key fires but the profile leaves empty gets a blank-looking macro named `KK_pad`, so the bars show which buttons your keys use. A spell the character has not learned yet leaves a placeholder on its key. KeyKit treats `KK_pad` as empty: Clear removes it and Apply places over it. It is one account-wide macro; if the account's macro slots are full, the status line says so and Apply carries on without placeholders.
+5. Leave **Only this character** unticked to save for every character on the account. Tick it to save for this character only.
+6. Press **Apply**. First it rebinds the keys on each bar the profile uses to the wow-config layout (so Q fires its template button, not whatever the account has now). It also unbinds other keys that still fire those bars, such as mouse buttons 3 to 5, unless the profile binds them. The status line says "Rebound N keys to the keyboard layout", and Undo restores the old keys. Then each spell, item, or macro goes onto the action bar button its key fires, so the bar shows what the key does. A key that fires no bar button is bound straight to the spell instead. The chat window lists any spell the character has not learned yet; those keys are skipped.
+   Each key has its own bar button. Hunter, Mage, Paladin, Priest, Shaman and Warlock (no forms or stances) get full copies of the plain layer for Shift and Ctrl, so every Shift and Ctrl combo of the 17 keys (` 1 2 3 4 5 / Q E R T / F G Z X C V B) has a button:
+
+   | Keys | ElvUI bars | Pages |
+   |---|---|---|
+   | Plain | the two centre bars | 1, 3 |
+   | Alt | the two bars on the right | 4, 5 |
+   | Shift | bars 2 and 8, laid out like plain bars 1 and 3 | 2, 8 |
+   | Ctrl | bars 9 and 10, laid out like plain bars 1 and 3 | 9, 10 |
+
+   Druid, Rogue and Warrior use pages 7 to 10 for forms and stances, so they keep a compact Shift bar:
+
+   | Keys | ElvUI bar | Page |
+   |---|---|---|
+   | Shift | bar 2, 12 buttons laid out like the plain keys (1 2 4 5 / Q E R T / F G Z X) | 2 |
+   | Ctrl | no bar, bound straight to the spell | none |
+
+   Their other Shift keys (Shift-`, Shift-3, Shift-C, Shift-V) still fire the plain key's button, and Shift-B opens the bags. On the six formless classes Shift-B fires its own button on bar 8 instead.
+
+   KeyKit turns on bar 2 (and bars 8, 9 and 10 for the formless classes, off for the rest) in ElvUI when you log in and when you press Apply, out of combat. A formless class's blocks copy the plain bars' look (6 buttons per row, 36 px, 3 px apart, 83 px between the two bars): Shift on the left, level with the plain bars and the bars 6 and 7 beside them, and Ctrl on the right, level with the Alt bars. Nothing sits over the unit frames. KeyKit sets each bar's position once per layout, so drag the bars where you like (`/moveui`) and KeyKit leaves them. Switching to a class with forms turns bars 8 to 10 off and moves bar 2 to its compact spot once. Press Apply on that character to drop the old Shift and Ctrl bindings. Undo restores keys and bar buttons, not whether a bar is on.
+
+   Mouse keys and Alt-H (Hearthstone) don't get a bar button. KeyKit binds them straight to the spell or item, so they work but don't show on a bar. If a later level leaves one of those keys empty, Apply sets it back to its wow-config binding.
+7. Changed your mind? Press **Undo**. It puts back the keys and every bar button the last Apply changed, cleared, or filled with a placeholder, even after a `/reload`.
+8. When you level up, open `/keykit` again and apply the green step. Each step includes everything from the steps before it.
+
+KeyKit will not apply, clear bars, or undo in combat; it tells you to wait until the fight is over.
+
+Talent spells (Holy Shock and the like) are not in the profiles on purpose. Put them on an empty key yourself.
+
+**"Main Hand 0.0" bar across the action bars?** That is WoW: Forever's own swing timer (the Blizzard_SwingTimer UI; ElvUI only restyles it). Its on/off setting is saved per account, not in `Config.wtf`, so the kit cannot ship it. Type `/console showSwingTimer 0` once to hide it.
+
+**Apply did nothing, or the status line shows an error?** KeyKit now prints any error in the window and in chat. Send a screenshot of it.
+
+**Import and export.** **Export** writes your current keys on this board as text. **Import...** takes the same text and adds it to the list as your own profile (saved on this computer only). **Delete** removes one of your own profiles. The format is one line each:
+
+```
+# KeyKit 1
+name = My hunter
+class = hunter
+levels = 10-30
+note = Pet attack on Q
+url = https://example.com/where-i-found-it
+1 = spell Arcane Shot
+ALT-1 = spell Serpent Sting
+W = cmd TOGGLEAUTORUN
+BUTTON4 = macro PetAttack
+F = click SomeButton:LeftButton
+```
+
+Keys use WoW's names: `ALT-`, `CTRL-`, `SHIFT-` prefixes, and `BUTTON3` to `BUTTON5` for the mouse. Only `name` and one key line are required.
+
+**Changing Ryan's keys.** Edit `profiles/source/forever-keymaps.yaml` (each class and spec lists only what changes at each level; `null` clears a key; `at_60` is the full layout at 60), then regenerate:
+
+```bash
+python3 scripts/gen-keykit-profiles.py          # YAML -> profiles/keybinds/forever/*.json -> KeyKit/Profiles.lua
+python3 scripts/gen-keykit-profiles.py --check  # fails if anything is out of date, or a spec's steps don't add up to its at_60
+```
+
+Never edit the generated files in `profiles/keybinds/forever/` by hand. **Adding a profile for everyone** else works the same way: add a JSON file to `profiles/keybinds/` and run the generator.
+
+The JSON stays the source. Never edit `Profiles.lua` by hand. Plain-English actions such as `Autorun`, `Strafe Left`, and `Bags` become WoW binding commands. Anything with a parenthesis, such as `Blessings (OPie)`, is look-only. Everything else is treated as a spell name.
+
+Profiles from other sites carry a **source link only**. Never copy their maps in (see the PullCall section above).
+
+### Copying everything between characters
+
+KeyKit only sets keys. To copy bars, macros, and keybinds together, use **Myslot**. It exports everything as a pasteable string. The current addon (v6.3.0, 8 November 2026) lists WoW: Forever and its TOC includes interface **16001**. Command is `/myslot`.
 
 - [Myslot on GitHub](https://github.com/tg123/myslot)
 - [Myslot on WowAce](https://www.wowace.com/projects/myslot) (Forever is listed on the recent-files row for v6.3.0)
