@@ -212,6 +212,47 @@ end
 
 local LAYER_ORDER = { none = 1, alt = 2, ctrl = 3, shift = 4 }
 
+-- Racials: Alt-4 and Alt-5 are free in every class's profile, so every race's
+-- active racials go there, on top of whatever profile is applied. KeyKit looks the
+-- names up in the spellbook, so a racial this character does not have is never
+-- added. Combat racials come first, so they get Alt-4. A profile that binds
+-- Alt-4 or Alt-5 itself keeps its own spell.
+local RACIAL_KEYS = { "ALT-4", "ALT-5" }
+local RACIALS = {
+  -- Forever's two active racials per race (Warcraft Tavern and Method, Nov 2026).
+  -- Combat first. A race has two, so its first known one takes Alt-4.
+  "Will to Survive", "Stoneform", "Escape Artist", "Eureka!", "Elune's Light",
+  "Blood Fury", "Shatter Curse", "War Stomp", "Berserking", "Will of the Forsaken",
+  "Read Ley Line", "Read Leyline",
+  -- Utility and movement.
+  "Perception", "Find Treasure", "Shadowmeld", "Rapid Regeneration", "Cannibalize",
+  "Cultivation", "Skysight", "Walk on Air",
+}
+
+-- The profile's binds plus this character's racials on the racial keys.
+local function WithRacials(p)
+  if not p then return {} end
+  local binds, used = {}, {}
+  for _, b in ipairs(p.binds) do
+    binds[#binds + 1] = b
+    used[b.key] = true
+  end
+  local i = 1
+  for _, name in ipairs(RACIALS) do
+    while RACIAL_KEYS[i] and used[RACIAL_KEYS[i]] do i = i + 1 end
+    local key = RACIAL_KEYS[i]
+    if not key then break end
+    if KnownSpell(name) then
+      local base, l = ns.SplitKey(key)
+      binds[#binds + 1] = { key = key, base = base, layer = l, label = name,
+                            kind = "spell", value = name, role = "utility" }
+      used[key] = true
+      i = i + 1
+    end
+  end
+  return binds
+end
+
 local function InCombat(what)
   if InCombatLockdown() then
     SetStatus("|cffff6060You're in combat. " .. what .. " once the fight is over.|r")
@@ -361,7 +402,7 @@ local function Apply()
   --    a button on that bar (mouse buttons, stray Shift binds) is unbound,
   --    unless the profile binds that key itself.
   local profileKeys, useBars = {}, {}
-  for _, b in ipairs(selected.binds) do
+  for _, b in ipairs(WithRacials(selected)) do
     if b.kind then
       profileKeys[b.key] = true
       local cmd = BarKeys()[b.key]
@@ -411,7 +452,7 @@ local function Apply()
 
   -- 1. Plan: which keys put their spell on a bar button, which bind directly.
   local order = {}
-  for _, b in ipairs(selected.binds) do
+  for _, b in ipairs(WithRacials(selected)) do
     if b.kind then order[#order + 1] = b end
   end
   table.sort(order, function(x, y)
@@ -589,7 +630,7 @@ local function RefreshPreview()
     frame.delete:Hide()
     return
   end
-  for _, b in ipairs(selected.binds) do
+  for _, b in ipairs(WithRacials(selected)) do
     local w = keyFrames[b.base]
     if w and b.layer == layer then
       local color = ns.ROLE_COLORS[b.role or ""] or (b.kind and NEUTRAL)
