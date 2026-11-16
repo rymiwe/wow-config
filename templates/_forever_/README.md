@@ -22,6 +22,9 @@ those are Classic-API code and are not ported. Place spells on bars by hand
 - `showQuestLevel 1` — Forever 1.60.1 CVar (quest log/list shows level).
 
 ## CVars dropped (could not confirm in Forever UI source)
+- `showSwingTimer`: real, but account-scoped (lives in
+  `WTF/Account/<ACCT>/config-cache.wtf`), so the client drops it from
+  Config.wtf on exit. Turn the swing timer off with `/console showSwingTimer 0`.
 - `nameplateShowFriends`, `nameplateShowFriendlyMinions` -> replaced by
   `nameplateShowFriendlyPlayers` / `nameplateShowFriendlyNpcs` (modern names).
 - `nameplateMaxDistance`, `nameplateMaxAlpha`, `removeChatDelay`,
@@ -48,6 +51,9 @@ Deck and ibp only pull it down, with `scripts/sync-forever.sh`.
 
 - **Syncs:** ElvUI layout (account-wide), keybinds, and KeyKit.
 - **Never syncs:** graphics settings (`Config.wtf`), chat history, other addons.
+- **Every account on the machine gets it.** ibp plays Forever on a second
+  Battle.net account; the account-wide files go to each account folder.
+  Each character's ElvUI install flag stays local, so the wizard doesn't return.
 - **UI scale stays per machine.** The Deck keeps its own scale (0.7111), BLD its own (0.6).
 
 Bars changed on the Deck or ibp get replaced at the next sync. The old copy

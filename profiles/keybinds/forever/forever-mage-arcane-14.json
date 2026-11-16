@@ -1,0 +1,102 @@
+{
+  "id": "forever-mage-arcane-14",
+  "title": "Arcane mage, level 14-15",
+  "subtitle": "New at 14: G Arcane Explosion",
+  "summary": "Arcane mage keys as of level 14. New: G Arcane Explosion.",
+  "class": "mage",
+  "level": 14,
+  "levels": "14-15",
+  "spec": "Arcane",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Fire Blast",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Arcane Missiles",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Frostbolt",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Shoot",
+      "role": "rotation"
+    },
+    {
+      "key": "G",
+      "mod": null,
+      "action": "Arcane Explosion",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Polymorph",
+      "role": "cc"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Frost Nova",
+      "role": "cc"
+    },
+    {
+      "key": "2",
+      "mod": "alt",
+      "action": "Food or Conjure Food",
+      "role": "utility"
+    },
+    {
+      "key": "3",
+      "mod": "alt",
+      "action": "Drink or Conjure Water",
+      "role": "utility"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Frost Armor",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Arcane Intellect",
+      "role": "buff"
+    },
+    {
+      "key": "C",
+      "mod": "alt",
+      "action": "Dampen Magic",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

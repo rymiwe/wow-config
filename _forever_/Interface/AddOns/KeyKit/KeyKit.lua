@@ -239,7 +239,8 @@ end
 --     bar's top, at y 43 + 75 + 3 = 121. The top of a block is 121 + 75 = 196.
 --   Stance bar: the blocks reach y 196, where the stance bar used to sit (0,170,
 --     26 tall). Formless classes get it centered over the Ctrl block, 3 above its
---     top: x 351, y 196 + 3 = 199. Form classes have no Ctrl block and keep 0,170.
+--     top: x 351, y 196 + 3 = 199. Form classes have no Ctrl block, so theirs sits
+--     centered over the Plain and Alt blocks at the same height: x 0, y 199.
 -- A bar's position is set once per layout version, so a bar you move stays where
 -- you put it. Out of combat only.
 local BAR_LAYOUT_VERSION = 4       -- bump to place the bars again, once
@@ -260,7 +261,24 @@ local BAR_SETUP = {
 -- The stance bar is not one of the ten bars: ElvUI gives it a mover (ShiftAB) and no
 -- AB.handledBars entry. Only its position is set here, never its button settings.
 local STANCE_MOVER = "ShiftAB"
-local STANCE_AT = { full = "BOTTOM,ElvUIParent,BOTTOM,351,199", compact = "BOTTOM,ElvUIParent,BOTTOM,0,170" }
+local STANCE_AT = { full = "BOTTOM,ElvUIParent,BOTTOM,351,199", compact = "BOTTOM,ElvUIParent,BOTTOM,0,199" }
+-- Its own version: 5 moved the form classes' stance bar off the top of the Alt block.
+local STANCE_LAYOUT_VERSION = 5
+
+-- ElvUI swaps bar 1 to another page in a form or stance (bear form shows page 9,
+-- cat 7, a warrior's stances 7 to 9, shadowform 7). KeyKit profiles have one plain
+-- layer and put it on page 1, so those swaps hide the profile's spells. Drop every
+-- paging clause that follows a form, stance or stealth; keep the rest (possess).
+local function StripFormPaging(paging)
+  local kept = {}
+  for clause in (paging or ""):gmatch("[^;]+") do
+    local c = clause:gsub("^%s+", ""):gsub("%s+$", "")
+    if c ~= "" and not (c:find("bonusbar") or c:find("form") or c:find("stance") or c:find("stealth")) then
+      kept[#kept + 1] = c .. ";"
+    end
+  end
+  return table.concat(kept, " ")
+end
 
 local function SetupBars()
   if InCombatLockdown() then return end
@@ -284,6 +302,10 @@ local function SetupBars()
     local bar = E.db.actionbar[name]
     if bar and AB.handledBars[name] then
       local changed = bar.enabled ~= want
+      if name == "bar1" and type(bar.paging) == "table" and E.myclass then
+        local paging = StripFormPaging(bar.paging[E.myclass])
+        if bar.paging[E.myclass] ~= paging then bar.paging[E.myclass] = paging changed = true end
+      end
       bar.enabled = want
       if want then
         for k, v in pairs(set) do
@@ -308,11 +330,11 @@ local function SetupBars()
   -- Like bar 2, the stance bar has one position per class kind, so it is placed
   -- again when the class kind changes. Skipped until ElvUI has made its mover.
   local kind = formless and "full" or "compact"
-  if db.barsPlaced.stanceBar ~= BAR_LAYOUT_VERSION .. kind
+  if db.barsPlaced.stanceBar ~= STANCE_LAYOUT_VERSION .. kind
      and E.CreatedMovers and E.CreatedMovers[STANCE_MOVER] then
     E.db.movers = E.db.movers or {}
     E.db.movers[STANCE_MOVER] = STANCE_AT[kind]
-    db.barsPlaced.stanceBar = BAR_LAYOUT_VERSION .. kind
+    db.barsPlaced.stanceBar = STANCE_LAYOUT_VERSION .. kind
     E:SetMoverPoints(STANCE_MOVER)
   end
 end

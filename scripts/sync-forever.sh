@@ -309,6 +309,7 @@ function inpath(   p) {
 }
 BEGIN { depth = 0; done = 0 }
 {
+    sub(/\r$/, "")                                  # CRLF files (written on Windows)
     line = $0
     is_scale = (line ~ /^[ \t]*(\[["\047]UIScale["\047]\]|UIScale)[ \t]*=[ \t]*[^,{]+,?[ \t]*$/)
     if (!done && is_scale && inpath()) {
@@ -369,15 +370,66 @@ if [[ ! -d "$SRC/Interface/AddOns/KeyKit" ]]; then
     echo "Note: the repo has no KeyKit addon at this ref; skipping KeyKit."
 fi
 
+# Account-wide files (WTF/Account/<ACCT>/SavedVariables/*.lua and
+# WTF/Account/<ACCT>/bindings-cache.wtf) go to EVERY account folder on this
+# machine, not only the one named in the repo. ibp, for one, plays Forever on
+# a different Battle.net account than BLD; without this its account never got
+# the layout and ElvUI put every frame at its default spot. Per-character files
+# stay with their own account. Each pair is "<repo rel>|<local rel>".
+is_account_wide() {
+    [[ "$1" == WTF/Account/*/SavedVariables/* && "$1" != WTF/Account/*/*/*/* ]] \
+        || [[ "$1" == WTF/Account/*/bindings-cache.wtf && "$1" != WTF/Account/*/*/* ]]
+}
+LOCAL_ACCOUNTS=()
+for d in "$FOREVER"/WTF/Account/*/; do
+    a="$(basename "$d")"
+    [[ "$a" == "SavedVariables" ]] && continue
+    LOCAL_ACCOUNTS+=("$a")
+done
+PAIRS=()
 for rel in "${FILES[@]}"; do
+    if is_account_wide "$rel"; then
+        acct="${rel#WTF/Account/}"; acct="${acct%%/*}"
+        rest="${rel#WTF/Account/"$acct"/}"
+        targets=("${LOCAL_ACCOUNTS[@]}")
+        # Repo account not here yet: still create it (first-time machine).
+        [[ " ${LOCAL_ACCOUNTS[*]} " == *" $acct "* ]] || targets+=("$acct")
+        for t in "${targets[@]}"; do PAIRS+=("$rel|WTF/Account/$t/$rest"); done
+    else
+        PAIRS+=("$rel|$rel")
+    fi
+done
+
+# ElvPrivateDB (the bottom block of the account ElvUI.lua) holds per-character
+# flags such as install_complete. Keep the local block so characters that
+# only exist on this machine don't get the ElvUI install wizard again.
+keep_local_private() {  # repo_file local_file -> stdout
+    awk -v localf="$2" '
+        BEGIN {
+            while ((getline l < localf) > 0) {
+                if (l ~ /^ElvPrivateDB = \{/) inb = 1
+                if (inb) { blk = blk l "\n"; if (l ~ /^\}[ \t\r]*$/) { inb = 0; have = 1 } }
+            }
+        }
+        /^ElvPrivateDB = \{/ && have { skip = 1; printf "%s", blk; next }
+        skip { if ($0 ~ /^\}[ \t\r]*$/) skip = 0; next }
+        { print }
+        END { }
+    ' "$1"
+}
+
+for pair in "${PAIRS[@]}"; do
+    rel="${pair%%|*}"
+    dstrel="${pair#*|}"
     if ! is_allowed "$rel"; then
         echo "SKIP (not allowlisted) $rel"
         printf '%-8s %s\n' "SKIP" "$rel  (not allowlisted)" >> "$SUMMARY"
         n_skip=$((n_skip + 1)); continue
     fi
     src="$SRC/$rel"
-    dst="$FOREVER/$rel"
+    dst="$FOREVER/$dstrel"
     want="$src"   # the content we intend to write
+    rel="$dstrel" # report and back up under the local path
 
     # UIScale preserve for the account ElvUI.lua.
     if is_account_elvui "$rel"; then
@@ -404,6 +456,13 @@ for rel in "${FILES[@]}"; do
                 echo "UIScale: keeping local $local_scale (repo has $incoming_scale)."
             fi
         fi
+    fi
+
+    if is_account_elvui "$rel" && [[ -f "$dst" ]]; then
+        mkdir -p "$TMP/private/$(dirname "$rel")"
+        keep_local_private "$want" "$dst" > "$TMP/private/$rel" \
+            || die "Could not keep the local ElvPrivateDB in $rel"
+        want="$TMP/private/$rel"
     fi
 
     before="$(md5_of "$dst")"

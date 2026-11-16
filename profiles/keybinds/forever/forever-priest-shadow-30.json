@@ -1,0 +1,138 @@
+{
+  "id": "forever-priest-shadow-30",
+  "title": "Shadow priest, level 30",
+  "subtitle": "New at 30: Ctrl-4 Prayer of Healing, Alt-C Shadow Protection, Alt-V Divine Spirit",
+  "summary": "Shadow priest keys as of level 30. New: Ctrl-4 Prayer of Healing, Alt-C Shadow Protection, Alt-V Divine Spirit.",
+  "class": "priest",
+  "level": 30,
+  "levels": "30",
+  "spec": "Shadow",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Mind Blast",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Shadow Word: Pain",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Shoot",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Devouring Plague",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Lesser Heal",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Renew",
+      "role": "heal"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Cure Disease",
+      "role": "heal"
+    },
+    {
+      "key": "V",
+      "mod": null,
+      "action": "Heal",
+      "role": "heal"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Psychic Scream",
+      "role": "cc"
+    },
+    {
+      "key": "Q",
+      "mod": "shift",
+      "action": "Shackle Undead",
+      "role": "cc"
+    },
+    {
+      "key": "E",
+      "mod": "shift",
+      "action": "Dispel Magic",
+      "role": "heal"
+    },
+    {
+      "key": "R",
+      "mod": "shift",
+      "action": "Flash Heal",
+      "role": "heal"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Power Word: Shield",
+      "role": "defensive"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Power Word: Fortitude",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Inner Fire",
+      "role": "buff"
+    },
+    {
+      "key": "C",
+      "mod": "alt",
+      "action": "Shadow Protection",
+      "role": "buff"
+    },
+    {
+      "key": "V",
+      "mod": "alt",
+      "action": "Divine Spirit",
+      "role": "buff"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "4",
+      "mod": "ctrl",
+      "action": "Prayer of Healing",
+      "role": "heal"
+    }
+  ]
+}

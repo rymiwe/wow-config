@@ -1,0 +1,216 @@
+{
+  "id": "forever-druid-restoration-44",
+  "title": "Restoration druid, level 44-52",
+  "subtitle": "New at 44: Shift-T Barkskin",
+  "summary": "Restoration druid keys as of level 44. New: Shift-T Barkskin.",
+  "class": "druid",
+  "level": 44,
+  "levels": "44-52",
+  "spec": "Restoration",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Moonfire",
+      "role": "rotation"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Starfire",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Wrath",
+      "role": "rotation"
+    },
+    {
+      "key": "4",
+      "mod": null,
+      "action": "Rejuvenation",
+      "role": "heal"
+    },
+    {
+      "key": "5",
+      "mod": null,
+      "action": "Healing Touch",
+      "role": "heal"
+    },
+    {
+      "key": "T",
+      "mod": null,
+      "action": "Rebirth",
+      "role": "heal"
+    },
+    {
+      "key": "G",
+      "mod": null,
+      "action": "Hurricane",
+      "role": "rotation"
+    },
+    {
+      "key": "Z",
+      "mod": null,
+      "action": "Entangling Roots",
+      "role": "cc"
+    },
+    {
+      "key": "X",
+      "mod": null,
+      "action": "Growl",
+      "role": "cc"
+    },
+    {
+      "key": "C",
+      "mod": null,
+      "action": "Bash",
+      "role": "cc"
+    },
+    {
+      "key": "V",
+      "mod": null,
+      "action": "Cure Poison",
+      "role": "heal"
+    },
+    {
+      "key": "MOUSE5",
+      "mod": null,
+      "action": "Feral Charge (Bear)",
+      "role": "cc"
+    },
+    {
+      "key": "4",
+      "mod": "shift",
+      "action": "Challenging Roar",
+      "role": "cc"
+    },
+    {
+      "key": "5",
+      "mod": "shift",
+      "action": "Frenzied Regeneration",
+      "role": "defensive"
+    },
+    {
+      "key": "Q",
+      "mod": "shift",
+      "action": "Abolish Poison",
+      "role": "heal"
+    },
+    {
+      "key": "E",
+      "mod": "shift",
+      "action": "Hibernate",
+      "role": "cc"
+    },
+    {
+      "key": "R",
+      "mod": "shift",
+      "action": "Remove Curse",
+      "role": "heal"
+    },
+    {
+      "key": "T",
+      "mod": "shift",
+      "action": "Barkskin",
+      "role": "defensive"
+    },
+    {
+      "key": "F",
+      "mod": "shift",
+      "action": "Regrowth",
+      "role": "heal"
+    },
+    {
+      "key": "X",
+      "mod": "shift",
+      "action": "Dash",
+      "role": "movement"
+    },
+    {
+      "key": "Q",
+      "mod": "alt",
+      "action": "Bear Form",
+      "role": "buff"
+    },
+    {
+      "key": "E",
+      "mod": "alt",
+      "action": "Aquatic Form",
+      "role": "movement"
+    },
+    {
+      "key": "R",
+      "mod": "alt",
+      "action": "Cat Form",
+      "role": "buff"
+    },
+    {
+      "key": "T",
+      "mod": "alt",
+      "action": "Dire Bear Form",
+      "role": "buff"
+    },
+    {
+      "key": "F",
+      "mod": "alt",
+      "action": "Travel Form",
+      "role": "movement"
+    },
+    {
+      "key": "Z",
+      "mod": "alt",
+      "action": "Mark of the Wild",
+      "role": "buff"
+    },
+    {
+      "key": "X",
+      "mod": "alt",
+      "action": "Thorns",
+      "role": "buff"
+    },
+    {
+      "key": "C",
+      "mod": "alt",
+      "action": "Prowl",
+      "role": "movement"
+    },
+    {
+      "key": "V",
+      "mod": "alt",
+      "action": "Track Humanoids",
+      "role": "utility"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    },
+    {
+      "key": "1",
+      "mod": "ctrl",
+      "action": "Innervate",
+      "role": "buff"
+    },
+    {
+      "key": "4",
+      "mod": "ctrl",
+      "action": "Pounce",
+      "role": "cc"
+    }
+  ]
+}

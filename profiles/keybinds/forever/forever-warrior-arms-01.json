@@ -1,0 +1,54 @@
+{
+  "id": "forever-warrior-arms-01",
+  "title": "Arms warrior, level 1",
+  "subtitle": "New at 1: 1 Battle Shout, 2 Heroic Strike, 3 Battle Stance, 6 Attack, Alt-H Hearthstone",
+  "summary": "Arms warrior keys as of level 1. New: 1 Battle Shout, 2 Heroic Strike, 3 Battle Stance, 6 Attack, Alt-H Hearthstone.",
+  "class": "warrior",
+  "level": 1,
+  "levels": "1",
+  "spec": "Arms",
+  "flavor": "forever",
+  "source": {
+    "name": "Ryan's Forever keymaps (profiles/source/forever-keymaps.yaml)",
+    "url": "https://github.com/rymiwe/wow-config",
+    "credit": "Ryan Weiss"
+  },
+  "notes": [
+    "Apply the step that matches your level. Spells you haven't learned yet are skipped.",
+    "Each step builds on the one before, so applying the next step over this one is safe.",
+    "Talent spells are not included. Put those on an empty key yourself."
+  ],
+  "binds": [
+    {
+      "key": "1",
+      "mod": null,
+      "action": "Battle Shout",
+      "role": "buff"
+    },
+    {
+      "key": "2",
+      "mod": null,
+      "action": "Heroic Strike",
+      "role": "rotation"
+    },
+    {
+      "key": "3",
+      "mod": null,
+      "action": "Battle Stance",
+      "role": "buff"
+    },
+    {
+      "key": "6",
+      "mod": null,
+      "action": "Attack",
+      "role": "rotation"
+    },
+    {
+      "key": "H",
+      "mod": "alt",
+      "action": "Hearthstone",
+      "role": "utility",
+      "item": "Hearthstone"
+    }
+  ]
+}

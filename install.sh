@@ -141,6 +141,11 @@ if [[ "$FLAVOR" == "_forever_" ]]; then
         done < "$FTPL/Config.wtf"
         echo "Config.wtf merged ($appended new CVars added)"
     fi
+    # KeyKit: our one Forever addon (keybind profiles, /keykit).
+    mkdir -p "$WOW/_forever_/Interface/AddOns"
+    rm -rf "$WOW/_forever_/Interface/AddOns/KeyKit"
+    cp -r "$TMP/_forever_/Interface/AddOns/KeyKit" "$WOW/_forever_/Interface/AddOns/KeyKit"
+    echo "Installed KeyKit (type /keykit in game)"
     echo ""
     WOWDIR="$WOW" bash "$TMP/scripts/update-addons.sh" --flavor _forever_ || echo "WARN: community addon update had errors" >&2
     if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]] || command -v hyprctl >/dev/null 2>&1; then
@@ -153,6 +158,7 @@ if [[ "$FLAVOR" == "_forever_" ]]; then
     echo "  2. Drag spells onto the bars by hand (keys already match our layout)."
     echo "  3. OPie: /opie -> bind rings to BUTTON4 / BUTTON5 yourself."
     echo "  4. Zygor: install via the Zygor client (Elite subscription) into _forever_."
+    echo "  5. Keybind profiles: type /keykit, pick one, press Apply."
     exit 0
 fi
 
