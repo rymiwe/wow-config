@@ -989,7 +989,9 @@ local function BuildFrame()
   f.status:SetJustifyH("LEFT")
 
   f:SetScript("OnShow", function()
-    f.charOnly:SetChecked(GetCurrentBindingSet() == CHARACTER)
+    -- Formless classes default to this character: their Shift and Ctrl keys fire
+    -- bars 8 to 10, which the account template and the form classes' Apply reset.
+    f.charOnly:SetChecked(GetCurrentBindingSet() == CHARACTER or Formless())
     f.clearBars:SetChecked(db.clearBars)
     f.placeholders:SetChecked(db.placeholders)
     f.showAll:SetChecked(db.showAll)
